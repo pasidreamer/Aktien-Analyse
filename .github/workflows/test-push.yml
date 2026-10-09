@@ -1,0 +1,24 @@
+name: Test-Benachrichtigung
+
+# Schickt eine Testnachricht ans Handy, um ntfy und das Secret NTFY_TOPIC zu prüfen.
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Testnachricht senden
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+        run: |
+          if [ -z "$NTFY_TOPIC" ]; then
+            echo "::error::Secret NTFY_TOPIC fehlt. Settings > Secrets and variables > Actions > New repository secret"
+            exit 1
+          fi
+          curl -sS --fail \
+            -H "Title: =?UTF-8?B?$(printf 'Aktien-Ampel: Test erfolgreich' | base64 -w0)?=" \
+            -H "Tags: white_check_mark" \
+            -H "Click: https://pasidreamer.github.io/Aktien-Analyse/" \
+            -d "Die Push-Nachrichten funktionieren. Ab jetzt meldet sich die App, wenn eine Aktie in die Kaufzone läuft." \
+            "https://ntfy.sh/$NTFY_TOPIC"
