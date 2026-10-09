@@ -38,6 +38,10 @@ Manuell starten: Reiter «Actions» → «Kurse aktualisieren» → «Run workfl
 
 3. Hochladen. Die Action `App veröffentlichen` rechnet die Ampeln neu und stellt die Seite online.
 
+## TradingView-Indikator
+
+Im Ordner `tradingview/` liegt der Indikator **Marktsymmetrie** (Pine Script) mit Anleitung, siehe [tradingview/README.md](tradingview/README.md).
+
 ## Hinweis
 
 Persönliche Watchlist, keine Anlageberatung. Kursdaten von Yahoo Finance ohne Gewähr.

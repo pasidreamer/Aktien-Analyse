@@ -1,0 +1,287 @@
+//@version=6
+// Marktsymmetrie
+// Vergleicht jeden Kursschwung mit dem letzten Schwung in die gleiche Richtung (Preis UND Zeit)
+// und zeichnet die Zone, in der der aktuelle Schwung symmetrisch enden würde.
+// Idee: Gesunde Trends laufen symmetrisch. Eine Korrektur, die so tief und so lang ist wie die letzte,
+// endet oft dort (mögliche Kaufzone). Wird sie deutlich grösser, ist das eine Warnung für den Trend.
+// Persönliches Werkzeug, keine Anlageberatung.
+indicator("Marktsymmetrie", shorttitle = "Symmetrie", overlay = true, max_labels_count = 500, max_lines_count = 500, max_boxes_count = 50)
+
+// ── Einstellungen ───────────────────────────────────────────────────────────
+G1 = "Schwünge"
+int   pivLen = input.int(10, "Pivot-Länge (Kerzen links und rechts)", minval = 2, maxval = 50, group = G1, tooltip = "Wie ausgeprägt ein Hoch oder Tief sein muss. Tageschart: 8 bis 12, Wochenchart: 4 bis 6. Ein Wendepunkt ist erst nach so vielen Kerzen bestätigt.")
+bool  usePct = input.bool(true, "In Prozent rechnen (empfohlen für Aktien)", group = G1, tooltip = "Aus: Rechnung in Kurspunkten.")
+float tolPct = input.float(15.0, "Toleranz der Symmetrie-Zone (%)", minval = 1, maxval = 50, step = 1, group = G1, tooltip = "Wie weit Preis und Zeit vom letzten gleichen Schwung abweichen dürfen und trotzdem als symmetrisch gelten.")
+int   balN   = input.int(6, "Schwünge für die Bullen/Bären-Bilanz", minval = 2, maxval = 20, group = G1)
+
+G2 = "Anzeige"
+bool   showZig  = input.bool(true, "Zickzack-Linien", group = G2)
+bool   showLbl  = input.bool(true, "Beschriftung der Schwünge", group = G2)
+bool   showProj = input.bool(true, "Symmetrie-Zone projizieren", group = G2)
+bool   showTbl  = input.bool(true, "Info-Tabelle", group = G2)
+string tblPos   = input.string("Oben rechts", "Position der Tabelle", options = ["Oben rechts", "Unten rechts", "Oben links", "Unten links"], group = G2)
+color  colUp    = input.color(#22a06b, "Aufwärts", group = G2, inline = "farben")
+color  colDn    = input.color(#e5484d, "Abwärts", group = G2, inline = "farben")
+color  colZone  = input.color(#f5a524, "Zone", group = G2, inline = "farben")
+
+float tol = tolPct / 100.0
+
+// ── Hilfsfunktionen ─────────────────────────────────────────────────────────
+// Bewegung von a nach b (Prozent oder Kurspunkte)
+f_move(float a, float b) =>
+    usePct ? (b / a - 1.0) * 100.0 : b - a
+
+// Kurs, der von base aus mit der Bewegung m erreicht wird
+f_target(float base, float m) =>
+    usePct ? base * (1.0 + m / 100.0) : base + m
+
+// Log-Bewegung für den fairen Vergleich von Auf und Ab (-10 % und +11,1 % sind gleich gross)
+f_logMove(float a, float b) =>
+    usePct ? math.log(b / a) * 100.0 : b - a
+
+f_fmt(float m) =>
+    string s = usePct ? str.tostring(m, "0.0") + " %" : str.tostring(m, format.mintick)
+    m > 0 ? "+" + s : s
+
+// 100 = gleich gross und gleich lang wie der Vergleichsschwung, 0 = im Schnitt doppelt bzw. halb so gross/lang
+f_score(float priceRatio, float timeRatio) =>
+    float dev = (math.abs(math.log(priceRatio)) + math.abs(math.log(timeRatio))) / 2.0
+    math.max(0.0, 100.0 * (1.0 - dev / math.log(2.0)))
+
+f_pos(string s) =>
+    s == "Oben rechts" ? position.top_right : s == "Unten rechts" ? position.bottom_right : s == "Oben links" ? position.top_left : position.bottom_left
+
+// ── Wendepunkte (Zickzack) ──────────────────────────────────────────────────
+var array<float> swP = array.new<float>()   // Kurs des Wendepunkts
+var array<int>   swB = array.new<int>()     // Kerze des Wendepunkts
+var array<int>   swD = array.new<int>()     // 1 = Hoch, -1 = Tief
+var array<line>  swL = array.new<line>()    // Linie vom vorherigen zu diesem Wendepunkt
+var array<label> swT = array.new<label>()   // Beschriftung des Schwungs, der hier endet
+
+// Zeichnet den Schwung, der im Wendepunkt i endet, und vergleicht ihn mit dem letzten gleichen Schwung
+f_draw(int i) =>
+    if i >= 1
+        float p  = array.get(swP, i)
+        int   b  = array.get(swB, i)
+        int   d  = array.get(swD, i)
+        float p0 = array.get(swP, i - 1)
+        int   b0 = array.get(swB, i - 1)
+        color c  = d == 1 ? colUp : colDn
+        if showZig
+            line.delete(array.get(swL, i))
+            array.set(swL, i, line.new(b0, p0, b, p, color = c, width = 2))
+        if showLbl
+            float m = f_move(p0, p)
+            int   n = b - b0
+            string t = f_fmt(m) + " · " + str.tostring(n) + " K"
+            if i >= 3
+                float mr = f_move(array.get(swP, i - 3), array.get(swP, i - 2))
+                int   nr = array.get(swB, i - 2) - array.get(swB, i - 3)
+                if mr != 0 and nr > 0 and n > 0 and m != 0
+                    t += "\nSymmetrie " + str.tostring(f_score(math.abs(m / mr), n / float(nr)), "0")
+            label.delete(array.get(swT, i))
+            array.set(swT, i, label.new(b, p, t, color = color.new(c, 85), textcolor = c, style = d == 1 ? label.style_label_down : label.style_label_up, size = size.small))
+
+// Neuer Wendepunkt: gleiche Richtung wie der letzte → nur übernehmen, wenn extremer
+f_add(float p, int b, int d) =>
+    int n = array.size(swP)
+    if n > 0 and array.get(swD, n - 1) == d
+        float lp = array.get(swP, n - 1)
+        if (d == 1 and p > lp) or (d == -1 and p < lp)
+            array.set(swP, n - 1, p)
+            array.set(swB, n - 1, b)
+            f_draw(n - 1)
+    else
+        array.push(swP, p)
+        array.push(swB, b)
+        array.push(swD, d)
+        array.push(swL, line(na))
+        array.push(swT, label(na))
+        if array.size(swP) > 200
+            array.shift(swP)
+            array.shift(swB)
+            array.shift(swD)
+            array.shift(swL)
+            array.shift(swT)
+        f_draw(array.size(swP) - 1)
+
+float ph = ta.pivothigh(high, pivLen, pivLen)
+float pl = ta.pivotlow(low, pivLen, pivLen)
+int   pb = bar_index - pivLen
+bool  hasH = not na(ph)
+bool  hasL = not na(pl)
+if hasH and hasL
+    // Hoch und Tief auf derselben Kerze: in der Reihenfolge eintragen, die zum Zickzack passt
+    if array.size(swD) > 0 and array.last(swD) == 1
+        f_add(pl, pb, -1)
+        f_add(ph, pb, 1)
+    else
+        f_add(ph, pb, 1)
+        f_add(pl, pb, -1)
+else if hasH
+    f_add(ph, pb, 1)
+else if hasL
+    f_add(pl, pb, -1)
+
+// ── Aktueller Schwung gegen den letzten gleichen Schwung ────────────────────
+int   nS      = array.size(swP)
+float lastP   = na
+int   lastB   = na
+int   curDir  = 0
+float curMove = na
+int   curBars = na
+float refMove = na
+int   refBars = na
+float tgt     = na
+float prP     = na   // Fortschritt Preis (1 = so weit wie der letzte gleiche Schwung)
+float prT     = na   // Fortschritt Zeit  (1 = so lang wie der letzte gleiche Schwung)
+if nS >= 3
+    lastP   := array.get(swP, nS - 1)
+    lastB   := array.get(swB, nS - 1)
+    curDir  := -array.get(swD, nS - 1)
+    curMove := f_move(lastP, close)
+    curBars := bar_index - lastB
+    refMove := f_move(array.get(swP, nS - 3), array.get(swP, nS - 2))
+    refBars := array.get(swB, nS - 2) - array.get(swB, nS - 3)
+    if refMove != 0 and refBars > 0
+        tgt := f_target(lastP, refMove)
+        prP := curMove / refMove
+        prT := curBars / float(refBars)
+
+// Trend aus den letzten zwei Hochs und Tiefs; ein Bruch des letzten Tiefs/Hochs hebt ihn auf
+int trend = 0
+if nS >= 4
+    bool  lastHigh = array.get(swD, nS - 1) == 1
+    float h1 = lastHigh ? array.get(swP, nS - 1) : array.get(swP, nS - 2)
+    float l1 = lastHigh ? array.get(swP, nS - 2) : array.get(swP, nS - 1)
+    float h2 = lastHigh ? array.get(swP, nS - 3) : array.get(swP, nS - 4)
+    float l2 = lastHigh ? array.get(swP, nS - 4) : array.get(swP, nS - 3)
+    trend := h1 > h2 and l1 > l2 ? 1 : h1 < h2 and l1 < l2 ? -1 : 0
+    if (trend == 1 and close < l1) or (trend == -1 and close > h1)
+        trend := 0
+
+bool zoneP  = not na(prP) and prP >= 1 - tol and prP <= 1 + tol
+bool zoneT  = not na(prT) and prT >= 1 - tol and prT <= 1 + tol
+bool inZone = zoneP and zoneT
+bool broken = not na(prP) and prP > 1 + tol
+bool isCorr = (trend == 1 and curDir == -1) or (trend == -1 and curDir == 1)
+
+// ── Status in Worten ────────────────────────────────────────────────────────
+string status = "Zu wenige Schwünge – Pivot-Länge verkleinern"
+color  stCol  = chart.fg_color
+if not na(prP)
+    if prP < 0
+        status := "Letzter Wendepunkt wird überschritten – Schwung offen"
+        stCol  := chart.fg_color
+    else if inZone
+        status := isCorr ? "Korrektur symmetrisch (Preis + Zeit) → mögliche Wende" : "Preis + Zeit symmetrisch → mögliche Wende"
+        stCol  := colZone
+    else if broken
+        status := isCorr ? "Korrektur grösser als die letzte → Trend-Warnung" : "Schwung grösser als der letzte → Bewegung mit Kraft"
+        stCol  := curDir == 1 ? colUp : colDn
+    else if zoneP
+        status := prT < 1 - tol ? "Preisziel erreicht, schneller als zuletzt" : "Preisziel erreicht, langsamer als zuletzt"
+        stCol  := colZone
+    else if zoneT
+        status := isCorr ? "Zeit erreicht, Korrektur flacher → Trend stark" : "Zeit erreicht, Preisziel noch offen"
+        stCol  := isCorr ? (trend == 1 ? colUp : colDn) : chart.fg_color
+    else if prT > 1 + tol
+        status := isCorr ? "Korrektur flach, aber lang → Seitwärtsphase" : "Schwung dauert länger, kommt weniger weit → Kraft lässt nach"
+        stCol  := chart.fg_color
+    else
+        status := "Schwung läuft – " + str.tostring(prP * 100, "0") + " % des Preisziels"
+        stCol  := chart.fg_color
+
+// ── Bullen/Bären-Bilanz der letzten Schwünge ────────────────────────────────
+f_balance() =>
+    float sumU = 0.0
+    float sumD = 0.0
+    int   barU = 0
+    int   barD = 0
+    int   cntU = 0
+    int   cntD = 0
+    int   n    = array.size(swP)
+    if n >= 3
+        for k = math.max(1, n - balN) to n - 1
+            float m = f_logMove(array.get(swP, k - 1), array.get(swP, k))
+            int   t = array.get(swB, k) - array.get(swB, k - 1)
+            if m > 0
+                sumU += m
+                barU += t
+                cntU += 1
+            else
+                sumD += m
+                barD += t
+                cntD += 1
+    [cntU > 0 ? sumU / cntU : na, cntU > 0 ? barU / float(cntU) : na, cntD > 0 ? sumD / cntD : na, cntD > 0 ? barD / float(cntD) : na]
+
+// Log-Bewegung zurück in Prozent für die Anzeige
+f_fromLog(float m) =>
+    usePct ? (math.exp(m / 100.0) - 1.0) * 100.0 : m
+
+// ── Zeichnen: Symmetrie-Zone und Tabelle (nur auf der letzten Kerze) ────────
+var box   zBox  = na
+var line  zLine = na
+var label zLbl  = na
+var table tb    = table.new(f_pos(tblPos), 2, 11, bgcolor = color.new(chart.bg_color, 5), border_color = color.new(chart.fg_color, 85), border_width = 1, frame_color = color.new(chart.fg_color, 70), frame_width = 1)
+
+f_row(int r, string k, string v, color vc) =>
+    table.cell(tb, 0, r, k, text_color = color.new(chart.fg_color, 30), text_size = size.small, text_halign = text.align_left)
+    table.cell(tb, 1, r, v, text_color = vc, text_size = size.small, text_halign = text.align_left)
+
+if barstate.islast
+    box.delete(zBox)
+    line.delete(zLine)
+    label.delete(zLbl)
+    float bandA = na
+    float bandB = na
+    if not na(tgt)
+        bandA := f_target(lastP, refMove * (1 - tol))
+        bandB := f_target(lastP, refMove * (1 + tol))
+    if showProj and not na(tgt)
+        int x1 = math.min(lastB + math.round(refBars * (1 - tol)), bar_index + 490)
+        int x2 = math.min(lastB + math.round(refBars * (1 + tol)), bar_index + 490)
+        x2 := math.max(x2, x1 + 1)
+        zBox  := box.new(x1, math.max(bandA, bandB), x2, math.min(bandA, bandB), border_color = colZone, border_style = line.style_dashed, bgcolor = color.new(colZone, 85))
+        zLine := line.new(lastB, tgt, x2, tgt, color = colZone, style = line.style_dotted, width = 1)
+        zLbl  := label.new(x2, tgt, "Symmetrie-Ziel " + str.tostring(tgt, format.mintick), color = color.new(colZone, 80), textcolor = colZone, style = label.style_label_left, size = size.small)
+
+    if showTbl
+        table.clear(tb, 0, 0, 1, 10)
+        f_row(0, "Marktsymmetrie", syminfo.ticker + " · " + timeframe.period, chart.fg_color)
+        f_row(1, "Trend (Hochs/Tiefs)", trend == 1 ? "Aufwärts" : trend == -1 ? "Abwärts" : "Kein klarer Trend", trend == 1 ? colUp : trend == -1 ? colDn : chart.fg_color)
+        if not na(curMove)
+            string art = trend == 0 ? "" : isCorr ? " (Korrektur)" : " (Impuls)"
+            f_row(2, "Aktueller Schwung", f_fmt(curMove) + " · " + str.tostring(curBars) + " Kerzen" + art, curDir == 1 ? colUp : colDn)
+            f_row(3, "Letzter gleicher Schwung", f_fmt(refMove) + " · " + str.tostring(refBars) + " Kerzen", curDir == 1 ? colUp : colDn)
+        if not na(prP)
+            f_row(4, "Fortschritt Preis / Zeit", str.tostring(prP * 100, "0") + " % / " + str.tostring(prT * 100, "0") + " %", chart.fg_color)
+            int    left = lastB + refBars - bar_index
+            string when = left > 0 ? "in ~" + str.tostring(left) + " Kerzen" : left == 0 ? "jetzt" : "seit " + str.tostring(-left) + " Kerzen vorbei"
+            f_row(5, "Symmetrie-Ziel", str.tostring(tgt, format.mintick) + " (" + str.tostring(math.min(bandA, bandB), format.mintick) + " – " + str.tostring(math.max(bandA, bandB), format.mintick) + ")", colZone)
+            f_row(6, "Zeitziel", when, colZone)
+        f_row(7, "Status", status, stCol)
+        if nS >= 4
+            float m  = f_move(array.get(swP, nS - 2), array.get(swP, nS - 1))
+            float mr = f_move(array.get(swP, nS - 4), array.get(swP, nS - 3))
+            int   n  = array.get(swB, nS - 1) - array.get(swB, nS - 2)
+            int   nr = array.get(swB, nS - 3) - array.get(swB, nS - 4)
+            if mr != 0 and m != 0 and n > 0 and nr > 0
+                float sc = f_score(math.abs(m / mr), n / float(nr))
+                f_row(8, "Symmetrie letzter Schwung", str.tostring(sc, "0") + " / 100" + (sc >= 70 ? " (symmetrisch)" : sc >= 40 ? " (teilweise)" : " (asymmetrisch)"), sc >= 70 ? colZone : chart.fg_color)
+        [aU, bU, aD, bD] = f_balance()
+        if not na(aU) and not na(aD)
+            f_row(9, "Ø Auf / Ø Ab", f_fmt(f_fromLog(aU)) + " in " + str.tostring(bU, "0") + " K / " + f_fmt(f_fromLog(aD)) + " in " + str.tostring(bD, "0") + " K", chart.fg_color)
+            float force = aU / math.abs(aD)
+            string who  = force >= 1.2 ? "Bullen stärker" : force <= 1 / 1.2 ? "Bären stärker" : "Ausgeglichen"
+            f_row(10, "Kräfteverhältnis", str.tostring(force, "0.00") + " → " + who, force >= 1.2 ? colUp : force <= 1 / 1.2 ? colDn : chart.fg_color)
+
+// Ziel im Datenfenster (nicht im Chart)
+plot(tgt, "Symmetrie-Ziel", color = colZone, display = display.data_window)
+plot(nz(prP) * 100, "Fortschritt Preis (%)", color = colZone, display = display.data_window)
+plot(nz(prT) * 100, "Fortschritt Zeit (%)", color = colZone, display = display.data_window)
+
+// ── Alarme ──────────────────────────────────────────────────────────────────
+alertcondition(inZone and not inZone[1], "Symmetrie-Zone erreicht", "{{ticker}}: Preis UND Zeit sind symmetrisch zum letzten gleichen Schwung – möglicher Wendepunkt.")
+alertcondition(zoneP and not zoneP[1], "Preis-Symmetrie erreicht", "{{ticker}}: Der aktuelle Schwung ist so gross wie der letzte gleiche Schwung.")
+alertcondition(broken and not broken[1], "Symmetrie gebrochen", "{{ticker}}: Der aktuelle Schwung ist deutlich grösser als der letzte gleiche Schwung – bei einer Korrektur ist das eine Trend-Warnung.")
