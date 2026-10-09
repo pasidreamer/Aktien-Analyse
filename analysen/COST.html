@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Costco Aktien-Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F3F5F7; --surface:#FFFFFF; --ink:#141B24; --muted:#5A6573; --line:#DDE2E8; --grid:#E9EDF1;
+  --accent:#2F45B5; --accent-soft:#E6E9F8; --chip:#EBEEF2;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+  --good:#1D7A4B; --good-bg:#E3F3EA; --warn:#9A6200; --warn-bg:#FBF0DC; --bad:#B2362A; --bad-bg:#FBE6E3;
+  --zone-sup:rgba(29,122,75,.10); --zone-res:rgba(178,54,42,.09);
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+    --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+    --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+    --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+  --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+  --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;padding-inline:16px;padding-block:24px 56px}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+h1,h2,h3{font-family:var(--display);font-stretch:85%;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:clamp(32px,7vw,48px);font-weight:800;line-height:1}
+h2{font-size:24px;font-weight:700}
+h3{font-size:17px;font-weight:700;font-stretch:95%}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+section{display:flex;flex-direction:column;gap:14px}
+.lead{max-width:68ch;color:var(--muted)}
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;align-items:stretch}
+.hero .id{display:flex;flex-direction:column;gap:10px;justify-content:space-between}
+.price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price b{font-family:var(--display);font-size:34px;font-weight:700}
+.meta{font-size:13px;color:var(--muted)}
+.verdict{font-size:15px;padding:12px 14px;border-radius:10px;background:var(--chip)}
+.scales{display:flex;flex-direction:column;gap:18px}
+.scale-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.scale-h span{font-size:13px;color:var(--muted)}
+.scale-h b{font-family:var(--display);font-size:28px;line-height:1}
+.track{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#C8412F 0%,#E0892F 30%,#E3B63A 50%,#8BBF4B 68%,#2E9A5B 100%);margin-top:8px}
+.pin{position:absolute;top:-5px;width:4px;height:22px;border-radius:2px;background:var(--ink);box-shadow:0 0 0 2px var(--surface);transform:translateX(-2px)}
+.ticks{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);font-family:var(--mono);margin-top:6px}
+.state{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;margin-top:8px}
+.st-good{background:var(--good-bg);color:var(--good)}
+.st-warn{background:var(--warn-bg);color:var(--warn)}
+.st-bad{background:var(--bad-bg);color:var(--bad)}
+/* tables */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;color:var(--muted);font-weight:500;font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:700;border-bottom:none}
+.pts{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{height:6px;border-radius:3px;background:var(--chip);min-width:60px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:3px}
+/* grids */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;border-left:4px solid var(--line)}
+.kpi.g{border-left-color:var(--good)}.kpi.w{border-left-color:var(--warn)}.kpi.b{border-left-color:var(--bad)}
+.kpi span{font-size:12px;color:var(--muted)}
+.kpi b{font-family:var(--mono);font-size:19px;font-weight:500;font-variant-numeric:tabular-nums}
+.kpi em{font-style:normal;font-size:12.5px;color:var(--muted)}
+/* charts */
+.chart{position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:14px;height:3px;border-radius:2px;display:inline-block}
+.swb{width:12px;height:10px;border-radius:2px;display:inline-block}
+.tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12.5px;box-shadow:0 4px 14px rgba(0,0,0,.12);white-space:nowrap;z-index:2}
+.tip b{font-family:var(--mono);font-weight:500}
+.tip .d{font-family:var(--mono);color:var(--muted);font-size:11.5px}
+.note{font-size:13.5px;color:var(--muted)}
+ul.clean{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.pro li::marker{color:var(--good)} .con li::marker{color:var(--bad)}
+.zones{display:flex;flex-direction:column;gap:8px}
+.zone{display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:baseline;padding:10px 12px;border-radius:10px;background:var(--chip);font-size:14px}
+.zone b{font-family:var(--mono);font-weight:500}
+.zone.r{border-left:4px solid var(--bad)} .zone.s{border-left:4px solid var(--good)} .zone.t{border-left:4px solid var(--accent)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+summary{cursor:pointer;font-weight:600}
+details p{margin-top:8px;color:var(--muted);max-width:70ch}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+footer{font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:6px;max-width:80ch}
+footer a{color:var(--accent)}
+@media (max-width:760px){.hero,.two{grid-template-columns:1fr}.zone{grid-template-columns:1fr;gap:2px}}
+</style>
+
+<a href="../index.html#/aktie/COST" style="display:inline-block;margin:max(12px,env(safe-area-inset-top)) 0 0 16px;background:#1f3a5f;color:#fff;font:600 14px system-ui;padding:8px 12px;border-radius:20px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">Zurück zur App</a>
+<div class="wrap">
+
+<header class="hero">
+  <div class="card id">
+    <div>
+      <div class="eyebrow">Aktien-Check · 05.10.2026</div>
+      <h1>Costco</h1>
+      <p class="meta">Costco Wholesale Corporation · NASDAQ: COST · Mitglieder-Grossmärkte · USA</p>
+    </div>
+    <div class="price"><b>923.52 $</b><span class="meta">Schluss 05.10.2026 · Allzeithoch 19.05.2026: 1'096.50 $ · 52-Wochen-Tief 844.10 $</span></div>
+    <p class="verdict"><b>Kurz gesagt:</b> Eine der besten Handelsfirmen der Welt, aber nie billig. Seit dem Mai-Hoch hat der Kurs 16 % verloren, die Zahlen bleiben stark. Qualität grün, Timing gelb. Es gibt erste Bodenzeichen (bullische Divergenz). Der Trigger ist ein Tagesschluss über 931 $.</p>
+  </div>
+  <div class="card scales">
+    <div>
+      <div class="scale-h"><span>Qualität · Ist die Firma kaufenswert?</span><b id="q-val">78</b></div>
+      <div class="track"><i class="pin" id="q-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-good">● Stark: Fundament intakt</span>
+    </div>
+    <div>
+      <div class="scale-h"><span>Timing · Ist jetzt der Zeitpunkt?</span><b id="t-val">47</b></div>
+      <div class="track"><i class="pin" id="t-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-warn">▲ Warten auf Bestätigung</span>
+    </div>
+    <p class="note">Skala: unter 30 rot · 30–45 orange · 45–60 gelb · 60–75 hellgrün · ab 75 grün. Beide Werte setzen sich aus festen Kriterien zusammen, siehe unten.</p>
+  </div>
+</header>
+
+<section>
+  <h2>Was die Firma macht</h2>
+  <p class="lead">Costco betreibt rund 900 grosse Lagerhallen-Märkte, in denen nur Mitglieder einkaufen dürfen (Jahresgebühr ab 65 $). Die Waren werden fast zum Einkaufspreis verkauft. Der Gewinn kommt zu einem grossen Teil aus den Mitgliedsgebühren, über 90 % der Mitglieder verlängern jedes Jahr. Das macht den Gewinn sehr planbar.</p>
+  <p class="lead">Im Mai stieg die Aktie auf das Rekordhoch von 1'096.50 $. Danach fiel sie bis Ende September auf 883 $, obwohl das Geschäft gut lief. Hauptgrund ist die sehr hohe Bewertung: Bei einem KGV über 50 genügt schon etwas weniger Begeisterung für einen Rückgang. Die Jahreszahlen vom 24. September waren stark: Umsatz im Quartal 95.7 Mrd. $ (+11 %, Erwartung 94.85 Mrd.), Gewinn pro Aktie 6.75 $ (Erwartung 6.55 $), vergleichbare Umsätze +6.7 %, Online-Umsatz +19.5 %. Im Gewinn steckt ein Einmaleffekt von 0.15 $ pro Aktie aus Zollrückerstattungen.</p>
+</section>
+
+<section>
+  <h2>Fundamental: die Zahlen</h2>
+  <div class="kpis">
+<div class="kpi g"><span>Umsatzwachstum</span><b>+10.1 %</b><em>Geschäftsjahr bis August 2026. Für einen Händler mit 300 Mrd. $ Umsatz sehr stark.</em></div>
+<div class="kpi g"><span>Vergleichbare Umsätze</span><b>+6.7 %</b><em>Gleiche Filialen, ohne Benzinpreise und Währungen. Echtes Wachstum aus bestehenden Märkten.</em></div>
+<div class="kpi w"><span>Operative Marge</span><b>3.85 %</b><em>Klingt winzig, ist für Costco aber gewollt: Tiefe Preise bringen treue Mitglieder. Steigt seit 2022 leicht.</em></div>
+<div class="kpi g"><span>Gewinn pro Aktie (EPS)</span><b>+14 %</b><em>Geschäftsjahr 2026. Seit Jahren zweistellig.</em></div>
+<div class="kpi g"><span>ROIC</span><b>39.3 %</b><em>Gewinn pro investiertem Dollar. Spitzenwert und jedes Jahr höher.</em></div>
+<div class="kpi g"><span>Free Cashflow</span><b>9.39 Mrd. $</b><em>Seit 2022 fast verdreifacht.</em></div>
+<div class="kpi g"><span>Netto-Cash</span><b>12.7 Mrd. $</b><em>Mehr Bargeld als Schulden.</em></div>
+<div class="kpi w"><span>KGV</span><b>44.4</b><em>Du zahlst 44 Jahresgewinne. Im eigenen 5-Jahres-Schnitt (rund 46) normal, absolut aber sehr teuer.</em></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>Umsatz pro Quartal (Mrd. $)</h3>
+      <p class="note">Jedes Quartal über Vorjahr, Tempo zuletzt höher (über 11 %). Das 4. Quartal hat 16 statt 12 Wochen, darum der Sprung.</p>
+      <div class="chart" id="c-rev"></div>
+    </div>
+    <div class="card">
+      <h3>Operative Marge pro Jahr</h3>
+      <p class="note">Bewusst tief und sehr stabil. Steigt seit 2022 um wenige Zehntelprozente pro Jahr.</p>
+      <div class="chart" id="c-margin"></div>
+    </div>
+  </div>
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Jahr</th><th class="num">Umsatz Mio. $</th><th class="num">Wachstum</th><th class="num">Op. Marge</th><th class="num">EPS $</th><th class="num">Free Cashflow</th><th class="num">ROIC</th><th class="num">KGV</th></tr></thead>
+      <tbody id="fin-rows"></tbody>
+    </table>
+  </div>
+  <p class="note"><b>Hinweis:</b> Geschäftsjahr endet jeweils Ende August. Costco zahlt alle paar Jahre eine Sonderdividende, das verzerrt den Free Cashflow nicht. Das KGV ist bei Costco seit Jahren hoch, darum ist der Vergleich mit dem eigenen Schnitt wichtig.</p>
+</section>
+
+<section>
+  <h2>Qualität: 78 von 100</h2>
+  <div class="card tbl"><table id="q-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Technik: Wochenchart (2 Jahre)</h2>
+  <div class="card">
+    <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span><span><i class="swb" style="background:var(--zone-sup);border:1px solid var(--good)"></i>Unterstützung</span><span><i class="swb" style="background:var(--zone-res);border:1px solid var(--bad)"></i>Widerstand</span></div>
+    <div class="chart" id="c-week"></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>A/D-Linie, Woche</h3>
+      <p class="note">Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Seit dem Mai-Hoch fällt die Linie mit dem Kurs, in den letzten zwei Wochen dreht sie wieder nach oben.</p>
+      <div class="chart" id="c-adw"></div>
+    </div>
+    <div class="card">
+      <h3>RSI, Woche</h3>
+      <p class="note">Unter 30 überverkauft, über 70 überkauft. Heute 45: neutral, etwas schwach.</p>
+      <div class="chart" id="c-rsiw"></div>
+    </div>
+  </div>
+
+  <h2>Technik: Tageschart (6 Monate)</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Kurs, Tag</h3>
+      <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span></div>
+      <div class="chart" id="c-day"></div>
+    </div>
+    <div class="card">
+      <h3>A/D-Linie, Tag</h3>
+      <p class="note">Der Kurs liegt heute unter dem Stand vom 24. August (971 $), die Tages-A/D aber leicht höher. Das ist eine bullische Divergenz: Käufer nehmen auf.</p>
+      <div class="chart" id="c-add"></div>
+    </div>
+  </div>
+
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Indikator</th><th>Tag</th><th>Woche</th><th>Bedeutung</th></tr></thead>
+      <tbody>
+<tr><td>Kurs vs. EMA 50</td><td class="pts">923.5 &lt; 927.7</td><td class="pts">923.5 &lt; 949.5</td><td>Knapp unter der mittelfristigen Linie, Tag fast zurückerobert.</td></tr>
+<tr><td>Kurs vs. EMA 200</td><td class="pts">923.5 &lt; 951.7</td><td class="pts">923.5 &gt; 832.8</td><td>Tag unter, Woche klar über der langfristigen Linie: Rücksetzer im langfristigen Aufwärtstrend.</td></tr>
+<tr><td>EMA 50 vs. EMA 200</td><td class="pts">50 unter 200 (Death Cross 14.7.2026)</td><td class="pts">50 über 200 (seit 2021)</td><td>Kurzfristig Abwärtstrend, langfristig intakt.</td></tr>
+<tr><td>RSI (14)</td><td class="pts">52.8</td><td class="pts">44.7</td><td>Tag: Am Tief vom September lag der RSI höher als im Juli, obwohl der Kurs tiefer war. Bullische Divergenz.</td></tr>
+<tr><td>A/D</td><td class="pts">steigt seit Mitte September</td><td class="pts">dreht nach oben</td><td>Erste Zeichen, dass Käufer zurückkommen.</td></tr>
+<tr><td>Volumen</td><td colspan="2">Ø 20 Tage 2.4 Mio. vs. Ø 100 Tage 2.3 Mio.</td><td>Normal.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Struktur und Zonen (Smart Money Concept)</h2>
+  <p class="lead">Seit dem Hoch im Mai (1'096.50 $) macht Costco tiefere Hochs (995 → 987.50 → 978.70 → 931.10 $) und tiefere Tiefs (936.50 → 907.20 → 883.10 $). Das ist ein Abwärtstrend auf dem Tageschart. Das letzte tiefere Hoch liegt bei 931.10 $ (28.9.), der Kurs steht nur 0.8 % darunter. Ein Tagesschluss darüber wäre der Change of Character.</p>
+  <div class="zones">
+<div class="zone r"><b>951–965 $</b><span>Widerstand: EMA 200 (Tag) und EMA 50 (Woche).</span></div>
+<div class="zone t"><b>931.10 $</b><span><b>Trigger: Change of Character.</b> Tagesschluss über dem Hoch vom 28.9.</span></div>
+<div class="zone s"><b>883–895 $</b><span>Kaufzone: Tiefs vom September. Hier entstand die bullische Divergenz.</span></div>
+<div class="zone s"><b>844 $</b><span>Tiefere Unterstützung: Tief vom Dezember 2025 (52-Wochen-Tief).</span></div>
+<div class="zone r"><b>880 $</b><span>Abbruch: Wochenschluss darunter bestätigt den Abwärtstrend.</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Smart Money, Insider und Saisonalität</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Wer kauft, wer verkauft?</h3>
+      <ul class="clean" style="margin-top:8px">
+<li><b>Costco selbst:</b> Kleiner Aktienrückkauf (0.1 % pro Jahr), Dividende 0.6 %, dazu alle paar Jahre eine Sonderdividende.</li>
+<li><b>Insider-Käufe:</b> Keine in den letzten 12 Monaten.</li>
+<li><b>Insider-Verkäufe:</b> Klein, rund 16 Mio. $ in 12 Monaten (zuletzt 2 Mio. $ am 29.9.). Kein Warnsignal.</li>
+<li><b>Analysten:</b> Durchschnittliches Kursziel 1'058 $, Einstufung „Buy“.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Saisonalität seit 1986</h3>
+      <p class="note">Durchschnittliche Monatsrendite in %, 40 Jahre. November ist mit +4.1 % und 75 % positiven Jahren der stärkste Monat.</p>
+      <div class="chart" id="c-seas"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Timing: 47 von 100</h2>
+  <div class="card tbl"><table id="t-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Pro und Contra</h2>
+  <div class="two">
+    <div class="card pro"><h3>Spricht dafür</h3><ul class="clean" style="margin-top:8px">
+<li>Sehr stabiles Geschäft mit Mitgliedsgebühren und über 90 % Verlängerungen.</li>
+<li>Umsatz und Gewinn wachsen zweistellig, ROIC fast 40 %.</li>
+<li>Netto-Cash, keine Schuldensorgen.</li>
+<li>Bullische Divergenz bei RSI und A/D auf dem Tageschart.</li>
+<li>November ist saisonal der stärkste Monat.</li>
+    </ul></div>
+    <div class="card con"><h3>Spricht dagegen</h3><ul class="clean" style="margin-top:8px">
+<li>KGV 44: Selbst für Costco nicht günstig. Wenig Puffer bei Enttäuschungen.</li>
+<li>Tageschart im Abwärtstrend, Death Cross seit Juli.</li>
+<li>Keine Insider-Käufe, kaum Rückkäufe.</li>
+<li>Teile des Gewinns kamen aus einer einmaligen Zollrückerstattung.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section>
+  <h2>Was jetzt zu tun ist</h2>
+  <div class="zones">
+<div class="zone t"><b>Beobachten</b><span>Alarm bei 931.10 $ (Trigger) und bei 895 $ (Kaufzone).</span></div>
+<div class="zone s"><b>Timing grün</b><span>Tagesschluss über 931.10 $, danach Rücksetzer, der über 895 $ hält. Oder Rücksetzer in 883–895 $ mit weiter steigender Tages-A/D.</span></div>
+<div class="zone r"><b>Abbruch</b><span>Wochenschluss unter 880 $.</span></div>
+<div class="zone "><b>Nächste Zahlen</b><span>Monatsumsätze Anfang November, Quartalszahlen (Q1 GJ 2027) Mitte Dezember 2026.</span></div>
+  </div>
+</section>
+
+<footer>
+  <span>Kursdaten und Indikatoren (EMA, RSI 14, A/D) selbst berechnet aus Yahoo-Finance-Tages-, Wochen- und Monatsdaten, Stand 05.10.2026. <a href="https://stockanalysis.com/stocks/cost/financials/" target="_blank" rel="noopener">StockAnalysis.com</a> (Stand 05.10.2026), <a href="https://www.tradingpedia.com/2026/09/25/costco-caps-fiscal-2026-with-strong-q4-beat-and-sales-growth/" target="_blank" rel="noopener">Q4-Zahlen (Tradingpedia)</a>, <a href="https://investor.costco.com/news/news-details/2026/Costco-Wholesale-Corporation-Reports-Fourth-Quarter-and-Fiscal-Year-2026-Operating-Results/default.aspx" target="_blank" rel="noopener">Costco Medienmitteilung</a>, <a href="https://www.marketbeat.com/stocks/NASDAQ/COST/insider-trades/" target="_blank" rel="noopener">Insider (MarketBeat)</a>.</span>
+  <span>Persönliche Analyse, keine Anlageberatung. Vergangene Kurse und Saisonalität sagen nichts Sicheres über die Zukunft.</span>
+</footer>
+</div>
+
+<script>
+const Q=[["Umsatztrend", "4 von 4 Quartalen über Vorjahr, Tempo steigt", 15, 15], ["Wachstumstempo", "+10.1 % im Geschäftsjahr", 8, 10], ["Operative Marge", "3.85 %, für Handel milder bewertet (3 Pkt.), steigend (6 Pkt.)", 9, 15], ["Gewinnwachstum (EPS)", "Ø 3 Jahre rund +14 %", 8, 10], ["Free Cashflow", "Positiv, 2024 leicht gesunken", 6, 10], ["ROIC", "39.3 %, steigend", 15, 15], ["Schulden", "Netto-Cash 12.7 Mrd. $", 10, 10], ["Bewertung vs. eigene Historie", "KGV 44 vs. Ø rund 46 (±10 %)", 7, 15]];
+const T=[["Trend Woche (EMA 50/200)", "Kurs unter EMA 50, über EMA 200 (Rücksetzer im Aufwärtstrend)", 12, 20], ["Trend Tag (EMA 50/200)", "Kurs unter beiden, Death Cross", 1, 10], ["Struktur (SMC)", "Tiefere Hochs und Tiefs, Trigger in Reichweite", 4, 20], ["RSI Tag/Woche", "Bullische Divergenz auf dem Tag", 12, 15], ["A/D Tag/Woche", "Tag bullische Divergenz, Woche fiel mit dem Kurs", 10, 20], ["Smart Money", "Kleiner Rückkauf, keine Insider-Käufe", 3, 10], ["Saisonalität", "Okt–Dez: Ø 61 % positive Jahre", 5, 5]];
+const FIN=[["GJ 2022", 226954, "+15.8 %", "3.5 %", 13.14, 3501, "31.6 %", "40.3"], ["GJ 2023", 242290, "+6.8 %", "3.5 %", 14.16, 6745, "30.9 %", "38.3"], ["GJ 2024", 254453, "+5.0 %", "3.6 %", 16.56, 6629, "32.8 %", "53.7"], ["GJ 2025", 275235, "+8.2 %", "3.8 %", 18.21, 7837, "33.6 %", "51.7"], ["GJ 2026", 303154, "+10.1 %", "3.9 %", 20.76, 9390, "39.3 %", "44.4"]];
+const HALF=[["Q1 25", 62.2], ["Q2 25", 63.7], ["Q3 25", 63.2], ["Q4 25", 86.2], ["Q1 26", 67.3], ["Q2 26", 69.6], ["Q3 26", 70.5], ["Q4 26", 95.7]];
+const MARGIN=[["GJ 22", 3.5], ["GJ 23", 3.5], ["GJ 24", 3.6], ["GJ 25", 3.8], ["GJ 26", 3.9]];
+const SEAS=[1.9, 1.5, 1.6, -0.7, 0.8, 2.6, 1.3, -0.5, 0.1, 2.5, 4.1, -0.2];
+const SEASHIT=[60.0, 53.0, 53.0, 57.0, 65.0, 57.0, 63.0, 49.0, 51.0, 63.0, 75.0, 45.0];
+const MON=["Jan","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"];
+const W=`2024-10-14,889.6,777.9,607.8,63,155.1;2024-10-21,891.2,782.4,610.7,64,152.7;2024-10-28,877.3,786.1,613.3,59,150.5;2024-11-04,943.8,792.3,616.6,70,156.8;2024-11-11,907.1,796.8,619.5,60,147.7;2024-11-18,964.0,803.4,622.9,68,153.8;2024-11-25,971.9,810.0,626.4,69,159.2;2024-12-02,992.6,817.1,630.0,71,165.6;2024-12-09,989.3,823.9,633.6,70,166.9;2024-12-16,954.1,829.0,636.8,62,156.7;2024-12-23,939.7,833.3,639.8,58,154.2;2024-12-30,916.6,836.6,642.6,54,153.6;2025-01-06,936.9,840.5,645.5,57,158.0;2025-01-13,943.2,844.6,648.5,58,166.6;2025-01-20,939.7,848.3,651.4,57,163.3;2025-01-27,979.9,853.4,654.6,63,170.2;2025-02-03,1043.8,860.9,658.5,71,176.5;2025-02-10,1071.8,869.2,662.6,73,181.6;2025-02-17,1035.0,875.7,666.3,65,177.6;2025-02-24,1048.6,882.5,670.1,67,182.7;2025-03-03,964.3,885.7,673.1,52,172.9;2025-03-10,903.9,886.4,675.4,45,165.8;2025-03-17,909.3,887.3,677.7,46,169.1;2025-03-24,929.7,888.9,680.2,48,167.7;2025-03-31,916.5,890.0,682.5,47,153.4;2025-04-07,963.4,892.9,685.3,53,163.7;2025-04-14,994.5,896.9,688.4,57,170.5;2025-04-21,977.2,900.0,691.3,54,173.5;2025-04-28,1008.3,904.3,694.4,58,178.8;2025-05-05,1008.1,908.4,697.6,58,180.8;2025-05-12,1025.8,913.0,700.8,60,191.3;2025-05-19,1008.5,916.7,703.9,57,183.4;2025-05-26,1040.2,921.6,707.2,61,189.0;2025-06-02,1014.9,925.2,710.3,56,181.5;2025-06-09,990.2,927.8,713.1,52,172.8;2025-06-16,980.3,929.8,715.7,51,168.2;2025-06-23,985.1,932.0,718.4,52,163.8;2025-06-30,987.0,934.1,721.1,52,164.6;2025-07-07,970.3,935.6,723.6,49,156.8;2025-07-14,951.0,936.2,725.8,46,148.1;2025-07-21,935.5,936.1,727.9,43,139.9;2025-07-28,952.5,936.8,730.2,47,148.1;2025-08-04,981.0,938.5,732.6,52,156.6;2025-08-11,972.0,939.8,735.0,50,150.7;2025-08-18,958.5,940.6,737.3,48,142.1;2025-08-25,943.3,940.7,739.3,45,139.7;2025-09-01,963.5,941.6,741.5,49,144.1;2025-09-08,967.9,942.6,743.8,50,144.3;2025-09-15,951.2,942.9,745.9,47,139.1;2025-09-22,916.0,941.9,747.5,41,130.2;2025-09-29,915.4,940.8,749.2,41,128.6;2025-10-06,930.0,940.4,751.0,44,132.3;2025-10-13,936.3,940.3,752.9,46,129.0;2025-10-20,932.1,939.9,754.6,45,121.6;2025-10-27,911.5,938.8,756.2,41,112.1;2025-11-03,922.7,938.2,757.9,44,108.9;2025-11-10,923.0,937.6,759.5,44,113.0;2025-11-17,899.0,936.1,760.9,39,112.8;2025-11-24,913.6,935.2,762.4,43,121.7;2025-12-01,894.7,933.6,763.7,39,113.6;2025-12-08,884.5,931.7,764.9,37,118.1;2025-12-15,855.6,928.7,765.8,33,107.1;2025-12-22,873.3,926.5,766.9,38,112.5;2025-12-29,854.5,923.7,767.8,35,106.5;2026-01-05,924.9,923.7,769.3,51,119.7;2026-01-12,963.6,925.3,771.3,57,133.3;2026-01-19,983.3,927.6,773.4,60,140.3;2026-01-26,940.3,928.1,775.0,52,132.7;2026-02-02,1001.2,930.9,777.3,60,146.0;2026-02-09,1018.5,934.4,779.7,62,155.3;2026-02-16,985.3,936.4,781.7,56,150.3;2026-02-23,1010.8,939.3,784.0,59,158.8;2026-03-02,998.1,941.6,786.1,57,161.5;2026-03-09,1008.4,944.2,788.4,59,167.4;2026-03-16,972.3,945.3,790.2,52,160.2;2026-03-23,983.9,946.8,792.1,54,165.5;2026-03-30,1015.0,949.5,794.3,58,173.2;2026-04-06,998.5,951.4,796.4,55,165.6;2026-04-13,999.9,953.3,798.4,56,175.7;2026-04-20,1011.2,955.6,800.5,57,180.3;2026-04-27,1011.7,957.8,802.6,57,181.6;2026-05-04,1008.8,959.8,804.7,57,182.2;2026-05-11,1048.9,963.3,807.1,63,189.4;2026-05-18,1028.2,965.8,809.3,58,178.8;2026-05-25,956.3,965.5,810.7,46,167.8;2026-06-01,971.9,965.7,812.4,48,169.9;2026-06-08,982.3,966.4,814.0,50,174.8;2026-06-15,951.5,965.8,815.4,45,166.9;2026-06-22,952.5,965.3,816.8,45,166.0;2026-06-29,951.7,964.7,818.1,45,168.9;2026-07-06,916.3,962.8,819.1,40,160.0;2026-07-13,940.9,962.0,820.3,45,161.6;2026-07-20,935.0,960.9,821.4,44,163.4;2026-07-27,951.9,960.6,822.7,47,159.0;2026-08-03,947.8,960.1,824.0,47,156.8;2026-08-10,961.1,960.1,825.4,49,161.9;2026-08-17,947.7,959.6,826.6,47,160.2;2026-08-24,945.5,959.1,827.8,46,156.8;2026-08-31,915.7,957.4,828.6,41,147.1;2026-09-07,904.8,955.3,829.4,39,145.2;2026-09-14,895.3,952.9,830.0,37,137.9;2026-09-21,922.8,951.8,831.0,44,150.3;2026-09-28,920.7,950.5,831.9,44,152.9;2026-10-05,923.5,949.5,832.8,45,154.2`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+const DD=`2026-03-31,996.4,977.1,953.4,50.9;2026-04-01,996.6,977.9,953.9,50.8;2026-04-02,1015.0,979.3,954.5,52.4;2026-04-06,1018.5,980.9,955.1,53.5;2026-04-07,1013.2,982.1,955.7,53.6;2026-04-08,1030.3,984.0,956.4,55.8;2026-04-09,1032.0,985.9,957.2,56.2;2026-04-10,998.5,986.4,957.6,54.3;2026-04-13,980.8,986.2,957.8,52.4;2026-04-14,974.8,985.7,958.0,53.5;2026-04-15,984.8,985.7,958.2,55.7;2026-04-16,987.2,985.8,958.5,55.4;2026-04-17,999.9,986.3,958.9,57.6;2026-04-20,997.8,986.8,959.3,56.7;2026-04-21,1005.8,987.5,959.8,58.0;2026-04-22,1003.7,988.2,960.2,58.1;2026-04-23,1014.4,989.2,960.8,59.0;2026-04-24,1011.2,990.0,961.3,59.9;2026-04-27,998.0,990.4,961.6,58.6;2026-04-28,994.0,990.5,962.0,57.9;2026-04-29,998.7,990.8,962.3,59.3;2026-04-30,1014.5,991.7,962.8,60.8;2026-05-01,1011.7,992.5,963.3,59.9;2026-05-04,1012.8,993.3,963.8,59.8;2026-05-05,1016.4,994.2,964.3,60.2;2026-05-06,995.8,994.3,964.7,58.4;2026-05-07,1012.1,995.0,965.1,60.3;2026-05-08,1008.8,995.5,965.6,59.8;2026-05-11,999.5,995.7,965.9,60.4;2026-05-12,1021.9,996.7,966.5,61.8;2026-05-13,1033.1,998.1,967.1,62.2;2026-05-14,1041.3,999.8,967.9,63.7;2026-05-15,1048.9,1001.8,968.7,63.8;2026-05-18,1076.5,1004.7,969.7,65.7;2026-05-19,1094.3,1008.2,971.0,68.0;2026-05-20,1074.0,1010.8,972.0,66.3;2026-05-21,1050.4,1012.3,972.8,66.1;2026-05-22,1028.2,1013.0,973.3,64.6;2026-05-26,1002.9,1012.6,973.6,63.1;2026-05-27,1003.7,1012.2,973.9,62.1;2026-05-28,995.2,1011.6,974.1,59.5;2026-05-29,956.3,1009.4,974.0,55.4;2026-06-01,946.1,1006.9,973.7,54.9;2026-06-02,954.3,1004.8,973.5,56.9;2026-06-03,961.8,1003.2,973.4,57.2;2026-06-04,972.3,1001.9,973.4,55.7;2026-06-05,971.9,1000.8,973.4,52.7;2026-06-08,974.8,999.7,973.4,53.8;2026-06-09,968.6,998.5,973.3,52.7;2026-06-10,983.4,997.9,973.4,54.1;2026-06-11,975.7,997.1,973.4,52.6;2026-06-12,982.3,996.5,973.5,53.7;2026-06-15,979.5,995.8,973.6,54.1;2026-06-16,986.7,995.5,973.7,54.5;2026-06-17,965.6,994.3,973.6,53.3;2026-06-18,951.5,992.6,973.4,51.1;2026-06-22,951.3,991.0,973.2,51.7;2026-06-23,957.7,989.7,973.0,50.8;2026-06-24,961.1,988.6,972.9,50.3;2026-06-25,942.2,986.7,972.6,48.9;2026-06-26,952.5,985.4,972.4,49.0;2026-06-29,946.7,983.9,972.2,47.4;2026-06-30,935.5,982.0,971.8,45.8;2026-07-01,924.7,979.7,971.3,44.1;2026-07-02,951.7,978.6,971.1,46.7;2026-07-06,950.3,977.5,970.9,47.3;2026-07-07,947.5,976.3,970.7,45.7;2026-07-08,953.1,975.4,970.5,44.9;2026-07-09,913.0,973.0,969.9,42.2;2026-07-10,916.3,970.8,969.4,44.1;2026-07-13,926.4,969.0,969.0,44.9;2026-07-14,921.8,967.2,968.5,43.9;2026-07-15,916.5,965.2,968.0,43.2;2026-07-16,945.6,964.4,967.8,45.9;2026-07-17,940.9,963.5,967.5,44.5;2026-07-20,935.8,962.4,967.2,43.8;2026-07-21,929.2,961.1,966.8,44.3;2026-07-22,927.3,959.8,966.4,44.3;2026-07-23,926.1,958.5,966.0,45.9;2026-07-24,935.0,957.5,965.7,47.2;2026-07-27,951.6,957.3,965.6,48.2;2026-07-28,966.6,957.7,965.6,45.7;2026-07-29,974.0,958.3,965.7,46.5;2026-07-30,954.2,958.1,965.5,46.0;2026-07-31,951.9,957.9,965.4,47.1;2026-08-03,954.1,957.8,965.3,46.2;2026-08-04,947.8,957.4,965.1,47.6;2026-08-05,942.0,956.8,964.9,46.9;2026-08-06,949.2,956.5,964.7,46.1;2026-08-07,947.8,956.1,964.6,47.1;2026-08-10,952.8,956.0,964.5,48.6;2026-08-11,944.3,955.5,964.3,48.1;2026-08-12,949.6,955.3,964.1,49.1;2026-08-13,961.8,955.6,964.1,50.3;2026-08-14,961.1,955.8,964.1,50.2;2026-08-17,953.5,955.7,964.0,50.3;2026-08-18,961.3,955.9,963.9,49.8;2026-08-19,957.0,955.9,963.9,48.3;2026-08-20,933.5,955.1,963.6,47.9;2026-08-21,947.7,954.8,963.4,49.7;2026-08-24,971.4,955.4,963.5,51.3;2026-08-25,960.0,955.6,963.4,50.0;2026-08-26,956.1,955.6,963.4,49.1;2026-08-27,934.7,954.8,963.1,47.3;2026-08-28,945.5,954.4,962.9,47.3;2026-08-31,943.9,954.0,962.7,46.7;2026-09-01,940.0,953.5,962.5,45.9;2026-09-02,928.5,952.5,962.2,45.7;2026-09-03,925.4,951.4,961.8,46.3;2026-09-04,915.7,950.0,961.3,44.6;2026-09-08,910.2,948.5,960.8,44.4;2026-09-09,902.6,946.7,960.2,43.9;2026-09-10,902.4,944.9,959.7,43.0;2026-09-11,904.8,943.4,959.1,43.4;2026-09-14,918.9,942.4,958.7,44.3;2026-09-15,901.3,940.8,958.1,42.4;2026-09-16,893.7,938.9,957.5,40.8;2026-09-17,893.9,937.2,956.9,41.9;2026-09-18,895.3,935.5,956.3,42.8;2026-09-21,898.5,934.1,955.7,44.6;2026-09-22,899.4,932.7,955.1,44.5;2026-09-23,904.7,931.6,954.6,46.5;2026-09-24,896.5,930.2,954.0,44.1;2026-09-25,922.8,930.0,953.7,48.2;2026-09-28,922.9,929.7,953.4,48.4;2026-09-29,924.6,929.5,953.1,50.3;2026-09-30,910.3,928.7,952.7,48.1;2026-10-01,914.9,928.2,952.3,48.4;2026-10-02,920.7,927.9,952.0,50.2;2026-10-05,923.5,927.7,951.7,51.5`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+
+const fmtN=(v,d=2)=>v.toLocaleString("de-CH",{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmtD=s=>{const [y,m,d]=s.split("-");return d+"."+m+"."+y.slice(2)};
+const NS="http://www.w3.org/2000/svg";
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+
+function scoreTable(id,rows){
+  let tot=0,max=0;
+  const html='<thead><tr><th>Kriterium</th><th>Stand</th><th class="num">Punkte</th><th style="width:22%"></th></tr></thead><tbody>'+rows.map(r=>{tot+=r[2];max+=r[3];const p=r[2]/r[3];const c=p>=.75?"var(--good)":p>=.45?"var(--warn)":"var(--bad)";
+    return `<tr><td>${r[0]}</td><td class="muted">${r[1]}</td><td class="num">${r[2]} / ${r[3]}</td><td><div class="bar"><i style="width:${p*100}%;background:${c}"></i></div></td></tr>`}).join("")+`<tr class="total"><td>Total</td><td></td><td class="num">${tot} / ${max}</td><td></td></tr></tbody>`;
+  document.getElementById(id).innerHTML=html;return tot;
+}
+const qs=scoreTable("q-tbl",Q), ts=scoreTable("t-tbl",T);
+document.getElementById("q-val").textContent=qs;document.getElementById("t-val").textContent=ts;
+document.getElementById("q-pin").style.left=qs+"%";document.getElementById("t-pin").style.left=ts+"%";
+
+document.getElementById("fin-rows").innerHTML=FIN.map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1].toLocaleString("de-CH")}</td><td class="num">${r[2]}</td><td class="num">${r[3]}</td><td class="num">${fmtN(r[4])}</td><td class="num">${r[5].toLocaleString("de-CH")}</td><td class="num">${r[6]}</td><td class="num">${r[7]}</td></tr>`).join("");
+
+/* generic line chart */
+function lineChart(host,{dates,series,bands=[],yFmt=v=>fmtN(v),h=300,zero=false,refs=[],pad}){
+  const W_=800,H=h,m={t:12,r:56,b:28,l:8};
+  const all=series.flatMap(s=>s.values).concat(bands.flatMap(b=>[b.from,b.to])).concat(refs.map(r=>r.v));
+  if(zero)all.push(0);
+  let lo=Math.min(...all),hi=Math.max(...all);const sp=(hi-lo)||1;lo-=sp*.06;hi+=sp*.06;
+  if(pad){lo=pad[0];hi=pad[1]}
+  const n=dates.length,x=i=>m.l+i*(W_-m.l-m.r)/(n-1),y=v=>m.t+(hi-v)*(H-m.t-m.b)/(hi-lo);
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  // grid
+  const steps=5;for(let k=0;k<=steps;k++){const v=lo+(hi-lo)*k/steps;el("line",{x1:m.l,x2:W_-m.r,y1:y(v),y2:y(v),stroke:"var(--grid)","stroke-width":1},svg);
+    const t=el("text",{x:W_-m.r+6,y:y(v)+4,"font-size":11,fill:"var(--muted)","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=yFmt(v)}
+  bands.forEach(b=>{el("rect",{x:m.l,width:W_-m.l-m.r,y:y(Math.max(b.from,b.to)),height:Math.abs(y(b.from)-y(b.to)),fill:b.type==="res"?"var(--zone-res)":"var(--zone-sup)"},svg)});
+  refs.forEach(r=>{el("line",{x1:m.l,x2:W_-m.r,y1:y(r.v),y2:y(r.v),stroke:"var(--muted)","stroke-dasharray":"4 4","stroke-width":1},svg);
+    const t=el("text",{x:m.l+4,y:y(r.v)-4,"font-size":11,fill:"var(--muted)"},svg);t.textContent=r.label});
+  if(zero)el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  // x labels
+  const every=Math.ceil(n/6);for(let i=0;i<n;i+=every){const t=el("text",{x:x(i),y:H-8,"font-size":11,fill:"var(--muted)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);const d=dates[i];t.textContent=d.slice(5,7)+"/"+d.slice(2,4)}
+  series.forEach(s=>{const dpath=s.values.map((v,i)=>(i?"L":"M")+x(i).toFixed(1)+","+y(v).toFixed(1)).join("");
+    el("path",{d:dpath,fill:"none",stroke:s.color,"stroke-width":s.w||2,"stroke-linejoin":"round","stroke-linecap":"round"},svg);
+    const lv=s.values[n-1];el("circle",{cx:x(n-1),cy:y(lv),r:3.5,fill:s.color,stroke:"var(--surface)","stroke-width":2},svg)});
+  // hover
+  const cross=el("line",{y1:m.t,y2:H-m.b,stroke:"var(--muted)","stroke-width":1,opacity:0},svg);
+  const ov=el("rect",{x:m.l,y:m.t,width:W_-m.l-m.r,height:H-m.t-m.b,fill:"transparent"},svg);
+  host.appendChild(svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;host.appendChild(tip);
+  function move(ev){const r=svg.getBoundingClientRect();const px=(ev.clientX-r.left)*W_/r.width;let i=Math.round((px-m.l)/((W_-m.l-m.r)/(n-1)));i=Math.max(0,Math.min(n-1,i));
+    cross.setAttribute("x1",x(i));cross.setAttribute("x2",x(i));cross.setAttribute("opacity",1);
+    tip.innerHTML=`<div class="d">${fmtD(dates[i])}</div>`+series.map(s=>`<div><i class="sw" style="background:${s.color}"></i> ${s.name}: <b>${yFmt(s.values[i])}</b></div>`).join("");
+    tip.hidden=false;const hx=x(i)*r.width/W_;tip.style.left=Math.min(Math.max(0,hx+12),r.width-tip.offsetWidth)+"px";tip.style.top="8px"}
+  ov.addEventListener("pointermove",move);ov.addEventListener("pointerleave",()=>{tip.hidden=true;cross.setAttribute("opacity",0)});
+}
+function barChart(host,{labels,values,fmt,h=220,color,neg,tipExtra}){
+  const W_=800,H=h,m={t:18,r:8,b:28,l:8};
+  const hi=Math.max(0,...values),lo=Math.min(0,...values);const lo2=lo<0?lo*1.15:lo,hi2=hi*1.15||1;
+  const y=v=>m.t+(hi2-v)*(H-m.t-m.b)/(hi2-lo2);const n=values.length,bw=(W_-m.l-m.r)/n;
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;
+  values.forEach((v,i)=>{const x0=m.l+i*bw+bw*.18,w=bw*.64,y0=y(Math.max(v,0)),hh=Math.max(1,Math.abs(y(v)-y(0)));
+    const r=el("rect",{x:x0,y:y0,width:w,height:hh,rx:4,fill:v<0?(neg||"var(--s2)"):(color||"var(--s1)")},svg);
+    const t=el("text",{x:x0+w/2,y:v<0?y(v)+13:y0-5,"font-size":11.5,fill:"var(--ink)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=fmt(v);
+    const l=el("text",{x:x0+w/2,y:H-8,"font-size":11.5,fill:"var(--muted)","text-anchor":"middle"},svg);l.textContent=labels[i];
+    const hit=el("rect",{x:m.l+i*bw,y:m.t,width:bw,height:H-m.t-m.b,fill:"transparent"},svg);
+    hit.addEventListener("pointerenter",()=>{tip.innerHTML=`<div class="d">${labels[i]}</div><b>${fmt(v)}</b>${tipExtra?tipExtra(i):""}`;tip.hidden=false;const R=svg.getBoundingClientRect();tip.style.left=Math.min((m.l+i*bw)*R.width/W_,R.width-tip.offsetWidth)+"px";tip.style.top="0px"});
+    hit.addEventListener("pointerleave",()=>tip.hidden=true)});
+  host.appendChild(svg);host.appendChild(tip);
+}
+barChart(document.getElementById("c-rev"),{labels:HALF.map(r=>r[0]),values:HALF.map(r=>r[1]),fmt:v=>fmtN(v,1),h:200});
+barChart(document.getElementById("c-margin"),{labels:MARGIN.map(r=>r[0]),values:MARGIN.map(r=>r[1]),fmt:v=>fmtN(v,1)+" %",h:200});
+barChart(document.getElementById("c-seas"),{labels:MON,values:SEAS,fmt:v=>(v>0?"+":"")+fmtN(v,1),h:220,tipExtra:i=>`<div>${SEASHIT[i]} % der Jahre positiv</div>`});
+const BANDS=[{"from": 951, "to": 965, "type": "res"}, {"from": 883, "to": 895, "type": "sup"}], REFS=[{"v": 931.1, "label": "Trigger 931.10"}];
+const wd=W.map(r=>r[0]);
+lineChart(document.getElementById("c-week"),{dates:wd,series:[{name:"Kurs",values:W.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:W.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:W.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,yFmt:v=>fmtN(v,0),h:320});
+lineChart(document.getElementById("c-adw"),{dates:wd,series:[{name:"A/D Woche",values:W.map(r=>r[5]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,zero:true});
+lineChart(document.getElementById("c-rsiw"),{dates:wd,series:[{name:"RSI Woche",values:W.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,refs:[{v:70,label:"70 überkauft"},{v:30,label:"30 überverkauft"}],pad:[10,90]});
+const dd=DD.map(r=>r[0]);
+lineChart(document.getElementById("c-day"),{dates:dd,series:[{name:"Kurs",values:DD.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:DD.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:DD.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,refs:REFS,yFmt:v=>fmtN(v,0),h:260});
+lineChart(document.getElementById("c-add"),{dates:dd,series:[{name:"A/D Tag",values:DD.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:260,zero:true});
+</script>

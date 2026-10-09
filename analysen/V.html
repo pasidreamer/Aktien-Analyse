@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Visa Aktien-Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F3F5F7; --surface:#FFFFFF; --ink:#141B24; --muted:#5A6573; --line:#DDE2E8; --grid:#E9EDF1;
+  --accent:#2F45B5; --accent-soft:#E6E9F8; --chip:#EBEEF2;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+  --good:#1D7A4B; --good-bg:#E3F3EA; --warn:#9A6200; --warn-bg:#FBF0DC; --bad:#B2362A; --bad-bg:#FBE6E3;
+  --zone-sup:rgba(29,122,75,.10); --zone-res:rgba(178,54,42,.09);
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+    --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+    --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+    --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+  --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+  --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;padding-inline:16px;padding-block:24px 56px}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+h1,h2,h3{font-family:var(--display);font-stretch:85%;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:clamp(32px,7vw,48px);font-weight:800;line-height:1}
+h2{font-size:24px;font-weight:700}
+h3{font-size:17px;font-weight:700;font-stretch:95%}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+section{display:flex;flex-direction:column;gap:14px}
+.lead{max-width:68ch;color:var(--muted)}
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;align-items:stretch}
+.hero .id{display:flex;flex-direction:column;gap:10px;justify-content:space-between}
+.price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price b{font-family:var(--display);font-size:34px;font-weight:700}
+.meta{font-size:13px;color:var(--muted)}
+.verdict{font-size:15px;padding:12px 14px;border-radius:10px;background:var(--chip)}
+.scales{display:flex;flex-direction:column;gap:18px}
+.scale-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.scale-h span{font-size:13px;color:var(--muted)}
+.scale-h b{font-family:var(--display);font-size:28px;line-height:1}
+.track{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#C8412F 0%,#E0892F 30%,#E3B63A 50%,#8BBF4B 68%,#2E9A5B 100%);margin-top:8px}
+.pin{position:absolute;top:-5px;width:4px;height:22px;border-radius:2px;background:var(--ink);box-shadow:0 0 0 2px var(--surface);transform:translateX(-2px)}
+.ticks{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);font-family:var(--mono);margin-top:6px}
+.state{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;margin-top:8px}
+.st-good{background:var(--good-bg);color:var(--good)}
+.st-warn{background:var(--warn-bg);color:var(--warn)}
+.st-bad{background:var(--bad-bg);color:var(--bad)}
+/* tables */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;color:var(--muted);font-weight:500;font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:700;border-bottom:none}
+.pts{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{height:6px;border-radius:3px;background:var(--chip);min-width:60px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:3px}
+/* grids */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;border-left:4px solid var(--line)}
+.kpi.g{border-left-color:var(--good)}.kpi.w{border-left-color:var(--warn)}.kpi.b{border-left-color:var(--bad)}
+.kpi span{font-size:12px;color:var(--muted)}
+.kpi b{font-family:var(--mono);font-size:19px;font-weight:500;font-variant-numeric:tabular-nums}
+.kpi em{font-style:normal;font-size:12.5px;color:var(--muted)}
+/* charts */
+.chart{position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:14px;height:3px;border-radius:2px;display:inline-block}
+.swb{width:12px;height:10px;border-radius:2px;display:inline-block}
+.tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12.5px;box-shadow:0 4px 14px rgba(0,0,0,.12);white-space:nowrap;z-index:2}
+.tip b{font-family:var(--mono);font-weight:500}
+.tip .d{font-family:var(--mono);color:var(--muted);font-size:11.5px}
+.note{font-size:13.5px;color:var(--muted)}
+ul.clean{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.pro li::marker{color:var(--good)} .con li::marker{color:var(--bad)}
+.zones{display:flex;flex-direction:column;gap:8px}
+.zone{display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:baseline;padding:10px 12px;border-radius:10px;background:var(--chip);font-size:14px}
+.zone b{font-family:var(--mono);font-weight:500}
+.zone.r{border-left:4px solid var(--bad)} .zone.s{border-left:4px solid var(--good)} .zone.t{border-left:4px solid var(--accent)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+summary{cursor:pointer;font-weight:600}
+details p{margin-top:8px;color:var(--muted);max-width:70ch}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+footer{font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:6px;max-width:80ch}
+footer a{color:var(--accent)}
+@media (max-width:760px){.hero,.two{grid-template-columns:1fr}.zone{grid-template-columns:1fr;gap:2px}}
+</style>
+
+<a href="../index.html#/aktie/V" style="display:inline-block;margin:max(12px,env(safe-area-inset-top)) 0 0 16px;background:#1f3a5f;color:#fff;font:600 14px system-ui;padding:8px 12px;border-radius:20px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">Zurück zur App</a>
+<div class="wrap">
+
+<header class="hero">
+  <div class="card id">
+    <div>
+      <div class="eyebrow">Aktien-Check · 05.10.2026</div>
+      <h1>Visa</h1>
+      <p class="meta">Visa Inc. · NYSE: V · Weltweites Kartenzahlungs-Netzwerk · USA</p>
+    </div>
+    <div class="price"><b>369.71 $</b><span class="meta">Schluss 05.10.2026 · Allzeithoch 26.08.2026: 385.60 $ · 4 % darunter</span></div>
+    <p class="verdict"><b>Kurz gesagt:</b> Eine der profitabelsten Firmen der Welt in einem sauberen Aufwärtstrend. Seit August läuft eine ruhige Seitwärtsphase knapp unter dem Hoch. Qualität grün, Timing hellgrün. Die Zone 357–362 $ ist ein sinnvoller Einstieg, der Ausbruch ein Tagesschluss über 385.60 $.</p>
+  </div>
+  <div class="card scales">
+    <div>
+      <div class="scale-h"><span>Qualität · Ist die Firma kaufenswert?</span><b id="q-val">80</b></div>
+      <div class="track"><i class="pin" id="q-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-good">● Stark: Fundament intakt</span>
+    </div>
+    <div>
+      <div class="scale-h"><span>Timing · Ist jetzt der Zeitpunkt?</span><b id="t-val">61</b></div>
+      <div class="track"><i class="pin" id="t-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-good">● Einstieg in Zonen möglich</span>
+    </div>
+    <p class="note">Skala: unter 30 rot · 30–45 orange · 45–60 gelb · 60–75 hellgrün · ab 75 grün. Beide Werte setzen sich aus festen Kriterien zusammen, siehe unten.</p>
+  </div>
+</header>
+
+<section>
+  <h2>Was die Firma macht</h2>
+  <p class="lead">Visa betreibt das Netzwerk, über das Kartenzahlungen zwischen Bank des Käufers und Bank des Händlers laufen. Visa gibt selbst keine Kredite und trägt kein Ausfallrisiko. Pro Zahlung verdient Visa eine kleine Gebühr. Über 4 Billionen $ Zahlungen laufen pro Quartal über das Netz. Neu kommen Stablecoins (digitale Dollar) und Zahlungen durch KI-Agenten dazu.</p>
+  <p class="lead">Die Zahlen vom 28. Juli waren besser als erwartet: Umsatz 11.6 Mrd. $ (+14 %), bereinigter Gewinn pro Aktie 3.32 $ (Erwartung 3.22 $), Ausblick angehoben. Die Aktie stieg bis 26. August auf das Rekordhoch von 385.60 $. Seither läuft sie seitwärts: Die Kosten stiegen um 17 %, Visa baut Stellen ab, und es bleiben regulatorische Risiken (geplantes US-Gesetz für mehr Wettbewerb bei Kreditkarten, Klage des US-Justizministeriums wegen Debitkarten).</p>
+</section>
+
+<section>
+  <h2>Fundamental: die Zahlen</h2>
+  <div class="kpis">
+<div class="kpi g"><span>Umsatzwachstum</span><b>+14 %</b><em>Letzte 12 Monate. Beschleunigt sich gegenüber 2024 und 2025 (rund 10–11 %).</em></div>
+<div class="kpi g"><span>Operative Marge</span><b>66.9 %</b><em>Von 100 $ Umsatz bleiben 67 $ Betriebsgewinn. Gehört zu den höchsten Margen überhaupt.</em></div>
+<div class="kpi g"><span>Gewinn pro Aktie (EPS)</span><b>+14.7 %</b><em>Letzte 12 Monate. Wächst schneller als der Umsatz, auch dank Rückkäufen.</em></div>
+<div class="kpi g"><span>ROIC</span><b>54.8 %</b><em>Gewinn pro investiertem Dollar. Extrem hoch: Das Netzwerk braucht kaum Kapital.</em></div>
+<div class="kpi g"><span>Free Cashflow</span><b>21.0 Mrd. $</b><em>Rund 47 % vom Umsatz bleiben als freies Geld.</em></div>
+<div class="kpi g"><span>Nettoschulden / EBITDA</span><b>0.3</b><em>Praktisch schuldenfrei gemessen am Betriebsgewinn.</em></div>
+<div class="kpi w"><span>KGV</span><b>30.7</b><em>Du zahlst rund 31 Jahresgewinne. Eigener Schnitt 2021–2025: rund 29. Leicht teurer als üblich.</em></div>
+<div class="kpi g"><span>Aktienrückkauf</span><b>2.9 % pro Jahr</b><em>Allein im letzten Quartal 4.9 Mrd. $. Jedes Jahr gibt es rund 3 % weniger Aktien.</em></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>Umsatz pro Quartal (Mrd. $)</h3>
+      <p class="note">Jedes Quartal über Vorjahr, zuletzt 14–17 % Wachstum.</p>
+      <div class="chart" id="c-rev"></div>
+    </div>
+    <div class="card">
+      <h3>Operative Marge pro Jahr</h3>
+      <p class="note">Seit Jahren stabil um 67 %.</p>
+      <div class="chart" id="c-margin"></div>
+    </div>
+  </div>
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Jahr</th><th class="num">Umsatz Mio. $</th><th class="num">Wachstum</th><th class="num">Op. Marge</th><th class="num">EPS $</th><th class="num">Free Cashflow</th><th class="num">ROIC</th><th class="num">KGV</th></tr></thead>
+      <tbody id="fin-rows"></tbody>
+    </table>
+  </div>
+  <p class="note"><b>Hinweis:</b> Geschäftsjahr endet jeweils Ende September. Im ausgewiesenen Gewinn stecken manchmal Rückstellungen für Rechtsfälle, darum schwankt das EPS-Wachstum.</p>
+</section>
+
+<section>
+  <h2>Qualität: 80 von 100</h2>
+  <div class="card tbl"><table id="q-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Technik: Wochenchart (2 Jahre)</h2>
+  <div class="card">
+    <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span><span><i class="swb" style="background:var(--zone-sup);border:1px solid var(--good)"></i>Unterstützung</span><span><i class="swb" style="background:var(--zone-res);border:1px solid var(--bad)"></i>Widerstand</span></div>
+    <div class="chart" id="c-week"></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>A/D-Linie, Woche</h3>
+      <p class="note">Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Neues Hoch im August zusammen mit dem Kurs, seither leicht gefallen.</p>
+      <div class="chart" id="c-adw"></div>
+    </div>
+    <div class="card">
+      <h3>RSI, Woche</h3>
+      <p class="note">Unter 30 überverkauft, über 70 überkauft. Heute 60: gesunder Aufwärtstrend.</p>
+      <div class="chart" id="c-rsiw"></div>
+    </div>
+  </div>
+
+  <h2>Technik: Tageschart (6 Monate)</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Kurs, Tag</h3>
+      <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span></div>
+      <div class="chart" id="c-day"></div>
+    </div>
+    <div class="card">
+      <h3>A/D-Linie, Tag</h3>
+      <p class="note">Seit dem Hoch Ende August fällt die Tages-A/D mit dem Kurs. Normale Gewinnmitnahmen, keine Panik.</p>
+      <div class="chart" id="c-add"></div>
+    </div>
+  </div>
+
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Indikator</th><th>Tag</th><th>Woche</th><th>Bedeutung</th></tr></thead>
+      <tbody>
+<tr><td>Kurs vs. EMA 50</td><td class="pts">369.7 &gt; 364.7</td><td class="pts">369.7 &gt; 344.2</td><td>Über der mittelfristigen Linie.</td></tr>
+<tr><td>Kurs vs. EMA 200</td><td class="pts">369.7 &gt; 345.9</td><td class="pts">369.7 &gt; 304.8</td><td>Über der langfristigen Linie: Aufwärtstrend.</td></tr>
+<tr><td>EMA 50 vs. EMA 200</td><td class="pts">50 über 200 (Golden Cross 2.7.2026)</td><td class="pts">50 über 200 (seit 2023)</td><td>Beide Zeitebenen im Aufwärtstrend.</td></tr>
+<tr><td>RSI (14)</td><td class="pts">53.0</td><td class="pts">59.7</td><td>Neutral bis freundlich.</td></tr>
+<tr><td>A/D</td><td class="pts">fällt seit Ende August</td><td class="pts">leicht unter dem August-Hoch</td><td>Ruhige Gewinnmitnahmen.</td></tr>
+<tr><td>Volumen</td><td colspan="2">Ø 20 Tage 6.1 Mio. vs. Ø 100 Tage 7.5 Mio.</td><td>Die Seitwärtsphase läuft mit sinkendem Volumen. Leicht positiv.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Struktur und Zonen (Smart Money Concept)</h2>
+  <p class="lead">Seit dem Tief im März (293.90 $) macht Visa höhere Hochs (342 → 374 → 385.60 $) und höhere Tiefs (309 → 348.50 $). Seit August läuft eine Seitwärtsphase zwischen rund 357 und 385.60 $. Der Kurs steht in deren unterer Hälfte (Discount). Die Tiefs von September (365.50 $ und 359.80 $) liegen etwas tiefer, das ist eine normale Verschnaufpause.</p>
+  <div class="zones">
+<div class="zone r"><b>385.6 $</b><span>Widerstand: Allzeithoch vom 26.8.</span></div>
+<div class="zone t"><b>385.60 $</b><span><b>Trigger Ausbruch:</b> Tagesschluss über dem Allzeithoch.</span></div>
+<div class="zone s"><b>357–362 $</b><span>Kaufzone: Tiefs vom September, Unterkante der Seitwärtsphase.</span></div>
+<div class="zone s"><b>342–346 $</b><span>Tiefere Zone: EMA 200 (Tag) und Ausbruchsniveau vom Frühling.</span></div>
+<div class="zone r"><b>342 $</b><span>Abbruch: Wochenschluss darunter beendet den Aufwärtstrend auf dem Tageschart.</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Smart Money, Insider und Saisonalität</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Wer kauft, wer verkauft?</h3>
+      <ul class="clean" style="margin-top:8px">
+<li><b>Visa selbst:</b> Grosser Aktienrückkauf: 4.9 Mrd. $ im letzten Quartal, noch 28.4 Mrd. $ bewilligt. Dividende 0.7 %.</li>
+<li><b>Insider-Käufe:</b> Keine. Einzelne US-Politiker meldeten kleine Käufe (Nebeninfo, Wochen verspätet).</li>
+<li><b>Insider-Verkäufe:</b> Rund 63 Mio. $ in 12 Monaten, vor allem CEO McInerney. Üblich bei Visa.</li>
+<li><b>Analysten:</b> Durchschnittliches Kursziel 419 $, Einstufung „Strong Buy“ (40 Analysten).</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Saisonalität seit 2008</h3>
+      <p class="note">Durchschnittliche Monatsrendite in %, 18 Jahre. Oktober bis Dezember sind mit 67–72 % positiven Jahren verlässlich stark, September der schwächste Monat.</p>
+      <div class="chart" id="c-seas"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Timing: 61 von 100</h2>
+  <div class="card tbl"><table id="t-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Pro und Contra</h2>
+  <div class="two">
+    <div class="card pro"><h3>Spricht dafür</h3><ul class="clean" style="margin-top:8px">
+<li>Monopolartiges Netzwerk mit 67 % Marge und ROIC über 50 %.</li>
+<li>Wachstum beschleunigt sich, Ausblick angehoben.</li>
+<li>Grosse Rückkäufe senken die Aktienzahl jedes Jahr um rund 3 %.</li>
+<li>Sauberer Aufwärtstrend, Kurs in der unteren Hälfte der Seitwärtsphase.</li>
+<li>Oktober bis Dezember saisonal stark.</li>
+    </ul></div>
+    <div class="card con"><h3>Spricht dagegen</h3><ul class="clean" style="margin-top:8px">
+<li>Regulierung: Ein US-Gesetz für mehr Wettbewerb bei Kreditkarten und die Klage des Justizministeriums könnten Gebühren drücken.</li>
+<li>Neue Konkurrenz durch Stablecoins und Echtzeitzahlungen.</li>
+<li>Kosten steigen schneller als der Umsatz (+17 %).</li>
+<li>KGV leicht über dem eigenen Schnitt.</li>
+<li>A/D-Linien fallen seit August leicht.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section>
+  <h2>Was jetzt zu tun ist</h2>
+  <div class="zones">
+<div class="zone t"><b>Beobachten</b><span>Alarm bei 362 $ (Kaufzone) und bei 385.60 $ (Allzeithoch).</span></div>
+<div class="zone s"><b>Timing grün</b><span>Rücksetzer in 357–362 $, der hält, und die Tages-A/D dreht nach oben. Oder Tagesschluss über 385.60 $ mit neuem Hoch der A/D.</span></div>
+<div class="zone r"><b>Abbruch</b><span>Wochenschluss unter 342 $.</span></div>
+<div class="zone "><b>Nächste Zahlen</b><span>27. Oktober 2026 (4. Quartal Geschäftsjahr 2026) mit Ausblick 2027.</span></div>
+  </div>
+</section>
+
+<footer>
+  <span>Kursdaten und Indikatoren (EMA, RSI 14, A/D) selbst berechnet aus Yahoo-Finance-Tages-, Wochen- und Monatsdaten, Stand 05.10.2026. <a href="https://stockanalysis.com/stocks/v/financials/" target="_blank" rel="noopener">StockAnalysis.com</a> (Stand 05.10.2026), <a href="https://www.investing.com/news/transcripts/earnings-call-transcript-visa-tops-q3-2026-estimates-raises-outlook-93CH-4818303" target="_blank" rel="noopener">Q3-Zahlen (Investing.com)</a>, <a href="https://qz.com/visa-fiscal-q3-2026-earnings-revenue-growth-072826" target="_blank" rel="noopener">Quartz</a>, <a href="https://www.marketbeat.com/stocks/NYSE/V/insider-trades/" target="_blank" rel="noopener">Insider (MarketBeat)</a>.</span>
+  <span>Persönliche Analyse, keine Anlageberatung. Vergangene Kurse und Saisonalität sagen nichts Sicheres über die Zukunft.</span>
+</footer>
+</div>
+
+<script>
+const Q=[["Umsatztrend", "4 von 4 Quartalen über Vorjahr, Tempo steigt", 15, 15], ["Wachstumstempo", "+14 % (Netto-Umsatz)", 8, 10], ["Operative Marge", "66.9 % (9 Pkt.), stabil (3 Pkt.)", 12, 15], ["Gewinnwachstum (EPS)", "Ø rund +12–15 % pro Jahr", 8, 10], ["Free Cashflow", "Positiv, 2024 und zuletzt leicht gesunken", 6, 10], ["ROIC", "54.8 %, steigend", 15, 15], ["Schulden", "Nettoschulden/EBITDA 0.3", 9, 10], ["Bewertung vs. eigene Historie", "KGV 30.7 vs. Ø rund 29 (±10 %)", 7, 15]];
+const T=[["Trend Woche (EMA 50/200)", "Kurs über beiden, EMA 50 über EMA 200", 19, 20], ["Trend Tag (EMA 50/200)", "Kurs über beiden", 9, 10], ["Struktur (SMC)", "Seitwärtsphase im Aufwärtstrend, Kurs im Discount", 10, 20], ["RSI Tag/Woche", "53 / 60: neutral", 7, 15], ["A/D Tag/Woche", "Beide fallen leicht mit dem Kurs", 5, 20], ["Smart Money", "Grosser Rückkauf (2.9 %), keine Insider-Käufe", 6, 10], ["Saisonalität", "Okt–Dez: Ø 70 % positive Jahre", 5, 5]];
+const FIN=[["GJ 2022", 29310, "+21.6 %", "67.2 %", 7.0, 17879, "40.1 %", "23.3"], ["GJ 2023", 32653, "+11.4 %", "67.2 %", 8.28, 19696, "44.9 %", "25.6"], ["GJ 2024", 35926, "+10.0 %", "66.8 %", 9.73, 18693, "46.3 %", "26.9"], ["GJ 2025", 40000, "+11.3 %", "67.0 %", 10.2, 21577, "49.1 %", "32.0"], ["Letzte 12 Mt.", 44488, "+14.4 %", "66.9 %", 11.75, 21013, "54.8 %", "30.7"]];
+const HALF=[["Q3 24", 9.62], ["Q4 24", 9.51], ["Q1 25", 9.59], ["Q2 25", 10.17], ["Q3 25", 10.72], ["Q4 25", 10.9], ["Q1 26", 11.23], ["Q2 26", 11.63]];
+const MARGIN=[["GJ 22", 67.2], ["GJ 23", 67.2], ["GJ 24", 66.8], ["GJ 25", 67.0], ["12 Mt.", 66.9]];
+const SEAS=[0.7, 3.6, -0.1, 4.9, 0.8, -0.2, 2.5, 1.6, -2.0, 3.0, 2.8, 1.9];
+const SEASHIT=[50.0, 67.0, 50.0, 68.0, 63.0, 42.0, 79.0, 68.0, 37.0, 67.0, 72.0, 72.0];
+const MON=["Jan","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"];
+const W=`2024-10-14,290.6,267.6,242.8,62,605.2;2024-10-21,281.7,268.1,243.2,55,583.9;2024-10-28,290.7,269.0,243.7,60,592.7;2024-11-04,307.9,270.5,244.3,67,613.7;2024-11-11,309.6,272.1,245.0,68,614.4;2024-11-18,309.9,273.6,245.6,68,619.7;2024-11-25,315.1,275.2,246.3,70,638.7;2024-12-02,311.0,276.6,247.0,66,626.0;2024-12-09,314.7,278.1,247.6,68,638.9;2024-12-16,317.7,279.6,248.3,69,659.5;2024-12-23,318.7,281.2,249.0,70,664.5;2024-12-30,314.9,282.5,249.7,66,660.3;2025-01-06,307.7,283.5,250.3,59,645.5;2025-01-13,319.6,284.9,251.0,65,672.3;2025-01-20,330.2,286.7,251.8,70,689.4;2025-01-27,341.8,288.8,252.6,74,695.8;2025-02-03,348.0,291.2,253.6,76,710.0;2025-02-10,353.8,293.6,254.6,77,725.0;2025-02-17,348.5,295.8,255.5,73,707.3;2025-02-24,362.7,298.4,256.6,77,741.9;2025-03-03,345.3,300.2,257.5,64,719.3;2025-03-10,331.8,301.5,258.2,56,702.5;2025-03-17,335.7,302.8,259.0,58,700.2;2025-03-24,342.9,304.4,259.8,61,692.9;2025-03-31,313.1,304.7,260.4,47,650.1;2025-04-07,333.4,305.9,261.1,54,689.5;2025-04-14,329.6,306.8,261.8,53,673.0;2025-04-21,335.2,307.9,262.5,55,689.8;2025-04-28,347.6,309.5,263.3,59,712.7;2025-05-05,352.5,311.1,264.2,61,721.0;2025-05-12,365.1,313.3,265.2,64,747.8;2025-05-19,353.5,314.8,266.1,59,725.2;2025-05-26,365.2,316.8,267.1,62,741.4;2025-06-02,370.2,318.9,268.1,64,763.0;2025-06-09,352.9,320.2,269.0,56,746.6;2025-06-16,338.6,321.0,269.7,50,713.1;2025-06-23,348.6,322.0,270.4,54,727.9;2025-06-30,358.9,323.5,271.3,57,749.9;2025-07-07,347.9,324.4,272.1,53,732.1;2025-07-14,349.0,325.4,272.9,53,736.3;2025-07-21,357.0,326.7,273.7,56,757.1;2025-07-28,339.4,327.1,274.3,49,721.4;2025-08-04,336.8,327.5,275.0,48,722.5;2025-08-11,344.5,328.2,275.7,51,734.9;2025-08-18,350.0,329.0,276.4,53,755.1;2025-08-25,351.8,329.9,277.1,54,767.7;2025-09-01,343.2,330.5,277.8,50,758.0;2025-09-08,339.4,330.8,278.4,48,748.3;2025-09-15,341.6,331.2,279.0,49,758.5;2025-09-22,337.4,331.5,279.6,47,741.7;2025-09-29,349.8,332.2,280.3,53,763.0;2025-10-06,343.6,332.6,281.0,50,740.2;2025-10-13,341.9,333.0,281.6,49,739.4;2025-10-20,347.4,333.6,282.2,52,753.6;2025-10-27,340.7,333.9,282.8,49,732.7;2025-11-03,336.0,333.9,283.3,46,719.1;2025-11-10,330.0,333.8,283.8,44,695.2;2025-11-17,328.0,333.6,284.2,43,706.6;2025-11-24,334.4,333.6,284.7,47,722.9;2025-12-01,331.2,333.5,285.2,45,736.7;2025-12-08,347.8,334.1,285.8,54,766.7;2025-12-15,349.3,334.7,286.4,55,803.7;2025-12-22,355.0,335.5,287.1,58,810.3;2025-12-29,346.5,335.9,287.7,52,801.5;2026-01-05,349.8,336.4,288.3,54,794.7;2026-01-12,328.3,336.1,288.7,43,758.3;2026-01-19,326.2,335.7,289.1,42,767.3;2026-01-26,321.8,335.2,289.4,40,725.6;2026-02-02,331.6,335.0,289.9,46,730.1;2026-02-09,314.1,334.2,290.1,39,692.0;2026-02-16,321.0,333.7,290.4,43,710.4;2026-02-23,320.1,333.2,290.7,42,759.1;2026-03-02,317.4,332.5,291.0,41,751.2;2026-03-09,307.1,331.5,291.1,37,725.3;2026-03-16,301.6,330.4,291.2,35,708.1;2026-03-23,295.5,329.0,291.3,33,677.2;2026-03-30,300.8,327.9,291.4,36,684.8;2026-04-06,304.4,327.0,291.5,39,680.6;2026-04-13,317.0,326.6,291.7,47,702.8;2026-04-20,309.4,325.9,291.9,43,695.2;2026-04-27,328.0,326.0,292.3,53,706.3;2026-05-04,318.8,325.7,292.5,48,685.7;2026-05-11,325.8,325.7,292.9,52,700.0;2026-05-18,328.9,325.8,293.2,53,695.6;2026-05-25,326.4,325.9,293.6,52,696.2;2026-06-01,323.6,325.8,293.9,50,719.8;2026-06-08,322.4,325.6,294.1,50,722.4;2026-06-15,327.2,325.7,294.5,52,708.8;2026-06-22,336.2,326.1,294.9,57,736.3;2026-06-29,362.1,327.5,295.6,67,778.8;2026-07-06,349.0,328.4,296.1,59,756.2;2026-07-13,358.6,329.6,296.7,63,763.7;2026-07-20,355.7,330.6,297.3,61,763.7;2026-07-27,366.1,332.0,298.0,65,770.5;2026-08-03,362.5,333.2,298.6,62,752.7;2026-08-10,364.1,334.4,299.3,63,764.8;2026-08-17,371.0,335.8,300.0,66,801.3;2026-08-24,381.6,337.6,300.8,69,814.5;2026-08-31,375.1,339.1,301.5,65,802.7;2026-09-07,370.5,340.3,302.2,62,806.6;2026-09-14,368.3,341.4,302.9,60,775.2;2026-09-21,367.4,342.4,303.5,60,782.5;2026-09-28,360.7,343.1,304.1,55,770.2;2026-10-05,369.7,344.2,304.8,60,774.3`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+const DD=`2026-03-31,302.2,315.8,329.8,82.7;2026-04-01,298.5,315.1,329.5,81.3;2026-04-02,300.8,314.5,329.2,83.5;2026-04-06,303.3,314.1,328.9,86.6;2026-04-07,302.5,313.6,328.7,85.4;2026-04-08,309.0,313.4,328.5,83.7;2026-04-09,308.3,313.2,328.3,86.4;2026-04-10,304.4,312.9,328.0,82.8;2026-04-13,309.4,312.8,327.9,89.0;2026-04-14,311.4,312.7,327.7,92.7;2026-04-15,315.9,312.8,327.6,96.0;2026-04-16,315.1,312.9,327.5,92.1;2026-04-17,317.0,313.1,327.3,91.0;2026-04-20,313.9,313.1,327.2,88.9;2026-04-21,309.9,313.0,327.0,84.0;2026-04-22,311.3,312.9,326.9,89.4;2026-04-23,308.9,312.8,326.7,89.9;2026-04-24,309.4,312.6,326.5,94.4;2026-04-27,309.6,312.5,326.4,97.6;2026-04-28,309.3,312.4,326.2,90.6;2026-04-29,334.9,313.3,326.3,78.3;2026-04-30,329.8,313.9,326.3,76.0;2026-05-01,328.0,314.5,326.3,69.5;2026-05-04,326.9,315.0,326.3,67.2;2026-05-05,322.0,315.2,326.3,66.1;2026-05-06,318.8,315.4,326.2,60.1;2026-05-07,321.3,315.6,326.2,59.0;2026-05-08,318.8,315.7,326.1,59.4;2026-05-11,323.9,316.1,326.1,65.5;2026-05-12,326.4,316.5,326.1,65.1;2026-05-13,320.3,316.6,326.0,58.6;2026-05-14,322.5,316.8,326.0,61.1;2026-05-15,325.8,317.2,326.0,59.5;2026-05-18,332.6,317.8,326.1,64.0;2026-05-19,329.9,318.3,326.1,53.0;2026-05-20,330.8,318.8,326.1,58.9;2026-05-21,331.1,319.2,326.2,62.2;2026-05-22,328.9,319.6,326.2,54.9;2026-05-26,326.5,319.9,326.2,54.8;2026-05-27,327.6,320.2,326.2,52.9;2026-05-28,325.0,320.4,326.2,55.4;2026-05-29,326.4,320.6,326.2,45.8;2026-06-01,322.8,320.7,326.2,44.7;2026-06-02,317.3,320.6,326.1,42.4;2026-06-03,312.4,320.2,326.0,40.5;2026-06-04,320.2,320.2,325.9,39.6;2026-06-05,323.6,320.4,325.9,39.8;2026-06-08,319.7,320.3,325.8,36.8;2026-06-09,325.0,320.5,325.8,42.5;2026-06-10,323.0,320.6,325.8,41.5;2026-06-11,319.0,320.6,325.7,37.8;2026-06-12,322.4,320.6,325.7,36.9;2026-06-15,323.8,320.8,325.7,34.0;2026-06-16,333.1,321.2,325.7,42.9;2026-06-17,330.4,321.6,325.8,36.9;2026-06-18,327.2,321.8,325.8,23.5;2026-06-22,326.6,322.0,325.8,11.5;2026-06-23,328.5,322.3,325.8,3.1;2026-06-24,332.2,322.7,325.9,5.7;2026-06-25,330.5,323.0,325.9,-0.7;2026-06-26,336.2,323.5,326.0,1.9;2026-06-29,341.6,324.2,326.2,0.7;2026-06-30,343.1,324.9,326.4,5.0;2026-07-01,351.1,326.0,326.6,13.2;2026-07-02,362.1,327.4,327.0,23.1;2026-07-06,357.3,328.6,327.3,23.5;2026-07-07,352.2,329.5,327.5,24.6;2026-07-08,347.5,330.2,327.7,20.8;2026-07-09,348.2,330.9,327.9,26.4;2026-07-10,349.0,331.6,328.1,27.6;2026-07-13,357.8,332.6,328.4,33.4;2026-07-14,356.0,333.5,328.7,31.8;2026-07-15,355.1,334.4,329.0,32.3;2026-07-16,365.1,335.6,329.3,41.4;2026-07-17,358.6,336.5,329.6,37.0;2026-07-20,360.6,337.4,329.9,39.0;2026-07-21,355.8,338.2,330.2,36.1;2026-07-22,353.4,338.8,330.4,33.5;2026-07-23,351.6,339.3,330.6,36.6;2026-07-24,355.7,339.9,330.9,40.9;2026-07-27,362.5,340.8,331.2,44.7;2026-07-28,366.6,341.8,331.5,43.8;2026-07-29,368.7,342.9,331.9,48.7;2026-07-30,366.3,343.8,332.3,55.1;2026-07-31,366.1,344.7,332.6,61.2;2026-08-03,365.7,345.5,332.9,57.6;2026-08-04,369.6,346.4,333.3,63.0;2026-08-05,368.5,347.3,333.6,60.9;2026-08-06,370.5,348.2,334.0,64.8;2026-08-07,362.5,348.8,334.3,60.8;2026-08-10,361.3,349.3,334.6,60.3;2026-08-11,362.8,349.8,334.8,61.4;2026-08-12,359.4,350.2,335.1,59.2;2026-08-13,365.5,350.8,335.4,67.4;2026-08-14,364.1,351.3,335.7,64.8;2026-08-17,358.8,351.6,335.9,51.3;2026-08-18,364.3,352.1,336.2,55.2;2026-08-19,365.5,352.6,336.5,53.4;2026-08-20,365.7,353.1,336.8,52.1;2026-08-21,371.0,353.8,337.1,56.8;2026-08-24,382.4,354.9,337.6,63.7;2026-08-25,384.1,356.1,338.0,70.3;2026-08-26,383.9,357.2,338.5,71.8;2026-08-27,379.7,358.1,338.9,69.9;2026-08-28,381.6,359.0,339.3,70.4;2026-08-31,379.4,359.8,339.7,65.7;2026-09-01,372.7,360.3,340.0,60.5;2026-09-02,378.4,361.0,340.4,62.9;2026-09-03,378.8,361.7,340.8,61.7;2026-09-04,375.1,362.2,341.1,60.5;2026-09-08,368.6,362.5,341.4,57.6;2026-09-09,367.4,362.7,341.7,56.8;2026-09-10,367.2,362.8,341.9,58.2;2026-09-11,370.5,363.1,342.2,59.2;2026-09-14,375.3,363.6,342.5,61.2;2026-09-15,375.6,364.1,342.9,64.1;2026-09-16,370.9,364.4,343.1,61.7;2026-09-17,369.9,364.6,343.4,60.6;2026-09-18,368.3,364.7,343.7,54.7;2026-09-21,370.0,364.9,343.9,59.0;2026-09-22,362.0,364.8,344.1,53.5;2026-09-23,361.5,364.7,344.3,50.8;2026-09-24,368.0,364.8,344.5,54.9;2026-09-25,367.4,364.9,344.7,57.6;2026-09-28,367.7,365.0,345.0,56.0;2026-09-29,365.9,365.1,345.2,53.5;2026-09-30,359.3,364.8,345.3,46.1;2026-10-01,359.9,364.6,345.5,45.3;2026-10-02,360.7,364.5,345.6,48.0;2026-10-05,369.7,364.7,345.9,52.2`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+
+const fmtN=(v,d=2)=>v.toLocaleString("de-CH",{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmtD=s=>{const [y,m,d]=s.split("-");return d+"."+m+"."+y.slice(2)};
+const NS="http://www.w3.org/2000/svg";
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+
+function scoreTable(id,rows){
+  let tot=0,max=0;
+  const html='<thead><tr><th>Kriterium</th><th>Stand</th><th class="num">Punkte</th><th style="width:22%"></th></tr></thead><tbody>'+rows.map(r=>{tot+=r[2];max+=r[3];const p=r[2]/r[3];const c=p>=.75?"var(--good)":p>=.45?"var(--warn)":"var(--bad)";
+    return `<tr><td>${r[0]}</td><td class="muted">${r[1]}</td><td class="num">${r[2]} / ${r[3]}</td><td><div class="bar"><i style="width:${p*100}%;background:${c}"></i></div></td></tr>`}).join("")+`<tr class="total"><td>Total</td><td></td><td class="num">${tot} / ${max}</td><td></td></tr></tbody>`;
+  document.getElementById(id).innerHTML=html;return tot;
+}
+const qs=scoreTable("q-tbl",Q), ts=scoreTable("t-tbl",T);
+document.getElementById("q-val").textContent=qs;document.getElementById("t-val").textContent=ts;
+document.getElementById("q-pin").style.left=qs+"%";document.getElementById("t-pin").style.left=ts+"%";
+
+document.getElementById("fin-rows").innerHTML=FIN.map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1].toLocaleString("de-CH")}</td><td class="num">${r[2]}</td><td class="num">${r[3]}</td><td class="num">${fmtN(r[4])}</td><td class="num">${r[5].toLocaleString("de-CH")}</td><td class="num">${r[6]}</td><td class="num">${r[7]}</td></tr>`).join("");
+
+/* generic line chart */
+function lineChart(host,{dates,series,bands=[],yFmt=v=>fmtN(v),h=300,zero=false,refs=[],pad}){
+  const W_=800,H=h,m={t:12,r:56,b:28,l:8};
+  const all=series.flatMap(s=>s.values).concat(bands.flatMap(b=>[b.from,b.to])).concat(refs.map(r=>r.v));
+  if(zero)all.push(0);
+  let lo=Math.min(...all),hi=Math.max(...all);const sp=(hi-lo)||1;lo-=sp*.06;hi+=sp*.06;
+  if(pad){lo=pad[0];hi=pad[1]}
+  const n=dates.length,x=i=>m.l+i*(W_-m.l-m.r)/(n-1),y=v=>m.t+(hi-v)*(H-m.t-m.b)/(hi-lo);
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  // grid
+  const steps=5;for(let k=0;k<=steps;k++){const v=lo+(hi-lo)*k/steps;el("line",{x1:m.l,x2:W_-m.r,y1:y(v),y2:y(v),stroke:"var(--grid)","stroke-width":1},svg);
+    const t=el("text",{x:W_-m.r+6,y:y(v)+4,"font-size":11,fill:"var(--muted)","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=yFmt(v)}
+  bands.forEach(b=>{el("rect",{x:m.l,width:W_-m.l-m.r,y:y(Math.max(b.from,b.to)),height:Math.abs(y(b.from)-y(b.to)),fill:b.type==="res"?"var(--zone-res)":"var(--zone-sup)"},svg)});
+  refs.forEach(r=>{el("line",{x1:m.l,x2:W_-m.r,y1:y(r.v),y2:y(r.v),stroke:"var(--muted)","stroke-dasharray":"4 4","stroke-width":1},svg);
+    const t=el("text",{x:m.l+4,y:y(r.v)-4,"font-size":11,fill:"var(--muted)"},svg);t.textContent=r.label});
+  if(zero)el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  // x labels
+  const every=Math.ceil(n/6);for(let i=0;i<n;i+=every){const t=el("text",{x:x(i),y:H-8,"font-size":11,fill:"var(--muted)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);const d=dates[i];t.textContent=d.slice(5,7)+"/"+d.slice(2,4)}
+  series.forEach(s=>{const dpath=s.values.map((v,i)=>(i?"L":"M")+x(i).toFixed(1)+","+y(v).toFixed(1)).join("");
+    el("path",{d:dpath,fill:"none",stroke:s.color,"stroke-width":s.w||2,"stroke-linejoin":"round","stroke-linecap":"round"},svg);
+    const lv=s.values[n-1];el("circle",{cx:x(n-1),cy:y(lv),r:3.5,fill:s.color,stroke:"var(--surface)","stroke-width":2},svg)});
+  // hover
+  const cross=el("line",{y1:m.t,y2:H-m.b,stroke:"var(--muted)","stroke-width":1,opacity:0},svg);
+  const ov=el("rect",{x:m.l,y:m.t,width:W_-m.l-m.r,height:H-m.t-m.b,fill:"transparent"},svg);
+  host.appendChild(svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;host.appendChild(tip);
+  function move(ev){const r=svg.getBoundingClientRect();const px=(ev.clientX-r.left)*W_/r.width;let i=Math.round((px-m.l)/((W_-m.l-m.r)/(n-1)));i=Math.max(0,Math.min(n-1,i));
+    cross.setAttribute("x1",x(i));cross.setAttribute("x2",x(i));cross.setAttribute("opacity",1);
+    tip.innerHTML=`<div class="d">${fmtD(dates[i])}</div>`+series.map(s=>`<div><i class="sw" style="background:${s.color}"></i> ${s.name}: <b>${yFmt(s.values[i])}</b></div>`).join("");
+    tip.hidden=false;const hx=x(i)*r.width/W_;tip.style.left=Math.min(Math.max(0,hx+12),r.width-tip.offsetWidth)+"px";tip.style.top="8px"}
+  ov.addEventListener("pointermove",move);ov.addEventListener("pointerleave",()=>{tip.hidden=true;cross.setAttribute("opacity",0)});
+}
+function barChart(host,{labels,values,fmt,h=220,color,neg,tipExtra}){
+  const W_=800,H=h,m={t:18,r:8,b:28,l:8};
+  const hi=Math.max(0,...values),lo=Math.min(0,...values);const lo2=lo<0?lo*1.15:lo,hi2=hi*1.15||1;
+  const y=v=>m.t+(hi2-v)*(H-m.t-m.b)/(hi2-lo2);const n=values.length,bw=(W_-m.l-m.r)/n;
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;
+  values.forEach((v,i)=>{const x0=m.l+i*bw+bw*.18,w=bw*.64,y0=y(Math.max(v,0)),hh=Math.max(1,Math.abs(y(v)-y(0)));
+    const r=el("rect",{x:x0,y:y0,width:w,height:hh,rx:4,fill:v<0?(neg||"var(--s2)"):(color||"var(--s1)")},svg);
+    const t=el("text",{x:x0+w/2,y:v<0?y(v)+13:y0-5,"font-size":11.5,fill:"var(--ink)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=fmt(v);
+    const l=el("text",{x:x0+w/2,y:H-8,"font-size":11.5,fill:"var(--muted)","text-anchor":"middle"},svg);l.textContent=labels[i];
+    const hit=el("rect",{x:m.l+i*bw,y:m.t,width:bw,height:H-m.t-m.b,fill:"transparent"},svg);
+    hit.addEventListener("pointerenter",()=>{tip.innerHTML=`<div class="d">${labels[i]}</div><b>${fmt(v)}</b>${tipExtra?tipExtra(i):""}`;tip.hidden=false;const R=svg.getBoundingClientRect();tip.style.left=Math.min((m.l+i*bw)*R.width/W_,R.width-tip.offsetWidth)+"px";tip.style.top="0px"});
+    hit.addEventListener("pointerleave",()=>tip.hidden=true)});
+  host.appendChild(svg);host.appendChild(tip);
+}
+barChart(document.getElementById("c-rev"),{labels:HALF.map(r=>r[0]),values:HALF.map(r=>r[1]),fmt:v=>fmtN(v,1),h:200});
+barChart(document.getElementById("c-margin"),{labels:MARGIN.map(r=>r[0]),values:MARGIN.map(r=>r[1]),fmt:v=>fmtN(v,1)+" %",h:200});
+barChart(document.getElementById("c-seas"),{labels:MON,values:SEAS,fmt:v=>(v>0?"+":"")+fmtN(v,1),h:220,tipExtra:i=>`<div>${SEASHIT[i]} % der Jahre positiv</div>`});
+const BANDS=[{"from": 383, "to": 386, "type": "res"}, {"from": 357, "to": 362, "type": "sup"}, {"from": 342, "to": 346, "type": "sup"}], REFS=[{"v": 385.6, "label": "Allzeithoch 385.60"}];
+const wd=W.map(r=>r[0]);
+lineChart(document.getElementById("c-week"),{dates:wd,series:[{name:"Kurs",values:W.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:W.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:W.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,yFmt:v=>fmtN(v,0),h:320});
+lineChart(document.getElementById("c-adw"),{dates:wd,series:[{name:"A/D Woche",values:W.map(r=>r[5]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,zero:true});
+lineChart(document.getElementById("c-rsiw"),{dates:wd,series:[{name:"RSI Woche",values:W.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,refs:[{v:70,label:"70 überkauft"},{v:30,label:"30 überverkauft"}],pad:[10,90]});
+const dd=DD.map(r=>r[0]);
+lineChart(document.getElementById("c-day"),{dates:dd,series:[{name:"Kurs",values:DD.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:DD.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:DD.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,refs:REFS,yFmt:v=>fmtN(v,0),h:260});
+lineChart(document.getElementById("c-add"),{dates:dd,series:[{name:"A/D Tag",values:DD.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:260,zero:true});
+</script>

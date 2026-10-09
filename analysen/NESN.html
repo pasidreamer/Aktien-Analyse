@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nestlé Aktien-Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F3F5F7; --surface:#FFFFFF; --ink:#141B24; --muted:#5A6573; --line:#DDE2E8; --grid:#E9EDF1;
+  --accent:#2F45B5; --accent-soft:#E6E9F8; --chip:#EBEEF2;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+  --good:#1D7A4B; --good-bg:#E3F3EA; --warn:#9A6200; --warn-bg:#FBF0DC; --bad:#B2362A; --bad-bg:#FBE6E3;
+  --zone-sup:rgba(29,122,75,.10); --zone-res:rgba(178,54,42,.09);
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+    --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+    --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+    --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+  --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+  --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;padding-inline:16px;padding-block:24px 56px}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+h1,h2,h3{font-family:var(--display);font-stretch:85%;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:clamp(32px,7vw,48px);font-weight:800;line-height:1}
+h2{font-size:24px;font-weight:700}
+h3{font-size:17px;font-weight:700;font-stretch:95%}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+section{display:flex;flex-direction:column;gap:14px}
+.lead{max-width:68ch;color:var(--muted)}
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;align-items:stretch}
+.hero .id{display:flex;flex-direction:column;gap:10px;justify-content:space-between}
+.price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price b{font-family:var(--display);font-size:34px;font-weight:700}
+.meta{font-size:13px;color:var(--muted)}
+.verdict{font-size:15px;padding:12px 14px;border-radius:10px;background:var(--chip)}
+.scales{display:flex;flex-direction:column;gap:18px}
+.scale-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.scale-h span{font-size:13px;color:var(--muted)}
+.scale-h b{font-family:var(--display);font-size:28px;line-height:1}
+.track{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#C8412F 0%,#E0892F 30%,#E3B63A 50%,#8BBF4B 68%,#2E9A5B 100%);margin-top:8px}
+.pin{position:absolute;top:-5px;width:4px;height:22px;border-radius:2px;background:var(--ink);box-shadow:0 0 0 2px var(--surface);transform:translateX(-2px)}
+.ticks{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);font-family:var(--mono);margin-top:6px}
+.state{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;margin-top:8px}
+.st-good{background:var(--good-bg);color:var(--good)}
+.st-warn{background:var(--warn-bg);color:var(--warn)}
+.st-bad{background:var(--bad-bg);color:var(--bad)}
+/* tables */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;color:var(--muted);font-weight:500;font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:700;border-bottom:none}
+.pts{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{height:6px;border-radius:3px;background:var(--chip);min-width:60px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:3px}
+/* grids */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;border-left:4px solid var(--line)}
+.kpi.g{border-left-color:var(--good)}.kpi.w{border-left-color:var(--warn)}.kpi.b{border-left-color:var(--bad)}
+.kpi span{font-size:12px;color:var(--muted)}
+.kpi b{font-family:var(--mono);font-size:19px;font-weight:500;font-variant-numeric:tabular-nums}
+.kpi em{font-style:normal;font-size:12.5px;color:var(--muted)}
+/* charts */
+.chart{position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:14px;height:3px;border-radius:2px;display:inline-block}
+.swb{width:12px;height:10px;border-radius:2px;display:inline-block}
+.tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12.5px;box-shadow:0 4px 14px rgba(0,0,0,.12);white-space:nowrap;z-index:2}
+.tip b{font-family:var(--mono);font-weight:500}
+.tip .d{font-family:var(--mono);color:var(--muted);font-size:11.5px}
+.note{font-size:13.5px;color:var(--muted)}
+ul.clean{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.pro li::marker{color:var(--good)} .con li::marker{color:var(--bad)}
+.zones{display:flex;flex-direction:column;gap:8px}
+.zone{display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:baseline;padding:10px 12px;border-radius:10px;background:var(--chip);font-size:14px}
+.zone b{font-family:var(--mono);font-weight:500}
+.zone.r{border-left:4px solid var(--bad)} .zone.s{border-left:4px solid var(--good)} .zone.t{border-left:4px solid var(--accent)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+summary{cursor:pointer;font-weight:600}
+details p{margin-top:8px;color:var(--muted);max-width:70ch}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+footer{font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:6px;max-width:80ch}
+footer a{color:var(--accent)}
+@media (max-width:760px){.hero,.two{grid-template-columns:1fr}.zone{grid-template-columns:1fr;gap:2px}}
+</style>
+
+<a href="../index.html#/aktie/NESN" style="display:inline-block;margin:max(12px,env(safe-area-inset-top)) 0 0 16px;background:#1f3a5f;color:#fff;font:600 14px system-ui;padding:8px 12px;border-radius:20px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">Zurück zur App</a>
+<div class="wrap">
+
+<header class="hero">
+  <div class="card id">
+    <div>
+      <div class="eyebrow">Aktien-Check · 08.10.2026</div>
+      <h1>Nestlé</h1>
+      <p class="meta">Nestlé S.A. · SIX Swiss Exchange: NESN · Nahrungsmittel und Getränke (Nescafé, Nespresso, Purina, Maggi, KitKat) · Schweiz</p>
+    </div>
+    <div class="price"><b>75.91 CHF</b><span class="meta">Kurs 08.10.2026 mittags · 52 Wochen: 70.29 – 87.09 CHF · Allzeithoch 129.80 CHF (2022)</span></div>
+    <p class="verdict"><b>Kurz gesagt:</b> Die bekannteste Schweizer Aktie und ein echter Franken-Wert, aber seit 2022 im Abwärtstrend. Qualität orange (36), Timing orange (34). Spannend wird es in der Zone 70–72.5 CHF, wo seit einem Jahr ein Doppelboden liegt. Die Dividende von 4.1 % ist solide. Für eine Wende braucht es weiter steigende Mengen (RIG) und einen Tagesschluss über 78.55 CHF.</p>
+  </div>
+  <div class="card scales">
+    <div>
+      <div class="scale-h"><span>Qualität · Ist die Firma kaufenswert?</span><b id="q-val">36</b></div>
+      <div class="track"><i class="pin" id="q-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-warn">▲ Schwach</span>
+    </div>
+    <div>
+      <div class="scale-h"><span>Timing · Ist jetzt der Zeitpunkt?</span><b id="t-val">34</b></div>
+      <div class="track"><i class="pin" id="t-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-warn">▲ Beobachten: Trigger noch nicht erreicht</span>
+    </div>
+    <p class="note">Skala: unter 30 rot · 30–45 orange · 45–60 gelb · 60–75 hellgrün · ab 75 grün. Beide Werte setzen sich aus festen Kriterien zusammen, siehe unten.</p>
+  </div>
+</header>
+
+<section>
+  <h2>Was die Firma macht</h2>
+  <p class="lead">Nestlé ist der grösste Nahrungsmittelkonzern der Welt: Kaffee (Nescafé, Nespresso, Starbucks-Produkte im Handel), Tiernahrung (Purina), Baby- und medizinische Ernährung, Süsswaren (KitKat), Fertiggerichte (Maggi) und Wasser. Nestlé verdient den grössten Teil im Ausland: Amerika 39 %, Asien/Ozeanien/Afrika 23 %, Europa 20 %, dazu Nespresso und Health Science.</p>
+  <p class="lead">Seit dem Hoch 2022 (rund 130 CHF) hat die Aktie über 40 % verloren. Nach den Preiserhöhungen kauften die Kunden kaum mehr Menge, der starke Franken drückt den Umsatz in CHF um 5–6 % pro Jahr, und die Marge sank. 2025 gab es einen Chefwechsel (Laurent Freixe musste im September gehen, neuer Chef ist Philipp Navratil) und einen neuen Präsidenten (Pablo Isla). Navratil baut um: 16'000 Stellen weniger bis 2027, 3 Mrd. CHF Einsparungen, Wasser in ein Gemeinschaftsunternehmen, Glacé und Vitamine werden verkauft. Im Januar belastete ein Rückruf von Babynahrung, im September stellte Russland das dortige Geschäft unter Zwangsverwaltung. Positiv: Die Menge (RIG) wächst wieder (+1.5 % im 1. Halbjahr nach +0.2 % im Vorjahr).</p>
+</section>
+
+<section>
+  <h2>Fundamental: die Zahlen</h2>
+  <div class="kpis">
+<div class="kpi w"><span>Organisches Wachstum</span><b>+3.6 %</b><em>1. Halbjahr 2026: Menge (RIG) +1.5 %, Preis +2.1 %. Ziel 2026: 3–4 %. Die Menge steigt endlich wieder.</em></div>
+<div class="kpi w"><span>Operative Marge (bereinigt)</span><b>16.0 %</b><em>Von 100 Franken Umsatz bleiben 16 Franken Betriebsgewinn. Gut, aber seit 2023 (17.3 %) gesunken.</em></div>
+<div class="kpi b"><span>Gewinn pro Aktie (bereinigt)</span><b>4.37 CHF</b><em>Seit 2023 (4.80) jedes Jahr leicht gesunken, vor allem wegen des starken Frankens.</em></div>
+<div class="kpi w"><span>ROIC</span><b>12.3 %</b><em>Mittel und seit 2024 (14.1 %) sinkend.</em></div>
+<div class="kpi g"><span>Free Cashflow</span><b>10.2 Mrd. CHF</b><em>Hoch und stabil. Ziel 2026: über 9 Mrd.</em></div>
+<div class="kpi b"><span>Nettoschulden / EBITDA</span><b>3.4</b><em>Eher hoch, vor allem wegen der Aktienrückkäufe der letzten Jahre.</em></div>
+<div class="kpi g"><span>KGV erwartet</span><b>16.1</b><em>Eigener Schnitt: 20.3. Rund 21 % günstiger als üblich.</em></div>
+<div class="kpi g"><span>Dividende</span><b>4.1 %</b><em>3.10 CHF, seit 1959 nie gesenkt, 31 Jahre in Folge erhöht. Rund 70 % des bereinigten Gewinns.</em></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>Umsatz pro Halbjahr (Mrd. CHF)</h3>
+      <p class="note">In Franken sinkt der Umsatz, weil der starke Franken die Auslandsumsätze kleiner macht (−6 % im 1. Halbjahr 2026). Ohne Währungen wächst Nestlé um 3–4 %.</p>
+      <div class="chart" id="c-rev"></div>
+    </div>
+    <div class="card">
+      <h3>Bereinigte operative Marge pro Jahr</h3>
+      <p class="note">Bereinigte operative Marge (UTOP). 2025 deutlich gesunken, 2026 soll sie wieder steigen.</p>
+      <div class="chart" id="c-margin"></div>
+    </div>
+  </div>
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Jahr</th><th class="num">Umsatz Mio. CHF</th><th class="num">Wachstum</th><th class="num">Op. Marge</th><th class="num">EPS CHF</th><th class="num">Free Cashflow</th><th class="num">ROIC</th><th class="num">KGV</th></tr></thead>
+      <tbody id="fin-rows"></tbody>
+    </table>
+  </div>
+  <p class="note"><b>Hinweis:</b> Wachstum in Franken (ausgewiesen). Organisch, also ohne Währungen und Zukäufe, wuchs Nestlé 2022 +8.3 %, 2023 +7.2 %, 2024 +2.2 %, 2025 +3.5 %. Marge bereinigt (UTOP). EPS ausgewiesen, bereinigt 2025: 4.42 CHF. Das ausgewiesene KGV ist durch Abschreibungen auf das Wassergeschäft erhöht.</p>
+</section>
+
+<section>
+  <h2>Qualität: 36 von 100</h2>
+  <div class="card tbl"><table id="q-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Technik: Wochenchart (2 Jahre)</h2>
+  <div class="card">
+    <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span><span><i class="swb" style="background:var(--zone-sup);border:1px solid var(--good)"></i>Unterstützung</span><span><i class="swb" style="background:var(--zone-res);border:1px solid var(--bad)"></i>Widerstand</span></div>
+    <div class="chart" id="c-week"></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>A/D-Linie, Woche</h3>
+      <p class="note">Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien (Handel an der Heimatbörse). Wichtig: Heute steht der Kurs etwa gleich tief wie im Januar 2026 (73.4 CHF) und im September 2025 (71.1 CHF). Die Wochen-A/D liegt heute aber höher (542 statt 505 und 498). Auf diesem Niveau wurde also eher gekauft.</p>
+      <div class="chart" id="c-adw"></div>
+    </div>
+    <div class="card">
+      <h3>RSI, Woche</h3>
+      <p class="note">Unter 30 überverkauft, über 70 überkauft. Heute 42: schwach, aber weit weg von Panik.</p>
+      <div class="chart" id="c-rsiw"></div>
+    </div>
+  </div>
+
+  <h2>Technik: Tageschart (6 Monate)</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Kurs, Tag</h3>
+      <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span></div>
+      <div class="chart" id="c-day"></div>
+    </div>
+    <div class="card">
+      <h3>A/D-Linie, Tag</h3>
+      <p class="note">Seit dem Juli-Hoch fällt die Tages-A/D mit dem Kurs (92 auf 55). In den letzten Tagen dreht sie leicht nach oben (58.5).</p>
+      <div class="chart" id="c-add"></div>
+    </div>
+  </div>
+
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Indikator</th><th>Tag</th><th>Woche</th><th>Bedeutung</th></tr></thead>
+      <tbody>
+<tr><td>Kurs vs. EMA 50</td><td class="pts">75.9 &lt; 78.1</td><td class="pts">75.9 &lt; 79.2</td><td>Unter der mittelfristigen Linie.</td></tr>
+<tr><td>Kurs vs. EMA 200</td><td class="pts">75.9 &lt; 79.1</td><td class="pts">75.9 &lt; 87.3</td><td>Unter der langfristigen Linie: Abwärtstrend.</td></tr>
+<tr><td>EMA 50 vs. EMA 200</td><td class="pts">50 unter 200 (seit 21.9.2026)</td><td class="pts">50 unter 200 (seit November 2023)</td><td>Abwärtstrend. Die Wochen-EMA 50 läuft aber seit einem Jahr flach (79–81).</td></tr>
+<tr><td>RSI (14)</td><td class="pts">43.5</td><td class="pts">42.4</td><td>Schwach, kein Signal.</td></tr>
+<tr><td>A/D</td><td class="pts">fällt seit Juli</td><td class="pts">höher als bei früheren Tiefs</td><td>Woche positiv, Tag noch negativ.</td></tr>
+<tr><td>Volumen</td><td colspan="2">Ø 20 Tage 3.2 Mio. vs. Ø 100 Tage 3.3 Mio.</td><td>Normal, kein Ausverkauf.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Struktur und Zonen (Smart Money Concept)</h2>
+  <p class="lead">Seit Mitte 2025 läuft Nestlé seitwärts zwischen rund 70 und 87 CHF. Die beiden tiefsten Punkte liegen bei 70.88 CHF (September 2025) und 70.29 CHF (Januar 2026): ein Doppelboden. Danach kamen höhere Tiefs (74.37, 75.14, 76.18 CHF). Seit dem Juli-Hoch (87.09 CHF) macht der Tageschart aber tiefere Hochs (83.91 → 81.19 → 78.53 CHF) und tiefere Tiefs (bis 74.48 CHF am 5.10.). Ein Tagesschluss über 78.55 CHF wäre der Change of Character.</p>
+  <div class="zones">
+<div class="zone r"><b>80.8–81.5 CHF</b><span>Widerstand: Hochs vom August/September und Wochen-EMA 50.</span></div>
+<div class="zone t"><b>78.55 CHF</b><span><b>Trigger:</b> Tagesschluss über dem letzten tieferen Hoch (28.9.).</span></div>
+<div class="zone s"><b>74.4–75 CHF</b><span>Aktuelles Oktober-Tief.</span></div>
+<div class="zone s"><b>70–72.5 CHF</b><span><b>Kaufzone:</b> Doppelboden von September 2025 und Januar 2026. Dort läge die Dividendenrendite bei rund 4.4 %.</span></div>
+<div class="zone r"><b>69.50 CHF</b><span>Abbruch: Wochenschluss darunter = tiefster Stand seit 2016.</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Smart Money, Insider und Saisonalität</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Wer kauft, wer verkauft?</h3>
+      <ul class="clean" style="margin-top:8px">
+<li><b>Nestlé selbst:</b> Zurzeit kein Aktienrückkauf (zuerst Schulden abbauen).</li>
+<li><b>Insider-Käufe:</b> Ein Verwaltungsrat kaufte Ende 2025 für rund 1.6 Mio. CHF Aktien zu 78–80 CHF (älter als 6 Monate). Keine Verkäufe gefunden.</li>
+<li><b>Analysten:</b> Überwiegend „Kaufen“, durchschnittliches Kursziel rund 88 CHF. Jefferies stufte am 18.9. auf „Kaufen“ hoch.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Saisonalität seit 1990</h3>
+      <p class="note">Durchschnittliche Monatsrendite in %. Rund 36 Jahre. Oktober bis Dezember: 61–64 % positive Jahre. September ist der schwächste Monat.</p>
+      <div class="chart" id="c-seas"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Timing: 34 von 100</h2>
+  <div class="card tbl"><table id="t-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Pro und Contra</h2>
+  <div class="two">
+    <div class="card pro"><h3>Spricht dafür</h3><ul class="clean" style="margin-top:8px">
+<li>Franken-Aktie: kein Währungsrisiko beim Kauf, Dividende in CHF.</li>
+<li>Die Menge (RIG) wächst wieder.</li>
+<li>Bewertung 21 % unter dem eigenen Schnitt.</li>
+<li>Dividende 4.1 %, seit 1959 nie gesenkt.</li>
+<li>Doppelboden bei 70–72.5 CHF, Wochen-A/D höher als bei früheren Tiefs.</li>
+    </ul></div>
+    <div class="card con"><h3>Spricht dagegen</h3><ul class="clean" style="margin-top:8px">
+<li>Umsatz und Gewinn in Franken sinken seit Jahren.</li>
+<li>Verdient rund 80 % im Ausland: Ein starker Franken drückt weiter.</li>
+<li>Marge gesunken, Schulden eher hoch.</li>
+<li>Viel Unruhe: Chefwechsel, Umbau, Rückruf, Russland.</li>
+<li>Trend auf Tag und Woche abwärts.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section>
+  <h2>Was jetzt zu tun ist</h2>
+  <div class="zones">
+<div class="zone t"><b>Beobachten</b><span>Alarm bei 72.50 CHF (Kaufzone) und 78.55 CHF (Trigger).</span></div>
+<div class="zone s"><b>Timing grün</b><span>Kurs in der Kaufzone 70–72.5 CHF mit Tagesschluss über dem letzten tieferen Hoch, oder Tagesschluss über 78.55 CHF mit steigender A/D.</span></div>
+<div class="zone r"><b>Abbruch</b><span>Wochenschluss unter 69.50 CHF.</span></div>
+<div class="zone "><b>Nächste Zahlen</b><span>22. Oktober 2026 (Umsatz 9 Monate). Entscheidend: Steigt die Menge (RIG) weiter?</span></div>
+  </div>
+</section>
+
+<footer>
+  <span>Kursdaten und Indikatoren (EMA, RSI 14, A/D) selbst berechnet aus Yahoo-Finance-Tages-, Wochen- und Monatsdaten, Stand 08.10.2026. <a href="https://stockanalysis.com/quote/swx/NESN/financials/" target="_blank" rel="noopener">StockAnalysis.com</a> (Stand 08.10.2026), <a href="https://www.nestle.com/investors" target="_blank" rel="noopener">Nestlé Investor Relations</a>, <a href="https://www.marketscreener.com/quote/stock/NESTLE-S-A-9365334/consensus/" target="_blank" rel="noopener">Konsens (MarketScreener)</a>.</span>
+  <span>Persönliche Analyse, keine Anlageberatung. Vergangene Kurse und Saisonalität sagen nichts Sicheres über die Zukunft.</span>
+</footer>
+</div>
+
+<script>
+const Q=[["Umsatztrend", "In Franken 0 von 4 Halbjahren höher, organisch alle positiv", 4, 15], ["Wachstumstempo", "Organisch 3.6 %", 3, 10], ["Operative Marge", "16.0 % (6 Pkt.), fallend (0 Pkt.)", 6, 15], ["Gewinnwachstum (EPS)", "Bereinigt seit 2023 leicht sinkend", 0, 10], ["Free Cashflow", "Hoch, aber schwankend", 6, 10], ["ROIC", "12.3 %, sinkend", 5, 15], ["Schulden", "Nettoschulden/EBITDA 3.4", 2, 10], ["Bewertung vs. eigene Historie", "Erw. KGV 16.1 statt Ø 20.3 (−21 %)", 10, 15]];
+const T=[["Trend Woche (EMA 50/200)", "Kurs unter beiden, EMA 50 flach", 3, 20], ["Trend Tag (EMA 50/200)", "Kurs unter beiden, frisches Death Cross", 1, 10], ["Struktur (SMC)", "Spanne 70–87 CHF, Tag tiefere Hochs und Tiefs", 5, 20], ["RSI Tag/Woche", "44 / 42, kein Signal", 7, 15], ["A/D Tag/Woche", "Woche über früheren Tiefs, Tag fällt", 10, 20], ["Smart Money", "Kein Rückkauf, keine Verkäufe", 3, 10], ["Saisonalität", "Okt–Dez: 61–64 % positive Jahre", 5, 5]];
+const FIN=[["2022", 94424, "+8.4 %", "17.1 %", 3.42, 6600, "12.2 %", "31.9"], ["2023", 92998, "−1.5 %", "17.3 %", 4.24, 10403, "13.9 %", "22.5"], ["2024", 91354, "−1.8 %", "17.2 %", 4.19, 10666, "14.1 %", "17.7"], ["2025", 89490, "−2.0 %", "16.1 %", 3.51, 9154, "12.7 %", "22.4"], ["Letzte 12 Mt.", 88371, "−2.4 %", "16.0 %", 2.89, 10222, "12.3 %", "25.9"]];
+const HALF=[["H1 23", 46.29], ["H2 23", 46.71], ["H1 24", 45.05], ["H2 24", 46.31], ["H1 25", 44.23], ["H2 25", 45.26], ["H1 26", 43.11]];
+const MARGIN=[["2022", 17.1], ["2023", 17.3], ["2024", 17.2], ["2025", 16.1], ["12 Mt.", 16.0]];
+const SEAS=[-0.3, 1.7, 1.6, 0.3, 1.3, -0.3, 0.2, 0.6, -0.8, 1.1, 0.4, 1.3];
+const SEASHIT=[53.0, 73.0, 68.0, 57.0, 54.0, 54.0, 41.0, 54.0, 30.0, 61.0, 64.0, 64.0];
+const MON=["Jan","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"];
+const W=`2024-10-14,85.98,93.41,101.58,42,530.4;2024-10-21,84.54,93.06,101.41,40,517.5;2024-10-28,82.72,92.65,101.23,37,514.2;2024-11-04,78.98,92.12,101,32,493.9;2024-11-11,77.52,91.55,100.77,30,476.4;2024-11-18,76,90.94,100.52,29,454.8;2024-11-25,76.48,90.37,100.28,30,471;2024-12-02,75.76,89.8,100.04,29,455.8;2024-12-09,75.18,89.22,99.79,28,457.5;2024-12-16,73.98,88.62,99.54,27,456.3;2024-12-23,74.42,88.07,99.29,28,459.6;2024-12-30,74.7,87.54,99.04,29,461.1;2025-01-06,74.04,87.01,98.79,28,456.7;2025-01-13,74.2,86.51,98.55,29,462;2025-01-20,74.68,86.05,98.31,31,463.9;2025-01-27,77.48,85.71,98.1,41,473.5;2025-02-03,77.5,85.39,97.9,41,474.2;2025-02-10,82.48,85.28,97.75,55,488.7;2025-02-17,85.1,85.27,97.62,60,513.3;2025-02-24,87.12,85.34,97.51,64,507.5;2025-03-03,89.72,85.51,97.44,67,528;2025-03-10,89.18,85.66,97.36,66,526.1;2025-03-17,91.68,85.89,97.3,69,554.9;2025-03-24,90.24,86.06,97.23,65,556.7;2025-03-31,87.36,86.11,97.13,58,531.6;2025-04-07,84.98,86.07,97.01,52,548.9;2025-04-14,87.98,86.14,96.92,58,568.1;2025-04-21,85.74,86.13,96.81,53,552.5;2025-04-28,87.6,86.19,96.72,56,560.1;2025-05-05,87.65,86.24,96.63,56,555.3;2025-05-12,86.48,86.25,96.53,53,554.4;2025-05-19,88.52,86.34,96.45,57,565.1;2025-05-26,87.7,86.4,96.36,55,559.4;2025-06-02,86.7,86.41,96.26,53,552.9;2025-06-09,84.25,86.32,96.14,47,541.3;2025-06-16,81.54,86.14,96,42,513.9;2025-06-23,79.29,85.87,95.83,38,499.2;2025-06-30,79.27,85.61,95.67,38,502;2025-07-07,76.99,85.27,95.48,35,488.8;2025-07-14,77.72,84.97,95.3,37,500;2025-07-21,73.32,84.52,95.09,31,483.4;2025-07-28,71.1,83.99,94.85,28,472.1;2025-08-04,72.1,83.52,94.62,31,481.6;2025-08-11,72.34,83.09,94.4,32,487.5;2025-08-18,75.36,82.78,94.21,40,496.8;2025-08-25,75.39,82.49,94.02,40,508.7;2025-09-01,75.41,82.22,93.84,40,517.5;2025-09-08,72.98,81.85,93.63,36,502.3;2025-09-15,72.42,81.48,93.42,35,509.7;2025-09-22,71.14,81.08,93.2,33,498.2;2025-09-29,74.2,80.81,93.01,42,511.2;2025-10-06,75.61,80.6,92.83,45,522.4;2025-10-13,84.83,80.77,92.75,62,554;2025-10-20,80.11,80.74,92.63,53,535.6;2025-10-27,76.88,80.59,92.47,48,523.3;2025-11-03,79.12,80.53,92.34,51,532.5;2025-11-10,80.31,80.53,92.22,53,531.8;2025-11-17,80.77,80.54,92.11,54,540.1;2025-11-24,79.83,80.51,91.98,52,535.8;2025-12-01,78.82,80.44,91.85,50,530.5;2025-12-08,77.95,80.34,91.71,49,525.6;2025-12-15,78.79,80.28,91.59,50,518.4;2025-12-22,77.83,80.19,91.45,48,514.9;2025-12-29,78.74,80.13,91.32,50,519;2026-01-05,75.41,79.94,91.16,44,512.9;2026-01-12,75.24,79.76,91.01,44,505.5;2026-01-19,72.47,79.47,90.82,39,491.4;2026-01-26,73.43,79.24,90.65,41,505;2026-02-02,78.89,79.22,90.53,53,520.2;2026-02-09,79.58,79.24,90.42,54,533.4;2026-02-16,80.91,79.3,90.33,56,543.3;2026-02-23,83.98,79.49,90.26,61,564.4;2026-03-02,80.24,79.52,90.16,53,552.9;2026-03-09,80.87,79.57,90.07,54,566.1;2026-03-16,75.86,79.42,89.93,45,543.9;2026-03-23,76.37,79.3,89.8,46,550.9;2026-03-30,78.37,79.27,89.68,50,556.9;2026-04-06,79.1,79.26,89.58,51,558.5;2026-04-13,79.02,79.25,89.47,51,565.8;2026-04-20,81.17,79.33,89.39,55,589.6;2026-04-27,79.05,79.32,89.29,51,580.7;2026-05-04,77.47,79.24,89.17,48,573.1;2026-05-11,78.07,79.2,89.06,49,585.6;2026-05-18,78.78,79.18,88.96,51,586.5;2026-05-25,79.44,79.19,88.86,52,579.4;2026-06-01,76.96,79.1,88.74,47,569.1;2026-06-08,79.81,79.13,88.65,53,580.4;2026-06-15,78.78,79.12,88.56,50,570.3;2026-06-22,83.29,79.28,88.5,59,584;2026-06-29,84.55,79.49,88.46,61,597;2026-07-06,83.16,79.63,88.41,57,584.5;2026-07-13,85.55,79.86,88.38,61,597;2026-07-20,80.67,79.9,88.31,51,579.6;2026-07-27,81.01,79.94,88.23,52,576.2;2026-08-03,81.21,79.99,88.16,52,574.7;2026-08-10,81.01,80.03,88.09,52,583;2026-08-17,79.68,80.02,88.01,49,586;2026-08-24,78.62,79.96,87.92,47,580.9;2026-08-31,78.31,79.9,87.82,46,583.3;2026-09-07,77.54,79.8,87.72,44,571;2026-09-14,76.27,79.67,87.6,41,546.5;2026-09-21,77.17,79.57,87.5,44,547.9;2026-09-28,74.78,79.38,87.37,39,533.1;2026-10-05,75.91,79.24,87.26,42,541.8`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+const DD=`2026-04-07,78.24,78.4,78.5,65.5;2026-04-08,78.75,78.41,78.5,64.3;2026-04-09,78.94,78.44,78.51,65.3;2026-04-10,79.1,78.46,78.51,64.9;2026-04-13,78.09,78.45,78.51,62.3;2026-04-14,79.43,78.49,78.52,65.5;2026-04-15,78.47,78.48,78.52,61.8;2026-04-16,78.74,78.49,78.52,63.5;2026-04-17,79.02,78.52,78.53,67.1;2026-04-20,76.8,78.45,78.51,71.9;2026-04-21,75.36,78.33,78.48,68.5;2026-04-22,75.54,78.22,78.45,67.8;2026-04-23,79.99,78.29,78.46,67.5;2026-04-24,81.17,78.4,78.49,71.8;2026-04-27,80.48,78.48,78.51,70.1;2026-04-28,80.44,78.56,78.53,70.3;2026-04-29,79.3,78.59,78.54,69.2;2026-04-30,79.05,78.61,78.54,68.9;2026-05-04,78.17,78.59,78.54,66.9;2026-05-05,77.57,78.55,78.53,66.8;2026-05-06,78.61,78.55,78.53,68;2026-05-07,77.48,78.51,78.52,66.1;2026-05-08,77.47,78.47,78.51,68.3;2026-05-11,76.1,78.38,78.48,65.5;2026-05-12,77.32,78.33,78.47,68.3;2026-05-13,76.88,78.28,78.46,68.9;2026-05-15,78.07,78.27,78.45,72.8;2026-05-18,78.24,78.27,78.45,74.4;2026-05-19,79.9,78.33,78.47,75.9;2026-05-20,78.64,78.34,78.47,72.6;2026-05-21,78.8,78.36,78.47,73.4;2026-05-22,78.78,78.38,78.47,72.6;2026-05-26,79.38,78.42,78.48,71.2;2026-05-27,81.07,78.52,78.51,74.5;2026-05-28,79.83,78.57,78.52,74.3;2026-05-29,79.44,78.61,78.53,68.2;2026-06-01,77.87,78.58,78.52,65.2;2026-06-02,77.76,78.55,78.52,63.5;2026-06-03,77.28,78.5,78.5,61.3;2026-06-04,76.68,78.43,78.49,58.3;2026-06-05,76.96,78.37,78.47,59.4;2026-06-08,76.61,78.3,78.45,58.5;2026-06-09,77.73,78.28,78.45,60.9;2026-06-10,79.73,78.33,78.46,65;2026-06-11,79.43,78.38,78.47,62.4;2026-06-12,79.81,78.43,78.48,61.9;2026-06-15,79.11,78.46,78.49,58.7;2026-06-16,79.58,78.5,78.5,60.3;2026-06-17,79.09,78.53,78.5,59.5;2026-06-18,78.96,78.54,78.51,61.9;2026-06-19,78.78,78.55,78.51,61;2026-06-22,79,78.57,78.52,62.2;2026-06-23,80.22,78.63,78.53,64.2;2026-06-24,82.89,78.8,78.58,69.1;2026-06-25,83.51,78.99,78.63,71.9;2026-06-26,83.29,79.15,78.67,72.5;2026-06-29,84.3,79.36,78.73,75.7;2026-06-30,83.08,79.5,78.77,73.5;2026-07-01,82.88,79.64,78.81,74.8;2026-07-02,84.45,79.82,78.87,76.3;2026-07-03,84.55,80.01,78.92,77.9;2026-07-06,83.68,80.15,78.97,76.4;2026-07-07,85.12,80.35,79.03,78.7;2026-07-08,84.11,80.5,79.08,78.5;2026-07-09,83.31,80.61,79.13,79.4;2026-07-10,83.16,80.71,79.17,80.4;2026-07-13,84.16,80.84,79.22,82.9;2026-07-14,83.88,80.96,79.26,83.7;2026-07-15,83.86,81.07,79.31,85.9;2026-07-16,84.5,81.21,79.36,88.3;2026-07-17,85.55,81.38,79.42,89.7;2026-07-20,85.73,81.55,79.48,92.5;2026-07-21,84.28,81.66,79.53,89.1;2026-07-22,86.17,81.83,79.6,89.3;2026-07-23,79.29,81.73,79.59,77.6;2026-07-24,80.67,81.69,79.61,78.2;2026-07-27,80.39,81.64,79.61,80;2026-07-28,82.4,81.67,79.64,82.2;2026-07-29,82.71,81.71,79.67,84.3;2026-07-30,82.38,81.74,79.7,81.8;2026-07-31,81.01,81.71,79.71,80.4;2026-08-03,80.77,81.67,79.72,79.3;2026-08-04,80.66,81.63,79.73,79.6;2026-08-05,81.35,81.62,79.75,79.5;2026-08-06,81.12,81.6,79.76,77.8;2026-08-07,81.21,81.59,79.78,77.8;2026-08-10,80.61,81.55,79.78,77.8;2026-08-11,80.17,81.49,79.79,76.7;2026-08-12,79.06,81.4,79.78,73.9;2026-08-13,81.07,81.39,79.79,75.3;2026-08-14,81.01,81.37,79.81,75.4;2026-08-17,78.71,81.27,79.79,72.9;2026-08-18,79.2,81.19,79.79,74.9;2026-08-19,79.34,81.11,79.78,75.5;2026-08-20,79.4,81.05,79.78,76.6;2026-08-21,79.68,80.99,79.78,76.5;2026-08-24,80.46,80.97,79.79,78.2;2026-08-25,79.82,80.93,79.79,78.2;2026-08-26,79.87,80.89,79.79,75.6;2026-08-27,78.52,80.79,79.77,76;2026-08-28,78.62,80.71,79.76,76.7;2026-08-31,78.82,80.63,79.75,79.9;2026-09-01,78.51,80.55,79.74,79;2026-09-02,78.63,80.47,79.73,81.8;2026-09-03,77.84,80.37,79.71,81.6;2026-09-04,78.31,80.29,79.7,82.8;2026-09-07,78.76,80.23,79.69,84.4;2026-09-08,80.39,80.24,79.7,84.5;2026-09-09,77.73,80.14,79.68,81;2026-09-10,77.74,80.04,79.66,80.7;2026-09-11,77.54,79.95,79.64,79.5;2026-09-14,79.2,79.92,79.63,80.6;2026-09-15,77.89,79.84,79.61,78.1;2026-09-16,77.66,79.75,79.59,79.2;2026-09-17,78.33,79.7,79.58,79.2;2026-09-18,76.27,79.56,79.55,68;2026-09-21,77.1,79.47,79.52,69.6;2026-09-22,77.09,79.37,79.5,69.7;2026-09-23,77.1,79.28,79.48,69;2026-09-24,77.94,79.23,79.46,71;2026-09-25,77.17,79.15,79.44,68.7;2026-09-28,77,79.07,79.41,66.3;2026-09-29,76.26,78.96,79.38,64.1;2026-09-30,76.02,78.84,79.35,60.6;2026-10-01,74.63,78.68,79.3,58.2;2026-10-02,74.78,78.52,79.26,57.2;2026-10-05,74.48,78.36,79.21,54.9;2026-10-06,75.2,78.24,79.17,56.3;2026-10-07,75.56,78.13,79.13,57.6;2026-10-08,75.91,78.05,79.1,58.5`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+
+const fmtN=(v,d=2)=>v.toLocaleString("de-CH",{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmtD=s=>{const [y,m,d]=s.split("-");return d+"."+m+"."+y.slice(2)};
+const NS="http://www.w3.org/2000/svg";
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+
+function scoreTable(id,rows){
+  let tot=0,max=0;
+  const html='<thead><tr><th>Kriterium</th><th>Stand</th><th class="num">Punkte</th><th style="width:22%"></th></tr></thead><tbody>'+rows.map(r=>{tot+=r[2];max+=r[3];const p=r[2]/r[3];const c=p>=.75?"var(--good)":p>=.45?"var(--warn)":"var(--bad)";
+    return `<tr><td>${r[0]}</td><td class="muted">${r[1]}</td><td class="num">${r[2]} / ${r[3]}</td><td><div class="bar"><i style="width:${p*100}%;background:${c}"></i></div></td></tr>`}).join("")+`<tr class="total"><td>Total</td><td></td><td class="num">${tot} / ${max}</td><td></td></tr></tbody>`;
+  document.getElementById(id).innerHTML=html;return tot;
+}
+const qs=scoreTable("q-tbl",Q), ts=scoreTable("t-tbl",T);
+document.getElementById("q-val").textContent=qs;document.getElementById("t-val").textContent=ts;
+document.getElementById("q-pin").style.left=qs+"%";document.getElementById("t-pin").style.left=ts+"%";
+
+document.getElementById("fin-rows").innerHTML=FIN.map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1].toLocaleString("de-CH")}</td><td class="num">${r[2]}</td><td class="num">${r[3]}</td><td class="num">${fmtN(r[4])}</td><td class="num">${r[5].toLocaleString("de-CH")}</td><td class="num">${r[6]}</td><td class="num">${r[7]}</td></tr>`).join("");
+
+/* generic line chart */
+function lineChart(host,{dates,series,bands=[],yFmt=v=>fmtN(v),h=300,zero=false,refs=[],pad}){
+  const W_=800,H=h,m={t:12,r:56,b:28,l:8};
+  const all=series.flatMap(s=>s.values).concat(bands.flatMap(b=>[b.from,b.to])).concat(refs.map(r=>r.v));
+  if(zero)all.push(0);
+  let lo=Math.min(...all),hi=Math.max(...all);const sp=(hi-lo)||1;lo-=sp*.06;hi+=sp*.06;
+  if(pad){lo=pad[0];hi=pad[1]}
+  const n=dates.length,x=i=>m.l+i*(W_-m.l-m.r)/(n-1),y=v=>m.t+(hi-v)*(H-m.t-m.b)/(hi-lo);
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  // grid
+  const steps=5;for(let k=0;k<=steps;k++){const v=lo+(hi-lo)*k/steps;el("line",{x1:m.l,x2:W_-m.r,y1:y(v),y2:y(v),stroke:"var(--grid)","stroke-width":1},svg);
+    const t=el("text",{x:W_-m.r+6,y:y(v)+4,"font-size":11,fill:"var(--muted)","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=yFmt(v)}
+  bands.forEach(b=>{el("rect",{x:m.l,width:W_-m.l-m.r,y:y(Math.max(b.from,b.to)),height:Math.abs(y(b.from)-y(b.to)),fill:b.type==="res"?"var(--zone-res)":"var(--zone-sup)"},svg)});
+  refs.forEach(r=>{el("line",{x1:m.l,x2:W_-m.r,y1:y(r.v),y2:y(r.v),stroke:"var(--muted)","stroke-dasharray":"4 4","stroke-width":1},svg);
+    const t=el("text",{x:m.l+4,y:y(r.v)-4,"font-size":11,fill:"var(--muted)"},svg);t.textContent=r.label});
+  if(zero)el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  // x labels
+  const every=Math.ceil(n/6);for(let i=0;i<n;i+=every){const t=el("text",{x:x(i),y:H-8,"font-size":11,fill:"var(--muted)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);const d=dates[i];t.textContent=d.slice(5,7)+"/"+d.slice(2,4)}
+  series.forEach(s=>{const dpath=s.values.map((v,i)=>(i?"L":"M")+x(i).toFixed(1)+","+y(v).toFixed(1)).join("");
+    el("path",{d:dpath,fill:"none",stroke:s.color,"stroke-width":s.w||2,"stroke-linejoin":"round","stroke-linecap":"round"},svg);
+    const lv=s.values[n-1];el("circle",{cx:x(n-1),cy:y(lv),r:3.5,fill:s.color,stroke:"var(--surface)","stroke-width":2},svg)});
+  // hover
+  const cross=el("line",{y1:m.t,y2:H-m.b,stroke:"var(--muted)","stroke-width":1,opacity:0},svg);
+  const ov=el("rect",{x:m.l,y:m.t,width:W_-m.l-m.r,height:H-m.t-m.b,fill:"transparent"},svg);
+  host.appendChild(svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;host.appendChild(tip);
+  function move(ev){const r=svg.getBoundingClientRect();const px=(ev.clientX-r.left)*W_/r.width;let i=Math.round((px-m.l)/((W_-m.l-m.r)/(n-1)));i=Math.max(0,Math.min(n-1,i));
+    cross.setAttribute("x1",x(i));cross.setAttribute("x2",x(i));cross.setAttribute("opacity",1);
+    tip.innerHTML=`<div class="d">${fmtD(dates[i])}</div>`+series.map(s=>`<div><i class="sw" style="background:${s.color}"></i> ${s.name}: <b>${yFmt(s.values[i])}</b></div>`).join("");
+    tip.hidden=false;const hx=x(i)*r.width/W_;tip.style.left=Math.min(Math.max(0,hx+12),r.width-tip.offsetWidth)+"px";tip.style.top="8px"}
+  ov.addEventListener("pointermove",move);ov.addEventListener("pointerleave",()=>{tip.hidden=true;cross.setAttribute("opacity",0)});
+}
+function barChart(host,{labels,values,fmt,h=220,color,neg,tipExtra}){
+  const W_=800,H=h,m={t:18,r:8,b:28,l:8};
+  const hi=Math.max(0,...values),lo=Math.min(0,...values);const lo2=lo<0?lo*1.15:lo,hi2=hi*1.15||1;
+  const y=v=>m.t+(hi2-v)*(H-m.t-m.b)/(hi2-lo2);const n=values.length,bw=(W_-m.l-m.r)/n;
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;
+  values.forEach((v,i)=>{const x0=m.l+i*bw+bw*.18,w=bw*.64,y0=y(Math.max(v,0)),hh=Math.max(1,Math.abs(y(v)-y(0)));
+    const r=el("rect",{x:x0,y:y0,width:w,height:hh,rx:4,fill:v<0?(neg||"var(--s2)"):(color||"var(--s1)")},svg);
+    const t=el("text",{x:x0+w/2,y:v<0?y(v)+13:y0-5,"font-size":11.5,fill:"var(--ink)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=fmt(v);
+    const l=el("text",{x:x0+w/2,y:H-8,"font-size":11.5,fill:"var(--muted)","text-anchor":"middle"},svg);l.textContent=labels[i];
+    const hit=el("rect",{x:m.l+i*bw,y:m.t,width:bw,height:H-m.t-m.b,fill:"transparent"},svg);
+    hit.addEventListener("pointerenter",()=>{tip.innerHTML=`<div class="d">${labels[i]}</div><b>${fmt(v)}</b>${tipExtra?tipExtra(i):""}`;tip.hidden=false;const R=svg.getBoundingClientRect();tip.style.left=Math.min((m.l+i*bw)*R.width/W_,R.width-tip.offsetWidth)+"px";tip.style.top="0px"});
+    hit.addEventListener("pointerleave",()=>tip.hidden=true)});
+  host.appendChild(svg);host.appendChild(tip);
+}
+barChart(document.getElementById("c-rev"),{labels:HALF.map(r=>r[0]),values:HALF.map(r=>r[1]),fmt:v=>fmtN(v,1),h:200});
+barChart(document.getElementById("c-margin"),{labels:MARGIN.map(r=>r[0]),values:MARGIN.map(r=>r[1]),fmt:v=>fmtN(v,1)+" %",h:200});
+barChart(document.getElementById("c-seas"),{labels:MON,values:SEAS,fmt:v=>(v>0?"+":"")+fmtN(v,1),h:220,tipExtra:i=>`<div>${SEASHIT[i]} % der Jahre positiv</div>`});
+const BANDS=[{"from": 80.8, "to": 81.5, "type": "res"}, {"from": 70, "to": 72.5, "type": "sup"}], REFS=[{"v": 78.55, "label": "Trigger 78.55"}];
+const wd=W.map(r=>r[0]);
+lineChart(document.getElementById("c-week"),{dates:wd,series:[{name:"Kurs",values:W.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:W.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:W.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,yFmt:v=>fmtN(v,0),h:320});
+lineChart(document.getElementById("c-adw"),{dates:wd,series:[{name:"A/D Woche",values:W.map(r=>r[5]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,zero:true});
+lineChart(document.getElementById("c-rsiw"),{dates:wd,series:[{name:"RSI Woche",values:W.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,refs:[{v:70,label:"70 überkauft"},{v:30,label:"30 überverkauft"}],pad:[10,90]});
+const dd=DD.map(r=>r[0]);
+lineChart(document.getElementById("c-day"),{dates:dd,series:[{name:"Kurs",values:DD.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:DD.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:DD.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,refs:REFS,yFmt:v=>fmtN(v,0),h:260});
+lineChart(document.getElementById("c-add"),{dates:dd,series:[{name:"A/D Tag",values:DD.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:260,zero:true});
+</script>

@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mondelez Aktien-Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F3F5F7; --surface:#FFFFFF; --ink:#141B24; --muted:#5A6573; --line:#DDE2E8; --grid:#E9EDF1;
+  --accent:#2F45B5; --accent-soft:#E6E9F8; --chip:#EBEEF2;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+  --good:#1D7A4B; --good-bg:#E3F3EA; --warn:#9A6200; --warn-bg:#FBF0DC; --bad:#B2362A; --bad-bg:#FBE6E3;
+  --zone-sup:rgba(29,122,75,.10); --zone-res:rgba(178,54,42,.09);
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+    --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+    --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+    --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+  --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+  --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;padding-inline:16px;padding-block:24px 56px}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+h1,h2,h3{font-family:var(--display);font-stretch:85%;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:clamp(32px,7vw,48px);font-weight:800;line-height:1}
+h2{font-size:24px;font-weight:700}
+h3{font-size:17px;font-weight:700;font-stretch:95%}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+section{display:flex;flex-direction:column;gap:14px}
+.lead{max-width:68ch;color:var(--muted)}
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;align-items:stretch}
+.hero .id{display:flex;flex-direction:column;gap:10px;justify-content:space-between}
+.price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price b{font-family:var(--display);font-size:34px;font-weight:700}
+.meta{font-size:13px;color:var(--muted)}
+.verdict{font-size:15px;padding:12px 14px;border-radius:10px;background:var(--chip)}
+.scales{display:flex;flex-direction:column;gap:18px}
+.scale-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.scale-h span{font-size:13px;color:var(--muted)}
+.scale-h b{font-family:var(--display);font-size:28px;line-height:1}
+.track{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#C8412F 0%,#E0892F 30%,#E3B63A 50%,#8BBF4B 68%,#2E9A5B 100%);margin-top:8px}
+.pin{position:absolute;top:-5px;width:4px;height:22px;border-radius:2px;background:var(--ink);box-shadow:0 0 0 2px var(--surface);transform:translateX(-2px)}
+.ticks{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);font-family:var(--mono);margin-top:6px}
+.state{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;margin-top:8px}
+.st-good{background:var(--good-bg);color:var(--good)}
+.st-warn{background:var(--warn-bg);color:var(--warn)}
+.st-bad{background:var(--bad-bg);color:var(--bad)}
+/* tables */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;color:var(--muted);font-weight:500;font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:700;border-bottom:none}
+.pts{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{height:6px;border-radius:3px;background:var(--chip);min-width:60px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:3px}
+/* grids */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;border-left:4px solid var(--line)}
+.kpi.g{border-left-color:var(--good)}.kpi.w{border-left-color:var(--warn)}.kpi.b{border-left-color:var(--bad)}
+.kpi span{font-size:12px;color:var(--muted)}
+.kpi b{font-family:var(--mono);font-size:19px;font-weight:500;font-variant-numeric:tabular-nums}
+.kpi em{font-style:normal;font-size:12.5px;color:var(--muted)}
+/* charts */
+.chart{position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:14px;height:3px;border-radius:2px;display:inline-block}
+.swb{width:12px;height:10px;border-radius:2px;display:inline-block}
+.tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12.5px;box-shadow:0 4px 14px rgba(0,0,0,.12);white-space:nowrap;z-index:2}
+.tip b{font-family:var(--mono);font-weight:500}
+.tip .d{font-family:var(--mono);color:var(--muted);font-size:11.5px}
+.note{font-size:13.5px;color:var(--muted)}
+ul.clean{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.pro li::marker{color:var(--good)} .con li::marker{color:var(--bad)}
+.zones{display:flex;flex-direction:column;gap:8px}
+.zone{display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:baseline;padding:10px 12px;border-radius:10px;background:var(--chip);font-size:14px}
+.zone b{font-family:var(--mono);font-weight:500}
+.zone.r{border-left:4px solid var(--bad)} .zone.s{border-left:4px solid var(--good)} .zone.t{border-left:4px solid var(--accent)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+summary{cursor:pointer;font-weight:600}
+details p{margin-top:8px;color:var(--muted);max-width:70ch}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+footer{font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:6px;max-width:80ch}
+footer a{color:var(--accent)}
+@media (max-width:760px){.hero,.two{grid-template-columns:1fr}.zone{grid-template-columns:1fr;gap:2px}}
+</style>
+
+<a href="../index.html#/aktie/MDLZ" style="display:inline-block;margin:max(12px,env(safe-area-inset-top)) 0 0 16px;background:#1f3a5f;color:#fff;font:600 14px system-ui;padding:8px 12px;border-radius:20px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">Zurück zur App</a>
+<div class="wrap">
+
+<header class="hero">
+  <div class="card id">
+    <div>
+      <div class="eyebrow">Aktien-Check · 08.10.2026</div>
+      <h1>Mondelez</h1>
+      <p class="meta">Mondelez International · Nasdaq: MDLZ · Guetzli (Oreo, LU), Schokolade (Milka, Toblerone, Cadbury), Kaugummi · USA</p>
+    </div>
+    <div class="price"><b>59.38 $</b><span class="meta">Schluss 07.10.2026 · 52 Wochen: 51.20 – 66.65 $ · Allzeithoch 78.59 $ (2023)</span></div>
+    <p class="verdict"><b>Kurz gesagt:</b> Starke Marken, aber die Zahlen leiden unter dem teuren Kakao der letzten zwei Jahre. Qualität orange (31), Timing orange (38). Interessant: Der Kurs bildet bei 57.5–58.5 $ gerade einen Dreifachboden, und auf der Woche steigen die Tiefs seit Januar. Ein Tagesschluss über 62.20 $ wäre das Signal. Die Entlastung durch den gefallenen Kakaopreis kommt vor allem 2027.</p>
+  </div>
+  <div class="card scales">
+    <div>
+      <div class="scale-h"><span>Qualität · Ist die Firma kaufenswert?</span><b id="q-val">31</b></div>
+      <div class="track"><i class="pin" id="q-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-warn">▲ Schwach</span>
+    </div>
+    <div>
+      <div class="scale-h"><span>Timing · Ist jetzt der Zeitpunkt?</span><b id="t-val">38</b></div>
+      <div class="track"><i class="pin" id="t-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-warn">▲ Beobachten: Trigger noch nicht erreicht</span>
+    </div>
+    <p class="note">Skala: unter 30 rot · 30–45 orange · 45–60 gelb · 60–75 hellgrün · ab 75 grün. Beide Werte setzen sich aus festen Kriterien zusammen, siehe unten.</p>
+  </div>
+</header>
+
+<section>
+  <h2>Was die Firma macht</h2>
+  <p class="lead">Mondelez ist einer der grössten Snack-Hersteller der Welt: Guetzli (Oreo, LU, belVita), Schokolade (Milka, Cadbury, Toblerone, Côte d'Or) und Kaugummi. Rund drei Viertel des Umsatzes kommen von ausserhalb der USA, ein grosser Teil aus Europa und Schwellenländern.</p>
+  <p class="lead">2024 stieg der Kakaopreis auf über 12'000 $ pro Tonne. Mondelez musste die Preise stark erhöhen, die Kunden kauften weniger. Der bereinigte Gewinn pro Aktie fiel 2025 um 15 %. Inzwischen ist Kakao auf rund 4'000 $ gefallen, aber Mondelez hat sich für 2026 noch zu höheren Preisen abgesichert. Die Entlastung kommt darum erst 2027. Im Juli hob Mondelez das Umsatzziel an und erhöhte die Dividende um 4 %. Seit August fällt die Aktie mit dem ganzen Sektor.</p>
+</section>
+
+<section>
+  <h2>Fundamental: die Zahlen</h2>
+  <div class="kpis">
+<div class="kpi w"><span>Organisches Wachstum</span><b>+2.2 %</b><em>2. Quartal 2026 (Preis +1.5, Menge/Mix +0.7). Ziel 2026: mindestens +2 %. Schwach.</em></div>
+<div class="kpi w"><span>Operative Marge</span><b>11.8 %</b><em>Ausgewiesen, durch die Bewertung der Kakao-Absicherungen verzerrt. 2024 waren es 17.7 %.</em></div>
+<div class="kpi b"><span>Gewinn pro Aktie (bereinigt)</span><b>0 bis +5 %</b><em>Ziel 2026 (ohne Währungen), nach −15 % im Jahr 2025.</em></div>
+<div class="kpi b"><span>ROIC</span><b>7.9 %</b><em>Auf jeden investierten Dollar knapp 8 Cent Gewinn. Tief, weil viel Kapital in Übernahmen steckt.</em></div>
+<div class="kpi w"><span>Free Cashflow</span><b>3.1 Mrd. $</b><em>Positiv, aber seit 2023 leicht sinkend.</em></div>
+<div class="kpi b"><span>Nettoschulden / EBITDA</span><b>3.3</b><em>Eher hoch: über 3 Jahre Betriebsgewinn nötig, um die Schulden zu tilgen.</em></div>
+<div class="kpi w"><span>KGV erwartet</span><b>18.3</b><em>Eigener Schnitt: 20.0. Rund 8 % günstiger, also etwa normal bewertet.</em></div>
+<div class="kpi g"><span>Dividende</span><b>3.5 %</b><em>12 Jahre in Folge erhöht, zuletzt +4 % im Juli.</em></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>Umsatz pro Quartal (Mrd. $)</h3>
+      <p class="note">Alle vier Quartale über Vorjahr, aber vor allem durch Preiserhöhungen.</p>
+      <div class="chart" id="c-rev"></div>
+    </div>
+    <div class="card">
+      <h3>Operative Marge pro Jahr</h3>
+      <p class="note">Ausgewiesen, stark schwankend wegen der Bewertung der Kakao-Absicherungen.</p>
+      <div class="chart" id="c-margin"></div>
+    </div>
+  </div>
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Jahr</th><th class="num">Umsatz Mio. $</th><th class="num">Wachstum</th><th class="num">Op. Marge</th><th class="num">EPS $</th><th class="num">Free Cashflow</th><th class="num">ROIC</th><th class="num">KGV</th></tr></thead>
+      <tbody id="fin-rows"></tbody>
+    </table>
+  </div>
+  <p class="note"><b>Hinweis:</b> Der ausgewiesene Gewinn schwankt stark, weil Mondelez seine Kakao-Absicherungen laufend zum Marktwert bewertet. Für die Bewertung nehme ich darum das erwartete KGV auf bereinigtem Gewinn (18.3). Bereinigter Gewinn pro Aktie 2025: 2.92 $.</p>
+</section>
+
+<section>
+  <h2>Qualität: 31 von 100</h2>
+  <div class="card tbl"><table id="q-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Technik: Wochenchart (2 Jahre)</h2>
+  <div class="card">
+    <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span><span><i class="swb" style="background:var(--zone-sup);border:1px solid var(--good)"></i>Unterstützung</span><span><i class="swb" style="background:var(--zone-res);border:1px solid var(--bad)"></i>Widerstand</span></div>
+    <div class="chart" id="c-week"></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>A/D-Linie, Woche</h3>
+      <p class="note">Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Seit Januar steigt die Wochen-A/D (1'054 auf 1'146), obwohl der Kurs seitwärts läuft. Auf Wochenbasis wurde eher eingesammelt.</p>
+      <div class="chart" id="c-adw"></div>
+    </div>
+    <div class="card">
+      <h3>RSI, Woche</h3>
+      <p class="note">Unter 30 überverkauft, über 70 überkauft. Heute 46: neutral. Im Januar 2025 war er bei 24 (Panik).</p>
+      <div class="chart" id="c-rsiw"></div>
+    </div>
+  </div>
+
+  <h2>Technik: Tageschart (6 Monate)</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Kurs, Tag</h3>
+      <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span></div>
+      <div class="chart" id="c-day"></div>
+    </div>
+    <div class="card">
+      <h3>A/D-Linie, Tag</h3>
+      <p class="note">Kurzfristig schwach: Am Tief vom 30.6. (57.84 $) lag die Tages-A/D bei −47, am Tief vom 1.10. (57.76 $) bei −57. Gleicher Kurs, tiefere A/D: Auf Tagesbasis drücken noch die Verkäufer.</p>
+      <div class="chart" id="c-add"></div>
+    </div>
+  </div>
+
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Indikator</th><th>Tag</th><th>Woche</th><th>Bedeutung</th></tr></thead>
+      <tbody>
+<tr><td>Kurs vs. EMA 50</td><td class="pts">59.4 &lt; 61.0</td><td class="pts">59.4 &lt; 60.8</td><td>Knapp unter der mittelfristigen Linie.</td></tr>
+<tr><td>Kurs vs. EMA 200</td><td class="pts">59.4 &lt; 60.7</td><td class="pts">59.4 &lt; 62.8</td><td>Knapp unter der langfristigen Linie.</td></tr>
+<tr><td>EMA 50 vs. EMA 200</td><td class="pts">50 über 200 (seit 28.5.2026)</td><td class="pts">50 unter 200 (seit Oktober 2025)</td><td>Tag noch aufwärts, Woche abwärts. Die Linien liegen eng: Eine Entscheidung naht.</td></tr>
+<tr><td>RSI (14)</td><td class="pts">42.7</td><td class="pts">46.1</td><td>Neutral bis schwach.</td></tr>
+<tr><td>A/D</td><td class="pts">schwach</td><td class="pts">steigt seit Januar</td><td>Gemischt: Woche positiv, Tag negativ.</td></tr>
+<tr><td>Volumen</td><td colspan="2">Ø 20 Tage 8.0 Mio. vs. Ø 100 Tage 8.5 Mio.</td><td>Ruhig.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Struktur und Zonen (Smart Money Concept)</h2>
+  <p class="lead">Auf der Woche hat Mondelez seit dem Tief im Januar (51.20 $) höhere Tiefs gebildet: 54.31 $ (März), 55.79 $ (April), 57.78 $ (Juni/Juli). Am 1. Oktober hielt der Kurs genau dort wieder (57.76 $): ein Dreifachboden bei 57.5–58.5 $. Auf dem Tageschart gibt es seit dem Juli-Hoch (66.65 $) tiefere Hochs (65.55 → 63.83 → 62.19 $). Ein Tagesschluss über 62.20 $ wäre der Change of Character.</p>
+  <div class="zones">
+<div class="zone r"><b>64.5–66.7 $</b><span>Widerstand: Hochs von Juni bis August.</span></div>
+<div class="zone t"><b>62.20 $</b><span><b>Trigger:</b> Tagesschluss über dem letzten tieferen Hoch (24.9.).</span></div>
+<div class="zone s"><b>57.5–58.5 $</b><span><b>Kaufzone:</b> Dreifachboden von Juni, Juli und Oktober.</span></div>
+<div class="zone r"><b>55.50 $</b><span>Abbruch: Wochenschluss unter dem April-Tief. Dann wäre die Serie höherer Tiefs gebrochen.</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Smart Money, Insider und Saisonalität</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Wer kauft, wer verkauft?</h3>
+      <ul class="clean" style="margin-top:8px">
+<li><b>Mondelez selbst:</b> Rückkauf von rund 0.9 Mrd. $ in 12 Monaten (rund 2.3 % des Börsenwerts).</li>
+<li><b>Insider:</b> Keine Käufe, nur kleine Verkäufe (zusammen rund 0.2 Mio. $).</li>
+<li><b>Analysten:</b> „Moderat kaufen“, durchschnittliches Kursziel rund 67–69 $. Wells Fargo senkte am 5.10. auf 65 $.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Saisonalität seit 2001</h3>
+      <p class="note">Durchschnittliche Monatsrendite in %. Rund 25 Jahre. April ist mit +3.7 % (88 % positiv) der stärkste Monat. Oktober ist eher schwach (48 %), November und Dezember leicht positiv.</p>
+      <div class="chart" id="c-seas"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Timing: 38 von 100</h2>
+  <div class="card tbl"><table id="t-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Pro und Contra</h2>
+  <div class="two">
+    <div class="card pro"><h3>Spricht dafür</h3><ul class="clean" style="margin-top:8px">
+<li>Weltbekannte Marken mit Preissetzungsmacht.</li>
+<li>Kakaopreis stark gefallen: Rückenwind für die Marge ab 2027.</li>
+<li>Dreifachboden bei 57.5–58.5 $ und höhere Tiefs auf der Woche.</li>
+<li>Rückkauf 2.3 % und Dividende 3.5 %.</li>
+<li>Stark in Schwellenländern (+7 bis +8 %).</li>
+    </ul></div>
+    <div class="card con"><h3>Spricht dagegen</h3><ul class="clean" style="margin-top:8px">
+<li>Hohe Schulden (3.3-fach).</li>
+<li>Tiefer ROIC (8 %).</li>
+<li>Gewinn 2025 eingebrochen, 2026 nur leichte Erholung.</li>
+<li>Europa schwach (−3.5 % im 2. Quartal).</li>
+<li>Tages-A/D zeigt noch Verkaufsdruck.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section>
+  <h2>Was jetzt zu tun ist</h2>
+  <div class="zones">
+<div class="zone t"><b>Beobachten</b><span>Alarm bei 58.50 $ (Kaufzone) und 62.20 $ (Trigger).</span></div>
+<div class="zone s"><b>Timing grün</b><span>Tagesschluss über 62.20 $ mit steigender Tages-A/D. Danach Rücksetzer Richtung 59–60 $ als Einstieg.</span></div>
+<div class="zone r"><b>Abbruch</b><span>Wochenschluss unter 55.50 $.</span></div>
+<div class="zone "><b>Nächste Zahlen</b><span>27. Oktober 2026 (3. Quartal). Entscheidend: Ausblick 2027 und Entlastung durch den Kakaopreis.</span></div>
+  </div>
+</section>
+
+<footer>
+  <span>Kursdaten und Indikatoren (EMA, RSI 14, A/D) selbst berechnet aus Yahoo-Finance-Tages-, Wochen- und Monatsdaten, Stand 08.10.2026. <a href="https://stockanalysis.com/stocks/mdlz/financials/" target="_blank" rel="noopener">StockAnalysis.com</a> (Stand 08.10.2026), <a href="https://www.sec.gov/Archives/edgar/data/0001103982/000162828026050157/mdlzearningsreleasecontent.htm" target="_blank" rel="noopener">Mondelez Q2 2026</a>, <a href="https://www.marketbeat.com/stocks/NASDAQ/MDLZ/insider-trades/" target="_blank" rel="noopener">Insider (MarketBeat)</a>.</span>
+  <span>Persönliche Analyse, keine Anlageberatung. Vergangene Kurse und Saisonalität sagen nichts Sicheres über die Zukunft.</span>
+</footer>
+</div>
+
+<script>
+const Q=[["Umsatztrend", "4 von 4 Quartalen über Vorjahr, Tempo sinkt", 12, 15], ["Wachstumstempo", "Organisch rund +2.5 %", 0, 10], ["Operative Marge", "11.8 % (3 Pkt.), fallend (0 Pkt.)", 3, 15], ["Gewinnwachstum (EPS)", "Bereinigt 2025 −15 %, 2026 0 bis +5 %", 2, 10], ["Free Cashflow", "Positiv, aber sinkend", 3, 10], ["ROIC", "7.9 %", 2, 15], ["Schulden", "Nettoschulden/EBITDA 3.3", 2, 10], ["Bewertung vs. eigene Historie", "Erw. KGV 18.3 statt Ø 20.0 (−8 %)", 7, 15]];
+const T=[["Trend Woche (EMA 50/200)", "Kurs knapp unter beiden, Linien flach", 4, 20], ["Trend Tag (EMA 50/200)", "Kurs knapp unter beiden, 50 noch über 200", 4, 10], ["Struktur (SMC)", "Woche: höhere Tiefs, Dreifachboden. Tag: tiefere Hochs", 9, 20], ["RSI Tag/Woche", "43 / 46, kein Signal", 7, 15], ["A/D Tag/Woche", "Woche steigt, Tag fällt", 5, 20], ["Smart Money", "Rückkauf 2.3 %, keine Insider-Käufe", 6, 10], ["Saisonalität", "Okt–Dez gemischt (48–60 %)", 3, 5]];
+const FIN=[["2022", 31496, "+9.7 %", "15.0 %", 1.96, 3002, "7.7 %", "33.5"], ["2023", 36016, "+14.4 %", "15.8 %", 3.62, 3602, "9.1 %", "19.9"], ["2024", 36441, "+1.2 %", "17.7 %", 3.42, 3523, "10.8 %", "17.3"], ["2025", 38537, "+5.8 %", "9.4 %", 1.89, 3235, "6.1 %", "28.3"], ["Letzte 12 Mt.", 39675, "+6.9 %", "11.8 %", 2.73, 3085, "7.9 %", "21.7"]];
+const HALF=[["Q3 24", 9.2], ["Q4 24", 9.6], ["Q1 25", 9.31], ["Q2 25", 8.98], ["Q3 25", 9.74], ["Q4 25", 10.5], ["Q1 26", 10.08], ["Q2 26", 9.36]];
+const MARGIN=[["2022", 15.0], ["2023", 15.8], ["2024", 17.7], ["2025", 9.4], ["12 Mt.", 11.8]];
+const SEAS=[0.2, -0.4, 0.0, 3.7, 1.1, -1.4, 1.4, 0.7, -0.9, -1.0, 0.9, 0.6];
+const SEASHIT=[48.0, 44.0, 32.0, 88.0, 56.0, 32.0, 58.0, 58.0, 42.0, 48.0, 56.0, 60.0];
+const MON=["Jan","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"];
+const W=`2024-10-14,71.58,70.38,65.6,52,1018;2024-10-21,69.23,70.33,65.63,46,991.2;2024-10-28,68.51,70.26,65.66,44,976.3;2024-11-04,66.2,70.1,65.67,39,955.5;2024-11-11,64.49,69.88,65.65,35,935.6;2024-11-18,64.4,69.67,65.64,35,941.2;2024-11-25,64.95,69.48,65.63,37,944.3;2024-12-02,62.86,69.22,65.61,33,914.7;2024-12-09,61.93,68.94,65.57,31,903.5;2024-12-16,59.39,68.56,65.51,27,835.2;2024-12-23,60.21,68.23,65.46,30,859.3;2024-12-30,59.86,67.91,65.4,30,865.3;2025-01-06,56.25,67.45,65.31,24,825.6;2025-01-13,57.86,67.07,65.24,30,847.1;2025-01-20,57.42,66.69,65.16,30,858;2025-01-27,57.99,66.35,65.09,32,859.8;2025-02-03,58.45,66.04,65.02,34,924.8;2025-02-10,60.82,65.84,64.98,42,946.2;2025-02-17,64.67,65.79,64.98,53,987.1;2025-02-24,64.23,65.73,64.97,51,972;2025-03-03,67.74,65.81,65,59,989.4;2025-03-10,64.31,65.75,64.99,51,943.7;2025-03-17,64.51,65.7,64.98,51,944.5;2025-03-24,67.72,65.78,65.01,58,975.3;2025-03-31,66.31,65.8,65.02,54,937.1;2025-04-07,67.05,65.85,65.04,56,981.2;2025-04-14,67.32,65.91,65.07,56,980;2025-04-21,65.59,65.9,65.07,52,960;2025-04-28,67.75,65.97,65.1,56,984.5;2025-05-05,66.37,65.98,65.11,53,955.9;2025-05-12,65.32,65.96,65.11,50,962.7;2025-05-19,66.14,65.97,65.12,52,982.6;2025-05-26,67.49,66.03,65.15,55,997.2;2025-06-02,66.15,66.03,65.16,52,980.6;2025-06-09,66.93,66.07,65.17,54,978.2;2025-06-16,68.31,66.15,65.21,57,1002.1;2025-06-23,67.78,66.22,65.23,55,995.1;2025-06-30,68.99,66.33,65.27,58,1010.4;2025-07-07,67.18,66.36,65.29,53,1003.3;2025-07-14,69.81,66.49,65.33,59,1026.5;2025-07-21,70.58,66.65,65.39,60,1038.4;2025-07-28,63.93,66.55,65.37,44,977.8;2025-08-04,61.83,66.36,65.34,41,949.4;2025-08-11,62.08,66.2,65.3,41,979;2025-08-18,63.41,66.09,65.28,45,992.3;2025-08-25,61.44,65.9,65.25,41,971.5;2025-09-01,61.74,65.74,65.21,42,986.4;2025-09-08,61.98,65.59,65.18,42,983.1;2025-09-15,63.71,65.52,65.16,47,1017.6;2025-09-22,63.36,65.43,65.15,46,1011.2;2025-09-29,62.67,65.33,65.12,45,1019.5;2025-10-06,61.45,65.17,65.09,42,1001.3;2025-10-13,62.46,65.07,65.06,45,1024.9;2025-10-20,60.77,64.9,65.02,41,999;2025-10-27,57.46,64.61,64.94,35,949.7;2025-11-03,57.18,64.32,64.86,34,973;2025-11-10,56.86,64.02,64.78,33,967.4;2025-11-17,57,63.75,64.71,34,1011.1;2025-11-24,57.57,63.51,64.64,36,1039.7;2025-12-01,54.91,63.17,64.54,31,994.3;2025-12-08,54.04,62.81,64.43,29,984.2;2025-12-15,54.5,62.48,64.34,31,1000.1;2025-12-22,54.64,62.18,64.24,32,1016;2025-12-29,53.65,61.84,64.13,30,993.1;2026-01-05,55.09,61.58,64.04,36,1053.8;2026-01-12,57.24,61.41,63.98,44,1095.4;2026-01-19,58.4,61.29,63.92,48,1141.5;2026-01-26,58.47,61.18,63.87,48,1137.3;2026-02-02,60.02,61.13,63.83,53,1169.1;2026-02-09,62.59,61.19,63.82,60,1219.9;2026-02-16,58.8,61.1,63.77,49,1194.9;2026-02-23,61.58,61.12,63.74,55,1236.7;2026-03-02,58.4,61.01,63.69,48,1212.7;2026-03-09,54.89,60.77,63.6,41,1177;2026-03-16,56.21,60.59,63.53,44,1145.1;2026-03-23,58.27,60.5,63.48,49,1179.6;2026-03-30,57.54,60.38,63.42,47,1169.1;2026-04-06,59,60.33,63.37,51,1195;2026-04-13,57.25,60.21,63.31,47,1189.3;2026-04-20,57.61,60.11,63.26,48,1210.9;2026-04-27,61.37,60.16,63.24,56,1243.8;2026-05-04,61.55,60.21,63.22,56,1254.7;2026-05-11,60.44,60.22,63.19,53,1222.7;2026-05-18,61.76,60.28,63.18,56,1229.9;2026-05-25,61.17,60.32,63.16,55,1200.7;2026-06-01,62.04,60.38,63.15,56,1212.2;2026-06-08,62.99,60.49,63.15,59,1213.5;2026-06-15,60.12,60.47,63.12,51,1170.9;2026-06-22,60.79,60.48,63.09,52,1157.4;2026-06-29,60.91,60.5,63.07,53,1192.8;2026-07-06,58.83,60.43,63.03,47,1177.2;2026-07-13,61,60.46,63.01,53,1187.2;2026-07-20,60.52,60.46,62.98,51,1207.9;2026-07-27,62.31,60.53,62.98,56,1186.9;2026-08-03,62.61,60.61,62.97,56,1196;2026-08-10,63.61,60.73,62.98,59,1222.8;2026-08-17,64.45,60.88,63,61,1247.2;2026-08-24,62.36,60.93,62.99,54,1222.3;2026-08-31,61.28,60.95,62.97,51,1198.5;2026-09-07,62.44,61.01,62.97,54,1218;2026-09-14,60.85,61,62.95,49,1183.5;2026-09-21,60.25,60.97,62.92,48,1153;2026-09-28,58.19,60.86,62.87,42,1132.2;2026-10-05,59.38,60.8,62.84,46,1146.2`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+const DD=`2026-04-02,57.54,57.78,59.75,-4.4;2026-04-06,58.38,57.81,59.74,-0.9;2026-04-07,57.51,57.8,59.72,-9;2026-04-08,58.83,57.84,59.71,-1;2026-04-09,59.09,57.89,59.7,4.5;2026-04-10,59,57.93,59.7,5.3;2026-04-13,57.68,57.92,59.68,-0.6;2026-04-14,57.84,57.92,59.66,0.8;2026-04-15,56.58,57.86,59.63,-4.3;2026-04-16,57.07,57.83,59.6,1.2;2026-04-17,57.25,57.81,59.58,3.2;2026-04-20,57.31,57.79,59.56,4.5;2026-04-21,56.13,57.73,59.52,-1.2;2026-04-22,56.06,57.66,59.49,-2.8;2026-04-23,57.71,57.66,59.47,2.5;2026-04-24,57.61,57.66,59.45,3.3;2026-04-27,57.42,57.65,59.43,-1.6;2026-04-28,58.54,57.69,59.42,8.4;2026-04-29,61.04,57.82,59.44,10.5;2026-04-30,61.44,57.96,59.46,13.2;2026-05-01,61.37,58.09,59.48,12;2026-05-04,61.38,58.22,59.5,11.9;2026-05-05,61.36,58.34,59.52,15.4;2026-05-06,61.87,58.48,59.54,17;2026-05-07,61.31,58.59,59.56,16.6;2026-05-08,61.55,58.71,59.58,14.9;2026-05-11,61.41,58.82,59.59,16.7;2026-05-12,61.7,58.93,59.62,17.5;2026-05-13,61.52,59.03,59.63,20.5;2026-05-14,60.97,59.11,59.65,16;2026-05-15,60.44,59.16,59.66,9.8;2026-05-18,61.64,59.26,59.68,14.1;2026-05-19,61.29,59.34,59.69,9.5;2026-05-20,61.84,59.43,59.71,13.5;2026-05-21,61.5,59.52,59.73,14.7;2026-05-22,61.76,59.6,59.75,13.8;2026-05-26,61.24,59.67,59.77,6.2;2026-05-27,62.25,59.77,59.79,10.4;2026-05-28,62.39,59.87,59.82,14.3;2026-05-29,61.17,59.92,59.83,6.7;2026-06-01,61.05,59.97,59.84,14;2026-06-02,61.07,60.01,59.85,10.6;2026-06-03,61.31,60.06,59.87,6.2;2026-06-04,60.99,60.1,59.88,2.3;2026-06-05,62.04,60.17,59.9,1.5;2026-06-08,61.6,60.23,59.92,-4.4;2026-06-09,62.93,60.34,59.95,0.4;2026-06-10,64.18,60.49,59.99,6.3;2026-06-11,63.36,60.6,60.02,-0.3;2026-06-12,62.99,60.69,60.05,1;2026-06-15,61.5,60.72,60.07,-7.9;2026-06-16,62.15,60.78,60.09,1.2;2026-06-17,60.86,60.78,60.1,-0.8;2026-06-18,60.12,60.76,60.1,-12.1;2026-06-22,59.51,60.71,60.09,-20.3;2026-06-23,61.06,60.72,60.1,-14.5;2026-06-24,61.74,60.76,60.12,-17.6;2026-06-25,61.2,60.78,60.13,-26.1;2026-06-26,60.79,60.78,60.13,-34.2;2026-06-29,60.15,60.75,60.13,-36.1;2026-06-30,57.84,60.64,60.11,-47;2026-07-01,59.35,60.59,60.1,-38.4;2026-07-02,60.91,60.6,60.11,-31.3;2026-07-06,59.17,60.55,60.1,-37.3;2026-07-07,60.22,60.53,60.1,-40.1;2026-07-08,59.48,60.49,60.1,-44.5;2026-07-09,58.3,60.41,60.08,-50.6;2026-07-10,58.83,60.34,60.07,-45.1;2026-07-13,59.86,60.33,60.06,-47.4;2026-07-14,58.8,60.27,60.05,-54.1;2026-07-15,58.72,60.21,60.04,-52.3;2026-07-16,61.42,60.25,60.05,-39.8;2026-07-17,61,60.28,60.06,-47.1;2026-07-20,60.27,60.28,60.06,-47.4;2026-07-21,59.86,60.27,60.06,-43.8;2026-07-22,60.86,60.29,60.07,-39.2;2026-07-23,60.05,60.28,60.07,-38.9;2026-07-24,60.52,60.29,60.07,-33.6;2026-07-27,60.67,60.3,60.08,-32.8;2026-07-28,62.48,60.39,60.1,-37.7;2026-07-29,64.99,60.57,60.15,-40.9;2026-07-30,63.08,60.67,60.18,-43.1;2026-07-31,62.31,60.73,60.2,-46.5;2026-08-03,61.73,60.77,60.22,-52.8;2026-08-04,62.08,60.82,60.24,-42.5;2026-08-05,62.6,60.89,60.26,-36.1;2026-08-06,62.75,60.97,60.28,-39;2026-08-07,62.61,61.03,60.31,-38;2026-08-10,61.53,61.05,60.32,-39.7;2026-08-11,61.78,61.08,60.33,-32.9;2026-08-12,62.18,61.12,60.35,-26.6;2026-08-13,63.53,61.22,60.38,-21.9;2026-08-14,63.61,61.31,60.42,-20.8;2026-08-17,62.18,61.34,60.43,-26.2;2026-08-18,62.66,61.4,60.46,-31.9;2026-08-19,64.16,61.5,60.49,-26.3;2026-08-20,64.14,61.61,60.53,-27;2026-08-21,64.45,61.72,60.57,-25.4;2026-08-24,64.7,61.84,60.61,-27.9;2026-08-25,62.99,61.88,60.63,-35.1;2026-08-26,63.01,61.93,60.66,-37.7;2026-08-27,62.43,61.94,60.67,-40.1;2026-08-28,62.36,61.96,60.69,-37.8;2026-08-31,62.07,61.97,60.71,-39.4;2026-09-01,61.61,61.95,60.71,-45.3;2026-09-02,62.45,61.97,60.73,-43.3;2026-09-03,61.45,61.95,60.74,-45.5;2026-09-04,61.28,61.92,60.74,-47.1;2026-09-08,61.63,61.91,60.75,-40.7;2026-09-09,62.42,61.93,60.77,-34;2026-09-10,62.47,61.95,60.79,-29.6;2026-09-11,62.44,61.97,60.8,-31.5;2026-09-14,62.39,61.99,60.82,-35.8;2026-09-15,62.1,61.99,60.83,-34.3;2026-09-16,62.36,62.01,60.85,-35.4;2026-09-17,62.04,62.01,60.86,-35;2026-09-18,60.85,61.96,60.86,-42.6;2026-09-21,60.17,61.89,60.85,-50.8;2026-09-22,61.08,61.86,60.85,-45.4;2026-09-23,61.44,61.84,60.86,-40.9;2026-09-24,60.86,61.81,60.86,-45.9;2026-09-25,60.25,61.75,60.85,-47.5;2026-09-28,60.18,61.68,60.85,-48;2026-09-29,59.32,61.59,60.83,-46.2;2026-09-30,57.82,61.44,60.8,-57;2026-10-01,57.76,61.3,60.77,-57.1;2026-10-02,58.19,61.18,60.75,-51.7;2026-10-05,58.49,61.07,60.72,-43.6;2026-10-06,59.62,61.01,60.71,-39.3;2026-10-07,59.38,60.95,60.7,-44.5`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+
+const fmtN=(v,d=2)=>v.toLocaleString("de-CH",{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmtD=s=>{const [y,m,d]=s.split("-");return d+"."+m+"."+y.slice(2)};
+const NS="http://www.w3.org/2000/svg";
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+
+function scoreTable(id,rows){
+  let tot=0,max=0;
+  const html='<thead><tr><th>Kriterium</th><th>Stand</th><th class="num">Punkte</th><th style="width:22%"></th></tr></thead><tbody>'+rows.map(r=>{tot+=r[2];max+=r[3];const p=r[2]/r[3];const c=p>=.75?"var(--good)":p>=.45?"var(--warn)":"var(--bad)";
+    return `<tr><td>${r[0]}</td><td class="muted">${r[1]}</td><td class="num">${r[2]} / ${r[3]}</td><td><div class="bar"><i style="width:${p*100}%;background:${c}"></i></div></td></tr>`}).join("")+`<tr class="total"><td>Total</td><td></td><td class="num">${tot} / ${max}</td><td></td></tr></tbody>`;
+  document.getElementById(id).innerHTML=html;return tot;
+}
+const qs=scoreTable("q-tbl",Q), ts=scoreTable("t-tbl",T);
+document.getElementById("q-val").textContent=qs;document.getElementById("t-val").textContent=ts;
+document.getElementById("q-pin").style.left=qs+"%";document.getElementById("t-pin").style.left=ts+"%";
+
+document.getElementById("fin-rows").innerHTML=FIN.map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1].toLocaleString("de-CH")}</td><td class="num">${r[2]}</td><td class="num">${r[3]}</td><td class="num">${fmtN(r[4])}</td><td class="num">${r[5].toLocaleString("de-CH")}</td><td class="num">${r[6]}</td><td class="num">${r[7]}</td></tr>`).join("");
+
+/* generic line chart */
+function lineChart(host,{dates,series,bands=[],yFmt=v=>fmtN(v),h=300,zero=false,refs=[],pad}){
+  const W_=800,H=h,m={t:12,r:56,b:28,l:8};
+  const all=series.flatMap(s=>s.values).concat(bands.flatMap(b=>[b.from,b.to])).concat(refs.map(r=>r.v));
+  if(zero)all.push(0);
+  let lo=Math.min(...all),hi=Math.max(...all);const sp=(hi-lo)||1;lo-=sp*.06;hi+=sp*.06;
+  if(pad){lo=pad[0];hi=pad[1]}
+  const n=dates.length,x=i=>m.l+i*(W_-m.l-m.r)/(n-1),y=v=>m.t+(hi-v)*(H-m.t-m.b)/(hi-lo);
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  // grid
+  const steps=5;for(let k=0;k<=steps;k++){const v=lo+(hi-lo)*k/steps;el("line",{x1:m.l,x2:W_-m.r,y1:y(v),y2:y(v),stroke:"var(--grid)","stroke-width":1},svg);
+    const t=el("text",{x:W_-m.r+6,y:y(v)+4,"font-size":11,fill:"var(--muted)","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=yFmt(v)}
+  bands.forEach(b=>{el("rect",{x:m.l,width:W_-m.l-m.r,y:y(Math.max(b.from,b.to)),height:Math.abs(y(b.from)-y(b.to)),fill:b.type==="res"?"var(--zone-res)":"var(--zone-sup)"},svg)});
+  refs.forEach(r=>{el("line",{x1:m.l,x2:W_-m.r,y1:y(r.v),y2:y(r.v),stroke:"var(--muted)","stroke-dasharray":"4 4","stroke-width":1},svg);
+    const t=el("text",{x:m.l+4,y:y(r.v)-4,"font-size":11,fill:"var(--muted)"},svg);t.textContent=r.label});
+  if(zero)el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  // x labels
+  const every=Math.ceil(n/6);for(let i=0;i<n;i+=every){const t=el("text",{x:x(i),y:H-8,"font-size":11,fill:"var(--muted)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);const d=dates[i];t.textContent=d.slice(5,7)+"/"+d.slice(2,4)}
+  series.forEach(s=>{const dpath=s.values.map((v,i)=>(i?"L":"M")+x(i).toFixed(1)+","+y(v).toFixed(1)).join("");
+    el("path",{d:dpath,fill:"none",stroke:s.color,"stroke-width":s.w||2,"stroke-linejoin":"round","stroke-linecap":"round"},svg);
+    const lv=s.values[n-1];el("circle",{cx:x(n-1),cy:y(lv),r:3.5,fill:s.color,stroke:"var(--surface)","stroke-width":2},svg)});
+  // hover
+  const cross=el("line",{y1:m.t,y2:H-m.b,stroke:"var(--muted)","stroke-width":1,opacity:0},svg);
+  const ov=el("rect",{x:m.l,y:m.t,width:W_-m.l-m.r,height:H-m.t-m.b,fill:"transparent"},svg);
+  host.appendChild(svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;host.appendChild(tip);
+  function move(ev){const r=svg.getBoundingClientRect();const px=(ev.clientX-r.left)*W_/r.width;let i=Math.round((px-m.l)/((W_-m.l-m.r)/(n-1)));i=Math.max(0,Math.min(n-1,i));
+    cross.setAttribute("x1",x(i));cross.setAttribute("x2",x(i));cross.setAttribute("opacity",1);
+    tip.innerHTML=`<div class="d">${fmtD(dates[i])}</div>`+series.map(s=>`<div><i class="sw" style="background:${s.color}"></i> ${s.name}: <b>${yFmt(s.values[i])}</b></div>`).join("");
+    tip.hidden=false;const hx=x(i)*r.width/W_;tip.style.left=Math.min(Math.max(0,hx+12),r.width-tip.offsetWidth)+"px";tip.style.top="8px"}
+  ov.addEventListener("pointermove",move);ov.addEventListener("pointerleave",()=>{tip.hidden=true;cross.setAttribute("opacity",0)});
+}
+function barChart(host,{labels,values,fmt,h=220,color,neg,tipExtra}){
+  const W_=800,H=h,m={t:18,r:8,b:28,l:8};
+  const hi=Math.max(0,...values),lo=Math.min(0,...values);const lo2=lo<0?lo*1.15:lo,hi2=hi*1.15||1;
+  const y=v=>m.t+(hi2-v)*(H-m.t-m.b)/(hi2-lo2);const n=values.length,bw=(W_-m.l-m.r)/n;
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;
+  values.forEach((v,i)=>{const x0=m.l+i*bw+bw*.18,w=bw*.64,y0=y(Math.max(v,0)),hh=Math.max(1,Math.abs(y(v)-y(0)));
+    const r=el("rect",{x:x0,y:y0,width:w,height:hh,rx:4,fill:v<0?(neg||"var(--s2)"):(color||"var(--s1)")},svg);
+    const t=el("text",{x:x0+w/2,y:v<0?y(v)+13:y0-5,"font-size":11.5,fill:"var(--ink)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=fmt(v);
+    const l=el("text",{x:x0+w/2,y:H-8,"font-size":11.5,fill:"var(--muted)","text-anchor":"middle"},svg);l.textContent=labels[i];
+    const hit=el("rect",{x:m.l+i*bw,y:m.t,width:bw,height:H-m.t-m.b,fill:"transparent"},svg);
+    hit.addEventListener("pointerenter",()=>{tip.innerHTML=`<div class="d">${labels[i]}</div><b>${fmt(v)}</b>${tipExtra?tipExtra(i):""}`;tip.hidden=false;const R=svg.getBoundingClientRect();tip.style.left=Math.min((m.l+i*bw)*R.width/W_,R.width-tip.offsetWidth)+"px";tip.style.top="0px"});
+    hit.addEventListener("pointerleave",()=>tip.hidden=true)});
+  host.appendChild(svg);host.appendChild(tip);
+}
+barChart(document.getElementById("c-rev"),{labels:HALF.map(r=>r[0]),values:HALF.map(r=>r[1]),fmt:v=>fmtN(v,2),h:200});
+barChart(document.getElementById("c-margin"),{labels:MARGIN.map(r=>r[0]),values:MARGIN.map(r=>r[1]),fmt:v=>fmtN(v,1)+" %",h:200});
+barChart(document.getElementById("c-seas"),{labels:MON,values:SEAS,fmt:v=>(v>0?"+":"")+fmtN(v,1),h:220,tipExtra:i=>`<div>${SEASHIT[i]} % der Jahre positiv</div>`});
+const BANDS=[{"from": 64.5, "to": 66.7, "type": "res"}, {"from": 57.5, "to": 58.5, "type": "sup"}], REFS=[{"v": 62.2, "label": "Trigger 62.20"}, {"v": 55.5, "label": "Abbruch 55.50"}];
+const wd=W.map(r=>r[0]);
+lineChart(document.getElementById("c-week"),{dates:wd,series:[{name:"Kurs",values:W.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:W.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:W.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,yFmt:v=>fmtN(v,0),h:320});
+lineChart(document.getElementById("c-adw"),{dates:wd,series:[{name:"A/D Woche",values:W.map(r=>r[5]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,zero:true});
+lineChart(document.getElementById("c-rsiw"),{dates:wd,series:[{name:"RSI Woche",values:W.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,refs:[{v:70,label:"70 überkauft"},{v:30,label:"30 überverkauft"}],pad:[10,90]});
+const dd=DD.map(r=>r[0]);
+lineChart(document.getElementById("c-day"),{dates:dd,series:[{name:"Kurs",values:DD.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:DD.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:DD.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,refs:REFS,yFmt:v=>fmtN(v,0),h:260});
+lineChart(document.getElementById("c-add"),{dates:dd,series:[{name:"A/D Tag",values:DD.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:260,zero:true});
+</script>

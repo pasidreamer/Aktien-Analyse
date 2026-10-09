@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Coca-Cola Aktien-Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F3F5F7; --surface:#FFFFFF; --ink:#141B24; --muted:#5A6573; --line:#DDE2E8; --grid:#E9EDF1;
+  --accent:#2F45B5; --accent-soft:#E6E9F8; --chip:#EBEEF2;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+  --good:#1D7A4B; --good-bg:#E3F3EA; --warn:#9A6200; --warn-bg:#FBF0DC; --bad:#B2362A; --bad-bg:#FBE6E3;
+  --zone-sup:rgba(29,122,75,.10); --zone-res:rgba(178,54,42,.09);
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+    --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+    --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+    --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+  --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+  --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;padding-inline:16px;padding-block:24px 56px}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+h1,h2,h3{font-family:var(--display);font-stretch:85%;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:clamp(32px,7vw,48px);font-weight:800;line-height:1}
+h2{font-size:24px;font-weight:700}
+h3{font-size:17px;font-weight:700;font-stretch:95%}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+section{display:flex;flex-direction:column;gap:14px}
+.lead{max-width:68ch;color:var(--muted)}
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;align-items:stretch}
+.hero .id{display:flex;flex-direction:column;gap:10px;justify-content:space-between}
+.price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price b{font-family:var(--display);font-size:34px;font-weight:700}
+.meta{font-size:13px;color:var(--muted)}
+.verdict{font-size:15px;padding:12px 14px;border-radius:10px;background:var(--chip)}
+.scales{display:flex;flex-direction:column;gap:18px}
+.scale-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.scale-h span{font-size:13px;color:var(--muted)}
+.scale-h b{font-family:var(--display);font-size:28px;line-height:1}
+.track{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#C8412F 0%,#E0892F 30%,#E3B63A 50%,#8BBF4B 68%,#2E9A5B 100%);margin-top:8px}
+.pin{position:absolute;top:-5px;width:4px;height:22px;border-radius:2px;background:var(--ink);box-shadow:0 0 0 2px var(--surface);transform:translateX(-2px)}
+.ticks{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);font-family:var(--mono);margin-top:6px}
+.state{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;margin-top:8px}
+.st-good{background:var(--good-bg);color:var(--good)}
+.st-warn{background:var(--warn-bg);color:var(--warn)}
+.st-bad{background:var(--bad-bg);color:var(--bad)}
+/* tables */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;color:var(--muted);font-weight:500;font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:700;border-bottom:none}
+.pts{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{height:6px;border-radius:3px;background:var(--chip);min-width:60px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:3px}
+/* grids */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;border-left:4px solid var(--line)}
+.kpi.g{border-left-color:var(--good)}.kpi.w{border-left-color:var(--warn)}.kpi.b{border-left-color:var(--bad)}
+.kpi span{font-size:12px;color:var(--muted)}
+.kpi b{font-family:var(--mono);font-size:19px;font-weight:500;font-variant-numeric:tabular-nums}
+.kpi em{font-style:normal;font-size:12.5px;color:var(--muted)}
+/* charts */
+.chart{position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:14px;height:3px;border-radius:2px;display:inline-block}
+.swb{width:12px;height:10px;border-radius:2px;display:inline-block}
+.tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12.5px;box-shadow:0 4px 14px rgba(0,0,0,.12);white-space:nowrap;z-index:2}
+.tip b{font-family:var(--mono);font-weight:500}
+.tip .d{font-family:var(--mono);color:var(--muted);font-size:11.5px}
+.note{font-size:13.5px;color:var(--muted)}
+ul.clean{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.pro li::marker{color:var(--good)} .con li::marker{color:var(--bad)}
+.zones{display:flex;flex-direction:column;gap:8px}
+.zone{display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:baseline;padding:10px 12px;border-radius:10px;background:var(--chip);font-size:14px}
+.zone b{font-family:var(--mono);font-weight:500}
+.zone.r{border-left:4px solid var(--bad)} .zone.s{border-left:4px solid var(--good)} .zone.t{border-left:4px solid var(--accent)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+summary{cursor:pointer;font-weight:600}
+details p{margin-top:8px;color:var(--muted);max-width:70ch}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+footer{font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:6px;max-width:80ch}
+footer a{color:var(--accent)}
+@media (max-width:760px){.hero,.two{grid-template-columns:1fr}.zone{grid-template-columns:1fr;gap:2px}}
+</style>
+
+<a href="../index.html#/aktie/KO" style="display:inline-block;margin:max(12px,env(safe-area-inset-top)) 0 0 16px;background:#1f3a5f;color:#fff;font:600 14px system-ui;padding:8px 12px;border-radius:20px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">Zurück zur App</a>
+<div class="wrap">
+
+<header class="hero">
+  <div class="card id">
+    <div>
+      <div class="eyebrow">Aktien-Check · 08.10.2026</div>
+      <h1>Coca-Cola</h1>
+      <p class="meta">The Coca-Cola Company · NYSE: KO · Getränke (Konzentrat für Abfüller: Coca-Cola, Sprite, Fanta, Powerade) · USA</p>
+    </div>
+    <div class="price"><b>85.82 $</b><span class="meta">Schluss 07.10.2026 · 52 Wochen: 65.87 – 92.49 $ · Allzeithoch 92.49 $ (24.08.2026)</span></div>
+    <p class="verdict"><b>Kurz gesagt:</b> Die stärkste Firma der Gruppe, aber kein Schnäppchen. Qualität hellgrün (72), Timing gelb (47). Der grosse Trend zeigt nach oben, doch die Tages-A/D bricht seit August ein: Es wird leise verkauft. Deine Idee, auf eine grössere Korrektur zu warten, passt zu den Zahlen. Kaufzonen: 80–82.5 $ und 76.8–78.5 $.</p>
+  </div>
+  <div class="card scales">
+    <div>
+      <div class="scale-h"><span>Qualität · Ist die Firma kaufenswert?</span><b id="q-val">72</b></div>
+      <div class="track"><i class="pin" id="q-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-good">● Solide</span>
+    </div>
+    <div>
+      <div class="scale-h"><span>Timing · Ist jetzt der Zeitpunkt?</span><b id="t-val">47</b></div>
+      <div class="track"><i class="pin" id="t-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-warn">▲ Warten auf Bestätigung</span>
+    </div>
+    <p class="note">Skala: unter 30 rot · 30–45 orange · 45–60 gelb · 60–75 hellgrün · ab 75 grün. Beide Werte setzen sich aus festen Kriterien zusammen, siehe unten.</p>
+  </div>
+</header>
+
+<section>
+  <h2>Was die Firma macht</h2>
+  <p class="lead">Coca-Cola verkauft vor allem Getränke-Konzentrat und Markenrechte an Abfüllfirmen auf der ganzen Welt (Coca-Cola, Sprite, Fanta, Powerade, Smartwater, fairlife-Milch). Die Abfüller tragen die teuren Fabriken und Lastwagen, darum hat Coca-Cola eine sehr hohe Marge. Rund zwei Drittel des Umsatzes kommen aus dem Ausland.</p>
+  <p class="lead">Coca-Cola ist 2026 die Ausnahme in der Branche: Der Kurs stieg in einem Jahr um rund 30 % bis auf ein Allzeithoch von 92.49 $ (24. August). Gründe: Die Menge wächst wieder (+3 % im 1., +5 % im 2. Quartal), günstige Kleinpackungen ziehen Kunden mit wenig Geld an, die Fussball-WM half, und der Ausblick wurde im Juli angehoben. Seit März ist Henrique Braun neuer Chef. Seit dem Hoch hat der Kurs rund 7 % nachgegeben.</p>
+</section>
+
+<section>
+  <h2>Fundamental: die Zahlen</h2>
+  <div class="kpis">
+<div class="kpi g"><span>Organisches Wachstum</span><b>+6 %</b><em>2. Quartal 2026 (Menge +4, Preis/Mix +2). Firmenziel 2026: rund +5 %. Für einen Getränkeriesen sehr gut.</em></div>
+<div class="kpi g"><span>Operative Marge</span><b>31.9 %</b><em>Von 100 $ Umsatz bleiben fast 32 $ Betriebsgewinn. Steigt seit 2022 jedes Jahr. Spitzenwert.</em></div>
+<div class="kpi g"><span>Gewinn pro Aktie (bereinigt)</span><b>+9 bis 10 %</b><em>Firmenziel 2026, im Juli angehoben. Gut für eine so grosse Firma.</em></div>
+<div class="kpi g"><span>ROIC</span><b>20.1 %</b><em>Auf jeden investierten Dollar rund 20 Cent Gewinn. Sehr gut, steigt langsam.</em></div>
+<div class="kpi w"><span>Free Cashflow</span><b>≈ 12.4 Mrd. $</b><em>Firmenziel 2026. 2024 und 2025 durch Einmalzahlungen (fairlife) gedrückt, darum schwankend.</em></div>
+<div class="kpi g"><span>Nettoschulden / EBITDA</span><b>1.6</b><em>In gut 1.5 Jahren wären die Nettoschulden aus dem Betriebsgewinn bezahlt. Gut tragbar.</em></div>
+<div class="kpi w"><span>KGV erwartet</span><b>25.3</b><em>Du zahlst gut 25 erwartete Jahresgewinne. Eigener Schnitt: 23. Also knapp 10 % teurer als üblich.</em></div>
+<div class="kpi g"><span>Dividende</span><b>2.5 %</b><em>64 Jahre in Folge erhöht. Rund 64 % des Gewinns werden ausgeschüttet.</em></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>Umsatz pro Quartal (Mrd. $)</h3>
+      <p class="note">Alle vier letzten Quartale über Vorjahr, im 1. Quartal 2026 sogar +12 %. Die Fussball-WM half im Sommer.</p>
+      <div class="chart" id="c-rev"></div>
+    </div>
+    <div class="card">
+      <h3>Operative Marge pro Jahr</h3>
+      <p class="note">Steigt seit 2022 ohne Unterbruch. Das Konzentrat-Geschäft ist sehr profitabel.</p>
+      <div class="chart" id="c-margin"></div>
+    </div>
+  </div>
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Jahr</th><th class="num">Umsatz Mio. $</th><th class="num">Wachstum</th><th class="num">Op. Marge</th><th class="num">EPS $</th><th class="num">Free Cashflow</th><th class="num">ROIC</th><th class="num">KGV</th></tr></thead>
+      <tbody id="fin-rows"></tbody>
+    </table>
+  </div>
+  <p class="note"><b>Hinweis:</b> Der Free Cashflow 2024 und 2025 war wegen der Schlusszahlungen für die Milchmarke fairlife tief. Der Wert der letzten 12 Monate ist in den Daten unklar, darum zeige ich dort das Firmenziel 2026 (rund 12.4 Mrd. $). KGV = ausgewiesener Gewinn, jeweils Ende Jahr.</p>
+</section>
+
+<section>
+  <h2>Qualität: 72 von 100</h2>
+  <div class="card tbl"><table id="q-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Technik: Wochenchart (2 Jahre)</h2>
+  <div class="card">
+    <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span><span><i class="swb" style="background:var(--zone-sup);border:1px solid var(--good)"></i>Unterstützung</span><span><i class="swb" style="background:var(--zone-res);border:1px solid var(--bad)"></i>Widerstand</span></div>
+    <div class="chart" id="c-week"></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>A/D-Linie, Woche</h3>
+      <p class="note">Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Von Januar bis August stieg die Wochen-A/D mit dem Kurs: echte Nachfrage. Seit dem Hoch im August sinkt sie (2'981 auf 2'744): Es wird Gewinn mitgenommen.</p>
+      <div class="chart" id="c-adw"></div>
+    </div>
+    <div class="card">
+      <h3>RSI, Woche</h3>
+      <p class="note">Unter 30 überverkauft, über 70 überkauft. Im August 71 (heiss gelaufen), heute 56: abgekühlt, aber kein Kaufsignal.</p>
+      <div class="chart" id="c-rsiw"></div>
+    </div>
+  </div>
+
+  <h2>Technik: Tageschart (6 Monate)</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Kurs, Tag</h3>
+      <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span></div>
+      <div class="chart" id="c-day"></div>
+    </div>
+    <div class="card">
+      <h3>A/D-Linie, Tag</h3>
+      <p class="note">Wichtigste Beobachtung: Seit dem Hoch am 24.8. ist der Kurs nur rund 7 % gefallen, die Tages-A/D aber von 118 auf −2 abgestürzt. Der Kurs schliesst fast täglich schwach. Grössere Anleger verkaufen leise (Verteilung).</p>
+      <div class="chart" id="c-add"></div>
+    </div>
+  </div>
+
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Indikator</th><th>Tag</th><th>Woche</th><th>Bedeutung</th></tr></thead>
+      <tbody>
+<tr><td>Kurs vs. EMA 50</td><td class="pts">85.8 &lt; 86.9</td><td class="pts">85.8 &gt; 80.2</td><td>Tag: knapp unter der mittelfristigen Linie. Woche: klar darüber.</td></tr>
+<tr><td>Kurs vs. EMA 200</td><td class="pts">85.8 &gt; 81.2</td><td class="pts">85.8 &gt; 69.7</td><td>Über der langfristigen Linie auf beiden Ebenen: Der grosse Aufwärtstrend steht.</td></tr>
+<tr><td>EMA 50 vs. EMA 200</td><td class="pts">50 über 200 (seit 13.11.2025)</td><td class="pts">50 über 200</td><td>Beide Zeitebenen im Aufwärtstrend.</td></tr>
+<tr><td>RSI (14)</td><td class="pts">40.2</td><td class="pts">55.6</td><td>Tag schwach, Woche neutral. Kein Kaufsignal.</td></tr>
+<tr><td>A/D</td><td class="pts">fällt stark seit 24.8.</td><td class="pts">sinkt seit August</td><td>Verteilung: Es wird mehr verkauft, als der Kurs zeigt.</td></tr>
+<tr><td>Volumen</td><td colspan="2">Ø 20 Tage 15.9 Mio. vs. Ø 100 Tage 16.9 Mio.</td><td>Ruhiger Rücksetzer, keine Panik.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Struktur und Zonen (Smart Money Concept)</h2>
+  <p class="lead">Auf der Woche ist Coca-Cola seit Anfang 2025 in einem sauberen Aufwärtstrend mit höheren Hochs und höheren Tiefs (Tiefs 65.35 → 74.07 → 76.81 $). Das Allzeithoch liegt bei 92.49 $ (24.8.). Seither macht der Tageschart tiefere Hochs (90.36 → 89.36 $) und tiefere Tiefs (87.12 → 85.65 $): eine Korrektur im Aufwärtstrend. Der Kurs liegt 23 % über der Wochen-EMA 200, das ist weit gelaufen. Gute Zonen liegen tiefer. Bei einem KGV von 23 (eigener Schnitt) wäre Coca-Cola bei rund 76 $ fair bewertet.</p>
+  <div class="zones">
+<div class="zone r"><b>89.4–92.5 $</b><span>Widerstand: tieferes Hoch vom September und Allzeithoch.</span></div>
+<div class="zone s"><b>80–82.5 $</b><span><b>Kaufzone 1 (kleine Korrektur):</b> Wochen-EMA 50 und Ausbruchsbereich vom Juli. Rund 5–7 % unter heute.</span></div>
+<div class="zone s"><b>76.8–78.5 $</b><span><b>Kaufzone 2 (grössere Korrektur):</b> Tief vom Juni, rund 10 % unter heute. Hier wäre die Bewertung wieder beim eigenen Schnitt.</span></div>
+<div class="zone t"><b>Trigger</b><span>In einer Zone: Tagesschluss über dem letzten tieferen Hoch (heute 89.36 $, nach einer Korrektur liegt es tiefer), mit steigender Tages-A/D.</span></div>
+<div class="zone r"><b>74 $</b><span>Abbruch: Wochenschluss unter den Tiefs vom März/April. Dann wäre der Aufwärtstrend gebrochen.</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Smart Money, Insider und Saisonalität</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Wer kauft, wer verkauft?</h3>
+      <ul class="clean" style="margin-top:8px">
+<li><b>Coca-Cola selbst:</b> Kauft kaum eigene Aktien zurück (netto rund 0.1 % pro Jahr). Das Geld geht in die Dividende.</li>
+<li><b>Insider-Käufe:</b> Nur einer: Verwaltungsrat Max Levchin für rund 1 Mio. $ im Oktober 2025 (älter als 6 Monate).</li>
+<li><b>Insider-Verkäufe:</b> Sehr viele: rund 241 Mio. $ von 10 Personen, davon rund 145 Mio. $ vom früheren Chef James Quincey (jetzt Präsident). Das ist Vermögensstreuung nach starkem Anstieg, aber kein Vertrauenssignal.</li>
+<li><b>Analysten:</b> Durchschnittliches Kursziel rund 95 $, 21 von 23 sagen „Kaufen“. Wells Fargo und JPMorgan haben ihre Ziele leicht gesenkt.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Saisonalität seit 1985</h3>
+      <p class="note">Durchschnittliche Monatsrendite in %. Rund 41 Jahre. Oktober bis Dezember sind mit 61–66 % positiven Jahren gut. September ist der schwächste Monat.</p>
+      <div class="chart" id="c-seas"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Timing: 47 von 100</h2>
+  <div class="card tbl"><table id="t-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Pro und Contra</h2>
+  <div class="two">
+    <div class="card pro"><h3>Spricht dafür</h3><ul class="clean" style="margin-top:8px">
+<li>Wächst wieder über die Menge, nicht nur über Preise.</li>
+<li>Spitzenmarge von fast 32 %, steigt seit Jahren.</li>
+<li>Ausblick 2026 im Juli angehoben.</li>
+<li>Hoher ROIC (20 %) und tragbare Schulden.</li>
+<li>64 Jahre Dividendenerhöhung in Folge.</li>
+    </ul></div>
+    <div class="card con"><h3>Spricht dagegen</h3><ul class="clean" style="margin-top:8px">
+<li>Bewertung über dem eigenen Schnitt: erwartetes KGV 25 statt 23.</li>
+<li>Tages-A/D bricht ein: Grössere Anleger verkaufen leise.</li>
+<li>Viele und grosse Insider-Verkäufe.</li>
+<li>Kurs weit über der Wochen-EMA 200 (+23 %): Rücksetzer-Gefahr.</li>
+<li>Stark international: Ein starker Dollar drückt den Gewinn, ein schwacher hilft.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section>
+  <h2>Was jetzt zu tun ist</h2>
+  <div class="zones">
+<div class="zone t"><b>Beobachten</b><span>Alarm bei 82.50 $ (Kaufzone 1) und 78.50 $ (Kaufzone 2). Nicht dem Kurs hinterherlaufen.</span></div>
+<div class="zone s"><b>Timing grün</b><span>Kurs in einer der Kaufzonen, RSI Tag unter 35, danach Tagesschluss über dem letzten tieferen Hoch mit steigender A/D.</span></div>
+<div class="zone r"><b>Abbruch</b><span>Wochenschluss unter 74 $: Aufwärtstrend gebrochen, neu bewerten.</span></div>
+<div class="zone "><b>Nächste Zahlen</b><span>27. Oktober 2026 (3. Quartal). Entscheidend: Hält das Mengenwachstum auch nach der WM?</span></div>
+  </div>
+</section>
+
+<footer>
+  <span>Kursdaten und Indikatoren (EMA, RSI 14, A/D) selbst berechnet aus Yahoo-Finance-Tages-, Wochen- und Monatsdaten, Stand 08.10.2026. <a href="https://stockanalysis.com/stocks/ko/financials/" target="_blank" rel="noopener">StockAnalysis.com</a> (Stand 08.10.2026), <a href="https://investors.coca-colacompany.com/news-events/press-releases/detail/1168" target="_blank" rel="noopener">Coca-Cola Q2 2026</a>, <a href="https://www.marketbeat.com/stocks/NYSE/KO/insider-trades/" target="_blank" rel="noopener">Insider (MarketBeat)</a>.</span>
+  <span>Persönliche Analyse, keine Anlageberatung. Vergangene Kurse und Saisonalität sagen nichts Sicheres über die Zukunft.</span>
+</footer>
+</div>
+
+<script>
+const Q=[["Umsatztrend", "4 von 4 Quartalen über Vorjahr, Tempo steigt", 15, 15], ["Wachstumstempo", "Organisch rund +5 % (Firmenziel 2026)", 3, 10], ["Operative Marge", "31.9 % (9 Pkt.), seit 2022 steigend (6 Pkt.)", 15, 15], ["Gewinnwachstum (EPS)", "Bereinigt im Schnitt rund +7 bis 10 % pro Jahr", 5, 10], ["Free Cashflow", "Positiv, aber schwankend (Einmalzahlungen)", 6, 10], ["ROIC", "20.1 %, langsam steigend", 14, 15], ["Schulden", "Nettoschulden/EBITDA 1.6", 7, 10], ["Bewertung vs. eigene Historie", "Erw. KGV 25.3 statt Ø 23.0 (+10 %)", 7, 15]];
+const T=[["Trend Woche (EMA 50/200)", "Kurs über beiden, 50 über 200", 18, 20], ["Trend Tag (EMA 50/200)", "Kurs unter EMA 50, über EMA 200 (Rücksetzer)", 6, 10], ["Struktur (SMC)", "Woche aufwärts, Tag tiefere Hochs und Tiefs, nicht in einer Zone", 8, 20], ["RSI Tag/Woche", "40 / 56, kein Signal", 7, 15], ["A/D Tag/Woche", "Beide fallen, Tag deutlich (Verteilung)", 3, 20], ["Smart Money", "Grosse Insider-Verkäufe, kaum Rückkauf", 0, 10], ["Saisonalität", "Okt–Dez: 61–66 % positive Jahre", 5, 5]];
+const FIN=[["2022", 43004, "+11.3 %", "28.7 %", 2.19, 9534, "17.9 %", "28.8"], ["2023", 45754, "+6.4 %", "29.0 %", 2.47, 9747, "19.1 %", "23.8"], ["2024", 47061, "+2.9 %", "30.4 %", 2.46, 4741, "19.9 %", "25.2"], ["2025", 47941, "+1.9 %", "31.4 %", 3.04, 5296, "19.8 %", "22.9"], ["Letzte 12 Mt.", 50129, "+6.5 %", "31.9 %", 3.33, "≈ 12'400 (Ziel)", "20.1 %", "25.9"]];
+const HALF=[["Q3 24", 11.85], ["Q4 24", 11.54], ["Q1 25", 11.13], ["Q2 25", 12.54], ["Q3 25", 12.46], ["Q4 25", 11.82], ["Q1 26", 12.47], ["Q2 26", 13.38]];
+const MARGIN=[["2022", 28.7], ["2023", 29.0], ["2024", 30.4], ["2025", 31.4], ["12 Mt.", 31.9]];
+const SEAS=[-0.9, 1.5, 1.5, 1.8, 2.8, 0.0, 1.8, -0.4, -1.4, 2.3, 2.1, 1.1];
+const SEASHIT=[41.0, 67.0, 71.0, 69.0, 69.0, 52.0, 64.0, 52.0, 36.0, 65.0, 66.0, 61.0];
+const MON=["Jan","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"];
+const W=`2024-10-14,70.44,64.79,59.6,64,2430.3;2024-10-21,66.92,64.87,59.67,49,2361.6;2024-10-28,65.01,64.88,59.72,44,2301;2024-11-04,63.92,64.84,59.77,41,2275.4;2024-11-11,61.74,64.72,59.78,35,2212.7;2024-11-18,63.92,64.69,59.83,43,2267;2024-11-25,64.08,64.66,59.87,44,2226.8;2024-12-02,62.53,64.58,59.89,40,2179.1;2024-12-09,63.12,64.52,59.93,42,2204.2;2024-12-16,62.55,64.44,59.95,40,2117.9;2024-12-23,62.45,64.37,59.98,40,2128.1;2024-12-30,61.75,64.26,60,38,2096.1;2025-01-06,61.07,64.14,60.01,36,2080.3;2025-01-13,62.71,64.08,60.03,43,2157;2025-01-20,61.92,64,60.05,41,2126.8;2025-01-27,63.48,63.98,60.09,47,2140.8;2025-02-03,63.84,63.97,60.12,48,2199.3;2025-02-10,68.87,64.16,60.21,63,2274.2;2025-02-17,71.35,64.45,60.32,67,2330.4;2025-02-24,71.21,64.71,60.43,67,2351.9;2025-03-03,71.43,64.97,60.54,67,2380.6;2025-03-10,69.16,65.14,60.62,59,2311.4;2025-03-17,68.67,65.28,60.7,57,2256.6;2025-03-24,70.37,65.48,60.8,61,2281.6;2025-03-31,69.93,65.65,60.89,60,2183.3;2025-04-07,71.43,65.88,61,63,2292.3;2025-04-14,73,66.16,61.12,66,2334.9;2025-04-21,71.91,66.38,61.22,62,2292.6;2025-04-28,71.65,66.59,61.33,61,2280.6;2025-05-05,70.52,66.74,61.42,57,2218.8;2025-05-12,72,66.95,61.52,61,2296.5;2025-05-19,71.77,67.14,61.63,60,2324.7;2025-05-26,72.1,67.33,61.73,61,2361.2;2025-06-02,71.35,67.49,61.83,58,2369.3;2025-06-09,71.02,67.63,61.92,56,2321.7;2025-06-16,68.84,67.68,61.99,48,2237.9;2025-06-23,70.33,67.78,62.07,53,2300;2025-06-30,71.35,67.92,62.16,56,2304.1;2025-07-07,69.87,68,62.24,51,2280.3;2025-07-14,69.85,68.07,62.31,51,2288.5;2025-07-21,69.17,68.11,62.38,49,2250.9;2025-07-28,68.86,68.14,62.45,47,2275.5;2025-08-04,70.34,68.23,62.53,53,2309.8;2025-08-11,69.92,68.29,62.6,51,2289.5;2025-08-18,70.13,68.37,62.67,52,2276.9;2025-08-25,68.99,68.39,62.74,48,2256.8;2025-09-01,67.96,68.37,62.79,44,2213.6;2025-09-08,67.01,68.32,62.83,41,2137.7;2025-09-15,66.43,68.25,62.87,39,2107.8;2025-09-22,65.67,68.15,62.89,36,2050.5;2025-09-29,66.65,68.09,62.93,41,2091.6;2025-10-06,67.04,68.05,62.97,43,2129.8;2025-10-13,68.44,68.06,63.03,50,2196.8;2025-10-20,69.71,68.13,63.09,54,2193.6;2025-10-27,68.9,68.16,63.15,51,2167.6;2025-11-03,70.55,68.25,63.22,57,2233.5;2025-11-10,71.16,68.36,63.3,59,2262.7;2025-11-17,72.95,68.54,63.4,64,2329.6;2025-11-24,73.12,68.72,63.5,65,2395.9;2025-12-01,70,68.77,63.56,52,2320.1;2025-12-08,70.52,68.84,63.63,53,2403.9;2025-12-15,70.06,68.89,63.69,52,2306.6;2025-12-22,69.87,68.93,63.76,51,2296.8;2025-12-29,69.12,68.94,63.81,48,2265.7;2026-01-05,70.51,69,63.88,53,2358.1;2026-01-12,70.44,69.05,63.94,53,2310.6;2026-01-19,72.88,69.2,64.03,61,2378.3;2026-01-26,74.81,69.42,64.14,66,2461.4;2026-02-02,79.03,69.8,64.29,74,2568.3;2026-02-09,78.68,70.15,64.43,72,2593.4;2026-02-16,79.84,70.53,64.58,74,2658.1;2026-02-23,81.56,70.96,64.75,77,2718.3;2026-03-02,77.04,71.2,64.87,60,2646.8;2026-03-09,77.34,71.44,65,61,2636.3;2026-03-16,74.75,71.57,65.09,53,2565.5;2026-03-23,75.71,71.73,65.2,55,2614.2;2026-03-30,76.72,71.93,65.31,58,2658.5;2026-04-06,77.47,72.15,65.44,59,2684.8;2026-04-13,75.74,72.29,65.54,54,2667.7;2026-04-20,76.63,72.46,65.65,56,2706;2026-04-27,78.58,72.7,65.78,61,2733.1;2026-05-04,78.42,72.92,65.9,60,2723.8;2026-05-11,80.82,73.23,66.05,65,2773.3;2026-05-18,81.48,73.55,66.21,66,2770.5;2026-05-25,79.01,73.77,66.33,58,2701.2;2026-06-01,79.48,73.99,66.46,59,2731.8;2026-06-08,82.62,74.33,66.62,65,2766;2026-06-15,79.39,74.53,66.75,56,2714.2;2026-06-22,82.63,74.85,66.91,62,2830;2026-06-29,84.14,75.21,67.08,64,2901.5;2026-07-06,83.49,75.54,67.24,62,2893.5;2026-07-13,81.56,75.77,67.39,57,2827.8;2026-07-20,82.25,76.03,67.53,59,2850.2;2026-07-27,87.59,76.48,67.73,67,2873;2026-08-03,87.05,76.89,67.93,66,2884.2;2026-08-10,87.71,77.32,68.12,67,2932;2026-08-17,91.1,77.86,68.35,71,2981.3;2026-08-24,89.66,78.32,68.56,67,2940.7;2026-08-31,88.07,78.7,68.76,63,2881.8;2026-09-07,88.29,79.08,68.95,63,2889.1;2026-09-14,88.25,79.44,69.14,63,2846.4;2026-09-21,87.81,79.77,69.33,62,2818.1;2026-09-28,85.65,80,69.49,55,2766.6;2026-10-05,85.82,80.23,69.65,56,2743.7`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+const DD=`2026-04-02,76.72,76.04,72.44,171.9;2026-04-06,77.22,76.09,72.49,179.2;2026-04-07,75.91,76.08,72.53,170.1;2026-04-08,77.29,76.13,72.57,181.4;2026-04-09,78.18,76.21,72.63,194.1;2026-04-10,77.47,76.26,72.68,187.1;2026-04-13,76.41,76.27,72.71,183.5;2026-04-14,75.9,76.25,72.75,174.2;2026-04-15,75.31,76.22,72.77,176.7;2026-04-16,75.18,76.17,72.8,172.1;2026-04-17,75.74,76.16,72.83,179.5;2026-04-20,75.48,76.13,72.85,172.1;2026-04-21,74.7,76.07,72.87,162.4;2026-04-22,74.63,76.02,72.89,154.9;2026-04-23,76.28,76.03,72.92,160.8;2026-04-24,76.63,76.05,72.96,162;2026-04-27,75.44,76.03,72.98,147.1;2026-04-28,78.35,76.12,73.04,123.8;2026-04-29,78.87,76.23,73.09,128.3;2026-04-30,78.76,76.33,73.15,129.7;2026-05-01,78.58,76.41,73.2,125.6;2026-05-04,78.19,76.48,73.25,124.1;2026-05-05,78.48,76.56,73.31,129;2026-05-06,79.23,76.67,73.37,139.4;2026-05-07,78.43,76.74,73.42,133.3;2026-05-08,78.42,76.8,73.47,127.7;2026-05-11,78.66,76.88,73.52,137;2026-05-12,80.03,77,73.58,151.2;2026-05-13,80.26,77.13,73.65,147.6;2026-05-14,80.45,77.26,73.72,148.3;2026-05-15,80.82,77.4,73.79,145;2026-05-18,81.2,77.55,73.86,152.7;2026-05-19,81.92,77.72,73.94,151.7;2026-05-20,81.55,77.87,74.02,135.9;2026-05-21,81.17,78,74.09,133.3;2026-05-22,81.48,78.13,74.16,137.2;2026-05-26,80.46,78.23,74.22,128.4;2026-05-27,81.62,78.36,74.3,127.9;2026-05-28,80.41,78.44,74.36,114.6;2026-05-29,79.01,78.46,74.4,86.7;2026-06-01,78.64,78.47,74.45,80.9;2026-06-02,78.41,78.47,74.49,72.6;2026-06-03,78.76,78.48,74.53,78.8;2026-06-04,76.82,78.41,74.55,59.5;2026-06-05,79.48,78.45,74.6,65.4;2026-06-08,79.54,78.5,74.65,66.1;2026-06-09,81.34,78.61,74.72,79.5;2026-06-10,83.59,78.8,74.8,94.1;2026-06-11,82.53,78.95,74.88,80.5;2026-06-12,82.62,79.09,74.96,86.1;2026-06-15,80.91,79.16,75.02,93.9;2026-06-16,80.28,79.21,75.07,86.3;2026-06-17,79.93,79.24,75.12,93.2;2026-06-18,79.39,79.24,75.16,94.3;2026-06-22,79.53,79.25,75.2,93;2026-06-23,80.31,79.3,75.26,86.9;2026-06-24,80.6,79.35,75.31,67.9;2026-06-25,80.42,79.39,75.36,62.1;2026-06-26,82.63,79.52,75.43,106.4;2026-06-29,82.65,79.64,75.5,100.7;2026-06-30,81.27,79.7,75.56,89.9;2026-07-01,81.29,79.77,75.62,82.2;2026-07-02,84.14,79.94,75.7,100.5;2026-07-06,82.96,80.06,75.77,92.4;2026-07-07,84.05,80.21,75.86,81.7;2026-07-08,83.4,80.34,75.93,69.9;2026-07-09,82.63,80.43,76,80.3;2026-07-10,83.49,80.55,76.07,87;2026-07-13,84.25,80.69,76.15,88.8;2026-07-14,83.08,80.79,76.22,75;2026-07-15,82.45,80.85,76.29,64.6;2026-07-16,84.92,81.01,76.37,81.9;2026-07-17,81.56,81.03,76.42,59.1;2026-07-20,82.12,81.07,76.48,67.1;2026-07-21,81.97,81.11,76.53,69.7;2026-07-22,82.2,81.15,76.59,63.9;2026-07-23,81.17,81.15,76.64,58.2;2026-07-24,82.25,81.2,76.69,68.8;2026-07-27,84.07,81.31,76.77,87.1;2026-07-28,88.27,81.58,76.88,87.7;2026-07-29,89.08,81.88,77,74.3;2026-07-30,88.49,82.14,77.12,88.3;2026-07-31,87.59,82.35,77.22,92.8;2026-08-03,86.86,82.53,77.32,75.3;2026-08-04,86.56,82.68,77.41,89.7;2026-08-05,86.83,82.85,77.5,95;2026-08-06,86.85,83,77.59,89;2026-08-07,87.05,83.16,77.69,97.4;2026-08-10,86.87,83.31,77.78,94.7;2026-08-11,86.48,83.43,77.87,91.3;2026-08-12,86.71,83.56,77.95,94.9;2026-08-13,87.42,83.71,78.05,97.1;2026-08-14,87.71,83.87,78.15,100.1;2026-08-17,86.98,83.99,78.23,90.7;2026-08-18,88.82,84.18,78.34,100;2026-08-19,90.35,84.42,78.46,109.9;2026-08-20,90.5,84.66,78.58,105.8;2026-08-21,91.1,84.91,78.7,117.8;2026-08-24,91.99,85.19,78.83,118.4;2026-08-25,91.64,85.44,78.96,116.8;2026-08-26,90.08,85.63,79.07,100.9;2026-08-27,89.06,85.76,79.17,90;2026-08-28,89.66,85.91,79.28,92.1;2026-08-31,88.67,86.02,79.37,72;2026-09-01,88,86.1,79.46,60;2026-09-02,88.24,86.18,79.54,57;2026-09-03,88.81,86.29,79.64,61.3;2026-09-04,88.07,86.36,79.72,51.1;2026-09-08,88.36,86.43,79.81,63.2;2026-09-09,87.55,86.48,79.88,54.3;2026-09-10,87.83,86.53,79.96,42.9;2026-09-11,88.29,86.6,80.04,44.4;2026-09-14,89.35,86.71,80.14,39.4;2026-09-15,88.71,86.79,80.22,48;2026-09-16,87.87,86.83,80.3,35.7;2026-09-17,88.06,86.88,80.38,41.4;2026-09-18,88.25,86.93,80.45,66.5;2026-09-21,87.12,86.94,80.52,48.4;2026-09-22,88.61,87,80.6,57.4;2026-09-23,88.09,87.05,80.68,53.4;2026-09-24,88.1,87.09,80.75,40.3;2026-09-25,87.81,87.12,80.82,36.1;2026-09-28,87.18,87.12,80.88,32;2026-09-29,86.84,87.11,80.94,28.9;2026-09-30,86.08,87.07,80.99,13.3;2026-10-01,86.1,87.03,81.04,9.4;2026-10-02,85.65,86.98,81.09,4.3;2026-10-05,86.51,86.96,81.14,23.8;2026-10-06,86.17,86.93,81.19,8.1;2026-10-07,85.82,86.88,81.24,-1.9`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+
+const fmtN=(v,d=2)=>v.toLocaleString("de-CH",{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmtD=s=>{const [y,m,d]=s.split("-");return d+"."+m+"."+y.slice(2)};
+const NS="http://www.w3.org/2000/svg";
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+
+function scoreTable(id,rows){
+  let tot=0,max=0;
+  const html='<thead><tr><th>Kriterium</th><th>Stand</th><th class="num">Punkte</th><th style="width:22%"></th></tr></thead><tbody>'+rows.map(r=>{tot+=r[2];max+=r[3];const p=r[2]/r[3];const c=p>=.75?"var(--good)":p>=.45?"var(--warn)":"var(--bad)";
+    return `<tr><td>${r[0]}</td><td class="muted">${r[1]}</td><td class="num">${r[2]} / ${r[3]}</td><td><div class="bar"><i style="width:${p*100}%;background:${c}"></i></div></td></tr>`}).join("")+`<tr class="total"><td>Total</td><td></td><td class="num">${tot} / ${max}</td><td></td></tr></tbody>`;
+  document.getElementById(id).innerHTML=html;return tot;
+}
+const qs=scoreTable("q-tbl",Q), ts=scoreTable("t-tbl",T);
+document.getElementById("q-val").textContent=qs;document.getElementById("t-val").textContent=ts;
+document.getElementById("q-pin").style.left=qs+"%";document.getElementById("t-pin").style.left=ts+"%";
+
+document.getElementById("fin-rows").innerHTML=FIN.map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1].toLocaleString("de-CH")}</td><td class="num">${r[2]}</td><td class="num">${r[3]}</td><td class="num">${fmtN(r[4])}</td><td class="num">${r[5].toLocaleString("de-CH")}</td><td class="num">${r[6]}</td><td class="num">${r[7]}</td></tr>`).join("");
+
+/* generic line chart */
+function lineChart(host,{dates,series,bands=[],yFmt=v=>fmtN(v),h=300,zero=false,refs=[],pad}){
+  const W_=800,H=h,m={t:12,r:56,b:28,l:8};
+  const all=series.flatMap(s=>s.values).concat(bands.flatMap(b=>[b.from,b.to])).concat(refs.map(r=>r.v));
+  if(zero)all.push(0);
+  let lo=Math.min(...all),hi=Math.max(...all);const sp=(hi-lo)||1;lo-=sp*.06;hi+=sp*.06;
+  if(pad){lo=pad[0];hi=pad[1]}
+  const n=dates.length,x=i=>m.l+i*(W_-m.l-m.r)/(n-1),y=v=>m.t+(hi-v)*(H-m.t-m.b)/(hi-lo);
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  // grid
+  const steps=5;for(let k=0;k<=steps;k++){const v=lo+(hi-lo)*k/steps;el("line",{x1:m.l,x2:W_-m.r,y1:y(v),y2:y(v),stroke:"var(--grid)","stroke-width":1},svg);
+    const t=el("text",{x:W_-m.r+6,y:y(v)+4,"font-size":11,fill:"var(--muted)","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=yFmt(v)}
+  bands.forEach(b=>{el("rect",{x:m.l,width:W_-m.l-m.r,y:y(Math.max(b.from,b.to)),height:Math.abs(y(b.from)-y(b.to)),fill:b.type==="res"?"var(--zone-res)":"var(--zone-sup)"},svg)});
+  refs.forEach(r=>{el("line",{x1:m.l,x2:W_-m.r,y1:y(r.v),y2:y(r.v),stroke:"var(--muted)","stroke-dasharray":"4 4","stroke-width":1},svg);
+    const t=el("text",{x:m.l+4,y:y(r.v)-4,"font-size":11,fill:"var(--muted)"},svg);t.textContent=r.label});
+  if(zero)el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  // x labels
+  const every=Math.ceil(n/6);for(let i=0;i<n;i+=every){const t=el("text",{x:x(i),y:H-8,"font-size":11,fill:"var(--muted)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);const d=dates[i];t.textContent=d.slice(5,7)+"/"+d.slice(2,4)}
+  series.forEach(s=>{const dpath=s.values.map((v,i)=>(i?"L":"M")+x(i).toFixed(1)+","+y(v).toFixed(1)).join("");
+    el("path",{d:dpath,fill:"none",stroke:s.color,"stroke-width":s.w||2,"stroke-linejoin":"round","stroke-linecap":"round"},svg);
+    const lv=s.values[n-1];el("circle",{cx:x(n-1),cy:y(lv),r:3.5,fill:s.color,stroke:"var(--surface)","stroke-width":2},svg)});
+  // hover
+  const cross=el("line",{y1:m.t,y2:H-m.b,stroke:"var(--muted)","stroke-width":1,opacity:0},svg);
+  const ov=el("rect",{x:m.l,y:m.t,width:W_-m.l-m.r,height:H-m.t-m.b,fill:"transparent"},svg);
+  host.appendChild(svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;host.appendChild(tip);
+  function move(ev){const r=svg.getBoundingClientRect();const px=(ev.clientX-r.left)*W_/r.width;let i=Math.round((px-m.l)/((W_-m.l-m.r)/(n-1)));i=Math.max(0,Math.min(n-1,i));
+    cross.setAttribute("x1",x(i));cross.setAttribute("x2",x(i));cross.setAttribute("opacity",1);
+    tip.innerHTML=`<div class="d">${fmtD(dates[i])}</div>`+series.map(s=>`<div><i class="sw" style="background:${s.color}"></i> ${s.name}: <b>${yFmt(s.values[i])}</b></div>`).join("");
+    tip.hidden=false;const hx=x(i)*r.width/W_;tip.style.left=Math.min(Math.max(0,hx+12),r.width-tip.offsetWidth)+"px";tip.style.top="8px"}
+  ov.addEventListener("pointermove",move);ov.addEventListener("pointerleave",()=>{tip.hidden=true;cross.setAttribute("opacity",0)});
+}
+function barChart(host,{labels,values,fmt,h=220,color,neg,tipExtra}){
+  const W_=800,H=h,m={t:18,r:8,b:28,l:8};
+  const hi=Math.max(0,...values),lo=Math.min(0,...values);const lo2=lo<0?lo*1.15:lo,hi2=hi*1.15||1;
+  const y=v=>m.t+(hi2-v)*(H-m.t-m.b)/(hi2-lo2);const n=values.length,bw=(W_-m.l-m.r)/n;
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;
+  values.forEach((v,i)=>{const x0=m.l+i*bw+bw*.18,w=bw*.64,y0=y(Math.max(v,0)),hh=Math.max(1,Math.abs(y(v)-y(0)));
+    const r=el("rect",{x:x0,y:y0,width:w,height:hh,rx:4,fill:v<0?(neg||"var(--s2)"):(color||"var(--s1)")},svg);
+    const t=el("text",{x:x0+w/2,y:v<0?y(v)+13:y0-5,"font-size":11.5,fill:"var(--ink)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=fmt(v);
+    const l=el("text",{x:x0+w/2,y:H-8,"font-size":11.5,fill:"var(--muted)","text-anchor":"middle"},svg);l.textContent=labels[i];
+    const hit=el("rect",{x:m.l+i*bw,y:m.t,width:bw,height:H-m.t-m.b,fill:"transparent"},svg);
+    hit.addEventListener("pointerenter",()=>{tip.innerHTML=`<div class="d">${labels[i]}</div><b>${fmt(v)}</b>${tipExtra?tipExtra(i):""}`;tip.hidden=false;const R=svg.getBoundingClientRect();tip.style.left=Math.min((m.l+i*bw)*R.width/W_,R.width-tip.offsetWidth)+"px";tip.style.top="0px"});
+    hit.addEventListener("pointerleave",()=>tip.hidden=true)});
+  host.appendChild(svg);host.appendChild(tip);
+}
+barChart(document.getElementById("c-rev"),{labels:HALF.map(r=>r[0]),values:HALF.map(r=>r[1]),fmt:v=>fmtN(v,2),h:200});
+barChart(document.getElementById("c-margin"),{labels:MARGIN.map(r=>r[0]),values:MARGIN.map(r=>r[1]),fmt:v=>fmtN(v,1)+" %",h:200});
+barChart(document.getElementById("c-seas"),{labels:MON,values:SEAS,fmt:v=>(v>0?"+":"")+fmtN(v,1),h:220,tipExtra:i=>`<div>${SEASHIT[i]} % der Jahre positiv</div>`});
+const BANDS=[{"from": 89.4, "to": 92.5, "type": "res"}, {"from": 80, "to": 82.5, "type": "sup"}, {"from": 76.8, "to": 78.5, "type": "sup"}], REFS=[{"v": 74, "label": "Abbruch 74"}];
+const wd=W.map(r=>r[0]);
+lineChart(document.getElementById("c-week"),{dates:wd,series:[{name:"Kurs",values:W.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:W.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:W.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,yFmt:v=>fmtN(v,0),h:320});
+lineChart(document.getElementById("c-adw"),{dates:wd,series:[{name:"A/D Woche",values:W.map(r=>r[5]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,zero:true});
+lineChart(document.getElementById("c-rsiw"),{dates:wd,series:[{name:"RSI Woche",values:W.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,refs:[{v:70,label:"70 überkauft"},{v:30,label:"30 überverkauft"}],pad:[10,90]});
+const dd=DD.map(r=>r[0]);
+lineChart(document.getElementById("c-day"),{dates:dd,series:[{name:"Kurs",values:DD.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:DD.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:DD.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,refs:REFS,yFmt:v=>fmtN(v,0),h:260});
+lineChart(document.getElementById("c-add"),{dates:dd,series:[{name:"A/D Tag",values:DD.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:260,zero:true});
+</script>

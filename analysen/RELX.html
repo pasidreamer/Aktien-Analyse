@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RELX Aktien-Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F3F5F7; --surface:#FFFFFF; --ink:#141B24; --muted:#5A6573; --line:#DDE2E8; --grid:#E9EDF1;
+  --accent:#2F45B5; --accent-soft:#E6E9F8; --chip:#EBEEF2;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+  --good:#1D7A4B; --good-bg:#E3F3EA; --warn:#9A6200; --warn-bg:#FBF0DC; --bad:#B2362A; --bad-bg:#FBE6E3;
+  --zone-sup:rgba(29,122,75,.10); --zone-res:rgba(178,54,42,.09);
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+    --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+    --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+    --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+  --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+  --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;padding-inline:16px;padding-block:24px 56px}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+h1,h2,h3{font-family:var(--display);font-stretch:85%;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:clamp(32px,7vw,48px);font-weight:800;line-height:1}
+h2{font-size:24px;font-weight:700}
+h3{font-size:17px;font-weight:700;font-stretch:95%}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+section{display:flex;flex-direction:column;gap:14px}
+.lead{max-width:68ch;color:var(--muted)}
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;align-items:stretch}
+.hero .id{display:flex;flex-direction:column;gap:10px;justify-content:space-between}
+.price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price b{font-family:var(--display);font-size:34px;font-weight:700}
+.meta{font-size:13px;color:var(--muted)}
+.verdict{font-size:15px;padding:12px 14px;border-radius:10px;background:var(--chip)}
+.scales{display:flex;flex-direction:column;gap:18px}
+.scale-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.scale-h span{font-size:13px;color:var(--muted)}
+.scale-h b{font-family:var(--display);font-size:28px;line-height:1}
+.track{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#C8412F 0%,#E0892F 30%,#E3B63A 50%,#8BBF4B 68%,#2E9A5B 100%);margin-top:8px}
+.pin{position:absolute;top:-5px;width:4px;height:22px;border-radius:2px;background:var(--ink);box-shadow:0 0 0 2px var(--surface);transform:translateX(-2px)}
+.ticks{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);font-family:var(--mono);margin-top:6px}
+.state{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;margin-top:8px}
+.st-good{background:var(--good-bg);color:var(--good)}
+.st-warn{background:var(--warn-bg);color:var(--warn)}
+.st-bad{background:var(--bad-bg);color:var(--bad)}
+/* tables */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;color:var(--muted);font-weight:500;font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:700;border-bottom:none}
+.pts{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{height:6px;border-radius:3px;background:var(--chip);min-width:60px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:3px}
+/* grids */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;border-left:4px solid var(--line)}
+.kpi.g{border-left-color:var(--good)}.kpi.w{border-left-color:var(--warn)}.kpi.b{border-left-color:var(--bad)}
+.kpi span{font-size:12px;color:var(--muted)}
+.kpi b{font-family:var(--mono);font-size:19px;font-weight:500;font-variant-numeric:tabular-nums}
+.kpi em{font-style:normal;font-size:12.5px;color:var(--muted)}
+/* charts */
+.chart{position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:14px;height:3px;border-radius:2px;display:inline-block}
+.swb{width:12px;height:10px;border-radius:2px;display:inline-block}
+.tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12.5px;box-shadow:0 4px 14px rgba(0,0,0,.12);white-space:nowrap;z-index:2}
+.tip b{font-family:var(--mono);font-weight:500}
+.tip .d{font-family:var(--mono);color:var(--muted);font-size:11.5px}
+.note{font-size:13.5px;color:var(--muted)}
+ul.clean{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.pro li::marker{color:var(--good)} .con li::marker{color:var(--bad)}
+.zones{display:flex;flex-direction:column;gap:8px}
+.zone{display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:baseline;padding:10px 12px;border-radius:10px;background:var(--chip);font-size:14px}
+.zone b{font-family:var(--mono);font-weight:500}
+.zone.r{border-left:4px solid var(--bad)} .zone.s{border-left:4px solid var(--good)} .zone.t{border-left:4px solid var(--accent)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+summary{cursor:pointer;font-weight:600}
+details p{margin-top:8px;color:var(--muted);max-width:70ch}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+footer{font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:6px;max-width:80ch}
+footer a{color:var(--accent)}
+@media (max-width:760px){.hero,.two{grid-template-columns:1fr}.zone{grid-template-columns:1fr;gap:2px}}
+</style>
+
+<a href="../index.html#/aktie/RELX" style="display:inline-block;margin:max(12px,env(safe-area-inset-top)) 0 0 16px;background:#1f3a5f;color:#fff;font:600 14px system-ui;padding:8px 12px;border-radius:20px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">Zurück zur App</a>
+<div class="wrap">
+
+<header class="hero">
+  <div class="card id">
+    <div>
+      <div class="eyebrow">Aktien-Check · 29.09.2026</div>
+      <h1>RELX</h1>
+      <p class="meta">RELX PLC · NYSE: RELX (ADR) · Daten, Analysen und Fachinformationen · Grossbritannien</p>
+    </div>
+    <div class="price"><b>33.12 $</b><span class="meta">Schluss 29.09.2026 · 52 Wochen −28 % · Hoch 2025: 55.44 $</span></div>
+    <p class="verdict"><b>Kurz gesagt:</b> Das Geschäft läuft besser als je zuvor, der Kurs zeigt es nicht. Qualität klar grün, Timing noch orange. Beobachten und auf den Trendwechsel warten.</p>
+  </div>
+  <div class="card scales">
+    <div>
+      <div class="scale-h"><span>Qualität · Ist die Firma kaufenswert?</span><b id="q-val">83</b></div>
+      <div class="track"><i class="pin" id="q-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-good">● Stark: Fundament intakt</span>
+    </div>
+    <div>
+      <div class="scale-h"><span>Timing · Ist jetzt der Zeitpunkt?</span><b id="t-val">40</b></div>
+      <div class="track"><i class="pin" id="t-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-warn">▲ Beobachten: Trigger noch nicht erreicht</span>
+    </div>
+    <p class="note">Skala: unter 30 rot · 30–45 orange · 45–60 gelb · 60–75 hellgrün · ab 75 grün. Beide Werte setzen sich aus festen Kriterien zusammen, siehe unten.</p>
+  </div>
+</header>
+
+<section>
+  <h2>Was die Firma macht</h2>
+  <p class="lead">RELX verkauft Daten und Analyse-Werkzeuge im Abo: LexisNexis Risk (Betrugs- und Kreditprüfung für Banken und Versicherer), Elsevier (wissenschaftliche Fachzeitschriften), LexisNexis Legal (Rechtsdatenbanken) und Messen. Rund drei Viertel des Umsatzes sind wiederkehrend. Der Kurs ist seit Anfang 2025 um rund 40 % gefallen, weil Anleger fürchten, dass KI-Sprachmodelle diese Datenbanken ersetzen. RELX baut KI selbst in seine Produkte ein (zum Beispiel Lexis+ AI) und wächst bisher weiter.</p>
+</section>
+
+<section>
+  <h2>Fundamental: die Zahlen</h2>
+  <div class="kpis">
+    <div class="kpi g"><span>Umsatzwachstum (bereinigt)</span><b>+7 %</b><em>1. Halbjahr 2026, ohne Währungseffekte. Solide für ein Abo-Geschäft.</em></div>
+    <div class="kpi g"><span>Operative Marge</span><b>32.0 %</b><em>Von 100 £ Umsatz bleiben 32 £ Betriebsgewinn. Stark, und seit 5 Jahren jedes Jahr höher.</em></div>
+    <div class="kpi g"><span>Gewinn pro Aktie (EPS)</span><b>+11 %</b><em>Bereinigt, 1. Halbjahr 2026. Wächst schneller als der Umsatz, das ist gut.</em></div>
+    <div class="kpi g"><span>ROIC</span><b>23.6 %</b><em>Gewinn pro investiertem Franken. Über 20 % ist stark, 2021 waren es 16 %.</em></div>
+    <div class="kpi g"><span>Free Cashflow</span><b>2'860 Mio. £</b><em>Echtes Geld nach allen Investitionen. Steigt seit 2021 jedes Jahr.</em></div>
+    <div class="kpi w"><span>Schulden / EBITDA</span><b>2.3–2.7</b><em>Jahre, um die Schulden aus dem Betriebsgewinn zu tilgen. Okay, aber nicht tief.</em></div>
+    <div class="kpi g"><span>KGV aktuell</span><b>19.4</b><em>Eigener Schnitt 2021–2025: rund 30. Die Aktie ist also rund ein Drittel günstiger als üblich.</em></div>
+    <div class="kpi g"><span>Aktienrückkauf 2026</span><b>2.25 Mrd. £</b><em>RELX kauft rund 5 % der eigenen Aktien pro Jahr zurück.</em></div>
+  </div>
+
+  <div class="two">
+    <div class="card">
+      <h3>Umsatz pro Halbjahr (Mio. £)</h3>
+      <p class="note">Jedes Halbjahr lag über dem gleichen Halbjahr des Vorjahres.</p>
+      <div class="chart" id="c-rev"></div>
+    </div>
+    <div class="card">
+      <h3>Operative Marge pro Jahr</h3>
+      <p class="note">Steigt seit 2021 ohne Unterbruch. Das ist ein Zeichen für Preismacht.</p>
+      <div class="chart" id="c-margin"></div>
+    </div>
+  </div>
+
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Jahr</th><th class="num">Umsatz Mio. £</th><th class="num">Wachstum</th><th class="num">Op. Marge</th><th class="num">EPS £</th><th class="num">Free Cashflow</th><th class="num">ROIC</th><th class="num">KGV</th></tr></thead>
+      <tbody id="fin-rows"></tbody>
+    </table>
+  </div>
+  <p class="note"><b>Warum das Umsatzwachstum in der Tabelle so tief aussieht:</b> RELX berichtet in Pfund, verdient aber viel in Dollar. Der starke Pfund-Kurs und verkaufte Geschäftsteile drücken die ausgewiesene Zahl auf 1–3 %. Bereinigt (gleiche Währung, gleiche Geschäfte) wächst RELX mit rund 7 %.</p>
+</section>
+
+<section>
+  <h2>Qualität: 83 von 100</h2>
+  <div class="card tbl"><table id="q-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Technik: Wochenchart (2 Jahre)</h2>
+  <div class="card">
+    <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span><span><i class="swb" style="background:var(--zone-sup);border:1px solid var(--good)"></i>Unterstützung</span><span><i class="swb" style="background:var(--zone-res);border:1px solid var(--bad)"></i>Widerstand</span></div>
+    <div class="chart" id="c-week"></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>A/D-Linie, Woche</h3>
+      <p class="note">Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Gewichtet mit dem Volumen. Werte in Mio. Aktien.</p>
+      <div class="chart" id="c-adw"></div>
+    </div>
+    <div class="card">
+      <h3>RSI, Woche</h3>
+      <p class="note">Unter 30 überverkauft, über 70 überkauft. Im Februar 2026 fiel er auf 20, das war der Panik-Tiefpunkt.</p>
+      <div class="chart" id="c-rsiw"></div>
+    </div>
+  </div>
+
+  <h2>Technik: Tageschart (6 Monate)</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Kurs, Tag</h3>
+      <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span></div>
+      <div class="chart" id="c-day"></div>
+    </div>
+    <div class="card">
+      <h3>A/D-Linie, Tag</h3>
+      <p class="note">Seit dem Juli-Hoch fiel der Kurs um 12 %, die A/D-Linie liegt aber höher als damals. Verkäufer drücken also mit wenig Volumen.</p>
+      <div class="chart" id="c-add"></div>
+    </div>
+  </div>
+
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Indikator</th><th>Tag</th><th>Woche</th><th>Bedeutung</th></tr></thead>
+      <tbody>
+        <tr><td>Kurs vs. EMA 50</td><td class="pts">33.12 &lt; 34.38</td><td class="pts">33.12 &lt; 36.54</td><td>Unter der mittelfristigen Linie: Verkäufer haben die Oberhand.</td></tr>
+        <tr><td>Kurs vs. EMA 200</td><td class="pts">33.12 &lt; 36.17</td><td class="pts">33.12 &lt; 38.94</td><td>Unter der langfristigen Linie: langfristiger Abwärtstrend.</td></tr>
+        <tr><td>EMA 50 vs. EMA 200</td><td>50 unter 200</td><td>50 unter 200 (seit Mai 2026)</td><td>„Death Cross“: Beide Zeitebenen bestätigen den Abwärtstrend.</td></tr>
+        <tr><td>RSI (14)</td><td class="pts">41.4</td><td class="pts">43.9</td><td>Schwach, aber nicht überverkauft. Kein Extrem, kein Signal.</td></tr>
+        <tr><td>A/D</td><td>hält sich seit Juli</td><td>fällt seit Juli</td><td>Gemischt: kurzfristig wenig Verkaufsdruck, auf Wochenbasis fliesst seit Juli Geld ab.</td></tr>
+        <tr><td>Volumen</td><td colspan="2">Ø 20 Tage 2.1 Mio. vs. Ø 100 Tage 2.5 Mio.</td><td>Der Rücksetzer läuft mit sinkendem Volumen. Leicht positiv: Verkäufer werden müde.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Struktur und Zonen (Smart Money Concept)</h2>
+  <p class="lead">Seit dem Panik-Tief im Februar (Wochenschluss 29.38 $) pendelt RELX in einer Spanne von rund 30 bis 38.6 $. Die Tiefs steigen leicht (Juni 30.29 $, September 32.83 $), die Hochs fallen aber seit dem Juli-Hoch (38.58 → 37.00 → 35.74 $). Das ist eine Keilform: Der Markt entscheidet sich bald für eine Richtung.</p>
+  <div class="zones">
+    <div class="zone r"><b>36.2–37.0 $</b><span>Widerstand: EMA 200 (Tag) und Hoch vom 3.9. Darüber wäre der Abwärtstrend auf dem Tageschart gebrochen.</span></div>
+    <div class="zone t"><b>35.74 $</b><span><b>Trigger: Change of Character.</b> Ein Tagesschluss darüber bricht die Serie tieferer Hochs. Idealerweise mit steigender A/D-Linie.</span></div>
+    <div class="zone r"><b>34.4–34.9 $</b><span>Erster Widerstand: EMA 50 (Tag).</span></div>
+    <div class="zone s"><b>32.5–33.0 $</b><span>Aktuelle Unterstützung: Tiefs vom Mai und September. Hier steht der Kurs gerade.</span></div>
+    <div class="zone s"><b>30.3–31.0 $</b><span>Starke Unterstützung: Juni-Tief. Ein Wochenschluss darunter würde die Bodenbildung ungültig machen.</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Smart Money, Insider und Saisonalität</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Wer kauft?</h3>
+      <ul class="clean" style="margin-top:8px">
+        <li><b>RELX selbst:</b> 2.25 Mrd. £ Aktienrückkauf 2026, davon bis Juli 1.75 Mrd. erledigt. Zurzeit laufen 125 Mio. £ bis 21.10. Das ist der grösste stetige Käufer der Aktie.</li>
+        <li><b>Insider:</b> Keine freien Käufe an der Börse gefunden. Die letzte Meldung (3.8.2026) war eine Ausübung von Mitarbeiter-Optionen, 910 Aktien. Neutral.</li>
+        <li><b>Grosse Fonds:</b> Rund 75 % der US-Aktien liegen bei institutionellen Anlegern. Die Quartalsmeldungen (13F) für Q3 kommen erst Mitte November.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Saisonalität seit 1994</h3>
+      <p class="note">Durchschnittliche Monatsrendite in %. Oktober ist mit 68 % positiven Jahren der verlässlichste Monat, September der schwächste.</p>
+      <div class="chart" id="c-seas"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Timing: 40 von 100</h2>
+  <div class="card tbl"><table id="t-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Pro und Contra</h2>
+  <div class="two">
+    <div class="card pro"><h3>Spricht dafür</h3><ul class="clean" style="margin-top:8px">
+      <li>Marge, ROIC und Free Cashflow steigen seit 5 Jahren ohne Unterbruch.</li>
+      <li>KGV 19 statt üblich rund 30: Die Angst ist im Preis.</li>
+      <li>Free-Cashflow-Rendite 6.5 %: Pro 100 $ Börsenwert erwirtschaftet RELX 6.50 $ freies Geld.</li>
+      <li>Grosser Aktienrückkauf stützt den Kurs.</li>
+      <li>Oktober bis Dezember sind saisonal die stärksten Monate.</li>
+    </ul></div>
+    <div class="card con"><h3>Spricht dagegen</h3><ul class="clean" style="margin-top:8px">
+      <li>Das KI-Risiko ist real: Wenn Sprachmodelle Rechts- und Fachwissen günstiger liefern, sinkt die Preismacht.</li>
+      <li>Klarer Abwärtstrend auf Tages- und Wochenchart, Death Cross seit Mai.</li>
+      <li>Die A/D-Linie auf Wochenbasis zeigt seit Juli Geldabfluss.</li>
+      <li>Schulden etwas erhöht (2.3–2.7 Jahre Betriebsgewinn).</li>
+      <li>Keine Insider-Käufe als Vertrauenssignal.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section>
+  <h2>Was jetzt zu tun ist</h2>
+  <div class="zones">
+    <div class="zone t"><b>Beobachten</b><span>Alarm bei 35.74 $ (Change of Character) und bei 30.90 $ (Unterkante der Zone).</span></div>
+    <div class="zone s"><b>Timing grün</b><span>Tagesschluss über 35.74 $ und die Wochen-A/D dreht nach oben. Dann springt das Timing auf rund 60. Erster Rücksetzer danach ist die saubere Einstiegszone.</span></div>
+    <div class="zone r"><b>Abbruch</b><span>Wochenschluss unter 30.30 $: Bodenbildung gescheitert, neu bewerten.</span></div>
+    <div class="zone"><b>Nächste Zahlen</b><span>Trading-Update im November, Jahreszahlen im Februar 2027.</span></div>
+  </div>
+</section>
+
+<footer>
+  <span>Kursdaten und Indikatoren (EMA, RSI 14, A/D) selbst berechnet aus Yahoo-Finance-Tages-, Wochen- und Monatsdaten, Stand 29.09.2026. Fundamentaldaten: <a href="https://stockanalysis.com/stocks/relx/financials/" target="_blank" rel="noopener">StockAnalysis.com</a> (S&amp;P Global Market Intelligence), <a href="https://www.directorstalkinterviews.com/relx-reports-7-revenue-growth-reaffirms-2026-outlook/4121257505" target="_blank" rel="noopener">RELX Halbjahreszahlen 2026</a>, <a href="https://www.investing.com/news/company-news/relx-launches-125-million-share-buyback-program-93CH-4890409" target="_blank" rel="noopener">Aktienrückkauf</a>, <a href="https://www.investegate.co.uk/announcement/rns/relx-plc--rel/director-pdmr-shareholding/9709009" target="_blank" rel="noopener">Insider-Meldung</a>.</span>
+  <span>Persönliche Analyse, keine Anlageberatung. Vergangene Kurse und Saisonalität sagen nichts Sicheres über die Zukunft.</span>
+</footer>
+</div>
+
+<script>
+const Q=[
+ ["Umsatztrend","Jedes Halbjahr über Vorjahr, seit 2021",12,15],
+ ["Wachstumstempo","Bereinigt +7 % pro Jahr",6,10],
+ ["Operative Marge","32 %, 5 Jahre in Folge gestiegen",15,15],
+ ["Gewinnwachstum (EPS)","Rund +10–11 % pro Jahr",8,10],
+ ["Free Cashflow","Steigt jedes Jahr, 98 % Umwandlung",10,10],
+ ["ROIC","23.6 %, steigend",13,15],
+ ["Schulden","2.3–2.7 Jahre Betriebsgewinn",5,10],
+ ["Bewertung vs. eigene Historie","KGV 19 statt Ø rund 30",14,15]
+];
+const T=[
+ ["Trend Woche (EMA 50/200)","Kurs unter beiden, Death Cross",3,20],
+ ["Trend Tag (EMA 50/200)","Kurs unter beiden",2,10],
+ ["Struktur (SMC)","Höhere Tiefs, aber tiefere Hochs, kein Change of Character",8,20],
+ ["RSI Tag/Woche","41 / 44: neutral, keine Divergenz",7,15],
+ ["A/D Tag/Woche","Tag hält sich, Woche fällt seit Juli",10,20],
+ ["Smart Money","Starker Rückkauf, keine Insider-Käufe",6,10],
+ ["Saisonalität","Okt–Dez historisch stark",4,5]
+];
+const FIN=[["2021",7244,"+1.9 %","25.5 %",0.76,1988,"16.4 %","31.5"],["2022",8553,"+18.1 %","26.9 %",0.85,2365,"18.3 %","26.7"],["2023",9161,"+7.1 %","28.8 %",0.94,2427,"20.6 %","32.9"],["2024",9434,"+3.0 %","29.9 %",1.03,2588,"21.7 %","34.8"],["2025",9590,"+1.7 %","31.1 %",1.12,2815,"23.2 %","26.6"],["Letzte 12 Mt.",9720,"+1.4 %","31.7 %",1.25,2860,"23.6 %","19.4"]];
+const HALF=[["H1 24",4641],["H2 24",4793],["H1 25",4741],["H2 25",4849],["H1 26",4871]];
+const MARGIN=[["2021",25.5],["2022",26.9],["2023",28.8],["2024",29.9],["2025",31.1],["12 Mt.",31.7]];
+const SEAS=[0.59,1.15,0.37,1.26,-0.25,0.76,1.27,-1.34,-0.45,1.31,1.31,1.77];
+const SEASHIT=[59,53,53,59,56,59,50,56,45,68,61,53];
+const MON=["Jan","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"];
+// weekly: date, close, ema50, ema200, rsi, ad (Mio.)
+const W=`2024-10-14,48.17,43.13,35.55,64.1,59.9;2024-10-21,47.42,43.3,35.67,59.5,60.6;2024-10-28,47.08,43.45,35.79,57.5,60.4;2024-11-04,47.98,43.63,35.91,61.2,63.8;2024-11-11,44.45,43.66,35.99,44.6,59.9;2024-11-18,46.75,43.78,36.1,53.5,63.3;2024-11-25,47.08,43.91,36.21,54.6,64.3;2024-12-02,47.59,44.05,36.32,56.3,64;2024-12-09,47.06,44.17,36.43,54,62.5;2024-12-16,45.47,44.22,36.52,47.7,57.9;2024-12-23,45.58,44.28,36.61,48.1,58.2;2024-12-30,45.43,44.32,36.7,47.5,58.5;2025-01-06,46.37,44.4,36.79,51.6,59.2;2025-01-13,48.17,44.55,36.91,58.4,61.1;2025-01-20,48.85,44.72,37.02,60.6,59.1;2025-01-27,49.89,44.92,37.15,63.8,60.3;2025-02-03,49.99,45.12,37.28,64.1,60.2;2025-02-10,51.07,45.35,37.42,67.3,60;2025-02-17,49.29,45.51,37.54,58.1,57.9;2025-02-24,48.37,45.62,37.64,54.1,56.9;2025-03-03,48.1,45.72,37.75,52.9,56.5;2025-03-10,48.93,45.84,37.86,56,59.9;2025-03-17,50.01,46.01,37.98,59.8,62.2;2025-03-24,50.16,46.17,38.1,60.3,62.4;2025-03-31,48.16,46.25,38.2,51,59.2;2025-04-07,49.12,46.36,38.31,54.7,64.3;2025-04-14,52.2,46.59,38.45,63.9,66.8;2025-04-21,53.55,46.86,38.6,67,71;2025-04-28,55.02,47.18,38.76,70.1,75.2;2025-05-05,53.85,47.44,38.91,64.9,73.8;2025-05-12,54.57,47.72,39.07,66.5,77.8;2025-05-19,55.44,48.03,39.23,68.5,79.7;2025-05-26,53.92,48.26,39.38,61.8,76.2;2025-06-02,53.68,48.47,39.52,60.8,71.8;2025-06-09,52.76,48.64,39.65,57,69.2;2025-06-16,52.11,48.77,39.77,54.4,65.9;2025-06-23,53.8,48.97,39.91,59.5,68.9;2025-06-30,53.19,49.14,40.05,57,68.7;2025-07-07,53.62,49.31,40.18,58.4,67.5;2025-07-14,52.9,49.45,40.31,55.3,63.2;2025-07-21,52.73,49.58,40.43,54.5,60.2;2025-07-28,51.59,49.66,40.54,49.8,56.7;2025-08-04,48,49.6,40.62,38.4,47.8;2025-08-11,47.96,49.53,40.69,38.2,49;2025-08-18,48.44,49.49,40.77,40.4,50.8;2025-08-25,46.67,49.38,40.83,35.5,44.4;2025-09-01,47.05,49.29,40.89,37.3,49.7;2025-09-08,46.5,49.18,40.94,35.8,51.1;2025-09-15,47.03,49.09,41,38.3,47.2;2025-09-22,46.83,49,41.06,37.7,49.1;2025-09-29,46.41,48.9,41.12,36.4,44.2;2025-10-06,44.82,48.74,41.15,31.9,37.5;2025-10-13,45.23,48.6,41.19,34.1,38.2;2025-10-20,46.57,48.52,41.25,41.1,39.6;2025-10-27,44.24,48.36,41.28,34.3,34.4;2025-11-03,42.27,48.12,41.29,29.8,29.9;2025-11-10,41.33,47.85,41.29,28,26.5;2025-11-17,40.6,47.57,41.28,26.6,32.2;2025-11-24,40.21,47.28,41.27,25.8,32.5;2025-12-01,40.32,47.01,41.26,26.4,35.9;2025-12-08,40.38,46.75,41.25,26.8,43.8;2025-12-15,40.73,46.51,41.25,29,38.9;2025-12-22,41.11,46.3,41.24,31.4,40.4;2025-12-29,39.8,46.04,41.23,27.9,34.3;2026-01-05,43.14,45.93,41.25,44.8,46.9;2026-01-12,41.63,45.76,41.25,40.2,40.3;2026-01-19,39.9,45.53,41.24,35.7,38.8;2026-01-26,35.8,45.15,41.18,27.7,22.6;2026-02-02,29.38,44.53,41.07,20.2,-9.5;2026-02-09,31.06,44,40.97,25.9,18.5;2026-02-16,31.46,43.51,40.87,27.2,30.2;2026-02-23,34.79,43.17,40.81,37.3,64.4;2026-03-02,35.68,42.88,40.76,39.7,80.8;2026-03-09,34.14,42.53,40.7,37.1,67.7;2026-03-16,33.36,42.17,40.62,35.8,49.5;2026-03-23,31.97,41.77,40.54,33.5,34.9;2026-03-30,33.59,41.45,40.47,38.4,43.7;2026-04-06,33.3,41.13,40.4,37.9,36.9;2026-04-13,36.68,40.96,40.36,47.1,45.9;2026-04-20,36.53,40.78,40.32,46.8,44.2;2026-04-27,36.35,40.61,40.28,46.4,46.3;2026-05-04,33.58,40.33,40.21,40.3,35.8;2026-05-11,32.4,40.02,40.14,38,35.8;2026-05-18,33.01,39.75,40.07,39.9,31.3;2026-05-25,32.79,39.48,39.99,39.5,30.8;2026-06-01,35.15,39.31,39.95,46.7,39.7;2026-06-08,33.74,39.09,39.88,43.4,37.1;2026-06-15,31.18,38.78,39.8,38.1,28.1;2026-06-22,31.34,38.49,39.71,38.6,36.1;2026-06-29,31.93,38.23,39.64,40.5,48;2026-07-06,32.44,38,39.56,42.2,46.6;2026-07-13,33.7,37.83,39.51,46.2,52.9;2026-07-20,34.41,37.7,39.46,48.4,63.1;2026-07-27,35.42,37.61,39.41,51.5,49;2026-08-03,35.52,37.53,39.38,51.8,38.2;2026-08-10,34.43,37.41,39.33,48.2,34.8;2026-08-17,35.91,37.35,39.29,52.9,43.4;2026-08-24,36.54,37.32,39.27,54.8,51.1;2026-08-31,35.51,37.24,39.23,51.2,47;2026-09-07,33.8,37.11,39.17,45.8,40;2026-09-14,33.41,36.96,39.12,44.7,30.7;2026-09-21,33.52,36.83,39.06,45.1,32.5;2026-09-28,33.12,36.54,38.94,43.9,32.8`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+// daily: date, close, ema50, ema200, ad (Mio.)
+const DD=`2026-03-25,32.47,34.9,41.31,11.7;2026-03-26,32.07,34.79,41.21,9.6;2026-03-27,31.97,34.68,41.12,10.5;2026-03-30,32.75,34.6,41.04,12.2;2026-03-31,33.15,34.55,40.96,12.2;2026-04-01,33.23,34.49,40.88,13.6;2026-04-02,33.59,34.46,40.81,14.8;2026-04-06,33.61,34.43,40.74,14.9;2026-04-07,33.36,34.38,40.67,13.4;2026-04-08,33.93,34.37,40.6,11.2;2026-04-09,33.34,34.33,40.53,9.8;2026-04-10,33.3,34.29,40.46,9.5;2026-04-13,34.25,34.28,40.39,11.7;2026-04-14,34.71,34.3,40.34,11;2026-04-15,35.68,34.35,40.29,12.9;2026-04-16,36.21,34.43,40.25,10.4;2026-04-17,36.68,34.52,40.21,7.7;2026-04-20,36.74,34.6,40.18,8.6;2026-04-21,37.07,34.7,40.15,6.4;2026-04-22,36.27,34.76,40.11,3.6;2026-04-23,36.13,34.81,40.07,6;2026-04-24,36.53,34.88,40.04,8.4;2026-04-27,36.39,34.94,40,6.8;2026-04-28,36.01,34.98,39.96,6.8;2026-04-29,35.8,35.02,39.92,7.3;2026-04-30,36.59,35.08,39.89,8.6;2026-05-01,36.35,35.13,39.85,7.1;2026-05-04,36.36,35.18,39.82,6.1;2026-05-05,36.16,35.21,39.78,5.8;2026-05-06,35.75,35.23,39.74,4;2026-05-07,34.16,35.19,39.68,3;2026-05-08,33.58,35.13,39.62,3.1;2026-05-11,33.27,35.06,39.56,1.4;2026-05-12,32.77,34.97,39.49,0.3;2026-05-13,31.62,34.84,39.41,0.6;2026-05-14,31.46,34.7,39.33,-2.1;2026-05-15,32.4,34.61,39.27,-0.4;2026-05-18,33.96,34.59,39.21,1.9;2026-05-19,33.58,34.55,39.16,-0.6;2026-05-20,33.6,34.51,39.1,1.6;2026-05-21,33.34,34.46,39.04,2.4;2026-05-22,33.01,34.41,38.98,1.5;2026-05-26,32.9,34.35,38.92,0.7;2026-05-27,32.85,34.29,38.86,1.3;2026-05-28,33.1,34.24,38.81,2.7;2026-05-29,32.79,34.19,38.75,2.5;2026-06-01,34.6,34.2,38.7,5.1;2026-06-02,33.38,34.17,38.65,3.8;2026-06-03,32.9,34.12,38.59,2.1;2026-06-04,34.46,34.13,38.55,1.2;2026-06-05,35.15,34.17,38.52,0.5;2026-06-08,34.52,34.19,38.48,-1.6;2026-06-09,34.94,34.22,38.44,-0.3;2026-06-10,33.98,34.21,38.4,0;2026-06-11,33.11,34.16,38.35,-2.1;2026-06-12,33.74,34.15,38.3,0.1;2026-06-15,32.84,34.1,38.25,-1.8;2026-06-16,32.8,34.05,38.19,-2.1;2026-06-17,32.01,33.97,38.13,-4.6;2026-06-18,31.18,33.86,38.06,-5.1;2026-06-22,30.83,33.74,37.99,-6.9;2026-06-23,31.21,33.64,37.92,-7.6;2026-06-24,31.15,33.54,37.86,-10.1;2026-06-25,30.92,33.44,37.79,-13;2026-06-26,31.34,33.36,37.72,-10.5;2026-06-29,31.29,33.27,37.66,-11.9;2026-06-30,31.67,33.21,37.6,-10;2026-07-01,31.38,33.14,37.54,-9.9;2026-07-02,31.93,33.09,37.48,-5.8;2026-07-06,32.27,33.06,37.43,-3.3;2026-07-07,32.81,33.05,37.38,-5.6;2026-07-08,32.05,33.01,37.33,-7.9;2026-07-09,32.07,32.97,37.28,-4.3;2026-07-10,32.44,32.95,37.23,-5.8;2026-07-13,33.42,32.97,37.19,-1.9;2026-07-14,32.65,32.96,37.15,-2;2026-07-15,33.51,32.98,37.11,-1.9;2026-07-16,34.02,33.02,37.08,-1;2026-07-17,33.7,33.05,37.05,-1.9;2026-07-20,34.1,33.09,37.02,-0.1;2026-07-21,32.73,33.08,36.97,-2.2;2026-07-22,32.74,33.06,36.93,-3.9;2026-07-23,32.86,33.05,36.89,-4.7;2026-07-24,34.41,33.11,36.87,-3;2026-07-27,35.65,33.21,36.85,-4.8;2026-07-28,37.76,33.39,36.86,-2.8;2026-07-29,38.23,33.58,36.88,-2.6;2026-07-30,36.61,33.69,36.87,-2.5;2026-07-31,35.42,33.76,36.86,-1;2026-08-03,36.16,33.86,36.85,-0.1;2026-08-04,36.8,33.97,36.85,2.4;2026-08-05,36.61,34.08,36.85,0.7;2026-08-06,35.75,34.14,36.84,1.5;2026-08-07,35.52,34.19,36.83,0.6;2026-08-10,35.62,34.25,36.81,1.7;2026-08-11,35.37,34.29,36.8,1;2026-08-12,34.55,34.3,36.78,0.8;2026-08-13,34.67,34.32,36.76,2.7;2026-08-14,34.43,34.32,36.73,1;2026-08-17,33.56,34.29,36.7,-0.7;2026-08-18,34.51,34.3,36.68,-0.7;2026-08-19,35.1,34.33,36.66,0.9;2026-08-20,35.38,34.37,36.65,0.7;2026-08-21,35.91,34.43,36.64,1.9;2026-08-24,36.39,34.51,36.64,3;2026-08-25,35.88,34.56,36.63,4.1;2026-08-26,35.34,34.6,36.62,2.2;2026-08-27,36.3,34.66,36.62,2.9;2026-08-28,36.54,34.74,36.62,4;2026-08-31,36.43,34.8,36.62,4.1;2026-09-01,35.7,34.84,36.61,2.8;2026-09-02,35.15,34.85,36.59,2.1;2026-09-03,36.65,34.92,36.59,2.2;2026-09-04,35.51,34.94,36.58,0.6;2026-09-08,34.7,34.93,36.56,-0.7;2026-09-09,34.25,34.91,36.54,-1.1;2026-09-10,33.82,34.86,36.51,-2.9;2026-09-11,33.8,34.82,36.49,0.5;2026-09-14,35.72,34.86,36.48,2.6;2026-09-15,34.22,34.83,36.46,2;2026-09-16,34.27,34.81,36.43,1.8;2026-09-17,34.38,34.79,36.41,1.8;2026-09-18,33.41,34.74,36.38,0;2026-09-21,33.41,34.69,36.35,-0.2;2026-09-22,32.98,34.62,36.32,-1.2;2026-09-23,33.22,34.57,36.29,-1.3;2026-09-24,33.51,34.52,36.26,-1.9;2026-09-25,33.52,34.48,36.23,-1.8;2026-09-28,33.07,34.43,36.2,-1.2;2026-09-29,33.12,34.38,36.17,-1.5`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+
+const fmtN=(v,d=2)=>v.toLocaleString("de-CH",{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmtD=s=>{const [y,m,d]=s.split("-");return d+"."+m+"."+y.slice(2)};
+const NS="http://www.w3.org/2000/svg";
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+
+function scoreTable(id,rows){
+  let tot=0,max=0;
+  const html='<thead><tr><th>Kriterium</th><th>Stand</th><th class="num">Punkte</th><th style="width:22%"></th></tr></thead><tbody>'+rows.map(r=>{tot+=r[2];max+=r[3];const p=r[2]/r[3];const c=p>=.75?"var(--good)":p>=.45?"var(--warn)":"var(--bad)";
+    return `<tr><td>${r[0]}</td><td class="muted">${r[1]}</td><td class="num">${r[2]} / ${r[3]}</td><td><div class="bar"><i style="width:${p*100}%;background:${c}"></i></div></td></tr>`}).join("")+`<tr class="total"><td>Total</td><td></td><td class="num">${tot} / ${max}</td><td></td></tr></tbody>`;
+  document.getElementById(id).innerHTML=html;return tot;
+}
+const qs=scoreTable("q-tbl",Q), ts=scoreTable("t-tbl",T);
+document.getElementById("q-val").textContent=qs;document.getElementById("t-val").textContent=ts;
+document.getElementById("q-pin").style.left=qs+"%";document.getElementById("t-pin").style.left=ts+"%";
+
+document.getElementById("fin-rows").innerHTML=FIN.map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1].toLocaleString("de-CH")}</td><td class="num">${r[2]}</td><td class="num">${r[3]}</td><td class="num">${fmtN(r[4])}</td><td class="num">${r[5].toLocaleString("de-CH")}</td><td class="num">${r[6]}</td><td class="num">${r[7]}</td></tr>`).join("");
+
+/* generic line chart */
+function lineChart(host,{dates,series,bands=[],yFmt=v=>fmtN(v),h=300,zero=false,refs=[],pad}){
+  const W_=800,H=h,m={t:12,r:56,b:28,l:8};
+  const all=series.flatMap(s=>s.values).concat(bands.flatMap(b=>[b.from,b.to])).concat(refs.map(r=>r.v));
+  if(zero)all.push(0);
+  let lo=Math.min(...all),hi=Math.max(...all);const sp=(hi-lo)||1;lo-=sp*.06;hi+=sp*.06;
+  if(pad){lo=pad[0];hi=pad[1]}
+  const n=dates.length,x=i=>m.l+i*(W_-m.l-m.r)/(n-1),y=v=>m.t+(hi-v)*(H-m.t-m.b)/(hi-lo);
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  // grid
+  const steps=5;for(let k=0;k<=steps;k++){const v=lo+(hi-lo)*k/steps;el("line",{x1:m.l,x2:W_-m.r,y1:y(v),y2:y(v),stroke:"var(--grid)","stroke-width":1},svg);
+    const t=el("text",{x:W_-m.r+6,y:y(v)+4,"font-size":11,fill:"var(--muted)","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=yFmt(v)}
+  bands.forEach(b=>{el("rect",{x:m.l,width:W_-m.l-m.r,y:y(Math.max(b.from,b.to)),height:Math.abs(y(b.from)-y(b.to)),fill:b.type==="res"?"var(--zone-res)":"var(--zone-sup)"},svg)});
+  refs.forEach(r=>{el("line",{x1:m.l,x2:W_-m.r,y1:y(r.v),y2:y(r.v),stroke:"var(--muted)","stroke-dasharray":"4 4","stroke-width":1},svg);
+    const t=el("text",{x:m.l+4,y:y(r.v)-4,"font-size":11,fill:"var(--muted)"},svg);t.textContent=r.label});
+  if(zero)el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  // x labels
+  const every=Math.ceil(n/6);for(let i=0;i<n;i+=every){const t=el("text",{x:x(i),y:H-8,"font-size":11,fill:"var(--muted)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);const d=dates[i];t.textContent=d.slice(5,7)+"/"+d.slice(2,4)}
+  series.forEach(s=>{const dpath=s.values.map((v,i)=>(i?"L":"M")+x(i).toFixed(1)+","+y(v).toFixed(1)).join("");
+    el("path",{d:dpath,fill:"none",stroke:s.color,"stroke-width":s.w||2,"stroke-linejoin":"round","stroke-linecap":"round"},svg);
+    const lv=s.values[n-1];el("circle",{cx:x(n-1),cy:y(lv),r:3.5,fill:s.color,stroke:"var(--surface)","stroke-width":2},svg)});
+  // hover
+  const cross=el("line",{y1:m.t,y2:H-m.b,stroke:"var(--muted)","stroke-width":1,opacity:0},svg);
+  const ov=el("rect",{x:m.l,y:m.t,width:W_-m.l-m.r,height:H-m.t-m.b,fill:"transparent"},svg);
+  host.appendChild(svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;host.appendChild(tip);
+  function move(ev){const r=svg.getBoundingClientRect();const px=(ev.clientX-r.left)*W_/r.width;let i=Math.round((px-m.l)/((W_-m.l-m.r)/(n-1)));i=Math.max(0,Math.min(n-1,i));
+    cross.setAttribute("x1",x(i));cross.setAttribute("x2",x(i));cross.setAttribute("opacity",1);
+    tip.innerHTML=`<div class="d">${fmtD(dates[i])}</div>`+series.map(s=>`<div><i class="sw" style="background:${s.color}"></i> ${s.name}: <b>${yFmt(s.values[i])}</b></div>`).join("");
+    tip.hidden=false;const hx=x(i)*r.width/W_;tip.style.left=Math.min(Math.max(0,hx+12),r.width-tip.offsetWidth)+"px";tip.style.top="8px"}
+  ov.addEventListener("pointermove",move);ov.addEventListener("pointerleave",()=>{tip.hidden=true;cross.setAttribute("opacity",0)});
+}
+function barChart(host,{labels,values,fmt,h=220,color,neg,tipExtra}){
+  const W_=800,H=h,m={t:18,r:8,b:28,l:8};
+  const hi=Math.max(0,...values),lo=Math.min(0,...values);const lo2=lo<0?lo*1.15:lo,hi2=hi*1.15||1;
+  const y=v=>m.t+(hi2-v)*(H-m.t-m.b)/(hi2-lo2);const n=values.length,bw=(W_-m.l-m.r)/n;
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;
+  values.forEach((v,i)=>{const x0=m.l+i*bw+bw*.18,w=bw*.64,y0=y(Math.max(v,0)),hh=Math.max(1,Math.abs(y(v)-y(0)));
+    const r=el("rect",{x:x0,y:y0,width:w,height:hh,rx:4,fill:v<0?(neg||"var(--s2)"):(color||"var(--s1)")},svg);
+    const t=el("text",{x:x0+w/2,y:v<0?y(v)+13:y0-5,"font-size":11.5,fill:"var(--ink)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=fmt(v);
+    const l=el("text",{x:x0+w/2,y:H-8,"font-size":11.5,fill:"var(--muted)","text-anchor":"middle"},svg);l.textContent=labels[i];
+    const hit=el("rect",{x:m.l+i*bw,y:m.t,width:bw,height:H-m.t-m.b,fill:"transparent"},svg);
+    hit.addEventListener("pointerenter",()=>{tip.innerHTML=`<div class="d">${labels[i]}</div><b>${fmt(v)}</b>${tipExtra?tipExtra(i):""}`;tip.hidden=false;const R=svg.getBoundingClientRect();tip.style.left=Math.min((m.l+i*bw)*R.width/W_,R.width-tip.offsetWidth)+"px";tip.style.top="0px"});
+    hit.addEventListener("pointerleave",()=>tip.hidden=true)});
+  host.appendChild(svg);host.appendChild(tip);
+}
+barChart(document.getElementById("c-rev"),{labels:HALF.map(r=>r[0]),values:HALF.map(r=>r[1]),fmt:v=>v.toLocaleString("de-CH"),h:200});
+barChart(document.getElementById("c-margin"),{labels:MARGIN.map(r=>r[0]),values:MARGIN.map(r=>r[1]),fmt:v=>fmtN(v,1)+" %",h:200});
+barChart(document.getElementById("c-seas"),{labels:MON,values:SEAS,fmt:v=>(v>0?"+":"")+fmtN(v,1),h:220,tipExtra:i=>`<div>${SEASHIT[i]} % der Jahre positiv</div>`});
+
+const wd=W.map(r=>r[0]);
+lineChart(document.getElementById("c-week"),{dates:wd,series:[{name:"Kurs",values:W.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:W.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:W.map(r=>r[3]),color:"var(--s3)"}],
+  bands:[{from:36.2,to:37.0,type:"res"},{from:32.5,to:33.0,type:"sup"},{from:30.3,to:31.0,type:"sup"}],yFmt:v=>fmtN(v,0),h:320});
+lineChart(document.getElementById("c-adw"),{dates:wd,series:[{name:"A/D Woche",values:W.map(r=>r[5]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,zero:true});
+lineChart(document.getElementById("c-rsiw"),{dates:wd,series:[{name:"RSI Woche",values:W.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,refs:[{v:70,label:"70 überkauft"},{v:30,label:"30 überverkauft"}],pad:[10,80]});
+const dd=DD.map(r=>r[0]);
+lineChart(document.getElementById("c-day"),{dates:dd,series:[{name:"Kurs",values:DD.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:DD.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:DD.map(r=>r[3]),color:"var(--s3)"}],
+  bands:[{from:36.2,to:37.0,type:"res"},{from:32.5,to:33.0,type:"sup"},{from:30.3,to:31.0,type:"sup"}],refs:[{v:35.74,label:"Trigger 35.74"}],yFmt:v=>fmtN(v,0),h:260});
+lineChart(document.getElementById("c-add"),{dates:dd,series:[{name:"A/D Tag",values:DD.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:260,zero:true});
+</script>

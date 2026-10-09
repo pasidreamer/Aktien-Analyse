@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Associated British Foods Aktien-Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F3F5F7; --surface:#FFFFFF; --ink:#141B24; --muted:#5A6573; --line:#DDE2E8; --grid:#E9EDF1;
+  --accent:#2F45B5; --accent-soft:#E6E9F8; --chip:#EBEEF2;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+  --good:#1D7A4B; --good-bg:#E3F3EA; --warn:#9A6200; --warn-bg:#FBF0DC; --bad:#B2362A; --bad-bg:#FBE6E3;
+  --zone-sup:rgba(29,122,75,.10); --zone-res:rgba(178,54,42,.09);
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+    --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+    --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+    --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+  --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+  --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;padding-inline:16px;padding-block:24px 56px}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+h1,h2,h3{font-family:var(--display);font-stretch:85%;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:clamp(32px,7vw,48px);font-weight:800;line-height:1}
+h2{font-size:24px;font-weight:700}
+h3{font-size:17px;font-weight:700;font-stretch:95%}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+section{display:flex;flex-direction:column;gap:14px}
+.lead{max-width:68ch;color:var(--muted)}
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;align-items:stretch}
+.hero .id{display:flex;flex-direction:column;gap:10px;justify-content:space-between}
+.price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price b{font-family:var(--display);font-size:34px;font-weight:700}
+.meta{font-size:13px;color:var(--muted)}
+.verdict{font-size:15px;padding:12px 14px;border-radius:10px;background:var(--chip)}
+.scales{display:flex;flex-direction:column;gap:18px}
+.scale-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.scale-h span{font-size:13px;color:var(--muted)}
+.scale-h b{font-family:var(--display);font-size:28px;line-height:1}
+.track{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#C8412F 0%,#E0892F 30%,#E3B63A 50%,#8BBF4B 68%,#2E9A5B 100%);margin-top:8px}
+.pin{position:absolute;top:-5px;width:4px;height:22px;border-radius:2px;background:var(--ink);box-shadow:0 0 0 2px var(--surface);transform:translateX(-2px)}
+.ticks{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);font-family:var(--mono);margin-top:6px}
+.state{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;margin-top:8px}
+.st-good{background:var(--good-bg);color:var(--good)}
+.st-warn{background:var(--warn-bg);color:var(--warn)}
+.st-bad{background:var(--bad-bg);color:var(--bad)}
+/* tables */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;color:var(--muted);font-weight:500;font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:700;border-bottom:none}
+.pts{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{height:6px;border-radius:3px;background:var(--chip);min-width:60px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:3px}
+/* grids */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;border-left:4px solid var(--line)}
+.kpi.g{border-left-color:var(--good)}.kpi.w{border-left-color:var(--warn)}.kpi.b{border-left-color:var(--bad)}
+.kpi span{font-size:12px;color:var(--muted)}
+.kpi b{font-family:var(--mono);font-size:19px;font-weight:500;font-variant-numeric:tabular-nums}
+.kpi em{font-style:normal;font-size:12.5px;color:var(--muted)}
+/* charts */
+.chart{position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:14px;height:3px;border-radius:2px;display:inline-block}
+.swb{width:12px;height:10px;border-radius:2px;display:inline-block}
+.tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12.5px;box-shadow:0 4px 14px rgba(0,0,0,.12);white-space:nowrap;z-index:2}
+.tip b{font-family:var(--mono);font-weight:500}
+.tip .d{font-family:var(--mono);color:var(--muted);font-size:11.5px}
+.note{font-size:13.5px;color:var(--muted)}
+ul.clean{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.pro li::marker{color:var(--good)} .con li::marker{color:var(--bad)}
+.zones{display:flex;flex-direction:column;gap:8px}
+.zone{display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:baseline;padding:10px 12px;border-radius:10px;background:var(--chip);font-size:14px}
+.zone b{font-family:var(--mono);font-weight:500}
+.zone.r{border-left:4px solid var(--bad)} .zone.s{border-left:4px solid var(--good)} .zone.t{border-left:4px solid var(--accent)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+summary{cursor:pointer;font-weight:600}
+details p{margin-top:8px;color:var(--muted);max-width:70ch}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+footer{font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:6px;max-width:80ch}
+footer a{color:var(--accent)}
+@media (max-width:760px){.hero,.two{grid-template-columns:1fr}.zone{grid-template-columns:1fr;gap:2px}}
+</style>
+
+<a href="../index.html#/aktie/ABF" style="display:inline-block;margin:max(12px,env(safe-area-inset-top)) 0 0 16px;background:#1f3a5f;color:#fff;font:600 14px system-ui;padding:8px 12px;border-radius:20px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">Zurück zur App</a>
+<div class="wrap">
+
+<header class="hero">
+  <div class="card id">
+    <div>
+      <div class="eyebrow">Aktien-Check · 08.10.2026</div>
+      <h1>Associated British Foods</h1>
+      <p class="meta">Associated British Foods plc · London: ABF · Primark (Mode) und Lebensmittel (Twinings, Ovaltine, Zucker) · Grossbritannien</p>
+    </div>
+    <div class="price"><b>1'831.5 p</b><span class="meta">Kurs 08.10.2026 mittags, in Pence (= 18.32 £) · 52 Wochen: 1'729 – 2'359 p · Allzeithoch 3'387 p (2017)</span></div>
+    <p class="verdict"><b>Kurz gesagt:</b> Mischkonzern aus Primark (Kleider) und Lebensmitteln. Das Geschäft schwächelt (Primark in Europa, Zucker mit Verlust), dafür ist die Bilanz solid und Ende 2027 wird Primark abgespalten. Qualität orange (33), Timing orange (36). Charttechnisch hält seit März eine Bodenzone bei 1'730–1'800 p, die Wochen-A/D steigt. Ein Tagesschluss über 1'900 p wäre ein erstes Signal.</p>
+  </div>
+  <div class="card scales">
+    <div>
+      <div class="scale-h"><span>Qualität · Ist die Firma kaufenswert?</span><b id="q-val">33</b></div>
+      <div class="track"><i class="pin" id="q-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-warn">▲ Schwach</span>
+    </div>
+    <div>
+      <div class="scale-h"><span>Timing · Ist jetzt der Zeitpunkt?</span><b id="t-val">36</b></div>
+      <div class="track"><i class="pin" id="t-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-warn">▲ Beobachten: Trigger noch nicht erreicht</span>
+    </div>
+    <p class="note">Skala: unter 30 rot · 30–45 orange · 45–60 gelb · 60–75 hellgrün · ab 75 grün. Beide Werte setzen sich aus festen Kriterien zusammen, siehe unten.</p>
+  </div>
+</header>
+
+<section>
+  <h2>Was die Firma macht</h2>
+  <p class="lead">Associated British Foods (ABF) besteht aus zwei Welten: Primark, eine Billig-Modekette mit rund 450 Läden in Europa und den USA (über die Hälfte des Umsatzes und der grösste Teil des Gewinns), und ein Lebensmittelgeschäft mit Twinings-Tee, Ovaltine, Brot, Zucker (British Sugar), Zutaten und Landwirtschaft. Die Familie Weston kontrolliert rund 56 % der Aktien.</p>
+  <p class="lead">Primark leidet in Kontinentaleuropa (Umsatz in bestehenden Läden −5 %), und das Zuckergeschäft schreibt wegen tiefer Zuckerpreise Verluste. Im Januar 2026 gab es eine Gewinnwarnung (Aktie −13 %), im April einen Gewinnrückgang von 19 % im Halbjahr. Gleichzeitig wurde entschieden, Primark bis Ende 2027 als eigene Firma an die Börse zu bringen. Am 10. September folgte ein schwaches Update (Aktie −8 %): grösserer Zuckerverlust im nächsten Jahr. Die Jahreszahlen kommen am 3. November.</p>
+</section>
+
+<section>
+  <h2>Fundamental: die Zahlen</h2>
+  <div class="kpis">
+<div class="kpi b"><span>Umsatzwachstum</span><b>−2 %</b><em>1. Halbjahr GJ 2026, ohne Währungen. Primark in bestehenden Läden −2.6 % im Gesamtjahr.</em></div>
+<div class="kpi w"><span>Operative Marge</span><b>≈ 8 %</b><em>Bereinigt. Für einen Mix aus Detailhandel und Lebensmitteln ordentlich, aber seit 2024 (10 %) gesunken.</em></div>
+<div class="kpi w"><span>Gewinn pro Aktie (bereinigt)</span><b>≈ 154 p</b><em>Erwartung GJ 2026, nach 175 p (2025) und 197 p (2024). Sinkend.</em></div>
+<div class="kpi w"><span>Kapitalrendite (ROACE)</span><b>15.5 %</b><em>Firmenangabe GJ 2025, gesunken von 18.1 %. Nach anderer Rechnung (ROIC) nur rund 7 %.</em></div>
+<div class="kpi w"><span>Free Cashflow</span><b>≈ 0.7 Mrd. £</b><em>Positiv, aber stark schwankend.</em></div>
+<div class="kpi g"><span>Nettoschulden / EBITDA</span><b>≈ 1.0–1.4</b><em>Inklusive Mietverträge. Solide.</em></div>
+<div class="kpi w"><span>KGV erwartet</span><b>12.1</b><em>Eigener 5-Jahres-Schnitt: 12.3, also normal bewertet. Über 10 Jahre lag der Schnitt bei 15.4.</em></div>
+<div class="kpi g"><span>Dividende</span><b>3.4 %</b><em>63 p, nur 36 % des Gewinns: sicher. Dazu Rückkäufe.</em></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>Umsatz pro Halbjahr (Mrd. £)</h3>
+      <p class="note">3 von 4 Halbjahren unter Vorjahr.</p>
+      <div class="chart" id="c-rev"></div>
+    </div>
+    <div class="card">
+      <h3>Bereinigte operative Marge pro Geschäftsjahr</h3>
+      <p class="note">Bereinigt. 2024 Spitze (10 %), seither wieder Richtung 8 %.</p>
+      <div class="chart" id="c-margin"></div>
+    </div>
+  </div>
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Jahr</th><th class="num">Umsatz Mio. £</th><th class="num">Wachstum</th><th class="num">Op. Marge</th><th class="num">EPS p</th><th class="num">Free Cashflow</th><th class="num">ROIC</th><th class="num">KGV</th></tr></thead>
+      <tbody id="fin-rows"></tbody>
+    </table>
+  </div>
+  <p class="note"><b>Hinweis:</b> Geschäftsjahr bis Mitte September. Marge bereinigt, EPS ausgewiesen in Pence (bereinigt GJ 2025: 174.9 p). In der Spalte ROIC steht die Firmenkennzahl ROACE (Rendite auf das durchschnittlich eingesetzte Kapital). GJ 2022 und 2023 profitierten noch von der Erholung nach Corona.</p>
+</section>
+
+<section>
+  <h2>Qualität: 33 von 100</h2>
+  <div class="card tbl"><table id="q-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Technik: Wochenchart (2 Jahre)</h2>
+  <div class="card">
+    <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span><span><i class="swb" style="background:var(--zone-sup);border:1px solid var(--good)"></i>Unterstützung</span><span><i class="swb" style="background:var(--zone-res);border:1px solid var(--bad)"></i>Widerstand</span></div>
+    <div class="chart" id="c-week"></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>A/D-Linie, Woche</h3>
+      <p class="note">Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien (Handel an der Heimatbörse). Bullisch: Im März lag der Kurs bei 1'770 p und die Wochen-A/D bei −11. Heute liegt der Kurs ähnlich (1'832 p), die A/D aber bei +11. Auf Wochenbasis wurde seit März deutlich eingesammelt.</p>
+      <div class="chart" id="c-adw"></div>
+    </div>
+    <div class="card">
+      <h3>RSI, Woche</h3>
+      <p class="note">Unter 30 überverkauft, über 70 überkauft. Heute 42: schwach, aber nicht überverkauft.</p>
+      <div class="chart" id="c-rsiw"></div>
+    </div>
+  </div>
+
+  <h2>Technik: Tageschart (6 Monate)</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Kurs, Tag</h3>
+      <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span></div>
+      <div class="chart" id="c-day"></div>
+    </div>
+    <div class="card">
+      <h3>A/D-Linie, Tag</h3>
+      <p class="note">Seit dem Kurssturz am 10.9. läuft die Tages-A/D leicht abwärts, der Kurs seitwärts. Kurzfristig noch kein Käufersignal.</p>
+      <div class="chart" id="c-add"></div>
+    </div>
+  </div>
+
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Indikator</th><th>Tag</th><th>Woche</th><th>Bedeutung</th></tr></thead>
+      <tbody>
+<tr><td>Kurs vs. EMA 50</td><td class="pts">1'832 &lt; 1'918</td><td class="pts">1'832 &lt; 1'969</td><td>Unter der mittelfristigen Linie.</td></tr>
+<tr><td>Kurs vs. EMA 200</td><td class="pts">1'832 &lt; 1'958</td><td class="pts">1'832 &lt; 2'058</td><td>Unter der langfristigen Linie.</td></tr>
+<tr><td>EMA 50 vs. EMA 200</td><td class="pts">50 unter 200 (seit 21.9.2026)</td><td class="pts">50 unter 200 (seit Januar 2026)</td><td>Abwärtstrend.</td></tr>
+<tr><td>RSI (14)</td><td class="pts">38.8</td><td class="pts">41.8</td><td>Schwach.</td></tr>
+<tr><td>A/D</td><td class="pts">leicht fallend</td><td class="pts">klar höher als im März</td><td>Woche bullisch, Tag neutral bis schwach.</td></tr>
+<tr><td>Volumen</td><td colspan="2">Ø 20 Tage 0.74 Mio. vs. Ø 100 Tage 0.94 Mio.</td><td>Ruhig: Der Verkaufsdruck nach dem 10.9. hat nachgelassen.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Struktur und Zonen (Smart Money Concept)</h2>
+  <p class="lead">Seit März bildet ABF eine Bodenzone: Tiefs bei 1'729 p (März), 1'751 p (April), 1'757 p (Mai) und 1'777 p (10. September). Die Tiefs steigen leicht, und die Zone deckt sich mit den Tiefs von 2021 und 2023. Im August stieg der Kurs bis 2'136 p, der Kurssturz vom 10.9. führte zurück in die Bodenzone. Auf dem Tageschart gibt es seither ein höheres Tief (1'797 p am 21.9.). Ein Tagesschluss über 1'900 p (Hoch vom 30.9.) wäre der Change of Character.</p>
+  <div class="zones">
+<div class="zone r"><b>1'960–2'010 p</b><span>Widerstand: EMA 200 Tag und Wochen-EMA 50.</span></div>
+<div class="zone t"><b>1'900 p</b><span><b>Trigger:</b> Tagesschluss über dem Hoch vom 30.9.</span></div>
+<div class="zone s"><b>1'730–1'800 p</b><span><b>Kaufzone:</b> Bodenzone aus vier Tiefs seit März, gleiche Höhe wie die Tiefs 2021 und 2023.</span></div>
+<div class="zone r"><b>1'700 p</b><span>Abbruch: Wochenschluss darunter.</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Smart Money, Insider und Saisonalität</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Wer kauft, wer verkauft?</h3>
+      <ul class="clean" style="margin-top:8px">
+<li><b>Familie Weston:</b> Hält rund 56 % und unterstützt die Abspaltung von Primark.</li>
+<li><b>Insider:</b> Keine freien Käufe, nur Verkäufe zur Bezahlung der Steuern auf Plan-Aktien.</li>
+<li><b>ABF selbst:</b> Rückkaufprogramm über 250 Mio. £ (rund 1.9 % des Börsenwerts).</li>
+<li><b>Analysten:</b> Zwischen „Halten“ und „Verkaufen“, durchschnittliches Kursziel rund 1'800–1'840 p.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Saisonalität seit 1988</h3>
+      <p class="note">Durchschnittliche Monatsrendite in %. Rund 38 Jahre. November ist mit +4 % und 71 % positiven Jahren der stärkste Monat, Dezember folgt (63 %).</p>
+      <div class="chart" id="c-seas"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Timing: 36 von 100</h2>
+  <div class="card tbl"><table id="t-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Pro und Contra</h2>
+  <div class="two">
+    <div class="card pro"><h3>Spricht dafür</h3><ul class="clean" style="margin-top:8px">
+<li>Die Abspaltung von Primark Ende 2027 kann versteckten Wert freilegen.</li>
+<li>Solide Bilanz, Dividende braucht nur 36 % des Gewinns.</li>
+<li>Bodenzone hält seit März, Wochen-A/D steigt.</li>
+<li>November und Dezember saisonal stark.</li>
+<li>Pfund-Aktie: verteilt dein Währungsrisiko weg vom Dollar.</li>
+    </ul></div>
+    <div class="card con"><h3>Spricht dagegen</h3><ul class="clean" style="margin-top:8px">
+<li>Umsatz und Gewinn sinken.</li>
+<li>Primark schwach in Kontinentaleuropa.</li>
+<li>Zuckergeschäft mit wachsenden Verlusten.</li>
+<li>Mischkonzern: schwer zu bewerten.</li>
+<li>Beim Kauf in London fallen 0.5 % britische Stempelsteuer an.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section>
+  <h2>Was jetzt zu tun ist</h2>
+  <div class="zones">
+<div class="zone t"><b>Beobachten</b><span>Alarm bei 1'900 p (Trigger) und 1'800 p (Kaufzone).</span></div>
+<div class="zone s"><b>Timing grün</b><span>Tagesschluss über 1'900 p mit steigender Tages-A/D. Am besten erst nach den Jahreszahlen vom 3.11.</span></div>
+<div class="zone r"><b>Abbruch</b><span>Wochenschluss unter 1'700 p.</span></div>
+<div class="zone "><b>Nächste Zahlen</b><span>3. November 2026 (Jahreszahlen GJ 2026).</span></div>
+  </div>
+</section>
+
+<footer>
+  <span>Kursdaten und Indikatoren (EMA, RSI 14, A/D) selbst berechnet aus Yahoo-Finance-Tages-, Wochen- und Monatsdaten, Stand 08.10.2026. <a href="https://stockanalysis.com/quote/lon/ABF/financials/" target="_blank" rel="noopener">StockAnalysis.com</a> (Stand 08.10.2026), <a href="https://www.abf.co.uk/investors" target="_blank" rel="noopener">ABF Investor Relations</a>, <a href="https://www.hl.co.uk/shares/share-research/202609/associated-british-foods-q4-update-weak-performance" target="_blank" rel="noopener">Update 10.9. (HL)</a>.</span>
+  <span>Persönliche Analyse, keine Anlageberatung. Vergangene Kurse und Saisonalität sagen nichts Sicheres über die Zukunft.</span>
+</footer>
+</div>
+
+<script>
+const Q=[["Umsatztrend", "1 von 4 Halbjahren über Vorjahr", 0, 15], ["Wachstumstempo", "Ohne Währungen rund −2 %", 0, 10], ["Operative Marge", "≈ 8 % (3 Pkt.), stabil über 5 Jahre (3 Pkt.)", 6, 15], ["Gewinnwachstum (EPS)", "Bereinigt seit 2023 rund +3 % pro Jahr, zuletzt sinkend", 2, 10], ["Free Cashflow", "Positiv, stark schwankend", 6, 10], ["ROIC", "ROACE 15.5 %, ROIC rund 7 %, sinkend", 5, 15], ["Schulden", "Nettoschulden/EBITDA rund 1–1.4", 7, 10], ["Bewertung vs. eigene Historie", "Erw. KGV 12.1 statt Ø 12.3", 7, 15]];
+const T=[["Trend Woche (EMA 50/200)", "Kurs unter beiden", 1, 20], ["Trend Tag (EMA 50/200)", "Kurs unter beiden", 0, 10], ["Struktur (SMC)", "Bodenzone mit leicht steigenden Tiefs", 9, 20], ["RSI Tag/Woche", "39 / 42, kein Signal", 7, 15], ["A/D Tag/Woche", "Woche bullische Divergenz, Tag leicht fallend", 11, 20], ["Smart Money", "Rückkauf 1.9 %, keine Insider-Käufe", 3, 10], ["Saisonalität", "Nov–Dez stark (63–71 %)", 5, 5]];
+const FIN=[["GJ 2022", 16997, "+22 %", "8.4 %", 88.6, -84, "14.0 %", "15.0"], ["GJ 2023", 19750, "+16 %", "7.7 %", 134.2, 269, "13.6 %", "15.3"], ["GJ 2024", 20073, "+2 %", "10.0 %", 193.7, 1355, "18.1 %", "11.1"], ["GJ 2025", 19459, "−3 %", "8.9 %", 141.6, 648, "15.5 %", "13.7"], ["Letzte 12 Mt.", 19420, "−2 %", "8.1 %", 133.3, 692, "n. a.", "13.7"]];
+const HALF=[["H2 23", 10.19], ["H1 24", 9.73], ["H2 24", 10.34], ["H1 25", 9.51], ["H2 25", 9.95], ["H1 26", 9.47]];
+const MARGIN=[["GJ 22", 8.4], ["GJ 23", 7.7], ["GJ 24", 10.0], ["GJ 25", 8.9], ["12 Mt.", 8.1]];
+const SEAS=[-0.5, 1.6, -0.7, 2.0, 0.3, -0.5, 1.1, 0.3, -2.2, 1.1, 4.0, 2.3];
+const SEASHIT=[34.0, 61.0, 42.0, 63.0, 50.0, 47.0, 53.0, 41.0, 41.0, 53.0, 71.0, 63.0];
+const MON=["Jan","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"];
+const W=`2024-10-14,2348,2348.87,2147.6,46,-12.2;2024-10-21,2310,2347.35,2149.21,43,-15;2024-10-28,2283,2344.82,2150.55,41,-12.9;2024-11-04,2264,2341.66,2151.67,40,-18.7;2024-11-11,2186,2335.55,2152.02,35,-22.1;2024-11-18,2197,2330.12,2152.46,36,-18.3;2024-11-25,2198,2324.94,2152.92,36,-18.5;2024-12-02,2232,2321.29,2153.7,40,-20.5;2024-12-09,2141,2314.22,2153.58,34,-27.9;2024-12-16,2054,2304.02,2152.59,30,-34.3;2024-12-23,2044,2293.82,2151.51,29,-35.2;2024-12-30,2037,2283.75,2150.37,29,-36.7;2025-01-06,1931.5,2269.94,2148.19,24,-42.3;2025-01-13,2012,2259.82,2146.83,33,-34.1;2025-01-20,1884.5,2245.1,2144.22,27,-41;2025-01-27,1902,2231.65,2141.81,29,-41;2025-02-03,1860,2217.07,2139.01,27,-40.5;2025-02-10,1905.5,2204.85,2136.69,32,-37.6;2025-02-17,1911,2193.33,2134.44,33,-36.1;2025-02-24,1895,2181.63,2132.06,32,-34.3;2025-03-03,1916.5,2171.23,2129.91,34,-29.5;2025-03-10,1853,2158.75,2127.16,31,-32.6;2025-03-17,1920.5,2149.41,2125.1,38,-27.9;2025-03-24,1940.5,2141.22,2123.26,40,-26.9;2025-03-31,1940.5,2133.35,2121.45,40,-27;2025-04-07,2005,2128.31,2120.29,47,-20.5;2025-04-14,2194,2130.89,2121.02,60,-18.4;2025-04-21,2203,2133.72,2121.84,61,-18.2;2025-04-28,2050,2130.43,2121.12,49,-22.5;2025-05-05,2112,2129.71,2121.03,53,-18.4;2025-05-12,2088,2128.08,2120.7,51,-18.6;2025-05-19,2084,2126.35,2120.34,51,-21.8;2025-05-26,2083,2124.65,2119.97,51,-22.1;2025-06-02,2057,2121.99,2119.34,49,-21.3;2025-06-09,2048,2119.09,2118.63,48,-21.5;2025-06-16,2077,2117.44,2118.21,51,-20.7;2025-06-23,2081,2116.01,2117.84,51,-17.5;2025-06-30,2078,2114.52,2117.45,51,-16.5;2025-07-07,2048,2111.91,2116.76,48,-19.9;2025-07-14,2182,2114.66,2117.41,59,-14.4;2025-07-21,2237,2119.46,2118.6,63,-14.1;2025-07-28,2178,2121.76,2119.19,57,-16.3;2025-08-04,2212,2125.29,2120.11,59,-15.1;2025-08-11,2273,2131.09,2121.63,63,-14.7;2025-08-18,2314,2138.26,2123.55,66,-13.5;2025-08-25,2160,2139.11,2123.91,52,-16.5;2025-09-01,2222,2142.36,2124.88,56,-15.5;2025-09-08,1970.5,2135.62,2123.35,41,-20.3;2025-09-15,1979,2129.48,2121.91,42,-20.9;2025-09-22,2019,2125.15,2120.89,44,-10.9;2025-09-29,2099,2124.12,2120.67,49,-8;2025-10-06,2136,2124.59,2120.82,52,-6.6;2025-10-13,2239,2129.08,2122,57,-3.8;2025-10-20,2293,2135.5,2123.7,60,-1;2025-10-27,2295,2141.76,2125.4,60,-1;2025-11-03,2263,2146.51,2126.77,57,-0.8;2025-11-10,2160,2147.04,2127.1,50,-4.2;2025-11-17,2112,2145.67,2126.95,48,-4.8;2025-11-24,2136,2145.29,2127.04,49,-3.2;2025-12-01,2125,2144.49,2127.02,48,-3.9;2025-12-08,2086,2142.2,2126.62,46,-7.2;2025-12-15,2124,2141.49,2126.59,49,-4.9;2025-12-22,2113,2140.37,2126.45,48,-4.9;2025-12-29,2125,2139.77,2126.44,49,-5.5;2026-01-05,1859,2128.76,2123.78,34,-12.1;2026-01-12,1858.5,2118.16,2121.14,34,-9.3;2026-01-19,1879.5,2108.8,2118.73,36,-7.5;2026-01-26,1905,2100.81,2116.61,38,-6.5;2026-02-02,1936.5,2094.36,2114.82,41,-2.3;2026-02-09,1967,2089.37,2113.35,43,-1.4;2026-02-16,1953.5,2084.04,2111.75,42,-2.7;2026-02-23,1977,2079.84,2110.41,44,-0.3;2026-03-02,1869.5,2071.59,2108.02,38,-5.6;2026-03-09,1862,2063.37,2105.57,37,-3.1;2026-03-16,1770,2051.87,2102.23,32,-10.8;2026-03-23,1839,2043.52,2099.61,39,-7.4;2026-03-30,1890.5,2037.52,2097.53,43,-5.5;2026-04-06,1920,2032.91,2095.76,46,-2.9;2026-04-13,1876,2026.76,2093.58,43,-0.3;2026-04-20,1842,2019.51,2091.07,41,1.1;2026-04-27,1833,2012.2,2088.51,40,2.5;2026-05-04,1820,2004.66,2085.83,39,2;2026-05-11,1794.5,1996.42,2082.94,37,2.5;2026-05-18,1836,1990.13,2080.48,42,3.3;2026-05-25,1822,1983.54,2077.91,41,-0.2;2026-06-01,1864,1978.85,2075.78,45,1.7;2026-06-08,1946,1977.56,2074.49,53,4.5;2026-06-15,1885,1973.93,2072.6,47,0.1;2026-06-22,1978.5,1974.11,2071.66,55,3.7;2026-06-29,1957,1973.44,2070.52,53,3.2;2026-07-06,1988,1974.01,2069.7,55,7.6;2026-07-13,2052,1977.07,2069.53,60,11.6;2026-07-20,1995.5,1977.79,2068.79,55,10.8;2026-07-27,2087,1982.07,2068.97,61,12.3;2026-08-03,2130,1987.87,2069.58,63,15.5;2026-08-10,2052,1990.39,2069.4,56,13.1;2026-08-17,2061,1993.16,2069.32,57,16.8;2026-08-24,2052,1995.47,2069.15,56,14.6;2026-08-31,2072,1998.47,2069.18,57,18.4;2026-09-07,1843.5,1992.39,2066.93,41,15.3;2026-09-14,1806,1985.08,2064.33,39,10.9;2026-09-21,1860.5,1980.2,2062.31,43,13.3;2026-09-28,1826,1974.15,2059.95,41,10.1;2026-10-05,1831.5,1968.55,2057.68,42,10.6`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+const DD=`2026-04-07,1876.42,1899.43,2019.67,-13.2;2026-04-08,1904.5,1899.62,2018.52,-13.5;2026-04-09,1898.5,1899.58,2017.33,-13.5;2026-04-10,1920,1900.38,2016.36,-13.1;2026-04-13,1882,1899.66,2015.02,-11.8;2026-04-14,1876,1898.73,2013.64,-12.4;2026-04-15,1828.5,1895.98,2011.79,-13.8;2026-04-16,1846.5,1894.04,2010.15,-13.8;2026-04-17,1876,1893.33,2008.82,-12.9;2026-04-20,1885,1893,2007.58,-12.9;2026-04-21,1834.5,1890.71,2005.86,-11.4;2026-04-22,1853.5,1889.25,2004.35,-10.8;2026-04-23,1839,1887.28,2002.7,-10.7;2026-04-24,1842,1885.5,2001.1,-11.5;2026-04-27,1819.5,1882.92,1999.29,-11.9;2026-04-28,1844.5,1881.41,1997.75,-10.6;2026-04-29,1840,1879.79,1996.18,-10.1;2026-04-30,1827,1877.72,1994.5,-10.5;2026-05-01,1833,1875.96,1992.89,-10.1;2026-05-05,1799,1872.94,1990.96,-11.2;2026-05-06,1829,1871.22,1989.35,-11;2026-05-07,1821.76,1869.28,1987.69,-11.2;2026-05-08,1820,1867.35,1986.02,-11.1;2026-05-11,1800,1864.71,1984.17,-12.1;2026-05-12,1789.5,1861.76,1982.23,-12.2;2026-05-13,1759,1857.73,1980.01,-13.6;2026-05-14,1801,1855.5,1978.23,-13.3;2026-05-15,1794.5,1853.11,1976.4,-12.1;2026-05-18,1840,1852.6,1975.04,-11.6;2026-05-19,1833,1851.83,1973.63,-12.2;2026-05-20,1840,1851.36,1972.3,-11.8;2026-05-21,1846,1851.15,1971.04,-11.6;2026-05-22,1836,1850.56,1969.7,-11.9;2026-05-26,1831,1849.79,1968.32,-11.9;2026-05-27,1874,1850.74,1967.38,-11.4;2026-05-28,1817.5,1849.44,1965.89,-12.2;2026-05-29,1822,1848.36,1964.46,-9.1;2026-06-01,1815.5,1847.07,1962.97,-9.1;2026-06-02,1842.5,1846.89,1961.78,-9.1;2026-06-03,1861.5,1847.47,1960.78,-8.5;2026-06-04,1874,1848.51,1959.91,-8.6;2026-06-05,1864,1849.12,1958.96,-9.5;2026-06-08,1864,1849.7,1958.01,-9.8;2026-06-09,1889,1851.24,1957.33,-9.7;2026-06-10,1937.5,1854.62,1957.13,-9;2026-06-11,1928.5,1857.52,1956.85,-8.8;2026-06-12,1946,1860.99,1956.74,-8.9;2026-06-15,1926.5,1863.56,1956.44,-10.8;2026-06-16,1894,1864.75,1955.82,-10.5;2026-06-17,1885.5,1865.57,1955.12,-10.1;2026-06-18,1910,1867.31,1954.67,-9.2;2026-06-19,1885,1868,1953.97,-10;2026-06-22,1880.5,1868.49,1953.24,-9.6;2026-06-23,1884.5,1869.12,1952.56,-9.2;2026-06-24,1956.5,1872.55,1952.6,-8.5;2026-06-25,1978.5,1876.7,1952.86,-8.2;2026-06-26,1978.5,1880.69,1953.11,-8.4;2026-06-29,1989,1884.94,1953.47,-7.8;2026-06-30,1986,1888.9,1953.79,-9.2;2026-07-01,1923.5,1890.26,1953.49,-9.6;2026-07-02,1926.5,1891.68,1953.22,-10.9;2026-07-03,1957,1894.24,1953.26,-10.2;2026-07-06,1898.5,1894.41,1952.71,-10.8;2026-07-07,1970,1897.38,1952.89,-9.8;2026-07-08,1942,1899.13,1952.78,-10.2;2026-07-09,1957,1901.39,1952.82,-9.6;2026-07-10,1988,1904.79,1953.17,-9.1;2026-07-13,2004,1908.68,1953.68,-9;2026-07-14,1980,1911.48,1953.94,-9.3;2026-07-15,1967.5,1913.68,1954.07,-9.2;2026-07-16,2006,1917.3,1954.59,-8.5;2026-07-17,2052,1922.58,1955.56,-7.3;2026-07-20,2020,1926.4,1956.2,-7.5;2026-07-21,2016,1929.91,1956.8,-7.1;2026-07-22,2012,1933.13,1957.34,-7.9;2026-07-23,1967.5,1934.48,1957.45,-8.7;2026-07-24,1995.5,1936.87,1957.82,-8.3;2026-07-27,2013,1939.86,1958.37,-8;2026-07-28,2056,1944.41,1959.34,-7.6;2026-07-29,2100,1950.51,1960.74,-7;2026-07-30,2091,1956.02,1962.04,-7.5;2026-07-31,2087,1961.16,1963.28,-8.1;2026-08-03,2123,1967.51,1964.87,-7.7;2026-08-04,2096,1972.55,1966.18,-8.4;2026-08-05,2105,1977.74,1967.56,-8.4;2026-08-06,2117,1983.2,1969.05,-8.3;2026-08-07,2130,1988.96,1970.65,-7.8;2026-08-10,2083,1992.65,1971.77,-8.4;2026-08-11,2073,1995.8,1972.77,-9;2026-08-12,2043,1997.65,1973.47,-9.5;2026-08-13,2065,2000.29,1974.38,-9.3;2026-08-14,2052,2002.32,1975.15,-9.5;2026-08-17,2003,2002.34,1975.43,-9.9;2026-08-18,2016,2002.88,1975.84,-9.8;2026-08-19,2025,2003.75,1976.32,-9.5;2026-08-20,2031,2004.82,1976.87,-9.5;2026-08-21,2061,2007.02,1977.71,-8.3;2026-08-24,2069,2009.45,1978.61,-8.1;2026-08-25,2064,2011.59,1979.46,-8;2026-08-26,2079,2014.23,1980.45,-7.8;2026-08-27,2064,2016.18,1981.29,-8.4;2026-08-28,2052,2017.59,1981.99,-9.3;2026-09-01,2041,2018.51,1982.58,-9.5;2026-09-02,2031,2019,1983.06,-9.4;2026-09-03,2040,2019.82,1983.62,-10.4;2026-09-04,2072,2021.87,1984.5,-9.5;2026-09-07,2039,2022.54,1985.05,-10.1;2026-09-08,2039,2023.18,1985.58,-10.3;2026-09-09,2020,2023.06,1985.93,-10.9;2026-09-10,1860,2016.66,1984.67,-8.9;2026-09-11,1843.5,2009.87,1983.27,-9.6;2026-09-14,1866,2004.23,1982.1,-9;2026-09-15,1841,1997.83,1980.7,-9.4;2026-09-16,1839,1991.6,1979.29,-9;2026-09-17,1843,1985.77,1977.93,-9.3;2026-09-18,1806,1978.72,1976.22,-10.6;2026-09-21,1824,1972.66,1974.71,-10.2;2026-09-22,1855,1968.04,1973.51,-9.6;2026-09-23,1828,1962.55,1972.07,-10.1;2026-09-24,1842,1957.82,1970.77,-9.9;2026-09-25,1860.5,1954.01,1969.68,-9.6;2026-09-28,1856,1950.16,1968.54,-10.2;2026-09-29,1860,1946.63,1967.46,-10.5;2026-09-30,1858,1943.15,1966.37,-11.2;2026-10-01,1831,1938.75,1965.03,-11.6;2026-10-02,1826,1934.33,1963.64,-12;2026-10-05,1811.5,1929.52,1962.13,-12.3;2026-10-06,1834,1925.77,1960.86,-11.9;2026-10-07,1827,1921.9,1959.52,-12.2;2026-10-08,1831.5,1918.35,1958.25,-12.1`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+
+const fmtN=(v,d=2)=>v.toLocaleString("de-CH",{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmtD=s=>{const [y,m,d]=s.split("-");return d+"."+m+"."+y.slice(2)};
+const NS="http://www.w3.org/2000/svg";
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+
+function scoreTable(id,rows){
+  let tot=0,max=0;
+  const html='<thead><tr><th>Kriterium</th><th>Stand</th><th class="num">Punkte</th><th style="width:22%"></th></tr></thead><tbody>'+rows.map(r=>{tot+=r[2];max+=r[3];const p=r[2]/r[3];const c=p>=.75?"var(--good)":p>=.45?"var(--warn)":"var(--bad)";
+    return `<tr><td>${r[0]}</td><td class="muted">${r[1]}</td><td class="num">${r[2]} / ${r[3]}</td><td><div class="bar"><i style="width:${p*100}%;background:${c}"></i></div></td></tr>`}).join("")+`<tr class="total"><td>Total</td><td></td><td class="num">${tot} / ${max}</td><td></td></tr></tbody>`;
+  document.getElementById(id).innerHTML=html;return tot;
+}
+const qs=scoreTable("q-tbl",Q), ts=scoreTable("t-tbl",T);
+document.getElementById("q-val").textContent=qs;document.getElementById("t-val").textContent=ts;
+document.getElementById("q-pin").style.left=qs+"%";document.getElementById("t-pin").style.left=ts+"%";
+
+document.getElementById("fin-rows").innerHTML=FIN.map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1].toLocaleString("de-CH")}</td><td class="num">${r[2]}</td><td class="num">${r[3]}</td><td class="num">${fmtN(r[4])}</td><td class="num">${r[5].toLocaleString("de-CH")}</td><td class="num">${r[6]}</td><td class="num">${r[7]}</td></tr>`).join("");
+
+/* generic line chart */
+function lineChart(host,{dates,series,bands=[],yFmt=v=>fmtN(v),h=300,zero=false,refs=[],pad}){
+  const W_=800,H=h,m={t:12,r:56,b:28,l:8};
+  const all=series.flatMap(s=>s.values).concat(bands.flatMap(b=>[b.from,b.to])).concat(refs.map(r=>r.v));
+  if(zero)all.push(0);
+  let lo=Math.min(...all),hi=Math.max(...all);const sp=(hi-lo)||1;lo-=sp*.06;hi+=sp*.06;
+  if(pad){lo=pad[0];hi=pad[1]}
+  const n=dates.length,x=i=>m.l+i*(W_-m.l-m.r)/(n-1),y=v=>m.t+(hi-v)*(H-m.t-m.b)/(hi-lo);
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  // grid
+  const steps=5;for(let k=0;k<=steps;k++){const v=lo+(hi-lo)*k/steps;el("line",{x1:m.l,x2:W_-m.r,y1:y(v),y2:y(v),stroke:"var(--grid)","stroke-width":1},svg);
+    const t=el("text",{x:W_-m.r+6,y:y(v)+4,"font-size":11,fill:"var(--muted)","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=yFmt(v)}
+  bands.forEach(b=>{el("rect",{x:m.l,width:W_-m.l-m.r,y:y(Math.max(b.from,b.to)),height:Math.abs(y(b.from)-y(b.to)),fill:b.type==="res"?"var(--zone-res)":"var(--zone-sup)"},svg)});
+  refs.forEach(r=>{el("line",{x1:m.l,x2:W_-m.r,y1:y(r.v),y2:y(r.v),stroke:"var(--muted)","stroke-dasharray":"4 4","stroke-width":1},svg);
+    const t=el("text",{x:m.l+4,y:y(r.v)-4,"font-size":11,fill:"var(--muted)"},svg);t.textContent=r.label});
+  if(zero)el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  // x labels
+  const every=Math.ceil(n/6);for(let i=0;i<n;i+=every){const t=el("text",{x:x(i),y:H-8,"font-size":11,fill:"var(--muted)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);const d=dates[i];t.textContent=d.slice(5,7)+"/"+d.slice(2,4)}
+  series.forEach(s=>{const dpath=s.values.map((v,i)=>(i?"L":"M")+x(i).toFixed(1)+","+y(v).toFixed(1)).join("");
+    el("path",{d:dpath,fill:"none",stroke:s.color,"stroke-width":s.w||2,"stroke-linejoin":"round","stroke-linecap":"round"},svg);
+    const lv=s.values[n-1];el("circle",{cx:x(n-1),cy:y(lv),r:3.5,fill:s.color,stroke:"var(--surface)","stroke-width":2},svg)});
+  // hover
+  const cross=el("line",{y1:m.t,y2:H-m.b,stroke:"var(--muted)","stroke-width":1,opacity:0},svg);
+  const ov=el("rect",{x:m.l,y:m.t,width:W_-m.l-m.r,height:H-m.t-m.b,fill:"transparent"},svg);
+  host.appendChild(svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;host.appendChild(tip);
+  function move(ev){const r=svg.getBoundingClientRect();const px=(ev.clientX-r.left)*W_/r.width;let i=Math.round((px-m.l)/((W_-m.l-m.r)/(n-1)));i=Math.max(0,Math.min(n-1,i));
+    cross.setAttribute("x1",x(i));cross.setAttribute("x2",x(i));cross.setAttribute("opacity",1);
+    tip.innerHTML=`<div class="d">${fmtD(dates[i])}</div>`+series.map(s=>`<div><i class="sw" style="background:${s.color}"></i> ${s.name}: <b>${yFmt(s.values[i])}</b></div>`).join("");
+    tip.hidden=false;const hx=x(i)*r.width/W_;tip.style.left=Math.min(Math.max(0,hx+12),r.width-tip.offsetWidth)+"px";tip.style.top="8px"}
+  ov.addEventListener("pointermove",move);ov.addEventListener("pointerleave",()=>{tip.hidden=true;cross.setAttribute("opacity",0)});
+}
+function barChart(host,{labels,values,fmt,h=220,color,neg,tipExtra}){
+  const W_=800,H=h,m={t:18,r:8,b:28,l:8};
+  const hi=Math.max(0,...values),lo=Math.min(0,...values);const lo2=lo<0?lo*1.15:lo,hi2=hi*1.15||1;
+  const y=v=>m.t+(hi2-v)*(H-m.t-m.b)/(hi2-lo2);const n=values.length,bw=(W_-m.l-m.r)/n;
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;
+  values.forEach((v,i)=>{const x0=m.l+i*bw+bw*.18,w=bw*.64,y0=y(Math.max(v,0)),hh=Math.max(1,Math.abs(y(v)-y(0)));
+    const r=el("rect",{x:x0,y:y0,width:w,height:hh,rx:4,fill:v<0?(neg||"var(--s2)"):(color||"var(--s1)")},svg);
+    const t=el("text",{x:x0+w/2,y:v<0?y(v)+13:y0-5,"font-size":11.5,fill:"var(--ink)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=fmt(v);
+    const l=el("text",{x:x0+w/2,y:H-8,"font-size":11.5,fill:"var(--muted)","text-anchor":"middle"},svg);l.textContent=labels[i];
+    const hit=el("rect",{x:m.l+i*bw,y:m.t,width:bw,height:H-m.t-m.b,fill:"transparent"},svg);
+    hit.addEventListener("pointerenter",()=>{tip.innerHTML=`<div class="d">${labels[i]}</div><b>${fmt(v)}</b>${tipExtra?tipExtra(i):""}`;tip.hidden=false;const R=svg.getBoundingClientRect();tip.style.left=Math.min((m.l+i*bw)*R.width/W_,R.width-tip.offsetWidth)+"px";tip.style.top="0px"});
+    hit.addEventListener("pointerleave",()=>tip.hidden=true)});
+  host.appendChild(svg);host.appendChild(tip);
+}
+barChart(document.getElementById("c-rev"),{labels:HALF.map(r=>r[0]),values:HALF.map(r=>r[1]),fmt:v=>fmtN(v,2),h:200});
+barChart(document.getElementById("c-margin"),{labels:MARGIN.map(r=>r[0]),values:MARGIN.map(r=>r[1]),fmt:v=>fmtN(v,1)+" %",h:200});
+barChart(document.getElementById("c-seas"),{labels:MON,values:SEAS,fmt:v=>(v>0?"+":"")+fmtN(v,1),h:220,tipExtra:i=>`<div>${SEASHIT[i]} % der Jahre positiv</div>`});
+const BANDS=[{"from": 1960, "to": 2010, "type": "res"}, {"from": 1730, "to": 1800, "type": "sup"}], REFS=[{"v": 1900, "label": "Trigger 1'900"}];
+const wd=W.map(r=>r[0]);
+lineChart(document.getElementById("c-week"),{dates:wd,series:[{name:"Kurs",values:W.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:W.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:W.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,yFmt:v=>fmtN(v,0),h:320});
+lineChart(document.getElementById("c-adw"),{dates:wd,series:[{name:"A/D Woche",values:W.map(r=>r[5]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,zero:true});
+lineChart(document.getElementById("c-rsiw"),{dates:wd,series:[{name:"RSI Woche",values:W.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,refs:[{v:70,label:"70 überkauft"},{v:30,label:"30 überverkauft"}],pad:[10,90]});
+const dd=DD.map(r=>r[0]);
+lineChart(document.getElementById("c-day"),{dates:dd,series:[{name:"Kurs",values:DD.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:DD.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:DD.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,refs:REFS,yFmt:v=>fmtN(v,0),h:260});
+lineChart(document.getElementById("c-add"),{dates:dd,series:[{name:"A/D Tag",values:DD.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:260,zero:true});
+</script>

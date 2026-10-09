@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Procter & Gamble Aktien-Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F3F5F7; --surface:#FFFFFF; --ink:#141B24; --muted:#5A6573; --line:#DDE2E8; --grid:#E9EDF1;
+  --accent:#2F45B5; --accent-soft:#E6E9F8; --chip:#EBEEF2;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+  --good:#1D7A4B; --good-bg:#E3F3EA; --warn:#9A6200; --warn-bg:#FBF0DC; --bad:#B2362A; --bad-bg:#FBE6E3;
+  --zone-sup:rgba(29,122,75,.10); --zone-res:rgba(178,54,42,.09);
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+    --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+    --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+    --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+  --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+  --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;padding-inline:16px;padding-block:24px 56px}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+h1,h2,h3{font-family:var(--display);font-stretch:85%;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:clamp(32px,7vw,48px);font-weight:800;line-height:1}
+h2{font-size:24px;font-weight:700}
+h3{font-size:17px;font-weight:700;font-stretch:95%}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+section{display:flex;flex-direction:column;gap:14px}
+.lead{max-width:68ch;color:var(--muted)}
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;align-items:stretch}
+.hero .id{display:flex;flex-direction:column;gap:10px;justify-content:space-between}
+.price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price b{font-family:var(--display);font-size:34px;font-weight:700}
+.meta{font-size:13px;color:var(--muted)}
+.verdict{font-size:15px;padding:12px 14px;border-radius:10px;background:var(--chip)}
+.scales{display:flex;flex-direction:column;gap:18px}
+.scale-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.scale-h span{font-size:13px;color:var(--muted)}
+.scale-h b{font-family:var(--display);font-size:28px;line-height:1}
+.track{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#C8412F 0%,#E0892F 30%,#E3B63A 50%,#8BBF4B 68%,#2E9A5B 100%);margin-top:8px}
+.pin{position:absolute;top:-5px;width:4px;height:22px;border-radius:2px;background:var(--ink);box-shadow:0 0 0 2px var(--surface);transform:translateX(-2px)}
+.ticks{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);font-family:var(--mono);margin-top:6px}
+.state{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;margin-top:8px}
+.st-good{background:var(--good-bg);color:var(--good)}
+.st-warn{background:var(--warn-bg);color:var(--warn)}
+.st-bad{background:var(--bad-bg);color:var(--bad)}
+/* tables */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;color:var(--muted);font-weight:500;font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:700;border-bottom:none}
+.pts{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{height:6px;border-radius:3px;background:var(--chip);min-width:60px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:3px}
+/* grids */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;border-left:4px solid var(--line)}
+.kpi.g{border-left-color:var(--good)}.kpi.w{border-left-color:var(--warn)}.kpi.b{border-left-color:var(--bad)}
+.kpi span{font-size:12px;color:var(--muted)}
+.kpi b{font-family:var(--mono);font-size:19px;font-weight:500;font-variant-numeric:tabular-nums}
+.kpi em{font-style:normal;font-size:12.5px;color:var(--muted)}
+/* charts */
+.chart{position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:14px;height:3px;border-radius:2px;display:inline-block}
+.swb{width:12px;height:10px;border-radius:2px;display:inline-block}
+.tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12.5px;box-shadow:0 4px 14px rgba(0,0,0,.12);white-space:nowrap;z-index:2}
+.tip b{font-family:var(--mono);font-weight:500}
+.tip .d{font-family:var(--mono);color:var(--muted);font-size:11.5px}
+.note{font-size:13.5px;color:var(--muted)}
+ul.clean{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.pro li::marker{color:var(--good)} .con li::marker{color:var(--bad)}
+.zones{display:flex;flex-direction:column;gap:8px}
+.zone{display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:baseline;padding:10px 12px;border-radius:10px;background:var(--chip);font-size:14px}
+.zone b{font-family:var(--mono);font-weight:500}
+.zone.r{border-left:4px solid var(--bad)} .zone.s{border-left:4px solid var(--good)} .zone.t{border-left:4px solid var(--accent)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+summary{cursor:pointer;font-weight:600}
+details p{margin-top:8px;color:var(--muted);max-width:70ch}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+footer{font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:6px;max-width:80ch}
+footer a{color:var(--accent)}
+@media (max-width:760px){.hero,.two{grid-template-columns:1fr}.zone{grid-template-columns:1fr;gap:2px}}
+</style>
+
+<a href="../index.html#/aktie/PG" style="display:inline-block;margin:max(12px,env(safe-area-inset-top)) 0 0 16px;background:#1f3a5f;color:#fff;font:600 14px system-ui;padding:8px 12px;border-radius:20px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">Zurück zur App</a>
+<div class="wrap">
+
+<header class="hero">
+  <div class="card id">
+    <div>
+      <div class="eyebrow">Aktien-Check · 08.10.2026</div>
+      <h1>Procter & Gamble</h1>
+      <p class="meta">The Procter & Gamble Company · NYSE: PG · Haushalts- und Körperpflege (Ariel, Pampers, Gillette, Oral-B) · USA</p>
+    </div>
+    <div class="price"><b>147.82 $</b><span class="meta">Schluss 07.10.2026 · 52 Wochen: 137.62 – 167.25 $ · Allzeithoch 180.43 $ (2024)</span></div>
+    <p class="verdict"><b>Kurz gesagt:</b> Die Qualität ist hoch, aber das Wachstum ist eingeschlafen (organisch 0 % im letzten Quartal) und der Gewinn wächst kaum. Qualität gelb (59), Timing orange (41). Der Kurs bildet seit Januar eine Bodenzone bei 138–142 $ mit leicht steigenden Tiefs, und auf dem Tageschart wird still gekauft. Erst ein Tagesschluss über 149.50 $ wäre ein erstes Wende-Zeichen.</p>
+  </div>
+  <div class="card scales">
+    <div>
+      <div class="scale-h"><span>Qualität · Ist die Firma kaufenswert?</span><b id="q-val">59</b></div>
+      <div class="track"><i class="pin" id="q-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-warn">▲ Gemischt</span>
+    </div>
+    <div>
+      <div class="scale-h"><span>Timing · Ist jetzt der Zeitpunkt?</span><b id="t-val">41</b></div>
+      <div class="track"><i class="pin" id="t-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-warn">▲ Beobachten: Trigger noch nicht erreicht</span>
+    </div>
+    <p class="note">Skala: unter 30 rot · 30–45 orange · 45–60 gelb · 60–75 hellgrün · ab 75 grün. Beide Werte setzen sich aus festen Kriterien zusammen, siehe unten.</p>
+  </div>
+</header>
+
+<section>
+  <h2>Was die Firma macht</h2>
+  <p class="lead">Procter & Gamble ist der grösste Hersteller von Haushalts- und Körperpflegeprodukten der Welt: Waschmittel (Ariel, Tide), Windeln (Pampers), Rasierer (Gillette), Zahnpflege (Oral-B), Haarpflege (Pantene, Head & Shoulders). Diese Dinge kauft man auch in einer Rezession, darum gilt P&G als Musterbeispiel einer defensiven Aktie.</p>
+  <p class="lead">Seit dem Hoch 2024 (180 $) ist die Aktie rund 18 % gefallen. Das Wachstum ist von 4–5 % auf 0–3 % gesunken, weil Kunden nach den grossen Preiserhöhungen weniger kaufen oder zu Eigenmarken wechseln. Dazu kamen Zölle und höhere Ölpreise (Verpackung, Transport): P&G rechnet für das Geschäftsjahr 2027 mit rund 1 Mrd. $ Mehrkosten nach Steuern. Seit 1. Januar ist Shailesh Jejurikar neuer Chef, ein Sparprogramm streicht rund 7'000 Stellen. Im Juli enttäuschte der Ausblick: bereinigter Gewinn pro Aktie 2027 nur 0 bis +3 %.</p>
+</section>
+
+<section>
+  <h2>Fundamental: die Zahlen</h2>
+  <div class="kpis">
+<div class="kpi w"><span>Organisches Wachstum</span><b>0 %</b><em>Letztes Quartal (April–Juni). Ziel 2027: +1 bis +3 %. Für P&G schwach, früher waren es 4–7 %.</em></div>
+<div class="kpi g"><span>Operative Marge</span><b>24.8 %</b><em>Von 100 $ Umsatz bleiben fast 25 $ Betriebsgewinn. Sehr hoch und seit 2022 gestiegen.</em></div>
+<div class="kpi b"><span>Gewinn pro Aktie (EPS)</span><b>0 bis +3 %</b><em>Firmenziel 2027 (bereinigt). Seit 2022 im Schnitt nur rund +3 % pro Jahr. Schwach.</em></div>
+<div class="kpi g"><span>ROIC</span><b>21.6 %</b><em>Auf jeden investierten Dollar fast 22 Cent Gewinn. Sehr gut und stabil.</em></div>
+<div class="kpi g"><span>Free Cashflow</span><b>15.1 Mrd. $</b><em>Riesig und immer positiv, schwankt aber leicht von Jahr zu Jahr.</em></div>
+<div class="kpi g"><span>Nettoschulden / EBITDA</span><b>1.0</b><em>In rund einem Jahr wären die Nettoschulden aus dem Betriebsgewinn bezahlt. Sehr solide.</em></div>
+<div class="kpi w"><span>KGV erwartet</span><b>21.2</b><em>Du zahlst gut 21 erwartete Jahresgewinne. Eigener Schnitt: 23.4. Rund 10 % günstiger als üblich.</em></div>
+<div class="kpi g"><span>Dividende</span><b>2.9 %</b><em>70 Jahre in Folge erhöht, rund 66 % des Gewinns. Dazu rund 5 Mrd. $ Aktienrückkäufe pro Jahr.</em></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>Umsatz pro Quartal (Mrd. $, Quartalsende)</h3>
+      <p class="note">Alle vier Quartale über Vorjahr, aber nur dank Währungen und Preisen. Organisch war das letzte Quartal flach.</p>
+      <div class="chart" id="c-rev"></div>
+    </div>
+    <div class="card">
+      <h3>Operative Marge pro Jahr</h3>
+      <p class="note">Stieg bis zum Geschäftsjahr 2025 auf 25.6 %, danach wegen Zöllen, Rohstoffen und Umbaukosten leicht zurück.</p>
+      <div class="chart" id="c-margin"></div>
+    </div>
+  </div>
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Jahr</th><th class="num">Umsatz Mio. $</th><th class="num">Wachstum</th><th class="num">Op. Marge</th><th class="num">EPS $</th><th class="num">Free Cashflow</th><th class="num">ROIC</th><th class="num">KGV</th></tr></thead>
+      <tbody id="fin-rows"></tbody>
+    </table>
+  </div>
+  <p class="note"><b>Hinweis:</b> Das Geschäftsjahr von P&G endet am 30. Juni. „GJ 2026“ = Juli 2025 bis Juni 2026. Bereinigter Gewinn pro Aktie (Core EPS) GJ 2026: 6.89 $.</p>
+</section>
+
+<section>
+  <h2>Qualität: 59 von 100</h2>
+  <div class="card tbl"><table id="q-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Technik: Wochenchart (2 Jahre)</h2>
+  <div class="card">
+    <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span><span><i class="swb" style="background:var(--zone-sup);border:1px solid var(--good)"></i>Unterstützung</span><span><i class="swb" style="background:var(--zone-res);border:1px solid var(--bad)"></i>Widerstand</span></div>
+    <div class="chart" id="c-week"></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>A/D-Linie, Woche</h3>
+      <p class="note">Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Im Februar stieg die Wochen-A/D stark (Käufer bei 160 $), seither fiel sie zurück. Seit Juni läuft sie seitwärts um 1'490–1'550: weder klare Käufer noch Verkäufer.</p>
+      <div class="chart" id="c-adw"></div>
+    </div>
+    <div class="card">
+      <h3>RSI, Woche</h3>
+      <p class="note">Unter 30 überverkauft, über 70 überkauft. Seit März zwischen 40 und 54: neutral.</p>
+      <div class="chart" id="c-rsiw"></div>
+    </div>
+  </div>
+
+  <h2>Technik: Tageschart (6 Monate)</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Kurs, Tag</h3>
+      <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span></div>
+      <div class="chart" id="c-day"></div>
+    </div>
+    <div class="card">
+      <h3>A/D-Linie, Tag</h3>
+      <p class="note">Positives Zeichen: Ende Juli lag der Kurs bei 149 $ und die Tages-A/D bei −153. Heute ist der Kurs ähnlich (148 $), die A/D aber bei −105. Seit August wird auf Tagesbasis still gekauft (bullische Divergenz).</p>
+      <div class="chart" id="c-add"></div>
+    </div>
+  </div>
+
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Indikator</th><th>Tag</th><th>Woche</th><th>Bedeutung</th></tr></thead>
+      <tbody>
+<tr><td>Kurs vs. EMA 50</td><td class="pts">147.8 &gt; 146.3</td><td class="pts">147.8 &lt; 148.9</td><td>Tag knapp darüber, Woche knapp darunter.</td></tr>
+<tr><td>Kurs vs. EMA 200</td><td class="pts">147.8 &lt; 148.1</td><td class="pts">147.8 &lt; 151.3</td><td>Knapp unter der langfristigen Linie auf beiden Ebenen.</td></tr>
+<tr><td>EMA 50 vs. EMA 200</td><td class="pts">50 unter 200 (seit 16.3.2026)</td><td class="pts">50 unter 200 (seit 4.5.2026)</td><td>Leichter Abwärtstrend, die Linien liegen aber eng beieinander und flachen ab.</td></tr>
+<tr><td>RSI (14)</td><td class="pts">54.4</td><td class="pts">51.6</td><td>Neutral.</td></tr>
+<tr><td>A/D</td><td class="pts">steigt seit Ende Juli</td><td class="pts">seitwärts</td><td>Tag: Käufer nehmen auf. Woche: neutral.</td></tr>
+<tr><td>Volumen</td><td colspan="2">Ø 20 Tage 8.3 Mio. vs. Ø 100 Tage 8.8 Mio.</td><td>Ruhig, kein Ausverkauf.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Struktur und Zonen (Smart Money Concept)</h2>
+  <p class="lead">Seit Dezember 2025 läuft P&G seitwärts zwischen rund 138 und 167 $. Die Tiefs steigen leicht: 137.62 $ (Januar), 138.86 $ (Juni), 140.20 $ (Juli), 141.86 $ (September). Die Hochs fallen: 167.25 $ (Februar), 154.32 $ (Juli), 149.48 $ (September). Das ist ein Dreieck, das sich zusammenzieht. Auf dem Tageschart hat sich zuletzt ein höheres Tief gebildet (143.40 $ am 1.10.). Ein Tagesschluss über 149.50 $ wäre der erste Change of Character.</p>
+  <div class="zones">
+<div class="zone r"><b>152.5–154.5 $</b><span>Widerstand: Wochen-EMA 200 und Hochs von April und Juli.</span></div>
+<div class="zone t"><b>149.50 $</b><span><b>Trigger: Change of Character.</b> Tagesschluss über dem Hoch vom 28.9., idealerweise mit weiter steigender Tages-A/D.</span></div>
+<div class="zone s"><b>138–142 $</b><span><b>Kaufzone:</b> Boden aus vier Tiefs seit Januar. Hier haben Käufer immer wieder gehalten.</span></div>
+<div class="zone r"><b>137 $</b><span>Abbruch: Ein Wochenschluss darunter wäre ein neues 2-Jahres-Tief.</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Smart Money, Insider und Saisonalität</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Wer kauft, wer verkauft?</h3>
+      <ul class="clean" style="margin-top:8px">
+<li><b>P&G selbst:</b> Kauft jedes Jahr für rund 5 Mrd. $ eigene Aktien zurück (rund 1.5 % des Börsenwerts).</li>
+<li><b>Insider-Käufe:</b> Keine in den letzten 12 Monaten.</li>
+<li><b>Insider-Verkäufe:</b> Rund 57 Mio. $ von 10 Personen, vor allem vom abgetretenen Präsidenten Jon Moeller (28 Mio. $) und Marketingchef Marc Pritchard (15 Mio. $).</li>
+<li><b>Analysten:</b> Durchschnittliches Kursziel rund 161 $, Einstufung „Moderat kaufen“. Evercore stufte am 6.10. auf „Outperform“ hoch (Ziel 166 $), HSBC und Argus im August auf „Halten“ herunter.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Saisonalität seit 1985</h3>
+      <p class="note">Durchschnittliche Monatsrendite in %. Rund 41 Jahre. Oktober ist mit +2.8 % und 65 % positiven Jahren der beste Monat, November und Dezember folgen.</p>
+      <div class="chart" id="c-seas"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Timing: 41 von 100</h2>
+  <div class="card tbl"><table id="t-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Pro und Contra</h2>
+  <div class="two">
+    <div class="card pro"><h3>Spricht dafür</h3><ul class="clean" style="margin-top:8px">
+<li>Marktführer mit Marken, die man täglich braucht.</li>
+<li>Hohe Marge (25 %) und hoher ROIC (22 %).</li>
+<li>Wenig Schulden, 70 Jahre Dividendenerhöhung.</li>
+<li>Bewertung rund 10 % unter dem eigenen Schnitt.</li>
+<li>Bodenbildung mit höheren Tiefs und still steigender Tages-A/D.</li>
+    </ul></div>
+    <div class="card con"><h3>Spricht dagegen</h3><ul class="clean" style="margin-top:8px">
+<li>Wachstum fast null, der Gewinn wächst kaum.</li>
+<li>Rohstoff- und Ölpreise drücken 2027 auf die Marge.</li>
+<li>Neuer Chef, Umbau mit Stellenabbau läuft noch.</li>
+<li>Viele Insider-Verkäufe, keine Käufe.</li>
+<li>Trend auf Woche und Tag noch leicht abwärts.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section>
+  <h2>Was jetzt zu tun ist</h2>
+  <div class="zones">
+<div class="zone t"><b>Beobachten</b><span>Alarm bei 149.50 $ (Trigger) und 142 $ (Oberkante Kaufzone).</span></div>
+<div class="zone s"><b>Timing grün</b><span>Tagesschluss über 149.50 $, danach Rücksetzer Richtung 143–146 $ als Einstieg. Oder direkt in der Kaufzone 138–142 $ mit Tagesschluss über dem letzten tieferen Hoch.</span></div>
+<div class="zone r"><b>Abbruch</b><span>Wochenschluss unter 137 $.</span></div>
+<div class="zone "><b>Nächste Zahlen</b><span>22. Oktober 2026 (1. Quartal GJ 2027). Entscheidend: Kommt das organische Wachstum zurück über +2 %?</span></div>
+  </div>
+</section>
+
+<footer>
+  <span>Kursdaten und Indikatoren (EMA, RSI 14, A/D) selbst berechnet aus Yahoo-Finance-Tages-, Wochen- und Monatsdaten, Stand 08.10.2026. <a href="https://stockanalysis.com/stocks/pg/financials/" target="_blank" rel="noopener">StockAnalysis.com</a> (Stand 08.10.2026), <a href="https://www.pginvestor.com/news/news-details/2026/PG-Announces-Fourth-Quarter-and-Fiscal-Year-2026-Results/default.aspx" target="_blank" rel="noopener">P&G Q4 GJ 2026</a>, <a href="https://www.marketbeat.com/stocks/NYSE/PG/insider-trades/" target="_blank" rel="noopener">Insider (MarketBeat)</a>.</span>
+  <span>Persönliche Analyse, keine Anlageberatung. Vergangene Kurse und Saisonalität sagen nichts Sicheres über die Zukunft.</span>
+</footer>
+</div>
+
+<script>
+const Q=[["Umsatztrend", "4 von 4 Quartalen über Vorjahr, aber ohne Tempo", 12, 15], ["Wachstumstempo", "Organisch rund +2 %, Ziel 2027 +1 bis +3 %", 0, 10], ["Operative Marge", "24.8 % (6 Pkt.), seit 2022 steigend (6 Pkt.)", 12, 15], ["Gewinnwachstum (EPS)", "Rund +3 % pro Jahr, Ziel 2027 0 bis +3 %", 2, 10], ["Free Cashflow", "Gross, immer positiv, schwankend", 6, 10], ["ROIC", "21.6 %, stabil", 13, 15], ["Schulden", "Nettoschulden/EBITDA 1.0", 7, 10], ["Bewertung vs. eigene Historie", "Erw. KGV 21.2 statt Ø 23.4 (−9 %)", 7, 15]];
+const T=[["Trend Woche (EMA 50/200)", "Kurs knapp unter beiden, Linien flach", 4, 20], ["Trend Tag (EMA 50/200)", "Kurs über EMA 50, knapp unter EMA 200", 4, 10], ["Struktur (SMC)", "Seitwärts mit höheren Tiefs (Dreieck)", 10, 20], ["RSI Tag/Woche", "54 / 52, neutral", 7, 15], ["A/D Tag/Woche", "Tag bullische Divergenz, Woche neutral", 11, 20], ["Smart Money", "Rückkauf rund 1.5 %, viele Insider-Verkäufe", 0, 10], ["Saisonalität", "Okt–Dez: 65–66 % positive Jahre", 5, 5]];
+const FIN=[["GJ 2022", 80187, "+5.3 %", "23.0 %", 5.81, 13567, "21.5 %", "23.9"], ["GJ 2023", 82006, "+2.3 %", "22.9 %", 5.9, 13786, "20.4 %", "24.9"], ["GJ 2024", 84039, "+2.5 %", "24.5 %", 6.02, 16524, "21.9 %", "26.7"], ["GJ 2025", 84284, "+0.3 %", "25.6 %", 6.51, 14044, "22.4 %", "23.8"], ["GJ 2026", 87032, "+3.3 %", "24.8 %", 6.62, 15147, "21.6 %", "21.7"]];
+const HALF=[["Sep 24", 21.74], ["Dez 24", 21.88], ["Mär 25", 19.78], ["Jun 25", 20.89], ["Sep 25", 22.39], ["Dez 25", 22.21], ["Mär 26", 21.24], ["Jun 26", 21.2]];
+const MARGIN=[["GJ 22", 23.0], ["GJ 23", 22.9], ["GJ 24", 24.5], ["GJ 25", 25.6], ["GJ 26", 24.8]];
+const SEAS=[-0.6, -0.2, -0.3, 0.3, 1.4, -0.2, 1.5, 1.7, 0.4, 2.8, 2.3, 1.7];
+const SEASHIT=[44.0, 50.0, 48.0, 52.0, 55.0, 50.0, 57.0, 62.0, 55.0, 65.0, 66.0, 66.0];
+const MON=["Jan","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"];
+const W=`2024-10-14,171.28,163.52,147.89,57,1539.9;2024-10-21,168.22,163.7,148.09,51,1514.3;2024-10-28,165.1,163.76,148.26,45,1487.2;2024-11-04,167.71,163.91,148.45,50,1524.3;2024-11-11,169.54,164.13,148.66,53,1545.3;2024-11-18,176.28,164.61,148.94,63,1572.1;2024-11-25,179.26,165.18,149.24,66,1583.9;2024-12-02,173.82,165.52,149.48,56,1555.9;2024-12-09,171.06,165.74,149.7,52,1545;2024-12-16,168.06,165.83,149.88,48,1507.9;2024-12-23,169.53,165.98,150.08,50,1515.6;2024-12-30,165.13,165.94,150.23,44,1503.7;2025-01-06,158.56,165.65,150.31,37,1484.2;2025-01-13,161.13,165.48,150.42,41,1505.8;2025-01-20,164.12,165.42,150.55,45,1500.8;2025-01-27,165.99,165.45,150.71,48,1480.4;2025-02-03,167.97,165.54,150.88,51,1485.8;2025-02-10,162.89,165.44,151,44,1452.7;2025-02-17,170.23,165.63,151.19,53,1481.2;2025-02-24,173.84,165.95,151.42,57,1506;2025-03-03,175.95,166.34,151.66,59,1500.4;2025-03-10,167.97,166.41,151.82,49,1464;2025-03-17,166.69,166.42,151.97,48,1451.3;2025-03-24,168.03,166.48,152.13,50,1470;2025-03-31,163.75,166.37,152.25,45,1424.7;2025-04-07,166.91,166.39,152.39,49,1470.6;2025-04-14,170.63,166.56,152.57,53,1491.3;2025-04-21,161.02,166.34,152.66,43,1471.8;2025-04-28,160.52,166.11,152.74,43,1460;2025-05-05,157.66,165.78,152.78,40,1429.6;2025-05-12,163.28,165.69,152.89,47,1465;2025-05-19,165.86,165.69,153.02,50,1485.8;2025-05-26,169.89,165.86,153.19,54,1506.8;2025-06-02,164.02,165.78,153.29,48,1488.1;2025-06-09,160.28,165.57,153.36,44,1460.4;2025-06-16,159.08,165.31,153.42,43,1448.1;2025-06-23,159.86,165.1,153.48,44,1456.3;2025-06-30,160.83,164.93,153.56,45,1464.9;2025-07-07,157.05,164.62,153.59,42,1434.1;2025-07-14,155.1,164.25,153.61,40,1462.8;2025-07-21,158.3,164.02,153.65,44,1483.7;2025-07-28,150.65,163.49,153.62,37,1443.9;2025-08-04,153.51,163.1,153.62,41,1469.5;2025-08-11,154.36,162.76,153.63,42,1455.5;2025-08-18,158.67,162.6,153.68,47,1466.8;2025-08-25,157.04,162.38,153.71,46,1469.4;2025-09-01,160.02,162.29,153.78,49,1488.8;2025-09-08,157.9,162.12,153.82,47,1486.3;2025-09-15,156.04,161.88,153.84,45,1443.2;2025-09-22,152.5,161.51,153.83,41,1428.2;2025-09-29,152.27,161.15,153.81,41,1413.2;2025-10-06,149.69,160.7,153.77,38,1385.1;2025-10-13,151.4,160.33,153.75,41,1417.8;2025-10-20,152.49,160.03,153.73,43,1401;2025-10-27,150.37,159.65,153.7,40,1394.1;2025-11-03,146.98,159.15,153.63,37,1388.1;2025-11-10,147.67,158.7,153.57,38,1403;2025-11-17,150.92,158.39,153.55,43,1442.5;2025-11-24,148.16,157.99,153.49,40,1436.2;2025-12-01,143.45,157.42,153.39,35,1396;2025-12-08,142.84,156.85,153.29,35,1452.7;2025-12-15,144.46,156.37,153.2,38,1418.6;2025-12-22,144.74,155.91,153.12,38,1433.1;2025-12-29,141.79,155.36,153,35,1413.2;2026-01-05,141.87,154.83,152.89,35,1458.2;2026-01-12,144.53,154.42,152.81,40,1463.7;2026-01-19,150.15,154.26,152.78,50,1499.9;2026-01-26,151.77,154.16,152.77,52,1549.1;2026-02-02,159.17,154.35,152.84,61,1596.8;2026-02-09,160.07,154.58,152.91,62,1604.9;2026-02-16,160.78,154.82,152.99,63,1633.2;2026-02-23,167.2,155.31,153.13,69,1686.6;2026-03-02,153.63,155.24,153.13,50,1651.4;2026-03-09,150.65,155.06,153.11,47,1612.5;2026-03-16,144.28,154.64,153.02,42,1519;2026-03-23,142.71,154.17,152.92,40,1489.1;2026-03-30,143.12,153.74,152.82,41,1471.4;2026-04-06,145.16,153.4,152.74,43,1489.1;2026-04-13,146.93,153.15,152.69,46,1518.6;2026-04-20,148.18,152.95,152.64,47,1527.3;2026-04-27,147.26,152.73,152.59,46,1506.8;2026-05-04,146.42,152.48,152.53,45,1517.4;2026-05-11,141.57,152.05,152.42,40,1483.8;2026-05-18,144.44,151.76,152.34,44,1516.1;2026-05-25,143.56,151.43,152.25,43,1489.3;2026-06-01,146.54,151.24,152.19,47,1520.7;2026-06-08,149.61,151.18,152.17,52,1546.9;2026-06-15,150.38,151.15,152.15,53,1536.9;2026-06-22,149.02,151.06,152.12,51,1509.9;2026-06-29,151.41,151.08,152.11,54,1545.8;2026-07-06,147.04,150.92,152.06,48,1513.5;2026-07-13,149.98,150.88,152.04,52,1517.2;2026-07-20,147.41,150.75,152,48,1510.8;2026-07-27,144.49,150.5,151.92,44,1491.3;2026-08-03,145.79,150.32,151.86,46,1485;2026-08-10,144.55,150.09,151.79,45,1475.4;2026-08-17,144.68,149.88,151.72,45,1490.4;2026-08-24,143.78,149.64,151.64,44,1472.3;2026-08-31,146.44,149.51,151.59,48,1486;2026-09-07,145.27,149.35,151.52,47,1509.4;2026-09-14,146.39,149.23,151.47,49,1515.9;2026-09-21,146.23,149.11,151.42,48,1499.2;2026-09-28,144.91,148.95,151.35,46,1479.7;2026-10-05,147.82,148.9,151.32,52,1490.9`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+const DD=`2026-04-02,143.12,150.27,153.08,-59.1;2026-04-06,142.77,149.97,152.98,-59.3;2026-04-07,141.3,149.63,152.86,-62.5;2026-04-08,144.9,149.45,152.78,-53;2026-04-09,146.66,149.34,152.72,-47.2;2026-04-10,145.16,149.18,152.65,-53.3;2026-04-13,143.58,148.96,152.56,-54.9;2026-04-14,144.38,148.78,152.48,-50.6;2026-04-15,143.38,148.56,152.39,-50.3;2026-04-16,143.11,148.35,152.29,-53.4;2026-04-17,146.93,148.3,152.24,-45.7;2026-04-20,144.49,148.15,152.16,-49.1;2026-04-21,142.32,147.92,152.06,-60.3;2026-04-22,142.85,147.72,151.97,-59.1;2026-04-23,145.71,147.64,151.91,-51.9;2026-04-24,148.18,147.66,151.87,-62.5;2026-04-27,148.4,147.69,151.84,-63.8;2026-04-28,149.17,147.75,151.81,-67.5;2026-04-29,146.46,147.7,151.76,-72.9;2026-04-30,147.09,147.67,151.71,-70.2;2026-05-01,147.26,147.66,151.67,-73.1;2026-05-04,143.42,147.49,151.59,-81.7;2026-05-05,144.9,147.39,151.52,-78.2;2026-05-06,147.9,147.41,151.48,-75.3;2026-05-07,146.06,147.36,151.43,-84.5;2026-05-08,146.42,147.32,151.38,-88.4;2026-05-11,143.36,147.16,151.3,-90.7;2026-05-12,143.91,147.04,151.23,-93.4;2026-05-13,142.24,146.85,151.14,-97.5;2026-05-14,142.71,146.69,151.05,-106.2;2026-05-15,141.57,146.49,150.96,-110.8;2026-05-18,142.39,146.33,150.87,-114.4;2026-05-19,141.3,146.13,150.78,-120.1;2026-05-20,142.44,145.98,150.7,-116.7;2026-05-21,143.4,145.88,150.62,-111.5;2026-05-22,144.44,145.83,150.56,-108.6;2026-05-26,142.96,145.71,150.49,-114.5;2026-05-27,147.49,145.78,150.46,-108.6;2026-05-28,145.91,145.79,150.41,-107.9;2026-05-29,143.56,145.7,150.34,-116.6;2026-06-01,140.28,145.49,150.24,-117.1;2026-06-02,140.82,145.31,150.15,-110.2;2026-06-03,140.19,145.1,150.05,-118.1;2026-06-04,140.78,144.93,149.96,-121.8;2026-06-05,146.54,145,149.92,-116.6;2026-06-08,145.1,145,149.88,-123.1;2026-06-09,148.67,145.15,149.86,-117.5;2026-06-10,149.05,145.3,149.86,-120.1;2026-06-11,148.34,145.42,149.84,-122.6;2026-06-12,149.61,145.58,149.84,-120;2026-06-15,150.46,145.77,149.84,-117.8;2026-06-16,152.49,146.04,149.87,-113;2026-06-17,150.56,146.21,149.88,-116.5;2026-06-18,150.38,146.38,149.88,-130.4;2026-06-22,147.68,146.43,149.86,-140.2;2026-06-23,150.86,146.6,149.87,-136.6;2026-06-24,152.04,146.82,149.89,-137.3;2026-06-25,148.5,146.88,149.88,-145.1;2026-06-26,149.02,146.97,149.87,-153.7;2026-06-29,148.45,147.02,149.86,-149.5;2026-06-30,146.64,147.01,149.82,-145.1;2026-07-01,147.43,147.03,149.8,-136.2;2026-07-02,151.41,147.2,149.82,-128.2;2026-07-06,149.31,147.28,149.81,-127.3;2026-07-07,152.75,147.49,149.84,-123.4;2026-07-08,148.4,147.53,149.83,-137.1;2026-07-09,146.85,147.5,149.8,-135.5;2026-07-10,147.04,147.49,149.77,-143.6;2026-07-13,148.37,147.52,149.75,-144.7;2026-07-14,146.08,147.46,149.72,-150;2026-07-15,148.05,147.49,149.7,-145.5;2026-07-16,151.5,147.64,149.72,-139.1;2026-07-17,149.98,147.74,149.72,-145.6;2026-07-20,149.13,147.79,149.72,-146.6;2026-07-21,148.1,147.8,149.7,-142.4;2026-07-22,149.13,147.85,149.69,-145.7;2026-07-23,146.97,147.82,149.67,-143.3;2026-07-24,147.41,147.8,149.64,-139.7;2026-07-27,148.63,147.84,149.63,-142.2;2026-07-28,148.88,147.88,149.63,-153.3;2026-07-29,146.1,147.81,149.59,-140;2026-07-30,143.96,147.66,149.54,-134.7;2026-07-31,144.49,147.53,149.49,-126.7;2026-08-03,144.97,147.43,149.44,-131.2;2026-08-04,148.01,147.45,149.43,-124.7;2026-08-05,146.8,147.43,149.4,-121.3;2026-08-06,146.97,147.41,149.38,-121.4;2026-08-07,145.79,147.35,149.34,-115.3;2026-08-10,146.44,147.31,149.31,-108;2026-08-11,145.21,147.23,149.27,-104.5;2026-08-12,144.08,147.11,149.22,-108.1;2026-08-13,144.26,146.99,149.17,-113.4;2026-08-14,144.55,146.9,149.12,-109.7;2026-08-17,143.12,146.75,149.06,-111.1;2026-08-18,143.45,146.62,149.01,-112.6;2026-08-19,144.38,146.53,148.96,-118.4;2026-08-20,142.97,146.39,148.9,-128.7;2026-08-21,144.68,146.33,148.86,-122.6;2026-08-24,146.6,146.34,148.84,-117.1;2026-08-25,145.4,146.3,148.8,-119.2;2026-08-26,145,146.25,148.77,-121.7;2026-08-27,143.14,146.13,148.71,-124.8;2026-08-28,143.78,146.04,148.66,-124.2;2026-08-31,145.12,146,148.63,-117.6;2026-09-01,146.21,146.01,148.6,-120.3;2026-09-02,147.64,146.07,148.59,-116.9;2026-09-03,146.92,146.1,148.58,-120;2026-09-04,146.44,146.12,148.55,-120.4;2026-09-08,145.58,146.1,148.52,-117.3;2026-09-09,142.64,145.96,148.47,-123.9;2026-09-10,142.97,145.84,148.41,-120.1;2026-09-11,145.27,145.82,148.38,-111.2;2026-09-14,146.13,145.83,148.36,-116.6;2026-09-15,146.67,145.87,148.34,-110.7;2026-09-16,147.02,145.91,148.33,-113.5;2026-09-17,147.55,145.98,148.32,-108.9;2026-09-18,146.39,145.99,148.3,-102.6;2026-09-21,146.08,146,148.28,-104;2026-09-22,148.22,146.08,148.28,-98.6;2026-09-23,147.39,146.13,148.27,-103.3;2026-09-24,145.68,146.12,148.24,-110.8;2026-09-25,146.23,146.12,148.22,-106.8;2026-09-28,149.03,146.23,148.23,-99.8;2026-09-29,148.32,146.32,148.23,-96.1;2026-09-30,145.28,146.28,148.2,-104.7;2026-10-01,143.95,146.18,148.16,-107;2026-10-02,144.91,146.13,148.13,-103.4;2026-10-05,145.94,146.13,148.11,-97.6;2026-10-06,148.41,146.22,148.11,-97.2;2026-10-07,147.82,146.28,148.11,-105.3`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+
+const fmtN=(v,d=2)=>v.toLocaleString("de-CH",{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmtD=s=>{const [y,m,d]=s.split("-");return d+"."+m+"."+y.slice(2)};
+const NS="http://www.w3.org/2000/svg";
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+
+function scoreTable(id,rows){
+  let tot=0,max=0;
+  const html='<thead><tr><th>Kriterium</th><th>Stand</th><th class="num">Punkte</th><th style="width:22%"></th></tr></thead><tbody>'+rows.map(r=>{tot+=r[2];max+=r[3];const p=r[2]/r[3];const c=p>=.75?"var(--good)":p>=.45?"var(--warn)":"var(--bad)";
+    return `<tr><td>${r[0]}</td><td class="muted">${r[1]}</td><td class="num">${r[2]} / ${r[3]}</td><td><div class="bar"><i style="width:${p*100}%;background:${c}"></i></div></td></tr>`}).join("")+`<tr class="total"><td>Total</td><td></td><td class="num">${tot} / ${max}</td><td></td></tr></tbody>`;
+  document.getElementById(id).innerHTML=html;return tot;
+}
+const qs=scoreTable("q-tbl",Q), ts=scoreTable("t-tbl",T);
+document.getElementById("q-val").textContent=qs;document.getElementById("t-val").textContent=ts;
+document.getElementById("q-pin").style.left=qs+"%";document.getElementById("t-pin").style.left=ts+"%";
+
+document.getElementById("fin-rows").innerHTML=FIN.map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1].toLocaleString("de-CH")}</td><td class="num">${r[2]}</td><td class="num">${r[3]}</td><td class="num">${fmtN(r[4])}</td><td class="num">${r[5].toLocaleString("de-CH")}</td><td class="num">${r[6]}</td><td class="num">${r[7]}</td></tr>`).join("");
+
+/* generic line chart */
+function lineChart(host,{dates,series,bands=[],yFmt=v=>fmtN(v),h=300,zero=false,refs=[],pad}){
+  const W_=800,H=h,m={t:12,r:56,b:28,l:8};
+  const all=series.flatMap(s=>s.values).concat(bands.flatMap(b=>[b.from,b.to])).concat(refs.map(r=>r.v));
+  if(zero)all.push(0);
+  let lo=Math.min(...all),hi=Math.max(...all);const sp=(hi-lo)||1;lo-=sp*.06;hi+=sp*.06;
+  if(pad){lo=pad[0];hi=pad[1]}
+  const n=dates.length,x=i=>m.l+i*(W_-m.l-m.r)/(n-1),y=v=>m.t+(hi-v)*(H-m.t-m.b)/(hi-lo);
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  // grid
+  const steps=5;for(let k=0;k<=steps;k++){const v=lo+(hi-lo)*k/steps;el("line",{x1:m.l,x2:W_-m.r,y1:y(v),y2:y(v),stroke:"var(--grid)","stroke-width":1},svg);
+    const t=el("text",{x:W_-m.r+6,y:y(v)+4,"font-size":11,fill:"var(--muted)","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=yFmt(v)}
+  bands.forEach(b=>{el("rect",{x:m.l,width:W_-m.l-m.r,y:y(Math.max(b.from,b.to)),height:Math.abs(y(b.from)-y(b.to)),fill:b.type==="res"?"var(--zone-res)":"var(--zone-sup)"},svg)});
+  refs.forEach(r=>{el("line",{x1:m.l,x2:W_-m.r,y1:y(r.v),y2:y(r.v),stroke:"var(--muted)","stroke-dasharray":"4 4","stroke-width":1},svg);
+    const t=el("text",{x:m.l+4,y:y(r.v)-4,"font-size":11,fill:"var(--muted)"},svg);t.textContent=r.label});
+  if(zero)el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  // x labels
+  const every=Math.ceil(n/6);for(let i=0;i<n;i+=every){const t=el("text",{x:x(i),y:H-8,"font-size":11,fill:"var(--muted)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);const d=dates[i];t.textContent=d.slice(5,7)+"/"+d.slice(2,4)}
+  series.forEach(s=>{const dpath=s.values.map((v,i)=>(i?"L":"M")+x(i).toFixed(1)+","+y(v).toFixed(1)).join("");
+    el("path",{d:dpath,fill:"none",stroke:s.color,"stroke-width":s.w||2,"stroke-linejoin":"round","stroke-linecap":"round"},svg);
+    const lv=s.values[n-1];el("circle",{cx:x(n-1),cy:y(lv),r:3.5,fill:s.color,stroke:"var(--surface)","stroke-width":2},svg)});
+  // hover
+  const cross=el("line",{y1:m.t,y2:H-m.b,stroke:"var(--muted)","stroke-width":1,opacity:0},svg);
+  const ov=el("rect",{x:m.l,y:m.t,width:W_-m.l-m.r,height:H-m.t-m.b,fill:"transparent"},svg);
+  host.appendChild(svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;host.appendChild(tip);
+  function move(ev){const r=svg.getBoundingClientRect();const px=(ev.clientX-r.left)*W_/r.width;let i=Math.round((px-m.l)/((W_-m.l-m.r)/(n-1)));i=Math.max(0,Math.min(n-1,i));
+    cross.setAttribute("x1",x(i));cross.setAttribute("x2",x(i));cross.setAttribute("opacity",1);
+    tip.innerHTML=`<div class="d">${fmtD(dates[i])}</div>`+series.map(s=>`<div><i class="sw" style="background:${s.color}"></i> ${s.name}: <b>${yFmt(s.values[i])}</b></div>`).join("");
+    tip.hidden=false;const hx=x(i)*r.width/W_;tip.style.left=Math.min(Math.max(0,hx+12),r.width-tip.offsetWidth)+"px";tip.style.top="8px"}
+  ov.addEventListener("pointermove",move);ov.addEventListener("pointerleave",()=>{tip.hidden=true;cross.setAttribute("opacity",0)});
+}
+function barChart(host,{labels,values,fmt,h=220,color,neg,tipExtra}){
+  const W_=800,H=h,m={t:18,r:8,b:28,l:8};
+  const hi=Math.max(0,...values),lo=Math.min(0,...values);const lo2=lo<0?lo*1.15:lo,hi2=hi*1.15||1;
+  const y=v=>m.t+(hi2-v)*(H-m.t-m.b)/(hi2-lo2);const n=values.length,bw=(W_-m.l-m.r)/n;
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;
+  values.forEach((v,i)=>{const x0=m.l+i*bw+bw*.18,w=bw*.64,y0=y(Math.max(v,0)),hh=Math.max(1,Math.abs(y(v)-y(0)));
+    const r=el("rect",{x:x0,y:y0,width:w,height:hh,rx:4,fill:v<0?(neg||"var(--s2)"):(color||"var(--s1)")},svg);
+    const t=el("text",{x:x0+w/2,y:v<0?y(v)+13:y0-5,"font-size":11.5,fill:"var(--ink)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=fmt(v);
+    const l=el("text",{x:x0+w/2,y:H-8,"font-size":11.5,fill:"var(--muted)","text-anchor":"middle"},svg);l.textContent=labels[i];
+    const hit=el("rect",{x:m.l+i*bw,y:m.t,width:bw,height:H-m.t-m.b,fill:"transparent"},svg);
+    hit.addEventListener("pointerenter",()=>{tip.innerHTML=`<div class="d">${labels[i]}</div><b>${fmt(v)}</b>${tipExtra?tipExtra(i):""}`;tip.hidden=false;const R=svg.getBoundingClientRect();tip.style.left=Math.min((m.l+i*bw)*R.width/W_,R.width-tip.offsetWidth)+"px";tip.style.top="0px"});
+    hit.addEventListener("pointerleave",()=>tip.hidden=true)});
+  host.appendChild(svg);host.appendChild(tip);
+}
+barChart(document.getElementById("c-rev"),{labels:HALF.map(r=>r[0]),values:HALF.map(r=>r[1]),fmt:v=>fmtN(v,2),h:200});
+barChart(document.getElementById("c-margin"),{labels:MARGIN.map(r=>r[0]),values:MARGIN.map(r=>r[1]),fmt:v=>fmtN(v,1)+" %",h:200});
+barChart(document.getElementById("c-seas"),{labels:MON,values:SEAS,fmt:v=>(v>0?"+":"")+fmtN(v,1),h:220,tipExtra:i=>`<div>${SEASHIT[i]} % der Jahre positiv</div>`});
+const BANDS=[{"from": 152.5, "to": 154.5, "type": "res"}, {"from": 138, "to": 142, "type": "sup"}], REFS=[{"v": 149.5, "label": "Trigger 149.50"}];
+const wd=W.map(r=>r[0]);
+lineChart(document.getElementById("c-week"),{dates:wd,series:[{name:"Kurs",values:W.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:W.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:W.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,yFmt:v=>fmtN(v,0),h:320});
+lineChart(document.getElementById("c-adw"),{dates:wd,series:[{name:"A/D Woche",values:W.map(r=>r[5]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,zero:true});
+lineChart(document.getElementById("c-rsiw"),{dates:wd,series:[{name:"RSI Woche",values:W.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,refs:[{v:70,label:"70 überkauft"},{v:30,label:"30 überverkauft"}],pad:[10,90]});
+const dd=DD.map(r=>r[0]);
+lineChart(document.getElementById("c-day"),{dates:dd,series:[{name:"Kurs",values:DD.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:DD.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:DD.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,refs:REFS,yFmt:v=>fmtN(v,0),h:260});
+lineChart(document.getElementById("c-add"),{dates:dd,series:[{name:"A/D Tag",values:DD.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:260,zero:true});
+</script>

@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lowe's Aktien-Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F3F5F7; --surface:#FFFFFF; --ink:#141B24; --muted:#5A6573; --line:#DDE2E8; --grid:#E9EDF1;
+  --accent:#2F45B5; --accent-soft:#E6E9F8; --chip:#EBEEF2;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+  --good:#1D7A4B; --good-bg:#E3F3EA; --warn:#9A6200; --warn-bg:#FBF0DC; --bad:#B2362A; --bad-bg:#FBE6E3;
+  --zone-sup:rgba(29,122,75,.10); --zone-res:rgba(178,54,42,.09);
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+    --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+    --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+    --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+  --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+  --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;padding-inline:16px;padding-block:24px 56px}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+h1,h2,h3{font-family:var(--display);font-stretch:85%;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:clamp(32px,7vw,48px);font-weight:800;line-height:1}
+h2{font-size:24px;font-weight:700}
+h3{font-size:17px;font-weight:700;font-stretch:95%}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+section{display:flex;flex-direction:column;gap:14px}
+.lead{max-width:68ch;color:var(--muted)}
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;align-items:stretch}
+.hero .id{display:flex;flex-direction:column;gap:10px;justify-content:space-between}
+.price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price b{font-family:var(--display);font-size:34px;font-weight:700}
+.meta{font-size:13px;color:var(--muted)}
+.verdict{font-size:15px;padding:12px 14px;border-radius:10px;background:var(--chip)}
+.scales{display:flex;flex-direction:column;gap:18px}
+.scale-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.scale-h span{font-size:13px;color:var(--muted)}
+.scale-h b{font-family:var(--display);font-size:28px;line-height:1}
+.track{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#C8412F 0%,#E0892F 30%,#E3B63A 50%,#8BBF4B 68%,#2E9A5B 100%);margin-top:8px}
+.pin{position:absolute;top:-5px;width:4px;height:22px;border-radius:2px;background:var(--ink);box-shadow:0 0 0 2px var(--surface);transform:translateX(-2px)}
+.ticks{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);font-family:var(--mono);margin-top:6px}
+.state{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;margin-top:8px}
+.st-good{background:var(--good-bg);color:var(--good)}
+.st-warn{background:var(--warn-bg);color:var(--warn)}
+.st-bad{background:var(--bad-bg);color:var(--bad)}
+/* tables */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;color:var(--muted);font-weight:500;font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:700;border-bottom:none}
+.pts{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{height:6px;border-radius:3px;background:var(--chip);min-width:60px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:3px}
+/* grids */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;border-left:4px solid var(--line)}
+.kpi.g{border-left-color:var(--good)}.kpi.w{border-left-color:var(--warn)}.kpi.b{border-left-color:var(--bad)}
+.kpi span{font-size:12px;color:var(--muted)}
+.kpi b{font-family:var(--mono);font-size:19px;font-weight:500;font-variant-numeric:tabular-nums}
+.kpi em{font-style:normal;font-size:12.5px;color:var(--muted)}
+/* charts */
+.chart{position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:14px;height:3px;border-radius:2px;display:inline-block}
+.swb{width:12px;height:10px;border-radius:2px;display:inline-block}
+.tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12.5px;box-shadow:0 4px 14px rgba(0,0,0,.12);white-space:nowrap;z-index:2}
+.tip b{font-family:var(--mono);font-weight:500}
+.tip .d{font-family:var(--mono);color:var(--muted);font-size:11.5px}
+.note{font-size:13.5px;color:var(--muted)}
+ul.clean{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.pro li::marker{color:var(--good)} .con li::marker{color:var(--bad)}
+.zones{display:flex;flex-direction:column;gap:8px}
+.zone{display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:baseline;padding:10px 12px;border-radius:10px;background:var(--chip);font-size:14px}
+.zone b{font-family:var(--mono);font-weight:500}
+.zone.r{border-left:4px solid var(--bad)} .zone.s{border-left:4px solid var(--good)} .zone.t{border-left:4px solid var(--accent)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+summary{cursor:pointer;font-weight:600}
+details p{margin-top:8px;color:var(--muted);max-width:70ch}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+footer{font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:6px;max-width:80ch}
+footer a{color:var(--accent)}
+@media (max-width:760px){.hero,.two{grid-template-columns:1fr}.zone{grid-template-columns:1fr;gap:2px}}
+</style>
+
+<a href="../index.html#/aktie/LOW" style="display:inline-block;margin:max(12px,env(safe-area-inset-top)) 0 0 16px;background:#1f3a5f;color:#fff;font:600 14px system-ui;padding:8px 12px;border-radius:20px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">Zurück zur App</a>
+<div class="wrap">
+
+<header class="hero">
+  <div class="card id">
+    <div>
+      <div class="eyebrow">Aktien-Check · 05.10.2026</div>
+      <h1>Lowe's</h1>
+      <p class="meta">Lowe's Companies, Inc. · NYSE: LOW · Baumärkte für Heimwerker und Profis · USA</p>
+    </div>
+    <div class="price"><b>179.50 $</b><span class="meta">Schluss 05.10.2026 · neues 52-Wochen-Tief (178.40 $) · Hoch Februar 2026: 293.10 $</span></div>
+    <p class="verdict"><b>Kurz gesagt:</b> Solide Baumarktkette in einer schwachen Branche: Der US-Immobilienmarkt steht still, und Lowe's hat sich mit Zukäufen verschuldet. Der Kurs fällt seit Februar um 39 %. Qualität gelb, Timing rot. Hier ist kein Boden erkennbar. Nur beobachten.</p>
+  </div>
+  <div class="card scales">
+    <div>
+      <div class="scale-h"><span>Qualität · Ist die Firma kaufenswert?</span><b id="q-val">50</b></div>
+      <div class="track"><i class="pin" id="q-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-warn">▲ Gemischt</span>
+    </div>
+    <div>
+      <div class="scale-h"><span>Timing · Ist jetzt der Zeitpunkt?</span><b id="t-val">18</b></div>
+      <div class="track"><i class="pin" id="t-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-bad">▲ Abwarten: Abwärtstrend intakt</span>
+    </div>
+    <p class="note">Skala: unter 30 rot · 30–45 orange · 45–60 gelb · 60–75 hellgrün · ab 75 grün. Beide Werte setzen sich aus festen Kriterien zusammen, siehe unten.</p>
+  </div>
+</header>
+
+<section>
+  <h2>Was die Firma macht</h2>
+  <p class="lead">Lowe's betreibt rund 1'700 Baumärkte in den USA, für Heimwerker und Handwerker (Pros). 2025 kaufte Lowe's den Baustoffhändler Foundation Building Materials (FBM) und den Händler ADG, um mehr an Profis zu verkaufen. Das Geschäft hängt stark an Hausverkäufen und Renovationen.</p>
+  <p class="lead">Hohe Hypothekarzinsen frieren den US-Häusermarkt ein: Wer nicht umzieht, renoviert weniger. Die vergleichbaren Umsätze in bestehenden Märkten wuchsen im 2. Quartal nur um 0.2 %, für das Jahr erwartet Lowe's sie flach. Der Umsatz steigt nur dank der Zukäufe FBM und ADG, und gerade die leiden unter dem schwachen Neubau. Die Zukäufe wurden mit Schulden bezahlt: Die Nettoschulden betragen jetzt 39 Mrd. $. Die Aktie fiel von 293 $ im Februar auf 179.50 $, ein neues 52-Wochen-Tief.</p>
+</section>
+
+<section>
+  <h2>Fundamental: die Zahlen</h2>
+  <div class="kpis">
+<div class="kpi w"><span>Umsatzwachstum</span><b>+8.3 %</b><em>2. Quartal. Kommt fast nur aus Zukäufen.</em></div>
+<div class="kpi b"><span>Vergleichbare Umsätze</span><b>+0.2 %</b><em>Gleiche Märkte wie im Vorjahr. Praktisch kein echtes Wachstum.</em></div>
+<div class="kpi w"><span>Operative Marge</span><b>11.4 %</b><em>Von 100 $ Umsatz bleiben gut 11 $. Sinkt seit 2023 (13.5 %).</em></div>
+<div class="kpi b"><span>Gewinn pro Aktie (EPS)</span><b>−2.8 %</b><em>Letzte 12 Monate. Seit drei Jahren leicht rückläufig.</em></div>
+<div class="kpi g"><span>ROIC</span><b>22.4 %</b><em>Immer noch gut, aber stark fallend (2022: 38.5 %).</em></div>
+<div class="kpi g"><span>Free Cashflow</span><b>7.0 Mrd. $</b><em>Stabil hoch. Deckt Dividende und Zinsen.</em></div>
+<div class="kpi b"><span>Nettoschulden / EBITDA</span><b>3.1</b><em>Über drei Jahre Betriebsgewinn für die Schulden. Hoch.</em></div>
+<div class="kpi g"><span>KGV</span><b>15.3</b><em>Eigener Schnitt rund 20. Rund 23 % günstiger als üblich.</em></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>Umsatz pro Quartal (Mrd. $)</h3>
+      <p class="note">Seit Ende 2025 wieder über Vorjahr, aber nur wegen der Zukäufe. Monatsnamen = Quartalsende.</p>
+      <div class="chart" id="c-rev"></div>
+    </div>
+    <div class="card">
+      <h3>Operative Marge pro Jahr</h3>
+      <p class="note">Seit dem Hoch von 2023 jedes Jahr tiefer.</p>
+      <div class="chart" id="c-margin"></div>
+    </div>
+  </div>
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Jahr</th><th class="num">Umsatz Mio. $</th><th class="num">Wachstum</th><th class="num">Op. Marge</th><th class="num">EPS $</th><th class="num">Free Cashflow</th><th class="num">ROIC</th><th class="num">KGV</th></tr></thead>
+      <tbody id="fin-rows"></tbody>
+    </table>
+  </div>
+  <p class="note"><b>Hinweis:</b> Das Geschäftsjahr endet jeweils Ende Januar/Anfang Februar. GJ 2026 = Februar 2025 bis Januar 2026. Dividende 2.8 % (5 $ pro Aktie).</p>
+</section>
+
+<section>
+  <h2>Qualität: 50 von 100</h2>
+  <div class="card tbl"><table id="q-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Technik: Wochenchart (2 Jahre)</h2>
+  <div class="card">
+    <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span><span><i class="swb" style="background:var(--zone-sup);border:1px solid var(--good)"></i>Unterstützung</span><span><i class="swb" style="background:var(--zone-res);border:1px solid var(--bad)"></i>Widerstand</span></div>
+    <div class="chart" id="c-week"></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>A/D-Linie, Woche</h3>
+      <p class="note">Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Fällt seit Februar fast ohne Unterbruch auf den tiefsten Stand der zwei Jahre.</p>
+      <div class="chart" id="c-adw"></div>
+    </div>
+    <div class="card">
+      <h3>RSI, Woche</h3>
+      <p class="note">Unter 30 überverkauft, über 70 überkauft. Heute 28: überverkauft, aber ohne Bodenzeichen.</p>
+      <div class="chart" id="c-rsiw"></div>
+    </div>
+  </div>
+
+  <h2>Technik: Tageschart (6 Monate)</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Kurs, Tag</h3>
+      <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span></div>
+      <div class="chart" id="c-day"></div>
+    </div>
+    <div class="card">
+      <h3>A/D-Linie, Tag</h3>
+      <p class="note">Die Tages-A/D fällt seit August stetig mit dem Kurs. Kein Zeichen von Aufnahme.</p>
+      <div class="chart" id="c-add"></div>
+    </div>
+  </div>
+
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Indikator</th><th>Tag</th><th>Woche</th><th>Bedeutung</th></tr></thead>
+      <tbody>
+<tr><td>Kurs vs. EMA 50</td><td class="pts">179.5 &lt; 200.5</td><td class="pts">179.5 &lt; 222.8</td><td>Weit unter der mittelfristigen Linie.</td></tr>
+<tr><td>Kurs vs. EMA 200</td><td class="pts">179.5 &lt; 222.0</td><td class="pts">179.5 &lt; 228.6</td><td>Weit unter der langfristigen Linie.</td></tr>
+<tr><td>EMA 50 vs. EMA 200</td><td class="pts">50 unter 200 (seit 2.4.)</td><td class="pts">50 unter 200 (seit 31.8.)</td><td>Death Cross auf beiden Zeitebenen.</td></tr>
+<tr><td>RSI (14)</td><td class="pts">24.3</td><td class="pts">28.2</td><td>Beide überverkauft, aber ohne Divergenz.</td></tr>
+<tr><td>A/D</td><td class="pts">fällt</td><td class="pts">fällt</td><td>Verkäufer dominieren klar.</td></tr>
+<tr><td>Volumen</td><td colspan="2">Ø 20 Tage 3.3 Mio. vs. Ø 100 Tage 3.1 Mio.</td><td>Leicht erhöht im Abverkauf.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Struktur und Zonen (Smart Money Concept)</h2>
+  <p class="lead">Seit Februar tiefere Hochs (293 → 257 → 229 → 226 $) und tiefere Tiefs (224 → 203 → 199 → 178.40 $). Ein klarer Abwärtstrend. Das letzte tiefere Hoch auf dem Tageschart liegt bei rund 204.40 $ (4.9.). Erst ein Tagesschluss darüber wäre ein Change of Character. Unter dem aktuellen Kurs gibt es in den letzten zwei Jahren keine Unterstützung mehr.</p>
+  <div class="zones">
+<div class="zone r"><b>199–204 $</b><span>Widerstand: altes Tief vom Juli (199.40 $) und Hoch vom 4.9.</span></div>
+<div class="zone t"><b>204.40 $</b><span><b>Trigger: Change of Character.</b> Tagesschluss über dem letzten tieferen Hoch.</span></div>
+<div class="zone s"><b>170–175 $</b><span>Nur runde Marken, keine geprüfte Unterstützung in den letzten zwei Jahren.</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Smart Money, Insider und Saisonalität</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Wer kauft, wer verkauft?</h3>
+      <ul class="clean" style="margin-top:8px">
+<li><b>Lowe's selbst:</b> Rückkäufe wegen der Schulden stark reduziert (0.4 % pro Jahr). Dividende 2.8 %.</li>
+<li><b>Insider-Käufe:</b> Keine in den letzten 12 Monaten.</li>
+<li><b>Insider-Verkäufe:</b> Rund 10–12 Mio. $, z. B. CEO Ellison 4.7 Mio. $ im Januar. Klein.</li>
+<li><b>Analysten:</b> Durchschnittliches Kursziel 251 $, Einstufung „Buy“.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Saisonalität seit 1985</h3>
+      <p class="note">Durchschnittliche Monatsrendite in %, 41 Jahre. November und Dezember sind die stärksten Monate.</p>
+      <div class="chart" id="c-seas"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Timing: 18 von 100</h2>
+  <div class="card tbl"><table id="t-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Pro und Contra</h2>
+  <div class="two">
+    <div class="card pro"><h3>Spricht dafür</h3><ul class="clean" style="margin-top:8px">
+<li>Günstig bewertet: KGV 15, Free-Cashflow-Rendite fast 7 %.</li>
+<li>ROIC immer noch über 20 %, stabiler Free Cashflow.</li>
+<li>Wenn die Zinsen fallen und der Häusermarkt dreht, profitiert Lowe's stark.</li>
+<li>Stark überverkauft: Gegenbewegungen sind jederzeit möglich.</li>
+    </ul></div>
+    <div class="card con"><h3>Spricht dagegen</h3><ul class="clean" style="margin-top:8px">
+<li>Kein echtes Wachstum: vergleichbare Umsätze flach.</li>
+<li>Hohe Schulden nach den Zukäufen.</li>
+<li>Marge und ROIC fallen seit Jahren.</li>
+<li>Klarer Abwärtstrend ohne Bodenzeichen, A/D fällt.</li>
+<li>Abhängig von Zinsen und Häusermarkt, also von Faktoren ausserhalb der Firma.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section>
+  <h2>Was jetzt zu tun ist</h2>
+  <div class="zones">
+<div class="zone t"><b>Beobachten</b><span>Alarm bei 204.40 $ (Trigger). Nicht ins fallende Messer greifen.</span></div>
+<div class="zone s"><b>Timing grün</b><span>Erst ein Boden: höheres Tief mit bullischer Divergenz (RSI/A/D), dann Tagesschluss über 204.40 $.</span></div>
+<div class="zone r"><b>Abbruch</b><span>Nicht relevant, solange nicht gekauft.</span></div>
+<div class="zone "><b>Nächste Zahlen</b><span>18. November 2026 (3. Quartal).</span></div>
+  </div>
+</section>
+
+<footer>
+  <span>Kursdaten und Indikatoren (EMA, RSI 14, A/D) selbst berechnet aus Yahoo-Finance-Tages-, Wochen- und Monatsdaten, Stand 05.10.2026. <a href="https://stockanalysis.com/stocks/low/financials/" target="_blank" rel="noopener">StockAnalysis.com</a> (Stand 05.10.2026), <a href="https://www.tikr.com/blog/lowes-stock-just-hit-a-52-week-low-heres-where-the-stock-could-go" target="_blank" rel="noopener">52-Wochen-Tief (TIKR)</a>, <a href="https://www.fool.com/investing/2026/10/02/why-is-lowes-stock-falling-and-is-it-a-buying-oppo/" target="_blank" rel="noopener">Motley Fool</a>, <a href="https://www.marketbeat.com/stocks/NYSE/LOW/insider-trades/" target="_blank" rel="noopener">Insider (MarketBeat)</a>.</span>
+  <span>Persönliche Analyse, keine Anlageberatung. Vergangene Kurse und Saisonalität sagen nichts Sicheres über die Zukunft.</span>
+</footer>
+</div>
+
+<script>
+const Q=[["Umsatztrend", "4 von 4 Quartalen über Vorjahr, aber nur durch Zukäufe", 12, 15], ["Wachstumstempo", "Vergleichbare Umsätze +0.2 %", 0, 10], ["Operative Marge", "11.4 %, Handel milder (6 Pkt.), fallend (0 Pkt.)", 6, 15], ["Gewinnwachstum (EPS)", "Flach bis leicht negativ", 2, 10], ["Free Cashflow", "Positiv, schwankend", 6, 10], ["ROIC", "22.4 %, fallend (−1)", 12, 15], ["Schulden", "Nettoschulden/EBITDA 3.1", 2, 10], ["Bewertung vs. eigene Historie", "KGV 15.3 vs. Ø rund 20 (−23 %)", 10, 15]];
+const T=[["Trend Woche (EMA 50/200)", "Kurs weit unter beiden, Death Cross", 1, 20], ["Trend Tag (EMA 50/200)", "Kurs weit unter beiden, Death Cross", 0, 10], ["Struktur (SMC)", "Tiefere Hochs und tiefere Tiefs", 1, 20], ["RSI Tag/Woche", "24 / 28: überverkauft ohne Bodenzeichen", 5, 15], ["A/D Tag/Woche", "Beide fallen mit dem Kurs", 3, 20], ["Smart Money", "Kaum Rückkauf, keine Insider-Käufe", 3, 10], ["Saisonalität", "Okt–Dez: Ø 63 % positive Jahre", 5, 5]];
+const FIN=[["GJ 2023", 97059, "+0.8 %", "10.5 %", 10.17, 6760, "29.6 %", "20.4"], ["GJ 2024", 86377, "−11.0 %", "13.5 %", 13.2, 6176, "35.1 %", "16.4"], ["GJ 2025", 83674, "−3.1 %", "12.5 %", 12.23, 7698, "31.5 %", "21.2"], ["GJ 2026", 86286, "+3.1 %", "11.8 %", 11.85, 7651, "26.3 %", "22.6"], ["Letzte 12 Mt.", 90432, "+8.2 %", "11.4 %", 11.83, 7000, "22.4 %", "15.3"]];
+const HALF=[["Nov 24", 20.17], ["Jan 25", 18.55], ["Mai 25", 20.93], ["Aug 25", 23.96], ["Okt 25", 20.81], ["Jan 26", 20.59], ["Mai 26", 23.08], ["Jul 26", 25.96]];
+const MARGIN=[["GJ 23", 10.5], ["GJ 24", 13.5], ["GJ 25", 12.5], ["GJ 26", 11.8], ["12 Mt.", 11.4]];
+const SEAS=[2.3, 2.7, 3.0, -0.3, 2.4, -0.7, 0.4, 0.9, -0.7, 0.4, 4.1, 3.7];
+const SEASHIT=[56.0, 60.0, 55.0, 50.0, 52.0, 48.0, 55.0, 52.0, 48.0, 59.0, 66.0, 63.0];
+const MON=["Jan","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"];
+const W=`2024-10-14,281.6,236.6,218.7,73,25.0;2024-10-21,267.6,237.8,219.2,62,15.5;2024-10-28,261.9,238.8,219.6,58,7.2;2024-11-04,271.1,240.0,220.1,62,17.8;2024-11-11,269.4,241.2,220.6,61,9.0;2024-11-18,264.7,242.1,221.0,58,6.5;2024-11-25,272.4,243.3,221.5,61,6.5;2024-12-02,273.4,244.5,222.0,62,7.2;2024-12-09,262.4,245.2,222.5,54,-5.0;2024-12-16,247.7,245.3,222.7,46,-15.8;2024-12-23,248.3,245.4,223.0,46,-14.3;2024-12-30,248.5,245.5,223.2,46,-10.7;2025-01-06,247.9,245.6,223.5,46,-10.5;2025-01-13,261.1,246.2,223.8,54,0.2;2025-01-20,262.2,246.8,224.2,55,0.0;2025-01-27,260.0,247.4,224.6,53,-8.3;2025-02-03,251.9,247.5,224.8,48,-17.1;2025-02-10,251.8,247.7,225.1,48,-17.8;2025-02-17,239.2,247.4,225.2,40,-26.9;2025-02-24,248.6,247.4,225.5,47,-17.2;2025-03-03,242.7,247.2,225.7,44,-19.7;2025-03-10,224.4,246.3,225.6,36,-29.5;2025-03-17,227.1,245.6,225.7,37,-23.3;2025-03-24,228.4,244.9,225.7,38,-31.2;2025-03-31,223.3,244.1,225.7,36,-39.9;2025-04-07,220.4,243.1,225.6,35,-31.7;2025-04-14,219.0,242.2,225.5,34,-32.4;2025-04-21,220.9,241.4,225.5,36,-28.2;2025-04-28,227.2,240.8,225.5,41,-18.1;2025-05-05,222.3,240.1,225.5,38,-26.0;2025-05-12,234.2,239.8,225.6,47,-16.4;2025-05-19,221.1,239.1,225.5,40,-32.2;2025-05-26,225.7,238.6,225.5,44,-24.8;2025-06-02,225.3,238.1,225.5,43,-26.1;2025-06-09,217.3,237.2,225.4,39,-35.9;2025-06-16,212.8,236.3,225.3,37,-41.5;2025-06-23,223.6,235.8,225.3,45,-32.0;2025-06-30,228.3,235.5,225.3,48,-27.7;2025-07-07,224.1,235.0,225.3,46,-33.8;2025-07-14,219.2,234.4,225.3,43,-31.9;2025-07-21,226.8,234.1,225.3,48,-26.3;2025-07-28,226.4,233.8,225.3,48,-27.4;2025-08-04,241.1,234.1,225.4,56,-15.0;2025-08-11,252.1,234.8,225.7,62,-8.1;2025-08-18,263.7,235.9,226.1,66,2.7;2025-08-25,258.1,236.8,226.4,62,-0.9;2025-09-01,270.0,238.1,226.8,67,8.6;2025-09-08,271.8,239.4,227.3,67,17.7;2025-09-15,265.2,240.4,227.7,63,4.1;2025-09-22,257.1,241.1,228.0,57,-2.7;2025-09-29,246.4,241.3,228.1,51,-14.3;2025-10-06,232.2,241.0,228.2,45,-25.6;2025-10-13,244.7,241.1,228.3,51,-14.8;2025-10-20,242.7,241.2,228.5,50,-17.2;2025-10-27,238.1,241.0,228.6,48,-24.7;2025-11-03,233.2,240.7,228.6,45,-30.6;2025-11-10,227.9,240.2,228.6,43,-41.2;2025-11-17,234.3,240.0,228.7,47,-19.4;2025-11-24,242.5,240.1,228.8,51,-9.2;2025-12-01,248.5,240.4,229.0,54,4.5;2025-12-08,247.3,240.7,229.2,53,7.2;2025-12-15,240.4,240.7,229.3,49,-8.4;2025-12-22,244.5,240.8,229.5,52,-3.2;2025-12-29,246.9,241.1,229.6,53,3.3;2026-01-05,267.2,242.1,230.0,62,17.5;2026-01-12,277.5,243.5,230.5,66,30.6;2026-01-19,276.7,244.8,230.9,66,35.3;2026-01-26,267.1,245.7,231.3,59,28.6;2026-02-02,278.4,246.9,231.8,64,39.2;2026-02-09,287.4,248.5,232.3,67,44.7;2026-02-16,280.4,249.8,232.8,62,40.6;2026-02-23,264.6,250.4,233.1,54,29.6;2026-03-02,251.9,250.4,233.3,48,23.8;2026-03-09,237.6,249.9,233.3,42,12.0;2026-03-16,224.6,248.9,233.3,38,-2.0;2026-03-23,230.3,248.2,233.2,41,-10.6;2026-03-30,231.0,247.5,233.2,41,-15.3;2026-04-06,244.2,247.4,233.3,48,-9.7;2026-04-13,251.7,247.6,233.5,51,-3.9;2026-04-20,244.4,247.4,233.6,48,-14.0;2026-04-27,233.3,246.9,233.6,43,-23.3;2026-05-04,229.2,246.2,233.6,42,-23.5;2026-05-11,218.4,245.1,233.4,38,-36.1;2026-05-18,215.0,243.9,233.2,37,-36.9;2026-05-25,214.4,242.8,233.0,37,-40.5;2026-06-01,210.7,241.5,232.8,35,-34.4;2026-06-08,220.8,240.7,232.7,42,-25.4;2026-06-15,222.2,240.0,232.6,42,-24.5;2026-06-22,222.5,239.3,232.5,43,-17.4;2026-06-29,227.5,238.8,232.4,46,-6.8;2026-07-06,211.6,237.8,232.2,39,-17.9;2026-07-13,208.7,236.6,232.0,37,-30.8;2026-07-20,207.6,235.5,231.8,37,-21.1;2026-07-27,207.8,234.4,231.5,37,-33.1;2026-08-03,223.4,234.0,231.4,48,-21.5;2026-08-10,218.5,233.4,231.3,45,-22.8;2026-08-17,216.1,232.7,231.2,44,-31.7;2026-08-24,208.1,231.7,230.9,40,-41.2;2026-08-31,204.4,230.6,230.7,38,-36.0;2026-09-07,196.8,229.3,230.3,35,-43.1;2026-09-14,192.5,227.9,229.9,33,-58.9;2026-09-21,189.3,226.4,229.5,32,-68.4;2026-09-28,180.8,224.6,229.1,29,-80.9;2026-10-05,179.5,222.8,228.6,28,-81.2`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+const DD=`2026-03-31,236.3,250.9,250.0,14.4;2026-04-01,236.0,250.3,249.9,13.3;2026-04-02,231.0,249.6,249.7,12.8;2026-04-06,235.2,249.0,249.5,14.4;2026-04-07,231.6,248.3,249.4,14.5;2026-04-08,243.7,248.1,249.3,13.1;2026-04-09,247.8,248.1,249.3,14.9;2026-04-10,244.2,248.0,249.2,13.5;2026-04-13,247.1,247.9,249.2,15.8;2026-04-14,248.4,248.0,249.2,17.5;2026-04-15,244.0,247.8,249.2,16.5;2026-04-16,242.4,247.6,249.1,14.9;2026-04-17,251.7,247.7,249.1,15.5;2026-04-20,253.3,248.0,249.2,17.8;2026-04-21,251.2,248.1,249.2,15.7;2026-04-22,245.2,248.0,249.1,14.2;2026-04-23,246.5,247.9,249.1,14.9;2026-04-24,244.4,247.8,249.1,14.2;2026-04-27,242.6,247.6,249.0,11.9;2026-04-28,240.3,247.3,248.9,10.9;2026-04-29,233.5,246.8,248.8,9.7;2026-04-30,238.8,246.4,248.7,12.1;2026-05-01,233.3,245.9,248.5,10.4;2026-05-04,223.7,245.1,248.3,6.9;2026-05-05,225.2,244.3,248.0,6.6;2026-05-06,233.4,243.9,247.9,8.9;2026-05-07,230.9,243.3,247.7,7.1;2026-05-08,229.2,242.8,247.5,6.1;2026-05-11,226.1,242.1,247.3,5.5;2026-05-12,224.5,241.4,247.1,2.7;2026-05-13,220.4,240.6,246.8,2.5;2026-05-14,223.6,240.0,246.6,3.8;2026-05-15,218.4,239.1,246.3,1.1;2026-05-18,218.0,238.3,246.0,-1.7;2026-05-19,218.4,237.5,245.8,-0.1;2026-05-20,221.1,236.9,245.5,5.6;2026-05-21,217.4,236.1,245.2,6.1;2026-05-22,215.0,235.3,244.9,5.6;2026-05-26,212.1,234.4,244.6,3.1;2026-05-27,216.8,233.7,244.3,2.4;2026-05-28,217.9,233.1,244.1,3.9;2026-05-29,214.4,232.3,243.8,0.6;2026-06-01,207.7,231.4,243.4,-2.6;2026-06-02,206.6,230.4,243.0,-2.4;2026-06-03,207.6,229.5,242.7,1.2;2026-06-04,207.5,228.6,242.3,-1.4;2026-06-05,210.7,227.9,242.0,-0.2;2026-06-08,208.0,227.1,241.7,-2.4;2026-06-09,217.4,226.8,241.5,1.3;2026-06-10,216.2,226.3,241.2,0.7;2026-06-11,221.1,226.1,241.0,2.8;2026-06-12,220.8,225.9,240.8,2.1;2026-06-15,220.2,225.7,240.6,-0.6;2026-06-16,224.0,225.6,240.4,0.0;2026-06-17,217.3,225.3,240.2,-3.3;2026-06-18,222.2,225.2,240.0,-3.2;2026-06-22,214.4,224.8,239.8,-5.8;2026-06-23,213.5,224.3,239.5,-6.8;2026-06-24,221.4,224.2,239.3,-4.8;2026-06-25,221.9,224.1,239.1,-6.1;2026-06-26,222.5,224.1,239.0,-6.4;2026-06-29,219.6,223.9,238.8,-7.7;2026-06-30,220.5,223.8,238.6,-5.4;2026-07-01,221.9,223.7,238.4,-7.0;2026-07-02,227.5,223.8,238.3,-4.7;2026-07-06,223.8,223.8,238.2,-4.6;2026-07-07,220.9,223.7,238.0,-5.8;2026-07-08,212.9,223.3,237.8,-8.2;2026-07-09,213.0,222.9,237.5,-8.9;2026-07-10,211.6,222.4,237.3,-10.8;2026-07-13,207.7,221.9,237.0,-13.9;2026-07-14,207.7,221.3,236.7,-16.7;2026-07-15,209.7,220.9,236.4,-16.9;2026-07-16,216.2,220.7,236.2,-12.8;2026-07-17,208.7,220.2,235.9,-16.1;2026-07-20,204.7,219.6,235.6,-18.2;2026-07-21,203.5,219.0,235.3,-18.0;2026-07-22,204.4,218.4,235.0,-16.4;2026-07-23,201.9,217.7,234.7,-14.8;2026-07-24,207.6,217.3,234.4,-11.6;2026-07-27,211.6,217.1,234.2,-11.1;2026-07-28,218.2,217.2,234.0,-10.5;2026-07-29,215.7,217.1,233.8,-11.5;2026-07-30,210.1,216.8,233.6,-12.9;2026-07-31,207.8,216.5,233.3,-13.4;2026-08-03,212.1,216.3,233.1,-12.9;2026-08-04,218.1,216.4,233.0,-10.6;2026-08-05,219.9,216.5,232.8,-8.5;2026-08-06,218.4,216.6,232.7,-8.2;2026-08-07,223.4,216.9,232.6,-6.1;2026-08-10,218.9,216.9,232.5,-6.3;2026-08-11,221.3,217.1,232.4,-6.5;2026-08-12,216.0,217.1,232.2,-7.5;2026-08-13,218.2,217.1,232.1,-5.5;2026-08-14,218.5,217.2,231.9,-4.0;2026-08-17,215.8,217.1,231.8,-2.2;2026-08-18,215.6,217.0,231.6,-4.2;2026-08-19,220.0,217.2,231.5,-3.6;2026-08-20,217.3,217.2,231.3,-2.1;2026-08-21,216.1,217.1,231.2,-3.4;2026-08-24,217.0,217.1,231.1,-4.2;2026-08-25,214.6,217.0,230.9,-5.0;2026-08-26,210.4,216.8,230.7,-8.5;2026-08-27,206.7,216.4,230.4,-9.7;2026-08-28,208.1,216.0,230.2,-8.2;2026-08-31,204.7,215.6,230.0,-12.2;2026-09-01,200.1,215.0,229.7,-14.7;2026-09-02,199.8,214.4,229.4,-16.6;2026-09-03,201.9,213.9,229.1,-15.6;2026-09-04,204.4,213.5,228.9,-14.2;2026-09-08,200.8,213.0,228.6,-17.0;2026-09-09,198.6,212.5,228.3,-17.6;2026-09-10,196.6,211.8,228.0,-17.6;2026-09-11,196.8,211.3,227.7,-20.7;2026-09-14,198.2,210.7,227.4,-20.3;2026-09-15,194.6,210.1,227.0,-23.2;2026-09-16,194.1,209.5,226.7,-25.2;2026-09-17,194.2,208.9,226.4,-27.3;2026-09-18,192.5,208.2,226.0,-31.4;2026-09-21,191.0,207.6,225.7,-30.9;2026-09-22,196.1,207.1,225.4,-28.6;2026-09-23,191.4,206.5,225.1,-31.4;2026-09-24,188.5,205.8,224.7,-33.7;2026-09-25,189.3,205.1,224.3,-32.9;2026-09-28,187.7,204.5,224.0,-33.7;2026-09-29,187.3,203.8,223.6,-34.9;2026-09-30,184.3,203.0,223.2,-38.5;2026-10-01,182.4,202.2,222.8,-36.9;2026-10-02,180.8,201.4,222.4,-38.8;2026-10-05,179.5,200.5,222.0,-39.2`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+
+const fmtN=(v,d=2)=>v.toLocaleString("de-CH",{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmtD=s=>{const [y,m,d]=s.split("-");return d+"."+m+"."+y.slice(2)};
+const NS="http://www.w3.org/2000/svg";
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+
+function scoreTable(id,rows){
+  let tot=0,max=0;
+  const html='<thead><tr><th>Kriterium</th><th>Stand</th><th class="num">Punkte</th><th style="width:22%"></th></tr></thead><tbody>'+rows.map(r=>{tot+=r[2];max+=r[3];const p=r[2]/r[3];const c=p>=.75?"var(--good)":p>=.45?"var(--warn)":"var(--bad)";
+    return `<tr><td>${r[0]}</td><td class="muted">${r[1]}</td><td class="num">${r[2]} / ${r[3]}</td><td><div class="bar"><i style="width:${p*100}%;background:${c}"></i></div></td></tr>`}).join("")+`<tr class="total"><td>Total</td><td></td><td class="num">${tot} / ${max}</td><td></td></tr></tbody>`;
+  document.getElementById(id).innerHTML=html;return tot;
+}
+const qs=scoreTable("q-tbl",Q), ts=scoreTable("t-tbl",T);
+document.getElementById("q-val").textContent=qs;document.getElementById("t-val").textContent=ts;
+document.getElementById("q-pin").style.left=qs+"%";document.getElementById("t-pin").style.left=ts+"%";
+
+document.getElementById("fin-rows").innerHTML=FIN.map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1].toLocaleString("de-CH")}</td><td class="num">${r[2]}</td><td class="num">${r[3]}</td><td class="num">${fmtN(r[4])}</td><td class="num">${r[5].toLocaleString("de-CH")}</td><td class="num">${r[6]}</td><td class="num">${r[7]}</td></tr>`).join("");
+
+/* generic line chart */
+function lineChart(host,{dates,series,bands=[],yFmt=v=>fmtN(v),h=300,zero=false,refs=[],pad}){
+  const W_=800,H=h,m={t:12,r:56,b:28,l:8};
+  const all=series.flatMap(s=>s.values).concat(bands.flatMap(b=>[b.from,b.to])).concat(refs.map(r=>r.v));
+  if(zero)all.push(0);
+  let lo=Math.min(...all),hi=Math.max(...all);const sp=(hi-lo)||1;lo-=sp*.06;hi+=sp*.06;
+  if(pad){lo=pad[0];hi=pad[1]}
+  const n=dates.length,x=i=>m.l+i*(W_-m.l-m.r)/(n-1),y=v=>m.t+(hi-v)*(H-m.t-m.b)/(hi-lo);
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  // grid
+  const steps=5;for(let k=0;k<=steps;k++){const v=lo+(hi-lo)*k/steps;el("line",{x1:m.l,x2:W_-m.r,y1:y(v),y2:y(v),stroke:"var(--grid)","stroke-width":1},svg);
+    const t=el("text",{x:W_-m.r+6,y:y(v)+4,"font-size":11,fill:"var(--muted)","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=yFmt(v)}
+  bands.forEach(b=>{el("rect",{x:m.l,width:W_-m.l-m.r,y:y(Math.max(b.from,b.to)),height:Math.abs(y(b.from)-y(b.to)),fill:b.type==="res"?"var(--zone-res)":"var(--zone-sup)"},svg)});
+  refs.forEach(r=>{el("line",{x1:m.l,x2:W_-m.r,y1:y(r.v),y2:y(r.v),stroke:"var(--muted)","stroke-dasharray":"4 4","stroke-width":1},svg);
+    const t=el("text",{x:m.l+4,y:y(r.v)-4,"font-size":11,fill:"var(--muted)"},svg);t.textContent=r.label});
+  if(zero)el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  // x labels
+  const every=Math.ceil(n/6);for(let i=0;i<n;i+=every){const t=el("text",{x:x(i),y:H-8,"font-size":11,fill:"var(--muted)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);const d=dates[i];t.textContent=d.slice(5,7)+"/"+d.slice(2,4)}
+  series.forEach(s=>{const dpath=s.values.map((v,i)=>(i?"L":"M")+x(i).toFixed(1)+","+y(v).toFixed(1)).join("");
+    el("path",{d:dpath,fill:"none",stroke:s.color,"stroke-width":s.w||2,"stroke-linejoin":"round","stroke-linecap":"round"},svg);
+    const lv=s.values[n-1];el("circle",{cx:x(n-1),cy:y(lv),r:3.5,fill:s.color,stroke:"var(--surface)","stroke-width":2},svg)});
+  // hover
+  const cross=el("line",{y1:m.t,y2:H-m.b,stroke:"var(--muted)","stroke-width":1,opacity:0},svg);
+  const ov=el("rect",{x:m.l,y:m.t,width:W_-m.l-m.r,height:H-m.t-m.b,fill:"transparent"},svg);
+  host.appendChild(svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;host.appendChild(tip);
+  function move(ev){const r=svg.getBoundingClientRect();const px=(ev.clientX-r.left)*W_/r.width;let i=Math.round((px-m.l)/((W_-m.l-m.r)/(n-1)));i=Math.max(0,Math.min(n-1,i));
+    cross.setAttribute("x1",x(i));cross.setAttribute("x2",x(i));cross.setAttribute("opacity",1);
+    tip.innerHTML=`<div class="d">${fmtD(dates[i])}</div>`+series.map(s=>`<div><i class="sw" style="background:${s.color}"></i> ${s.name}: <b>${yFmt(s.values[i])}</b></div>`).join("");
+    tip.hidden=false;const hx=x(i)*r.width/W_;tip.style.left=Math.min(Math.max(0,hx+12),r.width-tip.offsetWidth)+"px";tip.style.top="8px"}
+  ov.addEventListener("pointermove",move);ov.addEventListener("pointerleave",()=>{tip.hidden=true;cross.setAttribute("opacity",0)});
+}
+function barChart(host,{labels,values,fmt,h=220,color,neg,tipExtra}){
+  const W_=800,H=h,m={t:18,r:8,b:28,l:8};
+  const hi=Math.max(0,...values),lo=Math.min(0,...values);const lo2=lo<0?lo*1.15:lo,hi2=hi*1.15||1;
+  const y=v=>m.t+(hi2-v)*(H-m.t-m.b)/(hi2-lo2);const n=values.length,bw=(W_-m.l-m.r)/n;
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;
+  values.forEach((v,i)=>{const x0=m.l+i*bw+bw*.18,w=bw*.64,y0=y(Math.max(v,0)),hh=Math.max(1,Math.abs(y(v)-y(0)));
+    const r=el("rect",{x:x0,y:y0,width:w,height:hh,rx:4,fill:v<0?(neg||"var(--s2)"):(color||"var(--s1)")},svg);
+    const t=el("text",{x:x0+w/2,y:v<0?y(v)+13:y0-5,"font-size":11.5,fill:"var(--ink)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=fmt(v);
+    const l=el("text",{x:x0+w/2,y:H-8,"font-size":11.5,fill:"var(--muted)","text-anchor":"middle"},svg);l.textContent=labels[i];
+    const hit=el("rect",{x:m.l+i*bw,y:m.t,width:bw,height:H-m.t-m.b,fill:"transparent"},svg);
+    hit.addEventListener("pointerenter",()=>{tip.innerHTML=`<div class="d">${labels[i]}</div><b>${fmt(v)}</b>${tipExtra?tipExtra(i):""}`;tip.hidden=false;const R=svg.getBoundingClientRect();tip.style.left=Math.min((m.l+i*bw)*R.width/W_,R.width-tip.offsetWidth)+"px";tip.style.top="0px"});
+    hit.addEventListener("pointerleave",()=>tip.hidden=true)});
+  host.appendChild(svg);host.appendChild(tip);
+}
+barChart(document.getElementById("c-rev"),{labels:HALF.map(r=>r[0]),values:HALF.map(r=>r[1]),fmt:v=>fmtN(v,1),h:200});
+barChart(document.getElementById("c-margin"),{labels:MARGIN.map(r=>r[0]),values:MARGIN.map(r=>r[1]),fmt:v=>fmtN(v,1)+" %",h:200});
+barChart(document.getElementById("c-seas"),{labels:MON,values:SEAS,fmt:v=>(v>0?"+":"")+fmtN(v,1),h:220,tipExtra:i=>`<div>${SEASHIT[i]} % der Jahre positiv</div>`});
+const BANDS=[{"from": 199, "to": 204.4, "type": "res"}], REFS=[{"v": 204.4, "label": "Trigger 204.40"}];
+const wd=W.map(r=>r[0]);
+lineChart(document.getElementById("c-week"),{dates:wd,series:[{name:"Kurs",values:W.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:W.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:W.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,yFmt:v=>fmtN(v,0),h:320});
+lineChart(document.getElementById("c-adw"),{dates:wd,series:[{name:"A/D Woche",values:W.map(r=>r[5]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,zero:true});
+lineChart(document.getElementById("c-rsiw"),{dates:wd,series:[{name:"RSI Woche",values:W.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,refs:[{v:70,label:"70 überkauft"},{v:30,label:"30 überverkauft"}],pad:[10,90]});
+const dd=DD.map(r=>r[0]);
+lineChart(document.getElementById("c-day"),{dates:dd,series:[{name:"Kurs",values:DD.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:DD.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:DD.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,refs:REFS,yFmt:v=>fmtN(v,0),h:260});
+lineChart(document.getElementById("c-add"),{dates:dd,series:[{name:"A/D Tag",values:DD.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:260,zero:true});
+</script>

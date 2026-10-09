@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Unilever Aktien-Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F3F5F7; --surface:#FFFFFF; --ink:#141B24; --muted:#5A6573; --line:#DDE2E8; --grid:#E9EDF1;
+  --accent:#2F45B5; --accent-soft:#E6E9F8; --chip:#EBEEF2;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+  --good:#1D7A4B; --good-bg:#E3F3EA; --warn:#9A6200; --warn-bg:#FBF0DC; --bad:#B2362A; --bad-bg:#FBE6E3;
+  --zone-sup:rgba(29,122,75,.10); --zone-res:rgba(178,54,42,.09);
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+    --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+    --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+    --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+  --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+  --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;padding-inline:16px;padding-block:24px 56px}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+h1,h2,h3{font-family:var(--display);font-stretch:85%;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:clamp(32px,7vw,48px);font-weight:800;line-height:1}
+h2{font-size:24px;font-weight:700}
+h3{font-size:17px;font-weight:700;font-stretch:95%}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+section{display:flex;flex-direction:column;gap:14px}
+.lead{max-width:68ch;color:var(--muted)}
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;align-items:stretch}
+.hero .id{display:flex;flex-direction:column;gap:10px;justify-content:space-between}
+.price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price b{font-family:var(--display);font-size:34px;font-weight:700}
+.meta{font-size:13px;color:var(--muted)}
+.verdict{font-size:15px;padding:12px 14px;border-radius:10px;background:var(--chip)}
+.scales{display:flex;flex-direction:column;gap:18px}
+.scale-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.scale-h span{font-size:13px;color:var(--muted)}
+.scale-h b{font-family:var(--display);font-size:28px;line-height:1}
+.track{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#C8412F 0%,#E0892F 30%,#E3B63A 50%,#8BBF4B 68%,#2E9A5B 100%);margin-top:8px}
+.pin{position:absolute;top:-5px;width:4px;height:22px;border-radius:2px;background:var(--ink);box-shadow:0 0 0 2px var(--surface);transform:translateX(-2px)}
+.ticks{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);font-family:var(--mono);margin-top:6px}
+.state{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;margin-top:8px}
+.st-good{background:var(--good-bg);color:var(--good)}
+.st-warn{background:var(--warn-bg);color:var(--warn)}
+.st-bad{background:var(--bad-bg);color:var(--bad)}
+/* tables */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;color:var(--muted);font-weight:500;font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:700;border-bottom:none}
+.pts{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{height:6px;border-radius:3px;background:var(--chip);min-width:60px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:3px}
+/* grids */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;border-left:4px solid var(--line)}
+.kpi.g{border-left-color:var(--good)}.kpi.w{border-left-color:var(--warn)}.kpi.b{border-left-color:var(--bad)}
+.kpi span{font-size:12px;color:var(--muted)}
+.kpi b{font-family:var(--mono);font-size:19px;font-weight:500;font-variant-numeric:tabular-nums}
+.kpi em{font-style:normal;font-size:12.5px;color:var(--muted)}
+/* charts */
+.chart{position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:14px;height:3px;border-radius:2px;display:inline-block}
+.swb{width:12px;height:10px;border-radius:2px;display:inline-block}
+.tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12.5px;box-shadow:0 4px 14px rgba(0,0,0,.12);white-space:nowrap;z-index:2}
+.tip b{font-family:var(--mono);font-weight:500}
+.tip .d{font-family:var(--mono);color:var(--muted);font-size:11.5px}
+.note{font-size:13.5px;color:var(--muted)}
+ul.clean{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.pro li::marker{color:var(--good)} .con li::marker{color:var(--bad)}
+.zones{display:flex;flex-direction:column;gap:8px}
+.zone{display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:baseline;padding:10px 12px;border-radius:10px;background:var(--chip);font-size:14px}
+.zone b{font-family:var(--mono);font-weight:500}
+.zone.r{border-left:4px solid var(--bad)} .zone.s{border-left:4px solid var(--good)} .zone.t{border-left:4px solid var(--accent)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+summary{cursor:pointer;font-weight:600}
+details p{margin-top:8px;color:var(--muted);max-width:70ch}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+footer{font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:6px;max-width:80ch}
+footer a{color:var(--accent)}
+@media (max-width:760px){.hero,.two{grid-template-columns:1fr}.zone{grid-template-columns:1fr;gap:2px}}
+</style>
+
+<a href="../index.html#/aktie/ULVR" style="display:inline-block;margin:max(12px,env(safe-area-inset-top)) 0 0 16px;background:#1f3a5f;color:#fff;font:600 14px system-ui;padding:8px 12px;border-radius:20px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">Zurück zur App</a>
+<div class="wrap">
+
+<header class="hero">
+  <div class="card id">
+    <div>
+      <div class="eyebrow">Aktien-Check · 08.10.2026</div>
+      <h1>Unilever</h1>
+      <p class="meta">Unilever PLC · London: ULVR · Körperpflege (Dove, Rexona, Vaseline), Haushalt (Omo, Cif), Lebensmittel (Knorr) · Grossbritannien</p>
+    </div>
+    <div class="price"><b>4'614.5 p</b><span class="meta">Kurs 08.10.2026 mittags, in Pence (= 46.15 £) · 52 Wochen (Schlusskurse): 4'078 – 5'472 p</span></div>
+    <p class="verdict"><b>Kurz gesagt:</b> Der Umbau unter dem neuen Chef wirkt: Unilever wächst wieder kräftig über die Menge (+5.5 % im 2. Quartal, bestes Quartal seit über zehn Jahren). Qualität gelb (53), Timing gelb (46). Der Kurs läuft seit Juli seitwärts in der Zone 4'480–4'810 p, und die Tages-A/D zeigt stille Käufe. Ein Tagesschluss über 4'710 p wäre das Signal.</p>
+  </div>
+  <div class="card scales">
+    <div>
+      <div class="scale-h"><span>Qualität · Ist die Firma kaufenswert?</span><b id="q-val">53</b></div>
+      <div class="track"><i class="pin" id="q-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-warn">▲ Gemischt</span>
+    </div>
+    <div>
+      <div class="scale-h"><span>Timing · Ist jetzt der Zeitpunkt?</span><b id="t-val">46</b></div>
+      <div class="track"><i class="pin" id="t-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-warn">▲ Warten auf Bestätigung</span>
+    </div>
+    <p class="note">Skala: unter 30 rot · 30–45 orange · 45–60 gelb · 60–75 hellgrün · ab 75 grün. Beide Werte setzen sich aus festen Kriterien zusammen, siehe unten.</p>
+  </div>
+</header>
+
+<section>
+  <h2>Was die Firma macht</h2>
+  <p class="lead">Unilever verkauft Schönheits- und Körperpflege (Dove, Rexona, Axe, Vaseline), Waschmittel (Omo/Persil, Cif) und Lebensmittel (Knorr, Hellmann's). Die Glacé-Sparte (Magnum, Ben & Jerry's) wurde im Dezember 2025 als eigene Firma abgespalten, das Lebensmittelgeschäft wird bis Mitte 2027 an McCormick verkauft. Übrig bleibt eine reine Pflege- und Haushaltsfirma. Unilever berichtet in Euro, die Aktie wird in London in Pence gehandelt.</p>
+  <p class="lead">Seit März 2025 ist Fernando Fernandez Chef und konzentriert Unilever auf die stärksten Marken. Im März 2026 kündigte er den Verkauf von Knorr und Hellmann's an McCormick für 44.8 Mrd. $ an. Die Börse mochte das zuerst nicht (Aktie −5 %, Tief im Juni bei 4'078 p). Im Juli überzeugten die Halbjahreszahlen: Menge +4.2 %, Ausblick angehoben, Aktie +6 %. Seither läuft der Kurs seitwärts, weil der ganze Sektor schwach ist.</p>
+</section>
+
+<section>
+  <h2>Fundamental: die Zahlen</h2>
+  <div class="kpis">
+<div class="kpi g"><span>Organisches Wachstum</span><b>+4.8 %</b><em>1. Halbjahr 2026: Menge +4.2 %, Preis +0.6 %. Fast nur Menge: sehr gesund. Ziel 2026: 4–6 %.</em></div>
+<div class="kpi g"><span>Operative Marge</span><b>20.0 %</b><em>Bereinigt. Von 100 € Umsatz bleiben 20 € Betriebsgewinn. Seit Jahren steigend.</em></div>
+<div class="kpi w"><span>Gewinn pro Aktie (bereinigt)</span><b>+3 bis 5 %</b><em>2025: 3.08 €, Erwartung 2026: rund 3.22 €. Langsam.</em></div>
+<div class="kpi g"><span>ROIC</span><b>19 %</b><em>Bereinigt. Gut und stabil.</em></div>
+<div class="kpi g"><span>Free Cashflow</span><b>≈ 6 Mrd. €</b><em>Positiv und stabil um 6 Mrd. €.</em></div>
+<div class="kpi w"><span>Nettoschulden / EBITDA</span><b>2.3</b><em>Mittel, soll bis Ende Jahr auf rund 2 sinken.</em></div>
+<div class="kpi w"><span>KGV erwartet</span><b>16.3</b><em>Eigener Schnitt: 17.6. Rund 7 % günstiger, also etwa normal.</em></div>
+<div class="kpi g"><span>Dividende</span><b>3.6 %</b><em>Vierteljährlich, zuletzt +3 %. Dazu Rückkäufe von 6 Mrd. € bis 2029.</em></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>Umsatz pro Quartal (Mrd. €, ohne Glacé)</h3>
+      <p class="note">In Euro kaum Wachstum, weil schwache Währungen (Dollar, Schwellenländer) bis zu 8 % kosten. Ohne Währungen wächst Unilever um rund 5 %. Q3 2025 ist grob geschätzt.</p>
+      <div class="chart" id="c-rev"></div>
+    </div>
+    <div class="card">
+      <h3>Operative Marge pro Jahr (ausgewiesen)</h3>
+      <p class="note">Ausgewiesen. Bereinigt: 19.4 % (2024) und 20.0 % (2025). Tendenz steigend.</p>
+      <div class="chart" id="c-margin"></div>
+    </div>
+  </div>
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Jahr</th><th class="num">Umsatz Mio. €</th><th class="num">Wachstum</th><th class="num">Op. Marge</th><th class="num">EPS €</th><th class="num">Free Cashflow</th><th class="num">ROIC</th><th class="num">KGV</th></tr></thead>
+      <tbody id="fin-rows"></tbody>
+    </table>
+  </div>
+  <p class="note"><b>Hinweis:</b> Die Jahre sind wegen der Abspaltung der Glacé-Sparte (Dezember 2025) und einer Aktienzusammenlegung (8 zu 9) nicht ganz vergleichbar: 2022 inklusive Glacé, danach grösstenteils ohne. Der Gewinn der letzten 12 Monate enthält einen Buchgewinn aus der Abspaltung. Bereinigter Gewinn pro Aktie 2025: 3.08 €. ROIC ab 2024 bereinigt (Firmenangabe).</p>
+</section>
+
+<section>
+  <h2>Qualität: 53 von 100</h2>
+  <div class="card tbl"><table id="q-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Technik: Wochenchart (2 Jahre)</h2>
+  <div class="card">
+    <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span><span><i class="swb" style="background:var(--zone-sup);border:1px solid var(--good)"></i>Unterstützung</span><span><i class="swb" style="background:var(--zone-res);border:1px solid var(--bad)"></i>Widerstand</span></div>
+    <div class="chart" id="c-week"></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>A/D-Linie, Woche</h3>
+      <p class="note">Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien (Handel an der Heimatbörse). Vom Juni-Tief (284) bis heute (339) gestiegen: Seit dem Tief wird eher gekauft.</p>
+      <div class="chart" id="c-adw"></div>
+    </div>
+    <div class="card">
+      <h3>RSI, Woche</h3>
+      <p class="note">Unter 30 überverkauft, über 70 überkauft. Heute 50: genau neutral.</p>
+      <div class="chart" id="c-rsiw"></div>
+    </div>
+  </div>
+
+  <h2>Technik: Tageschart (6 Monate)</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Kurs, Tag</h3>
+      <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span></div>
+      <div class="chart" id="c-day"></div>
+    </div>
+    <div class="card">
+      <h3>A/D-Linie, Tag</h3>
+      <p class="note">Bullisches Detail: Am 17.8. lag der Kurs bei 4'512 p und die Tages-A/D bei 26. Am 2.10. lag der Kurs tiefer (4'484 p), die A/D aber höher (37). Tieferer Kurs, höhere A/D: Auf Tagesbasis wird still eingesammelt.</p>
+      <div class="chart" id="c-add"></div>
+    </div>
+  </div>
+
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Indikator</th><th>Tag</th><th>Woche</th><th>Bedeutung</th></tr></thead>
+      <tbody>
+<tr><td>Kurs vs. EMA 50</td><td class="pts">4'615 &lt; 4'627</td><td class="pts">4'615 &lt; 4'653</td><td>Ganz knapp unter der mittelfristigen Linie.</td></tr>
+<tr><td>Kurs vs. EMA 200</td><td class="pts">4'615 &lt; 4'644</td><td class="pts">4'615 &lt; 4'647</td><td>Ganz knapp unter der langfristigen Linie. Alle Linien liegen auf einem Haufen: Der Markt ist unentschieden.</td></tr>
+<tr><td>EMA 50 vs. EMA 200</td><td class="pts">50 knapp unter 200 (seit 29.9.2026)</td><td class="pts">50 knapp über 200</td><td>Kein klarer Trend.</td></tr>
+<tr><td>RSI (14)</td><td class="pts">49.2</td><td class="pts">50.3</td><td>Neutral.</td></tr>
+<tr><td>A/D</td><td class="pts">bullische Divergenz</td><td class="pts">steigt seit Juni</td><td>Käufer nehmen auf.</td></tr>
+<tr><td>Volumen</td><td colspan="2">Ø 20 Tage 3.2 Mio. vs. Ø 100 Tage 3.9 Mio.</td><td>Ruhig, der Verkaufsdruck lässt nach.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Struktur und Zonen (Smart Money Concept)</h2>
+  <p class="lead">Von Februar (5'467 p) bis Juni (4'078 p) fiel Unilever um 25 %. Danach stieg der Kurs auf 4'998 p (28.7.) und läuft seither seitwärts: Tiefs bei 4'512, 4'551 und 4'484 p, Hochs bei 4'811 und 4'709 p. Die Spanne wird enger. Ein Tagesschluss über 4'710 p (Hoch vom 24.9.) wäre der Change of Character. Hinweis: Die Hoch/Tief-Daten von Yahoo für London enthalten einzelne Fehlwerte, darum habe ich die Struktur aus Schlusskursen bestimmt.</p>
+  <div class="zones">
+<div class="zone r"><b>4'780–4'810 p</b><span>Widerstand: Hochs vom August/September.</span></div>
+<div class="zone t"><b>4'710 p</b><span><b>Trigger:</b> Tagesschluss über dem Hoch vom 24.9.</span></div>
+<div class="zone s"><b>4'480–4'550 p</b><span><b>Kaufzone:</b> Tiefs von August, September und Oktober.</span></div>
+<div class="zone r"><b>4'450 p</b><span>Abbruch: Wochenschluss darunter, dann droht ein Rückfall Richtung 4'200 p.</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Smart Money, Insider und Saisonalität</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Wer kauft, wer verkauft?</h3>
+      <ul class="clean" style="margin-top:8px">
+<li><b>Insider-Käufe:</b> Zwei Verwaltungsräte kauften Ende Mai 2026 (Judith McKenna rund 250'000 $, Benoît Potier 100'000 €). Der Chef verkaufte im Februar nur zugeteilte Plan-Aktien.</li>
+<li><b>Unilever selbst:</b> Rückkauf von 1.5 Mrd. € im Frühling, 6 Mrd. € geplant bis 2029.</li>
+<li><b>Analysten:</b> Im Durchschnitt „Halten“, Kursziel rund 5'200 p (rund 13 % über heute).</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Saisonalität seit 1988</h3>
+      <p class="note">Durchschnittliche Monatsrendite in %. Rund 37 Jahre. Dezember ist mit +2.6 % und 70 % positiven Jahren der beste Monat. Oktober und November etwa 50/50.</p>
+      <div class="chart" id="c-seas"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Timing: 46 von 100</h2>
+  <div class="card tbl"><table id="t-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Pro und Contra</h2>
+  <div class="two">
+    <div class="card pro"><h3>Spricht dafür</h3><ul class="clean" style="margin-top:8px">
+<li>Wächst über die Menge, nicht über Preise: das gesündeste Wachstum der Gruppe.</li>
+<li>Marge steigt, Fokus auf die stärksten Marken.</li>
+<li>Insider-Käufe und Rückkäufe.</li>
+<li>Bullische A/D-Divergenz in der Seitwärtszone.</li>
+<li>Berichtet in Euro, Aktie in Pfund: verteilt dein Währungsrisiko weg vom Dollar.</li>
+    </ul></div>
+    <div class="card con"><h3>Spricht dagegen</h3><ul class="clean" style="margin-top:8px">
+<li>Viel Umbau: Glacé abgespalten, Lebensmittel werden verkauft. Die Firma wird kleiner.</li>
+<li>Der Gewinn pro Aktie wächst langsam.</li>
+<li>Schulden mittel (2.3-fach).</li>
+<li>Kein klarer Trend, alle Linien flach.</li>
+<li>Beim Kauf in London fallen 0.5 % britische Stempelsteuer an.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section>
+  <h2>Was jetzt zu tun ist</h2>
+  <div class="zones">
+<div class="zone t"><b>Beobachten</b><span>Alarm bei 4'710 p (Trigger) und 4'550 p (Kaufzone).</span></div>
+<div class="zone s"><b>Timing grün</b><span>Tagesschluss über 4'710 p mit steigender A/D, oder Rücksetzer in die Kaufzone 4'480–4'550 p mit Wende auf dem Tageschart.</span></div>
+<div class="zone r"><b>Abbruch</b><span>Wochenschluss unter 4'450 p.</span></div>
+<div class="zone "><b>Nächste Zahlen</b><span>28. Oktober 2026 (Umsatz 3. Quartal), Investorentag in New York am 4. November.</span></div>
+  </div>
+</section>
+
+<footer>
+  <span>Kursdaten und Indikatoren (EMA, RSI 14, A/D) selbst berechnet aus Yahoo-Finance-Tages-, Wochen- und Monatsdaten, Stand 08.10.2026. <a href="https://stockanalysis.com/quote/lon/ULVR/financials/" target="_blank" rel="noopener">StockAnalysis.com</a> (Stand 08.10.2026), <a href="https://www.unilever.com/investors/" target="_blank" rel="noopener">Unilever Investor Relations</a>, <a href="https://www.unilever.com/investors/the-magnum-ice-cream-company-demerger/" target="_blank" rel="noopener">Abspaltung Magnum</a>.</span>
+  <span>Persönliche Analyse, keine Anlageberatung. Vergangene Kurse und Saisonalität sagen nichts Sicheres über die Zukunft.</span>
+</footer>
+</div>
+
+<script>
+const Q=[["Umsatztrend", "In Euro gemischt, organisch steigend und schneller", 8, 15], ["Wachstumstempo", "Organisch 4.8 %", 3, 10], ["Operative Marge", "20.0 % bereinigt (6 Pkt.), steigend (6 Pkt.)", 12, 15], ["Gewinnwachstum (EPS)", "Bereinigt rund +3 bis 5 % pro Jahr", 2, 10], ["Free Cashflow", "Positiv, schwankend um 6 Mrd. €", 6, 10], ["ROIC", "Bereinigt 19 %, stabil", 10, 15], ["Schulden", "Nettoschulden/EBITDA 2.3", 5, 10], ["Bewertung vs. eigene Historie", "Erw. KGV 16.3 statt Ø 17.6 (−7 %)", 7, 15]];
+const T=[["Trend Woche (EMA 50/200)", "Kurs knapp unter beiden, Linien flach", 7, 20], ["Trend Tag (EMA 50/200)", "Kurs knapp unter beiden, frisches knappes Death Cross", 3, 10], ["Struktur (SMC)", "Seitwärts seit Juli, Spanne wird enger", 8, 20], ["RSI Tag/Woche", "49 / 50, neutral", 7, 15], ["A/D Tag/Woche", "Tag bullische Divergenz, Woche steigt seit Juni", 11, 20], ["Smart Money", "Insider-Käufe (Mai), Rückkaufprogramm", 7, 10], ["Saisonalität", "Okt/Nov 50/50, Dez stark", 3, 5]];
+const FIN=[["2022", 60073, "+14.5 %", "15.8 %", 3.78, 5826, "16.7 %", "15.6"], ["2023", 51680, "n. a.", "17.9 %", 2.89, 8232, "15.9 %", "16.9"], ["2024", 52479, "+1.6 %", "16.8 %", 2.44, 6300, "19.1 %", "23.7"], ["2025", 50503, "−3.8 %", "17.9 %", 2.59, 5921, "19.0 %", "12.8"], ["Letzte 12 Mt.", 50620, "n. a.", "20.0 %", 4.23, 6300, "15.8 %", "21.1"]];
+const HALF=[["Q1 25", 12.99], ["Q2 25", 12.57], ["Q3 25", 12.4], ["Q4 25", 12.6], ["Q1 26", 12.56], ["Q2 26", 13.05]];
+const MARGIN=[["2022", 15.8], ["2023", 17.9], ["2024", 16.8], ["2025", 17.9], ["12 Mt.", 20.0]];
+const SEAS=[-1.5, 0.6, 1.0, 1.6, 0.6, 0.0, 1.3, 0.7, -0.1, 1.0, 1.4, 2.6];
+const SEASHIT=[41.0, 53.0, 68.0, 73.0, 49.0, 58.0, 58.0, 54.0, 43.0, 51.0, 50.0, 70.0];
+const MON=["Jan","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"];
+const W=`2024-10-14,5166.55,4706.73,4450.43,63,278.6;2024-10-21,5092.75,4721.87,4456.82,59,281.9;2024-10-28,5083.13,4736.04,4463.05,58,281;2024-11-04,4852.13,4740.59,4466.92,46,266.6;2024-11-11,4857.47,4745.17,4470.81,47,277.5;2024-11-18,5017.89,4755.87,4476.25,54,293.1;2024-11-25,5027.52,4766.52,4481.74,55,290.9;2024-12-02,4947.31,4773.61,4486.37,51,275.2;2024-12-09,4986.88,4781.97,4491.35,52,286.5;2024-12-16,4875.65,4785.65,4495.18,47,275;2024-12-23,4894.9,4789.93,4499.15,48,278.4;2024-12-30,4877.79,4793.38,4502.92,47,278.5;2025-01-06,4848.92,4795.55,4506.36,46,282.2;2025-01-13,4905.6,4799.87,4510.34,49,295.7;2025-01-20,4859.61,4802.21,4513.81,47,277.4;2025-01-27,4953.72,4808.15,4518.19,52,280.5;2025-02-03,5024.31,4816.63,4523.22,56,295.7;2025-02-10,4704.54,4812.24,4525.03,41,269.3;2025-02-17,4702.4,4807.93,4526.79,41,280.6;2025-02-24,4798.65,4807.56,4529.5,46,302.6;2025-03-03,4926.99,4812.25,4533.45,52,314.2;2025-03-10,4855.33,4813.94,4536.66,48,296.2;2025-03-17,4872.44,4816.23,4540,49,295.5;2025-03-24,4905.6,4819.74,4543.64,51,316.3;2025-03-31,5020.03,4827.59,4548.38,56,312.7;2025-04-07,4995.43,4834.17,4552.82,55,345.4;2025-04-14,5139.81,4846.16,4558.66,61,361.4;2025-04-21,5010.4,4852.6,4563.16,54,344.7;2025-04-28,5097.03,4862.19,4568.47,57,354.1;2025-05-05,5046.77,4869.42,4573.23,55,346.5;2025-05-12,4946.24,4872.44,4576.94,50,346.1;2025-05-19,5021.1,4878.27,4581.36,53,350.6;2025-05-26,5033.93,4884.37,4585.87,54,353.1;2025-06-02,4964.42,4887.51,4589.63,50,350.9;2025-06-09,4956.93,4890.23,4593.29,50,351.8;2025-06-16,4879.93,4889.83,4596.14,46,337.1;2025-06-23,4739.83,4883.95,4597.57,40,326.4;2025-06-30,4817.9,4881.36,4599.76,44,334.8;2025-07-07,4793.3,4877.9,4601.69,43,333.4;2025-07-14,4748.39,4872.82,4603.15,41,326.2;2025-07-21,4776.19,4869.03,4604.87,43,329.7;2025-07-28,4845.71,4868.12,4607.26,47,343.8;2025-08-04,4813.62,4865.98,4609.32,46,338.6;2025-08-11,4795.44,4863.22,4611.17,45,326.4;2025-08-18,4985.81,4868.02,4614.9,55,334.8;2025-08-25,4975.11,4872.22,4618.48,55,343.7;2025-09-01,5100.24,4881.17,4623.28,60,350.3;2025-09-08,4951.58,4883.93,4626.54,52,343;2025-09-15,4870.31,4883.39,4628.97,48,333.4;2025-09-22,4718.44,4876.92,4629.86,42,322;2025-09-29,4697.05,4869.87,4630.53,41,326;2025-10-06,4796.51,4866.99,4632.18,46,336.2;2025-10-13,4989.02,4871.78,4635.73,55,351.1;2025-10-20,5014.68,4877.38,4639.5,56,354.4;2025-10-27,4907.74,4878.57,4642.17,51,346.2;2025-11-03,4938.75,4880.93,4645.12,52,348.9;2025-11-10,4780.47,4876.99,4646.47,45,331.8;2025-11-17,4903.46,4878.03,4649.02,51,352.2;2025-11-24,4859.61,4877.31,4651.12,49,353.7;2025-12-01,4765.5,4872.92,4652.26,45,344.4;2025-12-08,4835.5,4871.46,4654.08,48,352.2;2025-12-15,4890,4872.18,4656.43,51,323.7;2025-12-22,4838,4870.84,4658.23,48,320.4;2025-12-29,4822.5,4868.95,4659.87,48,318;2026-01-05,4744,4864.05,4660.71,44,323.6;2026-01-12,4761.5,4860.03,4661.71,45,317.5;2026-01-19,4864,4860.18,4663.72,50,330.9;2026-01-26,4940.5,4863.33,4666.48,54,345.9;2026-02-02,5250,4878.5,4672.28,65,363.2;2026-02-09,5432,4900.2,4679.84,70,383.3;2026-02-16,5380,4919.02,4686.81,67,380.7;2026-02-23,5467,4940.51,4694.57,69,388.3;2026-03-02,4935,4940.29,4696.96,48,367.1;2026-03-09,4834.5,4936.14,4698.33,45,364.5;2026-03-16,4595.5,4922.78,4697.31,40,338.6;2026-03-23,4479.5,4905.4,4695.14,37,316.3;2026-03-30,4172.5,4876.66,4689.94,31,288.9;2026-04-06,4313,4854.55,4686.19,36,303.9;2026-04-13,4299,4832.77,4682.34,36,322.6;2026-04-20,4280.5,4811.11,4678.34,36,329.6;2026-04-27,4407,4795.26,4675.64,40,365.2;2026-05-04,4274.5,4774.84,4671.65,37,341.7;2026-05-11,4207,4752.57,4667.03,36,332.2;2026-05-18,4257.5,4733.16,4662.95,38,330.7;2026-05-25,4205.5,4712.47,4658.4,36,300.6;2026-06-01,4188.5,4691.92,4653.72,36,284.1;2026-06-08,4386,4679.92,4651.06,44,289.7;2026-06-15,4363.5,4667.51,4648.2,43,309;2026-06-22,4600.5,4664.88,4647.72,52,327.3;2026-06-29,4620,4663.12,4647.45,52,335.3;2026-07-06,4599,4660.61,4646.97,52,338.7;2026-07-13,4673,4661.1,4647.22,54,356;2026-07-20,4575.5,4657.74,4646.51,50,356.9;2026-07-27,4743,4661.08,4647.47,56,351.2;2026-08-03,4670,4661.43,4647.69,53,337.9;2026-08-10,4589.5,4658.61,4647.12,50,335.1;2026-08-17,4681,4659.49,4647.45,53,352.4;2026-08-24,4776,4664.06,4648.73,57,360.3;2026-08-31,4763,4667.94,4649.87,56,358.9;2026-09-07,4551.5,4663.37,4648.89,48,351.2;2026-09-14,4621,4661.71,4648.61,50,344.6;2026-09-21,4664.5,4661.82,4648.77,52,345.2;2026-09-28,4483.5,4654.83,4647.13,45,333.8;2026-10-05,4614.5,4653.25,4646.8,50,338.5`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+const DD=`2026-04-07,4188,4791.05,4887.2,43.2;2026-04-08,4297.5,4771.69,4881.33,48.9;2026-04-09,4308.5,4753.53,4875.63,50.9;2026-04-10,4313,4736.25,4870.03,48.5;2026-04-13,4295,4718.95,4864.31,49.5;2026-04-14,4250,4700.56,4858.2,43.5;2026-04-15,4251,4682.93,4852.16,42.4;2026-04-16,4212,4664.46,4845.79,37.4;2026-04-17,4299,4650.13,4840.34,43.8;2026-04-20,4269,4635.18,4834.66,41.7;2026-04-21,4219,4618.86,4828.53,37.9;2026-04-22,4197.5,4602.34,4822.25,33;2026-04-23,4232,4587.82,4816.38,31.8;2026-04-24,4280.5,4575.76,4811.05,32;2026-04-27,4226,4562.05,4805.23,21;2026-04-28,4257,4550.09,4799.77,24.5;2026-04-29,4214.5,4536.92,4793.95,24;2026-04-30,4297,4527.52,4789,31.1;2026-05-01,4407,4522.79,4785.2,35.4;2026-05-05,4264.5,4512.66,4780.02,25.4;2026-05-06,4366.5,4506.93,4775.91,27.8;2026-05-07,4310,4499.21,4771.27,20.6;2026-05-08,4274.5,4490.39,4766.33,19.4;2026-05-11,4183.5,4478.36,4760.53,15.5;2026-05-12,4275.5,4470.4,4755.7,25.1;2026-05-13,4235,4461.17,4750.52,18.9;2026-05-14,4223.5,4451.85,4745.28,17.6;2026-05-15,4207,4442.25,4739.92,12.7;2026-05-18,4255,4434.91,4735.1,15.4;2026-05-19,4292,4429.3,4730.69,15;2026-05-20,4283,4423.57,4726.23,15;2026-05-21,4269.5,4417.52,4721.69,18.1;2026-05-22,4257.5,4411.25,4717.07,17.6;2026-05-26,4235.5,4404.36,4712.28,15.1;2026-05-27,4324.5,4401.22,4708.42,20.7;2026-05-28,4263.5,4395.82,4703.99,14.6;2026-05-29,4205.5,4388.36,4699.03,1;2026-06-01,4132.5,4378.33,4693.4,-4.1;2026-06-02,4105,4367.61,4687.54,-8.9;2026-06-03,4120,4357.9,4681.89,-13.8;2026-06-04,4078,4346.92,4675.88,-17.2;2026-06-05,4188.5,4340.71,4671.04,-12.5;2026-06-08,4191,4334.84,4666.26,-12.7;2026-06-09,4284.5,4332.86,4662.46,-9.8;2026-06-10,4401.5,4335.56,4659.86,-4.3;2026-06-11,4352,4336.2,4656.8,-9.4;2026-06-12,4386,4338.15,4654.11,-8.1;2026-06-15,4356.5,4338.87,4651.14,-12.1;2026-06-16,4396.5,4341.13,4648.61,-10.5;2026-06-17,4362.5,4341.97,4645.76,-8.1;2026-06-18,4403.5,4344.38,4643.35,-4.8;2026-06-19,4363.5,4345.13,4640.57,-14.6;2026-06-22,4392.5,4346.99,4638.1,-15.1;2026-06-23,4453.5,4351.17,4636.26,-11.9;2026-06-24,4544,4358.73,4635.35,-9.3;2026-06-25,4579.5,4367.39,4634.79,-6;2026-06-26,4600.5,4376.53,4634.45,-1.5;2026-06-29,4580,4384.51,4633.91,-0.3;2026-06-30,4527.5,4390.12,4632.85,-5.2;2026-07-01,4561.5,4396.84,4632.14,-3.2;2026-07-02,4636,4406.22,4632.18,-1;2026-07-03,4620,4414.6,4632.06,0;2026-07-06,4557,4420.18,4631.31,-4.2;2026-07-07,4689,4430.73,4631.88,-3.3;2026-07-08,4639.5,4438.91,4631.96,-3;2026-07-09,4551,4443.31,4631.15,-6.3;2026-07-10,4599,4449.41,4630.83,-4.2;2026-07-13,4583.5,4454.67,4630.36,-0.7;2026-07-14,4564,4458.96,4629.7,0.8;2026-07-15,4558.5,4462.86,4628.99,8.4;2026-07-16,4630.5,4469.44,4629.01,11.3;2026-07-17,4673,4477.42,4629.45,10.5;2026-07-20,4639,4483.76,4629.54,12.3;2026-07-21,4553,4486.47,4628.78,9.8;2026-07-22,4614,4491.47,4628.63,11.5;2026-07-23,4543,4493.49,4627.78,10.9;2026-07-24,4575.5,4496.71,4627.26,14.9;2026-07-27,4627,4501.82,4627.26,16.1;2026-07-28,4998,4521.28,4630.95,23.1;2026-07-29,4986,4539.5,4634.48,26.2;2026-07-30,4850,4551.68,4636.62,22.9;2026-07-31,4743,4559.18,4637.68,21.1;2026-08-03,4770,4567.45,4639,23.6;2026-08-04,4748.5,4574.55,4640.09,26.1;2026-08-05,4774,4582.37,4641.42,26.2;2026-08-06,4709,4587.34,4642.09,24.7;2026-08-07,4670,4590.58,4642.37,24;2026-08-10,4637,4592.4,4642.32,24.3;2026-08-11,4606.5,4592.95,4641.96,23.9;2026-08-12,4570.5,4592.07,4641.25,24.3;2026-08-13,4628.5,4593.5,4641.12,28.4;2026-08-14,4589.5,4593.34,4640.61,27.4;2026-08-17,4512.5,4590.17,4639.33,26.1;2026-08-18,4578,4589.69,4638.72,29.6;2026-08-19,4638.5,4591.61,4638.72,33.5;2026-08-20,4649,4593.86,4638.82,34.2;2026-08-21,4681,4597.28,4639.24,37;2026-08-24,4782.5,4604.54,4640.67,40.8;2026-08-25,4761.5,4610.7,4641.87,42.3;2026-08-26,4772,4617.02,4643.17,39.1;2026-08-27,4752,4622.31,4644.25,41.5;2026-08-28,4776,4628.34,4645.56,43.6;2026-09-01,4811,4635.5,4647.21,43.8;2026-09-02,4782.5,4641.27,4648.55,46.7;2026-09-03,4733,4644.87,4649.39,45.8;2026-09-04,4763,4649.5,4650.52,47;2026-09-07,4693.5,4651.22,4650.95,46.6;2026-09-08,4695.5,4652.96,4651.39,47.1;2026-09-09,4621,4651.71,4651.09,45.4;2026-09-10,4559,4648.07,4650.18,42.8;2026-09-11,4551.5,4644.28,4649.19,42.3;2026-09-14,4697,4646.35,4649.67,45.1;2026-09-15,4641.5,4646.16,4649.59,44.3;2026-09-16,4640,4645.92,4649.49,50;2026-09-17,4632.5,4645.39,4649.32,48.5;2026-09-18,4621,4644.44,4649.04,52.8;2026-09-21,4642.5,4644.36,4648.98,54;2026-09-22,4698,4646.46,4649.46,54.7;2026-09-23,4677,4647.66,4649.74,49.9;2026-09-24,4708.5,4650.05,4650.32,49.5;2026-09-25,4664.5,4650.61,4650.46,45.9;2026-09-28,4671,4651.41,4650.67,45.3;2026-09-29,4615.5,4650.01,4650.32,44.3;2026-09-30,4603.5,4648.18,4649.85,41;2026-10-01,4494,4642.14,4648.3,38.7;2026-10-02,4483.5,4635.91,4646.66,36.9;2026-10-05,4500.5,4630.6,4645.21,36.2;2026-10-06,4569,4628.19,4644.45,37.9;2026-10-07,4623,4627.98,4644.24,39.7;2026-10-08,4614.5,4627.46,4643.94,40.1`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+
+const fmtN=(v,d=2)=>v.toLocaleString("de-CH",{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmtD=s=>{const [y,m,d]=s.split("-");return d+"."+m+"."+y.slice(2)};
+const NS="http://www.w3.org/2000/svg";
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+
+function scoreTable(id,rows){
+  let tot=0,max=0;
+  const html='<thead><tr><th>Kriterium</th><th>Stand</th><th class="num">Punkte</th><th style="width:22%"></th></tr></thead><tbody>'+rows.map(r=>{tot+=r[2];max+=r[3];const p=r[2]/r[3];const c=p>=.75?"var(--good)":p>=.45?"var(--warn)":"var(--bad)";
+    return `<tr><td>${r[0]}</td><td class="muted">${r[1]}</td><td class="num">${r[2]} / ${r[3]}</td><td><div class="bar"><i style="width:${p*100}%;background:${c}"></i></div></td></tr>`}).join("")+`<tr class="total"><td>Total</td><td></td><td class="num">${tot} / ${max}</td><td></td></tr></tbody>`;
+  document.getElementById(id).innerHTML=html;return tot;
+}
+const qs=scoreTable("q-tbl",Q), ts=scoreTable("t-tbl",T);
+document.getElementById("q-val").textContent=qs;document.getElementById("t-val").textContent=ts;
+document.getElementById("q-pin").style.left=qs+"%";document.getElementById("t-pin").style.left=ts+"%";
+
+document.getElementById("fin-rows").innerHTML=FIN.map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1].toLocaleString("de-CH")}</td><td class="num">${r[2]}</td><td class="num">${r[3]}</td><td class="num">${fmtN(r[4])}</td><td class="num">${r[5].toLocaleString("de-CH")}</td><td class="num">${r[6]}</td><td class="num">${r[7]}</td></tr>`).join("");
+
+/* generic line chart */
+function lineChart(host,{dates,series,bands=[],yFmt=v=>fmtN(v),h=300,zero=false,refs=[],pad}){
+  const W_=800,H=h,m={t:12,r:56,b:28,l:8};
+  const all=series.flatMap(s=>s.values).concat(bands.flatMap(b=>[b.from,b.to])).concat(refs.map(r=>r.v));
+  if(zero)all.push(0);
+  let lo=Math.min(...all),hi=Math.max(...all);const sp=(hi-lo)||1;lo-=sp*.06;hi+=sp*.06;
+  if(pad){lo=pad[0];hi=pad[1]}
+  const n=dates.length,x=i=>m.l+i*(W_-m.l-m.r)/(n-1),y=v=>m.t+(hi-v)*(H-m.t-m.b)/(hi-lo);
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  // grid
+  const steps=5;for(let k=0;k<=steps;k++){const v=lo+(hi-lo)*k/steps;el("line",{x1:m.l,x2:W_-m.r,y1:y(v),y2:y(v),stroke:"var(--grid)","stroke-width":1},svg);
+    const t=el("text",{x:W_-m.r+6,y:y(v)+4,"font-size":11,fill:"var(--muted)","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=yFmt(v)}
+  bands.forEach(b=>{el("rect",{x:m.l,width:W_-m.l-m.r,y:y(Math.max(b.from,b.to)),height:Math.abs(y(b.from)-y(b.to)),fill:b.type==="res"?"var(--zone-res)":"var(--zone-sup)"},svg)});
+  refs.forEach(r=>{el("line",{x1:m.l,x2:W_-m.r,y1:y(r.v),y2:y(r.v),stroke:"var(--muted)","stroke-dasharray":"4 4","stroke-width":1},svg);
+    const t=el("text",{x:m.l+4,y:y(r.v)-4,"font-size":11,fill:"var(--muted)"},svg);t.textContent=r.label});
+  if(zero)el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  // x labels
+  const every=Math.ceil(n/6);for(let i=0;i<n;i+=every){const t=el("text",{x:x(i),y:H-8,"font-size":11,fill:"var(--muted)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);const d=dates[i];t.textContent=d.slice(5,7)+"/"+d.slice(2,4)}
+  series.forEach(s=>{const dpath=s.values.map((v,i)=>(i?"L":"M")+x(i).toFixed(1)+","+y(v).toFixed(1)).join("");
+    el("path",{d:dpath,fill:"none",stroke:s.color,"stroke-width":s.w||2,"stroke-linejoin":"round","stroke-linecap":"round"},svg);
+    const lv=s.values[n-1];el("circle",{cx:x(n-1),cy:y(lv),r:3.5,fill:s.color,stroke:"var(--surface)","stroke-width":2},svg)});
+  // hover
+  const cross=el("line",{y1:m.t,y2:H-m.b,stroke:"var(--muted)","stroke-width":1,opacity:0},svg);
+  const ov=el("rect",{x:m.l,y:m.t,width:W_-m.l-m.r,height:H-m.t-m.b,fill:"transparent"},svg);
+  host.appendChild(svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;host.appendChild(tip);
+  function move(ev){const r=svg.getBoundingClientRect();const px=(ev.clientX-r.left)*W_/r.width;let i=Math.round((px-m.l)/((W_-m.l-m.r)/(n-1)));i=Math.max(0,Math.min(n-1,i));
+    cross.setAttribute("x1",x(i));cross.setAttribute("x2",x(i));cross.setAttribute("opacity",1);
+    tip.innerHTML=`<div class="d">${fmtD(dates[i])}</div>`+series.map(s=>`<div><i class="sw" style="background:${s.color}"></i> ${s.name}: <b>${yFmt(s.values[i])}</b></div>`).join("");
+    tip.hidden=false;const hx=x(i)*r.width/W_;tip.style.left=Math.min(Math.max(0,hx+12),r.width-tip.offsetWidth)+"px";tip.style.top="8px"}
+  ov.addEventListener("pointermove",move);ov.addEventListener("pointerleave",()=>{tip.hidden=true;cross.setAttribute("opacity",0)});
+}
+function barChart(host,{labels,values,fmt,h=220,color,neg,tipExtra}){
+  const W_=800,H=h,m={t:18,r:8,b:28,l:8};
+  const hi=Math.max(0,...values),lo=Math.min(0,...values);const lo2=lo<0?lo*1.15:lo,hi2=hi*1.15||1;
+  const y=v=>m.t+(hi2-v)*(H-m.t-m.b)/(hi2-lo2);const n=values.length,bw=(W_-m.l-m.r)/n;
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;
+  values.forEach((v,i)=>{const x0=m.l+i*bw+bw*.18,w=bw*.64,y0=y(Math.max(v,0)),hh=Math.max(1,Math.abs(y(v)-y(0)));
+    const r=el("rect",{x:x0,y:y0,width:w,height:hh,rx:4,fill:v<0?(neg||"var(--s2)"):(color||"var(--s1)")},svg);
+    const t=el("text",{x:x0+w/2,y:v<0?y(v)+13:y0-5,"font-size":11.5,fill:"var(--ink)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=fmt(v);
+    const l=el("text",{x:x0+w/2,y:H-8,"font-size":11.5,fill:"var(--muted)","text-anchor":"middle"},svg);l.textContent=labels[i];
+    const hit=el("rect",{x:m.l+i*bw,y:m.t,width:bw,height:H-m.t-m.b,fill:"transparent"},svg);
+    hit.addEventListener("pointerenter",()=>{tip.innerHTML=`<div class="d">${labels[i]}</div><b>${fmt(v)}</b>${tipExtra?tipExtra(i):""}`;tip.hidden=false;const R=svg.getBoundingClientRect();tip.style.left=Math.min((m.l+i*bw)*R.width/W_,R.width-tip.offsetWidth)+"px";tip.style.top="0px"});
+    hit.addEventListener("pointerleave",()=>tip.hidden=true)});
+  host.appendChild(svg);host.appendChild(tip);
+}
+barChart(document.getElementById("c-rev"),{labels:HALF.map(r=>r[0]),values:HALF.map(r=>r[1]),fmt:v=>fmtN(v,2),h:200});
+barChart(document.getElementById("c-margin"),{labels:MARGIN.map(r=>r[0]),values:MARGIN.map(r=>r[1]),fmt:v=>fmtN(v,1)+" %",h:200});
+barChart(document.getElementById("c-seas"),{labels:MON,values:SEAS,fmt:v=>(v>0?"+":"")+fmtN(v,1),h:220,tipExtra:i=>`<div>${SEASHIT[i]} % der Jahre positiv</div>`});
+const BANDS=[{"from": 4780, "to": 4810, "type": "res"}, {"from": 4480, "to": 4550, "type": "sup"}], REFS=[{"v": 4710, "label": "Trigger 4'710"}];
+const wd=W.map(r=>r[0]);
+lineChart(document.getElementById("c-week"),{dates:wd,series:[{name:"Kurs",values:W.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:W.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:W.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,yFmt:v=>fmtN(v,0),h:320});
+lineChart(document.getElementById("c-adw"),{dates:wd,series:[{name:"A/D Woche",values:W.map(r=>r[5]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,zero:true});
+lineChart(document.getElementById("c-rsiw"),{dates:wd,series:[{name:"RSI Woche",values:W.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,refs:[{v:70,label:"70 überkauft"},{v:30,label:"30 überverkauft"}],pad:[10,90]});
+const dd=DD.map(r=>r[0]);
+lineChart(document.getElementById("c-day"),{dates:dd,series:[{name:"Kurs",values:DD.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:DD.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:DD.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,refs:REFS,yFmt:v=>fmtN(v,0),h:260});
+lineChart(document.getElementById("c-add"),{dates:dd,series:[{name:"A/D Tag",values:DD.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:260,zero:true});
+</script>

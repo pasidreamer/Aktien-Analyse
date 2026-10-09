@@ -1,0 +1,6973 @@
+{
+ "stand": "2026-10-09",
+ "aktien": [
+  {
+   "ticker": "APP",
+   "symbol": "APP",
+   "name": "AppLovin",
+   "tags": [
+    "Wachstum"
+   ],
+   "land": "USA",
+   "region": "USA",
+   "branche": "Werbetechnologie",
+   "status": "beobachten",
+   "waehrung": "USD",
+   "analyse": {
+    "datenstand": "2026-10-05",
+    "kurs": 281.97,
+    "q": 96,
+    "t": 21
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "4 von 4 Quartalen über Vorjahr, aber Tempo sinkt",
+     "p": 12,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "+53 %",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "77 % (9 Pkt.), steigend (6 Pkt.)",
+     "p": 15,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "+57 %",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Jedes Jahr gestiegen",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "133 %",
+     "p": 15,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Nettoschulden/EBITDA 0.1",
+     "p": 9,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "Erw. KGV 15.7 vs. Ø rund 47 (−67 %)",
+     "p": 15,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs unter beiden, EMAs noch nicht gekreuzt",
+     "p": 3,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs weit unter beiden, Death Cross",
+     "p": 0,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Tiefere Hochs und tiefere Tiefs",
+     "p": 2,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "Leichte bullische Divergenz auf dem Tag",
+     "p": 12,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Beide fallen mit dem Kurs",
+     "p": 3,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Rückkauf unter 2 %, massive Insider-Verkäufe",
+     "p": 0,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "Nur 5 Jahre, unter 50 % positive Jahre",
+     "p": 1,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 15.7,
+    "schnitt": 47,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      262,
+      268
+     ],
+     [
+      220,
+      250
+     ]
+    ],
+    "widerstand": [
+     [
+      335,
+      338.3
+     ]
+    ],
+    "trigger": 338.3,
+    "abbruch": null
+   },
+   "zahlen": "2026-11-04",
+   "dividende": null,
+   "fazit": "Auf dem Papier eine der profitabelsten Wachstumsfirmen überhaupt, an der Börse aber im freien Fall. Qualität laut Schema sehr hoch, Timing rot. Das Schema misst die Risiken hier nur teilweise: ein einziges Produkt, nachlassendes Wachstum, viel Misstrauen. Erst einen Boden abwarten.",
+   "about": "AppLovin verkauft Werbung: Die KI-Plattform Axon entscheidet in Sekundenbruchteilen, welche Werbung in welcher App gezeigt wird, und kassiert pro Erfolg. Ursprünglich ging es um Handyspiele, seit 2025 zunehmend um Onlinehändler und andere Branchen. Das eigene Spiele-Geschäft wurde 2025 verkauft. Übrig blieb eine reine Software-Plattform mit enormen Margen.",
+   "kpis": [
+    {
+     "ampel": "g",
+     "name": "Umsatzwachstum",
+     "wert": "+53 %",
+     "text": "2. Quartal. Immer noch enorm, aber das Tempo sinkt (Q1: +59 %, 2025: +70 %)."
+    },
+    {
+     "ampel": "g",
+     "name": "Operative Marge",
+     "wert": "77.4 %",
+     "text": "Von 100 $ Umsatz bleiben 77 $ Betriebsgewinn. Kaum eine Firma erreicht das."
+    },
+    {
+     "ampel": "g",
+     "name": "Gewinn pro Aktie (EPS)",
+     "wert": "+57 %",
+     "text": "2. Quartal, 3.76 $."
+    },
+    {
+     "ampel": "g",
+     "name": "Free Cashflow",
+     "wert": "4.53 Mrd. $",
+     "text": "Letzte 12 Monate. Zwei Drittel des Umsatzes bleiben als freies Geld."
+    },
+    {
+     "ampel": "g",
+     "name": "ROIC",
+     "wert": "133 %",
+     "text": "Gewinn pro investiertem Dollar. Extrem hoch, weil fast kein Kapital nötig ist."
+    },
+    {
+     "ampel": "g",
+     "name": "Nettoschulden / EBITDA",
+     "wert": "0.1",
+     "text": "Fast schuldenfrei."
+    },
+    {
+     "ampel": "g",
+     "name": "KGV erwartet",
+     "wert": "15.7",
+     "text": "Eigener Schnitt 2021–2025: rund 47. So günstig war AppLovin noch nie."
+    },
+    {
+     "ampel": "b",
+     "name": "Risiko",
+     "wert": "hoch",
+     "text": "Ein Produkt, abhängig von App-Stores und Datenregeln. Behörden-Fragen und Leerverkäufer im Hintergrund."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "335–338 $",
+     "text": "Widerstand: Hochs vom 28.8. und 14.9., EMA 50 (Tag)."
+    },
+    {
+     "art": "t",
+     "wert": "338.30 $",
+     "text": "Trigger: Change of Character. Tagesschluss über dem letzten tieferen Hoch."
+    },
+    {
+     "art": "s",
+     "wert": "266.8 $",
+     "text": "Aktuelles Tief vom 28.9."
+    },
+    {
+     "art": "s",
+     "wert": "220–250 $",
+     "text": "Nächste Zone: Tiefs vom Frühling 2025."
+    }
+   ],
+   "pro": [
+    "Aussergewöhnlich profitabel: 77 % Marge, ROIC über 100 %.",
+    "Wächst immer noch über 50 % pro Jahr.",
+    "Erwartetes KGV unter 16, so tief wie nie.",
+    "Hoher Free Cashflow, Rückkäufe laufen.",
+    "Erste kleine bullische Divergenz beim Tages-RSI."
+   ],
+   "contra": [
+    "Klarer Abwärtstrend, A/D fällt auf beiden Zeitebenen.",
+    "Wachstum verlangsamt sich, KI-Modell machte zuletzt weniger Fortschritte.",
+    "Ein-Produkt-Firma, abhängig von Apple, Google und Datenschutzregeln.",
+    "Berichte über behördliche Untersuchungen und Leerverkäufer-Vorwürfe.",
+    "Massive Insider-Verkäufe, sehr hohe Schwankung (Beta 2.5)."
+   ],
+   "smart_money": [
+    "AppLovin selbst: Kauft Aktien zurück (rund 1.8 % pro Jahr, 551 Mio. $ im 2. Quartal).",
+    "Insider-Käufe: Keine.",
+    "Insider-Verkäufe: Über 560 Mio. $ in 12 Monaten: CEO Adam Foroughi, CTO Vasily Shikin und Verwaltungsrat Eduardo Vivas je mehrere hundert Mio. $.",
+    "Analysten: Durchschnittliches Kursziel 497 $, Einstufung „Buy“. Seit August wurden viele Ziele gesenkt."
+   ],
+   "cheatsheet": "analysen/APP.html",
+   "claude": "https://claude.ai/artifact/NhWCvodj6dCuLZLT9Jp2Ty"
+  },
+  {
+   "ticker": "UBER",
+   "symbol": "UBER",
+   "name": "Uber",
+   "tags": [
+    "Wachstum"
+   ],
+   "land": "USA",
+   "region": "USA",
+   "branche": "Mobilität, Lieferdienst",
+   "status": "kaufliste",
+   "waehrung": "USD",
+   "analyse": {
+    "datenstand": "2026-10-05",
+    "kurs": 69.48,
+    "q": 85,
+    "t": 43
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "4 von 4 Quartalen über Vorjahr, Tempo sinkt",
+     "p": 12,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "+16.7 % in 12 Monaten",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "12.1 % (3 Pkt.), steigend (6 Pkt.)",
+     "p": 9,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "Betriebsgewinn stark steigend (EPS verzerrt)",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Jedes Jahr gestiegen",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "19.2 %, steigend (+1)",
+     "p": 11,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Nettoschulden/EBITDA 0.6",
+     "p": 9,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "Erw. KGV 16.8 vs. 24–28 in den Vorjahren",
+     "p": 14,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs unter EMA 50, auf EMA 200 (Rücksetzer im Aufwärtstrend)",
+     "p": 12,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs unter beiden, Death Cross",
+     "p": 1,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Seitwärtsspanne, kleines höheres Tief, Kurs im Discount",
+     "p": 9,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "43 / 43: ohne Signal",
+     "p": 7,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Woche seitwärts, Tag fällt",
+     "p": 6,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "CEO- und COO-Käufe, Rückkauf über 2 %, aber auch Verkäufe",
+     "p": 7,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "Okt–Dez: unter 50 % positive Jahre (nur 7 Jahre)",
+     "p": 1,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 16.8,
+    "schnitt": 26,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      65.4,
+      68.8
+     ],
+     [
+      60,
+      63
+     ]
+    ],
+    "widerstand": [
+     [
+      75.5,
+      77.8
+     ]
+    ],
+    "trigger": 73.2,
+    "abbruch": 65
+   },
+   "zahlen": "2026-11-04",
+   "dividende": null,
+   "fazit": "Fundamental stärker denn je, aber die Börse fürchtet Robotaxis. Der Chef hat im September für 10 Mio. $ eigene Aktien gekauft. Qualität grün, Timing orange. Der Kurs liegt am unteren Rand der Spanne und auf der EMA 200 (Woche). Die Zone 65–68 $ ist interessant, der Trigger ein Tagesschluss über 73.20 $.",
+   "about": "Uber vermittelt Fahrten (Mobility), liefert Essen und Einkäufe (Uber Eats) und vermittelt Lastwagen-Frachten. Uber besitzt keine Autos: Die Plattform bringt Kunden und Fahrer zusammen und behält eine Gebühr. Seit 2023 ist Uber profitabel. Für die Zukunft setzt Uber darauf, auch Robotaxis anderer Firmen (Waymo, Wayve und andere) über die eigene App anzubieten.",
+   "kpis": [
+    {
+     "ampel": "w",
+     "name": "Umsatzwachstum",
+     "wert": "+12 %",
+     "text": "2. Quartal. Verlangsamt sich (2025 noch +18 %)."
+    },
+    {
+     "ampel": "g",
+     "name": "Bruttobuchungen",
+     "wert": "58 Mrd. $",
+     "text": "Wert aller Fahrten und Lieferungen im 2. Quartal. Uber gewann so viele Neukunden wie seit fünf Jahren nicht."
+    },
+    {
+     "ampel": "w",
+     "name": "Operative Marge",
+     "wert": "12.1 %",
+     "text": "Von 100 $ Umsatz bleiben 12 $. Steigt seit 2022 (−5.7 %) jedes Jahr."
+    },
+    {
+     "ampel": "g",
+     "name": "Free Cashflow",
+     "wert": "10.1 Mrd. $",
+     "text": "Letzte 12 Monate. Rendite über 7 % auf den Börsenwert."
+    },
+    {
+     "ampel": "g",
+     "name": "ROIC",
+     "wert": "19.2 %",
+     "text": "Gewinn pro investiertem Dollar. Seit 2022 von negativ auf fast 20 % gestiegen."
+    },
+    {
+     "ampel": "g",
+     "name": "Nettoschulden / EBITDA",
+     "wert": "0.6",
+     "text": "Gut tragbar."
+    },
+    {
+     "ampel": "g",
+     "name": "KGV erwartet",
+     "wert": "16.8",
+     "text": "Für ein Wachstumsunternehmen günstig. 2024 lag es noch bei 28."
+    },
+    {
+     "ampel": "g",
+     "name": "Aktienrückkauf",
+     "wert": "2.3 % pro Jahr",
+     "text": "Uber kauft laufend eigene Aktien zurück."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "75.5–77.8 $",
+     "text": "Widerstand: EMA 200 (Tag), EMA 50 (Woche) und Hoch vom 29.6."
+    },
+    {
+     "art": "t",
+     "wert": "73.20 $",
+     "text": "Trigger: Tagesschluss über der EMA 50 (Tag) und dem Hoch vom 14.9."
+    },
+    {
+     "art": "s",
+     "wert": "65.4–68.8 $",
+     "text": "Kaufzone: Tiefs vom Juli und September, EMA 200 (Woche). Hier kaufte auch der CEO (70.96 $)."
+    },
+    {
+     "art": "r",
+     "wert": "65 $",
+     "text": "Abbruch: Wochenschluss darunter bricht die Spanne nach unten."
+    }
+   ],
+   "pro": [
+    "Free Cashflow über 10 Mrd. $, Marge und ROIC steigen jedes Jahr.",
+    "Erwartetes KGV unter 17, Free-Cashflow-Rendite über 7 %.",
+    "CEO und COO kauften im September für über 15 Mio. $ eigene Aktien.",
+    "Laufende Rückkäufe.",
+    "Kurs an der Unterkante der Spanne und auf der EMA 200 (Woche)."
+   ],
+   "contra": [
+    "Robotaxis könnten Ubers Rolle als Vermittler schwächen.",
+    "Umsatzwachstum verlangsamt sich.",
+    "Neue Konkurrenz in Brasilien.",
+    "Tageschart im Abwärtstrend, Tages-A/D fällt.",
+    "Hohe Investitionen in autonome Fahrzeuge (über 10 Mrd. $)."
+   ],
+   "smart_money": [
+    "Uber selbst: Kauft rund 2.3 % der Aktien pro Jahr zurück.",
+    "Insider-Käufe: CEO Dara Khosrowshahi kaufte am 10.9. für 10 Mio. $ (zu 70.96 $), COO Andrew Macdonald am 4.9. für 5.3 Mio. $. Ein starkes Vertrauenssignal.",
+    "Insider-Verkäufe: Rund 76 Mio. $ in 12 Monaten, vor allem frühere Verkäufe des CEO.",
+    "Analysten: Durchschnittliches Kursziel 101 $, Einstufung „Buy“."
+   ],
+   "cheatsheet": "analysen/UBER.html",
+   "claude": "https://claude.ai/artifact/Fxm8XPUgRntBWatrgE6AUk"
+  },
+  {
+   "ticker": "RELX",
+   "symbol": "RELX",
+   "name": "RELX",
+   "tags": [
+    "Qualität",
+    "Dividende"
+   ],
+   "land": "Grossbritannien",
+   "region": "Europa",
+   "branche": "Daten und Analysen",
+   "status": "beobachten",
+   "waehrung": "USD",
+   "analyse": {
+    "datenstand": "2026-09-29",
+    "kurs": 33.12,
+    "q": 83,
+    "t": 40
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "Jedes Halbjahr über Vorjahr, seit 2021",
+     "p": 12,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "Bereinigt +7 % pro Jahr",
+     "p": 6,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "32 %, 5 Jahre in Folge gestiegen",
+     "p": 15,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "Rund +10–11 % pro Jahr",
+     "p": 8,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Steigt jedes Jahr, 98 % Umwandlung",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "23.6 %, steigend",
+     "p": 13,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "2.3–2.7 Jahre Betriebsgewinn",
+     "p": 5,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "KGV 19 statt Ø rund 30",
+     "p": 14,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs unter beiden, Death Cross",
+     "p": 3,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs unter beiden",
+     "p": 2,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Höhere Tiefs, aber tiefere Hochs, kein Change of Character",
+     "p": 8,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "41 / 44: neutral, keine Divergenz",
+     "p": 7,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Tag hält sich, Woche fällt seit Juli",
+     "p": 10,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Starker Rückkauf, keine Insider-Käufe",
+     "p": 6,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "Okt–Dez historisch stark",
+     "p": 4,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 19.4,
+    "schnitt": 30.5,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      32.5,
+      33.0
+     ],
+     [
+      30.3,
+      31.0
+     ]
+    ],
+    "widerstand": [
+     [
+      34.4,
+      34.9
+     ],
+     [
+      36.2,
+      37.0
+     ]
+    ],
+    "trigger": 35.74,
+    "abbruch": 30.3
+   },
+   "zahlen": "2026-11-15",
+   "dividende": null,
+   "fazit": "Das Geschäft läuft besser als je zuvor, der Kurs zeigt es nicht. Qualität klar grün, Timing noch orange. Beobachten und auf den Trendwechsel warten.",
+   "about": "RELX verkauft Daten und Analyse-Werkzeuge im Abo: LexisNexis Risk (Betrugs- und Kreditprüfung für Banken und Versicherer), Elsevier (wissenschaftliche Fachzeitschriften), LexisNexis Legal (Rechtsdatenbanken) und Messen. Rund drei Viertel des Umsatzes sind wiederkehrend. Der Kurs ist seit Anfang 2025 um rund 40 % gefallen, weil Anleger fürchten, dass KI-Sprachmodelle diese Datenbanken ersetzen. RELX baut KI selbst in seine Produkte ein (zum Beispiel Lexis+ AI) und wächst bisher weiter.",
+   "kpis": [
+    {
+     "ampel": "g",
+     "name": "Umsatzwachstum (bereinigt)",
+     "wert": "+7 %",
+     "text": "1. Halbjahr 2026, ohne Währungseffekte. Solide für ein Abo-Geschäft."
+    },
+    {
+     "ampel": "g",
+     "name": "Operative Marge",
+     "wert": "32.0 %",
+     "text": "Von 100 £ Umsatz bleiben 32 £ Betriebsgewinn. Stark, und seit 5 Jahren jedes Jahr höher."
+    },
+    {
+     "ampel": "g",
+     "name": "Gewinn pro Aktie (EPS)",
+     "wert": "+11 %",
+     "text": "Bereinigt, 1. Halbjahr 2026. Wächst schneller als der Umsatz, das ist gut."
+    },
+    {
+     "ampel": "g",
+     "name": "ROIC",
+     "wert": "23.6 %",
+     "text": "Gewinn pro investiertem Franken. Über 20 % ist stark, 2021 waren es 16 %."
+    },
+    {
+     "ampel": "g",
+     "name": "Free Cashflow",
+     "wert": "2'860 Mio. £",
+     "text": "Echtes Geld nach allen Investitionen. Steigt seit 2021 jedes Jahr."
+    },
+    {
+     "ampel": "w",
+     "name": "Schulden / EBITDA",
+     "wert": "2.3–2.7",
+     "text": "Jahre, um die Schulden aus dem Betriebsgewinn zu tilgen. Okay, aber nicht tief."
+    },
+    {
+     "ampel": "g",
+     "name": "KGV aktuell",
+     "wert": "19.4",
+     "text": "Eigener Schnitt 2021–2025: rund 30. Die Aktie ist also rund ein Drittel günstiger als üblich."
+    },
+    {
+     "ampel": "g",
+     "name": "Aktienrückkauf 2026",
+     "wert": "2.25 Mrd. £",
+     "text": "RELX kauft rund 5 % der eigenen Aktien pro Jahr zurück."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "36.2–37.0 $",
+     "text": "Widerstand: EMA 200 (Tag) und Hoch vom 3.9. Darüber wäre der Abwärtstrend auf dem Tageschart gebrochen."
+    },
+    {
+     "art": "t",
+     "wert": "35.74 $",
+     "text": "Trigger: Change of Character. Ein Tagesschluss darüber bricht die Serie tieferer Hochs. Idealerweise mit steigender A/D-Linie."
+    },
+    {
+     "art": "r",
+     "wert": "34.4–34.9 $",
+     "text": "Erster Widerstand: EMA 50 (Tag)."
+    },
+    {
+     "art": "s",
+     "wert": "32.5–33.0 $",
+     "text": "Aktuelle Unterstützung: Tiefs vom Mai und September. Hier steht der Kurs gerade."
+    },
+    {
+     "art": "s",
+     "wert": "30.3–31.0 $",
+     "text": "Starke Unterstützung: Juni-Tief. Ein Wochenschluss darunter würde die Bodenbildung ungültig machen."
+    },
+    {
+     "art": "t",
+     "wert": "Beobachten",
+     "text": "Alarm bei 35.74 $ (Change of Character) und bei 30.90 $ (Unterkante der Zone)."
+    },
+    {
+     "art": "s",
+     "wert": "Timing grün",
+     "text": "Tagesschluss über 35.74 $ und die Wochen-A/D dreht nach oben. Dann springt das Timing auf rund 60. Erster Rücksetzer danach ist die saubere Einstiegszone."
+    },
+    {
+     "art": "r",
+     "wert": "Abbruch",
+     "text": "Wochenschluss unter 30.30 $: Bodenbildung gescheitert, neu bewerten."
+    }
+   ],
+   "pro": [
+    "Marge, ROIC und Free Cashflow steigen seit 5 Jahren ohne Unterbruch.",
+    "KGV 19 statt üblich rund 30: Die Angst ist im Preis.",
+    "Free-Cashflow-Rendite 6.5 %: Pro 100 $ Börsenwert erwirtschaftet RELX 6.50 $ freies Geld.",
+    "Grosser Aktienrückkauf stützt den Kurs.",
+    "Oktober bis Dezember sind saisonal die stärksten Monate."
+   ],
+   "contra": [
+    "Das KI-Risiko ist real: Wenn Sprachmodelle Rechts- und Fachwissen günstiger liefern, sinkt die Preismacht.",
+    "Klarer Abwärtstrend auf Tages- und Wochenchart, Death Cross seit Mai.",
+    "Die A/D-Linie auf Wochenbasis zeigt seit Juli Geldabfluss.",
+    "Schulden etwas erhöht (2.3–2.7 Jahre Betriebsgewinn).",
+    "Keine Insider-Käufe als Vertrauenssignal."
+   ],
+   "smart_money": [],
+   "cheatsheet": "analysen/RELX.html",
+   "claude": "https://claude.ai/artifact/8GWQnQz99HqzYS1ndmQo38"
+  },
+  {
+   "ticker": "GOOGL",
+   "symbol": "GOOGL",
+   "name": "Alphabet",
+   "tags": [
+    "Wachstum",
+    "Qualität"
+   ],
+   "land": "USA",
+   "region": "USA",
+   "branche": "Internet, KI",
+   "status": "beobachten",
+   "waehrung": "USD",
+   "analyse": {
+    "datenstand": "2026-09-29",
+    "kurs": 340.82,
+    "q": 82,
+    "t": 58
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "4 von 4 Quartalen über Vorjahr und beschleunigend",
+     "p": 15,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "+20.1 % in den letzten 12 Monaten",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "33 %, seit 2022 steigend",
+     "p": 15,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "Bereinigt (Betriebsgewinn) rund +30 %",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Positiv, aber stark sinkend, Q2 negativ",
+     "p": 3,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "24.9 %, stark fallend",
+     "p": 12,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Netto-Cash 121.7 Mrd. $",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "Erw. KGV 25.5 vs. Ø rund 24 (+6 %)",
+     "p": 7,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs über beiden, EMA 50 über EMA 200",
+     "p": 18,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs unter EMA 50, über EMA 200",
+     "p": 6,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Seitwärts mit höheren Tiefs, tiefere Hochs, kein Change of Character",
+     "p": 9,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "47 / 50: neutral",
+     "p": 7,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Tag leicht positiv, Woche fällt mit dem Kurs",
+     "p": 10,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Kein Rückkauf, übliche Plan-Verkäufe",
+     "p": 3,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "Okt–Dez: Ø 68 % positive Jahre",
+     "p": 5,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 25.5,
+    "schnitt": 24,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      327,
+      331
+     ],
+     [
+      315,
+      321
+     ]
+    ],
+    "widerstand": [
+     [
+      380,
+      385
+     ]
+    ],
+    "trigger": 364.17,
+    "abbruch": null
+   },
+   "zahlen": "2026-10-28",
+   "dividende": null,
+   "fazit": "Das stärkste Wachstum der drei (Umsatz +24 %, Cloud +82 %) und über 120 Mrd. $ Netto-Cash. Aber die Rekord-Investitionen haben den Free Cashflow ins Minus gedrückt, und statt Aktien zurückzukaufen gibt Alphabet neue aus. Qualität grün, Timing gelb: Der Kurs läuft seit Mai seitwärts mit tieferen Hochs. Trigger ist ein Tagesschluss über 364 $.",
+   "about": "Alphabet ist die Mutter von Google. Das Geld kommt aus Werbung in der Google-Suche und auf YouTube, aus Google Cloud (Rechenleistung und KI-Modelle wie Gemini für Firmen) sowie aus Android, Abos und Geräten. Dazu kommen Zukunftsprojekte wie Waymo (selbstfahrende Taxis) und grosse Beteiligungen an anderen Firmen.",
+   "kpis": [
+    {
+     "ampel": "g",
+     "name": "Umsatzwachstum",
+     "wert": "+24 %",
+     "text": "2. Quartal 2026. Das Tempo steigt seit einem Jahr jedes Quartal (12 → 14 → 16 → 18 → 22 → 24 %)."
+    },
+    {
+     "ampel": "g",
+     "name": "Operative Marge",
+     "wert": "34.0 %",
+     "text": "2. Quartal. Von 100 $ Umsatz bleiben 34 $ Betriebsgewinn, seit 2022 klar steigend (damals 26.5 %)."
+    },
+    {
+     "ampel": "g",
+     "name": "Betriebsgewinn",
+     "wert": "+30 %",
+     "text": "2. Quartal. Das ist die ehrliche Gewinnzahl, weil das ausgewiesene EPS (+294 %) durch Buchgewinne auf Beteiligungen aufgebläht ist."
+    },
+    {
+     "ampel": "w",
+     "name": "ROIC",
+     "wert": "24.9 %",
+     "text": "Gewinn pro investiertem Dollar. Immer noch stark, aber 2024 waren es 41 %. Die Rechenzentren binden enorm viel Kapital."
+    },
+    {
+     "ampel": "b",
+     "name": "Free Cashflow",
+     "wert": "53.3 Mrd. $",
+     "text": "Letzte 12 Monate, 27 % weniger als 2025. Im 2. Quartal sogar −5.9 Mrd. $: Die Investitionen übersteigen die Einnahmen."
+    },
+    {
+     "ampel": "g",
+     "name": "Netto-Cash",
+     "wert": "121.7 Mrd. $",
+     "text": "Mehr Bargeld als Schulden. Die beste Bilanz der drei."
+    },
+    {
+     "ampel": "w",
+     "name": "KGV erwartet",
+     "wert": "25.5",
+     "text": "Du zahlst rund 25 erwartete Jahresgewinne. Eigener Schnitt 2021–2025: rund 24. Also fair bis leicht teuer."
+    },
+    {
+     "ampel": "b",
+     "name": "Aktienrückkauf",
+     "wert": "gestoppt",
+     "text": "Statt zurückzukaufen hat Alphabet im Quartal 49.6 Mrd. $ über neue Aktien und Wandelanleihen aufgenommen. Das verwässert die Aktionäre."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "380–385 $",
+     "text": "Widerstand: Hochs vom 4./5. August. Darüber ist der Weg Richtung Allzeithoch (400–409 $) frei."
+    },
+    {
+     "art": "t",
+     "wert": "364.17 $",
+     "text": "Trigger: Change of Character. Ein Tagesschluss über dem Hoch vom 22.9. bricht die Serie tieferer Hochs."
+    },
+    {
+     "art": "r",
+     "wert": "345–350 $",
+     "text": "Erster Widerstand: EMA 50 (Tag) und Tageshochs der letzten Wochen."
+    },
+    {
+     "art": "s",
+     "wert": "327–331 $",
+     "text": "Unterstützung: Tief vom 9./10.9. und EMA 200 (Tag). Hier steht die günstigste Zone innerhalb der Spanne."
+    },
+    {
+     "art": "s",
+     "wert": "315–321 $",
+     "text": "Starke Unterstützung: Juli-Tief (314.90 $) und EMA 50 (Woche). Ein Wochenschluss darunter wäre der Abbruch."
+    }
+   ],
+   "pro": [
+    "Umsatzwachstum beschleunigt sich seit einem Jahr, Google Cloud wächst mit 82 %.",
+    "Die Marge steigt trotz der Investitionen.",
+    "Über 120 Mrd. $ Netto-Cash: die stärkste Bilanz der drei.",
+    "Kurs in der günstigen Hälfte der Spanne, Tiefs steigen, Volumen sinkt.",
+    "Oktober ist saisonal der stärkste Monat."
+   ],
+   "contra": [
+    "Investitionen von 195–205 Mrd. $: Der Free Cashflow war im 2. Quartal negativ.",
+    "Neue Aktien und Wandelanleihen statt Rückkäufe verwässern deinen Anteil.",
+    "Der ROIC fällt stark (41 % → 25 %).",
+    "Der ausgewiesene Gewinn ist durch Buchgewinne aufgebläht, das KGV von 17 täuscht.",
+    "Seit Mai tiefere Hochs, kein bestätigter Trendwechsel.",
+    "Überschneidung mit deinen ETFs: Alphabet ist dort schon gewichtet."
+   ],
+   "smart_money": [
+    "Alphabet selbst: Kein Rückkauf mehr. Im 2. Quartal nahm Alphabet 49.6 Mrd. $ über neue Aktien und Wandelanleihen und 20.3 Mrd. $ Schulden auf. Für Aktionäre ist das eher negativ.",
+    "Insider-Käufe: Keine von der Geschäftsleitung. Einzelne US-Politiker (u. a. Nancy Pelosi, Ro Khanna) meldeten kleinere Käufe, nur als Nebeninfo, weil sie Wochen verspätet gemeldet werden.",
+    "Insider-Verkäufe: CEO Sundar Pichai verkauft monatlich nach Plan (rund 10 Mio. $ pro Verkauf), insgesamt rund 200 Mio. $ Insider-Verkäufe in 12 Monaten. Üblich, kein Warnsignal.",
+    "Grosse Fonds: Rund 66 % bei institutionellen Anlegern. 13F-Meldungen für Q3 kommen Mitte November."
+   ],
+   "cheatsheet": "analysen/GOOGL.html",
+   "claude": "https://claude.ai/artifact/NgmAqwM4fRPNhQb19Y1wK4"
+  },
+  {
+   "ticker": "MSFT",
+   "symbol": "MSFT",
+   "name": "Microsoft",
+   "tags": [
+    "Wachstum",
+    "Qualität"
+   ],
+   "land": "USA",
+   "region": "USA",
+   "branche": "Software, Cloud",
+   "status": "beobachten",
+   "waehrung": "USD",
+   "analyse": {
+    "datenstand": "2026-09-29",
+    "kurs": 511.42,
+    "q": 81,
+    "t": 68
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "4 von 4 Quartalen über Vorjahr, Tempo stabil bei 17–18 %",
+     "p": 12,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "+17.8 % im Geschäftsjahr 2026",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "46.8 %, seit 2023 steigend",
+     "p": 15,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "Bereinigt rund +30 % im letzten Quartal",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Positiv, aber seit 2024 sinkend (74 → 67 Mrd. $)",
+     "p": 3,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "26.2 %, klar fallender Trend",
+     "p": 12,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Nettoschulden/EBITDA 0.27",
+     "p": 9,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "Erw. KGV 25.8 statt Ø rund 31 (−17 %)",
+     "p": 10,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs über beiden, EMA 50 über EMA 200",
+     "p": 19,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs über beiden, Golden Cross im August",
+     "p": 9,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Höhere Hochs und höhere Tiefs, aber oben in der Spanne",
+     "p": 14,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "60 / 63: kräftig, keine Divergenz",
+     "p": 7,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Tag neues Hoch, Woche noch unter 2025",
+     "p": 11,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Kleiner Rückkauf, keine neuen Insider-Käufe",
+     "p": 3,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "Okt–Dez: Ø 61 % positive Jahre",
+     "p": 5,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 25.8,
+    "schnitt": 31,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      477,
+      491
+     ],
+     [
+      432,
+      467
+     ]
+    ],
+    "widerstand": [
+     [
+      519,
+      525
+     ]
+    ],
+    "trigger": 525,
+    "abbruch": null
+   },
+   "zahlen": "2026-10-28",
+   "dividende": null,
+   "fazit": "Eine der stärksten Firmen der Welt, und der Kurs hat den Einbruch vom Frühling fast ganz aufgeholt. Qualität grün, Timing hellgrün. Der Kurs steht aber direkt unter dem Allzeithoch: Ein sauberer Einstieg ist ein Rücksetzer in die Zone 477–491 $ oder ein Wochenschluss über 525 $.",
+   "about": "Microsoft verdient an drei Säulen: Azure (Rechenzentren und KI-Rechenleistung zur Miete, der Wachstumsmotor), Microsoft 365 (Office, Teams, dazu der KI-Assistent Copilot im Abo) und Windows, LinkedIn und Xbox. Ein grosser Teil des Umsatzes ist wiederkehrend, weil Firmen Abos und Cloud-Verträge über Jahre abschliessen.",
+   "kpis": [
+    {
+     "ampel": "g",
+     "name": "Umsatzwachstum",
+     "wert": "+17.8 %",
+     "text": "Geschäftsjahr bis Juni 2026. Für eine Firma mit 332 Mrd. $ Umsatz sehr stark. Das Tempo hat sich gegenüber dem Vorjahr (+14.9 %) sogar erhöht."
+    },
+    {
+     "ampel": "g",
+     "name": "Operative Marge",
+     "wert": "46.8 %",
+     "text": "Von 100 $ Umsatz bleiben fast 47 $ Betriebsgewinn. Das ist Spitzenklasse und seit 2023 jedes Jahr höher."
+    },
+    {
+     "ampel": "g",
+     "name": "Gewinn pro Aktie (EPS)",
+     "wert": "+30 %",
+     "text": "Bereinigt, letztes Quartal (4.74 $ statt 3.65 $). Wächst schneller als der Umsatz, das ist gut."
+    },
+    {
+     "ampel": "w",
+     "name": "ROIC",
+     "wert": "26.2 %",
+     "text": "Gewinn pro investiertem Dollar. Über 20 % ist stark, aber der Wert sinkt seit Jahren (2022: 62 %), weil die Rechenzentren so viel Kapital binden."
+    },
+    {
+     "ampel": "w",
+     "name": "Free Cashflow",
+     "wert": "67.0 Mrd. $",
+     "text": "Echtes Geld nach allen Investitionen. Hoch, aber seit 2024 (74.1 Mrd.) leicht rückläufig: Die Investitionen wachsen schneller."
+    },
+    {
+     "ampel": "g",
+     "name": "Nettoschulden / EBITDA",
+     "wert": "0.27",
+     "text": "In gut drei Monaten könnte Microsoft alle Nettoschulden aus dem Betriebsgewinn tilgen. Sehr solide."
+    },
+    {
+     "ampel": "g",
+     "name": "KGV aktuell / erwartet",
+     "wert": "28.4 / 25.8",
+     "text": "Du zahlst rund 26 Jahresgewinne (erwartet). Eigener Schnitt 2022–2026: rund 31. Also etwa 17 % günstiger als üblich."
+    },
+    {
+     "ampel": "w",
+     "name": "Investitionen (Capex)",
+     "wert": "≈ 175 Mrd. $",
+     "text": "Geschäftsjahr 2026, vor allem KI-Rechenzentren. Das ist der grösste Streitpunkt: Zahlt sich das aus?"
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "519–525 $",
+     "text": "Widerstand: Allzeithoch (Wochenschluss 524.11 $ im Juli 2025, Tageshoch 519.40 $ am 25.9.). Hier haben Verkäufer schon dreimal gebremst."
+    },
+    {
+     "art": "t",
+     "wert": "525 $",
+     "text": "Trigger: Ausbruch (Break of Structure). Ein Wochenschluss über dem Allzeithoch öffnet den Weg nach oben. Idealerweise mit steigender Wochen-A/D."
+    },
+    {
+     "art": "s",
+     "wert": "487–491 $",
+     "text": "Erste Unterstützung: Tiefs vom 9. und 16. September."
+    },
+    {
+     "art": "s",
+     "wert": "477–480 $",
+     "text": "Wichtige Unterstützung: Tief vom 18. August und EMA 50 (Tag). Die günstigste Zone innerhalb des Aufwärtstrends."
+    },
+    {
+     "art": "s",
+     "wert": "432–467 $",
+     "text": "Offene Kurslücke (Fair Value Gap) von Ende Juli. Tiefe Nachkaufzone, falls der Markt stärker korrigiert."
+    }
+   ],
+   "pro": [
+    "Azure wächst mit 43 % und beschleunigt sogar. Der Auftragsbestand von 678 Mrd. $ sichert Umsatz für Jahre.",
+    "Marge fast 47 %, seit 2023 jedes Jahr höher.",
+    "Erwartetes KGV rund 26, günstiger als der eigene Schnitt der letzten fünf Jahre.",
+    "Kaum Schulden und ein sehr stabiles Abo-Geschäft.",
+    "Sauberer Aufwärtstrend auf Tag und Woche. Oktober und November sind historisch starke Monate."
+   ],
+   "contra": [
+    "Rund 175 Mrd. $ Investitionen pro Jahr drücken den Free Cashflow und den ROIC.",
+    "Klumpenrisiko OpenAI: ein grosser Teil der Cloud-Aufträge hängt an einem einzigen Kunden, der selbst Verluste schreibt.",
+    "Kurs direkt unter dem Allzeithoch: wenig Sicherheitsabstand für einen Einstieg jetzt.",
+    "Wochen-A/D bestätigt das Hoch noch nicht.",
+    "Überschneidung mit deinen ETFs: Microsoft ist dort schon stark gewichtet."
+   ],
+   "smart_money": [
+    "Microsoft selbst: Kauft Aktien zurück, aber wenig (rund 0.2 % pro Jahr). Das Geld fliesst fast ganz in Rechenzentren. Dividende 0.8 %.",
+    "Insider-Käufe: Verwaltungsrat John Stanton kaufte am 18.2.2026 5000 Aktien für 2 Mio. $ zu 397 $. Das war nahe am Tief, liegt aber schon über 6 Monate zurück.",
+    "Insider-Verkäufe: CEO Satya Nadella verkaufte am 1.9. Aktien für 43 Mio. $, Finanzchefin Amy Hood am 14.9. für 21 Mio. $. Solche Verkäufe sind bei Microsoft üblich, zeigen aber keinen zusätzlichen Kaufwillen nahe am Hoch.",
+    "Grosse Fonds: Rund 75 % der Aktien liegen bei institutionellen Anlegern. Die Quartalsmeldungen (13F) für Q3 kommen erst Mitte November."
+   ],
+   "cheatsheet": "analysen/MSFT.html",
+   "claude": "https://claude.ai/artifact/PKXUhEfJRomUhHdPujDZL6"
+  },
+  {
+   "ticker": "V",
+   "symbol": "V",
+   "name": "Visa",
+   "tags": [
+    "Qualität",
+    "Wachstum"
+   ],
+   "land": "USA",
+   "region": "USA",
+   "branche": "Zahlungsnetzwerk",
+   "status": "kaufliste",
+   "waehrung": "USD",
+   "analyse": {
+    "datenstand": "2026-10-05",
+    "kurs": 369.71,
+    "q": 80,
+    "t": 61
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "4 von 4 Quartalen über Vorjahr, Tempo steigt",
+     "p": 15,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "+14 % (Netto-Umsatz)",
+     "p": 8,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "66.9 % (9 Pkt.), stabil (3 Pkt.)",
+     "p": 12,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "Ø rund +12–15 % pro Jahr",
+     "p": 8,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Positiv, 2024 und zuletzt leicht gesunken",
+     "p": 6,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "54.8 %, steigend",
+     "p": 15,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Nettoschulden/EBITDA 0.3",
+     "p": 9,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "KGV 30.7 vs. Ø rund 29 (±10 %)",
+     "p": 7,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs über beiden, EMA 50 über EMA 200",
+     "p": 19,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs über beiden",
+     "p": 9,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Seitwärtsphase im Aufwärtstrend, Kurs im Discount",
+     "p": 10,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "53 / 60: neutral",
+     "p": 7,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Beide fallen leicht mit dem Kurs",
+     "p": 5,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Grosser Rückkauf (2.9 %), keine Insider-Käufe",
+     "p": 6,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "Okt–Dez: Ø 70 % positive Jahre",
+     "p": 5,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 30.7,
+    "schnitt": 29,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      357,
+      362
+     ],
+     [
+      342,
+      346
+     ]
+    ],
+    "widerstand": [
+     [
+      383,
+      386
+     ]
+    ],
+    "trigger": 385.6,
+    "abbruch": 342
+   },
+   "zahlen": "2026-10-27",
+   "dividende": null,
+   "fazit": "Eine der profitabelsten Firmen der Welt in einem sauberen Aufwärtstrend. Seit August läuft eine ruhige Seitwärtsphase knapp unter dem Hoch. Qualität grün, Timing hellgrün. Die Zone 357–362 $ ist ein sinnvoller Einstieg, der Ausbruch ein Tagesschluss über 385.60 $.",
+   "about": "Visa betreibt das Netzwerk, über das Kartenzahlungen zwischen Bank des Käufers und Bank des Händlers laufen. Visa gibt selbst keine Kredite und trägt kein Ausfallrisiko. Pro Zahlung verdient Visa eine kleine Gebühr. Über 4 Billionen $ Zahlungen laufen pro Quartal über das Netz. Neu kommen Stablecoins (digitale Dollar) und Zahlungen durch KI-Agenten dazu.",
+   "kpis": [
+    {
+     "ampel": "g",
+     "name": "Umsatzwachstum",
+     "wert": "+14 %",
+     "text": "Letzte 12 Monate. Beschleunigt sich gegenüber 2024 und 2025 (rund 10–11 %)."
+    },
+    {
+     "ampel": "g",
+     "name": "Operative Marge",
+     "wert": "66.9 %",
+     "text": "Von 100 $ Umsatz bleiben 67 $ Betriebsgewinn. Gehört zu den höchsten Margen überhaupt."
+    },
+    {
+     "ampel": "g",
+     "name": "Gewinn pro Aktie (EPS)",
+     "wert": "+14.7 %",
+     "text": "Letzte 12 Monate. Wächst schneller als der Umsatz, auch dank Rückkäufen."
+    },
+    {
+     "ampel": "g",
+     "name": "ROIC",
+     "wert": "54.8 %",
+     "text": "Gewinn pro investiertem Dollar. Extrem hoch: Das Netzwerk braucht kaum Kapital."
+    },
+    {
+     "ampel": "g",
+     "name": "Free Cashflow",
+     "wert": "21.0 Mrd. $",
+     "text": "Rund 47 % vom Umsatz bleiben als freies Geld."
+    },
+    {
+     "ampel": "g",
+     "name": "Nettoschulden / EBITDA",
+     "wert": "0.3",
+     "text": "Praktisch schuldenfrei gemessen am Betriebsgewinn."
+    },
+    {
+     "ampel": "w",
+     "name": "KGV",
+     "wert": "30.7",
+     "text": "Du zahlst rund 31 Jahresgewinne. Eigener Schnitt 2021–2025: rund 29. Leicht teurer als üblich."
+    },
+    {
+     "ampel": "g",
+     "name": "Aktienrückkauf",
+     "wert": "2.9 % pro Jahr",
+     "text": "Allein im letzten Quartal 4.9 Mrd. $. Jedes Jahr gibt es rund 3 % weniger Aktien."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "385.6 $",
+     "text": "Widerstand: Allzeithoch vom 26.8."
+    },
+    {
+     "art": "t",
+     "wert": "385.60 $",
+     "text": "Trigger Ausbruch: Tagesschluss über dem Allzeithoch."
+    },
+    {
+     "art": "s",
+     "wert": "357–362 $",
+     "text": "Kaufzone: Tiefs vom September, Unterkante der Seitwärtsphase."
+    },
+    {
+     "art": "s",
+     "wert": "342–346 $",
+     "text": "Tiefere Zone: EMA 200 (Tag) und Ausbruchsniveau vom Frühling."
+    },
+    {
+     "art": "r",
+     "wert": "342 $",
+     "text": "Abbruch: Wochenschluss darunter beendet den Aufwärtstrend auf dem Tageschart."
+    }
+   ],
+   "pro": [
+    "Monopolartiges Netzwerk mit 67 % Marge und ROIC über 50 %.",
+    "Wachstum beschleunigt sich, Ausblick angehoben.",
+    "Grosse Rückkäufe senken die Aktienzahl jedes Jahr um rund 3 %.",
+    "Sauberer Aufwärtstrend, Kurs in der unteren Hälfte der Seitwärtsphase.",
+    "Oktober bis Dezember saisonal stark."
+   ],
+   "contra": [
+    "Regulierung: Ein US-Gesetz für mehr Wettbewerb bei Kreditkarten und die Klage des Justizministeriums könnten Gebühren drücken.",
+    "Neue Konkurrenz durch Stablecoins und Echtzeitzahlungen.",
+    "Kosten steigen schneller als der Umsatz (+17 %).",
+    "KGV leicht über dem eigenen Schnitt.",
+    "A/D-Linien fallen seit August leicht."
+   ],
+   "smart_money": [
+    "Visa selbst: Grosser Aktienrückkauf: 4.9 Mrd. $ im letzten Quartal, noch 28.4 Mrd. $ bewilligt. Dividende 0.7 %.",
+    "Insider-Käufe: Keine. Einzelne US-Politiker meldeten kleine Käufe (Nebeninfo, Wochen verspätet).",
+    "Insider-Verkäufe: Rund 63 Mio. $ in 12 Monaten, vor allem CEO McInerney. Üblich bei Visa.",
+    "Analysten: Durchschnittliches Kursziel 419 $, Einstufung „Strong Buy“ (40 Analysten)."
+   ],
+   "cheatsheet": "analysen/V.html",
+   "claude": "https://claude.ai/artifact/493U8yn5nA5HV4L6xGvdqf"
+  },
+  {
+   "ticker": "COST",
+   "symbol": "COST",
+   "name": "Costco",
+   "tags": [
+    "Qualität",
+    "Defensiv"
+   ],
+   "land": "USA",
+   "region": "USA",
+   "branche": "Detailhandel",
+   "status": "kaufliste",
+   "waehrung": "USD",
+   "analyse": {
+    "datenstand": "2026-10-05",
+    "kurs": 923.52,
+    "q": 78,
+    "t": 47
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "4 von 4 Quartalen über Vorjahr, Tempo steigt",
+     "p": 15,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "+10.1 % im Geschäftsjahr",
+     "p": 8,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "3.85 %, für Handel milder bewertet (3 Pkt.), steigend (6 Pkt.)",
+     "p": 9,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "Ø 3 Jahre rund +14 %",
+     "p": 8,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Positiv, 2024 leicht gesunken",
+     "p": 6,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "39.3 %, steigend",
+     "p": 15,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Netto-Cash 12.7 Mrd. $",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "KGV 44 vs. Ø rund 46 (±10 %)",
+     "p": 7,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs unter EMA 50, über EMA 200 (Rücksetzer im Aufwärtstrend)",
+     "p": 12,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs unter beiden, Death Cross",
+     "p": 1,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Tiefere Hochs und Tiefs, Trigger in Reichweite",
+     "p": 4,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "Bullische Divergenz auf dem Tag",
+     "p": 12,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Tag bullische Divergenz, Woche fiel mit dem Kurs",
+     "p": 10,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Kleiner Rückkauf, keine Insider-Käufe",
+     "p": 3,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "Okt–Dez: Ø 61 % positive Jahre",
+     "p": 5,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 44,
+    "schnitt": 46,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      883,
+      895
+     ],
+     [
+      844,
+      860
+     ]
+    ],
+    "widerstand": [
+     [
+      951,
+      965
+     ]
+    ],
+    "trigger": 931.1,
+    "abbruch": 880
+   },
+   "zahlen": "2026-12-11",
+   "dividende": null,
+   "fazit": "Eine der besten Handelsfirmen der Welt, aber nie billig. Seit dem Mai-Hoch hat der Kurs 16 % verloren, die Zahlen bleiben stark. Qualität grün, Timing gelb. Es gibt erste Bodenzeichen (bullische Divergenz). Der Trigger ist ein Tagesschluss über 931 $.",
+   "about": "Costco betreibt rund 900 grosse Lagerhallen-Märkte, in denen nur Mitglieder einkaufen dürfen (Jahresgebühr ab 65 $). Die Waren werden fast zum Einkaufspreis verkauft. Der Gewinn kommt zu einem grossen Teil aus den Mitgliedsgebühren, über 90 % der Mitglieder verlängern jedes Jahr. Das macht den Gewinn sehr planbar.",
+   "kpis": [
+    {
+     "ampel": "g",
+     "name": "Umsatzwachstum",
+     "wert": "+10.1 %",
+     "text": "Geschäftsjahr bis August 2026. Für einen Händler mit 300 Mrd. $ Umsatz sehr stark."
+    },
+    {
+     "ampel": "g",
+     "name": "Vergleichbare Umsätze",
+     "wert": "+6.7 %",
+     "text": "Gleiche Filialen, ohne Benzinpreise und Währungen. Echtes Wachstum aus bestehenden Märkten."
+    },
+    {
+     "ampel": "w",
+     "name": "Operative Marge",
+     "wert": "3.85 %",
+     "text": "Klingt winzig, ist für Costco aber gewollt: Tiefe Preise bringen treue Mitglieder. Steigt seit 2022 leicht."
+    },
+    {
+     "ampel": "g",
+     "name": "Gewinn pro Aktie (EPS)",
+     "wert": "+14 %",
+     "text": "Geschäftsjahr 2026. Seit Jahren zweistellig."
+    },
+    {
+     "ampel": "g",
+     "name": "ROIC",
+     "wert": "39.3 %",
+     "text": "Gewinn pro investiertem Dollar. Spitzenwert und jedes Jahr höher."
+    },
+    {
+     "ampel": "g",
+     "name": "Free Cashflow",
+     "wert": "9.39 Mrd. $",
+     "text": "Seit 2022 fast verdreifacht."
+    },
+    {
+     "ampel": "g",
+     "name": "Netto-Cash",
+     "wert": "12.7 Mrd. $",
+     "text": "Mehr Bargeld als Schulden."
+    },
+    {
+     "ampel": "w",
+     "name": "KGV",
+     "wert": "44.4",
+     "text": "Du zahlst 44 Jahresgewinne. Im eigenen 5-Jahres-Schnitt (rund 46) normal, absolut aber sehr teuer."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "951–965 $",
+     "text": "Widerstand: EMA 200 (Tag) und EMA 50 (Woche)."
+    },
+    {
+     "art": "t",
+     "wert": "931.10 $",
+     "text": "Trigger: Change of Character. Tagesschluss über dem Hoch vom 28.9."
+    },
+    {
+     "art": "s",
+     "wert": "883–895 $",
+     "text": "Kaufzone: Tiefs vom September. Hier entstand die bullische Divergenz."
+    },
+    {
+     "art": "s",
+     "wert": "844 $",
+     "text": "Tiefere Unterstützung: Tief vom Dezember 2025 (52-Wochen-Tief)."
+    },
+    {
+     "art": "r",
+     "wert": "880 $",
+     "text": "Abbruch: Wochenschluss darunter bestätigt den Abwärtstrend."
+    }
+   ],
+   "pro": [
+    "Sehr stabiles Geschäft mit Mitgliedsgebühren und über 90 % Verlängerungen.",
+    "Umsatz und Gewinn wachsen zweistellig, ROIC fast 40 %.",
+    "Netto-Cash, keine Schuldensorgen.",
+    "Bullische Divergenz bei RSI und A/D auf dem Tageschart.",
+    "November ist saisonal der stärkste Monat."
+   ],
+   "contra": [
+    "KGV 44: Selbst für Costco nicht günstig. Wenig Puffer bei Enttäuschungen.",
+    "Tageschart im Abwärtstrend, Death Cross seit Juli.",
+    "Keine Insider-Käufe, kaum Rückkäufe.",
+    "Teile des Gewinns kamen aus einer einmaligen Zollrückerstattung."
+   ],
+   "smart_money": [
+    "Costco selbst: Kleiner Aktienrückkauf (0.1 % pro Jahr), Dividende 0.6 %, dazu alle paar Jahre eine Sonderdividende.",
+    "Insider-Käufe: Keine in den letzten 12 Monaten.",
+    "Insider-Verkäufe: Klein, rund 16 Mio. $ in 12 Monaten (zuletzt 2 Mio. $ am 29.9.). Kein Warnsignal.",
+    "Analysten: Durchschnittliches Kursziel 1'058 $, Einstufung „Buy“."
+   ],
+   "cheatsheet": "analysen/COST.html",
+   "claude": "https://claude.ai/artifact/QGT2Ae91pYfmjZpiR6jmj8"
+  },
+  {
+   "ticker": "NOW",
+   "symbol": "NOW",
+   "name": "ServiceNow",
+   "tags": [
+    "Wachstum"
+   ],
+   "land": "USA",
+   "region": "USA",
+   "branche": "Unternehmenssoftware",
+   "status": "beobachten",
+   "waehrung": "USD",
+   "analyse": {
+    "datenstand": "2026-10-05",
+    "kurs": 136.08,
+    "q": 77,
+    "t": 54
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "4 von 4 Quartalen über Vorjahr, Tempo steigt",
+     "p": 15,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "Rund +22 % pro Jahr",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "12.4 % GAAP (3 Pkt.), seit 2022 steigend (6 Pkt.)",
+     "p": 9,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "Bereinigt rund +10 %, ausgewiesen flach",
+     "p": 5,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Seit 2022 jedes Jahr gestiegen",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "10.3 %",
+     "p": 6,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Nettoschulden/EBITDA 0.6",
+     "p": 9,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "Erw. KGV 30, Bewertung nahe Rekordtief (KGV-Historie nicht vollständig)",
+     "p": 13,
+     "max": 15,
+     "auto": false
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs über EMA 50, knapp unter EMA 200 (mögliche Wende)",
+     "p": 8,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs über beiden, frisches Golden Cross",
+     "p": 9,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Höhere Hochs und höhere Tiefs, Kurs im Premium",
+     "p": 14,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "52 / 58: neutral",
+     "p": 7,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Woche steigt seit April, Tag fällt seit August",
+     "p": 10,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Kleiner Rückkauf, keine Insider-Käufe",
+     "p": 3,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "Okt–Dez: Ø 57 % positive Jahre",
+     "p": 3,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": null,
+   "zonen": {
+    "kauf": [
+     [
+      126.8,
+      129.4
+     ],
+     [
+      117.6,
+      120
+     ]
+    ],
+    "widerstand": [
+     [
+      147.6,
+      149.6
+     ]
+    ],
+    "trigger": 141.1,
+    "abbruch": 117
+   },
+   "zahlen": "2026-10-28",
+   "dividende": null,
+   "fazit": "Starke Firma, die die Börse wegen KI-Angst fast halbiert hat. Seit dem Tief im April hat sich der Kurs um zwei Drittel erholt. Qualität grün, Timing gelb. Der Wochen-Trend ist noch nicht bestätigt. Eine gute Zone wäre ein Rücksetzer auf 127–129 $, der Ausbruch ein Wochenschluss über 141 $.",
+   "about": "ServiceNow verkauft eine Software-Plattform im Abo, mit der grosse Firmen ihre Abläufe steuern: IT-Störungen, Kundendienst, Personalwesen, Einkauf, Sicherheit. Neu sind KI-Agenten (Now Assist), die solche Abläufe selbst erledigen. Die Kunden zahlen jedes Jahr, 98 % verlängern ihren Vertrag. Im Juli 2026 kam die Sicherheitsfirma Armis dazu.",
+   "kpis": [
+    {
+     "ampel": "g",
+     "name": "Abo-Umsatz",
+     "wert": "+24 %",
+     "text": "2. Quartal 2026. Das Wachstum hat sich sogar beschleunigt (vor einem Jahr +22 %)."
+    },
+    {
+     "ampel": "g",
+     "name": "Auftragsbestand (cRPO)",
+     "wert": "+21.5 %",
+     "text": "Vertraglich gesicherter Umsatz der nächsten 12 Monate: 13.2 Mrd. $. Zeigt, dass das Wachstum weitergeht."
+    },
+    {
+     "ampel": "w",
+     "name": "Operative Marge",
+     "wert": "12.4 % / 29.5 %",
+     "text": "Ausgewiesen (GAAP) 12.4 %, durch Armis-Kosten und Aktienvergütungen gedrückt. Bereinigt 29.5 %."
+    },
+    {
+     "ampel": "g",
+     "name": "Free Cashflow",
+     "wert": "4.58 Mrd. $",
+     "text": "Rund 31 % vom Umsatz bleiben als freies Geld. Seit 2022 jedes Jahr gestiegen."
+    },
+    {
+     "ampel": "w",
+     "name": "ROIC",
+     "wert": "10.3 %",
+     "text": "Ausgewiesen eher tief, weil Aktienvergütungen den Gewinn drücken. Steigt aber seit Jahren."
+    },
+    {
+     "ampel": "g",
+     "name": "Nettoschulden / EBITDA",
+     "wert": "0.6",
+     "text": "Kaum Schulden, nach der Armis-Übernahme leicht netto verschuldet."
+    },
+    {
+     "ampel": "g",
+     "name": "KGV erwartet",
+     "wert": "30",
+     "text": "Klingt hoch, ist für ServiceNow aber günstig. Im Juni war die Bewertung (Unternehmenswert zu Betriebsgewinn) so tief wie nie seit dem Börsengang."
+    },
+    {
+     "ampel": "g",
+     "name": "KI-Geschäft",
+     "wert": "> 1 Mrd. $",
+     "text": "Now Assist (KI-Agenten) hat 1 Mrd. $ Jahresvertragswert überschritten. KI ist hier Kunde, nicht nur Gefahr."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "147.6–149.6 $",
+     "text": "Widerstand: Hochs vom 31.8. und 15.9."
+    },
+    {
+     "art": "t",
+     "wert": "141.10 $",
+     "text": "Trigger Woche: Wochenschluss über der EMA 200 (Woche). Dann wäre der Trend auch langfristig gedreht."
+    },
+    {
+     "art": "s",
+     "wert": "126.8–129.4 $",
+     "text": "Erste Kaufzone: Tief vom 28.9. und EMA 50 (Tag)."
+    },
+    {
+     "art": "s",
+     "wert": "117.6–120 $",
+     "text": "Tiefere Kaufzone: Tief vom 17.8., Beginn der günstigen Hälfte (Discount)."
+    },
+    {
+     "art": "r",
+     "wert": "117 $",
+     "text": "Abbruch: Wochenschluss darunter beendet die Serie höherer Tiefs."
+    }
+   ],
+   "pro": [
+    "Wachstum über 20 % pro Jahr, Auftragsbestand wächst mit.",
+    "KI-Produkte verkaufen sich: Now Assist über 1 Mrd. $ Jahresvertragswert.",
+    "Hoher, wachsender Free Cashflow und kaum Schulden.",
+    "Bewertung deutlich unter dem eigenen Durchschnitt.",
+    "Neuer Aufwärtstrend auf dem Tageschart, Golden Cross im September."
+   ],
+   "contra": [
+    "Die KI-Angst ist nicht ganz unbegründet: Wenn Firmen weniger Mitarbeiter-Lizenzen brauchen, sinkt der Umsatz pro Kunde.",
+    "Abo-Bruttomarge sinkt (80.5 % statt 83 %), weil KI-Rechenleistung teuer ist.",
+    "Ausgewiesener Gewinn klein, hohe Aktienvergütungen.",
+    "Wochen-Trend noch nicht gedreht (Kurs unter EMA 200 Woche).",
+    "Tages-A/D zeigt seit August Gewinnmitnahmen."
+   ],
+   "smart_money": [
+    "ServiceNow selbst: Kleiner Aktienrückkauf (rund 0.4 % pro Jahr). Keine Dividende.",
+    "Insider-Käufe: Keine in den letzten 12 Monaten.",
+    "Insider-Verkäufe: Klein, rund 9 Mio. $ in 12 Monaten. Kein Warnsignal.",
+    "Analysten: Durchschnittliches Kursziel 145 $, Einstufung „Strong Buy“."
+   ],
+   "cheatsheet": "analysen/NOW.html",
+   "claude": "https://claude.ai/artifact/2mX8KpLQm4P3RUyBSU7SWr"
+  },
+  {
+   "ticker": "SYK",
+   "symbol": "SYK",
+   "name": "Stryker",
+   "tags": [
+    "Qualität"
+   ],
+   "land": "USA",
+   "region": "USA",
+   "branche": "Medizintechnik",
+   "status": "kaufliste",
+   "waehrung": "USD",
+   "analyse": {
+    "datenstand": "2026-10-05",
+    "kurs": 285.22,
+    "q": 75,
+    "t": 33
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "4 von 4 Quartalen über Vorjahr, aber Q1 2026 nur +2.6 %",
+     "p": 12,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "Organisch 8.3–9.3 % (Firmenziel 2026)",
+     "p": 6,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "23.8 % (6 Pkt.), seit 2022 steigend (6 Pkt.)",
+     "p": 12,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "Im Schnitt rund +12–16 % pro Jahr",
+     "p": 8,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Seit 2022 jedes Jahr gestiegen",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "12.5 %, seit Jahren stabil",
+     "p": 6,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Nettoschulden/EBITDA 1.6",
+     "p": 7,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "Erw. KGV 17.9 statt Ø rund 26 (−31 %)",
+     "p": 14,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs unter beiden, frisches Death Cross",
+     "p": 2,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs unter beiden",
+     "p": 1,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Tiefere Hochs und Tiefs, Doppelboden in Bildung",
+     "p": 4,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "Tag dreht aus 28–32 nach oben, leichte bullische Divergenz",
+     "p": 10,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Woche höher als im Mai, Tag fällt noch",
+     "p": 10,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Keine Käufe, grosse Verkäufe der Stryker-Familie, kein Rückkauf",
+     "p": 1,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "Okt–Dez: Ø 65 % positive Jahre",
+     "p": 5,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 17.9,
+    "schnitt": 26,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      276,
+      285
+     ],
+     [
+      267,
+      270
+     ]
+    ],
+    "widerstand": [
+     [
+      299,
+      303
+     ]
+    ],
+    "trigger": 290.5,
+    "abbruch": 265
+   },
+   "zahlen": "2026-10-29",
+   "dividende": "1.2 %",
+   "fazit": "Eine sehr solide Firma, die gerade wegen Lieferproblemen in einem Geschäftsbereich abgestraft wird. Qualität grün, Timing orange. Der Kurs versucht über 267–269 $ einen Doppelboden. Erst ein Tagesschluss über 290.50 $ wäre das erste Zeichen für eine Wende.",
+   "about": "Stryker baut Medizintechnik für Spitäler: künstliche Hüft- und Kniegelenke (inklusive OP-Roboter Mako), Instrumente und Ausstattung für Operationssäle, Wirbelsäulen- und Neurotechnik sowie Kathetersysteme für Blutgefässe. Weil Operationen auch in schwachen Wirtschaftsphasen stattfinden, wächst das Geschäft sehr stetig.",
+   "kpis": [
+    {
+     "ampel": "g",
+     "name": "Umsatzwachstum",
+     "wert": "+8.5 %",
+     "text": "Letzte 12 Monate. Ziel 2026: 8.3–9.3 % organisch. Für einen Medizintechnik-Konzern sehr gut."
+    },
+    {
+     "ampel": "g",
+     "name": "Operative Marge",
+     "wert": "23.8 %",
+     "text": "Von 100 $ Umsatz bleiben knapp 24 $ Betriebsgewinn. Steigt seit 2022 (19.3 %) jedes Jahr."
+    },
+    {
+     "ampel": "g",
+     "name": "Gewinn pro Aktie (EPS)",
+     "wert": "+27.8 %",
+     "text": "Letzte 12 Monate, ausgewiesen. Schwankt wegen Sondereffekten, im Schnitt rund +12–16 % pro Jahr."
+    },
+    {
+     "ampel": "w",
+     "name": "ROIC",
+     "wert": "12.5 %",
+     "text": "Gewinn pro investiertem Dollar. Solide, aber nicht spitze: Übernahmen haben viel Kapital gebunden."
+    },
+    {
+     "ampel": "g",
+     "name": "Free Cashflow",
+     "wert": "4.70 Mrd. $",
+     "text": "Echtes Geld nach allen Investitionen. Seit 2022 (2.0 Mrd.) jedes Jahr gestiegen."
+    },
+    {
+     "ampel": "g",
+     "name": "Nettoschulden / EBITDA",
+     "wert": "1.6",
+     "text": "In gut 1.5 Jahren wären die Nettoschulden aus dem Betriebsgewinn getilgt. Gut tragbar."
+    },
+    {
+     "ampel": "g",
+     "name": "KGV erwartet",
+     "wert": "17.9",
+     "text": "Du zahlst rund 18 erwartete Jahresgewinne. Eigener Schnitt 2021–2025: rund 26. Also gut 30 % günstiger als üblich."
+    },
+    {
+     "ampel": "g",
+     "name": "Dividende",
+     "wert": "1.2 %",
+     "text": "Klein, aber sicher: nur 36 % des Gewinns werden ausgeschüttet."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "299–303 $",
+     "text": "Widerstand: EMA 50 (Tag) und Unterkante der offenen Kurslücke vom 8.9."
+    },
+    {
+     "art": "t",
+     "wert": "290.50 $",
+     "text": "Trigger: Change of Character. Tagesschluss über dem Hoch vom 16.9. Idealerweise mit steigender Tages-A/D."
+    },
+    {
+     "art": "s",
+     "wert": "267–276 $",
+     "text": "Doppelboden vom September. Hier haben die Käufer zweimal gehalten. Mögliche Kaufzone, sobald der Trigger gekommen ist."
+    },
+    {
+     "art": "r",
+     "wert": "265 $",
+     "text": "Abbruch: Ein Wochenschluss darunter macht den Doppelboden ungültig."
+    }
+   ],
+   "pro": [
+    "Stetiges Wachstum um 8–11 % pro Jahr, Marge steigt seit Jahren.",
+    "Free Cashflow wächst jedes Jahr.",
+    "Erwartetes KGV rund 18 statt üblich rund 26: so günstig war Stryker lange nicht.",
+    "Das Problem (Lieferkette) ist lösbar und betrifft nur einen Teil des Geschäfts. Das Jahresziel steht.",
+    "Saisonal starke Monate November und Dezember."
+   ],
+   "contra": [
+    "Klarer Abwärtstrend auf Tag und Woche, Death Cross auf der Woche.",
+    "Tages-A/D zeigt noch keinen Käuferwechsel.",
+    "Grosse Insider-Verkäufe, keine Käufe.",
+    "ROIC nur rund 12 %: Übernahmen machen das Geschäft kapitalintensiv.",
+    "Wenn die Lieferprobleme länger dauern, droht beim nächsten Bericht eine Senkung des Ausblicks."
+   ],
+   "smart_money": [
+    "Stryker selbst: Kauft praktisch keine Aktien zurück. Das Geld geht in Übernahmen und die Dividende (1.2 %).",
+    "Insider-Käufe: Keine in den letzten 12 Monaten.",
+    "Insider-Verkäufe: Ronda Stryker (Enkelin des Gründers, Verwaltungsrätin) verkaufte über Monate Aktien für rund 720 Mio. $, CEO Kevin Lobo für 21 Mio. $. Das ist vor allem Vermögensstreuung, aber kein Vertrauenssignal.",
+    "Analysten: Durchschnittliches Kursziel 368 $, Einstufung „Buy“. Mehrere Banken senkten im September ihre Ziele, behielten aber die Kaufempfehlung."
+   ],
+   "cheatsheet": "analysen/SYK.html",
+   "claude": "https://claude.ai/artifact/DMxiLH6JtpQKab9cToy6Jn"
+  },
+  {
+   "ticker": "META",
+   "symbol": "META",
+   "name": "Meta Platforms",
+   "tags": [
+    "Wachstum"
+   ],
+   "land": "USA",
+   "region": "USA",
+   "branche": "Social Media, KI",
+   "status": "beobachten",
+   "waehrung": "USD",
+   "analyse": {
+    "datenstand": "2026-09-29",
+    "kurs": 733.06,
+    "q": 73,
+    "t": 53
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "4 von 4 Quartalen über Vorjahr, Tempo beschleunigt (bis +33 %)",
+     "p": 15,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "+27.7 % in den letzten 12 Monaten",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "38 % (9 Pkt.), Trend über 5 Jahre stabil, zuletzt fallend (3 Pkt.)",
+     "p": 12,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "Bereinigt aktuell nur rund +5–10 %",
+     "p": 5,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Positiv, aber seit 2024 sinkend (54 → 41 Mrd. $)",
+     "p": 3,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "25.4 %, stark fallend",
+     "p": 12,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Nettoschulden/EBITDA 0.20",
+     "p": 9,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "Erw. KGV 22.2 gleich wie Ø 22.4",
+     "p": 7,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs über beiden, EMA 50 über EMA 200",
+     "p": 18,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs über beiden, frisches Golden Cross",
+     "p": 9,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Break of Structure nach oben, aber Kurs im Premium",
+     "p": 14,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "64 / 61, Tag kühlt von 80 ab",
+     "p": 7,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Kurs höher, A/D tiefer: Verteilung",
+     "p": 2,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Gehäufte Insider-Verkäufe, kleiner Rückkauf",
+     "p": 0,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "Okt–Dez: Ø 57 % positive Jahre, Oktober schwach",
+     "p": 3,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 22.2,
+    "schnitt": 22.4,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      680,
+      692
+     ],
+     [
+      625,
+      643
+     ]
+    ],
+    "widerstand": [
+     [
+      778,
+      785
+     ]
+    ],
+    "trigger": null,
+    "abbruch": 625
+   },
+   "zahlen": "2026-10-28",
+   "dividende": null,
+   "fazit": "Das Werbegeschäft wächst so schnell wie seit Jahren nicht, aber Kosten und KI-Investitionen fressen den Free Cashflow auf. Nach dem Sprung im September ist der Kurs heiss gelaufen, und die A/D-Linie zieht nicht mit. Qualität hellgrün, Timing gelb: auf einen Rücksetzer in die Zone 680–692 $ warten.",
+   "about": "Meta verdient fast das ganze Geld mit Werbung auf Facebook, Instagram, WhatsApp und Threads, zusammen über 3 Milliarden Nutzer pro Tag. Daneben investiert Meta Milliarden in KI (Meta AI, neu der persönliche KI-Assistent „Muse“) und in Reality Labs (Brillen und VR), das hohe Verluste schreibt.",
+   "kpis": [
+    {
+     "ampel": "g",
+     "name": "Umsatzwachstum",
+     "wert": "+28 %",
+     "text": "2. Quartal 2026. Das stärkste Tempo seit Jahren, das Werbegeschäft läuft ausgezeichnet."
+    },
+    {
+     "ampel": "w",
+     "name": "Operative Marge",
+     "wert": "34.8 %",
+     "text": "2. Quartal. Vor einem Jahr waren es 43 %. Von 100 $ Umsatz bleiben immer noch 35 $ Betriebsgewinn, aber die Kosten steigen schneller als der Umsatz."
+    },
+    {
+     "ampel": "w",
+     "name": "Gewinn pro Aktie (EPS)",
+     "wert": "−13 %",
+     "text": "2. Quartal, ausgewiesen. Ohne Rechtskosten und Abfindungen wäre der Betriebsgewinn um rund 9 % gestiegen. Mässig."
+    },
+    {
+     "ampel": "w",
+     "name": "ROIC",
+     "wert": "25.4 %",
+     "text": "Gewinn pro investiertem Dollar. Immer noch stark, aber 2024 waren es 44 %. Der Trend zeigt klar nach unten."
+    },
+    {
+     "ampel": "b",
+     "name": "Free Cashflow",
+     "wert": "41.0 Mrd. $",
+     "text": "Letzte 12 Monate. Im 2. Quartal nur noch 0.8 Mrd. $, vor einem Jahr 8.6 Mrd. Die Investitionen verschlingen fast alles."
+    },
+    {
+     "ampel": "g",
+     "name": "Nettoschulden / EBITDA",
+     "wert": "0.20",
+     "text": "Kaum Nettoschulden. Meta ist allerdings von viel Netto-Cash zu leichten Nettoschulden gewechselt."
+    },
+    {
+     "ampel": "w",
+     "name": "KGV aktuell / erwartet",
+     "wert": "27.0 / 22.2",
+     "text": "Du zahlst rund 22 erwartete Jahresgewinne. Eigener Schnitt 2021–2025: rund 22. Also fair bewertet, nicht günstig."
+    },
+    {
+     "ampel": "w",
+     "name": "Aktienrückkauf",
+     "wert": "1.1 % pro Jahr",
+     "text": "Meta kauft noch eigene Aktien zurück, aber deutlich weniger als früher."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "778–785 $",
+     "text": "Widerstand: Hoch vom 24.9. (779.82 $) und Allzeithoch-Wochenschluss 785.23 $ vom August 2025."
+    },
+    {
+     "art": "s",
+     "wert": "713–716 $",
+     "text": "Erste Unterstützung: Tief vom 28.9."
+    },
+    {
+     "art": "t",
+     "wert": "680–692 $",
+     "text": "Nachkaufzone: Retest des Ausbruchs. Das alte Hoch sollte jetzt als Boden halten. Kauf-Signal, wenn der Kurs hier dreht (Tagesschluss wieder über 700 $ mit steigender A/D)."
+    },
+    {
+     "art": "s",
+     "wert": "625–643 $",
+     "text": "Offene Kurslücke vom 8./9.9. (625–639 $) und EMA 50/200 Tag. Letzte starke Zone vor dem Abbruch."
+    },
+    {
+     "art": "r",
+     "wert": "625 $",
+     "text": "Abbruch: Ein Wochenschluss darunter macht den Ausbruch ungültig."
+    }
+   ],
+   "pro": [
+    "Umsatz wächst mit 28 %, das Werbegeschäft ist stärker denn je.",
+    "Muse könnte eine neue Einnahmequelle werden (Abos für KI-Nutzung).",
+    "Erwartetes KGV rund 22, nicht teurer als üblich.",
+    "Kaum Schulden, Ausbruch über das alte Hoch im September."
+   ],
+   "contra": [
+    "Investitionen von mindestens 130 Mrd. $ in diesem Jahr: Der Free Cashflow ist im letzten Quartal fast auf null gefallen.",
+    "Marge und ROIC sinken deutlich.",
+    "A/D-Linie auf Tag und Woche zeigt eine bärische Divergenz.",
+    "Viele Insider-Verkäufe, auch von Zuckerberg genau am Hoch.",
+    "Oktober ist saisonal der schwächste Monat, die Zahlen kommen am 28.10.",
+    "Überschneidung mit deinen ETFs: Meta ist dort schon gewichtet."
+   ],
+   "smart_money": [
+    "Meta selbst: Kauft rund 1.1 % der Aktien pro Jahr zurück, weniger als früher. Dividende 0.3 %.",
+    "Insider-Käufe: Keine in den letzten 12 Monaten.",
+    "Insider-Verkäufe: Rund 257 Mio. $ in 6 Monaten: Finanzchefin Susan Li im Februar rund 72 Mio. $, Chief Operating Officer Javier Olivan wöchentlich, Mark Zuckerberg am 24.9. für 21 Mio. $, genau am Hoch.",
+    "Grosse Fonds: Rund 68 % der Aktien liegen bei institutionellen Anlegern. Die 13F-Meldungen für Q3 kommen Mitte November."
+   ],
+   "cheatsheet": "analysen/META.html",
+   "claude": "https://claude.ai/artifact/3aNjrc9RWCyrC3NFsncZj6"
+  },
+  {
+   "ticker": "KO",
+   "symbol": "KO",
+   "name": "Coca-Cola",
+   "tags": [
+    "Dividende",
+    "Qualität",
+    "Defensiv"
+   ],
+   "land": "USA",
+   "region": "USA",
+   "branche": "Getränke",
+   "status": "beobachten",
+   "waehrung": "USD",
+   "analyse": {
+    "datenstand": "2026-10-07",
+    "kurs": 85.82,
+    "q": 72,
+    "t": 47
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "4 von 4 Quartalen über Vorjahr, Tempo steigt",
+     "p": 15,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "Organisch rund +5 % (Firmenziel 2026)",
+     "p": 3,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "31.9 % (9 Pkt.), seit 2022 steigend (6 Pkt.)",
+     "p": 15,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "Bereinigt im Schnitt rund +7 bis 10 % pro Jahr",
+     "p": 5,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Positiv, aber schwankend (Einmalzahlungen)",
+     "p": 6,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "20.1 %, langsam steigend",
+     "p": 14,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Nettoschulden/EBITDA 1.6",
+     "p": 7,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "Erw. KGV 25.3 statt Ø 23.0 (+10 %)",
+     "p": 7,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs über beiden, 50 über 200",
+     "p": 18,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs unter EMA 50, über EMA 200 (Rücksetzer)",
+     "p": 6,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Woche aufwärts, Tag tiefere Hochs und Tiefs, nicht in einer Zone",
+     "p": 8,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "40 / 56, kein Signal",
+     "p": 7,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Beide fallen, Tag deutlich (Verteilung)",
+     "p": 3,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Grosse Insider-Verkäufe, kaum Rückkauf",
+     "p": 0,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "Okt–Dez: 61–66 % positive Jahre",
+     "p": 5,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 25.3,
+    "schnitt": 23.0,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      80,
+      82.5
+     ],
+     [
+      76.8,
+      78.5
+     ]
+    ],
+    "widerstand": [
+     [
+      89.4,
+      92.5
+     ]
+    ],
+    "trigger": null,
+    "abbruch": 74
+   },
+   "zahlen": "2026-10-27",
+   "dividende": "2.5 %",
+   "fazit": "Die stärkste Firma der Gruppe, aber kein Schnäppchen. Qualität hellgrün (72), Timing gelb (47). Der grosse Trend zeigt nach oben, doch die Tages-A/D bricht seit August ein: Es wird leise verkauft. Deine Idee, auf eine grössere Korrektur zu warten, passt zu den Zahlen. Kaufzonen: 80–82.5 $ und 76.8–78.5 $.",
+   "about": "Coca-Cola verkauft vor allem Getränke-Konzentrat und Markenrechte an Abfüllfirmen auf der ganzen Welt (Coca-Cola, Sprite, Fanta, Powerade, Smartwater, fairlife-Milch). Die Abfüller tragen die teuren Fabriken und Lastwagen, darum hat Coca-Cola eine sehr hohe Marge. Rund zwei Drittel des Umsatzes kommen aus dem Ausland.",
+   "kpis": [
+    {
+     "ampel": "g",
+     "name": "Organisches Wachstum",
+     "wert": "+6 %",
+     "text": "2. Quartal 2026 (Menge +4, Preis/Mix +2). Firmenziel 2026: rund +5 %. Für einen Getränkeriesen sehr gut."
+    },
+    {
+     "ampel": "g",
+     "name": "Operative Marge",
+     "wert": "31.9 %",
+     "text": "Von 100 $ Umsatz bleiben fast 32 $ Betriebsgewinn. Steigt seit 2022 jedes Jahr. Spitzenwert."
+    },
+    {
+     "ampel": "g",
+     "name": "Gewinn pro Aktie (bereinigt)",
+     "wert": "+9 bis 10 %",
+     "text": "Firmenziel 2026, im Juli angehoben. Gut für eine so grosse Firma."
+    },
+    {
+     "ampel": "g",
+     "name": "ROIC",
+     "wert": "20.1 %",
+     "text": "Auf jeden investierten Dollar rund 20 Cent Gewinn. Sehr gut, steigt langsam."
+    },
+    {
+     "ampel": "w",
+     "name": "Free Cashflow",
+     "wert": "≈ 12.4 Mrd. $",
+     "text": "Firmenziel 2026. 2024 und 2025 durch Einmalzahlungen (fairlife) gedrückt, darum schwankend."
+    },
+    {
+     "ampel": "g",
+     "name": "Nettoschulden / EBITDA",
+     "wert": "1.6",
+     "text": "In gut 1.5 Jahren wären die Nettoschulden aus dem Betriebsgewinn bezahlt. Gut tragbar."
+    },
+    {
+     "ampel": "w",
+     "name": "KGV erwartet",
+     "wert": "25.3",
+     "text": "Du zahlst gut 25 erwartete Jahresgewinne. Eigener Schnitt: 23. Also knapp 10 % teurer als üblich."
+    },
+    {
+     "ampel": "g",
+     "name": "Dividende",
+     "wert": "2.5 %",
+     "text": "64 Jahre in Folge erhöht. Rund 64 % des Gewinns werden ausgeschüttet."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "89.4–92.5 $",
+     "text": "Widerstand: tieferes Hoch vom September und Allzeithoch."
+    },
+    {
+     "art": "s",
+     "wert": "80–82.5 $",
+     "text": "Kaufzone 1 (kleine Korrektur): Wochen-EMA 50 und Ausbruchsbereich vom Juli. Rund 5–7 % unter heute."
+    },
+    {
+     "art": "s",
+     "wert": "76.8–78.5 $",
+     "text": "Kaufzone 2 (grössere Korrektur): Tief vom Juni, rund 10 % unter heute. Hier wäre die Bewertung wieder beim eigenen Schnitt."
+    },
+    {
+     "art": "t",
+     "wert": "Trigger",
+     "text": "In einer Zone: Tagesschluss über dem letzten tieferen Hoch (heute 89.36 $, nach einer Korrektur liegt es tiefer), mit steigender Tages-A/D."
+    },
+    {
+     "art": "r",
+     "wert": "74 $",
+     "text": "Abbruch: Wochenschluss unter den Tiefs vom März/April. Dann wäre der Aufwärtstrend gebrochen."
+    }
+   ],
+   "pro": [
+    "Wächst wieder über die Menge, nicht nur über Preise.",
+    "Spitzenmarge von fast 32 %, steigt seit Jahren.",
+    "Ausblick 2026 im Juli angehoben.",
+    "Hoher ROIC (20 %) und tragbare Schulden.",
+    "64 Jahre Dividendenerhöhung in Folge."
+   ],
+   "contra": [
+    "Bewertung über dem eigenen Schnitt: erwartetes KGV 25 statt 23.",
+    "Tages-A/D bricht ein: Grössere Anleger verkaufen leise.",
+    "Viele und grosse Insider-Verkäufe.",
+    "Kurs weit über der Wochen-EMA 200 (+23 %): Rücksetzer-Gefahr.",
+    "Stark international: Ein starker Dollar drückt den Gewinn, ein schwacher hilft."
+   ],
+   "smart_money": [
+    "Coca-Cola selbst: Kauft kaum eigene Aktien zurück (netto rund 0.1 % pro Jahr). Das Geld geht in die Dividende.",
+    "Insider-Käufe: Nur einer: Verwaltungsrat Max Levchin für rund 1 Mio. $ im Oktober 2025 (älter als 6 Monate).",
+    "Insider-Verkäufe: Sehr viele: rund 241 Mio. $ von 10 Personen, davon rund 145 Mio. $ vom früheren Chef James Quincey (jetzt Präsident). Das ist Vermögensstreuung nach starkem Anstieg, aber kein Vertrauenssignal.",
+    "Analysten: Durchschnittliches Kursziel rund 95 $, 21 von 23 sagen „Kaufen“. Wells Fargo und JPMorgan haben ihre Ziele leicht gesenkt."
+   ],
+   "cheatsheet": "analysen/KO.html",
+   "claude": "https://claude.ai/artifact/Jgz8EAJbYvvHSAXHufvVHc"
+  },
+  {
+   "ticker": "CL",
+   "symbol": "CL",
+   "name": "Colgate-Palmolive",
+   "tags": [
+    "Dividende",
+    "Qualität",
+    "Defensiv"
+   ],
+   "land": "USA",
+   "region": "USA",
+   "branche": "Körperpflege, Haushalt",
+   "status": "beobachten",
+   "waehrung": "USD",
+   "analyse": {
+    "datenstand": "2026-10-07",
+    "kurs": 87.21,
+    "q": 68,
+    "t": 41
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "4 von 4 Quartalen über Vorjahr",
+     "p": 12,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "Organisch rund +2.5 %",
+     "p": 0,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "20.6 % (6 Pkt.), stabil (3 Pkt.)",
+     "p": 9,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "Bereinigt rund +5 bis 8 % pro Jahr",
+     "p": 5,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Seit 2022 jedes Jahr gestiegen",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "45.6 %, steigend",
+     "p": 15,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Nettoschulden/EBITDA 1.3",
+     "p": 7,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "Erw. KGV 21.5 statt Ø 24.1 (−11 %)",
+     "p": 10,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs unter EMA 50, über EMA 200 (Rücksetzer)",
+     "p": 12,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs knapp unter beiden, frisches Death Cross",
+     "p": 2,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Woche: Tief über dem April-Tief. Tag: tiefere Hochs",
+     "p": 8,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "Tag dreht aus dem 30er-Bereich nach oben, Woche neutral",
+     "p": 10,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Beide fallen mit dem Kurs",
+     "p": 4,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Rückkauf 1.8 %, CEO-Verkauf",
+     "p": 0,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "Okt–Dez: 63–65 % positive Jahre",
+     "p": 5,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 21.5,
+    "schnitt": 24.1,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      81.8,
+      84.3
+     ]
+    ],
+    "widerstand": [
+     [
+      93,
+      96
+     ]
+    ],
+    "trigger": 90.1,
+    "abbruch": 81
+   },
+   "zahlen": "2026-10-30",
+   "dividende": "2.5 %",
+   "fazit": "Sehr profitable Firma mit dem höchsten ROIC der Gruppe (46 %), aber nur 2–3 % Wachstum. Qualität hellgrün (68), Timing orange (41). Der Kurs ist nahe an die Kaufzone 81.8–84.3 $ gelaufen. Für einen Einstieg fehlt noch die Wende auf dem Tageschart: Tagesschluss über 90.10 $.",
+   "about": "Colgate-Palmolive verkauft Zahnpasta und Zahnbürsten (Colgate, Weltmarktführer mit über 40 % Marktanteil), Seifen und Duschmittel (Palmolive), Reinigungsmittel und Tiernahrung (Hill's). Rund zwei Drittel des Umsatzes kommen aus dem Ausland, vor allem aus Lateinamerika und Asien.",
+   "kpis": [
+    {
+     "ampel": "w",
+     "name": "Organisches Wachstum",
+     "wert": "+2.4 %",
+     "text": "2. Quartal 2026 (Menge +0.8, Preis +1.6). Ziel 2026: +1 bis +4 %. Eher schwach."
+    },
+    {
+     "ampel": "g",
+     "name": "Operative Marge",
+     "wert": "20.6 %",
+     "text": "Von 100 $ Umsatz bleiben knapp 21 $ Betriebsgewinn. Gut, seit Jahren stabil um 20–21 %."
+    },
+    {
+     "ampel": "w",
+     "name": "Gewinn pro Aktie (bereinigt)",
+     "wert": "+5 bis 8 %",
+     "text": "Ziel 2026: mittlerer einstelliger Zuwachs, im Juli angehoben. Ausgewiesen wegen der Abschreibung tiefer."
+    },
+    {
+     "ampel": "g",
+     "name": "ROIC",
+     "wert": "45.6 %",
+     "text": "Auf jeden investierten Dollar 46 Cent Gewinn. Ausgezeichnet und steigend."
+    },
+    {
+     "ampel": "g",
+     "name": "Free Cashflow",
+     "wert": "3.86 Mrd. $",
+     "text": "Seit 2022 (1.86 Mrd.) jedes Jahr gestiegen. Sehr gut."
+    },
+    {
+     "ampel": "g",
+     "name": "Nettoschulden / EBITDA",
+     "wert": "1.3",
+     "text": "Gut tragbar."
+    },
+    {
+     "ampel": "g",
+     "name": "KGV erwartet",
+     "wert": "21.5",
+     "text": "Eigener Schnitt: 24.1. Rund 11 % günstiger als üblich."
+    },
+    {
+     "ampel": "g",
+     "name": "Dividende",
+     "wert": "2.5 %",
+     "text": "63 Jahre in Folge erhöht."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "93–96 $",
+     "text": "Widerstand: Hochs von Juli und August."
+    },
+    {
+     "art": "t",
+     "wert": "90.10 $",
+     "text": "Trigger: Tagesschluss über dem letzten tieferen Hoch (Anfang September)."
+    },
+    {
+     "art": "s",
+     "wert": "81.8–84.3 $",
+     "text": "Kaufzone: Tiefs von April, Juni und Oktober."
+    },
+    {
+     "art": "r",
+     "wert": "81 $",
+     "text": "Abbruch: Wochenschluss unter dem April-Tief."
+    }
+   ],
+   "pro": [
+    "Weltmarktführer bei Zahnpasta, sehr starke Marke.",
+    "ROIC 46 %: eine der profitabelsten Firmen überhaupt.",
+    "Free Cashflow steigt jedes Jahr.",
+    "Bewertung rund 11 % unter dem eigenen Schnitt.",
+    "Kurs nahe an einer klaren Kaufzone."
+   ],
+   "contra": [
+    "Organisches Wachstum nur 2–3 %.",
+    "Nordamerika schrumpft (Preiskampf, Eigenmarken).",
+    "Höhere Öl- und Kunststoffpreise drücken die Marge.",
+    "CEO verkaufte im August für 14.8 Mio. $.",
+    "Tages-Trend noch abwärts."
+   ],
+   "smart_money": [
+    "Colgate selbst: Kauft für rund 1.3 Mrd. $ pro Jahr eigene Aktien zurück (rund 1.8 % des Börsenwerts).",
+    "Insider-Käufe: Keine.",
+    "Insider-Verkäufe: Rund 34 Mio. $, davon CEO Noel Wallace 14.8 Mio. $ (August) und Finanzchef Stanley Sutula 9.2 Mio. $.",
+    "Analysten: Durchschnittliches Kursziel rund 99 $, Einstufung „Moderat kaufen“ (12 Kaufen, 7 Halten)."
+   ],
+   "cheatsheet": "analysen/CL.html",
+   "claude": "https://claude.ai/artifact/QTCG6gwSZaUd764HwPNUij"
+  },
+  {
+   "ticker": "PG",
+   "symbol": "PG",
+   "name": "Procter & Gamble",
+   "tags": [
+    "Dividende",
+    "Qualität",
+    "Defensiv"
+   ],
+   "land": "USA",
+   "region": "USA",
+   "branche": "Körperpflege, Haushalt",
+   "status": "beobachten",
+   "waehrung": "USD",
+   "analyse": {
+    "datenstand": "2026-10-07",
+    "kurs": 147.82,
+    "q": 59,
+    "t": 41
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "4 von 4 Quartalen über Vorjahr, aber ohne Tempo",
+     "p": 12,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "Organisch rund +2 %, Ziel 2027 +1 bis +3 %",
+     "p": 0,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "24.8 % (6 Pkt.), seit 2022 steigend (6 Pkt.)",
+     "p": 12,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "Rund +3 % pro Jahr, Ziel 2027 0 bis +3 %",
+     "p": 2,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Gross, immer positiv, schwankend",
+     "p": 6,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "21.6 %, stabil",
+     "p": 13,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Nettoschulden/EBITDA 1.0",
+     "p": 7,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "Erw. KGV 21.2 statt Ø 23.4 (−9 %)",
+     "p": 7,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs knapp unter beiden, Linien flach",
+     "p": 4,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs über EMA 50, knapp unter EMA 200",
+     "p": 4,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Seitwärts mit höheren Tiefs (Dreieck)",
+     "p": 10,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "54 / 52, neutral",
+     "p": 7,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Tag bullische Divergenz, Woche neutral",
+     "p": 11,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Rückkauf rund 1.5 %, viele Insider-Verkäufe",
+     "p": 0,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "Okt–Dez: 65–66 % positive Jahre",
+     "p": 5,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 21.2,
+    "schnitt": 23.4,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      138,
+      142
+     ]
+    ],
+    "widerstand": [
+     [
+      152.5,
+      154.5
+     ]
+    ],
+    "trigger": 149.5,
+    "abbruch": 137
+   },
+   "zahlen": "2026-10-22",
+   "dividende": "2.9 %",
+   "fazit": "Die Qualität ist hoch, aber das Wachstum ist eingeschlafen (organisch 0 % im letzten Quartal) und der Gewinn wächst kaum. Qualität gelb (59), Timing orange (41). Der Kurs bildet seit Januar eine Bodenzone bei 138–142 $ mit leicht steigenden Tiefs, und auf dem Tageschart wird still gekauft. Erst ein Tagesschluss über 149.50 $ wäre ein erstes Wende-Zeichen.",
+   "about": "Procter & Gamble ist der grösste Hersteller von Haushalts- und Körperpflegeprodukten der Welt: Waschmittel (Ariel, Tide), Windeln (Pampers), Rasierer (Gillette), Zahnpflege (Oral-B), Haarpflege (Pantene, Head & Shoulders). Diese Dinge kauft man auch in einer Rezession, darum gilt P&G als Musterbeispiel einer defensiven Aktie.",
+   "kpis": [
+    {
+     "ampel": "w",
+     "name": "Organisches Wachstum",
+     "wert": "0 %",
+     "text": "Letztes Quartal (April–Juni). Ziel 2027: +1 bis +3 %. Für P&G schwach, früher waren es 4–7 %."
+    },
+    {
+     "ampel": "g",
+     "name": "Operative Marge",
+     "wert": "24.8 %",
+     "text": "Von 100 $ Umsatz bleiben fast 25 $ Betriebsgewinn. Sehr hoch und seit 2022 gestiegen."
+    },
+    {
+     "ampel": "b",
+     "name": "Gewinn pro Aktie (EPS)",
+     "wert": "0 bis +3 %",
+     "text": "Firmenziel 2027 (bereinigt). Seit 2022 im Schnitt nur rund +3 % pro Jahr. Schwach."
+    },
+    {
+     "ampel": "g",
+     "name": "ROIC",
+     "wert": "21.6 %",
+     "text": "Auf jeden investierten Dollar fast 22 Cent Gewinn. Sehr gut und stabil."
+    },
+    {
+     "ampel": "g",
+     "name": "Free Cashflow",
+     "wert": "15.1 Mrd. $",
+     "text": "Riesig und immer positiv, schwankt aber leicht von Jahr zu Jahr."
+    },
+    {
+     "ampel": "g",
+     "name": "Nettoschulden / EBITDA",
+     "wert": "1.0",
+     "text": "In rund einem Jahr wären die Nettoschulden aus dem Betriebsgewinn bezahlt. Sehr solide."
+    },
+    {
+     "ampel": "w",
+     "name": "KGV erwartet",
+     "wert": "21.2",
+     "text": "Du zahlst gut 21 erwartete Jahresgewinne. Eigener Schnitt: 23.4. Rund 10 % günstiger als üblich."
+    },
+    {
+     "ampel": "g",
+     "name": "Dividende",
+     "wert": "2.9 %",
+     "text": "70 Jahre in Folge erhöht, rund 66 % des Gewinns. Dazu rund 5 Mrd. $ Aktienrückkäufe pro Jahr."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "152.5–154.5 $",
+     "text": "Widerstand: Wochen-EMA 200 und Hochs von April und Juli."
+    },
+    {
+     "art": "t",
+     "wert": "149.50 $",
+     "text": "Trigger: Change of Character. Tagesschluss über dem Hoch vom 28.9., idealerweise mit weiter steigender Tages-A/D."
+    },
+    {
+     "art": "s",
+     "wert": "138–142 $",
+     "text": "Kaufzone: Boden aus vier Tiefs seit Januar. Hier haben Käufer immer wieder gehalten."
+    },
+    {
+     "art": "r",
+     "wert": "137 $",
+     "text": "Abbruch: Ein Wochenschluss darunter wäre ein neues 2-Jahres-Tief."
+    }
+   ],
+   "pro": [
+    "Marktführer mit Marken, die man täglich braucht.",
+    "Hohe Marge (25 %) und hoher ROIC (22 %).",
+    "Wenig Schulden, 70 Jahre Dividendenerhöhung.",
+    "Bewertung rund 10 % unter dem eigenen Schnitt.",
+    "Bodenbildung mit höheren Tiefs und still steigender Tages-A/D."
+   ],
+   "contra": [
+    "Wachstum fast null, der Gewinn wächst kaum.",
+    "Rohstoff- und Ölpreise drücken 2027 auf die Marge.",
+    "Neuer Chef, Umbau mit Stellenabbau läuft noch.",
+    "Viele Insider-Verkäufe, keine Käufe.",
+    "Trend auf Woche und Tag noch leicht abwärts."
+   ],
+   "smart_money": [
+    "P&G selbst: Kauft jedes Jahr für rund 5 Mrd. $ eigene Aktien zurück (rund 1.5 % des Börsenwerts).",
+    "Insider-Käufe: Keine in den letzten 12 Monaten.",
+    "Insider-Verkäufe: Rund 57 Mio. $ von 10 Personen, vor allem vom abgetretenen Präsidenten Jon Moeller (28 Mio. $) und Marketingchef Marc Pritchard (15 Mio. $).",
+    "Analysten: Durchschnittliches Kursziel rund 161 $, Einstufung „Moderat kaufen“. Evercore stufte am 6.10. auf „Outperform“ hoch (Ziel 166 $), HSBC und Argus im August auf „Halten“ herunter."
+   ],
+   "cheatsheet": "analysen/PG.html",
+   "claude": "https://claude.ai/artifact/1gSbZZg2bGHBbPFm4WRBh2"
+  },
+  {
+   "ticker": "PEP",
+   "symbol": "PEP",
+   "name": "PepsiCo",
+   "tags": [
+    "Dividende",
+    "Defensiv"
+   ],
+   "land": "USA",
+   "region": "USA",
+   "branche": "Snacks, Getränke",
+   "status": "beobachten",
+   "waehrung": "USD",
+   "analyse": {
+    "datenstand": "2026-10-07",
+    "kurs": 123.73,
+    "q": 59,
+    "t": 17
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "4 von 4 Quartalen über Vorjahr",
+     "p": 12,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "Organisch rund +3 % (Ziel 2026)",
+     "p": 3,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "16.0 % (6 Pkt.), seit 2024 flach (3 Pkt.)",
+     "p": 9,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "Bereinigt nur +2.5 bis 3.5 % (gesenkt)",
+     "p": 2,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Positiv, schwankend, grob steigend",
+     "p": 6,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "19.4 %, stabil",
+     "p": 10,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Nettoschulden/EBITDA 2.3",
+     "p": 5,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "Erw. KGV rund 14.5 statt Ø 20.4 (−29 %)",
+     "p": 12,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs weit unter beiden, Abstand wächst",
+     "p": 0,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs weit unter beiden",
+     "p": 0,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Tiefere Hochs und Tiefs, neues Jahrestief",
+     "p": 1,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "22 / 28, überverkauft ohne Bodenzeichen",
+     "p": 5,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Beide auf neuem Tief",
+     "p": 3,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Keine Insider-Käufe, kleiner Rückkauf, Elliott an Bord",
+     "p": 3,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "Okt–Nov: 63–67 % positive Jahre",
+     "p": 5,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 14.5,
+    "schnitt": 20.4,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      115,
+      120
+     ],
+     [
+      104,
+      108
+     ]
+    ],
+    "widerstand": [
+     [
+      134,
+      137
+     ]
+    ],
+    "trigger": 131.2,
+    "abbruch": null
+   },
+   "zahlen": "2027-02-03",
+   "dividende": "4.8 %",
+   "fazit": "Günstig wie seit Jahren nicht (erwartetes KGV rund 14.5 statt sonst 20), aber im klaren Abwärtstrend. Heute (8.10.) wurde der Gewinnausblick erneut gesenkt. Qualität gelb (59), Timing rot (17). Eine Bodenbildung ist noch nicht zu sehen. Erstes Zeichen wäre ein Tagesschluss über 131.20 $.",
+   "about": "PepsiCo ist der grösste Snack-Hersteller der Welt (Lay's, Doritos, Cheetos, Quaker) und die Nummer zwei bei Getränken (Pepsi, Gatorade). Rund 55 % des Umsatzes kommen aus Snacks und Lebensmitteln, 45 % aus Getränken. Knapp 60 % stammen aus Nordamerika.",
+   "kpis": [
+    {
+     "ampel": "w",
+     "name": "Organisches Wachstum",
+     "wert": "+3.1 %",
+     "text": "3. Quartal 2026, aber fast nur über Preise (+3 %), Menge nur +0.5 %. Nordamerika flach, Ausland stark (+6 bis +9 %)."
+    },
+    {
+     "ampel": "w",
+     "name": "Operative Marge",
+     "wert": "16.0 %",
+     "text": "Von 100 $ Umsatz bleiben 16 $ Betriebsgewinn. Ordentlich, seit 2024 aber nicht mehr gestiegen."
+    },
+    {
+     "ampel": "b",
+     "name": "Gewinn pro Aktie (bereinigt)",
+     "wert": "+2.5 bis 3.5 %",
+     "text": "Neuer Ausblick 2026 (gesenkt am 8.10.). Schwach."
+    },
+    {
+     "ampel": "g",
+     "name": "ROIC",
+     "wert": "19.4 %",
+     "text": "Auf jeden investierten Dollar gut 19 Cent Gewinn. Gut und stabil."
+    },
+    {
+     "ampel": "g",
+     "name": "Free Cashflow",
+     "wert": "9.3 Mrd. $",
+     "text": "Letzte 12 Monate. Positiv, seit 2022 grob steigend."
+    },
+    {
+     "ampel": "w",
+     "name": "Nettoschulden / EBITDA",
+     "wert": "2.3",
+     "text": "Mittel: in gut 2 Jahren aus dem Betriebsgewinn tilgbar."
+    },
+    {
+     "ampel": "g",
+     "name": "KGV erwartet",
+     "wert": "≈ 14.5",
+     "text": "Eigener Schnitt: 20.4. Rund 29 % günstiger als üblich. So billig war PepsiCo seit über 10 Jahren nicht."
+    },
+    {
+     "ampel": "w",
+     "name": "Dividende",
+     "wert": "4.8 %",
+     "text": "54 Jahre in Folge erhöht. Aber 78 % des Gewinns werden schon ausgeschüttet: wenig Spielraum."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "134–137 $",
+     "text": "Widerstand: Tages-EMA 50 und Bruchkante vom September."
+    },
+    {
+     "art": "t",
+     "wert": "131.20 $",
+     "text": "Trigger: Tagesschluss über dem letzten tieferen Hoch (22.9.), mit steigender Tages-A/D."
+    },
+    {
+     "art": "s",
+     "wert": "115–120 $",
+     "text": "Mögliche Unterstützung: Kursbereich von 2019."
+    },
+    {
+     "art": "s",
+     "wert": "104–108 $",
+     "text": "Tief von 2020 (Corona). Dort läge das erwartete KGV bei rund 13."
+    }
+   ],
+   "pro": [
+    "Sehr günstig: erwartetes KGV rund 14.5 statt sonst 20.",
+    "Starke Marken, das Ausland wächst mit 6–9 %.",
+    "Hohe Dividende (4.8 %), 54 Jahre in Folge erhöht.",
+    "Aktivist Elliott treibt Kostensenkungen voran.",
+    "RSI stark überverkauft: Gegenbewegungen werden wahrscheinlicher."
+   ],
+   "contra": [
+    "Klarer Abwärtstrend auf allen Zeitebenen, neues Jahrestief.",
+    "Gewinnausblick 2026 heute erneut gesenkt.",
+    "USA: Menge stagniert, Kunden sparen.",
+    "Die Dividende braucht schon 78 % des Gewinns.",
+    "A/D zeigt noch keine Käufer."
+   ],
+   "smart_money": [
+    "PepsiCo selbst: Nur rund 1 Mrd. $ Rückkauf pro Jahr (0.3 % des Börsenwerts). Das meiste Geld geht in die Dividende (7.9 Mrd. $).",
+    "Aktivist: Elliott Management hält seit September 2025 rund 4 Mrd. $ und drängt auf Kostensenkungen.",
+    "Insider: Keine Käufe, nur ein kleiner Verkauf (0.4 Mio. $, Juli).",
+    "Analysten: Einstufung „Halten“, durchschnittliches Kursziel rund 150 $. JPMorgan und Deutsche Bank stuften Ende September auf „Halten“ ab, viele Ziele wurden gesenkt."
+   ],
+   "cheatsheet": "analysen/PEP.html",
+   "claude": "https://claude.ai/artifact/ENzwJM6P1KTcfGdS7ysQ8r"
+  },
+  {
+   "ticker": "JNJ",
+   "symbol": "JNJ",
+   "name": "Johnson & Johnson",
+   "tags": [
+    "Dividende",
+    "Defensiv"
+   ],
+   "land": "USA",
+   "region": "USA",
+   "branche": "Pharma, Medizintechnik",
+   "status": "beobachten",
+   "waehrung": "USD",
+   "analyse": {
+    "datenstand": "2026-10-05",
+    "kurs": 252.93,
+    "q": 57,
+    "t": 46
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "4 von 4 Quartalen über Vorjahr",
+     "p": 12,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "+8.1 %",
+     "p": 6,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "27.7 % (9 Pkt.), stabil (3 Pkt.)",
+     "p": 12,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "Bereinigt 2026 nur rund +2 %",
+     "p": 2,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Positiv, 2025 leicht gesunken",
+     "p": 6,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "19.9 %, fallend (−1)",
+     "p": 9,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Nettoschulden/EBITDA 0.8",
+     "p": 9,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "Erw. KGV 23.1 vs. Ø 16.6 (+39 %)",
+     "p": 1,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs über beiden, EMA 50 über EMA 200",
+     "p": 18,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs unter EMA 50, über EMA 200 (Rücksetzer)",
+     "p": 6,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Change of Character nach unten",
+     "p": 4,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "Tag 29: überverkauft ohne Bodenzeichen",
+     "p": 5,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Beide fallen mit dem Kurs",
+     "p": 4,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Ein kleiner Kauf, gehäufte Verkäufe, kein Rückkauf",
+     "p": 4,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "Okt–Dez: Ø 66 % positive Jahre",
+     "p": 5,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 23.1,
+    "schnitt": 16.6,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      245.5,
+      250.4
+     ],
+     [
+      240,
+      241.5
+     ]
+    ],
+    "widerstand": [
+     [
+      260,
+      264
+     ]
+    ],
+    "trigger": 264,
+    "abbruch": 240
+   },
+   "zahlen": "2026-10-13",
+   "dividende": "2.1 %",
+   "fazit": "Solider Pharma-Riese nach einer Rally von über 70 % seit Anfang 2025. Jetzt ist er teuer, und der Ausblick wurde gesenkt. Qualität gelb, Timing gelb. Der Tages-RSI ist überverkauft, ein Boden ist aber noch nicht da. Die Zone 241–250 $ ist interessant, wenn sie hält.",
+   "about": "Johnson & Johnson hat zwei Standbeine: Innovative Medizin (rund zwei Drittel, z. B. Darzalex gegen Blutkrebs, Tremfya gegen Schuppenflechte und Darmentzündungen) und Medizintechnik (Herzkatheter, OP-Geräte, Orthopädie). Die Konsumgüter (Kenvue) wurden 2023 abgespalten. Die Firma zahlt seit über 60 Jahren eine steigende Dividende.",
+   "kpis": [
+    {
+     "ampel": "g",
+     "name": "Umsatzwachstum",
+     "wert": "+8.1 %",
+     "text": "Letzte 12 Monate. Für einen Konzern mit 98 Mrd. $ Umsatz sehr gut."
+    },
+    {
+     "ampel": "g",
+     "name": "Operative Marge",
+     "wert": "27.7 %",
+     "text": "Von 100 $ Umsatz bleiben knapp 28 $ Betriebsgewinn. Stabil."
+    },
+    {
+     "ampel": "b",
+     "name": "Gewinnausblick 2026",
+     "wert": "+1–3 %",
+     "text": "Bereinigter Gewinn pro Aktie 10.96–11.11 $. Nach der Senkung wächst der Gewinn 2026 kaum."
+    },
+    {
+     "ampel": "w",
+     "name": "ROIC",
+     "wert": "19.9 %",
+     "text": "Gut, aber seit 2021 (26 %) fallend."
+    },
+    {
+     "ampel": "g",
+     "name": "Free Cashflow",
+     "wert": "22.2 Mrd. $",
+     "text": "Sehr hoch und stabil."
+    },
+    {
+     "ampel": "g",
+     "name": "Nettoschulden / EBITDA",
+     "wert": "0.8",
+     "text": "Gut tragbar."
+    },
+    {
+     "ampel": "b",
+     "name": "KGV erwartet",
+     "wert": "23.1",
+     "text": "Eigener Schnitt 2021–2025: rund 16.6. Die Aktie ist fast 40 % teurer als üblich."
+    },
+    {
+     "ampel": "g",
+     "name": "Dividende",
+     "wert": "2.1 %",
+     "text": "Seit über 60 Jahren jedes Jahr erhöht."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "260–264 $",
+     "text": "Widerstand: altes Tief vom 15.9. und EMA 50 (Tag)."
+    },
+    {
+     "art": "t",
+     "wert": "264 $",
+     "text": "Trigger: Tagesschluss zurück über die EMA 50 (Tag). Dann wäre der Rücksetzer vorbei."
+    },
+    {
+     "art": "s",
+     "wert": "245.5–250.4 $",
+     "text": "Erste Kaufzone: Tiefs vom Juli und August."
+    },
+    {
+     "art": "s",
+     "wert": "240–241 $",
+     "text": "Zweite Kaufzone: EMA 200 (Tag)."
+    },
+    {
+     "art": "r",
+     "wert": "240 $",
+     "text": "Abbruch: Wochenschluss darunter, dann droht ein Rückfall Richtung 227 $ (Juni-Tief)."
+    }
+   ],
+   "pro": [
+    "Breites, stabiles Geschäft mit starken neuen Medikamenten.",
+    "Hoher Free Cashflow, steigende Dividende seit über 60 Jahren.",
+    "Langfristiger Aufwärtstrend intakt (Woche).",
+    "Tages-RSI überverkauft: Ein Rücksetzer in die Zonen ist bald ausgereizt.",
+    "Oktober saisonal stark."
+   ],
+   "contra": [
+    "Teuer: KGV fast 40 % über dem eigenen Schnitt.",
+    "Gewinnausblick 2026 gesenkt, schwaches 3. Quartal erwartet.",
+    "2027 laufen Patente für 4–4.5 Mrd. $ Umsatz aus.",
+    "Talk-Klagen weiter offen.",
+    "Trendbruch auf dem Tageschart, A/D fällt."
+   ],
+   "smart_money": [
+    "J&J selbst: Kein Netto-Rückkauf (Aktienzahl steigt leicht). Dividende 2.1 %, Ausschüttung 62 % des Gewinns.",
+    "Insider-Käufe: Verwaltungsrat Mark Weinberger kaufte 1'000 Aktien für 147'000 $. Kleines, aber echtes Signal.",
+    "Insider-Verkäufe: Rund 33 Mio. $ in 6 Monaten durch mehrere Geschäftsleitungsmitglieder, z. B. 9.2 Mio. $ am 2.9. genau am Hoch.",
+    "Analysten: Durchschnittliches Kursziel 279 $, Einstufung „Buy“."
+   ],
+   "cheatsheet": "analysen/JNJ.html",
+   "claude": "https://claude.ai/artifact/SLS16XEoGu8mQv7Wuv7RkY"
+  },
+  {
+   "ticker": "IBM",
+   "symbol": "IBM",
+   "name": "IBM",
+   "tags": [
+    "Dividende"
+   ],
+   "land": "USA",
+   "region": "USA",
+   "branche": "IT, Software",
+   "status": "beobachten",
+   "waehrung": "USD",
+   "analyse": {
+    "datenstand": "2026-10-05",
+    "kurs": 221.58,
+    "q": 57,
+    "t": 34
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "4 von 4 Quartalen über Vorjahr, Tempo bricht ein",
+     "p": 12,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "+7.9 %, teils durch Übernahmen",
+     "p": 6,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "18.5 % (6 Pkt.), steigend (6 Pkt.)",
+     "p": 12,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "Bereinigt rund +5 %",
+     "p": 5,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Positiv, schwankend",
+     "p": 6,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "14 %, steigend (+1)",
+     "p": 7,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Nettoschulden/EBITDA 3.5",
+     "p": 2,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "Erw. KGV 17.4 vs. Ø rund 18 (±10 %)",
+     "p": 7,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs unter EMA 50, genau auf EMA 200",
+     "p": 12,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs unter beiden, Death Cross",
+     "p": 1,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Spanne 199–252 $, Kurs im unteren Drittel",
+     "p": 8,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "41 / 42: ohne Signal",
+     "p": 7,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Bärische Divergenz, Woche auf 2-Jahres-Tief",
+     "p": 1,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Kein Rückkauf, Käufe über 6 Monate her",
+     "p": 2,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "Okt–Dez: Ø 55 % positive Jahre",
+     "p": 3,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 17.4,
+    "schnitt": 18,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      218,
+      221
+     ],
+     [
+      199,
+      206
+     ]
+    ],
+    "widerstand": [
+     [
+      249,
+      252
+     ]
+    ],
+    "trigger": 234.3,
+    "abbruch": 199
+   },
+   "zahlen": "2026-10-21",
+   "dividende": "3.0 %",
+   "fazit": "Nach einem Kursfeuerwerk im Mai kam im Juli der grösste Tagesverlust der Firmengeschichte. Das Geschäft wächst langsam, die Schulden sind hoch. Qualität gelb, Timing orange. Der Kurs liegt auf der EMA 200 (Woche), aber die A/D-Linie zeigt Abgaben. Abwarten.",
+   "about": "IBM verdient heute vor allem mit Software (Red Hat, Datenbanken, Automatisierung, KI-Plattform watsonx), mit IT-Beratung und mit Grossrechnern (IBM Z) für Banken und Versicherungen. Dazu baut IBM Quantencomputer. Ende 2025 kam der Daten-Streaming-Spezialist Confluent dazu.",
+   "kpis": [
+    {
+     "ampel": "w",
+     "name": "Umsatzwachstum",
+     "wert": "+7.9 %",
+     "text": "Letzte 12 Monate, teils durch Übernahmen. Im 2. Quartal nur noch +1 %."
+    },
+    {
+     "ampel": "g",
+     "name": "Operative Marge",
+     "wert": "18.5 %",
+     "text": "Von 100 $ Umsatz bleiben gut 18 $. Seit 2022 (12.4 %) deutlich gestiegen."
+    },
+    {
+     "ampel": "w",
+     "name": "Gewinn pro Aktie",
+     "wert": "+5 %",
+     "text": "Bereinigt im 2. Quartal (2.93 $). Ausgewiesen verzerrt durch Sondereffekte."
+    },
+    {
+     "ampel": "w",
+     "name": "ROIC",
+     "wert": "14 %",
+     "text": "Mittelmässig, aber steigend (2021: 8 %)."
+    },
+    {
+     "ampel": "g",
+     "name": "Free Cashflow",
+     "wert": "13.8 Mrd. $",
+     "text": "Stabil hoch. Free-Cashflow-Rendite 6.6 %."
+    },
+    {
+     "ampel": "b",
+     "name": "Nettoschulden / EBITDA",
+     "wert": "3.5",
+     "text": "Hoch, nach der Confluent-Übernahme rund 66 Mrd. $ Schulden."
+    },
+    {
+     "ampel": "w",
+     "name": "KGV erwartet",
+     "wert": "17.4",
+     "text": "Eigener Schnitt 2021–2025: rund 18. Fair bewertet."
+    },
+    {
+     "ampel": "g",
+     "name": "Dividende",
+     "wert": "3.0 %",
+     "text": "Hoch und seit Jahrzehnten steigend, aber 60 % des Gewinns."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "249–252 $",
+     "text": "Widerstand: EMA 200 (Tag) und Hoch vom 15.9."
+    },
+    {
+     "art": "t",
+     "wert": "234.30 $",
+     "text": "Trigger: Change of Character. Tagesschluss über dem Hoch vom 1.10."
+    },
+    {
+     "art": "s",
+     "wert": "218–221 $",
+     "text": "Unterstützung: Tief vom 30.9. und EMA 200 (Woche)."
+    },
+    {
+     "art": "s",
+     "wert": "199–206 $",
+     "text": "Crash-Tief vom Juli."
+    },
+    {
+     "art": "r",
+     "wert": "199 $",
+     "text": "Abbruch: Wochenschluss darunter, dann ist der langfristige Trend gebrochen."
+    }
+   ],
+   "pro": [
+    "Hoher Free Cashflow (6.6 % Rendite) und 3 % Dividende.",
+    "Marge steigt seit Jahren, Red Hat wächst weiter zweistellig.",
+    "Quantencomputer als Zukunftsoption mit staatlicher Unterstützung.",
+    "Bewertung fair, Kurs auf der langfristigen Trendlinie (EMA 200 Woche)."
+   ],
+   "contra": [
+    "Wachstum bricht ein: Kunden kaufen KI-Hardware statt Software.",
+    "Hohe Schulden (Nettoschulden 3.5 × EBITDA).",
+    "A/D zeigt Verteilung: Grosse Anleger steigen aus.",
+    "Death Cross auf dem Tageschart.",
+    "Aktienzahl steigt statt sinkt."
+   ],
+   "smart_money": [
+    "IBM selbst: Kein Rückkauf, die Aktienzahl steigt leicht. Dividende 3.0 %.",
+    "Insider-Käufe: Drei Verwaltungsräte kauften im Januar/Februar 2026 für zusammen 417'000 $. Das ist über 6 Monate her.",
+    "Insider-Verkäufe: Software-Chef Rob Thomas verkaufte am 26.8. für 5.8 Mio. $.",
+    "Analysten: Durchschnittliches Kursziel 241 $, Einstufung „Buy“."
+   ],
+   "cheatsheet": "analysen/IBM.html",
+   "claude": "https://claude.ai/artifact/3T7NvXoaHS6w3ARERyzC5v"
+  },
+  {
+   "ticker": "NET",
+   "symbol": "NET",
+   "name": "Cloudflare",
+   "tags": [
+    "Wachstum"
+   ],
+   "land": "USA",
+   "region": "USA",
+   "branche": "Cloud-Sicherheit",
+   "status": "beobachten",
+   "waehrung": "USD",
+   "analyse": {
+    "datenstand": "2026-10-05",
+    "kurs": 359.49,
+    "q": 55,
+    "t": 59
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "4 von 4 Quartalen über Vorjahr, Tempo steigt",
+     "p": 15,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "+33.5 % in 12 Monaten",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "−7.8 % (0 Pkt.), Verlust wird kleiner (6 Pkt.)",
+     "p": 6,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "Ausgewiesen Verlust",
+     "p": 0,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Seit 2022 jedes Jahr gestiegen (aber kleiner als Aktienvergütung)",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "−2.5 %, steigend (+1)",
+     "p": 3,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Netto-Cash",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "KUV 49 vs. Ø rund 31 (über 30 % teurer)",
+     "p": 1,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs über beiden, EMA 50 über EMA 200",
+     "p": 19,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs über beiden",
+     "p": 10,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Höhere Hochs und Tiefs, Kurs am Allzeithoch (Premium)",
+     "p": 14,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "Woche 71: überkauft",
+     "p": 3,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Woche steigt, Tag leichte bärische Divergenz",
+     "p": 10,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Grosse Insider-Verkäufe, kein Rückkauf",
+     "p": 0,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "Okt–Dez: Ø 57 % positive Jahre (nur 7 Jahre)",
+     "p": 3,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 49,
+    "schnitt": 31,
+    "typ": "KUV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      312,
+      333
+     ],
+     [
+      269,
+      285
+     ]
+    ],
+    "widerstand": [
+     [
+      365,
+      368
+     ]
+    ],
+    "trigger": null,
+    "abbruch": 269
+   },
+   "zahlen": "2026-10-29",
+   "dividende": null,
+   "fazit": "Ein echter Gewinner des KI-Booms mit über 30 % Wachstum, aber an der Börse sehr teuer und noch ohne Gewinn. Qualität gelb, Timing gelb. Der Trend ist stark, aber überhitzt (RSI Woche 71). Eine bessere Chance wäre ein Rücksetzer auf 312–333 $.",
+   "about": "Cloudflare betreibt ein weltweites Netzwerk mit Rechenzentren in über 300 Städten. Rund ein Fünftel aller Websites läuft darüber. Cloudflare schützt sie vor Angriffen, macht sie schneller und bietet Entwicklern eine Plattform (Workers), um Programme und KI-Agenten direkt im Netz laufen zu lassen. Mehr als die Hälfte des Verkehrs stammt inzwischen nicht mehr von Menschen, sondern von Bots und KI-Agenten.",
+   "kpis": [
+    {
+     "ampel": "g",
+     "name": "Umsatzwachstum",
+     "wert": "+36 %",
+     "text": "2. Quartal. Das Tempo beschleunigt sich seit einem Jahr (von 27 % auf 36 %)."
+    },
+    {
+     "ampel": "g",
+     "name": "Bruttomarge",
+     "wert": "72.6 %",
+     "text": "Von 100 $ Umsatz bleiben nach den direkten Kosten knapp 73 $. Typisch für Software."
+    },
+    {
+     "ampel": "b",
+     "name": "Operative Marge",
+     "wert": "−7.8 %",
+     "text": "Ausgewiesen noch ein Verlust, vor allem wegen hoher Aktienvergütungen (508 Mio. $ pro Jahr)."
+    },
+    {
+     "ampel": "w",
+     "name": "Free Cashflow",
+     "wert": "342 Mio. $",
+     "text": "Positiv und steigend, aber kleiner als die Aktienvergütungen."
+    },
+    {
+     "ampel": "g",
+     "name": "Netto-Cash",
+     "wert": "633 Mio. $",
+     "text": "Mehr Bargeld als Schulden."
+    },
+    {
+     "ampel": "g",
+     "name": "Kunden-Ausgaben",
+     "wert": "120 %",
+     "text": "Bestehende Kunden geben 20 % mehr aus als vor einem Jahr (Net Retention)."
+    },
+    {
+     "ampel": "b",
+     "name": "Kurs-Umsatz-Verhältnis (KUV)",
+     "wert": "49",
+     "text": "Du zahlst 49 Jahresumsätze. Eigener Schnitt 2021–2025: rund 31. Sehr teuer."
+    },
+    {
+     "ampel": "w",
+     "name": "Verwässerung",
+     "wert": "+2 % pro Jahr",
+     "text": "Die Aktienzahl steigt durch Mitarbeiteraktien."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "367.4 $",
+     "text": "Allzeithoch vom 24.9."
+    },
+    {
+     "art": "s",
+     "wert": "344–349 $",
+     "text": "Erste Unterstützung: Tagesschlusskurse von Ende September."
+    },
+    {
+     "art": "t",
+     "wert": "312–333 $",
+     "text": "Kaufzone: Retest des August-Hochs (330–333 $) bis zur EMA 50 (Tag, 312 $), Mitte der Bewegung bei 318 $."
+    },
+    {
+     "art": "s",
+     "wert": "269–285 $",
+     "text": "Tiefere Zone: Tief vom 2.9. Darunter wäre der Trend gebrochen."
+    },
+    {
+     "art": "r",
+     "wert": "269 $",
+     "text": "Abbruch: Wochenschluss darunter."
+    }
+   ],
+   "pro": [
+    "Wachstum über 30 % und beschleunigend, Rekord bei Grosskunden.",
+    "Profitiert direkt von KI-Agenten im Internet.",
+    "Netto-Cash, Free Cashflow steigt.",
+    "Sehr starker Aufwärtstrend auf allen Zeitebenen.",
+    "Partnerschaft mit OpenAI im Sicherheitsbereich."
+   ],
+   "contra": [
+    "Sehr teuer: 49 Jahresumsätze, Analysten-Kursziel unter dem Kurs.",
+    "Noch kein ausgewiesener Gewinn, hohe Aktienvergütungen.",
+    "Massive Insider-Verkäufe.",
+    "RSI Woche überkauft, kurzfristig wenig Puffer.",
+    "Hohe Schwankung (Beta 1.65): Rücksetzer von 20–30 % sind bei dieser Aktie normal."
+   ],
+   "smart_money": [
+    "Cloudflare selbst: Kein Rückkauf, keine Dividende. Die Aktienzahl steigt um rund 2 % pro Jahr.",
+    "Insider-Käufe: Keine in den letzten 12 Monaten.",
+    "Insider-Verkäufe: Rund 526 Mio. $ in 12 Monaten, vor allem Gründer Matthew Prince (über 165 Mio. $) und Michelle Zatlyn (über 75 Mio. $). Laufende Plan-Verkäufe, aber sehr gross.",
+    "Analysten: Durchschnittliches Kursziel 339 $, also unter dem Kurs."
+   ],
+   "cheatsheet": "analysen/NET.html",
+   "claude": "https://claude.ai/artifact/9HtvnF91tn24BEo6D2UkuX"
+  },
+  {
+   "ticker": "ULVR",
+   "symbol": "ULVR.L",
+   "name": "Unilever",
+   "tags": [
+    "Dividende",
+    "Defensiv"
+   ],
+   "land": "Grossbritannien",
+   "region": "Europa",
+   "branche": "Körperpflege, Haushalt",
+   "status": "beobachten",
+   "waehrung": "GBp",
+   "analyse": {
+    "datenstand": "2026-10-08",
+    "kurs": 4614.5,
+    "q": 53,
+    "t": 46
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "In Euro gemischt, organisch steigend und schneller",
+     "p": 8,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "Organisch 4.8 %",
+     "p": 3,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "20.0 % bereinigt (6 Pkt.), steigend (6 Pkt.)",
+     "p": 12,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "Bereinigt rund +3 bis 5 % pro Jahr",
+     "p": 2,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Positiv, schwankend um 6 Mrd. €",
+     "p": 6,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "Bereinigt 19 %, stabil",
+     "p": 10,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Nettoschulden/EBITDA 2.3",
+     "p": 5,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "Erw. KGV 16.3 statt Ø 17.6 (−7 %)",
+     "p": 7,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs knapp unter beiden, Linien flach",
+     "p": 7,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs knapp unter beiden, frisches knappes Death Cross",
+     "p": 3,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Seitwärts seit Juli, Spanne wird enger",
+     "p": 8,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "49 / 50, neutral",
+     "p": 7,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Tag bullische Divergenz, Woche steigt seit Juni",
+     "p": 11,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Insider-Käufe (Mai), Rückkaufprogramm",
+     "p": 7,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "Okt/Nov 50/50, Dez stark",
+     "p": 3,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 16.3,
+    "schnitt": 17.6,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      4480,
+      4550
+     ]
+    ],
+    "widerstand": [
+     [
+      4780,
+      4810
+     ]
+    ],
+    "trigger": 4710,
+    "abbruch": 4450
+   },
+   "zahlen": "2026-10-28",
+   "dividende": "3.6 %",
+   "fazit": "Der Umbau unter dem neuen Chef wirkt: Unilever wächst wieder kräftig über die Menge (+5.5 % im 2. Quartal, bestes Quartal seit über zehn Jahren). Qualität gelb (53), Timing gelb (46). Der Kurs läuft seit Juli seitwärts in der Zone 4'480–4'810 p, und die Tages-A/D zeigt stille Käufe. Ein Tagesschluss über 4'710 p wäre das Signal.",
+   "about": "Unilever verkauft Schönheits- und Körperpflege (Dove, Rexona, Axe, Vaseline), Waschmittel (Omo/Persil, Cif) und Lebensmittel (Knorr, Hellmann's). Die Glacé-Sparte (Magnum, Ben & Jerry's) wurde im Dezember 2025 als eigene Firma abgespalten, das Lebensmittelgeschäft wird bis Mitte 2027 an McCormick verkauft. Übrig bleibt eine reine Pflege- und Haushaltsfirma. Unilever berichtet in Euro, die Aktie wird in London in Pence gehandelt.",
+   "kpis": [
+    {
+     "ampel": "g",
+     "name": "Organisches Wachstum",
+     "wert": "+4.8 %",
+     "text": "1. Halbjahr 2026: Menge +4.2 %, Preis +0.6 %. Fast nur Menge: sehr gesund. Ziel 2026: 4–6 %."
+    },
+    {
+     "ampel": "g",
+     "name": "Operative Marge",
+     "wert": "20.0 %",
+     "text": "Bereinigt. Von 100 € Umsatz bleiben 20 € Betriebsgewinn. Seit Jahren steigend."
+    },
+    {
+     "ampel": "w",
+     "name": "Gewinn pro Aktie (bereinigt)",
+     "wert": "+3 bis 5 %",
+     "text": "2025: 3.08 €, Erwartung 2026: rund 3.22 €. Langsam."
+    },
+    {
+     "ampel": "g",
+     "name": "ROIC",
+     "wert": "19 %",
+     "text": "Bereinigt. Gut und stabil."
+    },
+    {
+     "ampel": "g",
+     "name": "Free Cashflow",
+     "wert": "≈ 6 Mrd. €",
+     "text": "Positiv und stabil um 6 Mrd. €."
+    },
+    {
+     "ampel": "w",
+     "name": "Nettoschulden / EBITDA",
+     "wert": "2.3",
+     "text": "Mittel, soll bis Ende Jahr auf rund 2 sinken."
+    },
+    {
+     "ampel": "w",
+     "name": "KGV erwartet",
+     "wert": "16.3",
+     "text": "Eigener Schnitt: 17.6. Rund 7 % günstiger, also etwa normal."
+    },
+    {
+     "ampel": "g",
+     "name": "Dividende",
+     "wert": "3.6 %",
+     "text": "Vierteljährlich, zuletzt +3 %. Dazu Rückkäufe von 6 Mrd. € bis 2029."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "4'780–4'810 p",
+     "text": "Widerstand: Hochs vom August/September."
+    },
+    {
+     "art": "t",
+     "wert": "4'710 p",
+     "text": "Trigger: Tagesschluss über dem Hoch vom 24.9."
+    },
+    {
+     "art": "s",
+     "wert": "4'480–4'550 p",
+     "text": "Kaufzone: Tiefs von August, September und Oktober."
+    },
+    {
+     "art": "r",
+     "wert": "4'450 p",
+     "text": "Abbruch: Wochenschluss darunter, dann droht ein Rückfall Richtung 4'200 p."
+    }
+   ],
+   "pro": [
+    "Wächst über die Menge, nicht über Preise: das gesündeste Wachstum der Gruppe.",
+    "Marge steigt, Fokus auf die stärksten Marken.",
+    "Insider-Käufe und Rückkäufe.",
+    "Bullische A/D-Divergenz in der Seitwärtszone.",
+    "Berichtet in Euro, Aktie in Pfund: verteilt dein Währungsrisiko weg vom Dollar."
+   ],
+   "contra": [
+    "Viel Umbau: Glacé abgespalten, Lebensmittel werden verkauft. Die Firma wird kleiner.",
+    "Der Gewinn pro Aktie wächst langsam.",
+    "Schulden mittel (2.3-fach).",
+    "Kein klarer Trend, alle Linien flach.",
+    "Beim Kauf in London fallen 0.5 % britische Stempelsteuer an."
+   ],
+   "smart_money": [
+    "Insider-Käufe: Zwei Verwaltungsräte kauften Ende Mai 2026 (Judith McKenna rund 250'000 $, Benoît Potier 100'000 €). Der Chef verkaufte im Februar nur zugeteilte Plan-Aktien.",
+    "Unilever selbst: Rückkauf von 1.5 Mrd. € im Frühling, 6 Mrd. € geplant bis 2029.",
+    "Analysten: Im Durchschnitt „Halten“, Kursziel rund 5'200 p (rund 13 % über heute)."
+   ],
+   "cheatsheet": "analysen/ULVR.html",
+   "claude": "https://claude.ai/artifact/S5L8oGHxe6FLVCMncveoRp"
+  },
+  {
+   "ticker": "LOW",
+   "symbol": "LOW",
+   "name": "Lowe's",
+   "tags": [
+    "Dividende"
+   ],
+   "land": "USA",
+   "region": "USA",
+   "branche": "Baumarkt",
+   "status": "beobachten",
+   "waehrung": "USD",
+   "analyse": {
+    "datenstand": "2026-10-05",
+    "kurs": 179.5,
+    "q": 50,
+    "t": 18
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "4 von 4 Quartalen über Vorjahr, aber nur durch Zukäufe",
+     "p": 12,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "Vergleichbare Umsätze +0.2 %",
+     "p": 0,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "11.4 %, Handel milder (6 Pkt.), fallend (0 Pkt.)",
+     "p": 6,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "Flach bis leicht negativ",
+     "p": 2,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Positiv, schwankend",
+     "p": 6,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "22.4 %, fallend (−1)",
+     "p": 12,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Nettoschulden/EBITDA 3.1",
+     "p": 2,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "KGV 15.3 vs. Ø rund 20 (−23 %)",
+     "p": 10,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs weit unter beiden, Death Cross",
+     "p": 1,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs weit unter beiden, Death Cross",
+     "p": 0,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Tiefere Hochs und tiefere Tiefs",
+     "p": 1,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "24 / 28: überverkauft ohne Bodenzeichen",
+     "p": 5,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Beide fallen mit dem Kurs",
+     "p": 3,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Kaum Rückkauf, keine Insider-Käufe",
+     "p": 3,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "Okt–Dez: Ø 63 % positive Jahre",
+     "p": 5,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 15.3,
+    "schnitt": 20,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      170,
+      175
+     ]
+    ],
+    "widerstand": [
+     [
+      199,
+      204.4
+     ]
+    ],
+    "trigger": 204.4,
+    "abbruch": null
+   },
+   "zahlen": "2026-11-18",
+   "dividende": null,
+   "fazit": "Solide Baumarktkette in einer schwachen Branche: Der US-Immobilienmarkt steht still, und Lowe's hat sich mit Zukäufen verschuldet. Der Kurs fällt seit Februar um 39 %. Qualität gelb, Timing rot. Hier ist kein Boden erkennbar. Nur beobachten.",
+   "about": "Lowe's betreibt rund 1'700 Baumärkte in den USA, für Heimwerker und Handwerker (Pros). 2025 kaufte Lowe's den Baustoffhändler Foundation Building Materials (FBM) und den Händler ADG, um mehr an Profis zu verkaufen. Das Geschäft hängt stark an Hausverkäufen und Renovationen.",
+   "kpis": [
+    {
+     "ampel": "w",
+     "name": "Umsatzwachstum",
+     "wert": "+8.3 %",
+     "text": "2. Quartal. Kommt fast nur aus Zukäufen."
+    },
+    {
+     "ampel": "b",
+     "name": "Vergleichbare Umsätze",
+     "wert": "+0.2 %",
+     "text": "Gleiche Märkte wie im Vorjahr. Praktisch kein echtes Wachstum."
+    },
+    {
+     "ampel": "w",
+     "name": "Operative Marge",
+     "wert": "11.4 %",
+     "text": "Von 100 $ Umsatz bleiben gut 11 $. Sinkt seit 2023 (13.5 %)."
+    },
+    {
+     "ampel": "b",
+     "name": "Gewinn pro Aktie (EPS)",
+     "wert": "−2.8 %",
+     "text": "Letzte 12 Monate. Seit drei Jahren leicht rückläufig."
+    },
+    {
+     "ampel": "g",
+     "name": "ROIC",
+     "wert": "22.4 %",
+     "text": "Immer noch gut, aber stark fallend (2022: 38.5 %)."
+    },
+    {
+     "ampel": "g",
+     "name": "Free Cashflow",
+     "wert": "7.0 Mrd. $",
+     "text": "Stabil hoch. Deckt Dividende und Zinsen."
+    },
+    {
+     "ampel": "b",
+     "name": "Nettoschulden / EBITDA",
+     "wert": "3.1",
+     "text": "Über drei Jahre Betriebsgewinn für die Schulden. Hoch."
+    },
+    {
+     "ampel": "g",
+     "name": "KGV",
+     "wert": "15.3",
+     "text": "Eigener Schnitt rund 20. Rund 23 % günstiger als üblich."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "199–204 $",
+     "text": "Widerstand: altes Tief vom Juli (199.40 $) und Hoch vom 4.9."
+    },
+    {
+     "art": "t",
+     "wert": "204.40 $",
+     "text": "Trigger: Change of Character. Tagesschluss über dem letzten tieferen Hoch."
+    },
+    {
+     "art": "s",
+     "wert": "170–175 $",
+     "text": "Nur runde Marken, keine geprüfte Unterstützung in den letzten zwei Jahren."
+    }
+   ],
+   "pro": [
+    "Günstig bewertet: KGV 15, Free-Cashflow-Rendite fast 7 %.",
+    "ROIC immer noch über 20 %, stabiler Free Cashflow.",
+    "Wenn die Zinsen fallen und der Häusermarkt dreht, profitiert Lowe's stark.",
+    "Stark überverkauft: Gegenbewegungen sind jederzeit möglich."
+   ],
+   "contra": [
+    "Kein echtes Wachstum: vergleichbare Umsätze flach.",
+    "Hohe Schulden nach den Zukäufen.",
+    "Marge und ROIC fallen seit Jahren.",
+    "Klarer Abwärtstrend ohne Bodenzeichen, A/D fällt.",
+    "Abhängig von Zinsen und Häusermarkt, also von Faktoren ausserhalb der Firma."
+   ],
+   "smart_money": [
+    "Lowe's selbst: Rückkäufe wegen der Schulden stark reduziert (0.4 % pro Jahr). Dividende 2.8 %.",
+    "Insider-Käufe: Keine in den letzten 12 Monaten.",
+    "Insider-Verkäufe: Rund 10–12 Mio. $, z. B. CEO Ellison 4.7 Mio. $ im Januar. Klein.",
+    "Analysten: Durchschnittliches Kursziel 251 $, Einstufung „Buy“."
+   ],
+   "cheatsheet": "analysen/LOW.html",
+   "claude": "https://claude.ai/artifact/P1xSNxex4Spr6smS3PCuJ1"
+  },
+  {
+   "ticker": "BN",
+   "symbol": "BN.PA",
+   "name": "Danone",
+   "tags": [
+    "Dividende",
+    "Defensiv"
+   ],
+   "land": "Frankreich",
+   "region": "Europa",
+   "branche": "Nahrungsmittel",
+   "status": "beobachten",
+   "waehrung": "EUR",
+   "analyse": {
+    "datenstand": "2026-10-08",
+    "kurs": 59.2,
+    "q": 48,
+    "t": 28
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "In Euro 1 von 3 Halbjahren höher, organisch alle positiv",
+     "p": 6,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "Organisch 3.5 %",
+     "p": 3,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "13.4 % (3 Pkt.), steigend (6 Pkt.)",
+     "p": 9,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "Wiederkehrend rund +3 bis 5 % pro Jahr",
+     "p": 2,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Positiv, zuletzt sinkend",
+     "p": 5,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "10.7 %, steigend",
+     "p": 7,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Nettoschulden/EBITDA 2.0",
+     "p": 6,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "Erw. KGV 14.6 statt Ø 16.6 (−12 %)",
+     "p": 10,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs unter beiden, EMA 50 noch über 200",
+     "p": 3,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs unter beiden",
+     "p": 0,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Tiefere Hochs und Tiefs",
+     "p": 2,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "Woche leichte bullische Divergenz, Tag dreht aus 23",
+     "p": 10,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Beide fallen, Woche dreht leicht",
+     "p": 4,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Insider-Kauf des Chefs (Juli)",
+     "p": 7,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "Okt–Dez gemischt (46–59 %)",
+     "p": 2,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 14.6,
+    "schnitt": 16.6,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      57,
+      58
+     ],
+     [
+      52,
+      54
+     ]
+    ],
+    "widerstand": [
+     [
+      64.5,
+      65.5
+     ]
+    ],
+    "trigger": 62.3,
+    "abbruch": 56.5
+   },
+   "zahlen": "2026-10-28",
+   "dividende": "3.8 %",
+   "fazit": "Solide Firma mit steigender Marge, aber die Aktie ist seit November um 26 % gefallen. Qualität gelb (48), Timing rot (28). Kurzfristig überverkauft, der Chef hat im Juli selbst gekauft. Der Trend zeigt aber noch keine Wende. Erstes Zeichen wäre ein Tagesschluss über 62.30 €.",
+   "about": "Danone stellt Milchprodukte und Joghurts her (Activia, Danone, Alpro für pflanzliche Produkte), Baby- und Spezialnahrung (Aptamil, Nutricia) und Mineralwasser (Evian, Volvic). Rund 45 % des Umsatzes kommen aus Europa, Nahost und Afrika, 33 % aus Amerika und 22 % aus Asien.",
+   "kpis": [
+    {
+     "ampel": "w",
+     "name": "Organisches Wachstum",
+     "wert": "+3.5 %",
+     "text": "1. Halbjahr 2026 (Menge/Mix +1.7, Preis +1.8). Ziel 2026: +3 bis +5 %."
+    },
+    {
+     "ampel": "w",
+     "name": "Operative Marge",
+     "wert": "13.4 %",
+     "text": "Wiederkehrend. Mittel, aber seit 2022 (12.2 %) jedes Jahr gestiegen."
+    },
+    {
+     "ampel": "w",
+     "name": "Gewinn pro Aktie",
+     "wert": "+3 bis 5 % p. a.",
+     "text": "Wiederkehrend seit 2022 (3.43 → 3.80 €). Langsam, aber stetig."
+    },
+    {
+     "ampel": "w",
+     "name": "ROIC",
+     "wert": "10.7 %",
+     "text": "Mittel, seit 2022 (6.8 %) klar gestiegen."
+    },
+    {
+     "ampel": "w",
+     "name": "Free Cashflow",
+     "wert": "2.5 Mrd. €",
+     "text": "Positiv, im 1. Halbjahr aber −27 %."
+    },
+    {
+     "ampel": "g",
+     "name": "Nettoschulden / EBITDA",
+     "wert": "2.0",
+     "text": "Tragbar."
+    },
+    {
+     "ampel": "g",
+     "name": "KGV erwartet",
+     "wert": "14.6",
+     "text": "Eigener Schnitt: 16.6. Rund 12 % günstiger als üblich."
+    },
+    {
+     "ampel": "g",
+     "name": "Dividende",
+     "wert": "3.8 %",
+     "text": "2.25 €, seit 2022 jedes Jahr erhöht (2020 gekürzt)."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "64.5–65.5 €",
+     "text": "Widerstand: Hochs vom August/September."
+    },
+    {
+     "art": "t",
+     "wert": "62.30 €",
+     "text": "Trigger: Tagesschluss über dem letzten tieferen Hoch (14.9.)."
+    },
+    {
+     "art": "s",
+     "wert": "57–58 €",
+     "text": "Oktober-Tief und Tief 2024."
+    },
+    {
+     "art": "s",
+     "wert": "52–54 €",
+     "text": "Tiefere Zone aus 2022/2023, falls 57 € bricht."
+    },
+    {
+     "art": "r",
+     "wert": "56.50 €",
+     "text": "Abbruch der aktuellen Bodenbildung: Wochenschluss darunter."
+    }
+   ],
+   "pro": [
+    "Marge und ROIC steigen seit Jahren.",
+    "Wächst organisch 3–5 %.",
+    "Bewertung 12 % unter dem Schnitt, Dividende 3.8 %.",
+    "Der Chef hat selbst gekauft.",
+    "Euro-Aktie: verteilt dein Währungsrisiko weg vom Dollar."
+   ],
+   "contra": [
+    "Klarer Abwärtstrend, tiefere Hochs und Tiefs.",
+    "Marktanteilsverluste in den USA, China kühlt ab.",
+    "Freier Cashflow im 1. Halbjahr −27 %.",
+    "Zwei grosse Banken raten zum Verkauf.",
+    "A/D zeigt noch keine Käufer."
+   ],
+   "smart_money": [
+    "Insider-Kauf: Chef Antoine de Saint-Affrique kaufte am 31.7.2026 Aktien für rund 67'000 € zu 67.32 €. Klein, aber ein freier Kauf am Markt.",
+    "Danone selbst: Kauft nur Aktien für Mitarbeiterprogramme zurück.",
+    "Analysten: Im Durchschnitt „Kaufen“, Kursziel rund 79 €. Aber: Jefferies (Verkaufen, 62 €) und Deutsche Bank (Verkaufen, 61 €) sind negativ geworden."
+   ],
+   "cheatsheet": "analysen/BN.html",
+   "claude": "https://claude.ai/artifact/DUHNGBiMs1UrhQqonjz7ii"
+  },
+  {
+   "ticker": "NESN",
+   "symbol": "NESN.SW",
+   "name": "Nestlé",
+   "tags": [
+    "Dividende",
+    "Defensiv"
+   ],
+   "land": "Schweiz",
+   "region": "Schweiz",
+   "branche": "Nahrungsmittel",
+   "status": "beobachten",
+   "waehrung": "CHF",
+   "analyse": {
+    "datenstand": "2026-10-08",
+    "kurs": 75.91,
+    "q": 36,
+    "t": 34
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "In Franken 0 von 4 Halbjahren höher, organisch alle positiv",
+     "p": 4,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "Organisch 3.6 %",
+     "p": 3,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "16.0 % (6 Pkt.), fallend (0 Pkt.)",
+     "p": 6,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "Bereinigt seit 2023 leicht sinkend",
+     "p": 0,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Hoch, aber schwankend",
+     "p": 6,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "12.3 %, sinkend",
+     "p": 5,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Nettoschulden/EBITDA 3.4",
+     "p": 2,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "Erw. KGV 16.1 statt Ø 20.3 (−21 %)",
+     "p": 10,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs unter beiden, EMA 50 flach",
+     "p": 3,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs unter beiden, frisches Death Cross",
+     "p": 1,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Spanne 70–87 CHF, Tag tiefere Hochs und Tiefs",
+     "p": 5,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "44 / 42, kein Signal",
+     "p": 7,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Woche über früheren Tiefs, Tag fällt",
+     "p": 10,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Kein Rückkauf, keine Verkäufe",
+     "p": 3,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "Okt–Dez: 61–64 % positive Jahre",
+     "p": 5,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 16.1,
+    "schnitt": 20.3,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      74.4,
+      75
+     ],
+     [
+      70,
+      72.5
+     ]
+    ],
+    "widerstand": [
+     [
+      80.8,
+      81.5
+     ]
+    ],
+    "trigger": 78.55,
+    "abbruch": 69.5
+   },
+   "zahlen": "2026-10-22",
+   "dividende": "4.1 %",
+   "fazit": "Die bekannteste Schweizer Aktie und ein echter Franken-Wert, aber seit 2022 im Abwärtstrend. Qualität orange (36), Timing orange (34). Spannend wird es in der Zone 70–72.5 CHF, wo seit einem Jahr ein Doppelboden liegt. Die Dividende von 4.1 % ist solide. Für eine Wende braucht es weiter steigende Mengen (RIG) und einen Tagesschluss über 78.55 CHF.",
+   "about": "Nestlé ist der grösste Nahrungsmittelkonzern der Welt: Kaffee (Nescafé, Nespresso, Starbucks-Produkte im Handel), Tiernahrung (Purina), Baby- und medizinische Ernährung, Süsswaren (KitKat), Fertiggerichte (Maggi) und Wasser. Nestlé verdient den grössten Teil im Ausland: Amerika 39 %, Asien/Ozeanien/Afrika 23 %, Europa 20 %, dazu Nespresso und Health Science.",
+   "kpis": [
+    {
+     "ampel": "w",
+     "name": "Organisches Wachstum",
+     "wert": "+3.6 %",
+     "text": "1. Halbjahr 2026: Menge (RIG) +1.5 %, Preis +2.1 %. Ziel 2026: 3–4 %. Die Menge steigt endlich wieder."
+    },
+    {
+     "ampel": "w",
+     "name": "Operative Marge (bereinigt)",
+     "wert": "16.0 %",
+     "text": "Von 100 Franken Umsatz bleiben 16 Franken Betriebsgewinn. Gut, aber seit 2023 (17.3 %) gesunken."
+    },
+    {
+     "ampel": "b",
+     "name": "Gewinn pro Aktie (bereinigt)",
+     "wert": "4.37 CHF",
+     "text": "Seit 2023 (4.80) jedes Jahr leicht gesunken, vor allem wegen des starken Frankens."
+    },
+    {
+     "ampel": "w",
+     "name": "ROIC",
+     "wert": "12.3 %",
+     "text": "Mittel und seit 2024 (14.1 %) sinkend."
+    },
+    {
+     "ampel": "g",
+     "name": "Free Cashflow",
+     "wert": "10.2 Mrd. CHF",
+     "text": "Hoch und stabil. Ziel 2026: über 9 Mrd."
+    },
+    {
+     "ampel": "b",
+     "name": "Nettoschulden / EBITDA",
+     "wert": "3.4",
+     "text": "Eher hoch, vor allem wegen der Aktienrückkäufe der letzten Jahre."
+    },
+    {
+     "ampel": "g",
+     "name": "KGV erwartet",
+     "wert": "16.1",
+     "text": "Eigener Schnitt: 20.3. Rund 21 % günstiger als üblich."
+    },
+    {
+     "ampel": "g",
+     "name": "Dividende",
+     "wert": "4.1 %",
+     "text": "3.10 CHF, seit 1959 nie gesenkt, 31 Jahre in Folge erhöht. Rund 70 % des bereinigten Gewinns."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "80.8–81.5 CHF",
+     "text": "Widerstand: Hochs vom August/September und Wochen-EMA 50."
+    },
+    {
+     "art": "t",
+     "wert": "78.55 CHF",
+     "text": "Trigger: Tagesschluss über dem letzten tieferen Hoch (28.9.)."
+    },
+    {
+     "art": "s",
+     "wert": "74.4–75 CHF",
+     "text": "Aktuelles Oktober-Tief."
+    },
+    {
+     "art": "s",
+     "wert": "70–72.5 CHF",
+     "text": "Kaufzone: Doppelboden von September 2025 und Januar 2026. Dort läge die Dividendenrendite bei rund 4.4 %."
+    },
+    {
+     "art": "r",
+     "wert": "69.50 CHF",
+     "text": "Abbruch: Wochenschluss darunter = tiefster Stand seit 2016."
+    }
+   ],
+   "pro": [
+    "Franken-Aktie: kein Währungsrisiko beim Kauf, Dividende in CHF.",
+    "Die Menge (RIG) wächst wieder.",
+    "Bewertung 21 % unter dem eigenen Schnitt.",
+    "Dividende 4.1 %, seit 1959 nie gesenkt.",
+    "Doppelboden bei 70–72.5 CHF, Wochen-A/D höher als bei früheren Tiefs."
+   ],
+   "contra": [
+    "Umsatz und Gewinn in Franken sinken seit Jahren.",
+    "Verdient rund 80 % im Ausland: Ein starker Franken drückt weiter.",
+    "Marge gesunken, Schulden eher hoch.",
+    "Viel Unruhe: Chefwechsel, Umbau, Rückruf, Russland.",
+    "Trend auf Tag und Woche abwärts."
+   ],
+   "smart_money": [
+    "Nestlé selbst: Zurzeit kein Aktienrückkauf (zuerst Schulden abbauen).",
+    "Insider-Käufe: Ein Verwaltungsrat kaufte Ende 2025 für rund 1.6 Mio. CHF Aktien zu 78–80 CHF (älter als 6 Monate). Keine Verkäufe gefunden.",
+    "Analysten: Überwiegend „Kaufen“, durchschnittliches Kursziel rund 88 CHF. Jefferies stufte am 18.9. auf „Kaufen“ hoch."
+   ],
+   "cheatsheet": "analysen/NESN.html",
+   "claude": "https://claude.ai/artifact/7BhiLA7wf1hyY8LYv2aCt7"
+  },
+  {
+   "ticker": "TSLA",
+   "symbol": "TSLA",
+   "name": "Tesla",
+   "tags": [
+    "Wachstum"
+   ],
+   "land": "USA",
+   "region": "USA",
+   "branche": "Elektroautos, Energie, Robotaxi",
+   "status": "beobachten",
+   "waehrung": "USD",
+   "analyse": {
+    "datenstand": "2026-10-08",
+    "kurs": 375.0,
+    "q": 34,
+    "t": 41
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "3 von 4 Quartalen über Vorjahr",
+     "p": 8,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "Letzte 12 Monate +11.8 % (2025: −2.9 %)",
+     "p": 8,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "4.1 % (0 Pkt.), seit 2022 fallend (0 Pkt.)",
+     "p": 0,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "Seit 2023 stark gesunken (4.30 → 1.08 $)",
+     "p": 0,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Positiv, aber schwankend, Q2 negativ",
+     "p": 6,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "5.5 %, stark fallend",
+     "p": 1,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Netto-Cash 27.4 Mrd. $",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "Erw. KGV rund 160–200 statt Ø 114 (über 30 % teurer)",
+     "p": 1,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs auf der EMA 50, klar über EMA 200",
+     "p": 13,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs über EMA 50, knapp unter EMA 200",
+     "p": 4,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Woche abwärts, Tag Erholung mit höheren Hochs",
+     "p": 9,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "56 / 50, neutral",
+     "p": 7,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Tag schwächer am Hoch, Woche fallend",
+     "p": 5,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Insider-Verkäufe, kein Rückkauf",
+     "p": 0,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "Okt schwach, Nov stark, Dez gemischt",
+     "p": 3,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 180,
+    "schnitt": 114,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      345,
+      355
+     ],
+     [
+      297,
+      312
+     ]
+    ],
+    "widerstand": [
+     [
+      405,
+      433
+     ]
+    ],
+    "trigger": 387,
+    "abbruch": 340
+   },
+   "zahlen": "2026-10-21",
+   "dividende": null,
+   "fazit": "Die Börse bezahlt bei Tesla vor allem die Zukunft (Robotaxi, Optimus, mögliche SpaceX-Fusion), nicht die heutigen Zahlen. Die heutigen Zahlen sind schwach: Marge 4 %, Gewinn seit 2023 um drei Viertel gesunken. Qualität orange (34), Timing orange (41). Technisch erholt sich der Kurs seit dem Juli-Tief (297 $) mit höheren Hochs. Ein Tagesschluss über 387 $ wäre das nächste Signal, aber erst nach den Zahlen am 21. Oktober.",
+   "about": "Tesla baut Elektroautos (vor allem Model Y und Model 3, dazu Cybertruck, Model S/X, Semi und das Robotaxi Cybercab). Dazu kommen Energiespeicher für Häuser und Stromnetze (Powerwall, Megapack), Solaranlagen und Dienstleistungen (Ladestationen, Versicherung, Software für autonomes Fahren). Der humanoide Roboter Optimus und das Robotaxi-Netz stehen noch am Anfang. Rund drei Viertel des Umsatzes kommen weiterhin aus dem Autogeschäft.",
+   "kpis": [
+    {
+     "ampel": "w",
+     "name": "Umsatzwachstum",
+     "wert": "+11.8 %",
+     "text": "Letzte 12 Monate. 2025 waren es −2.9 %, das 2. Quartal 2026 war mit +25 % stark (schwaches Vorjahr)."
+    },
+    {
+     "ampel": "b",
+     "name": "Operative Marge",
+     "wert": "4.1 %",
+     "text": "Von 100 $ Umsatz bleiben gut 4 $ Betriebsgewinn. 2022 waren es noch 16.8 %, im 2. Quartal 2026 nur 1.4 %. Schwach."
+    },
+    {
+     "ampel": "b",
+     "name": "Gewinn pro Aktie (EPS)",
+     "wert": "1.08 $",
+     "text": "2023 waren es noch 4.30 $. Im 2. Quartal bereinigt 0.33 $ statt der erwarteten 0.53 $."
+    },
+    {
+     "ampel": "b",
+     "name": "ROIC",
+     "wert": "5.5 %",
+     "text": "Auf jeden investierten Dollar gut 5 Cent Gewinn. 2022 waren es 48 Cent. Stark gefallen."
+    },
+    {
+     "ampel": "w",
+     "name": "Free Cashflow",
+     "wert": "5.8 Mrd. $",
+     "text": "Letzte 12 Monate positiv, im 2. Quartal aber −1.1 Mrd. $ wegen hoher Investitionen (5.8 Mrd. $ im Quartal)."
+    },
+    {
+     "ampel": "g",
+     "name": "Netto-Cash",
+     "wert": "27.4 Mrd. $",
+     "text": "Mehr Geld als Schulden (43.5 Mrd. Cash, 16.1 Mrd. Schulden). Sehr solide Bilanz."
+    },
+    {
+     "ampel": "b",
+     "name": "KGV erwartet",
+     "wert": "≈ 160–200",
+     "text": "Du zahlst 160 bis 200 erwartete Jahresgewinne. Eigener 5-Jahres-Schnitt rund 114. Sehr teuer: Der Preis setzt auf Robotaxi und Roboter."
+    },
+    {
+     "ampel": "w",
+     "name": "Auslieferungen Q3",
+     "wert": "486'532",
+     "text": "−2 % zum Vorjahr, aber über den Erwartungen (462'000). Energiespeicher 13.7 GWh (+10 %), hier unter den Erwartungen."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "405–433 $",
+     "text": "Widerstand: Spanne von Juni und Juli vor dem Kurssturz."
+    },
+    {
+     "art": "t",
+     "wert": "387 $",
+     "text": "Trigger: Tagesschluss über dem Hoch vom 25.9., idealerweise mit steigender A/D."
+    },
+    {
+     "art": "s",
+     "wert": "345–355 $",
+     "text": "Kaufzone 1: Tiefs vom September und Oktober."
+    },
+    {
+     "art": "s",
+     "wert": "297–312 $",
+     "text": "Kaufzone 2: Juli-Tief und Wochen-EMA 200."
+    },
+    {
+     "art": "r",
+     "wert": "340 $",
+     "text": "Abbruch: Wochenschluss darunter, dann droht ein Test des Juli-Tiefs."
+    }
+   ],
+   "pro": [
+    "Sehr solide Bilanz mit 27 Mrd. $ Netto-Cash.",
+    "Robotaxi läuft in Austin ohne Fahrer, das ist ein echter Fortschritt.",
+    "Energiespeicher wachsen stark und sind profitabel.",
+    "Auslieferungen im 3. Quartal besser als erwartet.",
+    "Grosser Wochentrend seit 2019 noch intakt (über EMA 200)."
+   ],
+   "contra": [
+    "Marge und Gewinn seit 2022 stark gesunken.",
+    "Extrem hohe Bewertung: Der Kurs hängt an Zukunftsprojekten.",
+    "Hohe Ausgaben für KI, Cybercab und Optimus drücken den Cashflow.",
+    "Starke Konkurrenz aus China, US-Steuergutschrift weggefallen.",
+    "Viel hängt an Elon Musk (Politik, SpaceX, xAI): hohes Personenrisiko."
+   ],
+   "smart_money": [
+    "Tesla selbst: Keine Aktienrückkäufe, keine Dividende. Die Aktienzahl steigt leicht (rund 0.6 % pro Jahr).",
+    "Insider-Käufe: Keine in den letzten 12 Monaten. Elon Musk kaufte im September 2025 für rund 1 Mrd. $ (älter als 12 Monate, nicht nachgeprüft).",
+    "Insider-Verkäufe: Rund 88 Mio. $ von 4 Personen, u. a. Kimbal Musk (25.6 Mio. $), James Murdoch (26.7 Mio. $) und Kathleen Wilson-Thompson (rund 30 Mio. $).",
+    "Analysten: Sehr uneinig: Kursziele von 25 $ bis 840 $. Im Durchschnitt rund 392–412 $, Einstufung zwischen „Halten“ und „Kaufen“."
+   ],
+   "cheatsheet": "analysen/TSLA.html",
+   "claude": "https://claude.ai/artifact/SPjCZEFLm9CoSbdbnF12BJ"
+  },
+  {
+   "ticker": "ABF",
+   "symbol": "ABF.L",
+   "name": "Associated British Foods",
+   "tags": [
+    "Dividende"
+   ],
+   "land": "Grossbritannien",
+   "region": "Europa",
+   "branche": "Mode (Primark), Nahrungsmittel",
+   "status": "beobachten",
+   "waehrung": "GBp",
+   "analyse": {
+    "datenstand": "2026-10-08",
+    "kurs": 1831.5,
+    "q": 33,
+    "t": 36
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "1 von 4 Halbjahren über Vorjahr",
+     "p": 0,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "Ohne Währungen rund −2 %",
+     "p": 0,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "≈ 8 % (3 Pkt.), stabil über 5 Jahre (3 Pkt.)",
+     "p": 6,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "Bereinigt seit 2023 rund +3 % pro Jahr, zuletzt sinkend",
+     "p": 2,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Positiv, stark schwankend",
+     "p": 6,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "ROACE 15.5 %, ROIC rund 7 %, sinkend",
+     "p": 5,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Nettoschulden/EBITDA rund 1–1.4",
+     "p": 7,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "Erw. KGV 12.1 statt Ø 12.3",
+     "p": 7,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs unter beiden",
+     "p": 1,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs unter beiden",
+     "p": 0,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Bodenzone mit leicht steigenden Tiefs",
+     "p": 9,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "39 / 42, kein Signal",
+     "p": 7,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Woche bullische Divergenz, Tag leicht fallend",
+     "p": 11,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Rückkauf 1.9 %, keine Insider-Käufe",
+     "p": 3,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "Nov–Dez stark (63–71 %)",
+     "p": 5,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 12.1,
+    "schnitt": 12.3,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      1730,
+      1800
+     ]
+    ],
+    "widerstand": [
+     [
+      1960,
+      2010
+     ]
+    ],
+    "trigger": 1900,
+    "abbruch": 1700
+   },
+   "zahlen": "2026-11-03",
+   "dividende": "3.4 %",
+   "fazit": "Mischkonzern aus Primark (Kleider) und Lebensmitteln. Das Geschäft schwächelt (Primark in Europa, Zucker mit Verlust), dafür ist die Bilanz solid und Ende 2027 wird Primark abgespalten. Qualität orange (33), Timing orange (36). Charttechnisch hält seit März eine Bodenzone bei 1'730–1'800 p, die Wochen-A/D steigt. Ein Tagesschluss über 1'900 p wäre ein erstes Signal.",
+   "about": "Associated British Foods (ABF) besteht aus zwei Welten: Primark, eine Billig-Modekette mit rund 450 Läden in Europa und den USA (über die Hälfte des Umsatzes und der grösste Teil des Gewinns), und ein Lebensmittelgeschäft mit Twinings-Tee, Ovaltine, Brot, Zucker (British Sugar), Zutaten und Landwirtschaft. Die Familie Weston kontrolliert rund 56 % der Aktien.",
+   "kpis": [
+    {
+     "ampel": "b",
+     "name": "Umsatzwachstum",
+     "wert": "−2 %",
+     "text": "1. Halbjahr GJ 2026, ohne Währungen. Primark in bestehenden Läden −2.6 % im Gesamtjahr."
+    },
+    {
+     "ampel": "w",
+     "name": "Operative Marge",
+     "wert": "≈ 8 %",
+     "text": "Bereinigt. Für einen Mix aus Detailhandel und Lebensmitteln ordentlich, aber seit 2024 (10 %) gesunken."
+    },
+    {
+     "ampel": "w",
+     "name": "Gewinn pro Aktie (bereinigt)",
+     "wert": "≈ 154 p",
+     "text": "Erwartung GJ 2026, nach 175 p (2025) und 197 p (2024). Sinkend."
+    },
+    {
+     "ampel": "w",
+     "name": "Kapitalrendite (ROACE)",
+     "wert": "15.5 %",
+     "text": "Firmenangabe GJ 2025, gesunken von 18.1 %. Nach anderer Rechnung (ROIC) nur rund 7 %."
+    },
+    {
+     "ampel": "w",
+     "name": "Free Cashflow",
+     "wert": "≈ 0.7 Mrd. £",
+     "text": "Positiv, aber stark schwankend."
+    },
+    {
+     "ampel": "g",
+     "name": "Nettoschulden / EBITDA",
+     "wert": "≈ 1.0–1.4",
+     "text": "Inklusive Mietverträge. Solide."
+    },
+    {
+     "ampel": "w",
+     "name": "KGV erwartet",
+     "wert": "12.1",
+     "text": "Eigener 5-Jahres-Schnitt: 12.3, also normal bewertet. Über 10 Jahre lag der Schnitt bei 15.4."
+    },
+    {
+     "ampel": "g",
+     "name": "Dividende",
+     "wert": "3.4 %",
+     "text": "63 p, nur 36 % des Gewinns: sicher. Dazu Rückkäufe."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "1'960–2'010 p",
+     "text": "Widerstand: EMA 200 Tag und Wochen-EMA 50."
+    },
+    {
+     "art": "t",
+     "wert": "1'900 p",
+     "text": "Trigger: Tagesschluss über dem Hoch vom 30.9."
+    },
+    {
+     "art": "s",
+     "wert": "1'730–1'800 p",
+     "text": "Kaufzone: Bodenzone aus vier Tiefs seit März, gleiche Höhe wie die Tiefs 2021 und 2023."
+    },
+    {
+     "art": "r",
+     "wert": "1'700 p",
+     "text": "Abbruch: Wochenschluss darunter."
+    }
+   ],
+   "pro": [
+    "Die Abspaltung von Primark Ende 2027 kann versteckten Wert freilegen.",
+    "Solide Bilanz, Dividende braucht nur 36 % des Gewinns.",
+    "Bodenzone hält seit März, Wochen-A/D steigt.",
+    "November und Dezember saisonal stark.",
+    "Pfund-Aktie: verteilt dein Währungsrisiko weg vom Dollar."
+   ],
+   "contra": [
+    "Umsatz und Gewinn sinken.",
+    "Primark schwach in Kontinentaleuropa.",
+    "Zuckergeschäft mit wachsenden Verlusten.",
+    "Mischkonzern: schwer zu bewerten.",
+    "Beim Kauf in London fallen 0.5 % britische Stempelsteuer an."
+   ],
+   "smart_money": [
+    "Familie Weston: Hält rund 56 % und unterstützt die Abspaltung von Primark.",
+    "Insider: Keine freien Käufe, nur Verkäufe zur Bezahlung der Steuern auf Plan-Aktien.",
+    "ABF selbst: Rückkaufprogramm über 250 Mio. £ (rund 1.9 % des Börsenwerts).",
+    "Analysten: Zwischen „Halten“ und „Verkaufen“, durchschnittliches Kursziel rund 1'800–1'840 p."
+   ],
+   "cheatsheet": "analysen/ABF.html",
+   "claude": "https://claude.ai/artifact/SYT4vDpp9Q49W3UBAbeg4i"
+  },
+  {
+   "ticker": "MDLZ",
+   "symbol": "MDLZ",
+   "name": "Mondelez",
+   "tags": [
+    "Dividende",
+    "Defensiv"
+   ],
+   "land": "USA",
+   "region": "USA",
+   "branche": "Snacks, Schokolade",
+   "status": "beobachten",
+   "waehrung": "USD",
+   "analyse": {
+    "datenstand": "2026-10-07",
+    "kurs": 59.38,
+    "q": 31,
+    "t": 38
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "4 von 4 Quartalen über Vorjahr, Tempo sinkt",
+     "p": 12,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "Organisch rund +2.5 %",
+     "p": 0,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "11.8 % (3 Pkt.), fallend (0 Pkt.)",
+     "p": 3,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "Bereinigt 2025 −15 %, 2026 0 bis +5 %",
+     "p": 2,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Positiv, aber sinkend",
+     "p": 3,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "7.9 %",
+     "p": 2,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Nettoschulden/EBITDA 3.3",
+     "p": 2,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "Erw. KGV 18.3 statt Ø 20.0 (−8 %)",
+     "p": 7,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs knapp unter beiden, Linien flach",
+     "p": 4,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs knapp unter beiden, 50 noch über 200",
+     "p": 4,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Woche: höhere Tiefs, Dreifachboden. Tag: tiefere Hochs",
+     "p": 9,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "43 / 46, kein Signal",
+     "p": 7,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Woche steigt, Tag fällt",
+     "p": 5,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Rückkauf 2.3 %, keine Insider-Käufe",
+     "p": 6,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "Okt–Dez gemischt (48–60 %)",
+     "p": 3,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 18.3,
+    "schnitt": 20.0,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      57.5,
+      58.5
+     ]
+    ],
+    "widerstand": [
+     [
+      64.5,
+      66.7
+     ]
+    ],
+    "trigger": 62.2,
+    "abbruch": 55.5
+   },
+   "zahlen": "2026-10-27",
+   "dividende": "3.5 %",
+   "fazit": "Starke Marken, aber die Zahlen leiden unter dem teuren Kakao der letzten zwei Jahre. Qualität orange (31), Timing orange (38). Interessant: Der Kurs bildet bei 57.5–58.5 $ gerade einen Dreifachboden, und auf der Woche steigen die Tiefs seit Januar. Ein Tagesschluss über 62.20 $ wäre das Signal. Die Entlastung durch den gefallenen Kakaopreis kommt vor allem 2027.",
+   "about": "Mondelez ist einer der grössten Snack-Hersteller der Welt: Guetzli (Oreo, LU, belVita), Schokolade (Milka, Cadbury, Toblerone, Côte d'Or) und Kaugummi. Rund drei Viertel des Umsatzes kommen von ausserhalb der USA, ein grosser Teil aus Europa und Schwellenländern.",
+   "kpis": [
+    {
+     "ampel": "w",
+     "name": "Organisches Wachstum",
+     "wert": "+2.2 %",
+     "text": "2. Quartal 2026 (Preis +1.5, Menge/Mix +0.7). Ziel 2026: mindestens +2 %. Schwach."
+    },
+    {
+     "ampel": "w",
+     "name": "Operative Marge",
+     "wert": "11.8 %",
+     "text": "Ausgewiesen, durch die Bewertung der Kakao-Absicherungen verzerrt. 2024 waren es 17.7 %."
+    },
+    {
+     "ampel": "b",
+     "name": "Gewinn pro Aktie (bereinigt)",
+     "wert": "0 bis +5 %",
+     "text": "Ziel 2026 (ohne Währungen), nach −15 % im Jahr 2025."
+    },
+    {
+     "ampel": "b",
+     "name": "ROIC",
+     "wert": "7.9 %",
+     "text": "Auf jeden investierten Dollar knapp 8 Cent Gewinn. Tief, weil viel Kapital in Übernahmen steckt."
+    },
+    {
+     "ampel": "w",
+     "name": "Free Cashflow",
+     "wert": "3.1 Mrd. $",
+     "text": "Positiv, aber seit 2023 leicht sinkend."
+    },
+    {
+     "ampel": "b",
+     "name": "Nettoschulden / EBITDA",
+     "wert": "3.3",
+     "text": "Eher hoch: über 3 Jahre Betriebsgewinn nötig, um die Schulden zu tilgen."
+    },
+    {
+     "ampel": "w",
+     "name": "KGV erwartet",
+     "wert": "18.3",
+     "text": "Eigener Schnitt: 20.0. Rund 8 % günstiger, also etwa normal bewertet."
+    },
+    {
+     "ampel": "g",
+     "name": "Dividende",
+     "wert": "3.5 %",
+     "text": "12 Jahre in Folge erhöht, zuletzt +4 % im Juli."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "64.5–66.7 $",
+     "text": "Widerstand: Hochs von Juni bis August."
+    },
+    {
+     "art": "t",
+     "wert": "62.20 $",
+     "text": "Trigger: Tagesschluss über dem letzten tieferen Hoch (24.9.)."
+    },
+    {
+     "art": "s",
+     "wert": "57.5–58.5 $",
+     "text": "Kaufzone: Dreifachboden von Juni, Juli und Oktober."
+    },
+    {
+     "art": "r",
+     "wert": "55.50 $",
+     "text": "Abbruch: Wochenschluss unter dem April-Tief. Dann wäre die Serie höherer Tiefs gebrochen."
+    }
+   ],
+   "pro": [
+    "Weltbekannte Marken mit Preissetzungsmacht.",
+    "Kakaopreis stark gefallen: Rückenwind für die Marge ab 2027.",
+    "Dreifachboden bei 57.5–58.5 $ und höhere Tiefs auf der Woche.",
+    "Rückkauf 2.3 % und Dividende 3.5 %.",
+    "Stark in Schwellenländern (+7 bis +8 %)."
+   ],
+   "contra": [
+    "Hohe Schulden (3.3-fach).",
+    "Tiefer ROIC (8 %).",
+    "Gewinn 2025 eingebrochen, 2026 nur leichte Erholung.",
+    "Europa schwach (−3.5 % im 2. Quartal).",
+    "Tages-A/D zeigt noch Verkaufsdruck."
+   ],
+   "smart_money": [
+    "Mondelez selbst: Rückkauf von rund 0.9 Mrd. $ in 12 Monaten (rund 2.3 % des Börsenwerts).",
+    "Insider: Keine Käufe, nur kleine Verkäufe (zusammen rund 0.2 Mio. $).",
+    "Analysten: „Moderat kaufen“, durchschnittliches Kursziel rund 67–69 $. Wells Fargo senkte am 5.10. auf 65 $."
+   ],
+   "cheatsheet": "analysen/MDLZ.html",
+   "claude": "https://claude.ai/artifact/UUFVN3mbqSnWd3233tDPi6"
+  },
+  {
+   "ticker": "GIS",
+   "symbol": "GIS",
+   "name": "General Mills",
+   "tags": [
+    "Dividende",
+    "Defensiv"
+   ],
+   "land": "USA",
+   "region": "USA",
+   "branche": "Nahrungsmittel",
+   "status": "beobachten",
+   "waehrung": "USD",
+   "analyse": {
+    "datenstand": "2026-10-07",
+    "kurs": 31.77,
+    "q": 30,
+    "t": 21
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "1 von 4 Quartalen über Vorjahr",
+     "p": 0,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "Organisch 0 % bis leicht negativ",
+     "p": 0,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "15.6 % (6 Pkt.), fallend (0 Pkt.)",
+     "p": 6,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "Bereinigt −16 % und −13 %",
+     "p": 0,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Positiv, aber sinkend",
+     "p": 3,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "ROCE 12.3 %, sinkend",
+     "p": 5,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Nettoschulden/EBITDA 3.8",
+     "p": 2,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "Erw. KGV 10.2 statt Ø 15.1 (−32 %)",
+     "p": 14,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs weit unter beiden",
+     "p": 0,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs unter beiden",
+     "p": 0,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Juni-Boden knapp gebrochen, tiefere Tiefs",
+     "p": 2,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "Woche: bullische Divergenz, Tag überverkauft",
+     "p": 11,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Beide auf neuem Tief",
+     "p": 3,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Kein Rückkauf, kleine Insider-Verkäufe",
+     "p": 2,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "Okt–Dez: 56–63 % positive Jahre",
+     "p": 3,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 10.2,
+    "schnitt": 15.1,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      31,
+      31.8
+     ]
+    ],
+    "widerstand": [
+     [
+      38,
+      40
+     ]
+    ],
+    "trigger": 36.8,
+    "abbruch": 30.9
+   },
+   "zahlen": "2026-12-17",
+   "dividende": "7.7 %",
+   "fazit": "Die Aktie hat sich seit 2023 mehr als halbiert und steht so tief wie seit über zehn Jahren nicht mehr. Umsatz und Gewinn schrumpfen, die Schulden steigen. Qualität orange (30), Timing rot (21). Sehr billig (KGV rund 10), aber ohne Wende in den Zahlen ist das eine mögliche Value-Falle.",
+   "about": "General Mills stellt Frühstücksflocken (Cheerios, Cerealien zusammen mit Nestlé), Müesliriegel (Nature Valley), Backwaren (Pillsbury), Glacé (Häagen-Dazs) und Tierfutter (Blue Buffalo) her. Rund drei Viertel des Umsatzes kommen aus Nordamerika.",
+   "kpis": [
+    {
+     "ampel": "w",
+     "name": "Organisches Wachstum",
+     "wert": "0 %",
+     "text": "1. Quartal GJ 2027 (Juni–August). Ziel: −1.5 bis +0.5 %."
+    },
+    {
+     "ampel": "w",
+     "name": "Operative Marge",
+     "wert": "15.6 %",
+     "text": "Ordentlich, aber seit 2024 (19.0 %) fallend."
+    },
+    {
+     "ampel": "b",
+     "name": "Gewinn pro Aktie (bereinigt)",
+     "wert": "−13 %",
+     "text": "Ziel GJ 2027: 3.00–3.20 $ nach 3.55 $. Schon im Vorjahr −16 %."
+    },
+    {
+     "ampel": "w",
+     "name": "ROCE",
+     "wert": "12.3 %",
+     "text": "Rendite auf das eingesetzte Kapital. Mittel und sinkend."
+    },
+    {
+     "ampel": "w",
+     "name": "Free Cashflow",
+     "wert": "1.5 Mrd. $",
+     "text": "Positiv, aber seit 2024 (2.5 Mrd.) deutlich gesunken."
+    },
+    {
+     "ampel": "b",
+     "name": "Nettoschulden / EBITDA",
+     "wert": "3.8",
+     "text": "Hoch und steigend (2024: 3.0)."
+    },
+    {
+     "ampel": "g",
+     "name": "KGV erwartet",
+     "wert": "10.2",
+     "text": "Eigener Schnitt: 15.1. Rund 32 % günstiger. Sehr billig, aber aus gutem Grund."
+    },
+    {
+     "ampel": "b",
+     "name": "Dividende",
+     "wert": "7.7 %",
+     "text": "Nicht mehr erhöht, braucht rund 85 % des freien Cashflows. Kürzungsrisiko."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "38–40 $",
+     "text": "Widerstand: EMA 200 Tag und Bruchbereich vom September."
+    },
+    {
+     "art": "t",
+     "wert": "36.80 $",
+     "text": "Trigger: Tagesschluss über dem letzten tieferen Hoch (16.9.)."
+    },
+    {
+     "art": "s",
+     "wert": "31.0–31.8 $",
+     "text": "Möglicher Doppelboden (Juni und Oktober)."
+    },
+    {
+     "art": "r",
+     "wert": "30.90 $",
+     "text": "Abbruch: Wochenschluss darunter = neues Mehrjahrestief."
+    }
+   ],
+   "pro": [
+    "Sehr tiefe Bewertung (erwartetes KGV rund 10).",
+    "Bekannte Marken, Sparprogramm von 3 Mrd. $ bis 2030.",
+    "Wochen-RSI zeigt eine bullische Divergenz.",
+    "Letztes Quartal etwas besser als erwartet."
+   ],
+   "contra": [
+    "Umsatz und Gewinn schrumpfen weiter.",
+    "Schulden hoch und steigend (3.8-fach).",
+    "Dividende eingefroren, Kürzungsrisiko.",
+    "Juni-Boden gebrochen, A/D ohne Käufer.",
+    "Stark abhängig von US-Kunden mit wenig Geld."
+   ],
+   "smart_money": [
+    "General Mills selbst: Seit August 2025 keine Rückkäufe mehr.",
+    "Insider: Keine Käufe. Kleine Verkäufe (zusammen rund 0.7 Mio. $), u. a. vom Leiter International.",
+    "Analysten: „Halten“ bis „Reduzieren“, durchschnittliches Kursziel rund 37 $. UBS rät zum Verkauf, RBC zum Kauf."
+   ],
+   "cheatsheet": "analysen/GIS.html",
+   "claude": "https://claude.ai/artifact/LvZ4xQVZ61TKsRaZjnYhFp"
+  },
+  {
+   "ticker": "KHC",
+   "symbol": "KHC",
+   "name": "Kraft Heinz",
+   "tags": [
+    "Dividende"
+   ],
+   "land": "USA",
+   "region": "USA",
+   "branche": "Nahrungsmittel",
+   "status": "beobachten",
+   "waehrung": "USD",
+   "analyse": {
+    "datenstand": "2026-10-07",
+    "kurs": 21.98,
+    "q": 29,
+    "t": 15
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "1 von 4 Quartalen über Vorjahr",
+     "p": 0,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "Organisch −1.3 %",
+     "p": 0,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "18.0 % (6 Pkt.), fallend (0 Pkt.)",
+     "p": 6,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "Bereinigt rund −20 %",
+     "p": 0,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Seit 2022 jedes Jahr gestiegen",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "8.0 %",
+     "p": 2,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Nettoschulden/EBITDA 3.0",
+     "p": 3,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "Erw. KGV 11.0 statt Ø 12.2 (−10 %)",
+     "p": 8,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs weit unter beiden",
+     "p": 1,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs unter beiden, frisches Death Cross",
+     "p": 0,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Spanne 21–28 $, Tag tiefere Hochs, Test der Untergrenze",
+     "p": 5,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "25 / 37, überverkauft ohne Bodenzeichen",
+     "p": 5,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Beide fallen",
+     "p": 3,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Insider-Verkäufe, Verkaufsrisiko durch Berkshire",
+     "p": 0,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "Okt–Dez schwach (31–55 %)",
+     "p": 1,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 11.0,
+    "schnitt": 12.2,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      21,
+      22
+     ]
+    ],
+    "widerstand": [
+     [
+      24.2,
+      25.2
+     ]
+    ],
+    "trigger": 25.2,
+    "abbruch": 20.9
+   },
+   "zahlen": "2026-10-28",
+   "dividende": "7.3 %",
+   "fazit": "Eine schrumpfende Firma mit hoher Dividende. Der Umsatz sinkt seit drei Jahren, es gab Abschreibungen in Milliardenhöhe, und die geplante Aufspaltung wurde gestoppt. Qualität rot (29), Timing rot (15). Die 7.3 % Dividende ist verlockend, aber typisch für eine Dividendenfalle. Erfüllt die Kriterien für ein Qualitäts-Depot nicht.",
+   "about": "Kraft Heinz stellt verpackte Lebensmittel her: Ketchup und Saucen (Heinz), Käse und Fertiggerichte (Kraft, Philadelphia), Wurstwaren (Oscar Mayer) und Kinder-Snacks (Lunchables). Rund drei Viertel des Umsatzes kommen aus Nordamerika.",
+   "kpis": [
+    {
+     "ampel": "b",
+     "name": "Organisches Wachstum",
+     "wert": "−1.3 %",
+     "text": "2. Quartal 2026 (Preis +1.3, Menge −2.6). Ziel 2026: −2.0 bis −0.5 %. Die Firma schrumpft."
+    },
+    {
+     "ampel": "g",
+     "name": "Operative Marge",
+     "wert": "18.0 %",
+     "text": "Ohne Abschreibungen. Gut, aber seit 2024 (21.4 %) fallend."
+    },
+    {
+     "ampel": "b",
+     "name": "Gewinn pro Aktie (bereinigt)",
+     "wert": "≈ −20 %",
+     "text": "Ziel 2026: 2.03–2.09 $. Ausgewiesen wegen der Abschreibungen negativ."
+    },
+    {
+     "ampel": "b",
+     "name": "ROIC",
+     "wert": "8.0 %",
+     "text": "Tief: Zu viel Kapital steckt in teuren früheren Übernahmen."
+    },
+    {
+     "ampel": "g",
+     "name": "Free Cashflow",
+     "wert": "3.8 Mrd. $",
+     "text": "Der Lichtblick: steigt seit 2022 jedes Jahr."
+    },
+    {
+     "ampel": "w",
+     "name": "Nettoschulden / EBITDA",
+     "wert": "3.0",
+     "text": "Eher hoch."
+    },
+    {
+     "ampel": "w",
+     "name": "KGV erwartet",
+     "wert": "11.0",
+     "text": "Eigener Schnitt: 12.2. Billig, aber das war die Aktie schon immer."
+    },
+    {
+     "ampel": "w",
+     "name": "Dividende",
+     "wert": "7.3 %",
+     "text": "Seit 2019 nicht erhöht (damals gekürzt). Braucht rund 50 % des freien Cashflows. Hoch, weil der Kurs so tief ist."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "24.2–25.2 $",
+     "text": "Widerstand: EMA 50/200 Tag und Hoch vom 17.9."
+    },
+    {
+     "art": "t",
+     "wert": "25.20 $",
+     "text": "Trigger: Ein Tagesschluss darüber wäre ein erstes Wende-Zeichen."
+    },
+    {
+     "art": "s",
+     "wert": "21.0–22.0 $",
+     "text": "Untergrenze der Spanne seit Januar (Allzeittief 21.03 $)."
+    },
+    {
+     "art": "r",
+     "wert": "20.90 $",
+     "text": "Abbruch: Wochenschluss darunter = neues Allzeittief."
+    }
+   ],
+   "pro": [
+    "Free Cashflow steigt jedes Jahr.",
+    "Bewertung sehr tief (erwartetes KGV 11).",
+    "Neuer Chef investiert in die Marken.",
+    "Hohe Dividende (7.3 %), aktuell vom Cashflow gedeckt."
+   ],
+   "contra": [
+    "Der Umsatz schrumpft seit drei Jahren.",
+    "Riesige Abschreibungen: Die Marken sind weniger wert als gedacht.",
+    "Aufspaltung gestoppt, Strategie unklar.",
+    "Berkshire könnte 27.5 % der Aktien verkaufen.",
+    "Klarer Abwärtstrend, A/D auf neuem Tief."
+   ],
+   "smart_money": [
+    "Kraft Heinz selbst: Kaum Rückkäufe (28 Mio. $ in 12 Monaten).",
+    "Berkshire Hathaway: Hält 27.5 %, hat aber im Januar alle Aktien für einen möglichen Verkauf registriert. Verkauft wurde laut den Meldungen bisher nichts. Das hängt wie ein Damoklesschwert über dem Kurs.",
+    "Insider: Keine Käufe. Verkäufe u. a. von Miguel Patricio (Präsident, früher Chef) für 3.1 Mio. $.",
+    "Analysten: „Halten“ bis „Reduzieren“, durchschnittliches Kursziel rund 24–25 $."
+   ],
+   "cheatsheet": "analysen/KHC.html",
+   "claude": "https://claude.ai/artifact/UhcdpWrRA2qmj59VrY5g2K"
+  }
+ ]
+}

@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tesla Aktien-Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F3F5F7; --surface:#FFFFFF; --ink:#141B24; --muted:#5A6573; --line:#DDE2E8; --grid:#E9EDF1;
+  --accent:#2F45B5; --accent-soft:#E6E9F8; --chip:#EBEEF2;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+  --good:#1D7A4B; --good-bg:#E3F3EA; --warn:#9A6200; --warn-bg:#FBF0DC; --bad:#B2362A; --bad-bg:#FBE6E3;
+  --zone-sup:rgba(29,122,75,.10); --zone-res:rgba(178,54,42,.09);
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+    --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+    --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+    --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+  --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+  --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;padding-inline:16px;padding-block:24px 56px}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+h1,h2,h3{font-family:var(--display);font-stretch:85%;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:clamp(32px,7vw,48px);font-weight:800;line-height:1}
+h2{font-size:24px;font-weight:700}
+h3{font-size:17px;font-weight:700;font-stretch:95%}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+section{display:flex;flex-direction:column;gap:14px}
+.lead{max-width:68ch;color:var(--muted)}
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;align-items:stretch}
+.hero .id{display:flex;flex-direction:column;gap:10px;justify-content:space-between}
+.price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price b{font-family:var(--display);font-size:34px;font-weight:700}
+.meta{font-size:13px;color:var(--muted)}
+.verdict{font-size:15px;padding:12px 14px;border-radius:10px;background:var(--chip)}
+.scales{display:flex;flex-direction:column;gap:18px}
+.scale-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.scale-h span{font-size:13px;color:var(--muted)}
+.scale-h b{font-family:var(--display);font-size:28px;line-height:1}
+.track{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#C8412F 0%,#E0892F 30%,#E3B63A 50%,#8BBF4B 68%,#2E9A5B 100%);margin-top:8px}
+.pin{position:absolute;top:-5px;width:4px;height:22px;border-radius:2px;background:var(--ink);box-shadow:0 0 0 2px var(--surface);transform:translateX(-2px)}
+.ticks{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);font-family:var(--mono);margin-top:6px}
+.state{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;margin-top:8px}
+.st-good{background:var(--good-bg);color:var(--good)}
+.st-warn{background:var(--warn-bg);color:var(--warn)}
+.st-bad{background:var(--bad-bg);color:var(--bad)}
+/* tables */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;color:var(--muted);font-weight:500;font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:700;border-bottom:none}
+.pts{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{height:6px;border-radius:3px;background:var(--chip);min-width:60px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:3px}
+/* grids */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;border-left:4px solid var(--line)}
+.kpi.g{border-left-color:var(--good)}.kpi.w{border-left-color:var(--warn)}.kpi.b{border-left-color:var(--bad)}
+.kpi span{font-size:12px;color:var(--muted)}
+.kpi b{font-family:var(--mono);font-size:19px;font-weight:500;font-variant-numeric:tabular-nums}
+.kpi em{font-style:normal;font-size:12.5px;color:var(--muted)}
+/* charts */
+.chart{position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:14px;height:3px;border-radius:2px;display:inline-block}
+.swb{width:12px;height:10px;border-radius:2px;display:inline-block}
+.tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12.5px;box-shadow:0 4px 14px rgba(0,0,0,.12);white-space:nowrap;z-index:2}
+.tip b{font-family:var(--mono);font-weight:500}
+.tip .d{font-family:var(--mono);color:var(--muted);font-size:11.5px}
+.note{font-size:13.5px;color:var(--muted)}
+ul.clean{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.pro li::marker{color:var(--good)} .con li::marker{color:var(--bad)}
+.zones{display:flex;flex-direction:column;gap:8px}
+.zone{display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:baseline;padding:10px 12px;border-radius:10px;background:var(--chip);font-size:14px}
+.zone b{font-family:var(--mono);font-weight:500}
+.zone.r{border-left:4px solid var(--bad)} .zone.s{border-left:4px solid var(--good)} .zone.t{border-left:4px solid var(--accent)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+summary{cursor:pointer;font-weight:600}
+details p{margin-top:8px;color:var(--muted);max-width:70ch}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+footer{font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:6px;max-width:80ch}
+footer a{color:var(--accent)}
+@media (max-width:760px){.hero,.two{grid-template-columns:1fr}.zone{grid-template-columns:1fr;gap:2px}}
+</style>
+
+<a href="../index.html#/aktie/TSLA" style="display:inline-block;margin:max(12px,env(safe-area-inset-top)) 0 0 16px;background:#1f3a5f;color:#fff;font:600 14px system-ui;padding:8px 12px;border-radius:20px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">Zurück zur App</a>
+<div class="wrap">
+
+<header class="hero">
+  <div class="card id">
+    <div>
+      <div class="eyebrow">Aktien-Check · 09.10.2026</div>
+      <h1>Tesla</h1>
+      <p class="meta">Tesla, Inc. · Nasdaq: TSLA · Elektroautos, Energiespeicher, Robotaxi und Roboter (Optimus) · USA</p>
+    </div>
+    <div class="price"><b>375.00 $</b><span class="meta">Schluss 08.10.2026 · 52 Wochen: 297.38 – 498.83 $ · Allzeithoch 498.83 $ (Dezember 2025)</span></div>
+    <p class="verdict"><b>Kurz gesagt:</b> Die Börse bezahlt bei Tesla vor allem die Zukunft (Robotaxi, Optimus, mögliche SpaceX-Fusion), nicht die heutigen Zahlen. Die heutigen Zahlen sind schwach: Marge 4 %, Gewinn seit 2023 um drei Viertel gesunken. Qualität orange (34), Timing orange (41). Technisch erholt sich der Kurs seit dem Juli-Tief (297 $) mit höheren Hochs. Ein Tagesschluss über 387 $ wäre das nächste Signal, aber erst nach den Zahlen am 21. Oktober.</p>
+  </div>
+  <div class="card scales">
+    <div>
+      <div class="scale-h"><span>Qualität · Ist die Firma kaufenswert?</span><b id="q-val">34</b></div>
+      <div class="track"><i class="pin" id="q-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-warn">▲ Schwach</span>
+    </div>
+    <div>
+      <div class="scale-h"><span>Timing · Ist jetzt der Zeitpunkt?</span><b id="t-val">41</b></div>
+      <div class="track"><i class="pin" id="t-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-warn">▲ Beobachten: Trigger noch nicht erreicht</span>
+    </div>
+    <p class="note">Skala: unter 30 rot · 30–45 orange · 45–60 gelb · 60–75 hellgrün · ab 75 grün. Beide Werte setzen sich aus festen Kriterien zusammen, siehe unten.</p>
+  </div>
+</header>
+
+<section>
+  <h2>Was die Firma macht</h2>
+  <p class="lead">Tesla baut Elektroautos (vor allem Model Y und Model 3, dazu Cybertruck, Model S/X, Semi und das Robotaxi Cybercab). Dazu kommen Energiespeicher für Häuser und Stromnetze (Powerwall, Megapack), Solaranlagen und Dienstleistungen (Ladestationen, Versicherung, Software für autonomes Fahren). Der humanoide Roboter Optimus und das Robotaxi-Netz stehen noch am Anfang. Rund drei Viertel des Umsatzes kommen weiterhin aus dem Autogeschäft.</p>
+  <p class="lead">Ende 2025 stieg die Aktie auf ein Allzeithoch von 499 $, getragen von der Robotaxi-Fantasie und dem neuen Vergütungspaket für Elon Musk (rund 1 Bio. $, im November 2025 genehmigt). Seither belastete vor allem das Kerngeschäft: In den USA fiel die Steuergutschrift für E-Autos weg, die Einnahmen aus CO2-Zertifikaten brachen ein, und die Marge sank. Am 22. Juli enttäuschten die Zahlen zum 2. Quartal: Rekordumsatz, aber kaum Gewinn (Marge 1.4 %) und erstmals seit 2024 negativer freier Cashflow wegen hoher Ausgaben für KI, Cybercab und Optimus. Die Aktie fiel in einer Woche um rund 20 % auf 297 $. Seither erholt sie sich: Seit Anfang September fahren in Austin Cybercabs ohne Fahrer, und die Auslieferungen im 3. Quartal (486'532 Autos) waren besser als erwartet. Dazu kommen Gerüchte über eine Fusion mit SpaceX.</p>
+</section>
+
+<section>
+  <h2>Fundamental: die Zahlen</h2>
+  <div class="kpis">
+<div class="kpi w"><span>Umsatzwachstum</span><b>+11.8 %</b><em>Letzte 12 Monate. 2025 waren es −2.9 %, das 2. Quartal 2026 war mit +25 % stark (schwaches Vorjahr).</em></div>
+<div class="kpi b"><span>Operative Marge</span><b>4.1 %</b><em>Von 100 $ Umsatz bleiben gut 4 $ Betriebsgewinn. 2022 waren es noch 16.8 %, im 2. Quartal 2026 nur 1.4 %. Schwach.</em></div>
+<div class="kpi b"><span>Gewinn pro Aktie (EPS)</span><b>1.08 $</b><em>2023 waren es noch 4.30 $. Im 2. Quartal bereinigt 0.33 $ statt der erwarteten 0.53 $.</em></div>
+<div class="kpi b"><span>ROIC</span><b>5.5 %</b><em>Auf jeden investierten Dollar gut 5 Cent Gewinn. 2022 waren es 48 Cent. Stark gefallen.</em></div>
+<div class="kpi w"><span>Free Cashflow</span><b>5.8 Mrd. $</b><em>Letzte 12 Monate positiv, im 2. Quartal aber −1.1 Mrd. $ wegen hoher Investitionen (5.8 Mrd. $ im Quartal).</em></div>
+<div class="kpi g"><span>Netto-Cash</span><b>27.4 Mrd. $</b><em>Mehr Geld als Schulden (43.5 Mrd. Cash, 16.1 Mrd. Schulden). Sehr solide Bilanz.</em></div>
+<div class="kpi b"><span>KGV erwartet</span><b>≈ 160–200</b><em>Du zahlst 160 bis 200 erwartete Jahresgewinne. Eigener 5-Jahres-Schnitt rund 114. Sehr teuer: Der Preis setzt auf Robotaxi und Roboter.</em></div>
+<div class="kpi w"><span>Auslieferungen Q3</span><b>486'532</b><em>−2 % zum Vorjahr, aber über den Erwartungen (462'000). Energiespeicher 13.7 GWh (+10 %), hier unter den Erwartungen.</em></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>Umsatz pro Quartal (Mrd. $)</h3>
+      <p class="note">3 von 4 Quartalen über Vorjahr. Q3 2025 war durch Vorzieheffekte vor dem Ende der US-Steuergutschrift besonders stark.</p>
+      <div class="chart" id="c-rev"></div>
+    </div>
+    <div class="card">
+      <h3>Operative Marge pro Jahr</h3>
+      <p class="note">Seit 2022 jedes Jahr gefallen: Preissenkungen, weniger CO2-Zertifikate, hohe Ausgaben für KI und neue Produkte.</p>
+      <div class="chart" id="c-margin"></div>
+    </div>
+  </div>
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Jahr</th><th class="num">Umsatz Mio. $</th><th class="num">Wachstum</th><th class="num">Op. Marge</th><th class="num">EPS $</th><th class="num">Free Cashflow</th><th class="num">ROIC</th><th class="num">KGV</th></tr></thead>
+      <tbody id="fin-rows"></tbody>
+    </table>
+  </div>
+  <p class="note"><b>Hinweis:</b> Tesla zahlt keine Dividende und kauft keine eigenen Aktien zurück. Das KGV ist auf ausgewiesenem Gewinn gerechnet und darum extrem hoch. Im 2. Quartal 2026 enthielt der Gewinn rund 1 Mrd. $ Buchgewinn aus der Beteiligung an SpaceX/xAI.</p>
+</section>
+
+<section>
+  <h2>Qualität: 34 von 100</h2>
+  <div class="card tbl"><table id="q-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Technik: Wochenchart (2 Jahre)</h2>
+  <div class="card">
+    <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span><span><i class="swb" style="background:var(--zone-sup);border:1px solid var(--good)"></i>Unterstützung</span><span><i class="swb" style="background:var(--zone-res);border:1px solid var(--bad)"></i>Widerstand</span></div>
+    <div class="chart" id="c-week"></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>A/D-Linie, Woche</h3>
+      <p class="note">Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Die Wochen-A/D erreichte im Dezember 2025 ihr Hoch (10'564) und fällt seither. Heute (9'335) liegt sie tiefer als im Juni bei ähnlichem Kurs: Auf Wochenbasis wird eher verkauft.</p>
+      <div class="chart" id="c-adw"></div>
+    </div>
+    <div class="card">
+      <h3>RSI, Woche</h3>
+      <p class="note">Unter 30 überverkauft, über 70 überkauft. Im Juli 35, heute 50: neutral.</p>
+      <div class="chart" id="c-rsiw"></div>
+    </div>
+  </div>
+
+  <h2>Technik: Tageschart (6 Monate)</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Kurs, Tag</h3>
+      <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span></div>
+      <div class="chart" id="c-day"></div>
+    </div>
+    <div class="card">
+      <h3>A/D-Linie, Tag</h3>
+      <p class="note">Seit dem Juli-Tief steigt die Tages-A/D mit dem Kurs. Aber: Am Hoch vom 25.9. (386.83 $) lag sie mit 1'220 deutlich tiefer als am Hoch vom 3.9. (1'343). Höherer Kurs, tiefere A/D: Die letzte Aufwärtsbewegung hatte weniger Käufer.</p>
+      <div class="chart" id="c-add"></div>
+    </div>
+  </div>
+
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Indikator</th><th>Tag</th><th>Woche</th><th>Bedeutung</th></tr></thead>
+      <tbody>
+<tr><td>Kurs vs. EMA 50</td><td class="pts">375.0 &gt; 364.3</td><td class="pts">375.0 &lt; 376.5</td><td>Tag über der mittelfristigen Linie, Woche genau darauf.</td></tr>
+<tr><td>Kurs vs. EMA 200</td><td class="pts">375.0 &lt; 377.9</td><td class="pts">375.0 &gt; 312.5</td><td>Tag knapp unter der langfristigen Linie, Woche klar darüber.</td></tr>
+<tr><td>EMA 50 vs. EMA 200</td><td class="pts">50 unter 200 (seit 23.7.2026)</td><td class="pts">50 über 200 (seit 2019)</td><td>Tag abwärts, der grosse Wochentrend ist noch aufwärts.</td></tr>
+<tr><td>RSI (14)</td><td class="pts">55.8</td><td class="pts">50.3</td><td>Neutral.</td></tr>
+<tr><td>A/D</td><td class="pts">steigt seit Juli, schwächer am Hoch</td><td class="pts">fällt seit Dezember</td><td>Gemischt bis leicht negativ.</td></tr>
+<tr><td>Volumen</td><td colspan="2">Ø 20 Tage 35.4 Mio. vs. Ø 100 Tage 40.8 Mio.</td><td>Ruhiger als in den letzten Monaten.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Struktur und Zonen (Smart Money Concept)</h2>
+  <p class="lead">Auf der Woche läuft Tesla seit dem Allzeithoch (498.83 $, Dezember 2025) abwärts: tiefere Hochs (453.40 → 432.86 $) und tiefere Tiefs (387.53 → 337.24 → 297.38 $). Auf dem Tageschart gab es seit dem Juli-Tief eine Erholung mit höheren Hochs (366.50 → 384.04 → 386.83 $). Das Tief vom 30.9. (345.88 $) liegt weit über dem Juli-Tief. Ein Tagesschluss über 387 $ wäre ein Break of Structure nach oben und würde den Weg Richtung 405–433 $ öffnen. Wichtig: Am 21.10. kommen die Zahlen, bei Tesla bewegt sich der Kurs danach oft um 10 % oder mehr.</p>
+  <div class="zones">
+<div class="zone r"><b>405–433 $</b><span>Widerstand: Spanne von Juni und Juli vor dem Kurssturz.</span></div>
+<div class="zone t"><b>387 $</b><span><b>Trigger:</b> Tagesschluss über dem Hoch vom 25.9., idealerweise mit steigender A/D.</span></div>
+<div class="zone s"><b>345–355 $</b><span><b>Kaufzone 1:</b> Tiefs vom September und Oktober.</span></div>
+<div class="zone s"><b>297–312 $</b><span><b>Kaufzone 2:</b> Juli-Tief und Wochen-EMA 200.</span></div>
+<div class="zone r"><b>340 $</b><span>Abbruch: Wochenschluss darunter, dann droht ein Test des Juli-Tiefs.</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Smart Money, Insider und Saisonalität</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Wer kauft, wer verkauft?</h3>
+      <ul class="clean" style="margin-top:8px">
+<li><b>Tesla selbst:</b> Keine Aktienrückkäufe, keine Dividende. Die Aktienzahl steigt leicht (rund 0.6 % pro Jahr).</li>
+<li><b>Insider-Käufe:</b> Keine in den letzten 12 Monaten. Elon Musk kaufte im September 2025 für rund 1 Mrd. $ (älter als 12 Monate, nicht nachgeprüft).</li>
+<li><b>Insider-Verkäufe:</b> Rund 88 Mio. $ von 4 Personen, u. a. Kimbal Musk (25.6 Mio. $), James Murdoch (26.7 Mio. $) und Kathleen Wilson-Thompson (rund 30 Mio. $).</li>
+<li><b>Analysten:</b> Sehr uneinig: Kursziele von 25 $ bis 840 $. Im Durchschnitt rund 392–412 $, Einstufung zwischen „Halten“ und „Kaufen“.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Saisonalität seit 2010</h3>
+      <p class="note">Durchschnittliche Monatsrendite in %. Nur 16 Jahre (seit dem Börsengang 2010). November ist mit +10.6 % und 69 % positiven Jahren der stärkste Monat, Oktober eher schwach (39 %).</p>
+      <div class="chart" id="c-seas"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Timing: 41 von 100</h2>
+  <div class="card tbl"><table id="t-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Pro und Contra</h2>
+  <div class="two">
+    <div class="card pro"><h3>Spricht dafür</h3><ul class="clean" style="margin-top:8px">
+<li>Sehr solide Bilanz mit 27 Mrd. $ Netto-Cash.</li>
+<li>Robotaxi läuft in Austin ohne Fahrer, das ist ein echter Fortschritt.</li>
+<li>Energiespeicher wachsen stark und sind profitabel.</li>
+<li>Auslieferungen im 3. Quartal besser als erwartet.</li>
+<li>Grosser Wochentrend seit 2019 noch intakt (über EMA 200).</li>
+    </ul></div>
+    <div class="card con"><h3>Spricht dagegen</h3><ul class="clean" style="margin-top:8px">
+<li>Marge und Gewinn seit 2022 stark gesunken.</li>
+<li>Extrem hohe Bewertung: Der Kurs hängt an Zukunftsprojekten.</li>
+<li>Hohe Ausgaben für KI, Cybercab und Optimus drücken den Cashflow.</li>
+<li>Starke Konkurrenz aus China, US-Steuergutschrift weggefallen.</li>
+<li>Viel hängt an Elon Musk (Politik, SpaceX, xAI): hohes Personenrisiko.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section>
+  <h2>Was jetzt zu tun ist</h2>
+  <div class="zones">
+<div class="zone t"><b>Beobachten</b><span>Alarm bei 387 $ (Trigger) und 355 $ (Kaufzone 1).</span></div>
+<div class="zone s"><b>Timing grün</b><span>Erst die Zahlen am 21.10. abwarten. Danach Tagesschluss über 387 $ mit steigender A/D, oder Rücksetzer in 345–355 $, der hält.</span></div>
+<div class="zone r"><b>Abbruch</b><span>Wochenschluss unter 340 $.</span></div>
+<div class="zone "><b>Nächste Zahlen</b><span>21. Oktober 2026 nach US-Börsenschluss (3. Quartal). Entscheidend: Marge, Cashflow und Fortschritt bei Robotaxi.</span></div>
+  </div>
+</section>
+
+<footer>
+  <span>Kursdaten und Indikatoren (EMA, RSI 14, A/D) selbst berechnet aus Yahoo-Finance-Tages-, Wochen- und Monatsdaten, Stand 09.10.2026. <a href="https://stockanalysis.com/stocks/tsla/financials/" target="_blank" rel="noopener">StockAnalysis.com</a> (Stand 09.10.2026), <a href="https://www.sec.gov/Archives/edgar/data/0001318605/000162828026064366/exhibit991111111.htm" target="_blank" rel="noopener">Tesla Q3-Auslieferungen</a>, <a href="https://electrek.co/2026/07/22/tesla-tsla-q2-2026-financial-results/" target="_blank" rel="noopener">Q2-Zahlen (Electrek)</a>, <a href="https://www.marketbeat.com/stocks/NASDAQ/TSLA/insider-trades/" target="_blank" rel="noopener">Insider (MarketBeat)</a>.</span>
+  <span>Persönliche Analyse, keine Anlageberatung. Vergangene Kurse und Saisonalität sagen nichts Sicheres über die Zukunft.</span>
+</footer>
+</div>
+
+<script>
+const Q=[["Umsatztrend", "3 von 4 Quartalen über Vorjahr", 8, 15], ["Wachstumstempo", "Letzte 12 Monate +11.8 % (2025: −2.9 %)", 8, 10], ["Operative Marge", "4.1 % (0 Pkt.), seit 2022 fallend (0 Pkt.)", 0, 15], ["Gewinnwachstum (EPS)", "Seit 2023 stark gesunken (4.30 → 1.08 $)", 0, 10], ["Free Cashflow", "Positiv, aber schwankend, Q2 negativ", 6, 10], ["ROIC", "5.5 %, stark fallend", 1, 15], ["Schulden", "Netto-Cash 27.4 Mrd. $", 10, 10], ["Bewertung vs. eigene Historie", "Erw. KGV rund 160–200 statt Ø 114 (über 30 % teurer)", 1, 15]];
+const T=[["Trend Woche (EMA 50/200)", "Kurs auf der EMA 50, klar über EMA 200", 13, 20], ["Trend Tag (EMA 50/200)", "Kurs über EMA 50, knapp unter EMA 200", 4, 10], ["Struktur (SMC)", "Woche abwärts, Tag Erholung mit höheren Hochs", 9, 20], ["RSI Tag/Woche", "56 / 50, neutral", 7, 15], ["A/D Tag/Woche", "Tag schwächer am Hoch, Woche fallend", 5, 20], ["Smart Money", "Insider-Verkäufe, kein Rückkauf", 0, 10], ["Saisonalität", "Okt schwach, Nov stark, Dez gemischt", 3, 5]];
+const FIN=[["2022", 81462, "+51.4 %", "16.8 %", 3.62, 7561, "48.1 %", "30.9"], ["2023", 96773, "+18.8 %", "9.2 %", 4.3, 4357, "24.2 %", "52.7"], ["2024", 97690, "+1.0 %", "7.8 %", 2.04, 3581, "12.9 %", "181.8"], ["2025", 94827, "−2.9 %", "4.6 %", 1.08, 6220, "6.1 %", "394.2"], ["Letzte 12 Mt.", 103619, "+11.8 %", "4.1 %", 1.08, 5762, "5.5 %", "≈ 350"]];
+const HALF=[["Q3 24", 25.18], ["Q4 24", 25.71], ["Q1 25", 19.34], ["Q2 25", 22.5], ["Q3 25", 28.1], ["Q4 25", 24.9], ["Q1 26", 22.39], ["Q2 26", 28.24]];
+const MARGIN=[["2022", 16.8], ["2023", 9.2], ["2024", 7.8], ["2025", 4.6], ["12 Mt.", 4.1]];
+const SEAS=[5.5, 1.0, -1.2, 5.9, 6.6, 8.2, 2.2, 6.7, 2.0, 2.5, 10.6, 1.0];
+const SEASHIT=[56.0, 44.0, 44.0, 63.0, 50.0, 69.0, 47.0, 53.0, 41.0, 39.0, 69.0, 63.0];
+const MON=["Jan","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"];
+const W=`2024-10-14,220.7,212.87,201.09,51,8263.8;2024-10-21,269.19,215.08,201.77,63,8795.8;2024-10-28,248.98,216.41,202.24,57,8493.5;2024-11-04,321.22,220.52,203.42,68,9014.6;2024-11-11,320.72,224.45,204.59,68,8626;2024-11-18,352.56,229.47,206.06,72,8810.6;2024-11-25,345.16,234.01,207.45,70,8823.5;2024-12-02,389.22,240.1,209.26,75,9168.9;2024-12-09,436.23,247.79,211.51,78,9642.7;2024-12-16,421.06,254.58,213.6,74,9059.5;2024-12-23,431.66,261.53,215.77,75,8957.9;2024-12-30,410.44,267.37,217.71,70,9083.7;2025-01-06,394.74,272.36,219.47,66,8997.8;2025-01-13,426.5,278.41,221.53,70,9218.5;2025-01-20,406.58,283.43,223.37,65,8978;2025-01-27,404.6,288.18,225.17,65,9026.1;2025-02-03,361.62,291.06,226.53,55,8697;2025-02-10,355.84,293.6,227.82,54,8988.6;2025-02-17,337.8,295.34,228.91,51,8798.9;2025-02-24,292.98,295.24,229.55,43,8568.4;2025-03-03,262.67,293.97,229.88,39,8272.3;2025-03-10,249.98,292.24,230.08,38,8859;2025-03-17,248.71,290.54,230.26,37,9392.4;2025-03-24,263.55,289.48,230.59,41,8941.7;2025-03-31,239.43,287.51,230.68,37,8244.6;2025-04-07,252.31,286.13,230.9,40,8474.2;2025-04-14,241.37,284.38,231,38,8300;2025-04-21,284.95,284.4,231.54,48,8893.6;2025-04-28,287.21,284.51,232.09,48,9113.7;2025-05-05,298.26,285.05,232.75,50,9356.1;2025-05-12,349.98,287.6,233.92,59,9889.3;2025-05-19,339.34,289.63,234.97,57,9724.6;2025-05-26,346.46,291.85,236.08,58,9345.7;2025-06-02,295.14,291.98,236.66,48,9004.1;2025-06-09,325.31,293.29,237.55,53,9406.5;2025-06-16,322.16,294.42,238.39,53,9347.2;2025-06-23,323.63,295.57,239.24,53,8934.5;2025-06-30,315.35,296.34,239.99,51,9081.4;2025-07-07,313.51,297.02,240.72,51,9552.4;2025-07-14,329.65,298.3,241.61,54,9921.9;2025-07-21,316.06,298.99,242.35,51,9829.7;2025-07-28,302.63,299.14,242.95,48,9506.3;2025-08-04,329.65,300.33,243.81,54,9751.7;2025-08-11,330.56,301.52,244.68,54,9478.6;2025-08-18,340.01,303.03,245.62,56,9823.8;2025-08-25,333.87,304.24,246.5,54,9515.1;2025-09-01,350.84,306.06,247.54,58,9726.7;2025-09-08,395.94,309.59,249.02,66,10186.3;2025-09-15,426.07,314.16,250.78,70,10513.8;2025-09-22,440.4,319.11,252.67,71,10818.9;2025-09-29,429.83,323.45,254.43,68,10552.2;2025-10-06,413.49,326.98,256.01,64,10154.6;2025-10-13,439.31,331.39,257.84,67,10473.8;2025-10-20,433.72,335.4,259.59,66,10494.6;2025-10-27,456.56,340.15,261.55,69,10602.1;2025-11-03,429.52,343.65,263.22,62,10269;2025-11-10,404.35,346.03,264.62,56,10119.9;2025-11-17,391.09,347.8,265.88,53,9803.1;2025-11-24,430.17,351.03,267.51,60,10025;2025-12-01,455,355.11,269.38,63,10295.4;2025-12-08,458.96,359.18,271.27,64,10540.8;2025-12-15,481.2,363.97,273.35,67,10563.9;2025-12-22,475.19,368.33,275.36,65,10345.5;2025-12-29,438.07,371.06,276.98,56,10127.7;2026-01-05,445.01,373.96,278.65,57,10211;2026-01-12,437.5,376.45,280.23,56,10020.9;2026-01-19,449.06,379.3,281.91,58,10230.5;2026-01-26,430.41,381.31,283.39,53,10242.2;2026-02-02,411.11,382.48,284.66,49,10290.9;2026-02-09,417.44,383.85,285.98,51,10203.5;2026-02-16,411.82,384.94,287.24,49,10285.1;2026-02-23,402.51,385.63,288.38,47,10180.6;2026-03-02,396.73,386.07,289.46,46,10173.5;2026-03-09,391.2,386.27,290.47,45,10037.9;2026-03-16,367.96,385.55,291.24,40,9790.1;2026-03-23,361.83,384.62,291.95,38,9522.2;2026-03-30,360.59,383.68,292.63,38,9392.5;2026-04-06,348.95,382.32,293.19,36,9312.7;2026-04-13,400.62,383.03,294.26,51,9585.4;2026-04-20,376.3,382.77,295.08,45,9388.8;2026-04-27,390.82,383.09,296.03,49,9552.4;2026-05-04,428.35,384.86,297.35,56,9798;2026-05-11,422.24,386.33,298.59,55,9583;2026-05-18,426.01,387.88,299.86,56,9748.4;2026-05-25,435.79,389.76,301.21,58,9747.2;2026-06-01,391,389.81,302.1,47,9545.6;2026-06-08,406.43,390.46,303.14,51,9645.2;2026-06-15,400.49,390.86,304.11,49,9646.8;2026-06-22,379.71,390.42,304.86,45,9533.3;2026-06-29,393.45,390.54,305.74,48,9432;2026-07-06,407.76,391.21,306.76,51,9465.7;2026-07-13,380.84,390.81,307.49,46,9353.9;2026-07-20,313.03,387.76,307.55,35,9123.1;2026-07-27,311.21,384.75,307.59,35,9204.6;2026-08-03,328.58,382.55,307.79,39,9296.6;2026-08-10,342.27,380.97,308.14,42,9351.5;2026-08-17,362.86,380.26,308.68,47,9495;2026-08-24,348.75,379.03,309.08,44,9430.9;2026-08-31,354.08,378.05,309.53,45,9268.2;2026-09-07,365.44,377.55,310.09,48,9266;2026-09-14,364.27,377.03,310.62,48,9269.4;2026-09-21,372.11,376.84,311.24,50,9177.9;2026-09-28,370.59,376.59,311.83,49,9320.3;2026-10-05,375,376.53,312.46,50,9334.9`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+const DD=`2026-04-06,352.82,397.57,393.7,1076.5;2026-04-07,346.65,395.57,393.23,1132.1;2026-04-08,343.25,393.52,392.73,1076;2026-04-09,345.62,391.64,392.27,1103.3;2026-04-10,348.95,389.97,391.83,1135.7;2026-04-13,352.42,388.5,391.44,1135.1;2026-04-14,364.2,387.54,391.17,1163.1;2026-04-15,391.95,387.72,391.18,1257.8;2026-04-16,388.9,387.76,391.16,1267.8;2026-04-17,400.62,388.27,391.25,1269.4;2026-04-20,392.5,388.43,391.26,1234;2026-04-21,386.42,388.35,391.21,1197.4;2026-04-22,387.51,388.32,391.18,1170.7;2026-04-23,373.72,387.75,391,1133.7;2026-04-24,376.3,387.3,390.86,1129;2026-04-27,378.67,386.96,390.74,1178.9;2026-04-28,376.02,386.53,390.59,1164.4;2026-04-29,372.8,385.99,390.41,1158.4;2026-04-30,381.63,385.82,390.33,1190.2;2026-05-01,390.82,386.02,390.33,1207.5;2026-05-04,392.51,386.27,390.35,1235.1;2026-05-05,389.37,386.39,390.34,1190;2026-05-06,398.73,386.88,390.43,1225.7;2026-05-07,411.79,387.85,390.64,1252.1;2026-05-08,428.35,389.44,391.01,1292.1;2026-05-11,445,391.62,391.55,1350.3;2026-05-12,433.45,393.26,391.97,1342.8;2026-05-13,445.27,395.3,392.5,1363.2;2026-05-14,443.3,397.18,393,1335.4;2026-05-15,422.24,398.17,393.29,1284.7;2026-05-18,409.99,398.63,393.46,1263.1;2026-05-19,404.11,398.84,393.57,1297.9;2026-05-20,417.26,399.57,393.8,1341.5;2026-05-21,417.85,400.28,394.04,1328.9;2026-05-22,426.01,401.29,394.36,1328.9;2026-05-26,433.59,402.56,394.75,1358.4;2026-05-27,440.36,404.04,395.2,1356.6;2026-05-28,442.1,405.53,395.67,1373.3;2026-05-29,435.79,406.72,396.07,1381.6;2026-06-01,415.88,407.08,396.27,1339.5;2026-06-02,423.74,407.73,396.54,1372.4;2026-06-03,423.7,408.36,396.81,1366.8;2026-06-04,418.45,408.76,397.03,1341.4;2026-06-05,391,408.06,396.97,1286.4;2026-06-08,408.95,408.09,397.08,1314.7;2026-06-09,396.68,407.65,397.08,1298.3;2026-06-10,381.59,406.62,396.93,1257.1;2026-06-11,399.15,406.33,396.95,1300.5;2026-06-12,406.43,406.34,397.04,1362.4;2026-06-15,411.15,406.52,397.18,1358.3;2026-06-16,404.66,406.45,397.26,1346;2026-06-17,396.38,406.06,397.25,1321.2;2026-06-18,400.49,405.84,397.28,1366.3;2026-06-22,405.05,405.81,397.36,1368.5;2026-06-23,381.61,404.86,397.2,1336.7;2026-06-24,375.53,403.71,396.99,1315.6;2026-06-25,375.12,402.59,396.77,1315.2;2026-06-26,379.71,401.69,396.6,1323.6;2026-06-29,411.84,402.09,396.75,1376.4;2026-06-30,420.6,402.81,396.99,1401.3;2026-07-01,425.3,403.7,397.27,1400.4;2026-07-02,393.45,403.29,397.23,1340.9;2026-07-06,419.77,403.94,397.46,1394.8;2026-07-07,402.9,403.9,397.51,1361;2026-07-08,394.06,403.51,397.48,1353.5;2026-07-09,406.55,403.63,397.57,1385.5;2026-07-10,407.76,403.79,397.67,1384.1;2026-07-13,394.76,403.44,397.64,1366.9;2026-07-14,396.18,403.16,397.62,1352.4;2026-07-15,394.46,402.81,397.59,1335.9;2026-07-16,391.06,402.35,397.53,1340.3;2026-07-17,380.84,401.51,397.36,1335.7;2026-07-20,369.57,400.26,397.09,1302.4;2026-07-21,378.93,399.42,396.9,1311.3;2026-07-22,374.01,398.42,396.68,1290;2026-07-23,319.69,395.34,395.91,1209;2026-07-24,313.03,392.11,395.09,1196;2026-07-27,309.22,388.86,394.23,1186;2026-07-28,307.44,385.67,393.37,1197.5;2026-07-29,298.32,382.24,392.42,1164.3;2026-07-30,308.85,379.36,391.59,1186.3;2026-07-31,311.21,376.69,390.79,1199.7;2026-08-03,322.08,374.55,390.11,1224.1;2026-08-04,327.35,372.7,389.48,1240.6;2026-08-05,321.55,370.69,388.81,1223.1;2026-08-06,319.53,368.68,388.12,1224.9;2026-08-07,328.58,367.11,387.53,1231.8;2026-08-10,330.88,365.69,386.96,1246.9;2026-08-11,332.81,364.4,386.42,1246.5;2026-08-12,327.51,362.96,385.84,1236.6;2026-08-13,339.96,362.05,385.38,1264.2;2026-08-14,342.27,361.28,384.95,1258.3;2026-08-17,339.3,360.42,384.5,1244.2;2026-08-18,336.87,359.49,384.02,1250.4;2026-08-19,351.12,359.16,383.7,1284.8;2026-08-20,345.13,358.61,383.31,1298.5;2026-08-21,362.86,358.78,383.11,1335.7;2026-08-24,348.95,358.39,382.77,1300.1;2026-08-25,350.25,358.08,382.44,1278.4;2026-08-26,345.82,357.59,382.08,1269.8;2026-08-27,354.81,357.49,381.81,1294.5;2026-08-28,348.75,357.14,381.48,1278.7;2026-08-31,367.95,357.57,381.35,1335;2026-09-01,356.09,357.51,381.09,1322;2026-09-02,357.01,357.49,380.85,1333.1;2026-09-03,376.37,358.23,380.81,1343.1;2026-09-04,354.08,358.07,380.54,1304.9;2026-09-08,368.16,358.46,380.42,1342.8;2026-09-09,367.81,358.83,380.3,1322.8;2026-09-10,363.56,359.01,380.13,1323.3;2026-09-11,365.44,359.27,379.98,1326;2026-09-14,358.97,359.26,379.77,1305.2;2026-09-15,356.58,359.15,379.54,1293.3;2026-09-16,358.08,359.11,379.33,1281.2;2026-09-17,366.2,359.39,379.2,1263.6;2026-09-18,364.27,359.58,379.05,1247.7;2026-09-21,375.3,360.19,379.01,1253.6;2026-09-22,378.9,360.93,379.01,1270.4;2026-09-23,380.12,361.68,379.02,1255.6;2026-09-24,377.94,362.32,379.01,1244.8;2026-09-25,372.11,362.7,378.94,1220.1;2026-09-28,357.45,362.5,378.73,1184.7;2026-09-29,352.84,362.12,378.47,1163;2026-09-30,354.81,361.83,378.24,1198.7;2026-10-01,354.11,361.53,378,1170.9;2026-10-02,370.59,361.88,377.92,1197;2026-10-05,378.73,362.54,377.93,1224.7;2026-10-06,380.68,363.26,377.96,1221.9;2026-10-07,377.81,363.83,377.96,1218.2;2026-10-08,375,364.26,377.93,1239.6`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+
+const fmtN=(v,d=2)=>v.toLocaleString("de-CH",{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmtD=s=>{const [y,m,d]=s.split("-");return d+"."+m+"."+y.slice(2)};
+const NS="http://www.w3.org/2000/svg";
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+
+function scoreTable(id,rows){
+  let tot=0,max=0;
+  const html='<thead><tr><th>Kriterium</th><th>Stand</th><th class="num">Punkte</th><th style="width:22%"></th></tr></thead><tbody>'+rows.map(r=>{tot+=r[2];max+=r[3];const p=r[2]/r[3];const c=p>=.75?"var(--good)":p>=.45?"var(--warn)":"var(--bad)";
+    return `<tr><td>${r[0]}</td><td class="muted">${r[1]}</td><td class="num">${r[2]} / ${r[3]}</td><td><div class="bar"><i style="width:${p*100}%;background:${c}"></i></div></td></tr>`}).join("")+`<tr class="total"><td>Total</td><td></td><td class="num">${tot} / ${max}</td><td></td></tr></tbody>`;
+  document.getElementById(id).innerHTML=html;return tot;
+}
+const qs=scoreTable("q-tbl",Q), ts=scoreTable("t-tbl",T);
+document.getElementById("q-val").textContent=qs;document.getElementById("t-val").textContent=ts;
+document.getElementById("q-pin").style.left=qs+"%";document.getElementById("t-pin").style.left=ts+"%";
+
+document.getElementById("fin-rows").innerHTML=FIN.map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1].toLocaleString("de-CH")}</td><td class="num">${r[2]}</td><td class="num">${r[3]}</td><td class="num">${fmtN(r[4])}</td><td class="num">${r[5].toLocaleString("de-CH")}</td><td class="num">${r[6]}</td><td class="num">${r[7]}</td></tr>`).join("");
+
+/* generic line chart */
+function lineChart(host,{dates,series,bands=[],yFmt=v=>fmtN(v),h=300,zero=false,refs=[],pad}){
+  const W_=800,H=h,m={t:12,r:56,b:28,l:8};
+  const all=series.flatMap(s=>s.values).concat(bands.flatMap(b=>[b.from,b.to])).concat(refs.map(r=>r.v));
+  if(zero)all.push(0);
+  let lo=Math.min(...all),hi=Math.max(...all);const sp=(hi-lo)||1;lo-=sp*.06;hi+=sp*.06;
+  if(pad){lo=pad[0];hi=pad[1]}
+  const n=dates.length,x=i=>m.l+i*(W_-m.l-m.r)/(n-1),y=v=>m.t+(hi-v)*(H-m.t-m.b)/(hi-lo);
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  // grid
+  const steps=5;for(let k=0;k<=steps;k++){const v=lo+(hi-lo)*k/steps;el("line",{x1:m.l,x2:W_-m.r,y1:y(v),y2:y(v),stroke:"var(--grid)","stroke-width":1},svg);
+    const t=el("text",{x:W_-m.r+6,y:y(v)+4,"font-size":11,fill:"var(--muted)","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=yFmt(v)}
+  bands.forEach(b=>{el("rect",{x:m.l,width:W_-m.l-m.r,y:y(Math.max(b.from,b.to)),height:Math.abs(y(b.from)-y(b.to)),fill:b.type==="res"?"var(--zone-res)":"var(--zone-sup)"},svg)});
+  refs.forEach(r=>{el("line",{x1:m.l,x2:W_-m.r,y1:y(r.v),y2:y(r.v),stroke:"var(--muted)","stroke-dasharray":"4 4","stroke-width":1},svg);
+    const t=el("text",{x:m.l+4,y:y(r.v)-4,"font-size":11,fill:"var(--muted)"},svg);t.textContent=r.label});
+  if(zero)el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  // x labels
+  const every=Math.ceil(n/6);for(let i=0;i<n;i+=every){const t=el("text",{x:x(i),y:H-8,"font-size":11,fill:"var(--muted)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);const d=dates[i];t.textContent=d.slice(5,7)+"/"+d.slice(2,4)}
+  series.forEach(s=>{const dpath=s.values.map((v,i)=>(i?"L":"M")+x(i).toFixed(1)+","+y(v).toFixed(1)).join("");
+    el("path",{d:dpath,fill:"none",stroke:s.color,"stroke-width":s.w||2,"stroke-linejoin":"round","stroke-linecap":"round"},svg);
+    const lv=s.values[n-1];el("circle",{cx:x(n-1),cy:y(lv),r:3.5,fill:s.color,stroke:"var(--surface)","stroke-width":2},svg)});
+  // hover
+  const cross=el("line",{y1:m.t,y2:H-m.b,stroke:"var(--muted)","stroke-width":1,opacity:0},svg);
+  const ov=el("rect",{x:m.l,y:m.t,width:W_-m.l-m.r,height:H-m.t-m.b,fill:"transparent"},svg);
+  host.appendChild(svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;host.appendChild(tip);
+  function move(ev){const r=svg.getBoundingClientRect();const px=(ev.clientX-r.left)*W_/r.width;let i=Math.round((px-m.l)/((W_-m.l-m.r)/(n-1)));i=Math.max(0,Math.min(n-1,i));
+    cross.setAttribute("x1",x(i));cross.setAttribute("x2",x(i));cross.setAttribute("opacity",1);
+    tip.innerHTML=`<div class="d">${fmtD(dates[i])}</div>`+series.map(s=>`<div><i class="sw" style="background:${s.color}"></i> ${s.name}: <b>${yFmt(s.values[i])}</b></div>`).join("");
+    tip.hidden=false;const hx=x(i)*r.width/W_;tip.style.left=Math.min(Math.max(0,hx+12),r.width-tip.offsetWidth)+"px";tip.style.top="8px"}
+  ov.addEventListener("pointermove",move);ov.addEventListener("pointerleave",()=>{tip.hidden=true;cross.setAttribute("opacity",0)});
+}
+function barChart(host,{labels,values,fmt,h=220,color,neg,tipExtra}){
+  const W_=800,H=h,m={t:18,r:8,b:28,l:8};
+  const hi=Math.max(0,...values),lo=Math.min(0,...values);const lo2=lo<0?lo*1.15:lo,hi2=hi*1.15||1;
+  const y=v=>m.t+(hi2-v)*(H-m.t-m.b)/(hi2-lo2);const n=values.length,bw=(W_-m.l-m.r)/n;
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;
+  values.forEach((v,i)=>{const x0=m.l+i*bw+bw*.18,w=bw*.64,y0=y(Math.max(v,0)),hh=Math.max(1,Math.abs(y(v)-y(0)));
+    const r=el("rect",{x:x0,y:y0,width:w,height:hh,rx:4,fill:v<0?(neg||"var(--s2)"):(color||"var(--s1)")},svg);
+    const t=el("text",{x:x0+w/2,y:v<0?y(v)+13:y0-5,"font-size":11.5,fill:"var(--ink)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=fmt(v);
+    const l=el("text",{x:x0+w/2,y:H-8,"font-size":11.5,fill:"var(--muted)","text-anchor":"middle"},svg);l.textContent=labels[i];
+    const hit=el("rect",{x:m.l+i*bw,y:m.t,width:bw,height:H-m.t-m.b,fill:"transparent"},svg);
+    hit.addEventListener("pointerenter",()=>{tip.innerHTML=`<div class="d">${labels[i]}</div><b>${fmt(v)}</b>${tipExtra?tipExtra(i):""}`;tip.hidden=false;const R=svg.getBoundingClientRect();tip.style.left=Math.min((m.l+i*bw)*R.width/W_,R.width-tip.offsetWidth)+"px";tip.style.top="0px"});
+    hit.addEventListener("pointerleave",()=>tip.hidden=true)});
+  host.appendChild(svg);host.appendChild(tip);
+}
+barChart(document.getElementById("c-rev"),{labels:HALF.map(r=>r[0]),values:HALF.map(r=>r[1]),fmt:v=>fmtN(v,1),h:200});
+barChart(document.getElementById("c-margin"),{labels:MARGIN.map(r=>r[0]),values:MARGIN.map(r=>r[1]),fmt:v=>fmtN(v,1)+" %",h:200});
+barChart(document.getElementById("c-seas"),{labels:MON,values:SEAS,fmt:v=>(v>0?"+":"")+fmtN(v,1),h:220,tipExtra:i=>`<div>${SEASHIT[i]} % der Jahre positiv</div>`});
+const BANDS=[{"from": 405, "to": 433, "type": "res"}, {"from": 345, "to": 355, "type": "sup"}, {"from": 297, "to": 312, "type": "sup"}], REFS=[{"v": 387, "label": "Trigger 387"}];
+const wd=W.map(r=>r[0]);
+lineChart(document.getElementById("c-week"),{dates:wd,series:[{name:"Kurs",values:W.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:W.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:W.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,yFmt:v=>fmtN(v,0),h:320});
+lineChart(document.getElementById("c-adw"),{dates:wd,series:[{name:"A/D Woche",values:W.map(r=>r[5]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,zero:true});
+lineChart(document.getElementById("c-rsiw"),{dates:wd,series:[{name:"RSI Woche",values:W.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,refs:[{v:70,label:"70 überkauft"},{v:30,label:"30 überverkauft"}],pad:[10,90]});
+const dd=DD.map(r=>r[0]);
+lineChart(document.getElementById("c-day"),{dates:dd,series:[{name:"Kurs",values:DD.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:DD.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:DD.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,refs:REFS,yFmt:v=>fmtN(v,0),h:260});
+lineChart(document.getElementById("c-add"),{dates:dd,series:[{name:"A/D Tag",values:DD.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:260,zero:true});
+</script>

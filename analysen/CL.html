@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Colgate-Palmolive Aktien-Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F3F5F7; --surface:#FFFFFF; --ink:#141B24; --muted:#5A6573; --line:#DDE2E8; --grid:#E9EDF1;
+  --accent:#2F45B5; --accent-soft:#E6E9F8; --chip:#EBEEF2;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+  --good:#1D7A4B; --good-bg:#E3F3EA; --warn:#9A6200; --warn-bg:#FBF0DC; --bad:#B2362A; --bad-bg:#FBE6E3;
+  --zone-sup:rgba(29,122,75,.10); --zone-res:rgba(178,54,42,.09);
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+    --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+    --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+    --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+  --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+  --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;padding-inline:16px;padding-block:24px 56px}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+h1,h2,h3{font-family:var(--display);font-stretch:85%;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:clamp(32px,7vw,48px);font-weight:800;line-height:1}
+h2{font-size:24px;font-weight:700}
+h3{font-size:17px;font-weight:700;font-stretch:95%}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+section{display:flex;flex-direction:column;gap:14px}
+.lead{max-width:68ch;color:var(--muted)}
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;align-items:stretch}
+.hero .id{display:flex;flex-direction:column;gap:10px;justify-content:space-between}
+.price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price b{font-family:var(--display);font-size:34px;font-weight:700}
+.meta{font-size:13px;color:var(--muted)}
+.verdict{font-size:15px;padding:12px 14px;border-radius:10px;background:var(--chip)}
+.scales{display:flex;flex-direction:column;gap:18px}
+.scale-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.scale-h span{font-size:13px;color:var(--muted)}
+.scale-h b{font-family:var(--display);font-size:28px;line-height:1}
+.track{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#C8412F 0%,#E0892F 30%,#E3B63A 50%,#8BBF4B 68%,#2E9A5B 100%);margin-top:8px}
+.pin{position:absolute;top:-5px;width:4px;height:22px;border-radius:2px;background:var(--ink);box-shadow:0 0 0 2px var(--surface);transform:translateX(-2px)}
+.ticks{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);font-family:var(--mono);margin-top:6px}
+.state{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;margin-top:8px}
+.st-good{background:var(--good-bg);color:var(--good)}
+.st-warn{background:var(--warn-bg);color:var(--warn)}
+.st-bad{background:var(--bad-bg);color:var(--bad)}
+/* tables */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;color:var(--muted);font-weight:500;font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:700;border-bottom:none}
+.pts{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{height:6px;border-radius:3px;background:var(--chip);min-width:60px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:3px}
+/* grids */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;border-left:4px solid var(--line)}
+.kpi.g{border-left-color:var(--good)}.kpi.w{border-left-color:var(--warn)}.kpi.b{border-left-color:var(--bad)}
+.kpi span{font-size:12px;color:var(--muted)}
+.kpi b{font-family:var(--mono);font-size:19px;font-weight:500;font-variant-numeric:tabular-nums}
+.kpi em{font-style:normal;font-size:12.5px;color:var(--muted)}
+/* charts */
+.chart{position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:14px;height:3px;border-radius:2px;display:inline-block}
+.swb{width:12px;height:10px;border-radius:2px;display:inline-block}
+.tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12.5px;box-shadow:0 4px 14px rgba(0,0,0,.12);white-space:nowrap;z-index:2}
+.tip b{font-family:var(--mono);font-weight:500}
+.tip .d{font-family:var(--mono);color:var(--muted);font-size:11.5px}
+.note{font-size:13.5px;color:var(--muted)}
+ul.clean{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.pro li::marker{color:var(--good)} .con li::marker{color:var(--bad)}
+.zones{display:flex;flex-direction:column;gap:8px}
+.zone{display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:baseline;padding:10px 12px;border-radius:10px;background:var(--chip);font-size:14px}
+.zone b{font-family:var(--mono);font-weight:500}
+.zone.r{border-left:4px solid var(--bad)} .zone.s{border-left:4px solid var(--good)} .zone.t{border-left:4px solid var(--accent)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+summary{cursor:pointer;font-weight:600}
+details p{margin-top:8px;color:var(--muted);max-width:70ch}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+footer{font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:6px;max-width:80ch}
+footer a{color:var(--accent)}
+@media (max-width:760px){.hero,.two{grid-template-columns:1fr}.zone{grid-template-columns:1fr;gap:2px}}
+</style>
+
+<a href="../index.html#/aktie/CL" style="display:inline-block;margin:max(12px,env(safe-area-inset-top)) 0 0 16px;background:#1f3a5f;color:#fff;font:600 14px system-ui;padding:8px 12px;border-radius:20px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">Zurück zur App</a>
+<div class="wrap">
+
+<header class="hero">
+  <div class="card id">
+    <div>
+      <div class="eyebrow">Aktien-Check · 08.10.2026</div>
+      <h1>Colgate-Palmolive</h1>
+      <p class="meta">Colgate-Palmolive Company · NYSE: CL · Zahnpflege, Körperpflege, Haushalt, Tiernahrung (Hill's) · USA</p>
+    </div>
+    <div class="price"><b>87.21 $</b><span class="meta">Schluss 07.10.2026 · 52 Wochen: 74.55 – 99.33 $ · Allzeithoch 109.30 $ (2024)</span></div>
+    <p class="verdict"><b>Kurz gesagt:</b> Sehr profitable Firma mit dem höchsten ROIC der Gruppe (46 %), aber nur 2–3 % Wachstum. Qualität hellgrün (68), Timing orange (41). Der Kurs ist nahe an die Kaufzone 81.8–84.3 $ gelaufen. Für einen Einstieg fehlt noch die Wende auf dem Tageschart: Tagesschluss über 90.10 $.</p>
+  </div>
+  <div class="card scales">
+    <div>
+      <div class="scale-h"><span>Qualität · Ist die Firma kaufenswert?</span><b id="q-val">68</b></div>
+      <div class="track"><i class="pin" id="q-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-good">● Solide</span>
+    </div>
+    <div>
+      <div class="scale-h"><span>Timing · Ist jetzt der Zeitpunkt?</span><b id="t-val">41</b></div>
+      <div class="track"><i class="pin" id="t-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-warn">▲ Beobachten: Trigger noch nicht erreicht</span>
+    </div>
+    <p class="note">Skala: unter 30 rot · 30–45 orange · 45–60 gelb · 60–75 hellgrün · ab 75 grün. Beide Werte setzen sich aus festen Kriterien zusammen, siehe unten.</p>
+  </div>
+</header>
+
+<section>
+  <h2>Was die Firma macht</h2>
+  <p class="lead">Colgate-Palmolive verkauft Zahnpasta und Zahnbürsten (Colgate, Weltmarktführer mit über 40 % Marktanteil), Seifen und Duschmittel (Palmolive), Reinigungsmittel und Tiernahrung (Hill's). Rund zwei Drittel des Umsatzes kommen aus dem Ausland, vor allem aus Lateinamerika und Asien.</p>
+  <p class="lead">Anfang 2026 stieg die Aktie stark (bis 99 $), weil das Geschäft besser lief als befürchtet. Danach drückten höhere Öl- und Kunststoffpreise (Verpackung) auf die Marge, und in Nordamerika schrumpft der Umsatz (−3 % im 2. Quartal) wegen Preiskampf und Eigenmarken. Im Januar schrieb Colgate 794 Mio. $ auf die Hautpflegemarke Filorga ab. Das 2. Quartal (Juli) war aber gut: bereinigter Gewinn pro Aktie +8 % und Ausblick angehoben.</p>
+</section>
+
+<section>
+  <h2>Fundamental: die Zahlen</h2>
+  <div class="kpis">
+<div class="kpi w"><span>Organisches Wachstum</span><b>+2.4 %</b><em>2. Quartal 2026 (Menge +0.8, Preis +1.6). Ziel 2026: +1 bis +4 %. Eher schwach.</em></div>
+<div class="kpi g"><span>Operative Marge</span><b>20.6 %</b><em>Von 100 $ Umsatz bleiben knapp 21 $ Betriebsgewinn. Gut, seit Jahren stabil um 20–21 %.</em></div>
+<div class="kpi w"><span>Gewinn pro Aktie (bereinigt)</span><b>+5 bis 8 %</b><em>Ziel 2026: mittlerer einstelliger Zuwachs, im Juli angehoben. Ausgewiesen wegen der Abschreibung tiefer.</em></div>
+<div class="kpi g"><span>ROIC</span><b>45.6 %</b><em>Auf jeden investierten Dollar 46 Cent Gewinn. Ausgezeichnet und steigend.</em></div>
+<div class="kpi g"><span>Free Cashflow</span><b>3.86 Mrd. $</b><em>Seit 2022 (1.86 Mrd.) jedes Jahr gestiegen. Sehr gut.</em></div>
+<div class="kpi g"><span>Nettoschulden / EBITDA</span><b>1.3</b><em>Gut tragbar.</em></div>
+<div class="kpi g"><span>KGV erwartet</span><b>21.5</b><em>Eigener Schnitt: 24.1. Rund 11 % günstiger als üblich.</em></div>
+<div class="kpi g"><span>Dividende</span><b>2.5 %</b><em>63 Jahre in Folge erhöht.</em></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>Umsatz pro Quartal (Mrd. $)</h3>
+      <p class="note">Alle vier Quartale über Vorjahr, zuletzt auch dank Währungen.</p>
+      <div class="chart" id="c-rev"></div>
+    </div>
+    <div class="card">
+      <h3>Operative Marge pro Jahr</h3>
+      <p class="note">Seit 2022 stabil zwischen 20 und 21 %.</p>
+      <div class="chart" id="c-margin"></div>
+    </div>
+  </div>
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Jahr</th><th class="num">Umsatz Mio. $</th><th class="num">Wachstum</th><th class="num">Op. Marge</th><th class="num">EPS $</th><th class="num">Free Cashflow</th><th class="num">ROIC</th><th class="num">KGV</th></tr></thead>
+      <tbody id="fin-rows"></tbody>
+    </table>
+  </div>
+  <p class="note"><b>Hinweis:</b> Der ausgewiesene Gewinn 2025 und der letzten 12 Monate ist durch die Abschreibung auf Filorga (794 Mio. $ nach Steuern) gedrückt, darum wirkt das KGV hoch. Bereinigt (Gewinn pro Aktie 2025: 3.69 $) liegt das KGV bei rund 21–22.</p>
+</section>
+
+<section>
+  <h2>Qualität: 68 von 100</h2>
+  <div class="card tbl"><table id="q-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Technik: Wochenchart (2 Jahre)</h2>
+  <div class="card">
+    <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span><span><i class="swb" style="background:var(--zone-sup);border:1px solid var(--good)"></i>Unterstützung</span><span><i class="swb" style="background:var(--zone-res);border:1px solid var(--bad)"></i>Widerstand</span></div>
+    <div class="chart" id="c-week"></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>A/D-Linie, Woche</h3>
+      <p class="note">Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Von Januar bis Juli stieg die Wochen-A/D kräftig (Käufer). Seit Juli fällt sie mit dem Kurs (917 auf 838): Gewinnmitnahmen.</p>
+      <div class="chart" id="c-adw"></div>
+    </div>
+    <div class="card">
+      <h3>RSI, Woche</h3>
+      <p class="note">Unter 30 überverkauft, über 70 überkauft. Im Februar 73 (überkauft), heute 47: neutral.</p>
+      <div class="chart" id="c-rsiw"></div>
+    </div>
+  </div>
+
+  <h2>Technik: Tageschart (6 Monate)</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Kurs, Tag</h3>
+      <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span></div>
+      <div class="chart" id="c-day"></div>
+    </div>
+    <div class="card">
+      <h3>A/D-Linie, Tag</h3>
+      <p class="note">Die Tages-A/D fällt seit August mit dem Kurs. Noch kein Käuferwechsel sichtbar.</p>
+      <div class="chart" id="c-add"></div>
+    </div>
+  </div>
+
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Indikator</th><th>Tag</th><th>Woche</th><th>Bedeutung</th></tr></thead>
+      <tbody>
+<tr><td>Kurs vs. EMA 50</td><td class="pts">87.2 &lt; 88.4</td><td class="pts">87.2 &lt; 88.3</td><td>Knapp unter der mittelfristigen Linie.</td></tr>
+<tr><td>Kurs vs. EMA 200</td><td class="pts">87.2 &lt; 88.4</td><td class="pts">87.2 &gt; 85.9</td><td>Tag knapp darunter, Woche darüber: Rücksetzer im langfristigen Aufwärtstrend.</td></tr>
+<tr><td>EMA 50 vs. EMA 200</td><td class="pts">50 knapp unter 200 (seit 6.10.2026)</td><td class="pts">50 über 200 (seit Januar 2024)</td><td>Tag: frisches, aber sehr knappes Death Cross. Woche: Aufwärtstrend intakt.</td></tr>
+<tr><td>RSI (14)</td><td class="pts">49.6</td><td class="pts">46.6</td><td>Neutral, der Tag hat sich vom Tief erholt.</td></tr>
+<tr><td>A/D</td><td class="pts">fällt seit August</td><td class="pts">fällt seit Juli</td><td>Verkäufer noch leicht in der Überzahl.</td></tr>
+<tr><td>Volumen</td><td colspan="2">Ø 20 Tage 5.5 Mio. vs. Ø 100 Tage 5.0 Mio.</td><td>Leicht erhöht.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Struktur und Zonen (Smart Money Concept)</h2>
+  <p class="lead">Auf der Woche läuft Colgate seit 2024 in einer grossen Spanne. Nach dem Februar-Hoch (99.33 $) fiel der Kurs auf 81.79 $ (April), stieg wieder auf 96.01 $ (Juli) und fällt seither. Wichtig: Das April-Tief wurde bisher nicht unterschritten, das Oktober-Tief liegt höher (rund 84.30 $). Auf dem Tageschart gibt es seit Juli tiefere Hochs (96.01 → 95.46 → 94.15 → 90.10 $). Ein Tagesschluss über 90.10 $ wäre der Change of Character.</p>
+  <div class="zones">
+<div class="zone r"><b>93–96 $</b><span>Widerstand: Hochs von Juli und August.</span></div>
+<div class="zone t"><b>90.10 $</b><span><b>Trigger:</b> Tagesschluss über dem letzten tieferen Hoch (Anfang September).</span></div>
+<div class="zone s"><b>81.8–84.3 $</b><span><b>Kaufzone:</b> Tiefs von April, Juni und Oktober.</span></div>
+<div class="zone r"><b>81 $</b><span>Abbruch: Wochenschluss unter dem April-Tief.</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Smart Money, Insider und Saisonalität</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Wer kauft, wer verkauft?</h3>
+      <ul class="clean" style="margin-top:8px">
+<li><b>Colgate selbst:</b> Kauft für rund 1.3 Mrd. $ pro Jahr eigene Aktien zurück (rund 1.8 % des Börsenwerts).</li>
+<li><b>Insider-Käufe:</b> Keine.</li>
+<li><b>Insider-Verkäufe:</b> Rund 34 Mio. $, davon CEO Noel Wallace 14.8 Mio. $ (August) und Finanzchef Stanley Sutula 9.2 Mio. $.</li>
+<li><b>Analysten:</b> Durchschnittliches Kursziel rund 99 $, Einstufung „Moderat kaufen“ (12 Kaufen, 7 Halten).</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Saisonalität seit 1985</h3>
+      <p class="note">Durchschnittliche Monatsrendite in %. Rund 41 Jahre. Oktober und Dezember sind mit je +2.5 % die stärksten Monate, 63–65 % positive Jahre.</p>
+      <div class="chart" id="c-seas"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Timing: 41 von 100</h2>
+  <div class="card tbl"><table id="t-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Pro und Contra</h2>
+  <div class="two">
+    <div class="card pro"><h3>Spricht dafür</h3><ul class="clean" style="margin-top:8px">
+<li>Weltmarktführer bei Zahnpasta, sehr starke Marke.</li>
+<li>ROIC 46 %: eine der profitabelsten Firmen überhaupt.</li>
+<li>Free Cashflow steigt jedes Jahr.</li>
+<li>Bewertung rund 11 % unter dem eigenen Schnitt.</li>
+<li>Kurs nahe an einer klaren Kaufzone.</li>
+    </ul></div>
+    <div class="card con"><h3>Spricht dagegen</h3><ul class="clean" style="margin-top:8px">
+<li>Organisches Wachstum nur 2–3 %.</li>
+<li>Nordamerika schrumpft (Preiskampf, Eigenmarken).</li>
+<li>Höhere Öl- und Kunststoffpreise drücken die Marge.</li>
+<li>CEO verkaufte im August für 14.8 Mio. $.</li>
+<li>Tages-Trend noch abwärts.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section>
+  <h2>Was jetzt zu tun ist</h2>
+  <div class="zones">
+<div class="zone t"><b>Beobachten</b><span>Alarm bei 84.30 $ (Kaufzone) und 90.10 $ (Trigger).</span></div>
+<div class="zone s"><b>Timing grün</b><span>Kurs in der Kaufzone 81.8–84.3 $ und danach Tagesschluss über dem letzten tieferen Hoch, oder direkt Tagesschluss über 90.10 $.</span></div>
+<div class="zone r"><b>Abbruch</b><span>Wochenschluss unter 81 $.</span></div>
+<div class="zone "><b>Nächste Zahlen</b><span>30. Oktober 2026 (3. Quartal). Entscheidend: Erholt sich Nordamerika und hält die Marge?</span></div>
+  </div>
+</section>
+
+<footer>
+  <span>Kursdaten und Indikatoren (EMA, RSI 14, A/D) selbst berechnet aus Yahoo-Finance-Tages-, Wochen- und Monatsdaten, Stand 08.10.2026. <a href="https://stockanalysis.com/stocks/cl/financials/" target="_blank" rel="noopener">StockAnalysis.com</a> (Stand 08.10.2026), <a href="https://investor.colgatepalmolive.com/news-releases/news-release-details/colgate-announces-2nd-quarter-2026-results" target="_blank" rel="noopener">Colgate Q2 2026</a>, <a href="https://www.marketbeat.com/stocks/NYSE/CL/insider-trades/" target="_blank" rel="noopener">Insider (MarketBeat)</a>.</span>
+  <span>Persönliche Analyse, keine Anlageberatung. Vergangene Kurse und Saisonalität sagen nichts Sicheres über die Zukunft.</span>
+</footer>
+</div>
+
+<script>
+const Q=[["Umsatztrend", "4 von 4 Quartalen über Vorjahr", 12, 15], ["Wachstumstempo", "Organisch rund +2.5 %", 0, 10], ["Operative Marge", "20.6 % (6 Pkt.), stabil (3 Pkt.)", 9, 15], ["Gewinnwachstum (EPS)", "Bereinigt rund +5 bis 8 % pro Jahr", 5, 10], ["Free Cashflow", "Seit 2022 jedes Jahr gestiegen", 10, 10], ["ROIC", "45.6 %, steigend", 15, 15], ["Schulden", "Nettoschulden/EBITDA 1.3", 7, 10], ["Bewertung vs. eigene Historie", "Erw. KGV 21.5 statt Ø 24.1 (−11 %)", 10, 15]];
+const T=[["Trend Woche (EMA 50/200)", "Kurs unter EMA 50, über EMA 200 (Rücksetzer)", 12, 20], ["Trend Tag (EMA 50/200)", "Kurs knapp unter beiden, frisches Death Cross", 2, 10], ["Struktur (SMC)", "Woche: Tief über dem April-Tief. Tag: tiefere Hochs", 8, 20], ["RSI Tag/Woche", "Tag dreht aus dem 30er-Bereich nach oben, Woche neutral", 10, 15], ["A/D Tag/Woche", "Beide fallen mit dem Kurs", 4, 20], ["Smart Money", "Rückkauf 1.8 %, CEO-Verkauf", 0, 10], ["Saisonalität", "Okt–Dez: 63–65 % positive Jahre", 5, 5]];
+const FIN=[["2022", 17967, "+3.1 %", "19.8 %", 2.13, 1860, "30.8 %", "36.9"], ["2023", 19457, "+8.3 %", "20.2 %", 2.77, 3040, "31.6 %", "28.5"], ["2024", 20101, "+3.3 %", "21.1 %", 3.51, 3546, "39.3 %", "25.7"], ["2025", 20382, "+1.4 %", "20.8 %", 2.63, 3634, "40.9 %", "29.9"], ["Letzte 12 Mt.", 21047, "+5.3 %", "20.6 %", 2.53, 3858, "45.6 %", "33.3"]];
+const HALF=[["Q3 24", 5.03], ["Q4 24", 4.95], ["Q1 25", 4.91], ["Q2 25", 5.11], ["Q3 25", 5.13], ["Q4 25", 5.23], ["Q1 26", 5.32], ["Q2 26", 5.36]];
+const MARGIN=[["2022", 19.8], ["2023", 20.2], ["2024", 21.1], ["2025", 20.8], ["12 Mt.", 20.6]];
+const SEAS=[-0.7, 1.7, 1.9, 0.9, 1.6, 0.8, 0.5, -0.8, -0.5, 2.5, 1.3, 2.5];
+const SEASHIT=[37.0, 60.0, 69.0, 71.0, 62.0, 52.0, 60.0, 48.0, 55.0, 65.0, 63.0, 63.0];
+const MON=["Jan","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"];
+const W=`2024-10-14,100.46,93.1,82.31,56,845;2024-10-21,95.61,93.2,82.44,45,825.4;2024-10-28,93.33,93.2,82.55,41,804.4;2024-11-04,92.57,93.18,82.65,39,806.9;2024-11-11,93.56,93.19,82.76,42,822.5;2024-11-18,94.92,93.26,82.88,45,835.1;2024-11-25,96.63,93.39,83.02,50,837.1;2024-12-02,94.23,93.43,83.13,45,820.2;2024-12-09,93.44,93.43,83.23,43,819;2024-12-16,92.03,93.37,83.32,40,799;2024-12-23,91.81,93.31,83.4,40,798;2024-12-30,90.15,93.19,83.47,37,791.2;2025-01-06,86.36,92.92,83.5,31,774.1;2025-01-13,88.69,92.75,83.55,38,786.2;2025-01-20,87.88,92.56,83.59,36,779.4;2025-01-27,86.7,92.33,83.62,34,762.1;2025-02-03,86.76,92.11,83.65,35,773.1;2025-02-10,86.04,91.88,83.68,33,760.6;2025-02-17,89.47,91.78,83.74,44,774.3;2025-02-24,91.17,91.76,83.81,48,779.1;2025-03-03,96.74,91.95,83.94,59,796.5;2025-03-10,89.82,91.87,84,46,766;2025-03-17,90.3,91.81,84.06,47,767.3;2025-03-24,92.82,91.85,84.15,51,778.6;2025-03-31,91.66,91.84,84.22,49,752.8;2025-04-07,94,91.92,84.32,53,780.8;2025-04-14,95.5,92.06,84.43,56,792.5;2025-04-21,93.91,92.14,84.52,53,790.1;2025-04-28,90.48,92.07,84.58,46,772;2025-05-05,89.81,91.98,84.64,45,754.3;2025-05-12,91.23,91.95,84.7,48,776.8;2025-05-19,92.59,91.98,84.78,51,797.7;2025-05-26,92.94,92.02,84.86,51,808.4;2025-06-02,90.24,91.95,84.91,46,797.5;2025-06-09,90.26,91.88,84.97,46,779.9;2025-06-16,87.78,91.72,85,42,756.3;2025-06-23,88.71,91.6,85.03,44,776.9;2025-06-30,92.78,91.65,85.11,52,796;2025-07-07,89.58,91.57,85.15,46,774.2;2025-07-14,86.84,91.38,85.17,42,758.2;2025-07-21,87.93,91.25,85.2,44,759.1;2025-07-28,83.51,90.94,85.18,38,736.1;2025-08-04,84.69,90.7,85.18,40,753.3;2025-08-11,85.07,90.48,85.18,41,746.1;2025-08-18,85.94,90.3,85.18,43,744;2025-08-25,84.07,90.05,85.17,40,734.7;2025-09-01,85.13,89.86,85.17,43,748.2;2025-09-08,83.28,89.6,85.15,39,742.8;2025-09-15,81.17,89.27,85.11,36,711.4;2025-09-22,79.59,88.89,85.06,34,700.3;2025-09-29,78,88.47,84.99,32,671.6;2025-10-06,77.96,88.05,84.92,32,662.9;2025-10-13,79.12,87.7,84.86,35,689;2025-10-20,78,87.32,84.79,33,665.7;2025-10-27,77.05,86.92,84.72,32,686.4;2025-11-03,78.76,86.6,84.66,37,724.6;2025-11-10,78.05,86.26,84.59,36,697.1;2025-11-17,80.93,86.06,84.55,44,720.1;2025-11-24,80.39,85.83,84.51,43,725.8;2025-12-01,78.07,85.53,84.45,39,708.8;2025-12-08,78.34,85.25,84.39,39,738.3;2025-12-15,78.36,84.98,84.33,39,725.7;2025-12-22,79.73,84.77,84.28,44,733.5;2025-12-29,77.69,84.49,84.22,39,723.2;2026-01-05,81.48,84.38,84.19,50,764;2026-01-12,84.52,84.38,84.19,56,791.4;2026-01-19,86.66,84.47,84.22,60,819.1;2026-01-26,90.29,84.7,84.28,65,852.8;2026-02-02,94.41,85.08,84.38,70,877.8;2026-02-09,96.67,85.53,84.5,73,890.1;2026-02-16,95.09,85.91,84.61,69,884.7;2026-02-23,99.14,86.43,84.75,73,910.9;2026-03-02,93.56,86.71,84.84,61,896.9;2026-03-09,88.84,86.79,84.88,53,873.5;2026-03-16,85.12,86.73,84.88,48,847.1;2026-03-23,84.29,86.63,84.87,46,824.8;2026-03-30,85.14,86.57,84.88,48,825.8;2026-04-06,84.34,86.48,84.87,47,820.1;2026-04-13,85.81,86.46,84.88,49,841;2026-04-20,84.65,86.39,84.88,47,859.9;2026-04-27,87.26,86.42,84.9,52,867.3;2026-05-04,87.55,86.47,84.93,52,877;2026-05-11,88.13,86.53,84.96,53,880;2026-05-18,90.61,86.69,85.02,57,890.9;2026-05-25,90.13,86.83,85.07,56,880.6;2026-06-01,88.58,86.89,85.1,53,896.8;2026-06-08,89.45,86.99,85.15,55,911.1;2026-06-15,89.48,87.09,85.19,55,886.5;2026-06-22,92.07,87.29,85.26,60,902.8;2026-06-29,95.13,87.59,85.36,64,917.4;2026-07-06,92.24,87.78,85.42,57,907.2;2026-07-13,92.98,87.98,85.5,59,908.5;2026-07-20,90.75,88.09,85.55,54,908.5;2026-07-27,91.3,88.22,85.61,55,897.5;2026-08-03,93.27,88.41,85.69,58,915.2;2026-08-10,91.95,88.55,85.75,55,907.3;2026-08-17,91.08,88.65,85.8,53,907.7;2026-08-24,90.75,88.73,85.85,52,894.9;2026-08-31,88.77,88.74,85.88,48,872.8;2026-09-07,86.8,88.66,85.89,44,858.2;2026-09-14,87.47,88.61,85.9,45,854.7;2026-09-21,86.06,88.51,85.91,42,849.1;2026-09-28,84.26,88.35,85.89,39,828;2026-10-05,87.21,88.3,85.9,47,837.6`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+const DD=`2026-04-02,85.14,88.32,86.46,1.2;2026-04-06,84.53,88.17,86.45,-1.4;2026-04-07,83.13,87.98,86.41,-7;2026-04-08,85.55,87.88,86.4,-1.5;2026-04-09,86.04,87.81,86.4,1.5;2026-04-10,84.34,87.67,86.38,-1.8;2026-04-13,83.98,87.53,86.36,0.6;2026-04-14,84.16,87.4,86.33,3.1;2026-04-15,83.49,87.24,86.31,3.2;2026-04-16,83.62,87.1,86.28,2.3;2026-04-17,85.81,87.05,86.27,6.3;2026-04-20,83.53,86.91,86.25,4.2;2026-04-21,81.81,86.71,86.2,-1;2026-04-22,82.35,86.54,86.16,-0.2;2026-04-23,83.72,86.43,86.14,2.6;2026-04-24,84.65,86.36,86.13,2.9;2026-04-27,84.17,86.27,86.11,0.4;2026-04-28,85.67,86.25,86.1,1.6;2026-04-29,84.49,86.18,86.09,-0.4;2026-04-30,85.36,86.15,86.08,1.4;2026-05-01,87.26,86.19,86.09,-3.7;2026-05-04,85.37,86.16,86.08,-5.1;2026-05-05,86.33,86.17,86.09,-3.2;2026-05-06,88.16,86.25,86.11,-3.1;2026-05-07,87.36,86.29,86.12,-3.4;2026-05-08,87.55,86.34,86.13,-5.6;2026-05-11,86.74,86.35,86.14,-5.3;2026-05-12,87.44,86.4,86.15,-7.1;2026-05-13,87.87,86.45,86.17,-2.1;2026-05-14,88.84,86.55,86.2,-1.4;2026-05-15,88.13,86.61,86.21,-6.2;2026-05-18,89.92,86.74,86.25,-4.7;2026-05-19,90.02,86.87,86.29,-4.8;2026-05-20,90.35,87.01,86.33,-2.2;2026-05-21,90.44,87.14,86.37,1.6;2026-05-22,90.61,87.28,86.41,-1.7;2026-05-26,89.85,87.38,86.45,-4.9;2026-05-27,91.29,87.53,86.49,-4.1;2026-05-28,91.66,87.69,86.55,-3.7;2026-05-29,90.13,87.79,86.58,-5.8;2026-06-01,88.43,87.81,86.6,-6.4;2026-06-02,88.27,87.83,86.62,-7.4;2026-06-03,84.87,87.72,86.6,-13.7;2026-06-04,85.1,87.61,86.58,-16.2;2026-06-05,88.58,87.65,86.6,-13.3;2026-06-08,86.07,87.59,86.6,-18.2;2026-06-09,87.8,87.6,86.61,-16.3;2026-06-10,89.95,87.69,86.64,-10.9;2026-06-11,89.39,87.76,86.67,-14.1;2026-06-12,89.45,87.82,86.7,-13.5;2026-06-15,90.58,87.93,86.74,-9.7;2026-06-16,90.66,88.04,86.78,-12.2;2026-06-17,90.58,88.14,86.81,-15.4;2026-06-18,89.48,88.19,86.84,-26.1;2026-06-22,88.67,88.21,86.86,-32.1;2026-06-23,91.43,88.33,86.91,-27.6;2026-06-24,91.88,88.47,86.95,-30.2;2026-06-25,91.06,88.58,87,-32.7;2026-06-26,92.07,88.71,87.05,-26.4;2026-06-29,92.4,88.86,87.1,-23;2026-06-30,91.68,88.97,87.14,-22.3;2026-07-01,92.76,89.12,87.2,-18.7;2026-07-02,95.13,89.35,87.28,-15.7;2026-07-06,93.39,89.51,87.34,-16.4;2026-07-07,95.03,89.73,87.42,-16.3;2026-07-08,93.04,89.86,87.47,-17.9;2026-07-09,91.01,89.9,87.51,-22.3;2026-07-10,92.24,89.99,87.56,-21;2026-07-13,93.21,90.12,87.61,-20.6;2026-07-14,91.03,90.16,87.65,-24.4;2026-07-15,91.47,90.21,87.68,-22.4;2026-07-16,94.07,90.36,87.75,-19.8;2026-07-17,92.98,90.46,87.8,-23;2026-07-20,91.93,90.52,87.84,-20.8;2026-07-21,90.5,90.52,87.87,-21.6;2026-07-22,91.63,90.56,87.9,-21.5;2026-07-23,90.08,90.54,87.93,-19.1;2026-07-24,90.75,90.55,87.95,-17.8;2026-07-27,91.98,90.61,87.99,-17.2;2026-07-28,92.73,90.69,88.04,-22.2;2026-07-29,93.49,90.8,88.1,-17.3;2026-07-30,91.6,90.83,88.13,-18.2;2026-07-31,91.3,90.85,88.16,-14;2026-08-03,89.88,90.81,88.18,-18.4;2026-08-04,92.53,90.88,88.22,-12.3;2026-08-05,93.28,90.97,88.27,-7.5;2026-08-06,93,91.05,88.32,-8.2;2026-08-07,93.27,91.14,88.37,-5.7;2026-08-10,93.15,91.22,88.42,-3.6;2026-08-11,92.31,91.26,88.45,-5.5;2026-08-12,92.32,91.3,88.49,-5;2026-08-13,92.93,91.37,88.54,-5.7;2026-08-14,91.95,91.39,88.57,-8;2026-08-17,90.21,91.34,88.59,-8.6;2026-08-18,91.46,91.35,88.62,-7.5;2026-08-19,90.87,91.33,88.64,-11.1;2026-08-20,89.7,91.27,88.65,-15.3;2026-08-21,91.08,91.26,88.67,-12.4;2026-08-24,92.55,91.31,88.71,-7.7;2026-08-25,91.33,91.31,88.74,-9.8;2026-08-26,92.06,91.34,88.77,-8;2026-08-27,90.96,91.32,88.79,-8.7;2026-08-28,90.75,91.3,88.81,-10.4;2026-08-31,89.82,91.24,88.82,-16.1;2026-09-01,89.63,91.18,88.83,-19.9;2026-09-02,90.1,91.14,88.84,-20.9;2026-09-03,90.09,91.1,88.86,-19.4;2026-09-04,88.77,91.01,88.85,-23;2026-09-08,88.41,90.9,88.85,-21;2026-09-09,88.03,90.79,88.84,-19.6;2026-09-10,87.9,90.68,88.83,-22.3;2026-09-11,86.8,90.53,88.81,-26.9;2026-09-14,87.89,90.42,88.8,-29.2;2026-09-15,87,90.29,88.79,-30.4;2026-09-16,87.02,90.16,88.77,-32.6;2026-09-17,87.73,90.06,88.76,-26.5;2026-09-18,87.47,89.96,88.74,-21.7;2026-09-21,86.26,89.82,88.72,-26.2;2026-09-22,87.05,89.71,88.7,-29.6;2026-09-23,85.93,89.56,88.68,-34.6;2026-09-24,85.32,89.39,88.64,-39.3;2026-09-25,86.06,89.26,88.62,-36.3;2026-09-28,86.52,89.16,88.6,-32.4;2026-09-29,86.46,89.05,88.57,-28.4;2026-09-30,85.32,88.9,88.54,-32.9;2026-10-01,84.53,88.73,88.5,-35.6;2026-10-02,84.26,88.56,88.46,-38;2026-10-05,86.19,88.46,88.44,-33;2026-10-06,87.25,88.42,88.43,-32.5;2026-10-07,87.21,88.37,88.41,-36.2`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+
+const fmtN=(v,d=2)=>v.toLocaleString("de-CH",{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmtD=s=>{const [y,m,d]=s.split("-");return d+"."+m+"."+y.slice(2)};
+const NS="http://www.w3.org/2000/svg";
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+
+function scoreTable(id,rows){
+  let tot=0,max=0;
+  const html='<thead><tr><th>Kriterium</th><th>Stand</th><th class="num">Punkte</th><th style="width:22%"></th></tr></thead><tbody>'+rows.map(r=>{tot+=r[2];max+=r[3];const p=r[2]/r[3];const c=p>=.75?"var(--good)":p>=.45?"var(--warn)":"var(--bad)";
+    return `<tr><td>${r[0]}</td><td class="muted">${r[1]}</td><td class="num">${r[2]} / ${r[3]}</td><td><div class="bar"><i style="width:${p*100}%;background:${c}"></i></div></td></tr>`}).join("")+`<tr class="total"><td>Total</td><td></td><td class="num">${tot} / ${max}</td><td></td></tr></tbody>`;
+  document.getElementById(id).innerHTML=html;return tot;
+}
+const qs=scoreTable("q-tbl",Q), ts=scoreTable("t-tbl",T);
+document.getElementById("q-val").textContent=qs;document.getElementById("t-val").textContent=ts;
+document.getElementById("q-pin").style.left=qs+"%";document.getElementById("t-pin").style.left=ts+"%";
+
+document.getElementById("fin-rows").innerHTML=FIN.map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1].toLocaleString("de-CH")}</td><td class="num">${r[2]}</td><td class="num">${r[3]}</td><td class="num">${fmtN(r[4])}</td><td class="num">${r[5].toLocaleString("de-CH")}</td><td class="num">${r[6]}</td><td class="num">${r[7]}</td></tr>`).join("");
+
+/* generic line chart */
+function lineChart(host,{dates,series,bands=[],yFmt=v=>fmtN(v),h=300,zero=false,refs=[],pad}){
+  const W_=800,H=h,m={t:12,r:56,b:28,l:8};
+  const all=series.flatMap(s=>s.values).concat(bands.flatMap(b=>[b.from,b.to])).concat(refs.map(r=>r.v));
+  if(zero)all.push(0);
+  let lo=Math.min(...all),hi=Math.max(...all);const sp=(hi-lo)||1;lo-=sp*.06;hi+=sp*.06;
+  if(pad){lo=pad[0];hi=pad[1]}
+  const n=dates.length,x=i=>m.l+i*(W_-m.l-m.r)/(n-1),y=v=>m.t+(hi-v)*(H-m.t-m.b)/(hi-lo);
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  // grid
+  const steps=5;for(let k=0;k<=steps;k++){const v=lo+(hi-lo)*k/steps;el("line",{x1:m.l,x2:W_-m.r,y1:y(v),y2:y(v),stroke:"var(--grid)","stroke-width":1},svg);
+    const t=el("text",{x:W_-m.r+6,y:y(v)+4,"font-size":11,fill:"var(--muted)","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=yFmt(v)}
+  bands.forEach(b=>{el("rect",{x:m.l,width:W_-m.l-m.r,y:y(Math.max(b.from,b.to)),height:Math.abs(y(b.from)-y(b.to)),fill:b.type==="res"?"var(--zone-res)":"var(--zone-sup)"},svg)});
+  refs.forEach(r=>{el("line",{x1:m.l,x2:W_-m.r,y1:y(r.v),y2:y(r.v),stroke:"var(--muted)","stroke-dasharray":"4 4","stroke-width":1},svg);
+    const t=el("text",{x:m.l+4,y:y(r.v)-4,"font-size":11,fill:"var(--muted)"},svg);t.textContent=r.label});
+  if(zero)el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  // x labels
+  const every=Math.ceil(n/6);for(let i=0;i<n;i+=every){const t=el("text",{x:x(i),y:H-8,"font-size":11,fill:"var(--muted)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);const d=dates[i];t.textContent=d.slice(5,7)+"/"+d.slice(2,4)}
+  series.forEach(s=>{const dpath=s.values.map((v,i)=>(i?"L":"M")+x(i).toFixed(1)+","+y(v).toFixed(1)).join("");
+    el("path",{d:dpath,fill:"none",stroke:s.color,"stroke-width":s.w||2,"stroke-linejoin":"round","stroke-linecap":"round"},svg);
+    const lv=s.values[n-1];el("circle",{cx:x(n-1),cy:y(lv),r:3.5,fill:s.color,stroke:"var(--surface)","stroke-width":2},svg)});
+  // hover
+  const cross=el("line",{y1:m.t,y2:H-m.b,stroke:"var(--muted)","stroke-width":1,opacity:0},svg);
+  const ov=el("rect",{x:m.l,y:m.t,width:W_-m.l-m.r,height:H-m.t-m.b,fill:"transparent"},svg);
+  host.appendChild(svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;host.appendChild(tip);
+  function move(ev){const r=svg.getBoundingClientRect();const px=(ev.clientX-r.left)*W_/r.width;let i=Math.round((px-m.l)/((W_-m.l-m.r)/(n-1)));i=Math.max(0,Math.min(n-1,i));
+    cross.setAttribute("x1",x(i));cross.setAttribute("x2",x(i));cross.setAttribute("opacity",1);
+    tip.innerHTML=`<div class="d">${fmtD(dates[i])}</div>`+series.map(s=>`<div><i class="sw" style="background:${s.color}"></i> ${s.name}: <b>${yFmt(s.values[i])}</b></div>`).join("");
+    tip.hidden=false;const hx=x(i)*r.width/W_;tip.style.left=Math.min(Math.max(0,hx+12),r.width-tip.offsetWidth)+"px";tip.style.top="8px"}
+  ov.addEventListener("pointermove",move);ov.addEventListener("pointerleave",()=>{tip.hidden=true;cross.setAttribute("opacity",0)});
+}
+function barChart(host,{labels,values,fmt,h=220,color,neg,tipExtra}){
+  const W_=800,H=h,m={t:18,r:8,b:28,l:8};
+  const hi=Math.max(0,...values),lo=Math.min(0,...values);const lo2=lo<0?lo*1.15:lo,hi2=hi*1.15||1;
+  const y=v=>m.t+(hi2-v)*(H-m.t-m.b)/(hi2-lo2);const n=values.length,bw=(W_-m.l-m.r)/n;
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;
+  values.forEach((v,i)=>{const x0=m.l+i*bw+bw*.18,w=bw*.64,y0=y(Math.max(v,0)),hh=Math.max(1,Math.abs(y(v)-y(0)));
+    const r=el("rect",{x:x0,y:y0,width:w,height:hh,rx:4,fill:v<0?(neg||"var(--s2)"):(color||"var(--s1)")},svg);
+    const t=el("text",{x:x0+w/2,y:v<0?y(v)+13:y0-5,"font-size":11.5,fill:"var(--ink)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=fmt(v);
+    const l=el("text",{x:x0+w/2,y:H-8,"font-size":11.5,fill:"var(--muted)","text-anchor":"middle"},svg);l.textContent=labels[i];
+    const hit=el("rect",{x:m.l+i*bw,y:m.t,width:bw,height:H-m.t-m.b,fill:"transparent"},svg);
+    hit.addEventListener("pointerenter",()=>{tip.innerHTML=`<div class="d">${labels[i]}</div><b>${fmt(v)}</b>${tipExtra?tipExtra(i):""}`;tip.hidden=false;const R=svg.getBoundingClientRect();tip.style.left=Math.min((m.l+i*bw)*R.width/W_,R.width-tip.offsetWidth)+"px";tip.style.top="0px"});
+    hit.addEventListener("pointerleave",()=>tip.hidden=true)});
+  host.appendChild(svg);host.appendChild(tip);
+}
+barChart(document.getElementById("c-rev"),{labels:HALF.map(r=>r[0]),values:HALF.map(r=>r[1]),fmt:v=>fmtN(v,2),h:200});
+barChart(document.getElementById("c-margin"),{labels:MARGIN.map(r=>r[0]),values:MARGIN.map(r=>r[1]),fmt:v=>fmtN(v,1)+" %",h:200});
+barChart(document.getElementById("c-seas"),{labels:MON,values:SEAS,fmt:v=>(v>0?"+":"")+fmtN(v,1),h:220,tipExtra:i=>`<div>${SEASHIT[i]} % der Jahre positiv</div>`});
+const BANDS=[{"from": 93, "to": 96, "type": "res"}, {"from": 81.8, "to": 84.3, "type": "sup"}], REFS=[{"v": 90.1, "label": "Trigger 90.10"}];
+const wd=W.map(r=>r[0]);
+lineChart(document.getElementById("c-week"),{dates:wd,series:[{name:"Kurs",values:W.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:W.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:W.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,yFmt:v=>fmtN(v,0),h:320});
+lineChart(document.getElementById("c-adw"),{dates:wd,series:[{name:"A/D Woche",values:W.map(r=>r[5]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,zero:true});
+lineChart(document.getElementById("c-rsiw"),{dates:wd,series:[{name:"RSI Woche",values:W.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,refs:[{v:70,label:"70 überkauft"},{v:30,label:"30 überverkauft"}],pad:[10,90]});
+const dd=DD.map(r=>r[0]);
+lineChart(document.getElementById("c-day"),{dates:dd,series:[{name:"Kurs",values:DD.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:DD.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:DD.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,refs:REFS,yFmt:v=>fmtN(v,0),h:260});
+lineChart(document.getElementById("c-add"),{dates:dd,series:[{name:"A/D Tag",values:DD.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:260,zero:true});
+</script>

@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cloudflare Aktien-Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F3F5F7; --surface:#FFFFFF; --ink:#141B24; --muted:#5A6573; --line:#DDE2E8; --grid:#E9EDF1;
+  --accent:#2F45B5; --accent-soft:#E6E9F8; --chip:#EBEEF2;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+  --good:#1D7A4B; --good-bg:#E3F3EA; --warn:#9A6200; --warn-bg:#FBF0DC; --bad:#B2362A; --bad-bg:#FBE6E3;
+  --zone-sup:rgba(29,122,75,.10); --zone-res:rgba(178,54,42,.09);
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+    --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+    --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+    --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+  --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+  --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;padding-inline:16px;padding-block:24px 56px}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+h1,h2,h3{font-family:var(--display);font-stretch:85%;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:clamp(32px,7vw,48px);font-weight:800;line-height:1}
+h2{font-size:24px;font-weight:700}
+h3{font-size:17px;font-weight:700;font-stretch:95%}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+section{display:flex;flex-direction:column;gap:14px}
+.lead{max-width:68ch;color:var(--muted)}
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;align-items:stretch}
+.hero .id{display:flex;flex-direction:column;gap:10px;justify-content:space-between}
+.price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price b{font-family:var(--display);font-size:34px;font-weight:700}
+.meta{font-size:13px;color:var(--muted)}
+.verdict{font-size:15px;padding:12px 14px;border-radius:10px;background:var(--chip)}
+.scales{display:flex;flex-direction:column;gap:18px}
+.scale-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.scale-h span{font-size:13px;color:var(--muted)}
+.scale-h b{font-family:var(--display);font-size:28px;line-height:1}
+.track{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#C8412F 0%,#E0892F 30%,#E3B63A 50%,#8BBF4B 68%,#2E9A5B 100%);margin-top:8px}
+.pin{position:absolute;top:-5px;width:4px;height:22px;border-radius:2px;background:var(--ink);box-shadow:0 0 0 2px var(--surface);transform:translateX(-2px)}
+.ticks{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);font-family:var(--mono);margin-top:6px}
+.state{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;margin-top:8px}
+.st-good{background:var(--good-bg);color:var(--good)}
+.st-warn{background:var(--warn-bg);color:var(--warn)}
+.st-bad{background:var(--bad-bg);color:var(--bad)}
+/* tables */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;color:var(--muted);font-weight:500;font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:700;border-bottom:none}
+.pts{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{height:6px;border-radius:3px;background:var(--chip);min-width:60px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:3px}
+/* grids */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;border-left:4px solid var(--line)}
+.kpi.g{border-left-color:var(--good)}.kpi.w{border-left-color:var(--warn)}.kpi.b{border-left-color:var(--bad)}
+.kpi span{font-size:12px;color:var(--muted)}
+.kpi b{font-family:var(--mono);font-size:19px;font-weight:500;font-variant-numeric:tabular-nums}
+.kpi em{font-style:normal;font-size:12.5px;color:var(--muted)}
+/* charts */
+.chart{position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:14px;height:3px;border-radius:2px;display:inline-block}
+.swb{width:12px;height:10px;border-radius:2px;display:inline-block}
+.tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12.5px;box-shadow:0 4px 14px rgba(0,0,0,.12);white-space:nowrap;z-index:2}
+.tip b{font-family:var(--mono);font-weight:500}
+.tip .d{font-family:var(--mono);color:var(--muted);font-size:11.5px}
+.note{font-size:13.5px;color:var(--muted)}
+ul.clean{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.pro li::marker{color:var(--good)} .con li::marker{color:var(--bad)}
+.zones{display:flex;flex-direction:column;gap:8px}
+.zone{display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:baseline;padding:10px 12px;border-radius:10px;background:var(--chip);font-size:14px}
+.zone b{font-family:var(--mono);font-weight:500}
+.zone.r{border-left:4px solid var(--bad)} .zone.s{border-left:4px solid var(--good)} .zone.t{border-left:4px solid var(--accent)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+summary{cursor:pointer;font-weight:600}
+details p{margin-top:8px;color:var(--muted);max-width:70ch}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+footer{font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:6px;max-width:80ch}
+footer a{color:var(--accent)}
+@media (max-width:760px){.hero,.two{grid-template-columns:1fr}.zone{grid-template-columns:1fr;gap:2px}}
+</style>
+
+<a href="../index.html#/aktie/NET" style="display:inline-block;margin:max(12px,env(safe-area-inset-top)) 0 0 16px;background:#1f3a5f;color:#fff;font:600 14px system-ui;padding:8px 12px;border-radius:20px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">Zurück zur App</a>
+<div class="wrap">
+
+<header class="hero">
+  <div class="card id">
+    <div>
+      <div class="eyebrow">Aktien-Check · 05.10.2026</div>
+      <h1>Cloudflare</h1>
+      <p class="meta">Cloudflare, Inc. · NYSE: NET · Internet-Netzwerk für Sicherheit, Tempo und KI-Anwendungen · USA</p>
+    </div>
+    <div class="price"><b>359.49 $</b><span class="meta">Schluss 05.10.2026 · Allzeithoch 24.09.2026: 367.40 $ · +80 % seit Januar</span></div>
+    <p class="verdict"><b>Kurz gesagt:</b> Ein echter Gewinner des KI-Booms mit über 30 % Wachstum, aber an der Börse sehr teuer und noch ohne Gewinn. Qualität gelb, Timing gelb. Der Trend ist stark, aber überhitzt (RSI Woche 71). Eine bessere Chance wäre ein Rücksetzer auf 312–333 $.</p>
+  </div>
+  <div class="card scales">
+    <div>
+      <div class="scale-h"><span>Qualität · Ist die Firma kaufenswert?</span><b id="q-val">55</b></div>
+      <div class="track"><i class="pin" id="q-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-warn">▲ Gemischt</span>
+    </div>
+    <div>
+      <div class="scale-h"><span>Timing · Ist jetzt der Zeitpunkt?</span><b id="t-val">59</b></div>
+      <div class="track"><i class="pin" id="t-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-warn">▲ Warten auf Bestätigung</span>
+    </div>
+    <p class="note">Skala: unter 30 rot · 30–45 orange · 45–60 gelb · 60–75 hellgrün · ab 75 grün. Beide Werte setzen sich aus festen Kriterien zusammen, siehe unten.</p>
+  </div>
+</header>
+
+<section>
+  <h2>Was die Firma macht</h2>
+  <p class="lead">Cloudflare betreibt ein weltweites Netzwerk mit Rechenzentren in über 300 Städten. Rund ein Fünftel aller Websites läuft darüber. Cloudflare schützt sie vor Angriffen, macht sie schneller und bietet Entwicklern eine Plattform (Workers), um Programme und KI-Agenten direkt im Netz laufen zu lassen. Mehr als die Hälfte des Verkehrs stammt inzwischen nicht mehr von Menschen, sondern von Bots und KI-Agenten.</p>
+  <p class="lead">Die Aktie stieg 2026 um rund 80 %. Im 2. Quartal wuchs der Umsatz um 36 % auf 696 Mio. $ (Erwartung 666 Mio.). Cloudflare gewann eine Rekordzahl grosser Kunden (986 neue mit über 100'000 $ Jahresumsatz), und die Kunden gaben 20 % mehr aus als im Vorjahr. Am 9. September stieg die Aktie um 8 %: Cloudflare startete mit OpenAI einen KI-Dienst, der Sicherheitslücken selbständig findet und schliesst. Analysten liegen mit einem Kursziel von 339 $ inzwischen unter dem Kurs.</p>
+</section>
+
+<section>
+  <h2>Fundamental: die Zahlen</h2>
+  <div class="kpis">
+<div class="kpi g"><span>Umsatzwachstum</span><b>+36 %</b><em>2. Quartal. Das Tempo beschleunigt sich seit einem Jahr (von 27 % auf 36 %).</em></div>
+<div class="kpi g"><span>Bruttomarge</span><b>72.6 %</b><em>Von 100 $ Umsatz bleiben nach den direkten Kosten knapp 73 $. Typisch für Software.</em></div>
+<div class="kpi b"><span>Operative Marge</span><b>−7.8 %</b><em>Ausgewiesen noch ein Verlust, vor allem wegen hoher Aktienvergütungen (508 Mio. $ pro Jahr).</em></div>
+<div class="kpi w"><span>Free Cashflow</span><b>342 Mio. $</b><em>Positiv und steigend, aber kleiner als die Aktienvergütungen.</em></div>
+<div class="kpi g"><span>Netto-Cash</span><b>633 Mio. $</b><em>Mehr Bargeld als Schulden.</em></div>
+<div class="kpi g"><span>Kunden-Ausgaben</span><b>120 %</b><em>Bestehende Kunden geben 20 % mehr aus als vor einem Jahr (Net Retention).</em></div>
+<div class="kpi b"><span>Kurs-Umsatz-Verhältnis (KUV)</span><b>49</b><em>Du zahlst 49 Jahresumsätze. Eigener Schnitt 2021–2025: rund 31. Sehr teuer.</em></div>
+<div class="kpi w"><span>Verwässerung</span><b>+2 % pro Jahr</b><em>Die Aktienzahl steigt durch Mitarbeiteraktien.</em></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>Umsatz pro Quartal (Mio. $)</h3>
+      <p class="note">Jedes Quartal über Vorjahr, Wachstum steigt von 27 % auf 36 %.</p>
+      <div class="chart" id="c-rev"></div>
+    </div>
+    <div class="card">
+      <h3>Operative Marge pro Quartal (GAAP)</h3>
+      <p class="note">Noch negativ, schwankt um −7 bis −12 %. Bereinigt um Aktienvergütungen ist Cloudflare profitabel.</p>
+      <div class="chart" id="c-margin"></div>
+    </div>
+  </div>
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Jahr</th><th class="num">Umsatz Mio. $</th><th class="num">Wachstum</th><th class="num">Op. Marge</th><th class="num">EPS $</th><th class="num">Free Cashflow</th><th class="num">ROIC</th><th class="num">KUV</th></tr></thead>
+      <tbody id="fin-rows"></tbody>
+    </table>
+  </div>
+  <p class="note"><b>Hinweis:</b> Cloudflare macht ausgewiesen noch Verlust, darum gibt es kein sinnvolles KGV. Ich vergleiche das Kurs-Umsatz-Verhältnis (KUV, Börsenwert geteilt durch Jahresumsatz) in der letzten Spalte. Werte, die mir nicht vorlagen, sind mit – markiert.</p>
+</section>
+
+<section>
+  <h2>Qualität: 55 von 100</h2>
+  <div class="card tbl"><table id="q-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Technik: Wochenchart (2 Jahre)</h2>
+  <div class="card">
+    <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span><span><i class="swb" style="background:var(--zone-sup);border:1px solid var(--good)"></i>Unterstützung</span><span><i class="swb" style="background:var(--zone-res);border:1px solid var(--bad)"></i>Widerstand</span></div>
+    <div class="chart" id="c-week"></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>A/D-Linie, Woche</h3>
+      <p class="note">Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Steigt seit April mit dem Kurs auf neue Hochs. Das bestätigt den Trend.</p>
+      <div class="chart" id="c-adw"></div>
+    </div>
+    <div class="card">
+      <h3>RSI, Woche</h3>
+      <p class="note">Unter 30 überverkauft, über 70 überkauft. Heute 71: überkauft. Der Trend ist stark, aber gedehnt.</p>
+      <div class="chart" id="c-rsiw"></div>
+    </div>
+  </div>
+
+  <h2>Technik: Tageschart (6 Monate)</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Kurs, Tag</h3>
+      <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span></div>
+      <div class="chart" id="c-day"></div>
+    </div>
+    <div class="card">
+      <h3>A/D-Linie, Tag</h3>
+      <p class="note">Die Tages-A/D steht etwa gleich hoch wie am Hoch vom 13.8., der Kurs ist seither aber 8 % gestiegen. Leichte bärische Divergenz: Der letzte Anstieg hatte weniger Kaufkraft.</p>
+      <div class="chart" id="c-add"></div>
+    </div>
+  </div>
+
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Indikator</th><th>Tag</th><th>Woche</th><th>Bedeutung</th></tr></thead>
+      <tbody>
+<tr><td>Kurs vs. EMA 50</td><td class="pts">359.5 &gt; 312.4</td><td class="pts">359.5 &gt; 246.0</td><td>Weit über der mittelfristigen Linie (Woche +46 %): stark, aber überdehnt.</td></tr>
+<tr><td>Kurs vs. EMA 200</td><td class="pts">359.5 &gt; 252.8</td><td class="pts">359.5 &gt; 165.9</td><td>Langfristiger Aufwärtstrend.</td></tr>
+<tr><td>EMA 50 vs. EMA 200</td><td class="pts">50 über 200</td><td class="pts">50 über 200 (seit Januar 2025)</td><td>Beide Zeitebenen im Aufwärtstrend.</td></tr>
+<tr><td>RSI (14)</td><td class="pts">64.1</td><td class="pts">70.9</td><td>Woche überkauft.</td></tr>
+<tr><td>A/D</td><td class="pts">flach seit August</td><td class="pts">steigt</td><td>Woche bestätigt, Tag zeigt leichte Ermüdung.</td></tr>
+<tr><td>Volumen</td><td colspan="2">Ø 20 Tage 3.2 Mio. vs. Ø 100 Tage 3.5 Mio.</td><td>Normal.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Struktur und Zonen (Smart Money Concept)</h2>
+  <p class="lead">Lehrbuch-Aufwärtstrend: höhere Tiefs (164 → 186 → 212 → 251 → 269 $) und höhere Hochs (259 → 277 → 291 → 332 → 367.40 $). Der Kurs steht am Allzeithoch, also ganz oben im Premium. Das alte Hoch vom August (330–332 $) ist die erste Zone für einen Rücksetzer. Die Mitte der letzten Bewegung (269 → 367 $) liegt bei rund 318 $.</p>
+  <div class="zones">
+<div class="zone r"><b>367.4 $</b><span>Allzeithoch vom 24.9.</span></div>
+<div class="zone s"><b>344–349 $</b><span>Erste Unterstützung: Tagesschlusskurse von Ende September.</span></div>
+<div class="zone t"><b>312–333 $</b><span><b>Kaufzone:</b> Retest des August-Hochs (330–333 $) bis zur EMA 50 (Tag, 312 $), Mitte der Bewegung bei 318 $.</span></div>
+<div class="zone s"><b>269–285 $</b><span>Tiefere Zone: Tief vom 2.9. Darunter wäre der Trend gebrochen.</span></div>
+<div class="zone r"><b>269 $</b><span>Abbruch: Wochenschluss darunter.</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Smart Money, Insider und Saisonalität</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Wer kauft, wer verkauft?</h3>
+      <ul class="clean" style="margin-top:8px">
+<li><b>Cloudflare selbst:</b> Kein Rückkauf, keine Dividende. Die Aktienzahl steigt um rund 2 % pro Jahr.</li>
+<li><b>Insider-Käufe:</b> Keine in den letzten 12 Monaten.</li>
+<li><b>Insider-Verkäufe:</b> Rund 526 Mio. $ in 12 Monaten, vor allem Gründer Matthew Prince (über 165 Mio. $) und Michelle Zatlyn (über 75 Mio. $). Laufende Plan-Verkäufe, aber sehr gross.</li>
+<li><b>Analysten:</b> Durchschnittliches Kursziel 339 $, also unter dem Kurs.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Saisonalität seit 2019</h3>
+      <p class="note">Durchschnittliche Monatsrendite in %, nur 7 Jahre seit dem Börsengang. Oktober (+15.5 %) und November waren meist stark, Dezember schwach. Wenige Jahre, darum nur bedingt aussagekräftig.</p>
+      <div class="chart" id="c-seas"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Timing: 59 von 100</h2>
+  <div class="card tbl"><table id="t-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Pro und Contra</h2>
+  <div class="two">
+    <div class="card pro"><h3>Spricht dafür</h3><ul class="clean" style="margin-top:8px">
+<li>Wachstum über 30 % und beschleunigend, Rekord bei Grosskunden.</li>
+<li>Profitiert direkt von KI-Agenten im Internet.</li>
+<li>Netto-Cash, Free Cashflow steigt.</li>
+<li>Sehr starker Aufwärtstrend auf allen Zeitebenen.</li>
+<li>Partnerschaft mit OpenAI im Sicherheitsbereich.</li>
+    </ul></div>
+    <div class="card con"><h3>Spricht dagegen</h3><ul class="clean" style="margin-top:8px">
+<li>Sehr teuer: 49 Jahresumsätze, Analysten-Kursziel unter dem Kurs.</li>
+<li>Noch kein ausgewiesener Gewinn, hohe Aktienvergütungen.</li>
+<li>Massive Insider-Verkäufe.</li>
+<li>RSI Woche überkauft, kurzfristig wenig Puffer.</li>
+<li>Hohe Schwankung (Beta 1.65): Rücksetzer von 20–30 % sind bei dieser Aktie normal.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section>
+  <h2>Was jetzt zu tun ist</h2>
+  <div class="zones">
+<div class="zone t"><b>Beobachten</b><span>Alarm bei 333 $ (Oberkante Kaufzone) und bei 312 $ (EMA 50 Tag).</span></div>
+<div class="zone s"><b>Timing grün</b><span>Rücksetzer in 312–333 $, Kurs hält, RSI Woche kühlt auf 50–60 ab, Tages-A/D dreht nach oben. Dann springt das Timing auf rund 75.</span></div>
+<div class="zone r"><b>Abbruch</b><span>Wochenschluss unter 269 $.</span></div>
+<div class="zone "><b>Nächste Zahlen</b><span>29. Oktober 2026 (3. Quartal). Ziel laut Firma: +31 % Umsatz.</span></div>
+  </div>
+</section>
+
+<footer>
+  <span>Kursdaten und Indikatoren (EMA, RSI 14, A/D) selbst berechnet aus Yahoo-Finance-Tages-, Wochen- und Monatsdaten, Stand 05.10.2026. <a href="https://stockanalysis.com/stocks/net/financials/" target="_blank" rel="noopener">StockAnalysis.com</a> (Stand 05.10.2026), <a href="https://www.tikr.com/blog/cloudflare-stock-is-up-78-since-january-is-the-rally-already-priced-in" target="_blank" rel="noopener">Q2-Zahlen (TIKR)</a>, <a href="https://www.investing.com/news/stock-market-news/why-is-cloudflare-stock-surging-today-93CH-4893944" target="_blank" rel="noopener">Kurssprung 9.9. (Investing.com)</a>, <a href="https://www.marketbeat.com/stocks/NYSE/NET/insider-trades/" target="_blank" rel="noopener">Insider (MarketBeat)</a>.</span>
+  <span>Persönliche Analyse, keine Anlageberatung. Vergangene Kurse und Saisonalität sagen nichts Sicheres über die Zukunft.</span>
+</footer>
+</div>
+
+<script>
+const Q=[["Umsatztrend", "4 von 4 Quartalen über Vorjahr, Tempo steigt", 15, 15], ["Wachstumstempo", "+33.5 % in 12 Monaten", 10, 10], ["Operative Marge", "−7.8 % (0 Pkt.), Verlust wird kleiner (6 Pkt.)", 6, 15], ["Gewinnwachstum (EPS)", "Ausgewiesen Verlust", 0, 10], ["Free Cashflow", "Seit 2022 jedes Jahr gestiegen (aber kleiner als Aktienvergütung)", 10, 10], ["ROIC", "−2.5 %, steigend (+1)", 3, 15], ["Schulden", "Netto-Cash", 10, 10], ["Bewertung vs. eigene Historie", "KUV 49 vs. Ø rund 31 (über 30 % teurer)", 1, 15]];
+const T=[["Trend Woche (EMA 50/200)", "Kurs über beiden, EMA 50 über EMA 200", 19, 20], ["Trend Tag (EMA 50/200)", "Kurs über beiden", 10, 10], ["Struktur (SMC)", "Höhere Hochs und Tiefs, Kurs am Allzeithoch (Premium)", 14, 20], ["RSI Tag/Woche", "Woche 71: überkauft", 3, 15], ["A/D Tag/Woche", "Woche steigt, Tag leichte bärische Divergenz", 10, 20], ["Smart Money", "Grosse Insider-Verkäufe, kein Rückkauf", 0, 10], ["Saisonalität", "Okt–Dez: Ø 57 % positive Jahre (nur 7 Jahre)", 3, 5]];
+const FIN=[["2022", 975, "+48.6 %", "–", "–", -20, "–", "15.2"], ["2023", 1297, "+33.0 %", "–", "–", 134, "–", "21.6"], ["2024", 1670, "+28.8 %", "–", "–", 181, "–", "22.1"], ["2025", 2168, "+29.9 %", "−8.9 %", "–", 281, "–", "31.9"], ["Letzte 12 Mt.", 2512, "+33.5 %", "−7.8 %", -0.59, 342, "−2.5 %", "49.5"]];
+const HALF=[["Q3 24", 430], ["Q4 24", 460], ["Q1 25", 479], ["Q2 25", 512], ["Q3 25", 562], ["Q4 25", 615], ["Q1 26", 640], ["Q2 26", 696]];
+const MARGIN=[["Q3 24", -7.2], ["Q4 24", -7.4], ["Q1 25", -11.1], ["Q2 25", -12.4], ["Q3 25", -6.7], ["Q4 25", -6.6], ["Q1 26", -9.7], ["Q2 26", -7.6]];
+const SEAS=[1.3, 11.0, 0.9, -4.9, 9.3, 9.6, 8.8, 4.1, 0.2, 15.5, 10.4, -5.0];
+const SEASHIT=[57.0, 71.0, 57.0, 43.0, 57.0, 71.0, 86.0, 71.0, 43.0, 71.0, 57.0, 43.0];
+const MON=["Jan","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"];
+const W=`2024-10-14,90.80,80.10,89.51,59,-51.8;2024-10-21,88.76,80.44,89.50,57,-55.0;2024-10-28,87.55,80.72,89.48,55,-59.5;2024-11-04,91.25,81.13,89.50,59,-60.7;2024-11-11,89.77,81.47,89.50,57,-73.3;2024-11-18,104.2,82.36,89.65,68,-59.2;2024-11-25,99.83,83.05,89.75,63,-65.1;2024-12-02,113.0,84.22,89.98,70,-50.8;2024-12-09,113.6,85.37,90.22,70,-47.6;2024-12-16,112.7,86.45,90.44,69,-49.1;2024-12-23,110.6,87.39,90.64,67,-49.5;2024-12-30,114.7,88.47,90.88,69,-39.8;2025-01-06,112.6,89.41,91.10,67,-43.0;2025-01-13,117.2,90.50,91.35,69,-38.5;2025-01-20,125.1,91.86,91.69,73,-30.0;2025-01-27,138.4,93.68,92.16,79,-16.4;2025-02-03,166.7,96.55,92.90,85,8.8;2025-02-10,171.2,99.47,93.68,86,9.5;2025-02-17,152.0,101.5,94.26,70,-7.4;2025-02-24,145.3,103.2,94.76,65,-6.0;2025-03-03,126.8,104.2,95.08,55,-19.5;2025-03-10,116.2,104.6,95.29,50,-28.0;2025-03-17,119.2,105.2,95.53,51,-17.6;2025-03-24,114.9,105.6,95.72,49,-30.4;2025-03-31,97.08,105.3,95.74,41,-48.6;2025-04-07,106.3,105.3,95.84,46,-40.9;2025-04-14,107.9,105.4,95.96,47,-46.4;2025-04-21,121.0,106.0,96.21,53,-32.9;2025-04-28,124.2,106.7,96.49,54,-25.6;2025-05-05,132.3,107.7,96.85,57,-14.7;2025-05-12,157.2,109.7,97.45,66,7.6;2025-05-19,158.0,111.6,98.05,66,10.7;2025-05-26,165.9,113.7,98.72,68,21.7;2025-06-02,179.7,116.3,99.53,72,34.0;2025-06-09,172.0,118.5,100.3,67,26.5;2025-06-16,179.3,120.9,101.0,69,26.5;2025-06-23,194.1,123.7,102.0,73,40.7;2025-06-30,191.3,126.4,102.9,71,43.7;2025-07-07,181.4,128.5,103.6,65,33.2;2025-07-14,197.4,131.2,104.6,70,49.5;2025-07-21,198.4,133.9,105.5,70,60.2;2025-07-28,200.1,136.5,106.4,70,55.5;2025-08-04,204.6,139.1,107.4,72,45.2;2025-08-11,200.9,141.6,108.3,69,47.6;2025-08-18,196.2,143.7,109.2,66,50.2;2025-08-25,208.7,146.2,110.2,70,54.2;2025-09-01,214.4,148.9,111.2,71,60.6;2025-09-08,221.3,151.8,112.3,73,59.0;2025-09-15,225.9,154.7,113.5,75,68.7;2025-09-22,216.3,157.1,114.5,68,63.7;2025-09-29,216.7,159.4,115.5,68,61.4;2025-10-06,213.8,161.6,116.5,66,52.6;2025-10-13,210.0,163.5,117.4,63,47.8;2025-10-20,217.9,165.6,118.4,66,51.7;2025-10-27,253.3,169.0,119.8,76,71.5;2025-11-03,232.8,171.5,120.9,64,66.6;2025-11-10,210.6,173.1,121.8,55,56.9;2025-11-17,186.4,173.6,122.4,46,41.0;2025-11-24,200.2,174.6,123.2,51,49.7;2025-12-01,200.9,175.7,124.0,51,49.4;2025-12-08,202.4,176.7,124.8,52,42.5;2025-12-15,195.7,177.5,125.5,49,39.2;2025-12-22,202.4,178.4,126.2,52,42.8;2025-12-29,196.0,179.1,126.9,49,40.8;2026-01-05,182.8,179.3,127.5,44,27.8;2026-01-12,184.2,179.5,128.0,45,23.1;2026-01-19,173.4,179.2,128.5,41,16.6;2026-01-26,177.4,179.1,129.0,43,-18.1;2026-02-02,173.2,178.9,129.4,42,-17.0;2026-02-09,195.9,179.6,130.1,51,8.4;2026-02-16,177.1,179.5,130.5,45,-9.9;2026-02-23,172.2,179.2,131.0,43,1.3;2026-03-02,195.2,179.8,131.6,52,15.5;2026-03-09,212.4,181.1,132.4,57,26.1;2026-03-16,215.4,182.5,133.2,58,22.3;2026-03-23,203.0,183.3,133.9,53,8.3;2026-03-30,211.7,184.4,134.7,56,20.2;2026-04-06,167.0,183.7,135.0,42,-11.4;2026-04-13,201.0,184.4,135.7,52,10.3;2026-04-20,207.1,185.3,136.4,53,15.2;2026-04-27,217.5,186.5,137.2,56,29.2;2026-05-04,196.1,186.9,137.8,50,-8.5;2026-05-11,197.6,187.3,138.4,50,-1.9;2026-05-18,216.2,188.5,139.1,55,12.2;2026-05-25,241.8,190.5,140.2,61,27.3;2026-06-01,250.1,192.9,141.3,62,12.7;2026-06-08,228.5,194.3,142.1,56,5.6;2026-06-15,224.1,195.4,142.9,55,1.7;2026-06-22,237.2,197.1,143.9,58,19.3;2026-06-29,242.4,198.9,144.9,59,17.6;2026-07-06,268.4,201.6,146.1,64,24.9;2026-07-13,277.7,204.6,147.4,66,26.2;2026-07-20,262.1,206.8,148.5,61,14.8;2026-07-27,279.0,209.7,149.8,64,19.6;2026-08-03,300.3,213.2,151.3,68,19.4;2026-08-10,315.8,217.2,153.0,70,24.8;2026-08-17,293.1,220.2,154.4,63,23.7;2026-08-24,299.8,223.3,155.8,64,30.6;2026-08-31,278.9,225.5,157.0,58,23.2;2026-09-07,306.5,228.7,158.5,63,29.3;2026-09-14,323.6,232.4,160.2,66,29.4;2026-09-21,349.0,237.0,162.1,69,32.6;2026-09-28,349.1,241.4,163.9,69,33.8;2026-10-05,359.5,246.0,165.9,71,34.6`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+const DD=`2026-03-31,206.3,198.3,189.0,77.0;2026-04-01,205.4,198.6,189.2,76.0;2026-04-02,211.7,199.1,189.4,77.9;2026-04-06,211.8,199.6,189.6,78.2;2026-04-07,216.3,200.2,189.9,81.9;2026-04-08,211.3,200.7,190.1,78.9;2026-04-09,193.1,200.4,190.1,77.8;2026-04-10,167.0,199.1,189.9,66.8;2026-04-13,184.0,198.5,189.8,73.2;2026-04-14,178.6,197.7,189.7,69.4;2026-04-15,190.1,197.4,189.7,73.8;2026-04-16,197.4,197.4,189.8,73.6;2026-04-17,201.0,197.5,189.9,77.1;2026-04-20,204.8,197.8,190.0,79.5;2026-04-21,207.7,198.2,190.2,79.2;2026-04-22,207.6,198.6,190.4,78.2;2026-04-23,205.0,198.8,190.5,79.3;2026-04-24,207.1,199.1,190.7,80.3;2026-04-27,212.4,199.7,190.9,82.1;2026-04-28,208.5,200.0,191.1,79.2;2026-04-29,212.0,200.5,191.3,80.3;2026-04-30,205.0,200.7,191.4,80.1;2026-05-01,217.5,201.3,191.7,82.6;2026-05-04,224.2,202.2,192.0,85.3;2026-05-05,244.4,203.9,192.5,89.2;2026-05-06,248.6,205.6,193.1,92.6;2026-05-07,256.8,207.6,193.7,97.9;2026-05-08,196.1,207.2,193.8,84.4;2026-05-11,193.5,206.6,193.8,79.0;2026-05-12,186.8,205.9,193.7,73.8;2026-05-13,192.6,205.3,193.7,76.1;2026-05-14,199.8,205.1,193.7,78.6;2026-05-15,197.6,204.8,193.8,78.6;2026-05-18,201.8,204.7,193.9,80.9;2026-05-19,206.7,204.8,194.0,82.8;2026-05-20,210.1,205.0,194.1,85.2;2026-05-21,212.6,205.3,194.3,87.1;2026-05-22,216.2,205.7,194.5,88.8;2026-05-26,217.5,206.2,194.8,90.3;2026-05-27,209.2,206.3,194.9,88.2;2026-05-28,228.1,207.2,195.2,92.7;2026-05-29,241.8,208.5,195.7,97.0;2026-06-01,270.8,211.0,196.5,105.3;2026-06-02,272.7,213.4,197.2,108.6;2026-06-03,265.3,215.4,197.9,108.5;2026-06-04,268.6,217.5,198.6,109.7;2026-06-05,250.1,218.8,199.1,106.3;2026-06-08,247.8,219.9,199.6,104.5;2026-06-09,236.1,220.6,200.0,103.3;2026-06-10,219.7,220.5,200.2,98.1;2026-06-11,227.4,220.8,200.4,100.5;2026-06-12,228.5,221.1,200.7,101.2;2026-06-15,235.7,221.7,201.1,102.8;2026-06-16,231.0,222.0,201.4,101.1;2026-06-17,226.9,222.2,201.6,98.5;2026-06-18,224.1,222.3,201.8,101.6;2026-06-22,218.4,222.1,202.0,101.3;2026-06-23,224.9,222.3,202.2,102.2;2026-06-24,223.5,222.3,202.4,101.5;2026-06-25,226.6,222.5,202.7,104.0;2026-06-26,237.2,223.1,203.0,110.2;2026-06-29,243.8,223.9,203.4,111.2;2026-06-30,245.3,224.7,203.8,112.1;2026-07-01,246.3,225.6,204.3,110.9;2026-07-02,242.4,226.2,204.6,110.2;2026-07-06,247.6,227.0,205.1,111.1;2026-07-07,268.8,228.7,205.7,114.1;2026-07-08,273.4,230.4,206.4,117.3;2026-07-09,275.8,232.2,207.1,118.5;2026-07-10,268.4,233.6,207.7,116.7;2026-07-13,269.5,235.0,208.3,116.6;2026-07-14,281.8,236.9,209.0,119.4;2026-07-15,273.0,238.3,209.7,117.0;2026-07-16,272.5,239.6,210.3,117.1;2026-07-17,277.7,241.1,211.0,118.8;2026-07-20,272.4,242.4,211.6,115.9;2026-07-21,272.3,243.5,212.2,115.2;2026-07-22,269.0,244.5,212.7,115.3;2026-07-23,262.3,245.2,213.2,113.5;2026-07-24,262.1,245.9,213.7,112.1;2026-07-27,265.6,246.7,214.2,112.3;2026-07-28,264.1,247.3,214.7,113.7;2026-07-29,270.4,248.2,215.3,113.3;2026-07-30,283.4,249.6,216.0,115.9;2026-07-31,279.0,250.8,216.6,113.8;2026-08-03,282.7,252.0,217.2,114.0;2026-08-04,301.3,254.0,218.1,118.4;2026-08-05,293.0,255.5,218.8,115.5;2026-08-06,284.4,256.6,219.5,114.1;2026-08-07,300.3,258.3,220.3,108.0;2026-08-10,310.6,260.4,221.2,114.3;2026-08-11,307.0,262.2,222.0,115.9;2026-08-12,311.5,264.1,222.9,114.3;2026-08-13,330.8,266.8,224.0,118.8;2026-08-14,315.8,268.7,224.9,116.0;2026-08-17,307.0,270.2,225.7,114.4;2026-08-18,301.4,271.4,226.5,113.5;2026-08-19,291.9,272.2,227.1,112.8;2026-08-20,278.9,272.5,227.7,110.2;2026-08-21,293.1,273.3,228.3,113.0;2026-08-24,280.4,273.6,228.8,110.5;2026-08-25,277.6,273.7,229.3,109.8;2026-08-26,284.9,274.2,229.9,110.9;2026-08-27,308.2,275.5,230.6,114.6;2026-08-28,299.8,276.4,231.3,113.0;2026-08-31,305.1,277.6,232.1,114.3;2026-09-01,285.5,277.9,232.6,112.0;2026-09-02,272.7,277.7,233.0,110.2;2026-09-03,284.5,277.9,233.5,111.9;2026-09-04,278.9,278.0,234.0,110.7;2026-09-08,284.3,278.2,234.5,111.8;2026-09-09,314.2,279.6,235.3,115.3;2026-09-10,311.2,280.9,236.0,114.0;2026-09-11,306.5,281.9,236.7,112.9;2026-09-14,330.4,283.8,237.6,115.8;2026-09-15,327.2,285.5,238.5,115.7;2026-09-16,324.6,287.0,239.4,114.6;2026-09-17,333.9,288.9,240.3,116.6;2026-09-18,323.6,290.2,241.2,115.8;2026-09-21,351.7,292.6,242.3,119.5;2026-09-22,353.0,295.0,243.4,120.5;2026-09-23,352.3,297.3,244.4,118.2;2026-09-24,358.8,299.7,245.6,118.6;2026-09-25,349.0,301.6,246.6,116.9;2026-09-28,354.0,303.7,247.7,118.8;2026-09-29,352.3,305.6,248.7,118.8;2026-09-30,347.3,307.2,249.7,116.7;2026-10-01,351.0,308.9,250.7,118.1;2026-10-02,349.1,310.5,251.7,117.9;2026-10-05,359.5,312.4,252.8,118.6`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+
+const fmtN=(v,d=2)=>v.toLocaleString("de-CH",{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmtD=s=>{const [y,m,d]=s.split("-");return d+"."+m+"."+y.slice(2)};
+const NS="http://www.w3.org/2000/svg";
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+
+function scoreTable(id,rows){
+  let tot=0,max=0;
+  const html='<thead><tr><th>Kriterium</th><th>Stand</th><th class="num">Punkte</th><th style="width:22%"></th></tr></thead><tbody>'+rows.map(r=>{tot+=r[2];max+=r[3];const p=r[2]/r[3];const c=p>=.75?"var(--good)":p>=.45?"var(--warn)":"var(--bad)";
+    return `<tr><td>${r[0]}</td><td class="muted">${r[1]}</td><td class="num">${r[2]} / ${r[3]}</td><td><div class="bar"><i style="width:${p*100}%;background:${c}"></i></div></td></tr>`}).join("")+`<tr class="total"><td>Total</td><td></td><td class="num">${tot} / ${max}</td><td></td></tr></tbody>`;
+  document.getElementById(id).innerHTML=html;return tot;
+}
+const qs=scoreTable("q-tbl",Q), ts=scoreTable("t-tbl",T);
+document.getElementById("q-val").textContent=qs;document.getElementById("t-val").textContent=ts;
+document.getElementById("q-pin").style.left=qs+"%";document.getElementById("t-pin").style.left=ts+"%";
+
+document.getElementById("fin-rows").innerHTML=FIN.map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1].toLocaleString("de-CH")}</td><td class="num">${r[2]}</td><td class="num">${r[3]}</td><td class="num">${fmtN(r[4])}</td><td class="num">${r[5].toLocaleString("de-CH")}</td><td class="num">${r[6]}</td><td class="num">${r[7]}</td></tr>`).join("");
+
+/* generic line chart */
+function lineChart(host,{dates,series,bands=[],yFmt=v=>fmtN(v),h=300,zero=false,refs=[],pad}){
+  const W_=800,H=h,m={t:12,r:56,b:28,l:8};
+  const all=series.flatMap(s=>s.values).concat(bands.flatMap(b=>[b.from,b.to])).concat(refs.map(r=>r.v));
+  if(zero)all.push(0);
+  let lo=Math.min(...all),hi=Math.max(...all);const sp=(hi-lo)||1;lo-=sp*.06;hi+=sp*.06;
+  if(pad){lo=pad[0];hi=pad[1]}
+  const n=dates.length,x=i=>m.l+i*(W_-m.l-m.r)/(n-1),y=v=>m.t+(hi-v)*(H-m.t-m.b)/(hi-lo);
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  // grid
+  const steps=5;for(let k=0;k<=steps;k++){const v=lo+(hi-lo)*k/steps;el("line",{x1:m.l,x2:W_-m.r,y1:y(v),y2:y(v),stroke:"var(--grid)","stroke-width":1},svg);
+    const t=el("text",{x:W_-m.r+6,y:y(v)+4,"font-size":11,fill:"var(--muted)","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=yFmt(v)}
+  bands.forEach(b=>{el("rect",{x:m.l,width:W_-m.l-m.r,y:y(Math.max(b.from,b.to)),height:Math.abs(y(b.from)-y(b.to)),fill:b.type==="res"?"var(--zone-res)":"var(--zone-sup)"},svg)});
+  refs.forEach(r=>{el("line",{x1:m.l,x2:W_-m.r,y1:y(r.v),y2:y(r.v),stroke:"var(--muted)","stroke-dasharray":"4 4","stroke-width":1},svg);
+    const t=el("text",{x:m.l+4,y:y(r.v)-4,"font-size":11,fill:"var(--muted)"},svg);t.textContent=r.label});
+  if(zero)el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  // x labels
+  const every=Math.ceil(n/6);for(let i=0;i<n;i+=every){const t=el("text",{x:x(i),y:H-8,"font-size":11,fill:"var(--muted)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);const d=dates[i];t.textContent=d.slice(5,7)+"/"+d.slice(2,4)}
+  series.forEach(s=>{const dpath=s.values.map((v,i)=>(i?"L":"M")+x(i).toFixed(1)+","+y(v).toFixed(1)).join("");
+    el("path",{d:dpath,fill:"none",stroke:s.color,"stroke-width":s.w||2,"stroke-linejoin":"round","stroke-linecap":"round"},svg);
+    const lv=s.values[n-1];el("circle",{cx:x(n-1),cy:y(lv),r:3.5,fill:s.color,stroke:"var(--surface)","stroke-width":2},svg)});
+  // hover
+  const cross=el("line",{y1:m.t,y2:H-m.b,stroke:"var(--muted)","stroke-width":1,opacity:0},svg);
+  const ov=el("rect",{x:m.l,y:m.t,width:W_-m.l-m.r,height:H-m.t-m.b,fill:"transparent"},svg);
+  host.appendChild(svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;host.appendChild(tip);
+  function move(ev){const r=svg.getBoundingClientRect();const px=(ev.clientX-r.left)*W_/r.width;let i=Math.round((px-m.l)/((W_-m.l-m.r)/(n-1)));i=Math.max(0,Math.min(n-1,i));
+    cross.setAttribute("x1",x(i));cross.setAttribute("x2",x(i));cross.setAttribute("opacity",1);
+    tip.innerHTML=`<div class="d">${fmtD(dates[i])}</div>`+series.map(s=>`<div><i class="sw" style="background:${s.color}"></i> ${s.name}: <b>${yFmt(s.values[i])}</b></div>`).join("");
+    tip.hidden=false;const hx=x(i)*r.width/W_;tip.style.left=Math.min(Math.max(0,hx+12),r.width-tip.offsetWidth)+"px";tip.style.top="8px"}
+  ov.addEventListener("pointermove",move);ov.addEventListener("pointerleave",()=>{tip.hidden=true;cross.setAttribute("opacity",0)});
+}
+function barChart(host,{labels,values,fmt,h=220,color,neg,tipExtra}){
+  const W_=800,H=h,m={t:18,r:8,b:28,l:8};
+  const hi=Math.max(0,...values),lo=Math.min(0,...values);const lo2=lo<0?lo*1.15:lo,hi2=hi*1.15||1;
+  const y=v=>m.t+(hi2-v)*(H-m.t-m.b)/(hi2-lo2);const n=values.length,bw=(W_-m.l-m.r)/n;
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;
+  values.forEach((v,i)=>{const x0=m.l+i*bw+bw*.18,w=bw*.64,y0=y(Math.max(v,0)),hh=Math.max(1,Math.abs(y(v)-y(0)));
+    const r=el("rect",{x:x0,y:y0,width:w,height:hh,rx:4,fill:v<0?(neg||"var(--s2)"):(color||"var(--s1)")},svg);
+    const t=el("text",{x:x0+w/2,y:v<0?y(v)+13:y0-5,"font-size":11.5,fill:"var(--ink)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=fmt(v);
+    const l=el("text",{x:x0+w/2,y:H-8,"font-size":11.5,fill:"var(--muted)","text-anchor":"middle"},svg);l.textContent=labels[i];
+    const hit=el("rect",{x:m.l+i*bw,y:m.t,width:bw,height:H-m.t-m.b,fill:"transparent"},svg);
+    hit.addEventListener("pointerenter",()=>{tip.innerHTML=`<div class="d">${labels[i]}</div><b>${fmt(v)}</b>${tipExtra?tipExtra(i):""}`;tip.hidden=false;const R=svg.getBoundingClientRect();tip.style.left=Math.min((m.l+i*bw)*R.width/W_,R.width-tip.offsetWidth)+"px";tip.style.top="0px"});
+    hit.addEventListener("pointerleave",()=>tip.hidden=true)});
+  host.appendChild(svg);host.appendChild(tip);
+}
+barChart(document.getElementById("c-rev"),{labels:HALF.map(r=>r[0]),values:HALF.map(r=>r[1]),fmt:v=>fmtN(v,0),h:200});
+barChart(document.getElementById("c-margin"),{labels:MARGIN.map(r=>r[0]),values:MARGIN.map(r=>r[1]),fmt:v=>fmtN(v,1)+" %",h:200});
+barChart(document.getElementById("c-seas"),{labels:MON,values:SEAS,fmt:v=>(v>0?"+":"")+fmtN(v,1),h:220,tipExtra:i=>`<div>${SEASHIT[i]} % der Jahre positiv</div>`});
+const BANDS=[{"from": 365, "to": 368, "type": "res"}, {"from": 312, "to": 333, "type": "sup"}, {"from": 269, "to": 285, "type": "sup"}], REFS=[{"v": 333, "label": "Kaufzone ab 333"}];
+const wd=W.map(r=>r[0]);
+lineChart(document.getElementById("c-week"),{dates:wd,series:[{name:"Kurs",values:W.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:W.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:W.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,yFmt:v=>fmtN(v,0),h:320});
+lineChart(document.getElementById("c-adw"),{dates:wd,series:[{name:"A/D Woche",values:W.map(r=>r[5]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,zero:true});
+lineChart(document.getElementById("c-rsiw"),{dates:wd,series:[{name:"RSI Woche",values:W.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,refs:[{v:70,label:"70 überkauft"},{v:30,label:"30 überverkauft"}],pad:[10,90]});
+const dd=DD.map(r=>r[0]);
+lineChart(document.getElementById("c-day"),{dates:dd,series:[{name:"Kurs",values:DD.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:DD.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:DD.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,refs:REFS,yFmt:v=>fmtN(v,0),h:260});
+lineChart(document.getElementById("c-add"),{dates:dd,series:[{name:"A/D Tag",values:DD.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:260,zero:true});
+</script>

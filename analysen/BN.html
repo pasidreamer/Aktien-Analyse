@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Danone Aktien-Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F3F5F7; --surface:#FFFFFF; --ink:#141B24; --muted:#5A6573; --line:#DDE2E8; --grid:#E9EDF1;
+  --accent:#2F45B5; --accent-soft:#E6E9F8; --chip:#EBEEF2;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+  --good:#1D7A4B; --good-bg:#E3F3EA; --warn:#9A6200; --warn-bg:#FBF0DC; --bad:#B2362A; --bad-bg:#FBE6E3;
+  --zone-sup:rgba(29,122,75,.10); --zone-res:rgba(178,54,42,.09);
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+    --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+    --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+    --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+  --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+  --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;padding-inline:16px;padding-block:24px 56px}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+h1,h2,h3{font-family:var(--display);font-stretch:85%;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:clamp(32px,7vw,48px);font-weight:800;line-height:1}
+h2{font-size:24px;font-weight:700}
+h3{font-size:17px;font-weight:700;font-stretch:95%}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+section{display:flex;flex-direction:column;gap:14px}
+.lead{max-width:68ch;color:var(--muted)}
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;align-items:stretch}
+.hero .id{display:flex;flex-direction:column;gap:10px;justify-content:space-between}
+.price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price b{font-family:var(--display);font-size:34px;font-weight:700}
+.meta{font-size:13px;color:var(--muted)}
+.verdict{font-size:15px;padding:12px 14px;border-radius:10px;background:var(--chip)}
+.scales{display:flex;flex-direction:column;gap:18px}
+.scale-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.scale-h span{font-size:13px;color:var(--muted)}
+.scale-h b{font-family:var(--display);font-size:28px;line-height:1}
+.track{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#C8412F 0%,#E0892F 30%,#E3B63A 50%,#8BBF4B 68%,#2E9A5B 100%);margin-top:8px}
+.pin{position:absolute;top:-5px;width:4px;height:22px;border-radius:2px;background:var(--ink);box-shadow:0 0 0 2px var(--surface);transform:translateX(-2px)}
+.ticks{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);font-family:var(--mono);margin-top:6px}
+.state{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;margin-top:8px}
+.st-good{background:var(--good-bg);color:var(--good)}
+.st-warn{background:var(--warn-bg);color:var(--warn)}
+.st-bad{background:var(--bad-bg);color:var(--bad)}
+/* tables */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;color:var(--muted);font-weight:500;font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:700;border-bottom:none}
+.pts{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{height:6px;border-radius:3px;background:var(--chip);min-width:60px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:3px}
+/* grids */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;border-left:4px solid var(--line)}
+.kpi.g{border-left-color:var(--good)}.kpi.w{border-left-color:var(--warn)}.kpi.b{border-left-color:var(--bad)}
+.kpi span{font-size:12px;color:var(--muted)}
+.kpi b{font-family:var(--mono);font-size:19px;font-weight:500;font-variant-numeric:tabular-nums}
+.kpi em{font-style:normal;font-size:12.5px;color:var(--muted)}
+/* charts */
+.chart{position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:14px;height:3px;border-radius:2px;display:inline-block}
+.swb{width:12px;height:10px;border-radius:2px;display:inline-block}
+.tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12.5px;box-shadow:0 4px 14px rgba(0,0,0,.12);white-space:nowrap;z-index:2}
+.tip b{font-family:var(--mono);font-weight:500}
+.tip .d{font-family:var(--mono);color:var(--muted);font-size:11.5px}
+.note{font-size:13.5px;color:var(--muted)}
+ul.clean{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.pro li::marker{color:var(--good)} .con li::marker{color:var(--bad)}
+.zones{display:flex;flex-direction:column;gap:8px}
+.zone{display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:baseline;padding:10px 12px;border-radius:10px;background:var(--chip);font-size:14px}
+.zone b{font-family:var(--mono);font-weight:500}
+.zone.r{border-left:4px solid var(--bad)} .zone.s{border-left:4px solid var(--good)} .zone.t{border-left:4px solid var(--accent)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+summary{cursor:pointer;font-weight:600}
+details p{margin-top:8px;color:var(--muted);max-width:70ch}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+footer{font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:6px;max-width:80ch}
+footer a{color:var(--accent)}
+@media (max-width:760px){.hero,.two{grid-template-columns:1fr}.zone{grid-template-columns:1fr;gap:2px}}
+</style>
+
+<a href="../index.html#/aktie/BN" style="display:inline-block;margin:max(12px,env(safe-area-inset-top)) 0 0 16px;background:#1f3a5f;color:#fff;font:600 14px system-ui;padding:8px 12px;border-radius:20px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">Zurück zur App</a>
+<div class="wrap">
+
+<header class="hero">
+  <div class="card id">
+    <div>
+      <div class="eyebrow">Aktien-Check · 08.10.2026</div>
+      <h1>Danone</h1>
+      <p class="meta">Danone S.A. · Euronext Paris: BN · Milchprodukte (Activia, Alpro), Spezialnahrung (Aptamil), Wasser (Evian) · Frankreich</p>
+    </div>
+    <div class="price"><b>59.20 €</b><span class="meta">Kurs 08.10.2026 mittags · 52 Wochen: 57.26 – 80.14 € · Hoch 2019: 82.38 €</span></div>
+    <p class="verdict"><b>Kurz gesagt:</b> Solide Firma mit steigender Marge, aber die Aktie ist seit November um 26 % gefallen. Qualität gelb (48), Timing rot (28). Kurzfristig überverkauft, der Chef hat im Juli selbst gekauft. Der Trend zeigt aber noch keine Wende. Erstes Zeichen wäre ein Tagesschluss über 62.30 €.</p>
+  </div>
+  <div class="card scales">
+    <div>
+      <div class="scale-h"><span>Qualität · Ist die Firma kaufenswert?</span><b id="q-val">48</b></div>
+      <div class="track"><i class="pin" id="q-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-warn">▲ Gemischt</span>
+    </div>
+    <div>
+      <div class="scale-h"><span>Timing · Ist jetzt der Zeitpunkt?</span><b id="t-val">28</b></div>
+      <div class="track"><i class="pin" id="t-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-bad">▲ Abwarten: Abwärtstrend intakt</span>
+    </div>
+    <p class="note">Skala: unter 30 rot · 30–45 orange · 45–60 gelb · 60–75 hellgrün · ab 75 grün. Beide Werte setzen sich aus festen Kriterien zusammen, siehe unten.</p>
+  </div>
+</header>
+
+<section>
+  <h2>Was die Firma macht</h2>
+  <p class="lead">Danone stellt Milchprodukte und Joghurts her (Activia, Danone, Alpro für pflanzliche Produkte), Baby- und Spezialnahrung (Aptamil, Nutricia) und Mineralwasser (Evian, Volvic). Rund 45 % des Umsatzes kommen aus Europa, Nahost und Afrika, 33 % aus Amerika und 22 % aus Asien.</p>
+  <p class="lead">Unter Chef Antoine de Saint-Affrique (seit 2021) hat Danone wieder Tritt gefasst: Wachstum 4–5 % pro Jahr und steigende Marge. Die Aktie stieg darum bis November 2025 auf 80 €. Seither belasteten der Rückruf von Babynahrung im Januar (Giftstoff bei einem Zulieferer, betraf auch Nestlé), Marktanteilsverluste bei Joghurt in den USA gegen Chobani, eine Abkühlung in China und mehrere Herabstufungen (Jefferies im Juli direkt von Kaufen auf Verkaufen, Deutsche Bank im September). Im 1. Halbjahr sank zudem der freie Cashflow um 27 %.</p>
+</section>
+
+<section>
+  <h2>Fundamental: die Zahlen</h2>
+  <div class="kpis">
+<div class="kpi w"><span>Organisches Wachstum</span><b>+3.5 %</b><em>1. Halbjahr 2026 (Menge/Mix +1.7, Preis +1.8). Ziel 2026: +3 bis +5 %.</em></div>
+<div class="kpi w"><span>Operative Marge</span><b>13.4 %</b><em>Wiederkehrend. Mittel, aber seit 2022 (12.2 %) jedes Jahr gestiegen.</em></div>
+<div class="kpi w"><span>Gewinn pro Aktie</span><b>+3 bis 5 % p. a.</b><em>Wiederkehrend seit 2022 (3.43 → 3.80 €). Langsam, aber stetig.</em></div>
+<div class="kpi w"><span>ROIC</span><b>10.7 %</b><em>Mittel, seit 2022 (6.8 %) klar gestiegen.</em></div>
+<div class="kpi w"><span>Free Cashflow</span><b>2.5 Mrd. €</b><em>Positiv, im 1. Halbjahr aber −27 %.</em></div>
+<div class="kpi g"><span>Nettoschulden / EBITDA</span><b>2.0</b><em>Tragbar.</em></div>
+<div class="kpi g"><span>KGV erwartet</span><b>14.6</b><em>Eigener Schnitt: 16.6. Rund 12 % günstiger als üblich.</em></div>
+<div class="kpi g"><span>Dividende</span><b>3.8 %</b><em>2.25 €, seit 2022 jedes Jahr erhöht (2020 gekürzt).</em></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>Umsatz pro Halbjahr (Mrd. €)</h3>
+      <p class="note">In Euro fast flach, weil Dollar, Peso und Yuan schwach waren. Ohne Währungen wächst Danone um 3.5–4.5 %.</p>
+      <div class="chart" id="c-rev"></div>
+    </div>
+    <div class="card">
+      <h3>Wiederkehrende operative Marge pro Jahr</h3>
+      <p class="note">Die wiederkehrende Marge steigt seit 2022 jedes Jahr.</p>
+      <div class="chart" id="c-margin"></div>
+    </div>
+  </div>
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Jahr</th><th class="num">Umsatz Mio. €</th><th class="num">Wachstum</th><th class="num">Op. Marge</th><th class="num">EPS €</th><th class="num">Free Cashflow</th><th class="num">ROIC</th><th class="num">KGV</th></tr></thead>
+      <tbody id="fin-rows"></tbody>
+    </table>
+  </div>
+  <p class="note"><b>Hinweis:</b> Wachstum in Euro (ausgewiesen). Organisch wuchs Danone 2022 +7.8 %, 2023 +7.0 %, 2024 +4.3 %, 2025 +4.5 %. Marge = wiederkehrende operative Marge. EPS ausgewiesen, durch Abschreibungen gedrückt (wiederkehrend 2025: 3.80 €). Das ausgewiesene KGV ist darum verzerrt.</p>
+</section>
+
+<section>
+  <h2>Qualität: 48 von 100</h2>
+  <div class="card tbl"><table id="q-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Technik: Wochenchart (2 Jahre)</h2>
+  <div class="card">
+    <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span><span><i class="swb" style="background:var(--zone-sup);border:1px solid var(--good)"></i>Unterstützung</span><span><i class="swb" style="background:var(--zone-res);border:1px solid var(--bad)"></i>Widerstand</span></div>
+    <div class="chart" id="c-week"></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>A/D-Linie, Woche</h3>
+      <p class="note">Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien (Handel an der Heimatbörse). Die Wochen-A/D fällt seit April deutlich (134 auf 83). In den letzten zwei Wochen dreht sie leicht nach oben (89).</p>
+      <div class="chart" id="c-adw"></div>
+    </div>
+    <div class="card">
+      <h3>RSI, Woche</h3>
+      <p class="note">Unter 30 überverkauft, über 70 überkauft. Heute 33: nahe am überverkauften Bereich. Beim Juni-Tief lag er bei 31, jetzt bei tieferem Kurs etwas höher: leichte bullische Divergenz.</p>
+      <div class="chart" id="c-rsiw"></div>
+    </div>
+  </div>
+
+  <h2>Technik: Tageschart (6 Monate)</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Kurs, Tag</h3>
+      <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span></div>
+      <div class="chart" id="c-day"></div>
+    </div>
+    <div class="card">
+      <h3>A/D-Linie, Tag</h3>
+      <p class="note">Die Tages-A/D fällt seit Juli mit dem Kurs auf ein neues Tief. Noch kein Käuferwechsel.</p>
+      <div class="chart" id="c-add"></div>
+    </div>
+  </div>
+
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Indikator</th><th>Tag</th><th>Woche</th><th>Bedeutung</th></tr></thead>
+      <tbody>
+<tr><td>Kurs vs. EMA 50</td><td class="pts">59.2 &lt; 62.7</td><td class="pts">59.2 &lt; 67.4</td><td>Unter der mittelfristigen Linie.</td></tr>
+<tr><td>Kurs vs. EMA 200</td><td class="pts">59.2 &lt; 67.1</td><td class="pts">59.2 &lt; 65.5</td><td>Unter der langfristigen Linie.</td></tr>
+<tr><td>EMA 50 vs. EMA 200</td><td class="pts">50 unter 200 (seit 6.2.2026)</td><td class="pts">50 noch über 200</td><td>Tag abwärts. Auf der Woche droht bald ein Death Cross.</td></tr>
+<tr><td>RSI (14)</td><td class="pts">40.8</td><td class="pts">33.3</td><td>Tag erholt sich vom Tief (23 am 1.10.), Woche schwach.</td></tr>
+<tr><td>A/D</td><td class="pts">neues Tief</td><td class="pts">fällt seit April</td><td>Die Verkäufer dominieren.</td></tr>
+<tr><td>Volumen</td><td colspan="2">Ø 20 Tage 1.3 Mio. vs. Ø 100 Tage 1.4 Mio.</td><td>Ruhig, kein Ausverkauf.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Struktur und Zonen (Smart Money Concept)</h2>
+  <p class="lead">Seit dem Hoch im November 2025 (80.14 €) macht Danone tiefere Hochs (74.60 → 74.68 €) und tiefere Tiefs (63.52 → 60.64 → 57.26 €). Am 1. Oktober lag der Tages-RSI bei 23, seither leichte Erholung. Unterstützungen aus der Vergangenheit: 57 € (Tief 2024) und darunter die Spanne von 2022/2023 (rund 47–60 €). Ein erstes Wende-Zeichen wäre ein Tagesschluss über 62.30 €.</p>
+  <div class="zones">
+<div class="zone r"><b>64.5–65.5 €</b><span>Widerstand: Hochs vom August/September.</span></div>
+<div class="zone t"><b>62.30 €</b><span><b>Trigger:</b> Tagesschluss über dem letzten tieferen Hoch (14.9.).</span></div>
+<div class="zone s"><b>57–58 €</b><span>Oktober-Tief und Tief 2024.</span></div>
+<div class="zone s"><b>52–54 €</b><span>Tiefere Zone aus 2022/2023, falls 57 € bricht.</span></div>
+<div class="zone r"><b>56.50 €</b><span>Abbruch der aktuellen Bodenbildung: Wochenschluss darunter.</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Smart Money, Insider und Saisonalität</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Wer kauft, wer verkauft?</h3>
+      <ul class="clean" style="margin-top:8px">
+<li><b>Insider-Kauf:</b> Chef Antoine de Saint-Affrique kaufte am 31.7.2026 Aktien für rund 67'000 € zu 67.32 €. Klein, aber ein freier Kauf am Markt.</li>
+<li><b>Danone selbst:</b> Kauft nur Aktien für Mitarbeiterprogramme zurück.</li>
+<li><b>Analysten:</b> Im Durchschnitt „Kaufen“, Kursziel rund 79 €. Aber: Jefferies (Verkaufen, 62 €) und Deutsche Bank (Verkaufen, 61 €) sind negativ geworden.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Saisonalität seit 1989</h3>
+      <p class="note">Durchschnittliche Monatsrendite in %. Rund 37 Jahre. Oktober und Dezember unter 50 % positive Jahre, November besser (59 %).</p>
+      <div class="chart" id="c-seas"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Timing: 28 von 100</h2>
+  <div class="card tbl"><table id="t-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Pro und Contra</h2>
+  <div class="two">
+    <div class="card pro"><h3>Spricht dafür</h3><ul class="clean" style="margin-top:8px">
+<li>Marge und ROIC steigen seit Jahren.</li>
+<li>Wächst organisch 3–5 %.</li>
+<li>Bewertung 12 % unter dem Schnitt, Dividende 3.8 %.</li>
+<li>Der Chef hat selbst gekauft.</li>
+<li>Euro-Aktie: verteilt dein Währungsrisiko weg vom Dollar.</li>
+    </ul></div>
+    <div class="card con"><h3>Spricht dagegen</h3><ul class="clean" style="margin-top:8px">
+<li>Klarer Abwärtstrend, tiefere Hochs und Tiefs.</li>
+<li>Marktanteilsverluste in den USA, China kühlt ab.</li>
+<li>Freier Cashflow im 1. Halbjahr −27 %.</li>
+<li>Zwei grosse Banken raten zum Verkauf.</li>
+<li>A/D zeigt noch keine Käufer.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section>
+  <h2>Was jetzt zu tun ist</h2>
+  <div class="zones">
+<div class="zone t"><b>Beobachten</b><span>Alarm bei 62.30 € (Trigger) und 57 € (Tief).</span></div>
+<div class="zone s"><b>Timing grün</b><span>Höheres Tief über 57 € und Tagesschluss über 62.30 € mit steigender A/D.</span></div>
+<div class="zone r"><b>Abbruch</b><span>Wochenschluss unter 56.50 €: dann ist die Zone 52–54 € das nächste Ziel.</span></div>
+<div class="zone "><b>Nächste Zahlen</b><span>28. Oktober 2026 (Umsatz 3. Quartal).</span></div>
+  </div>
+</section>
+
+<footer>
+  <span>Kursdaten und Indikatoren (EMA, RSI 14, A/D) selbst berechnet aus Yahoo-Finance-Tages-, Wochen- und Monatsdaten, Stand 08.10.2026. <a href="https://stockanalysis.com/quote/epa/BN/financials/" target="_blank" rel="noopener">StockAnalysis.com</a> (Stand 08.10.2026), <a href="https://www.danone.com/investors.html" target="_blank" rel="noopener">Danone Investor Relations</a>, <a href="https://www.marketscreener.com/quote/stock/DANONE-4634/consensus/" target="_blank" rel="noopener">Konsens (MarketScreener)</a>.</span>
+  <span>Persönliche Analyse, keine Anlageberatung. Vergangene Kurse und Saisonalität sagen nichts Sicheres über die Zukunft.</span>
+</footer>
+</div>
+
+<script>
+const Q=[["Umsatztrend", "In Euro 1 von 3 Halbjahren höher, organisch alle positiv", 6, 15], ["Wachstumstempo", "Organisch 3.5 %", 3, 10], ["Operative Marge", "13.4 % (3 Pkt.), steigend (6 Pkt.)", 9, 15], ["Gewinnwachstum (EPS)", "Wiederkehrend rund +3 bis 5 % pro Jahr", 2, 10], ["Free Cashflow", "Positiv, zuletzt sinkend", 5, 10], ["ROIC", "10.7 %, steigend", 7, 15], ["Schulden", "Nettoschulden/EBITDA 2.0", 6, 10], ["Bewertung vs. eigene Historie", "Erw. KGV 14.6 statt Ø 16.6 (−12 %)", 10, 15]];
+const T=[["Trend Woche (EMA 50/200)", "Kurs unter beiden, EMA 50 noch über 200", 3, 20], ["Trend Tag (EMA 50/200)", "Kurs unter beiden", 0, 10], ["Struktur (SMC)", "Tiefere Hochs und Tiefs", 2, 20], ["RSI Tag/Woche", "Woche leichte bullische Divergenz, Tag dreht aus 23", 10, 15], ["A/D Tag/Woche", "Beide fallen, Woche dreht leicht", 4, 20], ["Smart Money", "Insider-Kauf des Chefs (Juli)", 7, 10], ["Saisonalität", "Okt–Dez gemischt (46–59 %)", 2, 5]];
+const FIN=[["2022", 27661, "+13.9 %", "12.2 %", 1.48, 2127, "6.8 %", "32.6"], ["2023", 27619, "−0.2 %", "12.6 %", 1.36, 2600, "7.1 %", "43.1"], ["2024", 27376, "−0.9 %", "13.0 %", 3.13, 3003, "10.0 %", "20.8"], ["2025", 27283, "−0.3 %", "13.4 %", 2.82, 2799, "10.7 %", "27.1"], ["Letzte 12 Mt.", 27482, "+0.7 %", "n. a.", 3.02, 2480, "10.0 %", "19.7"]];
+const HALF=[["H1 24", 13.76], ["H2 24", 13.62], ["H1 25", 13.74], ["H2 25", 13.55], ["H1 26", 13.94]];
+const MARGIN=[["2022", 12.2], ["2023", 12.6], ["2024", 13.0], ["2025", 13.4]];
+const SEAS=[0.0, 1.0, 1.9, 2.1, -0.4, 0.8, 1.1, -1.5, -0.9, 0.2, 1.4, 0.7];
+const SEASHIT=[54.0, 66.0, 71.0, 63.0, 39.0, 55.0, 53.0, 39.0, 42.0, 49.0, 59.0, 46.0];
+const MON=["Jan","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"];
+const W=`2024-10-14,64.8,60.15,58.22,63,72.4;2024-10-21,65.78,60.37,58.29,66,77;2024-10-28,66.06,60.6,58.37,66,74.6;2024-11-04,65.52,60.79,58.44,63,71.3;2024-11-11,64.98,60.95,58.5,60,70.7;2024-11-18,65.46,61.13,58.57,62,76.9;2024-11-25,64.66,61.27,58.63,58,74.6;2024-12-02,64.86,61.41,58.7,59,74.6;2024-12-09,65.24,61.56,58.76,60,79.1;2024-12-16,64.08,61.66,58.81,54,75.8;2024-12-23,64.78,61.78,58.87,57,77.8;2024-12-30,64.74,61.9,58.93,56,77.8;2025-01-06,64.4,62,58.99,54,75.1;2025-01-13,65.02,62.11,59.05,57,79.6;2025-01-20,64.94,62.22,59.11,57,78.5;2025-01-27,67.48,62.43,59.19,67,82.7;2025-02-03,66.9,62.61,59.27,63,87.4;2025-02-10,67.16,62.78,59.34,64,88.7;2025-02-17,68.48,63.01,59.43,69,93.4;2025-02-24,68.86,63.24,59.53,70,90.3;2025-03-03,71.82,63.57,59.65,77,99;2025-03-10,71.44,63.88,59.77,74,95.7;2025-03-17,71.88,64.2,59.89,75,103;2025-03-24,70.82,64.46,60,69,105.1;2025-03-31,72.32,64.76,60.12,72,104.2;2025-04-07,71.2,65.02,60.23,66,113;2025-04-14,73.74,65.36,60.36,72,118.2;2025-04-21,74.78,65.73,60.51,74,120.5;2025-04-28,76.94,66.17,60.67,78,125.3;2025-05-05,74.36,66.49,60.81,66,122.3;2025-05-12,74.3,66.8,60.94,66,128.9;2025-05-19,75.64,67.14,61.09,69,131.9;2025-05-26,75.24,67.46,61.23,67,130.9;2025-06-02,74.1,67.72,61.36,62,127.3;2025-06-09,72.62,67.91,61.47,56,122.6;2025-06-16,71.58,68.06,61.57,52,119.5;2025-06-23,69.5,68.11,61.65,46,115.4;2025-06-30,69.08,68.15,61.72,45,112.5;2025-07-07,67.84,68.14,61.78,41,110.2;2025-07-14,68.06,68.14,61.85,42,112.2;2025-07-21,66.78,68.08,61.9,38,110.6;2025-07-28,72.5,68.26,62,56,118.1;2025-08-04,71.9,68.4,62.1,54,116.7;2025-08-11,72.06,68.54,62.2,55,119.9;2025-08-18,73.24,68.73,62.31,58,120.5;2025-08-25,71.18,68.82,62.4,51,117.6;2025-09-01,75.08,69.07,62.52,60,121.6;2025-09-08,74.64,69.29,62.64,59,122.4;2025-09-15,73.76,69.46,62.75,56,119.4;2025-09-22,73.02,69.6,62.86,54,120.1;2025-09-29,73.16,69.74,62.96,54,117.9;2025-10-06,75.88,69.98,63.09,61,121.9;2025-10-13,77.52,70.28,63.23,64,125.5;2025-10-20,77.78,70.57,63.38,65,124.5;2025-10-27,76.68,70.81,63.51,61,120.5;2025-11-03,78.2,71.1,63.65,64,123.3;2025-11-10,78.54,71.39,63.8,65,121.7;2025-11-17,78.46,71.67,63.95,64,125.2;2025-11-24,77,71.88,64.08,59,122;2025-12-01,76.18,72.05,64.2,56,119;2025-12-08,76.1,72.21,64.32,55,120.9;2025-12-15,77.76,72.42,64.45,60,122.5;2025-12-22,76.88,72.6,64.57,57,122.4;2025-12-29,76.04,72.73,64.69,54,121.5;2026-01-05,76.82,72.89,64.81,56,126.5;2026-01-12,75.44,72.99,64.91,51,122.7;2026-01-19,67.54,72.78,64.94,33,117.9;2026-01-26,65.84,72.51,64.95,30,121.5;2026-02-02,69.16,72.38,64.99,40,120.9;2026-02-09,72.32,72.37,65.06,47,127.9;2026-02-16,73.6,72.42,65.15,50,129.5;2026-02-23,72.64,72.43,65.22,48,129.7;2026-03-02,70.2,72.34,65.27,43,126.7;2026-03-09,71.92,72.33,65.34,47,134.2;2026-03-16,68.5,72.18,65.37,41,123.4;2026-03-23,67.16,71.98,65.39,39,120.1;2026-03-30,69.24,71.87,65.43,44,121.7;2026-04-06,69.18,71.77,65.46,44,119.7;2026-04-13,68.14,71.62,65.49,42,121.4;2026-04-20,67.56,71.47,65.51,41,120.6;2026-04-27,66.74,71.28,65.52,39,121.1;2026-05-04,62.8,70.95,65.5,33,115.9;2026-05-11,61.24,70.57,65.45,31,107.6;2026-05-18,61.86,70.23,65.42,33,104.7;2026-05-25,60.94,69.86,65.37,31,94.7;2026-06-01,64.42,69.65,65.36,41,101.3;2026-06-08,67.18,69.55,65.38,48,108.6;2026-06-15,65.06,69.37,65.38,44,101.9;2026-06-22,72.12,69.48,65.45,57,111;2026-06-29,73.4,69.64,65.53,59,113.5;2026-07-06,72.42,69.75,65.59,57,108.9;2026-07-13,72.98,69.87,65.67,57,110.5;2026-07-20,70,69.88,65.71,51,108.5;2026-07-27,67.52,69.78,65.73,47,102.1;2026-08-03,68.22,69.72,65.75,48,102.8;2026-08-10,67.24,69.63,65.77,46,100.9;2026-08-17,66.32,69.5,65.77,45,103.2;2026-08-24,64.4,69.3,65.76,41,99.6;2026-08-31,63.72,69.08,65.74,40,97.8;2026-09-07,61.38,68.78,65.7,36,91.8;2026-09-14,60.54,68.45,65.65,35,86.8;2026-09-21,59.56,68.1,65.58,34,82.5;2026-09-28,59.12,67.75,65.52,33,84.6;2026-10-05,59.2,67.42,65.46,33,88.7`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+const DD=`2026-04-09,68.66,70.5,72.17,13.5;2026-04-10,69.18,70.45,72.14,13.9;2026-04-13,67.32,70.33,72.09,12.8;2026-04-14,67.54,70.22,72.04,12.4;2026-04-15,67.9,70.13,72,12.3;2026-04-16,67.48,70.02,71.96,11.2;2026-04-17,68.14,69.95,71.92,12.1;2026-04-20,67.96,69.87,71.88,12.3;2026-04-21,66.42,69.73,71.82,10.9;2026-04-22,68.08,69.67,71.79,10.9;2026-04-23,68.1,69.61,71.75,11.5;2026-04-24,67.56,69.53,71.71,10.8;2026-04-27,66.58,69.41,71.66,10;2026-04-28,67.4,69.33,71.62,10.9;2026-04-29,66.1,69.21,71.56,10.2;2026-04-30,66.74,69.11,71.51,11.3;2026-05-04,65.2,68.96,71.45,12.3;2026-05-05,64.46,68.78,71.38,11.6;2026-05-06,64.92,68.63,71.32,10.8;2026-05-07,63.28,68.42,71.24,8.8;2026-05-08,62.8,68.2,71.15,8.6;2026-05-11,61.82,67.95,71.06,7.1;2026-05-12,62.78,67.75,70.98,8.3;2026-05-13,61.44,67.5,70.88,6.4;2026-05-14,61.86,67.28,70.79,5.7;2026-05-15,61.24,67.04,70.7,3.4;2026-05-18,62.5,66.86,70.62,5.3;2026-05-19,63.5,66.73,70.55,5.8;2026-05-20,63.5,66.6,70.47,7.6;2026-05-21,62.86,66.46,70.4,8.1;2026-05-22,61.86,66.28,70.31,6.8;2026-05-25,61.72,66.1,70.23,6.3;2026-05-26,61.28,65.91,70.14,5.2;2026-05-27,63.02,65.8,70.07,7;2026-05-28,61.86,65.64,69.99,6.2;2026-05-29,60.94,65.46,69.9,1.8;2026-06-01,61.36,65.3,69.81,2.2;2026-06-02,64.04,65.25,69.75,5.3;2026-06-03,64.3,65.21,69.7,3.4;2026-06-04,63.66,65.15,69.64,2.6;2026-06-05,64.42,65.12,69.59,3.6;2026-06-08,64.18,65.08,69.53,3.4;2026-06-09,65.3,65.09,69.49,5;2026-06-10,66.34,65.14,69.46,5.8;2026-06-11,66,65.17,69.43,4.5;2026-06-12,67.18,65.25,69.4,5.9;2026-06-15,66.46,65.3,69.37,5;2026-06-16,66.2,65.34,69.34,5.2;2026-06-17,65.8,65.35,69.31,5.1;2026-06-18,65.7,65.37,69.27,6.7;2026-06-19,65.06,65.36,69.23,3.7;2026-06-22,66.64,65.41,69.2,5.1;2026-06-23,67.62,65.49,69.19,6.2;2026-06-24,69.54,65.65,69.19,8.2;2026-06-25,69.98,65.82,69.2,9.3;2026-06-26,72.12,66.07,69.23,10.1;2026-06-29,72.04,66.3,69.26,9.8;2026-06-30,71.74,66.52,69.28,9.4;2026-07-01,72.2,66.74,69.31,11;2026-07-02,73.96,67.02,69.36,11.7;2026-07-03,73.4,67.27,69.4,11.4;2026-07-06,72.5,67.48,69.43,10.6;2026-07-07,74,67.73,69.47,10.8;2026-07-08,73.18,67.95,69.51,9.9;2026-07-09,72.42,68.12,69.54,9;2026-07-10,72.42,68.29,69.57,9.3;2026-07-13,72.2,68.44,69.59,8.7;2026-07-14,71.72,68.57,69.62,8.5;2026-07-15,71.86,68.7,69.64,9.1;2026-07-16,72.76,68.86,69.67,9.8;2026-07-17,72.98,69.02,69.7,8.7;2026-07-20,73.14,69.18,69.74,9.4;2026-07-21,71.46,69.27,69.75,8;2026-07-22,69.88,69.3,69.75,7.3;2026-07-23,68.44,69.26,69.74,6;2026-07-24,70,69.29,69.74,6.9;2026-07-27,70.76,69.35,69.75,7.2;2026-07-28,72.24,69.46,69.78,7.5;2026-07-29,70.58,69.51,69.79,10;2026-07-30,68.34,69.46,69.77,8.5;2026-07-31,67.52,69.38,69.75,8.9;2026-08-03,67.8,69.32,69.73,9.4;2026-08-04,68.02,69.27,69.71,9.5;2026-08-05,68,69.22,69.7,9.1;2026-08-06,68.16,69.18,69.68,8.2;2026-08-07,68.22,69.14,69.67,8.2;2026-08-10,68,69.1,69.65,8.5;2026-08-11,67.3,69.03,69.63,7.8;2026-08-12,67.02,68.95,69.6,7.7;2026-08-13,67.98,68.91,69.58,8.1;2026-08-14,67.24,68.84,69.56,7.9;2026-08-17,65.24,68.7,69.52,7.2;2026-08-18,65.48,68.58,69.48,7.4;2026-08-19,65.68,68.46,69.44,7.5;2026-08-20,66.18,68.37,69.41,8.1;2026-08-21,66.32,68.29,69.38,8.8;2026-08-24,66.14,68.21,69.34,9;2026-08-25,65.44,68.1,69.31,8.1;2026-08-26,65.72,68.01,69.27,9;2026-08-27,64.7,67.88,69.22,8.4;2026-08-28,64.4,67.74,69.18,7.9;2026-08-31,64.28,67.61,69.13,6.4;2026-09-01,64.54,67.49,69.08,6.4;2026-09-02,64.26,67.36,69.03,6.4;2026-09-03,63.6,67.21,68.98,5.6;2026-09-04,63.72,67.07,68.93,6.2;2026-09-07,63.58,66.94,68.87,6.7;2026-09-08,64.92,66.86,68.84,7.2;2026-09-09,62.96,66.71,68.78,6;2026-09-10,61.76,66.51,68.71,4.6;2026-09-11,61.38,66.31,68.63,3.7;2026-09-14,62.28,66.15,68.57,4.4;2026-09-15,61.58,65.97,68.5,4.1;2026-09-16,60.92,65.77,68.43,3.7;2026-09-17,61.38,65.6,68.36,4.1;2026-09-18,60.54,65.4,68.28,3.8;2026-09-21,60.26,65.2,68.2,3.8;2026-09-22,60.9,65.03,68.13,4.1;2026-09-23,60.32,64.85,68.05,3.3;2026-09-24,60.14,64.66,67.97,2.5;2026-09-25,59.56,64.46,67.89,1.7;2026-09-28,59.5,64.27,67.8,0.7;2026-09-29,58.76,64.05,67.71,0;2026-09-30,58.7,63.84,67.62,-1.2;2026-10-01,57.58,63.6,67.52,-1.8;2026-10-02,59.12,63.42,67.44,-0.5;2026-10-05,57.76,63.2,67.34,-1.6;2026-10-06,58.82,63.03,67.26,-0.3;2026-10-07,58.78,62.86,67.17,-0.5;2026-10-08,59.2,62.72,67.09,-0.3`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+
+const fmtN=(v,d=2)=>v.toLocaleString("de-CH",{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmtD=s=>{const [y,m,d]=s.split("-");return d+"."+m+"."+y.slice(2)};
+const NS="http://www.w3.org/2000/svg";
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+
+function scoreTable(id,rows){
+  let tot=0,max=0;
+  const html='<thead><tr><th>Kriterium</th><th>Stand</th><th class="num">Punkte</th><th style="width:22%"></th></tr></thead><tbody>'+rows.map(r=>{tot+=r[2];max+=r[3];const p=r[2]/r[3];const c=p>=.75?"var(--good)":p>=.45?"var(--warn)":"var(--bad)";
+    return `<tr><td>${r[0]}</td><td class="muted">${r[1]}</td><td class="num">${r[2]} / ${r[3]}</td><td><div class="bar"><i style="width:${p*100}%;background:${c}"></i></div></td></tr>`}).join("")+`<tr class="total"><td>Total</td><td></td><td class="num">${tot} / ${max}</td><td></td></tr></tbody>`;
+  document.getElementById(id).innerHTML=html;return tot;
+}
+const qs=scoreTable("q-tbl",Q), ts=scoreTable("t-tbl",T);
+document.getElementById("q-val").textContent=qs;document.getElementById("t-val").textContent=ts;
+document.getElementById("q-pin").style.left=qs+"%";document.getElementById("t-pin").style.left=ts+"%";
+
+document.getElementById("fin-rows").innerHTML=FIN.map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1].toLocaleString("de-CH")}</td><td class="num">${r[2]}</td><td class="num">${r[3]}</td><td class="num">${fmtN(r[4])}</td><td class="num">${r[5].toLocaleString("de-CH")}</td><td class="num">${r[6]}</td><td class="num">${r[7]}</td></tr>`).join("");
+
+/* generic line chart */
+function lineChart(host,{dates,series,bands=[],yFmt=v=>fmtN(v),h=300,zero=false,refs=[],pad}){
+  const W_=800,H=h,m={t:12,r:56,b:28,l:8};
+  const all=series.flatMap(s=>s.values).concat(bands.flatMap(b=>[b.from,b.to])).concat(refs.map(r=>r.v));
+  if(zero)all.push(0);
+  let lo=Math.min(...all),hi=Math.max(...all);const sp=(hi-lo)||1;lo-=sp*.06;hi+=sp*.06;
+  if(pad){lo=pad[0];hi=pad[1]}
+  const n=dates.length,x=i=>m.l+i*(W_-m.l-m.r)/(n-1),y=v=>m.t+(hi-v)*(H-m.t-m.b)/(hi-lo);
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  // grid
+  const steps=5;for(let k=0;k<=steps;k++){const v=lo+(hi-lo)*k/steps;el("line",{x1:m.l,x2:W_-m.r,y1:y(v),y2:y(v),stroke:"var(--grid)","stroke-width":1},svg);
+    const t=el("text",{x:W_-m.r+6,y:y(v)+4,"font-size":11,fill:"var(--muted)","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=yFmt(v)}
+  bands.forEach(b=>{el("rect",{x:m.l,width:W_-m.l-m.r,y:y(Math.max(b.from,b.to)),height:Math.abs(y(b.from)-y(b.to)),fill:b.type==="res"?"var(--zone-res)":"var(--zone-sup)"},svg)});
+  refs.forEach(r=>{el("line",{x1:m.l,x2:W_-m.r,y1:y(r.v),y2:y(r.v),stroke:"var(--muted)","stroke-dasharray":"4 4","stroke-width":1},svg);
+    const t=el("text",{x:m.l+4,y:y(r.v)-4,"font-size":11,fill:"var(--muted)"},svg);t.textContent=r.label});
+  if(zero)el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  // x labels
+  const every=Math.ceil(n/6);for(let i=0;i<n;i+=every){const t=el("text",{x:x(i),y:H-8,"font-size":11,fill:"var(--muted)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);const d=dates[i];t.textContent=d.slice(5,7)+"/"+d.slice(2,4)}
+  series.forEach(s=>{const dpath=s.values.map((v,i)=>(i?"L":"M")+x(i).toFixed(1)+","+y(v).toFixed(1)).join("");
+    el("path",{d:dpath,fill:"none",stroke:s.color,"stroke-width":s.w||2,"stroke-linejoin":"round","stroke-linecap":"round"},svg);
+    const lv=s.values[n-1];el("circle",{cx:x(n-1),cy:y(lv),r:3.5,fill:s.color,stroke:"var(--surface)","stroke-width":2},svg)});
+  // hover
+  const cross=el("line",{y1:m.t,y2:H-m.b,stroke:"var(--muted)","stroke-width":1,opacity:0},svg);
+  const ov=el("rect",{x:m.l,y:m.t,width:W_-m.l-m.r,height:H-m.t-m.b,fill:"transparent"},svg);
+  host.appendChild(svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;host.appendChild(tip);
+  function move(ev){const r=svg.getBoundingClientRect();const px=(ev.clientX-r.left)*W_/r.width;let i=Math.round((px-m.l)/((W_-m.l-m.r)/(n-1)));i=Math.max(0,Math.min(n-1,i));
+    cross.setAttribute("x1",x(i));cross.setAttribute("x2",x(i));cross.setAttribute("opacity",1);
+    tip.innerHTML=`<div class="d">${fmtD(dates[i])}</div>`+series.map(s=>`<div><i class="sw" style="background:${s.color}"></i> ${s.name}: <b>${yFmt(s.values[i])}</b></div>`).join("");
+    tip.hidden=false;const hx=x(i)*r.width/W_;tip.style.left=Math.min(Math.max(0,hx+12),r.width-tip.offsetWidth)+"px";tip.style.top="8px"}
+  ov.addEventListener("pointermove",move);ov.addEventListener("pointerleave",()=>{tip.hidden=true;cross.setAttribute("opacity",0)});
+}
+function barChart(host,{labels,values,fmt,h=220,color,neg,tipExtra}){
+  const W_=800,H=h,m={t:18,r:8,b:28,l:8};
+  const hi=Math.max(0,...values),lo=Math.min(0,...values);const lo2=lo<0?lo*1.15:lo,hi2=hi*1.15||1;
+  const y=v=>m.t+(hi2-v)*(H-m.t-m.b)/(hi2-lo2);const n=values.length,bw=(W_-m.l-m.r)/n;
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;
+  values.forEach((v,i)=>{const x0=m.l+i*bw+bw*.18,w=bw*.64,y0=y(Math.max(v,0)),hh=Math.max(1,Math.abs(y(v)-y(0)));
+    const r=el("rect",{x:x0,y:y0,width:w,height:hh,rx:4,fill:v<0?(neg||"var(--s2)"):(color||"var(--s1)")},svg);
+    const t=el("text",{x:x0+w/2,y:v<0?y(v)+13:y0-5,"font-size":11.5,fill:"var(--ink)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=fmt(v);
+    const l=el("text",{x:x0+w/2,y:H-8,"font-size":11.5,fill:"var(--muted)","text-anchor":"middle"},svg);l.textContent=labels[i];
+    const hit=el("rect",{x:m.l+i*bw,y:m.t,width:bw,height:H-m.t-m.b,fill:"transparent"},svg);
+    hit.addEventListener("pointerenter",()=>{tip.innerHTML=`<div class="d">${labels[i]}</div><b>${fmt(v)}</b>${tipExtra?tipExtra(i):""}`;tip.hidden=false;const R=svg.getBoundingClientRect();tip.style.left=Math.min((m.l+i*bw)*R.width/W_,R.width-tip.offsetWidth)+"px";tip.style.top="0px"});
+    hit.addEventListener("pointerleave",()=>tip.hidden=true)});
+  host.appendChild(svg);host.appendChild(tip);
+}
+barChart(document.getElementById("c-rev"),{labels:HALF.map(r=>r[0]),values:HALF.map(r=>r[1]),fmt:v=>fmtN(v,2),h:200});
+barChart(document.getElementById("c-margin"),{labels:MARGIN.map(r=>r[0]),values:MARGIN.map(r=>r[1]),fmt:v=>fmtN(v,1)+" %",h:200});
+barChart(document.getElementById("c-seas"),{labels:MON,values:SEAS,fmt:v=>(v>0?"+":"")+fmtN(v,1),h:220,tipExtra:i=>`<div>${SEASHIT[i]} % der Jahre positiv</div>`});
+const BANDS=[{"from": 64.5, "to": 65.5, "type": "res"}, {"from": 57, "to": 58, "type": "sup"}], REFS=[{"v": 62.3, "label": "Trigger 62.30"}];
+const wd=W.map(r=>r[0]);
+lineChart(document.getElementById("c-week"),{dates:wd,series:[{name:"Kurs",values:W.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:W.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:W.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,yFmt:v=>fmtN(v,0),h:320});
+lineChart(document.getElementById("c-adw"),{dates:wd,series:[{name:"A/D Woche",values:W.map(r=>r[5]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,zero:true});
+lineChart(document.getElementById("c-rsiw"),{dates:wd,series:[{name:"RSI Woche",values:W.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,refs:[{v:70,label:"70 überkauft"},{v:30,label:"30 überverkauft"}],pad:[10,90]});
+const dd=DD.map(r=>r[0]);
+lineChart(document.getElementById("c-day"),{dates:dd,series:[{name:"Kurs",values:DD.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:DD.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:DD.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,refs:REFS,yFmt:v=>fmtN(v,0),h:260});
+lineChart(document.getElementById("c-add"),{dates:dd,series:[{name:"A/D Tag",values:DD.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:260,zero:true});
+</script>
