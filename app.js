@@ -2,7 +2,9 @@
 (() => {
 "use strict";
 
-const STATE = { stocks: [], live: null, verlauf: {}, filter: { q: "", stil: "Alle", region: "Alle", status: "Alle", nurGut: false, sort: "chance" } };
+const REPO = "pasidreamer/Aktien-Analyse";
+const NOTES_PATH = "data/notizen.json";
+const STATE = { stocks: [], live: null, verlauf: {}, notes: {}, filter: { q: "", stil: "Alle", region: "Alle", status: "Alle", nurGut: false, sort: "chance" } };
 const $view = document.getElementById("view");
 
 // ---------- Hilfen ----------
@@ -39,12 +41,48 @@ async function getJSON(url) {
   return r.json();
 }
 async function load(force) {
-  const [s, l, v] = await Promise.allSettled([getJSON("data/stocks.json"), getJSON("data/live.json"), getJSON("data/verlauf.json")]);
+  const [s, l, v, n] = await Promise.allSettled([getJSON("data/stocks.json"), getJSON("data/live.json"), getJSON("data/verlauf.json"), loadNotes()]);
   if (s.status !== "fulfilled") throw new Error("stocks.json fehlt");
   STATE.stocks = s.value.aktien;
   STATE.stand = s.value.stand;
   STATE.live = l.status === "fulfilled" ? l.value : null;
   STATE.verlauf = v.status === "fulfilled" ? v.value : {};
+  // Notizen: die neueste Fassung gewinnt (Gerät oder GitHub)
+  const remote = n.status === "fulfilled" ? n.value : {};
+  const local = store.get("notes_local", {});
+  const all = { ...remote };
+  for (const [k, x] of Object.entries(local)) if (!all[k] || (x.ts || 0) > (all[k].ts || 0)) all[k] = x;
+  STATE.notes = all;
+}
+
+// ---------- Notizen (auf dem Gerät, mit GitHub-Schlüssel auf allen Geräten) ----------
+const token = () => store.get("gh_token", "");
+const b64 = str => btoa(unescape(encodeURIComponent(str)));
+const unb64 = str => decodeURIComponent(escape(atob(str.replace(/\n/g, ""))));
+async function ghGet() {
+  const r = await fetch(`https://api.github.com/repos/${REPO}/contents/${NOTES_PATH}?t=${Date.now()}`, { headers: { Authorization: "Bearer " + token(), Accept: "application/vnd.github+json" }, cache: "no-store" });
+  if (r.status === 404) return { sha: null, data: {} };
+  if (!r.ok) throw new Error("GitHub " + r.status);
+  const j = await r.json();
+  return { sha: j.sha, data: JSON.parse(unb64(j.content) || "{}") };
+}
+async function loadNotes() {
+  if (token()) { try { return (await ghGet()).data; } catch (e) { console.warn(e); } }
+  try { return await getJSON(NOTES_PATH); } catch { return {}; }
+}
+async function syncNote(ticker) {
+  if (!token()) return "local";
+  for (let i = 0; i < 2; i++) {
+    const cur = await ghGet();
+    const merged = { ...cur.data };
+    const mine = STATE.notes[ticker];
+    if (mine && mine.text.trim()) merged[ticker] = mine; else delete merged[ticker];
+    const body = { message: `Notiz ${ticker}`, content: b64(JSON.stringify(merged, null, 1)), ...(cur.sha ? { sha: cur.sha } : {}) };
+    const r = await fetch(`https://api.github.com/repos/${REPO}/contents/${NOTES_PATH}`, { method: "PUT", headers: { Authorization: "Bearer " + token(), Accept: "application/vnd.github+json", "Content-Type": "application/json" }, body: JSON.stringify(body) });
+    if (r.ok) { const local = store.get("notes_local", {}); delete local[ticker]; store.set("notes_local", local); return "github"; }
+    if (r.status !== 409 && r.status !== 422) throw new Error("GitHub " + r.status);
+  }
+  throw new Error("Konflikt beim Speichern");
 }
 
 // Zonenstatus aus einem Kurs ableiten (falls noch keine Live-Daten da sind)
@@ -101,7 +139,7 @@ function rowHtml(v) {
   return `<a class="row" href="#/aktie/${encodeURIComponent(s.ticker)}">
     ${signal(v.q, v.t)}
     <div class="mid"><div class="nm">${esc(s.name)}</div>
-      <div class="sub">${esc(s.ticker)} · ${esc(regionCode[s.land] || s.land)} · ${esc(s.tags[0])}${s.status !== "beobachten" ? " · " + LISTE[s.status] : ""}</div></div>
+      <div class="sub">${esc(s.ticker)} · ${esc(regionCode[s.land] || s.land)} · ${esc(s.tags[0])}${s.status !== "beobachten" ? " · " + LISTE[s.status] : ""}${STATE.notes[s.ticker]?.text?.trim() ? " · Notiz" : ""}</div></div>
     <div class="right"><div class="px">${money(v.kurs, s.waehrung)}</div><div>${chgHtml(v.chg1)}${trendArrow(v.trendT)}</div>
       ${badge(v.status)}${v.neu ? '<span class="badge b-neu">neu</span>' : ""}</div>
   </a>`;
@@ -320,6 +358,11 @@ function renderDetail(ticker) {
       <a class="btn" href="${esc(s.claude)}" target="_blank" rel="noopener">Analyse in Claude öffnen</a>
     </div>
 
+    <div class="sec"><h2>Meine Notiz</h2><p>${token() ? "Wird auf allen Geräten gespeichert." : "Wird auf diesem Gerät gespeichert. Für alle Geräte unter «So funktioniert's» den GitHub-Schlüssel eintragen."}</p></div>
+    <div class="note"><textarea id="note" rows="4" placeholder="Zum Beispiel: Warum ich sie beobachte, mein Kaufplan, was ich nach den Zahlen prüfen will">${esc(STATE.notes[s.ticker]?.text || "")}</textarea>
+      <div class="note-bar"><span id="note-state">${STATE.notes[s.ticker]?.ts ? "Zuletzt geändert " + new Date(STATE.notes[s.ticker].ts).toLocaleString("de-CH", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" }) : ""}</span>
+      <button class="btn small" id="note-save">Notiz speichern</button></div></div>
+
     <div class="sec"><h2>Chart und Zonen</h2><p>Letzte 6 Monate, Tageskurse.</p></div>
     ${chartHtml(v)}
     <div class="zones" style="margin-top:10px">${zoneRows.map(r => `<div class="zone${p >= r.lo && p <= r.hi && r.lo !== r.hi ? " here" : ""}"><i class="k" style="background:${r.c}"></i><span><b>${rng(r.lo, r.hi)}</b> ${esc(r.txt)}</span><span class="dist">${distTo(r)}</span></div>`).join("")}</div>
@@ -352,7 +395,24 @@ function renderDetail(ticker) {
     ${hist.length > 1 ? `<div class="sec"><h2>Verlauf der Ampeln</h2></div>${histHtml(hist)}` : ""}
     ${s.smart_money?.length ? `<details class="more"><summary>Insider und Smart Money</summary><ul class="plain">${s.smart_money.map(x => `<li>${esc(x)}</li>`).join("")}</ul></details>` : ""}
   `;
+  bindNote(s.ticker);
   scrollTo(0, 0);
+}
+
+function bindNote(ticker) {
+  const ta = document.getElementById("note"), st = document.getElementById("note-state"), btn = document.getElementById("note-save");
+  let timer;
+  const keepLocal = () => {
+    STATE.notes[ticker] = { text: ta.value, ts: Date.now() };
+    const local = store.get("notes_local", {}); local[ticker] = STATE.notes[ticker]; store.set("notes_local", local);
+  };
+  ta.oninput = () => { clearTimeout(timer); timer = setTimeout(() => { keepLocal(); st.textContent = "Auf diesem Gerät gespeichert"; }, 600); };
+  btn.onclick = async () => {
+    keepLocal(); btn.disabled = true; st.textContent = "Speichere …";
+    try { const where = await syncNote(ticker); st.textContent = where === "github" ? "Gespeichert, auf allen Geräten sichtbar" : "Auf diesem Gerät gespeichert"; }
+    catch (e) { st.textContent = "Nur auf diesem Gerät gespeichert. GitHub hat nicht geantwortet, später nochmals tippen."; }
+    btn.disabled = false;
+  };
 }
 
 function histHtml(h) {
@@ -400,10 +460,26 @@ function renderInfo() {
     <p>Hier landet eine Aktie, wenn die Qualität mindestens 60 ist und zusätzlich der Kurs in oder knapp über einer Kaufzone liegt, der Trigger ausgelöst wurde oder das Timing mindestens 60 ist.</p>
     <h3>Auf dem iPhone installieren</h3>
     <p>In Safari öffnen, unten auf «Teilen» tippen und «Zum Home-Bildschirm» wählen. Die App startet dann ohne Browser-Leiste und funktioniert auch offline mit dem letzten Stand.</p>
+    <h3>Benachrichtigungen aufs iPhone</h3>
+    <p>Die App meldet sich über die kostenlose App «ntfy», wenn eine Aktie in die Kaufzone läuft, einen Trigger auslöst, unter die Abbruch-Marke fällt, das Timing auf hellgrün springt oder am nächsten Tag Zahlen kommen. Einrichtung: ntfy aus dem App Store laden, das persönliche Thema abonnieren und dasselbe Thema in GitHub als Secret <b>NTFY_TOPIC</b> eintragen.</p>
+    <h3>Notizen auf allen Geräten</h3>
+    <p>Ohne Schlüssel bleiben Notizen auf dem Gerät, auf dem du sie schreibst. Mit einem GitHub-Schlüssel (Fine-grained Token nur für dieses Repository, Recht «Contents: Read and write») landen sie in deinem Repository und sind auf iPhone und PC gleich.</p>
+    <div class="tokenrow"><input id="tok" type="password" autocomplete="off" placeholder="${token() ? "Schlüssel ist gespeichert" : "GitHub-Schlüssel einfügen"}" aria-label="GitHub-Schlüssel">
+      <button class="btn small" id="tok-save">${token() ? "Ersetzen" : "Speichern"}</button>${token() ? '<button class="btn small" id="tok-del">Entfernen</button>' : ""}</div>
+    <p id="tok-state" style="font-size:13.5px;color:var(--muted)"></p>
     <h3>Stand der Daten</h3>
     <p>${L?.aktualisiert ? "Letztes Kurs-Update: " + new Date(L.aktualisiert).toLocaleString("de-CH") : "Noch kein automatisches Kurs-Update. Angezeigt werden die Werte der letzten Analysen."}${L?.fehler?.length ? "<br>Ohne neue Kurse: " + esc(L.fehler.map(x => x.split(":")[0]).join(", ")) : ""}</p>
     <p style="color:var(--muted);font-size:13.5px">Persönliche Watchlist, keine Anlageberatung.</p>
   </div>`;
+  const ts = document.getElementById("tok-state");
+  document.getElementById("tok-save").onclick = async () => {
+    const v = document.getElementById("tok").value.trim(); if (!v) { ts.textContent = "Bitte zuerst den Schlüssel einfügen."; return; }
+    ts.textContent = "Prüfe den Schlüssel …";
+    const r = await fetch(`https://api.github.com/repos/${REPO}`, { headers: { Authorization: "Bearer " + v } }).catch(() => null);
+    if (r && r.ok) { store.set("gh_token", v); ts.textContent = "Gespeichert. Notizen werden jetzt auf allen Geräten abgeglichen."; await load(); setTimeout(renderInfo, 900); }
+    else ts.textContent = "Der Schlüssel funktioniert nicht. Prüfe, ob er für das Repository Aktien-Analyse gilt und «Contents: Read and write» erlaubt.";
+  };
+  const del = document.getElementById("tok-del"); if (del) del.onclick = () => { store.set("gh_token", ""); renderInfo(); };
   scrollTo(0, 0);
 }
 

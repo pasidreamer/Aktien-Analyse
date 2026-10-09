@@ -27,6 +27,8 @@ jobs:
         with:
           python-version: "3.12"
       - name: Kurse holen und Ampeln berechnen
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
         run: python scripts/update.py
       - name: Ergebnis speichern
         run: |

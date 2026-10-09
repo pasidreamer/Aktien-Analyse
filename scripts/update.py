@@ -13,7 +13,7 @@ sich danach mit dem Chart.
 
 Ergebnis: data/live.json und data/verlauf.json
 """
-import json, math, os, sys, time, datetime as dt
+import base64, json, math, os, sys, time, datetime as dt
 import urllib.request, urllib.error
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -328,6 +328,67 @@ def evaluate(st, daily, wk, monthly):
     }
 
 
+
+# ---------- Benachrichtigungen (ntfy) ----------
+APP_URL = os.environ.get("APP_URL", "https://pasidreamer.github.io/Aktien-Analyse/")
+
+
+def money(v, w):
+    if v is None:
+        return "–"
+    d = 1 if w == "GBp" else (0 if v >= 1000 else 2)
+    s = f"{v:,.{d}f}".replace(",", "'")
+    return {"USD": f"{s} $", "EUR": f"{s} €", "CHF": f"{s} CHF", "GBp": f"{s} p"}.get(w, f"{s} {w}")
+
+
+def build_alerts(stocks, out, old):
+    msgs = []
+    by = {s["ticker"]: s for s in stocks}
+    for t, r in out.items():
+        st, prev = by[t], old.get("aktien", {}).get(t)
+        if not prev or prev.get("datum") == r.get("datum"):
+            continue  # erstes Mal oder kein neuer Börsentag
+        w, z, name = st["waehrung"], st["zonen"], st["name"]
+        info = f"Kurs {money(r['kurs'], w)}, Qualität {r['q']}, Timing {r['t']}"
+        ps, ns = prev.get("status"), r.get("status")
+        if ns != ps:
+            if ns == "in_zone":
+                zone = next((f"{money(lo, w)} bis {money(hi, w)}" for lo, hi in z.get("kauf", []) if lo <= r["kurs"] <= hi), "")
+                msgs.append((f"{name} ist in der Kaufzone", f"Zone {zone}. {info}. Jetzt auf die Wende im Tageschart achten.", "green_circle", 4, t))
+            elif ns == "trigger":
+                msgs.append((f"{name}: Trigger ausgelöst", f"Der Kurs hat den Trigger bei {money(z.get('trigger'), w)} auf Tagesschlussbasis überschritten. {info}.", "rocket", 4, t))
+            elif ns == "abbruch":
+                msgs.append((f"{name}: Abbruch-Marke gebrochen", f"Wochenschluss unter {money(z.get('abbruch'), w)}. Aktie neu bewerten. {info}.", "red_circle", 4, t))
+            elif ns == "unter_abbruch" and ps != "abbruch":
+                msgs.append((f"{name} unter der Abbruch-Marke", f"Tagesschluss unter {money(z.get('abbruch'), w)}. Entscheidend ist der Wochenschluss am Freitag. {info}.", "warning", 3, t))
+            elif ns == "nahe_zone" and r["q"] >= 60 and ps not in ("in_zone",):
+                msgs.append((f"{name} nähert sich der Kaufzone", f"Nur noch {r['dist_zone']:.1f} % darüber. {info}.", "eyes", 3, t))
+        if r["t"] >= 60 > prev.get("t", 0) and r["q"] >= 45:
+            msgs.append((f"{name}: Timing jetzt {r['t']}", f"Die Timing-Ampel ist auf hellgrün gesprungen. {info}.", "traffic_light", 3, t))
+    # Zahlen morgen
+    tomorrow = (dt.date.today() + dt.timedelta(days=1)).isoformat()
+    for st in stocks:
+        if st.get("zahlen") == tomorrow and (tomorrow + st["ticker"]) not in old.get("erinnert", []):
+            msgs.append((f"Morgen Zahlen: {st['name']}", "Die Quartalszahlen kommen morgen. Danach prüfen wir die Ampeln.", "calendar", 3, st["ticker"]))
+    return msgs
+
+
+def send_alerts(msgs):
+    topic = os.environ.get("NTFY_TOPIC", "").strip()
+    if not topic or not msgs:
+        print(f"{len(msgs)} Meldungen, gesendet: {'nein (kein NTFY_TOPIC)' if not topic else 'ja'}")
+        return
+    for title, body, tag, prio, t in msgs[:15]:
+        req = urllib.request.Request(f"https://ntfy.sh/{topic}", data=body.encode("utf-8"), method="POST", headers={
+            "Title": "=?UTF-8?B?" + base64.b64encode(title.encode("utf-8")).decode() + "?=",
+            "Tags": tag, "Priority": str(prio), "Click": f"{APP_URL}#/aktie/{t}"})
+        try:
+            urllib.request.urlopen(req, timeout=20).read()
+            print("Meldung gesendet:", title)
+        except Exception as e:
+            print("Meldung fehlgeschlagen:", title, e, file=sys.stderr)
+
+
 def main():
     stocks = json.load(open(os.path.join(DATA, "stocks.json")))["aktien"]
     live_path, hist_path = os.path.join(DATA, "live.json"), os.path.join(DATA, "verlauf.json")
@@ -362,6 +423,13 @@ def main():
             print("FEHLER", st["ticker"], e, file=sys.stderr)
         time.sleep(0.6)
     live = {"aktualisiert": dt.datetime.utcnow().replace(microsecond=0).isoformat() + "Z", "fehler": errors, "aktien": out}
+    tomorrow = (dt.date.today() + dt.timedelta(days=1)).isoformat()
+    live["erinnert"] = [k for k in old.get("erinnert", []) if k[:10] >= dt.date.today().isoformat()] + \
+        [tomorrow + s["ticker"] for s in stocks if s.get("zahlen") == tomorrow and (tomorrow + s["ticker"]) not in old.get("erinnert", [])]
+    try:
+        send_alerts(build_alerts(stocks, out, old))
+    except Exception as e:
+        print("Benachrichtigungen übersprungen:", e, file=sys.stderr)
     json.dump(live, open(live_path, "w"), ensure_ascii=False, separators=(",", ":"))
     json.dump(hist, open(hist_path, "w"), ensure_ascii=False, separators=(",", ":"))
     if len(errors) == len(stocks):

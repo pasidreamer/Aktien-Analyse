@@ -27,6 +27,8 @@ jobs:
         with:
           python-version: "3.12"
       - name: Ampeln mit aktuellen Daten neu berechnen
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
         run: python scripts/update.py || echo "Kursdaten nicht erreichbar, App wird trotzdem veröffentlicht"
       - name: Ergebnis speichern
         run: |
