@@ -41,7 +41,11 @@ def fetch(symbol, query):
                         continue
                     d = dt.datetime.utcfromtimestamp(t + off).date().isoformat()
                     rows.append({"d": d, "h": h, "l": l, "c": c, "v": q["volume"][i] or 0})
-                return rows, res["meta"]
+                meta = dict(res["meta"])
+                divs = (res.get("events") or {}).get("dividends") or {}
+                meta["_div"] = sorted([dt.datetime.utcfromtimestamp(v["date"] + off).date().isoformat(), round(v["amount"], 4)]
+                                      for v in divs.values() if v.get("amount"))
+                return rows, meta
             except Exception as e:  # noqa
                 last = e
                 time.sleep(2 + attempt * 3)
@@ -389,6 +393,50 @@ def send_alerts(msgs):
             print("Meldung fehlgeschlagen:", title, e, file=sys.stderr)
 
 
+# ---------- Dividenden ----------
+RHYTHMUS = {1: "jährlich", 2: "halbjährlich", 3: "dreimal pro Jahr", 4: "quartalsweise", 12: "monatlich"}
+
+
+def dividenden(divs, kurs, heute=None):
+    """Dividenden-Historie (Ex-Tage) zu Rhythmus, Jahressumme, Rendite und nächstem erwartetem Ex-Tag."""
+    heute = heute or dt.date.today()
+    if not divs:
+        return None
+    hist = [[d, a] for d, a in divs if d >= (heute - dt.timedelta(days=3 * 366)).isoformat()]
+    if not hist:
+        return None
+    jahr = [a for d, a in hist if d > (heute - dt.timedelta(days=372)).isoformat()]
+    # Sonderdividenden ausblenden: Beträge über dem 2.5-fachen des Medians
+    beträge = sorted(a for _, a in hist)
+    median = beträge[len(beträge) // 2]
+    regulär = [[d, a] for d, a in hist if a <= 2.5 * median]
+    letzte = regulär[-1] if regulär else hist[-1]
+    n = len([a for a in jahr if a <= 2.5 * median]) or 1
+    daten = [dt.date.fromisoformat(d) for d, _ in regulär[-5:]]
+    abst = sorted((b - a).days for a, b in zip(daten, daten[1:])) or [365 // n]
+    schritt = abst[len(abst) // 2]
+    naechste = dt.date.fromisoformat(letzte[0])
+    while naechste <= heute:
+        naechste += dt.timedelta(days=schritt)
+    # Vorjahrestermin als genauere Schätzung, falls vorhanden
+    vorjahr = [d for d, _ in regulär if abs((dt.date.fromisoformat(d) + dt.timedelta(days=365) - naechste).days) <= 25]
+    if vorjahr:
+        naechste = dt.date.fromisoformat(vorjahr[-1]) + dt.timedelta(days=364)
+        while naechste <= heute:
+            naechste += dt.timedelta(days=7)
+    summe = round(sum(jahr), 4)
+    return {
+        "historie": hist,
+        "pro_jahr": n,
+        "rhythmus": RHYTHMUS.get(n, f"{n}-mal pro Jahr"),
+        "letzte": letzte,
+        "summe_12m": summe,
+        "rendite": round(summe / kurs * 100, 2) if kurs else None,
+        "naechste_ex_erwartet": naechste.isoformat(),
+        "ex_monate": sorted({int(d[5:7]) for d, _ in regulär[-n:]}),
+    }
+
+
 def main():
     stocks = json.load(open(os.path.join(DATA, "stocks.json")))["aktien"]
     live_path, hist_path = os.path.join(DATA, "live.json"), os.path.join(DATA, "verlauf.json")
@@ -400,11 +448,17 @@ def main():
         try:
             daily, _ = fetch(sym, "range=2y&interval=1d")
             wk = weekly(fetch(sym, "range=10y&interval=1wk")[0])
+            divs = []
             try:
-                monthly = fetch(sym, f"period1=0&period2={int(time.time())}&interval=1mo")[0]
+                monthly, mmeta = fetch(sym, f"period1=0&period2={int(time.time())}&interval=1mo&events=div")
+                divs = mmeta.get("_div", [])
             except Exception:
                 monthly = None
             r = evaluate(st, daily, wk, monthly)
+            try:
+                r["div"] = dividenden(divs, r["kurs"])
+            except Exception as e:
+                print("Dividenden übersprungen", st["ticker"], e, file=sys.stderr)
             prev = old.get("aktien", {}).get(st["ticker"], {})
             r["status_vorher"] = prev.get("status")
             r["neu"] = r["status"] in ("in_zone", "nahe_zone", "trigger", "abbruch", "unter_abbruch") and prev.get("status") != r["status"]

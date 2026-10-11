@@ -33,6 +33,30 @@ const STATUS = {
   ueber_trigger: ["Über Trigger", "b-trig"], abbruch: ["Abbruch-Marke gebrochen", "b-abb"], unter_abbruch: ["Unter Abbruch-Marke", "b-warn"]
 };
 const LISTE = { depot: "Im Depot", kaufliste: "Kaufliste", beobachten: "Beobachten", archiv: "Archiv" };
+const MON = ["Jan", "Feb", "Mär", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"];
+const todayIso = () => new Date().toISOString().slice(0, 10);
+const addDays = (iso, n) => { const d = new Date(iso + "T12:00:00"); d.setDate(d.getDate() + n); return d.toISOString().slice(0, 10); };
+
+// Dividende: feste Angaben aus der Analyse (div_info) plus automatisch geholte Historie (live.div)
+function divData(s, L) {
+  const d = s.div_info || {}, a = L?.div || null;
+  if (d.zahlt === false || (!a && !d.betrag)) return { zahlt: false, text: d.text };
+  const heute = todayIso();
+  const betrag = a?.letzte?.[1] ?? d.betrag;
+  const rendite = a?.rendite ?? (parseFloat(String(s.dividende || "").replace(",", ".")) || null);
+  let next = null;
+  const ang = d.angekuendigt;
+  if (ang && (ang.zahltag || ang.ex) >= heute) next = { ex: ang.ex, pay: ang.zahltag, betrag: ang.betrag ?? betrag, sicher: true };
+  else if (a?.naechste_ex_erwartet) next = { ex: a.naechste_ex_erwartet, pay: d.abstand_tage != null ? addDays(a.naechste_ex_erwartet, d.abstand_tage) : null, betrag, sicher: false };
+  return {
+    zahlt: true, betrag, rendite, next,
+    rhythmus: d.rhythmus || a?.rhythmus, proJahr: d.pro_jahr || a?.pro_jahr,
+    system: d.system, exM: d.ex_monate || a?.ex_monate || [], payM: d.zahl_monate || [],
+    zahlText: d.zahl_text, serie: d.serie, text: d.text, summe: a?.summe_12m,
+    hist: (a?.historie || []).slice(-8).reverse()
+  };
+}
+const renditeOf = v => { const r = divData(v.s, v.L); return r.zahlt ? (r.rendite || 0) : 0; };
 
 // ---------- Daten ----------
 async function getJSON(url) {
@@ -242,7 +266,7 @@ function filtered() {
     zone: (a, b) => (a.dist ?? 999) - (b.dist ?? 999),
     tag: (a, b) => (b.chg1 ?? -999) - (a.chg1 ?? -999),
     zahlen: (a, b) => (a.s.zahlen || "9999").localeCompare(b.s.zahlen || "9999"),
-    dividende: (a, b) => (parseFloat((b.s.dividende || "0").replace(",", ".")) || 0) - (parseFloat((a.s.dividende || "0").replace(",", ".")) || 0),
+    dividende: (a, b) => renditeOf(b) - renditeOf(a),
     name: (a, b) => a.s.name.localeCompare(b.s.name, "de")
   };
   return list.sort(by[f.sort] || by.chance);
@@ -314,6 +338,40 @@ function updateList() {
 }
 function renderKeepScroll() { const y = scrollY; renderHome(); scrollTo(0, y); }
 
+function divHtml(s, v) {
+  const d = divData(s, v.L), w = s.waehrung;
+  if (!d.zahlt) return `<div class="card prose div-none"><p><b>Zahlt keine Dividende.</b> ${esc(d.text || "Die Firma behält den Gewinn und steckt ihn ins Wachstum oder in Aktienrückkäufe.")}</p></div>`;
+  const n = d.proJahr;
+  const cells = MON.map((m, i) => {
+    const ex = d.exM.includes(i + 1), pay = d.payM.includes(i + 1);
+    const t = [ex ? "Ex-Tag" : "", pay ? "Auszahlung" : ""].filter(Boolean).join(" und ");
+    return `<div class="${ex ? "ex " : ""}${pay ? "pay" : ""}"${t ? ` title="${MON[i]}: ${t}"` : ""}><i></i><span>${m}</span></div>`;
+  }).join("");
+  const nx = d.next;
+  return `<div class="card div">
+    <div class="div-top">
+      <div><span>Rendite</span><b>${d.rendite ? nf(d.rendite, 1) + " %" : "–"}</b><em>letzte 12 Monate</em></div>
+      <div><span>Pro Zahlung</span><b>${money(d.betrag, w)}</b><em>${d.summe ? "12 Monate: " + money(d.summe, w) : "pro Aktie"}</em></div>
+      <div><span>Wie oft</span><b>${n ? n + "× pro Jahr" : "–"}</b><em>${esc(d.rhythmus || "")}</em></div>
+    </div>
+    ${d.system ? `<p class="div-sys"><b>System:</b> ${esc(d.system)}</p>` : ""}
+    <div class="div-months" role="img" aria-label="Monate mit Ex-Tag ${d.exM.map(x => MON[x - 1]).join(", ")}; Auszahlung ${d.payM.map(x => MON[x - 1]).join(", ")}">${cells}</div>
+    <div class="legend"><span><i class="lg-ex"></i>Ex-Tag</span><span><i class="lg-pay"></i>Geld auf dem Konto</span></div>
+    ${d.zahlText ? `<p class="div-sys"><b>Zahltage:</b> ${esc(d.zahlText)}</p>` : ""}
+    ${nx ? `<div class="div-next"><b>Nächste Dividende${nx.sicher ? "" : " (geschätzt)"}</b>
+      <span>Ex-Tag ${fmtDate(nx.ex)}${nx.pay ? ` · Zahltag ${fmtDate(nx.pay)}` : ""} · ${money(nx.betrag, w)} pro Aktie</span>
+      <em>${nx.sicher ? "Von der Firma angekündigt." : "Nach dem Muster der letzten Jahre geschätzt, das genaue Datum gibt die Firma später bekannt."}</em></div>` : ""}
+    ${d.serie ? `<p class="div-sys">${esc(d.serie)}</p>` : ""}
+    <details class="more"><summary>Letzte Zahlungen und was die Begriffe bedeuten</summary>
+      ${d.hist.length ? `<table class="divtab"><thead><tr><th>Ex-Tag</th><th>Betrag</th></tr></thead><tbody>${d.hist.map(([dd, b]) => `<tr><td>${fmtDate(dd)}</td><td>${money(b, w)}</td></tr>`).join("")}</tbody></table>` : ""}
+      <ul class="plain">
+        <li><b>Ex-Tag:</b> Ab diesem Tag wird die Aktie ohne Dividende gehandelt. Du bekommst die Dividende nur, wenn du die Aktie am Abend vor dem Ex-Tag besitzt. Der Kurs fällt am Ex-Tag meist etwa um den Dividendenbetrag.</li>
+        <li><b>Zahltag:</b> An diesem Tag überweist die Firma das Geld. Bei Saxo kommt es in der Währung der Aktie aufs Konto, abzüglich Quellensteuer.</li>
+        <li><b>Rendite:</b> Dividenden der letzten 12 Monate geteilt durch den heutigen Kurs.</li>
+      </ul></details>
+  </div>`;
+}
+
 function renderDetail(ticker) {
   const s = STATE.stocks.find(x => x.ticker === ticker);
   if (!s) { $view.innerHTML = `<a class="back" href="#/">Zurück</a><div class="empty">Diese Aktie ist nicht in der Liste.</div>`; return; }
@@ -377,6 +435,9 @@ function renderDetail(ticker) {
     <div class="sec"><h2>Wichtige Kennzahlen</h2></div>
     <div class="kpis">${s.kpis.map(k => `<div class="kpi ${esc(k.ampel)}"><span>${esc(k.name)}</span><b>${esc(k.wert)}</b><em>${esc(k.text)}</em></div>`).join("")}</div>
 
+    <div class="sec"><h2>Dividende</h2><p>Wann und wie oft ausbezahlt wird.</p></div>
+    ${divHtml(s, v)}
+
     <div class="sec"><h2>Für und gegen</h2></div>
     <div class="two"><div class="card"><b>Dafür</b><ul class="plain">${s.pro.map(x => `<li>${esc(x)}</li>`).join("")}</ul></div>
       <div class="card"><b>Dagegen</b><ul class="plain">${s.contra.map(x => `<li>${esc(x)}</li>`).join("")}</ul></div></div>
@@ -384,7 +445,7 @@ function renderDetail(ticker) {
     <div class="sec"><h2>Eckdaten</h2></div>
     <div class="card"><dl class="facts">
       <dt>Nächste Zahlen</dt><dd>${fmtDate(s.zahlen)}${zahlenTage != null && zahlenTage >= 0 ? ` (in ${zahlenTage} Tagen)` : ""}</dd>
-      <dt>Dividende</dt><dd>${esc(s.dividende || "–")}</dd>
+      <dt>Dividende</dt><dd>${(() => { const d = divData(s, v.L); return d.zahlt ? `${d.rendite ? nf(d.rendite, 1) + " %" : "–"}, ${esc(d.rhythmus || "")}` : "keine"; })()}</dd>
       ${v.L ? `<dt>52 Wochen</dt><dd>${money(v.L.tief52, w)} bis ${money(v.L.hoch52, w)}</dd>
       <dt>EMA 50 / 200 Tag</dt><dd>${nf(v.L.ind.ema50d)} / ${nf(v.L.ind.ema200d)}</dd>
       <dt>EMA 50 / 200 Woche</dt><dd>${nf(v.L.ind.ema50w)} / ${nf(v.L.ind.ema200w)}</dd>
@@ -428,20 +489,34 @@ function histHtml(h) {
 }
 
 function renderTermine() {
-  const evs = STATE.stocks.filter(s => /^\d{4}-\d{2}-\d{2}$/.test(s.zahlen || "")).map(s => ({ s, d: s.zahlen, n: daysUntil(s.zahlen) })).filter(e => e.n >= -1).sort((a, b) => a.d.localeCompare(b.d));
-  let html = `<header class="top"><div><h1>Termine</h1><div class="stand">Nächste Quartalszahlen deiner Aktien</div></div></header>`;
+  const evs = STATE.stocks.filter(s => /^\d{4}-\d{2}-\d{2}$/.test(s.zahlen || "")).map(s => ({ s, d: s.zahlen, typ: "Zahlen" }));
+  STATE.stocks.forEach(s => {
+    const dv = divData(s, STATE.live?.aktien?.[s.ticker]);
+    if (!dv.zahlt || !dv.next) return;
+    const geschaetzt = dv.next.sicher ? "" : " (geschätzt)";
+    if (dv.next.ex) evs.push({ s, d: dv.next.ex, typ: "Ex-Tag", txt: `Ex-Tag Dividende${geschaetzt}, ${money(dv.next.betrag, s.waehrung)}` });
+    if (dv.next.pay) evs.push({ s, d: dv.next.pay, typ: "Zahltag", txt: `Dividende wird ausbezahlt${geschaetzt}` });
+  });
+  evs.forEach(e => { e.n = daysUntil(e.d); });
+  const filt = STATE.filter.termine || "Alle";
+  const list = evs.filter(e => e.n >= -1 && e.n <= 200 && (filt === "Alle" || (filt === "Zahlen" ? e.typ === "Zahlen" : e.typ !== "Zahlen"))).sort((a, b) => a.d.localeCompare(b.d));
+  let html = `<header class="top"><div><h1>Termine</h1><div class="stand">Quartalszahlen und Dividenden deiner Aktien</div></div></header>
+    <div class="chips" role="group" aria-label="Termine filtern">${["Alle", "Zahlen", "Dividenden"].map(x => `<button class="chip" data-tf="${x}" aria-pressed="${filt === x}">${x}</button>`).join("")}</div>`;
   let m = "";
   const mn = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
   const wd = ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"];
-  evs.forEach(e => {
+  list.forEach(e => {
     const dd = new Date(e.d + "T12:00:00"); const key = mn[dd.getMonth()] + " " + dd.getFullYear();
     if (key !== m) { html += `<div class="month">${key}</div>`; m = key; }
     const v = view(e.s);
-    html += `<a class="ev${e.n <= 7 ? " soon" : ""}" href="#/aktie/${encodeURIComponent(e.s.ticker)}"><div class="day">${dd.getDate()}<small>${wd[dd.getDay()]}</small></div>
-      <div><div style="font-weight:600">${esc(e.s.name)}</div><div class="sub" style="font-size:13px;color:var(--muted)">${e.n === 0 ? "heute" : e.n === 1 ? "morgen" : e.n < 0 ? "gestern" : "in " + e.n + " Tagen"} · ${esc(e.s.ticker)}</div></div>${signal(v.q, v.t)}</a>`;
+    const was = e.typ === "Zahlen" ? "Quartalszahlen" : e.txt;
+    html += `<a class="ev${e.n <= 7 ? " soon" : ""}${e.typ !== "Zahlen" ? " ev-div" : ""}" href="#/aktie/${encodeURIComponent(e.s.ticker)}"><div class="day">${dd.getDate()}<small>${wd[dd.getDay()]}</small></div>
+      <div><div style="font-weight:600">${esc(e.s.name)}</div><div class="sub" style="font-size:13px;color:var(--muted)">${esc(was)} · ${e.n === 0 ? "heute" : e.n === 1 ? "morgen" : e.n < 0 ? "gestern" : "in " + e.n + " Tagen"}</div></div>${signal(v.q, v.t)}</a>`;
   });
-  if (!evs.length) html += `<div class="empty">Keine Termine eingetragen.</div>`;
-  $view.innerHTML = html; scrollTo(0, 0);
+  if (!list.length) html += `<div class="empty">Keine Termine in den nächsten Monaten.</div>`;
+  $view.innerHTML = html;
+  $view.querySelectorAll("[data-tf]").forEach(b => b.onclick = () => { STATE.filter.termine = b.dataset.tf; renderTermine(); });
+  scrollTo(0, 0);
 }
 
 function renderInfo() {
@@ -455,7 +530,7 @@ function renderInfo() {
     <h3>Was sich automatisch aktualisiert</h3>
     <p>Jeden Börsentag nach US-Börsenschluss holt GitHub die neuen Kurse. Daraus rechnet die App EMA 50/200, RSI und A/D-Linie neu und passt die Timing-Punkte für Trend, RSI, A/D und Saisonalität an. In der Qualität wird die Bewertung mit dem Kurs neu gerechnet: Fällt der Kurs, wird die Aktie günstiger und bekommt eher mehr Punkte.</p>
     <p>Struktur (SMC) und Smart Money bleiben aus der letzten Analyse. Schliesst der Kurs über dem Trigger, springt die Struktur auf mindestens 16 von 20. Bricht der Wochenschluss die Abbruch-Marke, fällt sie auf 2.</p>
-    <p>Alles Fundamentale (Umsatz, Marge, Gewinn, Schulden) ändert sich erst mit neuen Quartalszahlen. Das aktualisieren wir zusammen im Monats-Check oder nach den Zahlen.</p>
+    <p>Auch die Dividenden holt die App jeden Tag neu: letzte Zahlungen, Rendite und der nächste erwartete Ex-Tag. Alles Fundamentale (Umsatz, Marge, Gewinn, Schulden) ändert sich erst mit neuen Quartalszahlen. Das aktualisieren wir zusammen im Monats-Check oder nach den Zahlen.</p>
     <h3>Jetzt interessant</h3>
     <p>Hier landet eine Aktie, wenn die Qualität mindestens 60 ist und zusätzlich der Kurs in oder knapp über einer Kaufzone liegt, der Trigger ausgelöst wurde oder das Timing mindestens 60 ist.</p>
     <h3>Auf dem iPhone installieren</h3>

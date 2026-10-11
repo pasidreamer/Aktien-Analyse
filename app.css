@@ -194,3 +194,28 @@ details.more{margin-top:8px} details.more summary{cursor:pointer;color:var(--acc
 .btn:disabled{opacity:.5}
 .tokenrow{display:flex;gap:8px;flex-wrap:wrap}
 .tokenrow input{flex:1 1 180px;min-width:0;border:1px solid var(--line);background:var(--surface);border-radius:var(--r-md);padding:9px 12px;font-size:16px}
+
+/* Dividende */
+.div-top{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.div-top>div{background:var(--surface2);border-radius:var(--r-md);padding:9px 10px;min-width:0}
+.div-top span{display:block;font-size:12.5px;color:var(--muted)}
+.div-top b{display:block;font:600 18px/1.25 var(--num);margin:2px 0;font-variant-numeric:tabular-nums}
+.div-top em{display:block;font-style:normal;font-size:12.5px;color:var(--muted);line-height:1.3}
+.div-sys{font-size:14.5px;margin:10px 0 0;line-height:1.45}
+.div-months{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:2px;margin-top:12px}
+.div-months>div{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:11px;color:var(--muted)}
+.div-months i{width:16px;height:16px;border-radius:50%;background:var(--surface2);box-sizing:border-box}
+.div-months .ex i{border:2.5px solid var(--accent);background:var(--surface)}
+.div-months .pay i{background:var(--gruen)}
+.div-months .ex.pay i{border:2.5px solid var(--accent);background:var(--gruen)}
+.div-months .ex span,.div-months .pay span{color:var(--ink);font-weight:600}
+.legend i.lg-ex{width:12px;height:12px;border-radius:50%;border:2.5px solid var(--accent);background:var(--surface);box-sizing:border-box}
+.legend i.lg-pay{width:12px;height:12px;border-radius:50%;background:var(--gruen)}
+.div-next{margin-top:12px;background:var(--gruen-soft);border-radius:var(--r-md);padding:10px 12px;display:grid;gap:2px}
+.div-next span{font:600 15px/1.35 var(--num);font-variant-numeric:tabular-nums}
+.div-next em{font-style:normal;font-size:13px;color:var(--muted)}
+.divtab{border-collapse:collapse;font-size:14px;margin:6px 0 8px;font-variant-numeric:tabular-nums}
+.divtab th{text-align:left;font-weight:500;color:var(--muted);padding:3px 16px 3px 0}
+.divtab td{padding:3px 16px 3px 0;border-top:1px solid var(--line)}
+.ev.ev-div .day{color:var(--gruen)}
+@media (max-width:380px){.div-top b{font-size:16px}}

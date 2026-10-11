@@ -170,6 +170,10 @@
    },
    "zahlen": "2026-11-04",
    "dividende": null,
+   "div_info": {
+    "zahlt": false,
+    "text": "AppLovin zahlt keine Dividende, sondern kauft mit dem Gewinn eigene Aktien zurück."
+   },
    "fazit": "Auf dem Papier eine der profitabelsten Wachstumsfirmen überhaupt, an der Börse aber im freien Fall. Qualität laut Schema sehr hoch, Timing rot. Das Schema misst die Risiken hier nur teilweise: ein einziges Produkt, nachlassendes Wachstum, viel Misstrauen. Erst einen Boden abwarten.",
    "about": "AppLovin verkauft Werbung: Die KI-Plattform Axon entscheidet in Sekundenbruchteilen, welche Werbung in welcher App gezeigt wird, und kassiert pro Erfolg. Ursprünglich ging es um Handyspiele, seit 2025 zunehmend um Onlinehändler und andere Branchen. Das eigene Spiele-Geschäft wurde 2025 verkauft. Übrig blieb eine reine Software-Plattform mit enormen Margen.",
    "kpis": [
@@ -436,6 +440,10 @@
    },
    "zahlen": "2026-11-04",
    "dividende": null,
+   "div_info": {
+    "zahlt": false,
+    "text": "Uber zahlt keine Dividende, sondern kauft mit dem Gewinn eigene Aktien zurück."
+   },
    "fazit": "Fundamental stärker denn je, aber die Börse fürchtet Robotaxis. Der Chef hat im September für 10 Mio. $ eigene Aktien gekauft. Qualität grün, Timing orange. Der Kurs liegt am unteren Rand der Spanne und auf der EMA 200 (Woche). Die Zone 65–68 $ ist interessant, der Trigger ein Tagesschluss über 73.20 $.",
    "about": "Uber vermittelt Fahrten (Mobility), liefert Essen und Einkäufe (Uber Eats) und vermittelt Lastwagen-Frachten. Uber besitzt keine Autos: Die Plattform bringt Kunden und Fahrer zusammen und behält eine Gebühr. Seit 2023 ist Uber profitabel. Für die Zukunft setzt Uber darauf, auch Robotaxis anderer Firmen (Waymo, Wayve und andere) über die eigene App anzubieten.",
    "kpis": [
@@ -707,6 +715,22 @@
    },
    "zahlen": "2026-11-15",
    "dividende": null,
+   "div_info": {
+    "pro_jahr": 2,
+    "rhythmus": "halbjährlich",
+    "ex_monate": [
+     5,
+     8
+    ],
+    "zahl_monate": [
+     6,
+     9
+    ],
+    "zahl_text": "Schlussdividende im Juni, Zwischendividende im September",
+    "abstand_tage": 35,
+    "betrag": 0.279,
+    "system": "Britisches System mit Zwischen- und Schlussdividende: Im September kommt eine kleine Zwischendividende (rund 30 %), im Juni nach der Generalversammlung die grössere Schlussdividende (rund 70 %). Du hältst die US-Variante (ADR), darum wird in Dollar ausbezahlt und der Betrag schwankt mit dem Pfund."
+   },
    "fazit": "Das Geschäft läuft besser als je zuvor, der Kurs zeigt es nicht. Qualität klar grün, Timing noch orange. Beobachten und auf den Trendwechsel warten.",
    "about": "RELX verkauft Daten und Analyse-Werkzeuge im Abo: LexisNexis Risk (Betrugs- und Kreditprüfung für Banken und Versicherer), Elsevier (wissenschaftliche Fachzeitschriften), LexisNexis Legal (Rechtsdatenbanken) und Messen. Rund drei Viertel des Umsatzes sind wiederkehrend. Der Kurs ist seit Anfang 2025 um rund 40 % gefallen, weil Anleger fürchten, dass KI-Sprachmodelle diese Datenbanken ersetzen. RELX baut KI selbst in seine Produkte ein (zum Beispiel Lexis+ AI) und wächst bisher weiter.",
    "kpis": [
@@ -989,6 +1013,26 @@
    },
    "zahlen": "2026-10-28",
    "dividende": null,
+   "div_info": {
+    "pro_jahr": 4,
+    "rhythmus": "quartalsweise",
+    "ex_monate": [
+     3,
+     6,
+     9,
+     12
+    ],
+    "zahl_monate": [
+     3,
+     6,
+     9,
+     12
+    ],
+    "zahl_text": "jeweils Mitte März, Juni, September und Dezember",
+    "abstand_tage": 7,
+    "betrag": 0.22,
+    "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Erst seit 2024, die Rendite ist klein (Alphabet kauft vor allem eigene Aktien zurück)."
+   },
    "fazit": "Das stärkste Wachstum der drei (Umsatz +24 %, Cloud +82 %) und über 120 Mrd. $ Netto-Cash. Aber die Rekord-Investitionen haben den Free Cashflow ins Minus gedrückt, und statt Aktien zurückzukaufen gibt Alphabet neue aus. Qualität grün, Timing gelb: Der Kurs läuft seit Mai seitwärts mit tieferen Hochs. Trigger ist ein Tagesschluss über 364 $.",
    "about": "Alphabet ist die Mutter von Google. Das Geld kommt aus Werbung in der Google-Suche und auf YouTube, aus Google Cloud (Rechenleistung und KI-Modelle wie Gemini für Firmen) sowie aus Android, Abos und Geräten. Dazu kommen Zukunftsprojekte wie Waymo (selbstfahrende Taxis) und grosse Beteiligungen an anderen Firmen.",
    "kpis": [
@@ -1262,6 +1306,27 @@
    },
    "zahlen": "2026-10-28",
    "dividende": null,
+   "div_info": {
+    "pro_jahr": 4,
+    "rhythmus": "quartalsweise",
+    "ex_monate": [
+     2,
+     5,
+     8,
+     11
+    ],
+    "zahl_monate": [
+     3,
+     6,
+     9,
+     12
+    ],
+    "zahl_text": "jeweils um den 10. März, Juni, September und Dezember",
+    "abstand_tage": 21,
+    "betrag": 0.91,
+    "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Die Erhöhung wird jeweils im September angekündigt und gilt ab der Dezember-Zahlung.",
+    "serie": "Seit 2004 jedes Jahr erhöht."
+   },
    "fazit": "Eine der stärksten Firmen der Welt, und der Kurs hat den Einbruch vom Frühling fast ganz aufgeholt. Qualität grün, Timing hellgrün. Der Kurs steht aber direkt unter dem Allzeithoch: Ein sauberer Einstieg ist ein Rücksetzer in die Zone 477–491 $ oder ein Wochenschluss über 525 $.",
    "about": "Microsoft verdient an drei Säulen: Azure (Rechenzentren und KI-Rechenleistung zur Miete, der Wachstumsmotor), Microsoft 365 (Office, Teams, dazu der KI-Assistent Copilot im Abo) und Windows, LinkedIn und Xbox. Ein grosser Teil des Umsatzes ist wiederkehrend, weil Firmen Abos und Cloud-Verträge über Jahre abschliessen.",
    "kpis": [
@@ -1534,6 +1599,26 @@
    },
    "zahlen": "2026-10-27",
    "dividende": null,
+   "div_info": {
+    "pro_jahr": 4,
+    "rhythmus": "quartalsweise",
+    "ex_monate": [
+     2,
+     5,
+     8,
+     11
+    ],
+    "zahl_monate": [
+     3,
+     6,
+     9,
+     12
+    ],
+    "zahl_text": "jeweils Anfang März, Juni, September und Dezember",
+    "abstand_tage": 21,
+    "betrag": 0.67,
+    "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Die Erhöhung wird jeweils Ende Oktober angekündigt und gilt ab der Dezember-Zahlung."
+   },
    "fazit": "Eine der profitabelsten Firmen der Welt in einem sauberen Aufwärtstrend. Seit August läuft eine ruhige Seitwärtsphase knapp unter dem Hoch. Qualität grün, Timing hellgrün. Die Zone 357–362 $ ist ein sinnvoller Einstieg, der Ausbruch ein Tagesschluss über 385.60 $.",
    "about": "Visa betreibt das Netzwerk, über das Kartenzahlungen zwischen Bank des Käufers und Bank des Händlers laufen. Visa gibt selbst keine Kredite und trägt kein Ausfallrisiko. Pro Zahlung verdient Visa eine kleine Gebühr. Über 4 Billionen $ Zahlungen laufen pro Quartal über das Netz. Neu kommen Stablecoins (digitale Dollar) und Zahlungen durch KI-Agenten dazu.",
    "kpis": [
@@ -1806,6 +1891,26 @@
    },
    "zahlen": "2026-12-11",
    "dividende": null,
+   "div_info": {
+    "pro_jahr": 4,
+    "rhythmus": "quartalsweise",
+    "ex_monate": [
+     1,
+     5,
+     7,
+     10
+    ],
+    "zahl_monate": [
+     2,
+     5,
+     8,
+     11
+    ],
+    "zahl_text": "jeweils rund 2 Wochen nach dem Ex-Tag",
+    "abstand_tage": 14,
+    "betrag": 1.47,
+    "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr, Erhöhung jeweils im April. Ab und zu eine grosse Sonderdividende (zuletzt 15 $ im Januar 2024)."
+   },
    "fazit": "Eine der besten Handelsfirmen der Welt, aber nie billig. Seit dem Mai-Hoch hat der Kurs 16 % verloren, die Zahlen bleiben stark. Qualität grün, Timing gelb. Es gibt erste Bodenzeichen (bullische Divergenz). Der Trigger ist ein Tagesschluss über 931 $.",
    "about": "Costco betreibt rund 900 grosse Lagerhallen-Märkte, in denen nur Mitglieder einkaufen dürfen (Jahresgebühr ab 65 $). Die Waren werden fast zum Einkaufspreis verkauft. Der Gewinn kommt zu einem grossen Teil aus den Mitgliedsgebühren, über 90 % der Mitglieder verlängern jedes Jahr. Das macht den Gewinn sehr planbar.",
    "kpis": [
@@ -2072,6 +2177,10 @@
    },
    "zahlen": "2026-10-28",
    "dividende": null,
+   "div_info": {
+    "zahlt": false,
+    "text": "ServiceNow zahlt keine Dividende und investiert den Gewinn ins Wachstum. Dazu kommen Aktienrückkäufe."
+   },
    "fazit": "Starke Firma, die die Börse wegen KI-Angst fast halbiert hat. Seit dem Tief im April hat sich der Kurs um zwei Drittel erholt. Qualität grün, Timing gelb. Der Wochen-Trend ist noch nicht bestätigt. Eine gute Zone wäre ein Rücksetzer auf 127–129 $, der Ausbruch ein Wochenschluss über 141 $.",
    "about": "ServiceNow verkauft eine Software-Plattform im Abo, mit der grosse Firmen ihre Abläufe steuern: IT-Störungen, Kundendienst, Personalwesen, Einkauf, Sicherheit. Neu sind KI-Agenten (Now Assist), die solche Abläufe selbst erledigen. Die Kunden zahlen jedes Jahr, 98 % verlängern ihren Vertrag. Im Juli 2026 kam die Sicherheitsfirma Armis dazu.",
    "kpis": [
@@ -2343,6 +2452,26 @@
    },
    "zahlen": "2026-10-29",
    "dividende": "1.2 %",
+   "div_info": {
+    "pro_jahr": 4,
+    "rhythmus": "quartalsweise",
+    "ex_monate": [
+     3,
+     6,
+     9,
+     12
+    ],
+    "zahl_monate": [
+     1,
+     4,
+     7,
+     10
+    ],
+    "zahl_text": "jeweils Ende Januar, April, Juli und Oktober",
+    "abstand_tage": 30,
+    "betrag": 0.88,
+    "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Die Erhöhung wird jeweils im Dezember angekündigt."
+   },
    "fazit": "Eine sehr solide Firma, die gerade wegen Lieferproblemen in einem Geschäftsbereich abgestraft wird. Qualität grün, Timing orange. Der Kurs versucht über 267–269 $ einen Doppelboden. Erst ein Tagesschluss über 290.50 $ wäre das erste Zeichen für eine Wende.",
    "about": "Stryker baut Medizintechnik für Spitäler: künstliche Hüft- und Kniegelenke (inklusive OP-Roboter Mako), Instrumente und Ausstattung für Operationssäle, Wirbelsäulen- und Neurotechnik sowie Kathetersysteme für Blutgefässe. Weil Operationen auch in schwachen Wirtschaftsphasen stattfinden, wächst das Geschäft sehr stetig.",
    "kpis": [
@@ -2609,6 +2738,26 @@
    },
    "zahlen": "2026-10-28",
    "dividende": null,
+   "div_info": {
+    "pro_jahr": 4,
+    "rhythmus": "quartalsweise",
+    "ex_monate": [
+     3,
+     6,
+     9,
+     12
+    ],
+    "zahl_monate": [
+     3,
+     6,
+     9,
+     12
+    ],
+    "zahl_text": "jeweils Ende März, Juni, September und Dezember",
+    "abstand_tage": 11,
+    "betrag": 0.525,
+    "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Erst seit 2024, die Rendite ist klein."
+   },
    "fazit": "Das Werbegeschäft wächst so schnell wie seit Jahren nicht, aber Kosten und KI-Investitionen fressen den Free Cashflow auf. Nach dem Sprung im September ist der Kurs heiss gelaufen, und die A/D-Linie zieht nicht mit. Qualität hellgrün, Timing gelb: auf einen Rücksetzer in die Zone 680–692 $ warten.",
    "about": "Meta verdient fast das ganze Geld mit Werbung auf Facebook, Instagram, WhatsApp und Threads, zusammen über 3 Milliarden Nutzer pro Tag. Daneben investiert Meta Milliarden in KI (Meta AI, neu der persönliche KI-Assistent „Muse“) und in Reality Labs (Brillen und VR), das hohe Verluste schreibt.",
    "kpis": [
@@ -2882,6 +3031,27 @@
    },
    "zahlen": "2026-10-27",
    "dividende": "2.5 %",
+   "div_info": {
+    "pro_jahr": 4,
+    "rhythmus": "quartalsweise",
+    "ex_monate": [
+     3,
+     6,
+     9,
+     12
+    ],
+    "zahl_monate": [
+     4,
+     7,
+     10,
+     12
+    ],
+    "zahl_text": "1. April, 1. Juli, 1. Oktober und 15. Dezember",
+    "abstand_tage": 16,
+    "betrag": 0.53,
+    "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Die Erhöhung wird jeweils im Februar angekündigt und gilt ab der April-Zahlung.",
+    "serie": "64 Jahre in Folge erhöht."
+   },
    "fazit": "Die stärkste Firma der Gruppe, aber kein Schnäppchen. Qualität hellgrün (72), Timing gelb (47). Der grosse Trend zeigt nach oben, doch die Tages-A/D bricht seit August ein: Es wird leise verkauft. Deine Idee, auf eine grössere Korrektur zu warten, passt zu den Zahlen. Kaufzonen: 80–82.5 $ und 76.8–78.5 $.",
    "about": "Coca-Cola verkauft vor allem Getränke-Konzentrat und Markenrechte an Abfüllfirmen auf der ganzen Welt (Coca-Cola, Sprite, Fanta, Powerade, Smartwater, fairlife-Milch). Die Abfüller tragen die teuren Fabriken und Lastwagen, darum hat Coca-Cola eine sehr hohe Marge. Rund zwei Drittel des Umsatzes kommen aus dem Ausland.",
    "kpis": [
@@ -3151,6 +3321,32 @@
    },
    "zahlen": "2026-10-30",
    "dividende": "2.5 %",
+   "div_info": {
+    "pro_jahr": 4,
+    "rhythmus": "quartalsweise",
+    "ex_monate": [
+     1,
+     4,
+     7,
+     10
+    ],
+    "zahl_monate": [
+     2,
+     5,
+     8,
+     11
+    ],
+    "zahl_text": "jeweils Mitte Februar, Mai, August und November",
+    "abstand_tage": 24,
+    "betrag": 0.53,
+    "angekuendigt": {
+     "ex": "2026-10-20",
+     "zahltag": "2026-11-13",
+     "betrag": 0.53
+    },
+    "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Die Erhöhung gilt jeweils ab der Mai-Zahlung.",
+    "serie": "63 Jahre in Folge erhöht."
+   },
    "fazit": "Sehr profitable Firma mit dem höchsten ROIC der Gruppe (46 %), aber nur 2–3 % Wachstum. Qualität hellgrün (68), Timing orange (41). Der Kurs ist nahe an die Kaufzone 81.8–84.3 $ gelaufen. Für einen Einstieg fehlt noch die Wende auf dem Tageschart: Tagesschluss über 90.10 $.",
    "about": "Colgate-Palmolive verkauft Zahnpasta und Zahnbürsten (Colgate, Weltmarktführer mit über 40 % Marktanteil), Seifen und Duschmittel (Palmolive), Reinigungsmittel und Tiernahrung (Hill's). Rund zwei Drittel des Umsatzes kommen aus dem Ausland, vor allem aus Lateinamerika und Asien.",
    "kpis": [
@@ -3415,6 +3611,27 @@
    },
    "zahlen": "2026-10-22",
    "dividende": "2.9 %",
+   "div_info": {
+    "pro_jahr": 4,
+    "rhythmus": "quartalsweise",
+    "ex_monate": [
+     1,
+     4,
+     7,
+     10
+    ],
+    "zahl_monate": [
+     2,
+     5,
+     8,
+     11
+    ],
+    "zahl_text": "jeweils um den 15. Februar, Mai, August und November",
+    "abstand_tage": 23,
+    "betrag": 1.0885,
+    "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Die Erhöhung kommt jeweils im April.",
+    "serie": "70 Jahre in Folge erhöht."
+   },
    "fazit": "Die Qualität ist hoch, aber das Wachstum ist eingeschlafen (organisch 0 % im letzten Quartal) und der Gewinn wächst kaum. Qualität gelb (59), Timing orange (41). Der Kurs bildet seit Januar eine Bodenzone bei 138–142 $ mit leicht steigenden Tiefs, und auf dem Tageschart wird still gekauft. Erst ein Tagesschluss über 149.50 $ wäre ein erstes Wende-Zeichen.",
    "about": "Procter & Gamble ist der grösste Hersteller von Haushalts- und Körperpflegeprodukten der Welt: Waschmittel (Ariel, Tide), Windeln (Pampers), Rasierer (Gillette), Zahnpflege (Oral-B), Haarpflege (Pantene, Head & Shoulders). Diese Dinge kauft man auch in einer Rezession, darum gilt P&G als Musterbeispiel einer defensiven Aktie.",
    "kpis": [
@@ -3682,6 +3899,27 @@
    },
    "zahlen": "2027-02-03",
    "dividende": "4.8 %",
+   "div_info": {
+    "pro_jahr": 4,
+    "rhythmus": "quartalsweise",
+    "ex_monate": [
+     3,
+     6,
+     9,
+     12
+    ],
+    "zahl_monate": [
+     1,
+     3,
+     6,
+     9
+    ],
+    "zahl_text": "Ende März, Ende Juni, Ende September und Anfang Januar",
+    "abstand_tage": 26,
+    "betrag": 1.48,
+    "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Die Erhöhung gilt jeweils ab der Juni-Zahlung.",
+    "serie": "54 Jahre in Folge erhöht."
+   },
    "fazit": "Günstig wie seit Jahren nicht (erwartetes KGV rund 14.5 statt sonst 20), aber im klaren Abwärtstrend. Heute (8.10.) wurde der Gewinnausblick erneut gesenkt. Qualität gelb (59), Timing rot (17). Eine Bodenbildung ist noch nicht zu sehen. Erstes Zeichen wäre ein Tagesschluss über 131.20 $.",
    "about": "PepsiCo ist der grösste Snack-Hersteller der Welt (Lay's, Doritos, Cheetos, Quaker) und die Nummer zwei bei Getränken (Pepsi, Gatorade). Rund 55 % des Umsatzes kommen aus Snacks und Lebensmitteln, 45 % aus Getränken. Knapp 60 % stammen aus Nordamerika.",
    "kpis": [
@@ -3949,6 +4187,27 @@
    },
    "zahlen": "2026-10-13",
    "dividende": "2.1 %",
+   "div_info": {
+    "pro_jahr": 4,
+    "rhythmus": "quartalsweise",
+    "ex_monate": [
+     2,
+     5,
+     8,
+     11
+    ],
+    "zahl_monate": [
+     3,
+     6,
+     9,
+     12
+    ],
+    "zahl_text": "jeweils um den 9. März, Juni, September und Dezember",
+    "abstand_tage": 14,
+    "betrag": 1.34,
+    "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Die Erhöhung wird im April angekündigt und gilt ab der Juni-Zahlung.",
+    "serie": "64 Jahre in Folge erhöht."
+   },
    "fazit": "Solider Pharma-Riese nach einer Rally von über 70 % seit Anfang 2025. Jetzt ist er teuer, und der Ausblick wurde gesenkt. Qualität gelb, Timing gelb. Der Tages-RSI ist überverkauft, ein Boden ist aber noch nicht da. Die Zone 241–250 $ ist interessant, wenn sie hält.",
    "about": "Johnson & Johnson hat zwei Standbeine: Innovative Medizin (rund zwei Drittel, z. B. Darzalex gegen Blutkrebs, Tremfya gegen Schuppenflechte und Darmentzündungen) und Medizintechnik (Herzkatheter, OP-Geräte, Orthopädie). Die Konsumgüter (Kenvue) wurden 2023 abgespalten. Die Firma zahlt seit über 60 Jahren eine steigende Dividende.",
    "kpis": [
@@ -4220,6 +4479,27 @@
    },
    "zahlen": "2026-10-21",
    "dividende": "3.0 %",
+   "div_info": {
+    "pro_jahr": 4,
+    "rhythmus": "quartalsweise",
+    "ex_monate": [
+     2,
+     5,
+     8,
+     11
+    ],
+    "zahl_monate": [
+     3,
+     6,
+     9,
+     12
+    ],
+    "zahl_text": "jeweils am 10. März, Juni, September und Dezember",
+    "abstand_tage": 31,
+    "betrag": 1.69,
+    "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Die Erhöhung (zuletzt nur 1 Cent) kommt jeweils im April.",
+    "serie": "30 Jahre in Folge erhöht."
+   },
    "fazit": "Nach einem Kursfeuerwerk im Mai kam im Juli der grösste Tagesverlust der Firmengeschichte. Das Geschäft wächst langsam, die Schulden sind hoch. Qualität gelb, Timing orange. Der Kurs liegt auf der EMA 200 (Woche), aber die A/D-Linie zeigt Abgaben. Abwarten.",
    "about": "IBM verdient heute vor allem mit Software (Red Hat, Datenbanken, Automatisierung, KI-Plattform watsonx), mit IT-Beratung und mit Grossrechnern (IBM Z) für Banken und Versicherungen. Dazu baut IBM Quantencomputer. Ende 2025 kam der Daten-Streaming-Spezialist Confluent dazu.",
    "kpis": [
@@ -4490,6 +4770,10 @@
    },
    "zahlen": "2026-10-29",
    "dividende": null,
+   "div_info": {
+    "zahlt": false,
+    "text": "Cloudflare zahlt keine Dividende. Die Firma steckt alles ins Wachstum."
+   },
    "fazit": "Ein echter Gewinner des KI-Booms mit über 30 % Wachstum, aber an der Börse sehr teuer und noch ohne Gewinn. Qualität gelb, Timing gelb. Der Trend ist stark, aber überhitzt (RSI Woche 71). Eine bessere Chance wäre ein Rücksetzer auf 312–333 $.",
    "about": "Cloudflare betreibt ein weltweites Netzwerk mit Rechenzentren in über 300 Städten. Rund ein Fünftel aller Websites läuft darüber. Cloudflare schützt sie vor Angriffen, macht sie schneller und bietet Entwicklern eine Plattform (Workers), um Programme und KI-Agenten direkt im Netz laufen zu lassen. Mehr als die Hälfte des Verkehrs stammt inzwischen nicht mehr von Menschen, sondern von Bots und KI-Agenten.",
    "kpis": [
@@ -4758,6 +5042,26 @@
    },
    "zahlen": "2026-10-28",
    "dividende": "3.6 %",
+   "div_info": {
+    "pro_jahr": 4,
+    "rhythmus": "quartalsweise",
+    "ex_monate": [
+     2,
+     5,
+     8,
+     11
+    ],
+    "zahl_monate": [
+     3,
+     6,
+     9,
+     12
+    ],
+    "zahl_text": "jeweils März, Juni, September und Dezember",
+    "abstand_tage": 25,
+    "betrag": 39.82,
+    "system": "Quartalsdividende: 4 Zahlungen pro Jahr. Unilever legt die Dividende in Euro fest und zahlt in London in Pence aus, darum schwankt der Betrag leicht mit dem Wechselkurs. Seit der Abspaltung des Glacé-Geschäfts (Dezember 2025) etwas tiefer."
+   },
    "fazit": "Der Umbau unter dem neuen Chef wirkt: Unilever wächst wieder kräftig über die Menge (+5.5 % im 2. Quartal, bestes Quartal seit über zehn Jahren). Qualität gelb (53), Timing gelb (46). Der Kurs läuft seit Juli seitwärts in der Zone 4'480–4'810 p, und die Tages-A/D zeigt stille Käufe. Ein Tagesschluss über 4'710 p wäre das Signal.",
    "about": "Unilever verkauft Schönheits- und Körperpflege (Dove, Rexona, Axe, Vaseline), Waschmittel (Omo/Persil, Cif) und Lebensmittel (Knorr, Hellmann's). Die Glacé-Sparte (Magnum, Ben & Jerry's) wurde im Dezember 2025 als eigene Firma abgespalten, das Lebensmittelgeschäft wird bis Mitte 2027 an McCormick verkauft. Übrig bleibt eine reine Pflege- und Haushaltsfirma. Unilever berichtet in Euro, die Aktie wird in London in Pence gehandelt.",
    "kpis": [
@@ -5019,6 +5323,27 @@
    },
    "zahlen": "2026-11-18",
    "dividende": null,
+   "div_info": {
+    "pro_jahr": 4,
+    "rhythmus": "quartalsweise",
+    "ex_monate": [
+     1,
+     4,
+     7,
+     10
+    ],
+    "zahl_monate": [
+     2,
+     5,
+     8,
+     11
+    ],
+    "zahl_text": "jeweils Anfang Februar, Mai, August und November",
+    "abstand_tage": 14,
+    "betrag": 1.25,
+    "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Die Erhöhung kommt jeweils Ende Mai und gilt ab der August-Zahlung.",
+    "serie": "Seit über 50 Jahren jedes Jahr erhöht."
+   },
    "fazit": "Solide Baumarktkette in einer schwachen Branche: Der US-Immobilienmarkt steht still, und Lowe's hat sich mit Zukäufen verschuldet. Der Kurs fällt seit Februar um 39 %. Qualität gelb, Timing rot. Hier ist kein Boden erkennbar. Nur beobachten.",
    "about": "Lowe's betreibt rund 1'700 Baumärkte in den USA, für Heimwerker und Handwerker (Pros). 2025 kaufte Lowe's den Baustoffhändler Foundation Building Materials (FBM) und den Händler ADG, um mehr an Profis zu verkaufen. Das Geschäft hängt stark an Hausverkäufen und Renovationen.",
    "kpis": [
@@ -5280,6 +5605,20 @@
    },
    "zahlen": "2026-10-28",
    "dividende": "3.8 %",
+   "div_info": {
+    "pro_jahr": 1,
+    "rhythmus": "jährlich",
+    "ex_monate": [
+     5
+    ],
+    "zahl_monate": [
+     5
+    ],
+    "zahl_text": "Anfang Mai, wenige Tage nach der Generalversammlung (Ende April)",
+    "abstand_tage": 2,
+    "betrag": 2.25,
+    "system": "Französisches System: eine Dividende pro Jahr, beschlossen an der Generalversammlung Ende April und Anfang Mai ausbezahlt."
+   },
    "fazit": "Solide Firma mit steigender Marge, aber die Aktie ist seit November um 26 % gefallen. Qualität gelb (48), Timing rot (28). Kurzfristig überverkauft, der Chef hat im Juli selbst gekauft. Der Trend zeigt aber noch keine Wende. Erstes Zeichen wäre ein Tagesschluss über 62.30 €.",
    "about": "Danone stellt Milchprodukte und Joghurts her (Activia, Danone, Alpro für pflanzliche Produkte), Baby- und Spezialnahrung (Aptamil, Nutricia) und Mineralwasser (Evian, Volvic). Rund 45 % des Umsatzes kommen aus Europa, Nahost und Afrika, 33 % aus Amerika und 22 % aus Asien.",
    "kpis": [
@@ -5551,6 +5890,21 @@
    },
    "zahlen": "2026-10-22",
    "dividende": "4.1 %",
+   "div_info": {
+    "pro_jahr": 1,
+    "rhythmus": "jährlich",
+    "ex_monate": [
+     4
+    ],
+    "zahl_monate": [
+     4
+    ],
+    "zahl_text": "Ende April, wenige Tage nach der Generalversammlung",
+    "abstand_tage": 2,
+    "betrag": 3.1,
+    "system": "Schweizer System: eine Dividende pro Jahr, beschlossen an der Generalversammlung im April und ein paar Tage später ausbezahlt. Auf Schweizer Dividenden werden 35 % Verrechnungssteuer abgezogen, die du als Person mit Wohnsitz in der Schweiz mit der Steuererklärung zurückbekommst.",
+    "serie": "Seit 1959 nie gesenkt, 31 Jahre in Folge erhöht."
+   },
    "fazit": "Die bekannteste Schweizer Aktie und ein echter Franken-Wert, aber seit 2022 im Abwärtstrend. Qualität orange (36), Timing orange (34). Spannend wird es in der Zone 70–72.5 CHF, wo seit einem Jahr ein Doppelboden liegt. Die Dividende von 4.1 % ist solide. Für eine Wende braucht es weiter steigende Mengen (RIG) und einen Tagesschluss über 78.55 CHF.",
    "about": "Nestlé ist der grösste Nahrungsmittelkonzern der Welt: Kaffee (Nescafé, Nespresso, Starbucks-Produkte im Handel), Tiernahrung (Purina), Baby- und medizinische Ernährung, Süsswaren (KitKat), Fertiggerichte (Maggi) und Wasser. Nestlé verdient den grössten Teil im Ausland: Amerika 39 %, Asien/Ozeanien/Afrika 23 %, Europa 20 %, dazu Nespresso und Health Science.",
    "kpis": [
@@ -5821,6 +6175,10 @@
    },
    "zahlen": "2026-10-21",
    "dividende": null,
+   "div_info": {
+    "zahlt": false,
+    "text": "Tesla hat noch nie eine Dividende bezahlt und steckt den Gewinn in neue Fabriken, KI und Robotaxi."
+   },
    "fazit": "Die Börse bezahlt bei Tesla vor allem die Zukunft (Robotaxi, Optimus, mögliche SpaceX-Fusion), nicht die heutigen Zahlen. Die heutigen Zahlen sind schwach: Marge 4 %, Gewinn seit 2023 um drei Viertel gesunken. Qualität orange (34), Timing orange (41). Technisch erholt sich der Kurs seit dem Juli-Tief (297 $) mit höheren Hochs. Ein Tagesschluss über 387 $ wäre das nächste Signal, aber erst nach den Zahlen am 21. Oktober.",
    "about": "Tesla baut Elektroautos (vor allem Model Y und Model 3, dazu Cybertruck, Model S/X, Semi und das Robotaxi Cybercab). Dazu kommen Energiespeicher für Häuser und Stromnetze (Powerwall, Megapack), Solaranlagen und Dienstleistungen (Ladestationen, Versicherung, Software für autonomes Fahren). Der humanoide Roboter Optimus und das Robotaxi-Netz stehen noch am Anfang. Rund drei Viertel des Umsatzes kommen weiterhin aus dem Autogeschäft.",
    "kpis": [
@@ -6096,6 +6454,20 @@
    },
    "zahlen": "2027-03-31",
    "dividende": "3.7 %",
+   "div_info": {
+    "pro_jahr": 1,
+    "rhythmus": "jährlich",
+    "ex_monate": [
+     5
+    ],
+    "zahl_monate": [
+     5
+    ],
+    "zahl_text": "Mitte Mai, wenige Tage nach der Generalversammlung",
+    "abstand_tage": 2,
+    "betrag": 8.5,
+    "system": "Schweizer System: eine Dividende pro Jahr, beschlossen an der Generalversammlung im Mai und ein paar Tage später ausbezahlt. Jungfraubahn zahlt 50 bis 67 % des Gewinns aus, die Höhe schwankt darum mit dem Geschäftsjahr. 35 % Verrechnungssteuer, die du mit der Steuererklärung zurückbekommst."
+   },
    "fazit": "Jungfraubahn ist ein sehr profitables Bergbahn-Unternehmen mit fast monopolartiger Stellung (Marge 31 %, mehr Geld als Schulden, Dividende 3.7 %). 2026 fehlen aber wegen des Iran-Kriegs viele Gäste aus Asien: Umsatz und Gewinn sinken. Qualität orange (44), Timing gelb (54). Der Kurs fiel vom März-Hoch 327 CHF bis auf 220 CHF (−33 %) und baut seit drei Wochen zwischen 220 und 233 CHF einen Boden mit steigender A/D. Ein Tagesschluss über 233 CHF wäre das erste Signal.",
    "about": "Jungfraubahn betreibt die Bergbahnen in der Jungfrau-Region im Berner Oberland. Herzstück ist die Zahnradbahn auf das Jungfraujoch (3'454 m, «Top of Europe», höchstgelegener Bahnhof Europas). Dazu kommen die Wengernalpbahn, die Erlebnisberge Harder, First und Schynige Platte, das Skigebiet Jungfrau Ski Region, die V-Bahn mit dem Eiger Express sowie Gastronomie und ein eigenes Wasserkraftwerk. Das Jungfraujoch allein bringt gut die Hälfte der Verkehrserträge. Viele Gäste kommen von weit her: aus Asien (China, Japan, Taiwan, Indien, Südostasien), aus Amerika und aus Europa und der Schweiz.",
    "kpis": [
@@ -6368,6 +6740,22 @@
    },
    "zahlen": "2026-11-03",
    "dividende": "3.4 %",
+   "div_info": {
+    "pro_jahr": 2,
+    "rhythmus": "halbjährlich",
+    "ex_monate": [
+     5,
+     12
+    ],
+    "zahl_monate": [
+     1,
+     7
+    ],
+    "zahl_text": "Zwischendividende im Juli, Schlussdividende im Januar",
+    "abstand_tage": 33,
+    "betrag": 20.7,
+    "system": "Britisches System mit Zwischen- und Schlussdividende: Im Juli kommt die kleinere Zwischendividende, im Januar die grössere Schlussdividende (Geschäftsjahr endet im September). In manchen Jahren gibt es zusätzlich eine Sonderdividende."
+   },
    "fazit": "Mischkonzern aus Primark (Kleider) und Lebensmitteln. Das Geschäft schwächelt (Primark in Europa, Zucker mit Verlust), dafür ist die Bilanz solid und Ende 2027 wird Primark abgespalten. Qualität orange (33), Timing orange (36). Charttechnisch hält seit März eine Bodenzone bei 1'730–1'800 p, die Wochen-A/D steigt. Ein Tagesschluss über 1'900 p wäre ein erstes Signal.",
    "about": "Associated British Foods (ABF) besteht aus zwei Welten: Primark, eine Billig-Modekette mit rund 450 Läden in Europa und den USA (über die Hälfte des Umsatzes und der grösste Teil des Gewinns), und ein Lebensmittelgeschäft mit Twinings-Tee, Ovaltine, Brot, Zucker (British Sugar), Zutaten und Landwirtschaft. Die Familie Weston kontrolliert rund 56 % der Aktien.",
    "kpis": [
@@ -6631,6 +7019,32 @@
    },
    "zahlen": "2026-10-27",
    "dividende": "3.5 %",
+   "div_info": {
+    "pro_jahr": 4,
+    "rhythmus": "quartalsweise",
+    "ex_monate": [
+     3,
+     6,
+     9,
+     12
+    ],
+    "zahl_monate": [
+     1,
+     4,
+     7,
+     10
+    ],
+    "zahl_text": "jeweils am 14. Januar, April, Juli und Oktober",
+    "abstand_tage": 14,
+    "betrag": 0.52,
+    "angekuendigt": {
+     "ex": "2026-09-30",
+     "zahltag": "2026-10-14",
+     "betrag": 0.52
+    },
+    "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Die Erhöhung kommt jeweils im Sommer und gilt ab der Oktober-Zahlung.",
+    "serie": "12 Jahre in Folge erhöht."
+   },
    "fazit": "Starke Marken, aber die Zahlen leiden unter dem teuren Kakao der letzten zwei Jahre. Qualität orange (31), Timing orange (38). Interessant: Der Kurs bildet bei 57.5–58.5 $ gerade einen Dreifachboden, und auf der Woche steigen die Tiefs seit Januar. Ein Tagesschluss über 62.20 $ wäre das Signal. Die Entlastung durch den gefallenen Kakaopreis kommt vor allem 2027.",
    "about": "Mondelez ist einer der grössten Snack-Hersteller der Welt: Guetzli (Oreo, LU, belVita), Schokolade (Milka, Cadbury, Toblerone, Côte d'Or) und Kaugummi. Rund drei Viertel des Umsatzes kommen von ausserhalb der USA, ein grosser Teil aus Europa und Schwellenländern.",
    "kpis": [
@@ -6893,6 +7307,32 @@
    },
    "zahlen": "2026-12-17",
    "dividende": "7.7 %",
+   "div_info": {
+    "pro_jahr": 4,
+    "rhythmus": "quartalsweise",
+    "ex_monate": [
+     1,
+     4,
+     7,
+     10
+    ],
+    "zahl_monate": [
+     2,
+     5,
+     8,
+     11
+    ],
+    "zahl_text": "jeweils Anfang Februar, Mai, August und November",
+    "abstand_tage": 21,
+    "betrag": 0.61,
+    "angekuendigt": {
+     "ex": "2026-10-13",
+     "zahltag": "2026-11-02",
+     "betrag": 0.61
+    },
+    "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Seit 2025 nicht mehr erhöht.",
+    "serie": "Zahlt seit über 125 Jahren ohne Unterbruch."
+   },
    "fazit": "Die Aktie hat sich seit 2023 mehr als halbiert und steht so tief wie seit über zehn Jahren nicht mehr. Umsatz und Gewinn schrumpfen, die Schulden steigen. Qualität orange (30), Timing rot (21). Sehr billig (KGV rund 10), aber ohne Wende in den Zahlen ist das eine mögliche Value-Falle.",
    "about": "General Mills stellt Frühstücksflocken (Cheerios, Cerealien zusammen mit Nestlé), Müesliriegel (Nature Valley), Backwaren (Pillsbury), Glacé (Häagen-Dazs) und Tierfutter (Blue Buffalo) her. Rund drei Viertel des Umsatzes kommen aus Nordamerika.",
    "kpis": [
@@ -7153,6 +7593,26 @@
    },
    "zahlen": "2026-10-28",
    "dividende": "7.3 %",
+   "div_info": {
+    "pro_jahr": 4,
+    "rhythmus": "quartalsweise",
+    "ex_monate": [
+     3,
+     6,
+     9,
+     11
+    ],
+    "zahl_monate": [
+     3,
+     6,
+     9,
+     12
+    ],
+    "zahl_text": "jeweils Ende März, Juni, September und Dezember",
+    "abstand_tage": 21,
+    "betrag": 0.4,
+    "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Seit der Kürzung 2019 unverändert bei 0.40 $."
+   },
    "fazit": "Eine schrumpfende Firma mit hoher Dividende. Der Umsatz sinkt seit drei Jahren, es gab Abschreibungen in Milliardenhöhe, und die geplante Aufspaltung wurde gestoppt. Qualität rot (29), Timing rot (15). Die 7.3 % Dividende ist verlockend, aber typisch für eine Dividendenfalle. Erfüllt die Kriterien für ein Qualitäts-Depot nicht.",
    "about": "Kraft Heinz stellt verpackte Lebensmittel her: Ketchup und Saucen (Heinz), Käse und Fertiggerichte (Kraft, Philadelphia), Wurstwaren (Oscar Mayer) und Kinder-Snacks (Lunchables). Rund drei Viertel des Umsatzes kommen aus Nordamerika.",
    "kpis": [
