@@ -174,6 +174,65 @@
     "zahlt": false,
     "text": "AppLovin zahlt keine Dividende, sondern kauft mit dem Gewinn eigene Aktien zurück."
    },
+   "chance": {
+    "ticker": "APP",
+    "sorgen": [
+     "Das Wachstum lässt nach: Im 2. Quartal +53 %, aber unter der eigenen Prognose. Für das 3. Quartal erwartet AppLovin rund +47 %. Grund laut Firma: Das KI-Modell Axon machte wegen eines Umbaus weniger Fortschritte.",
+     "Seit September 2026 läuft eine Sammelklage (Käufer vom 12.02. bis 05.08.2026). Vorwurf, noch unbewiesen: AppLovin habe die KI-Fortschritte zu positiv dargestellt. Die US-Börsenaufsicht SEC hat laut Finanzchef ihre Untersuchung ohne Massnahmen beendet.",
+     "Das neue Geschäft mit Onlinehändlern kommt langsamer voran: AppLovin kann laut Chef noch nicht zuverlässig fertige Video-Werbung erstellen. Die Research-Firma Edgewater meldete im September, dass die Marktanteilsgewinne stocken.",
+     "Der Kurs liegt rund 54 % unter dem Jahresanfang. Das durchschnittliche Analysten-Kursziel fiel von rund 654 $ (Juni) auf rund 498 $ (September)."
+    ],
+    "sorgen_art": "gemischt",
+    "sorgen_art_text": "Die Verlangsamung und die Verzögerungen bei Onlinehändlern sind echt, aber die Firma wächst immer noch über 40 % mit über 80 % EBITDA-Marge, und die Ursache (Modell-Umbau) könnte vorübergehend sein.",
+    "aufloeser": [
+     {
+      "was": "Erstes volles Quartal mit den neuen Axon-Modellen: Umsatz mindestens 2.055–2.085 Mrd. $ wie angekündigt und ein Ausblick für das 4. Quartal ohne weitere Abschwächung",
+      "wann": "Zahlen 3. Quartal, Anfang November 2026 (laut Analyse 04.11.2026)"
+     },
+     {
+      "was": "AppLovin zeigt, dass das Geschäft mit Onlinehändlern messbar wächst (z. B. eigene Zahlen zu Kunden oder Umsatzanteil)",
+      "wann": "Zahlen November 2026 und Februar 2027"
+     },
+     {
+      "was": "Die Sammelklage verliert an Bedeutung oder wird abgewiesen (nächster Verfahrensschritt: Frist für den Hauptkläger am 16.11.2026)",
+      "wann": "Ab 16.11.2026, Verfahren dauert meist Jahre"
+     }
+    ],
+    "schub_stufe": "mittel",
+    "schub_treiber": [
+     {
+      "titel": "Werbeplattform für alle Firmen (Self-Serve)",
+      "text": "Seit Ende Juni 2026 kann jede Firma selbst Werbung über AppLovin schalten, nicht mehr nur Spielefirmen. Die Ausgaben von Onlinehändlern erreichten im 2. Quartal einen Rekord, 28 % über dem 4. Quartal 2025. Die Firma schätzte früher, 100'000 neue Kunden könnten rund 7 Mrd. $ Werbeausgaben im ersten Jahr bringen; zum Vergleich: Der ganze Umsatz im 2. Quartal lag bei 1.92 Mrd. $.",
+      "wann": "2026–2028"
+     },
+     {
+      "titel": "Neue Axon-Modelle",
+      "text": "Nach dem 2. Quartal wurden grössere Verbesserungen am KI-Modell Axon eingeführt. Das 3. Quartal ist das erste volle Quartal damit. Bessere Modelle bedeuten bei AppLovin direkt mehr Umsatz, weil pro Erfolg bezahlt wird.",
+      "wann": "ab 3. Quartal 2026"
+     },
+     {
+      "titel": "KI erstellt Werbevideos automatisch",
+      "text": "Laut Chef ist die Herstellung von Werbung der grösste Engpass für neue Kunden. Gelingt es, 30–60 Sekunden lange Videos automatisch zu erstellen, öffnet sich der Markt für viele mittlere und grosse Marken. Noch ist das aber nicht so weit.",
+      "wann": "2027"
+     }
+    ],
+    "schub_beweis": "Achte auf das Umsatzwachstum zum Vorquartal (Ausblick 3. Quartal: rund +7 %) und auf den Ausblick für das 4. Quartal. Steigt das Wachstum wieder und nennt AppLovin erstmals Zahlen zum Geschäft mit Onlinehändlern, kommt der Schub.",
+    "szenario": "Wie Google 2023: Die Börse glaubt, die Wachstumsgeschichte sei vorbei, und bewertet AppLovin mit einem erwarteten KGV von rund 16 statt früher rund 47. Zeigen die neuen Axon-Modelle und das Geschäft mit Onlinehändlern Wirkung, könnte sich diese Bewertung deutlich erholen. Grösstes Risiko: Das Wachstum fällt weiter, Konkurrenz (zum Beispiel neue Werbe-Werkzeuge von Meta) und Klagen belasten, und die Firma bleibt von einem einzigen Produkt sowie von den Regeln von Apple und Google abhängig.",
+    "quellen": [
+     {
+      "titel": "TIKR: AppLovin stock is down 54% in 2026 and facing a class action (27.09.2026)",
+      "url": "https://www.tikr.com/ja/blog/applovin-stock-is-down-54-in-2026-and-facing-a-class-action-heres-where-it-could-go"
+     },
+     {
+      "titel": "Common Thread Co: AppLovin Q2 2026 – AI model pause and record ecommerce spending",
+      "url": "https://commonthreadco.com/blogs/coachs-corner/applovin-q2-2026-earnings-ecommerce-advertisers"
+     },
+     {
+      "titel": "Finsee: AppLovin (APP) Q2 2026 earnings review",
+      "url": "https://finsee.ai/earnings/app/2026/q2/en/"
+     }
+    ]
+   },
    "fazit": "Auf dem Papier eine der profitabelsten Wachstumsfirmen überhaupt, an der Börse aber im freien Fall. Qualität laut Schema sehr hoch, Timing rot. Das Schema misst die Risiken hier nur teilweise: ein einziges Produkt, nachlassendes Wachstum, viel Misstrauen. Erst einen Boden abwarten.",
    "about": "AppLovin verkauft Werbung: Die KI-Plattform Axon entscheidet in Sekundenbruchteilen, welche Werbung in welcher App gezeigt wird, und kassiert pro Erfolg. Ursprünglich ging es um Handyspiele, seit 2025 zunehmend um Onlinehändler und andere Branchen. Das eigene Spiele-Geschäft wurde 2025 verkauft. Übrig blieb eine reine Software-Plattform mit enormen Margen.",
    "kpis": [
@@ -443,6 +502,78 @@
    "div_info": {
     "zahlt": false,
     "text": "Uber zahlt keine Dividende, sondern kauft mit dem Gewinn eigene Aktien zurück."
+   },
+   "chance": {
+    "ticker": "UBER",
+    "sorgen": [
+     "Robotaxis: Die Börse fürchtet, dass Waymo, Tesla und Zoox eigene Apps aufbauen und Uber als Vermittler nicht mehr brauchen. Als Tesla Anfang September 2026 das Cybercab in Austin startete, fiel Uber an einem Tag um 4 %.",
+     "Waymo hat am 24.7.2026 angekündigt, ab Januar 2028 in Austin und Atlanta eine eigene App zu starten. Der Vertrag mit Uber endet dort im Mai 2028.",
+     "Laut Bank of America (22.9.2026) haben Robotaxi-Konkurrenten 18 bis 24 Monate Vorsprung, weil Ubers eigene Robotaxi-Partner erst ab 2028 in grosser Zahl fahren sollen.",
+     "Der Umsatz wächst langsamer (+12 % im 2. Quartal), und Uber will Delivery Hero übernehmen (Angebot 41.50 € pro Aktie, laut Bericht rund 14.8 Mrd. $ für das Eigenkapital). Der Kurs liegt rund 28 % unter dem Rekordhoch von 100 $."
+    ],
+    "sorgen_art": "stimmung",
+    "sorgen_art_text": "Das heutige Geschäft läuft so gut wie nie (Fahrten +18 %, Buchungen +24 %, Free Cashflow erstmals über 10 Mrd. $ in 12 Monaten); gefallen ist der Kurs wegen einer Zukunftsangst, die sich frühestens ab 2028 in den Zahlen zeigen kann.",
+    "aufloeser": [
+     {
+      "was": "Starke Zahlen zum 3. Quartal: Bruttobuchungen am oberen Ende des Ausblicks (58.25–60.25 Mrd. $) und ein Ausblick, der weiter rund 20 % Wachstum zeigt.",
+      "wann": "Zahlen 4.11.2026 (vor Börsenstart)"
+     },
+     {
+      "was": "Klarheit beim Delivery-Hero-Angebot: wie viele Aktionäre annehmen und ob die Wettbewerbsbehörden zustimmen.",
+      "wann": "Annahmefrist bis Anfang November 2026, Abschluss laut Bericht nicht vor dem 2. Halbjahr 2027"
+     },
+     {
+      "was": "Erste Zahlen, dass Robotaxis auf der Uber-App besser ausgelastet sind als in eigenen Apps (der CEO spricht von rund 30 % mehr Auslastung).",
+      "wann": "2027–2028"
+     },
+     {
+      "was": "Weitere Insider-Käufe oder ein grösseres Rückkaufprogramm. Der CEO kaufte am 10.9.2026 für rund 10 Mio. $ zu 70.96 $, der COO für 5.3 Mio. $.",
+      "wann": "laufend"
+     }
+    ],
+    "schub_stufe": "mittel",
+    "schub_treiber": [
+     {
+      "titel": "Marktplatz für Robotaxis",
+      "text": "Uber will die grösste Plattform für autonome Autos werden. Mit Partnern wie Nvidia, Lucid, Rivian, Volkswagen, Zoox und WeRide könnte Uber laut Bericht Zugang zu rund 120'000 Robotaxis bekommen. Wenn Robotaxi-Firmen Ubers über 200 Mio. Kunden brauchen, wird Uber zum Gewinner statt zum Opfer. Bewiesen ist das aber noch nicht.",
+      "wann": "2027–2029"
+     },
+     {
+      "title_hinweis": "",
+      "titel": "Abo Uber One",
+      "text": "Über 50 Mio. Mitglieder (+50 % in einem Jahr), sie stehen für rund die Hälfte aller Buchungen. Abo-Kunden fahren und bestellen öfter und wechseln seltener zur Konkurrenz. Das stützt das Wachstum, ist aber schon im heutigen Tempo enthalten.",
+      "wann": "läuft bereits"
+     },
+     {
+      "titel": "Übernahme Delivery Hero",
+      "text": "Delivery Hero ist ein grosser Essenslieferdienst in Europa, Asien und Nahost. Uber besitzt schon rund 37 %, mit der Zusage von Prosus kommt Uber auf rund 53 %. Das würde Uber Eats stark vergrössern, ist aber ein Zukauf und kein eigenes Wachstum, und es gibt ein Kartellrisiko.",
+      "wann": "Abschluss frühestens 2. Halbjahr 2027"
+     }
+    ],
+    "schub_beweis": "Am 4.11.2026: Wachsen die Bruttobuchungen ohne Währungseffekt weiter um rund 20 % (Ausblick 18–22 %) und die Zahl der Fahrten um über 15 %? Ein Zusatzzeichen wäre, wenn Uber erstmals Zahlen zu Robotaxi-Fahrten auf der eigenen Plattform nennt.",
+    "szenario": "Wie Google 2023: Viele glauben, Robotaxis machen Uber überflüssig. Zeigt sich, dass Robotaxi-Firmen Ubers Kunden brauchen, ist eine Firma mit über 10 Mrd. $ Free Cashflow zu einem erwarteten KGV von rund 17 (früher 24–28) günstig, und die Bewertung könnte sich erholen. Grösstes Risiko: Waymo und Tesla bauen eigene Netze auf, und Uber bleibt nur das Geschäft mit menschlichen Fahrern, das dann langsam schrumpft.",
+    "quellen": [
+     {
+      "titel": "Uber Q2 2026 Ergebnisse (SEC 8-K)",
+      "url": "https://www.sec.gov/Archives/edgar/data/0001543151/000154315126000027/uberq226earningspressrelea.htm"
+     },
+     {
+      "titel": "TIKR: Uber Stock Is Down 28%, and the Robotaxi Clock Is Ticking",
+      "url": "https://www.tikr.com/blog/uber-stock-is-down-28-and-the-robotaxi-clock-is-ticking-its-ceo-just-bought-10-million-of-stock-anyway"
+     },
+     {
+      "titel": "Ground News: Waymo explores ending Uber ties",
+      "url": "https://ground.news/article/waymo-explores-ending-uber-ties-as-robotaxi-rivalry-grows-goog-nasdaq"
+     },
+     {
+      "titel": "SentiSense: Uber opens its €41.50-a-share offer for Delivery Hero",
+      "url": "https://app.sentisense.ai/stories/uber-launches-multibillion-dollar-bid-for-delivery-hero-as-it-leans-on-subscript-08272026"
+     },
+     {
+      "titel": "Wall Street Horizon: Uber Earnings Calendar",
+      "url": "https://www.wallstreethorizon.com/uber-earnings-calendar"
+     }
+    ]
    },
    "fazit": "Fundamental stärker denn je, aber die Börse fürchtet Robotaxis. Der Chef hat im September für 10 Mio. $ eigene Aktien gekauft. Qualität grün, Timing orange. Der Kurs liegt am unteren Rand der Spanne und auf der EMA 200 (Woche). Die Zone 65–68 $ ist interessant, der Trigger ein Tagesschluss über 73.20 $.",
    "about": "Uber vermittelt Fahrten (Mobility), liefert Essen und Einkäufe (Uber Eats) und vermittelt Lastwagen-Frachten. Uber besitzt keine Autos: Die Plattform bringt Kunden und Fahrer zusammen und behält eine Gebühr. Seit 2023 ist Uber profitabel. Für die Zukunft setzt Uber darauf, auch Robotaxis anderer Firmen (Waymo, Wayve und andere) über die eigene App anzubieten.",
@@ -731,6 +862,7 @@
     "betrag": 0.279,
     "system": "Britisches System mit Zwischen- und Schlussdividende: Im September kommt eine kleine Zwischendividende (rund 30 %), im Juni nach der Generalversammlung die grössere Schlussdividende (rund 70 %). Du hältst die US-Variante (ADR), darum wird in Dollar ausbezahlt und der Betrag schwankt mit dem Pfund."
    },
+   "chance": null,
    "fazit": "Das Geschäft läuft besser als je zuvor, der Kurs zeigt es nicht. Qualität klar grün, Timing noch orange. Beobachten und auf den Trendwechsel warten.",
    "about": "RELX verkauft Daten und Analyse-Werkzeuge im Abo: LexisNexis Risk (Betrugs- und Kreditprüfung für Banken und Versicherer), Elsevier (wissenschaftliche Fachzeitschriften), LexisNexis Legal (Rechtsdatenbanken) und Messen. Rund drei Viertel des Umsatzes sind wiederkehrend. Der Kurs ist seit Anfang 2025 um rund 40 % gefallen, weil Anleger fürchten, dass KI-Sprachmodelle diese Datenbanken ersetzen. RELX baut KI selbst in seine Produkte ein (zum Beispiel Lexis+ AI) und wächst bisher weiter.",
    "kpis": [
@@ -1033,6 +1165,60 @@
     "betrag": 0.22,
     "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Erst seit 2024, die Rendite ist klein (Alphabet kauft vor allem eigene Aktien zurück)."
    },
+   "chance": {
+    "ticker": "GOOGL",
+    "sorgen": [
+     "Alphabet will 2026 rund 195–205 Mrd. $ in KI-Rechenzentren investieren. Deshalb war der Free Cashflow (freies Geld nach allen Investitionen) im 2. Quartal negativ: −5.9 Mrd. $.",
+     "Im Juni hat Alphabet rund 85 Mrd. $ über neue Aktien und Wandelpapiere aufgenommen, laut Bericht die grösste Kapitalerhöhung der US-Geschichte. Das verwässert deinen Anteil (dein Stück vom Kuchen wird kleiner).",
+     "Die Schulden sind laut Bericht in einem Jahr von rund 16 auf rund 100 Mrd. $ gestiegen. Nach den Zahlen vom 22.07.2026 fiel die Aktie über 7 %.",
+     "Für 2027 kündigt Alphabet noch höhere Investitionen an. Die Börse fragt sich: Verdient sich dieses Geld je zurück?"
+    ],
+    "sorgen_art": "stimmung",
+    "sorgen_art_text": "Das Geschäft wächst sogar schneller als früher (Umsatz +24 %, Cloud +82 %); die Sorge betrifft nur, ob sich die riesigen Investitionen lohnen und wie stark die Aktionäre verwässert werden.",
+    "aufloeser": [
+     {
+      "was": "Cloud wächst weiter stark, der Auftragsbestand steigt über 514 Mrd. $ und der Free Cashflow wird wieder positiv",
+      "wann": "Zahlen 3. Quartal, voraussichtlich Ende Oktober 2026 (um den 28.10.)"
+     },
+     {
+      "was": "Die unterschriebenen Verträge für TPU-Chips (eigene KI-Chips) werden laut Firma grösstenteils 2027 zu Umsatz",
+      "wann": "2027"
+     },
+     {
+      "was": "Der Investitionsplan für 2027 steigt weniger stark als befürchtet oder der Umsatz wächst sichtbar mit",
+      "wann": "Zahlen 4. Quartal, Anfang 2027"
+     }
+    ],
+    "schub_stufe": "stark",
+    "schub_treiber": [
+     {
+      "titel": "Google Cloud mit riesigem Auftragsbestand",
+      "text": "Google Cloud setzte im 2. Quartal 24.8 Mrd. $ um, 82 % mehr als vor einem Jahr. Die Marge stieg von 20.7 % auf 35.6 %. Der Auftragsbestand (schon unterschriebene, aber noch nicht verbuchte Verträge) liegt bei 514 Mrd. $, vor einem Jahr waren es 106 Mrd. $. Laut Firma soll gut die Hälfte davon innerhalb von 24 Monaten zu Umsatz werden.",
+      "wann": "2026–2028"
+     },
+     {
+      "titel": "Verkauf eigener KI-Chips (TPU) an andere Firmen",
+      "text": "Seit dem 2. Quartal verbucht Google erste Umsätze aus dem Verkauf ganzer TPU-Systeme. Laut Bericht laufen die Verkäufe gut, der grösste Teil der Umsätze aus den unterschriebenen Verträgen kommt aber erst 2027. Eine Zahl dazu hat Google noch nicht genannt.",
+      "wann": "2027"
+     }
+    ],
+    "schub_beweis": "Achte bei jeden Zahlen auf drei Werte: Cloud-Wachstum (zuletzt +82 %), Cloud-Auftragsbestand (zuletzt 514 Mrd. $) und Free Cashflow (zuletzt −5.9 Mrd. $). Steigen die ersten beiden weiter und dreht der Free Cashflow ins Plus, kommt der Schub an.",
+    "szenario": "Wie Google 2023, nur eine Stufe weiter: Damals zweifelte die Börse an Googles KI, heute an den Kosten dafür. Werden Cloud-Auftragsbestand und TPU-Verträge 2027 wie geplant zu Umsatz, kann der Gewinn deutlich schneller wachsen als erwartet. Grösstes Risiko: Die KI-Nachfrage kühlt ab, während die Rechenzentren schon gebaut sind; dann bleiben hohe Kosten, mehr Aktien und wenig freies Geld.",
+    "quellen": [
+     {
+      "titel": "Fierce Network: Google Cloud surges, but Alphabet's AI capex problem grows (22.07.2026)",
+      "url": "https://www.fierce-network.com/cloud/google-cloud-surges-alphabets-ai-capex-problem-grows"
+     },
+     {
+      "titel": "Futuriom: Google Raises Capex, Wall Street Sells (23.07.2026)",
+      "url": "https://www.futuriom.com/articles/news/google-raises-capex-wall-street-sells/2026/07"
+     },
+     {
+      "titel": "TIKR: Alphabet Stock Just Raised $84.75 Billion for AI (14.06.2026)",
+      "url": "https://www.tikr.com/blog/alphabet-stock-just-raised-84-75-billion-for-ai-what-berkshires-10-billion-bet-means-for-investors"
+     }
+    ]
+   },
    "fazit": "Das stärkste Wachstum der drei (Umsatz +24 %, Cloud +82 %) und über 120 Mrd. $ Netto-Cash. Aber die Rekord-Investitionen haben den Free Cashflow ins Minus gedrückt, und statt Aktien zurückzukaufen gibt Alphabet neue aus. Qualität grün, Timing gelb: Der Kurs läuft seit Mai seitwärts mit tieferen Hochs. Trigger ist ein Tagesschluss über 364 $.",
    "about": "Alphabet ist die Mutter von Google. Das Geld kommt aus Werbung in der Google-Suche und auf YouTube, aus Google Cloud (Rechenleistung und KI-Modelle wie Gemini für Firmen) sowie aus Android, Abos und Geräten. Dazu kommen Zukunftsprojekte wie Waymo (selbstfahrende Taxis) und grosse Beteiligungen an anderen Firmen.",
    "kpis": [
@@ -1332,6 +1518,60 @@
      "betrag": 0.98
     }
    },
+   "chance": {
+    "ticker": "MSFT",
+    "sorgen": [
+     "Microsoft investiert rund 175 Mrd. $ pro Jahr in KI-Rechenzentren, und im Geschäftsjahr 2027 sollen die Investitionen weiter steigen. Das drückt den Free Cashflow (freies Geld nach Investitionen) und die Kapitalrendite.",
+     "Klumpenrisiko OpenAI: Im Januar 2026 hiess es, 45 % des Auftragsbestands hängen an OpenAI. OpenAI schreibt laut Prognosen hohe Verluste und mietet Rechenleistung inzwischen auch bei Amazon und Oracle.",
+     "Copilot (der KI-Assistent in Office) zahlt erst ein kleiner Teil der Kunden: über 30 Mio. bezahlte Plätze bei über 450 Mio. bezahlten Office-Firmenlizenzen.",
+     "Im Juni 2026 lag die Aktie mehr als 33 % unter dem Hoch (Tief um 356 $). Seither hat sie sich auf über 500 $ erholt: Ein grosser Teil der Sorgen ist schon wieder aus dem Kurs."
+    ],
+    "sorgen_art": "stimmung",
+    "sorgen_art_text": "Das Geschäft beschleunigt sich (Azure +43 %, Auftragsbestand +84 %); gestritten wird über die Höhe der Investitionen und die Abhängigkeit von OpenAI, nicht über schwache Nachfrage.",
+    "aufloeser": [
+     {
+      "was": "Azure erreicht das angekündigte Wachstum von rund 45 % und der Auftragsbestand ohne OpenAI wächst weiter (zuletzt +25 %)",
+      "wann": "Zahlen 1. Quartal Geschäftsjahr 2027, voraussichtlich Ende Oktober 2026 (um den 28.10.)"
+     },
+     {
+      "was": "Die Zahl der bezahlten Copilot-Plätze steigt weiter kräftig (von 20 Mio. im April auf über 30 Mio. im Juli)",
+      "wann": "Bei jeden Quartalszahlen, nächste Ende Oktober 2026"
+     },
+     {
+      "was": "OpenAI sichert seine Finanzierung, sodass die grossen Cloud-Verträge auch bezahlt werden können",
+      "wann": "Laufend; laut Analyse wird es vor allem 2028–2029 bei den Vertragsverlängerungen ernst"
+     }
+    ],
+    "schub_stufe": "mittel",
+    "schub_treiber": [
+     {
+      "titel": "Azure und Rekord-Auftragsbestand",
+      "text": "Azure (Cloud) wuchs im Quartal bis Juni um 43 % und übertraf erstmals 100 Mrd. $ Jahresumsatz. Für Juli–September erwartet Microsoft rund 45 %. Der Auftragsbestand liegt bei 678 Mrd. $ (+84 %), also rund zwei Jahresumsätze. Aber: Azure treibt schon das heutige Tempo (+18 %), und ein grosser Teil hängt an OpenAI.",
+      "wann": "2026–2028"
+     },
+     {
+      "titel": "Copilot als KI-Abo in Office",
+      "text": "Über 30 Mio. Firmen-Plätze zahlen schon für Copilot, ein Plus von 50 % in einem Quartal. Bei über 450 Mio. Office-Firmenlizenzen ist das erst ein kleiner Anteil, das Potenzial ist also gross. Ob Firmen breit dafür zahlen, ist aber noch nicht bewiesen.",
+      "wann": "2026–2028"
+     }
+    ],
+    "schub_beweis": "Achte auf das Azure-Wachstum (Ausblick rund 45 %) und auf die bezahlten Copilot-Plätze (zuletzt über 30 Mio.). Steigen beide weiter und wächst der Auftragsbestand auch ohne OpenAI, zieht das Gesamtwachstum über die heutigen 18 %.",
+    "szenario": "Wie Google 2023 wäre es, wenn Copilot in der Breite durchbricht und Azure über 45 % bleibt: Dann würde der Gewinn trotz hoher Investitionen schneller wachsen, als die Börse heute annimmt. Allerdings hat sich der Kurs schon stark erholt und steht nahe am Hoch, die grosse Erholungschance aus dem Juni ist weitgehend vorbei. Grösstes Risiko: OpenAI kann seine Verträge nicht voll bezahlen oder wechselt den Anbieter, während Microsoft die Rechenzentren schon gebaut hat.",
+    "quellen": [
+     {
+      "titel": "Blockspace: Microsoft Azure growth, cloud backlog, earnings 2026 (Zahlen 29.07.2026)",
+      "url": "https://blockspace.media/insight/microsoft-azure-growth-cloud-backlog-earnings-2026/"
+     },
+     {
+      "titel": "Techstock01: Microsoft – Cloud and AI revenue accelerating, Capex will increase in FY27 (30.07.2026)",
+      "url": "https://techstock01.substack.com/p/microsoft-cloud-and-ai-revenue-accelerating"
+     },
+     {
+      "titel": "INDmoney: Why Microsoft stock is falling – AI capex and OpenAI risk (Juni 2026)",
+      "url": "https://indmoney.com/blog/us-stocks/why-microsoft-stock-is-falling-ai-capex-openai-risk-analysis"
+     }
+    ]
+   },
    "fazit": "Eine der stärksten Firmen der Welt, und der Kurs hat den Einbruch vom Frühling fast ganz aufgeholt. Qualität grün, Timing hellgrün. Der Kurs steht aber direkt unter dem Allzeithoch: Ein sauberer Einstieg ist ein Rücksetzer in die Zone 477–491 $ oder ein Wochenschluss über 525 $.",
    "about": "Microsoft verdient an drei Säulen: Azure (Rechenzentren und KI-Rechenleistung zur Miete, der Wachstumsmotor), Microsoft 365 (Office, Teams, dazu der KI-Assistent Copilot im Abo) und Windows, LinkedIn und Xbox. Ein grosser Teil des Umsatzes ist wiederkehrend, weil Firmen Abos und Cloud-Verträge über Jahre abschliessen.",
    "kpis": [
@@ -1624,6 +1864,7 @@
     "betrag": 0.67,
     "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Die Erhöhung wird jeweils Ende Oktober angekündigt und gilt ab der Dezember-Zahlung."
    },
+   "chance": null,
    "fazit": "Eine der profitabelsten Firmen der Welt in einem sauberen Aufwärtstrend. Seit August läuft eine ruhige Seitwärtsphase knapp unter dem Hoch. Qualität grün, Timing hellgrün. Die Zone 357–362 $ ist ein sinnvoller Einstieg, der Ausbruch ein Tagesschluss über 385.60 $.",
    "about": "Visa betreibt das Netzwerk, über das Kartenzahlungen zwischen Bank des Käufers und Bank des Händlers laufen. Visa gibt selbst keine Kredite und trägt kein Ausfallrisiko. Pro Zahlung verdient Visa eine kleine Gebühr. Über 4 Billionen $ Zahlungen laufen pro Quartal über das Netz. Neu kommen Stablecoins (digitale Dollar) und Zahlungen durch KI-Agenten dazu.",
    "kpis": [
@@ -1916,6 +2157,7 @@
     "betrag": 1.47,
     "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr, Erhöhung jeweils im April. Ab und zu eine grosse Sonderdividende (zuletzt 15 $ im Januar 2024)."
    },
+   "chance": null,
    "fazit": "Eine der besten Handelsfirmen der Welt, aber nie billig. Seit dem Mai-Hoch hat der Kurs 16 % verloren, die Zahlen bleiben stark. Qualität grün, Timing gelb. Es gibt erste Bodenzeichen (bullische Divergenz). Der Trigger ist ein Tagesschluss über 931 $.",
    "about": "Costco betreibt rund 900 grosse Lagerhallen-Märkte, in denen nur Mitglieder einkaufen dürfen (Jahresgebühr ab 65 $). Die Waren werden fast zum Einkaufspreis verkauft. Der Gewinn kommt zu einem grossen Teil aus den Mitgliedsgebühren, über 90 % der Mitglieder verlängern jedes Jahr. Das macht den Gewinn sehr planbar.",
    "kpis": [
@@ -2185,6 +2427,68 @@
    "div_info": {
     "zahlt": false,
     "text": "ServiceNow zahlt keine Dividende und investiert den Gewinn ins Wachstum. Dazu kommen Aktienrückkäufe."
+   },
+   "chance": {
+    "ticker": "NOW",
+    "sorgen": [
+     "KI-Angst: Die Börse fürchtet, dass Firmen mit KI eigene Lösungen bauen oder KI-Agenten Mitarbeiter ersetzen. Dann bräuchten Kunden weniger Lizenzen. Der Kurs fiel von rund 150 $ Ende 2025 bis unter 85 $ im April 2026 (Kurse nach dem Aktiensplit 5:1).",
+     "Das Wachstum soll leicht abflachen: Für das 3. Quartal erwartet ServiceNow +20.5 % Abo-Umsatz, nach +24.5 % im 2. Quartal. Ein Teil des starken 2. Quartals kam aus vorgezogenen Aufträgen von US-Behörden.",
+     "KI-Rechenleistung ist teuer und die Übernahme von Armis kostet: Die Abo-Bruttomarge sinkt (Ausblick 2026: 81 %), der Free-Cashflow-Ausblick wurde auf 35 % vom Umsatz gesenkt."
+    ],
+    "sorgen_art": "stimmung",
+    "sorgen_art_text": "Der Auftragsbestand wächst weiter um rund 21 % und das KI-Geschäft hat 1 Mrd. $ Jahresvertragswert überschritten; die Angst vor KI ist bisher eine Befürchtung, nicht in den Zahlen sichtbar.",
+    "aufloeser": [
+     {
+      "was": "Auftragsbestand (cRPO) wächst mindestens wie angekündigt (+19.5 %) und der KI-Vertragswert steigt Richtung 1.5 Mrd. $",
+      "wann": "Zahlen 28.10.2026"
+     },
+     {
+      "was": "Das KI-Ziel von 1.5 Mrd. $ Jahresvertragswert für 2026 wird erreicht und der Ausblick 2027 zeigt weiter rund 20 % Wachstum",
+      "wann": "Zahlen 4. Quartal, voraussichtlich Ende Januar 2027"
+     },
+     {
+      "was": "Kunden zeigen, dass KI-Agenten mehr Umsatz pro Kunde bringen statt weniger (laut Firma gaben Now-Assist-Kunden bei der Verlängerung 2025 im Schnitt 3-mal mehr aus)",
+      "wann": "2027"
+     }
+    ],
+    "schub_stufe": "mittel",
+    "schub_treiber": [
+     {
+      "titel": "KI-Agenten (Now Assist)",
+      "text": "Das KI-Geschäft hat im 2. Quartal 1 Mrd. $ Jahresvertragswert überschritten. Das Ziel für Ende 2026 wurde von 1 auf 1.5 Mrd. $ erhöht. Bis 2030 soll KI über 30 % des gesamten Vertragswerts ausmachen. Laut Firma bringen frei werdende Lizenzen als KI-Agenten-Nutzung ein Vielfaches an Wert.",
+      "wann": "2026–2030"
+     },
+     {
+      "titel": "Sicherheit und Kundenservice (CRM)",
+      "text": "Das Sicherheitsgeschäft wuchs laut Firma organisch um 40 %, das CRM-Geschäft hat 1.8 Mrd. $ Jahresvertragswert überschritten. Die Übernahme von Armis bringt 2026 rund 1.25 Prozentpunkte zusätzliches Wachstum.",
+      "wann": "2026–2027"
+     },
+     {
+      "titel": "Ziel 2030: Umsatz verdoppeln",
+      "text": "Am Investorentag (04.05.2026) nannte ServiceNow über 30 Mrd. $ Abo-Umsatz bis 2030, 2026 sind es rund 15.8 Mrd. $. Das entspricht etwa 17–18 % Wachstum pro Jahr, also eher weniger als heute. Ein Schub über das heutige Tempo ist darin nicht eingeplant.",
+      "wann": "bis 2030"
+     }
+    ],
+    "schub_beweis": "Achte auf den KI-Jahresvertragswert (Ziel 1.5 Mrd. $ Ende 2026) und auf das cRPO-Wachstum (zuletzt +21.5 % währungsbereinigt). Bleibt das cRPO über 20 % und die Abo-Bruttomarge um 81 %, frisst KI das Geschäft nicht auf, sondern ergänzt es.",
+    "szenario": "Wie Google 2023: Die Börse glaubte, KI mache ServiceNow überflüssig, dabei verkauft die Firma selbst schon über 1 Mrd. $ KI pro Jahr. Bestätigen die nächsten Zahlen das, kann sich die Bewertung von den Tiefs weiter erholen. Grösstes Risiko: Kunden streichen tatsächlich Lizenzen schneller, als KI-Agenten den Umsatz ersetzen, und die teure Rechenleistung drückt die Marge.",
+    "quellen": [
+     {
+      "titel": "ServiceNow: Second Quarter 2026 Financial Results (SEC 8-K, 22.07.2026)",
+      "url": "https://www.sec.gov/Archives/edgar/data/0001373715/000137371526000072/erq2fy26.htm"
+     },
+     {
+      "titel": "Fortune via Yahoo Finance: ServiceNow just told Wall Street it's going to double again (06.05.2026)",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/servicenow-just-told-wall-street-160014467.html"
+     },
+     {
+      "titel": "Nasdaq / MarketBeat: ServiceNow's 18% Drop – AI Fears Continue but May Be Overblown",
+      "url": "https://www.nasdaq.com/articles/servicenows-18-drop-ai-fears-continue-may-be-overblown"
+     },
+     {
+      "titel": "Parameter: ServiceNow stock tumbles after solid Q2 results despite raised outlook (23.07.2026)",
+      "url": "https://parameter.io/servicenow-now-stock-tumbles-after-solid-q2-results-despite-raised-outlook/"
+     }
+    ]
    },
    "fazit": "Starke Firma, die die Börse wegen KI-Angst fast halbiert hat. Seit dem Tief im April hat sich der Kurs um zwei Drittel erholt. Qualität grün, Timing gelb. Der Wochen-Trend ist noch nicht bestätigt. Eine gute Zone wäre ein Rücksetzer auf 127–129 $, der Ausbruch ein Wochenschluss über 141 $.",
    "about": "ServiceNow verkauft eine Software-Plattform im Abo, mit der grosse Firmen ihre Abläufe steuern: IT-Störungen, Kundendienst, Personalwesen, Einkauf, Sicherheit. Neu sind KI-Agenten (Now Assist), die solche Abläufe selbst erledigen. Die Kunden zahlen jedes Jahr, 98 % verlängern ihren Vertrag. Im Juli 2026 kam die Sicherheitsfirma Armis dazu.",
@@ -2482,6 +2786,73 @@
      "betrag": 0.88
     }
    },
+   "chance": {
+    "ticker": "SYK",
+    "sorgen": [
+     "Ein Hackerangriff im März 2026 legte Teile der Produktion lahm. Die Kosten für das Aufräumen drücken laut Firma bis Ende 2026 auf die Marge.",
+     "Im Gefässgeschäft (Peripheral Vascular, ehemals Inari) fehlt Ware. Das kostet laut Firma 0.7–0.8 Prozentpunkte Wachstum im 2. und 3. Quartal, im 4. Quartal ähnlich viel. Stryker verliert dort Marktanteile, weil es Kunden nicht voll beliefern kann.",
+     "Der Gelenkersatz lief im Sommer schwächer, vor allem Hüften in Europa. In den USA drohen zudem tiefere Medicare-Vergütungen (staatliche Krankenkasse für Ältere) für Hüft- und Knieoperationen.",
+     "Die Börse zweifelt, ob das Jahresziel von 8.3–9.3 % organischem Wachstum (ohne Zukäufe und Währungen) noch klappt. Die Aktie fiel vom 52-Wochen-Hoch bei 393 $ auf rund 285 $."
+    ],
+    "sorgen_art": "gemischt",
+    "sorgen_art_text": "Die Probleme sind echt (fehlende Ware, Folgen des Hackerangriffs), betreffen aber vor allem die Lieferung und nicht die Nachfrage und sollten laut Firma vorübergehend sein.",
+    "aufloeser": [
+     {
+      "was": "Zahlen zum 3. Quartal: Jahresziel bestätigt und Rückstände im Gefässgeschäft auf ein normales Mass gesunken (so hat es die Firma angekündigt)",
+      "wann": "Zahlen 29.10.2026"
+     },
+     {
+      "was": "Gefässgeschäft wächst wieder, Lieferprobleme gelöst",
+      "wann": "Zahlen 4. Quartal, voraussichtlich Ende Januar 2027"
+     },
+     {
+      "was": "Ausblick 2027 mit wieder rund 8–9 % organischem Wachstum und steigender Marge",
+      "wann": "Ende Januar 2027"
+     },
+     {
+      "was": "Klarheit über die Medicare-Vergütung für Gelenkoperationen (Firma hofft auf einen Kompromiss)",
+      "wann": "Endgültige US-Regeln für 2027, üblicherweise im November 2026"
+     }
+    ],
+    "schub_stufe": "mittel",
+    "schub_treiber": [
+     {
+      "titel": "Mako-Roboter: Schulter und mehr",
+      "text": "Mako ist Strykers OP-Roboter für Knie und Hüfte. Bis Mitte 2026 wurden über 2.5 Mio. Operationen damit gemacht, das 2. Quartal 2026 war das beste je. Die Schulter-Version soll im 2. Halbjahr 2026 voll eingeführt werden. Jeder neue Roboter bindet das Spital an Strykers Implantate.",
+      "wann": "2026–2028"
+     },
+     {
+      "titel": "Gefässgeschäft (Inari) nach den Lieferproblemen",
+      "text": "Mit Inari kaufte Stryker Katheter, die Blutgerinnsel aus Venen und Lunge entfernen. Der Markt wächst schnell. Laut Firma ist das Problem die Lieferung, nicht die Nachfrage: Sind die Rückstände weg, fällt die Bremse von 0.7–0.8 Prozentpunkten weg.",
+      "wann": "ab 2027"
+     },
+     {
+      "titel": "Volle Auftragsbücher bei Spitalausrüstung",
+      "text": "Die Bestellungen für Spitalausrüstung (OP-Technik, Betten, Mako) sind laut Firma stark, der Auftragsbestand ist hoch. Werden sie ausgeliefert, kommt der Umsatz mit Verzögerung. Analysten fragen aber, wie schnell das gelingt.",
+      "wann": "2. Halbjahr 2026–2027"
+     }
+    ],
+    "schub_beweis": "Bei den Zahlen am 29.10.: organisches Wachstum mindestens im Zielbereich 8.3–9.3 %, das Gefässgeschäft (Peripheral Vascular) wieder im Plus und die bereinigte operative Marge über dem Vorjahr (2. Quartal: 27.4 %).",
+    "szenario": "Chancen-Szenario: Wie bei Google 2023 merkt die Börse, dass das Kerngeschäft nie kaputt war. Sind Hackerfolgen und Lieferprobleme bis Anfang 2027 gelöst, könnte das erwartete KGV (Kurs geteilt durch Gewinn) von rund 18 zurück Richtung eigener Schnitt von rund 26 steigen. Grösstes Risiko: Die Lieferprobleme dauern länger, Marktanteile im Gefässgeschäft bleiben weg und Medicare kürzt die Vergütung für Gelenke, dann wird der Ausblick gesenkt.",
+    "quellen": [
+     {
+      "titel": "MD+DI: Stryker's Post-Cyberattack Rebound Leaves Investors Unconvinced (31.07.2026)",
+      "url": "https://www.mddionline.com/medical-device-markets/stryker-s-post-cyberattack-rebound-leaves-investors-unconvinced"
+     },
+     {
+      "titel": "TIKR: Stryker Stock Drops As Supply Chain Constraints Impact Peripheral Vascular Business (09.09.2026)",
+      "url": "https://www.tikr.com/blog/stryker-stock-drops-peripheral-vascular-supply-constraints"
+     },
+     {
+      "titel": "OrthoWorld: Stryker Expects Hack Impact to Normalize Over Course of Year (04.05.2026)",
+      "url": "https://www.orthoworld.com/stryker-expects-hack-impact-to-normalize-over-course-of-year/"
+     },
+     {
+      "titel": "Becker's Spine: Stryker's orthopedic momentum continues (05.11.2025)",
+      "url": "https://www.beckersspine.com/orthopedic/strykers-orthopedic-momentum-continues-5-earnings-call-notes/"
+     }
+    ]
+   },
    "fazit": "Eine sehr solide Firma, die gerade wegen Lieferproblemen in einem Geschäftsbereich abgestraft wird. Qualität grün, Timing orange. Der Kurs versucht über 267–269 $ einen Doppelboden. Erst ein Tagesschluss über 290.50 $ wäre das erste Zeichen für eine Wende.",
    "about": "Stryker baut Medizintechnik für Spitäler: künstliche Hüft- und Kniegelenke (inklusive OP-Roboter Mako), Instrumente und Ausstattung für Operationssäle, Wirbelsäulen- und Neurotechnik sowie Kathetersysteme für Blutgefässe. Weil Operationen auch in schwachen Wirtschaftsphasen stattfinden, wächst das Geschäft sehr stetig.",
    "kpis": [
@@ -2767,6 +3138,56 @@
     "abstand_tage": 9,
     "betrag": 0.525,
     "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Erst seit 2024, die Rendite ist klein."
+   },
+   "chance": {
+    "ticker": "META",
+    "sorgen": [
+     "Die Kosten steigen viel schneller als der Umsatz: Im 2. Quartal wuchsen die Ausgaben um 55 %, der Umsatz um 28 %. Der Betriebsgewinn fiel um 8 % (inklusive 2.4 Mrd. $ Rechtskosten und 1.2 Mrd. $ Abfindungen).",
+     "Meta investiert 2026 laut Ausblick 130–145 Mrd. $ in KI. Der Free Cashflow (freies Geld nach Investitionen) lag im 2. Quartal nur noch bei 0.8 Mrd. $.",
+     "Der neue KI-Assistent Muse ist erst seit dem 08.09.2026 auf dem Markt. Amazon verlangt bereits, dass Muse nicht mehr in seinem Shop einkaufen darf.",
+     "Nach über 20 % Kursplus seit dem Muse-Start steckt viel Hoffnung im Kurs. Die nächsten Zahlen kommen Ende Oktober 2026."
+    ],
+    "sorgen_art": "stimmung",
+    "sorgen_art_text": "Das Werbegeschäft wächst so schnell wie seit Jahren nicht (+27 %); die Sorgen betreffen die Kosten und ob sich die KI-Milliarden lohnen, und die Aktie ist nicht gefallen, sondern nahe am Jahreshoch.",
+    "aufloeser": [
+     {
+      "was": "Umsatz am oberen Ende des Ausblicks (61–64 Mrd. $) und ein erster Kostenausblick für 2027, der nicht noch einmal stark steigt",
+      "wann": "Zahlen 3. Quartal, voraussichtlich Ende Oktober 2026 (um den 28.10.)"
+     },
+     {
+      "was": "Meta nennt erste Zahlen zu Muse: aktive Nutzer und zahlende Abonnenten",
+      "wann": "Zahlen Ende Oktober 2026 oder Anfang 2027"
+     },
+     {
+      "was": "Der Free Cashflow steigt wieder, weil die Investitionen langsamer wachsen als der Umsatz",
+      "wann": "2027"
+     }
+    ],
+    "schub_stufe": "mittel",
+    "schub_treiber": [
+     {
+      "titel": "Muse: KI-Assistent mit Abo",
+      "text": "Muse erledigt Aufgaben für den Nutzer (E-Mails, Reisen buchen, Einkäufe). Gratis-Version plus Abos für 20 $ und 100 $ pro Monat, bisher nur in den USA und Kanada. In den ersten 12 Tagen gab es laut Apptopia 2.8 Mio. Downloads. Jefferies rechnet mit rund 10.8 Mrd. $ Jahresumsatz, falls Muse bis Ende 2027 1 Mrd. Nutzer erreicht und 3 % zahlen. Das wären nur etwa 4–5 % des heutigen Meta-Umsatzes (rund 240 Mrd. $ pro Jahr, Q2 hochgerechnet).",
+      "wann": "2027–2028"
+     },
+     {
+      "titel": "KI-gesteuerte Werbung",
+      "text": "Die Werbeumsätze wuchsen im 2. Quartal um 27 % auf 59.4 Mrd. $, das stärkste Tempo seit Jahren. Für das 3. Quartal erwartet Meta 61–64 Mrd. $ Umsatz. Das ist aber schon das heutige Tempo, kein zusätzlicher neuer Treiber.",
+      "wann": "laufend"
+     }
+    ],
+    "schub_beweis": "Achte darauf, ob Meta Nutzer- oder Abozahlen zu Muse nennt, und ob das Umsatzwachstum über 20 % bleibt, während das Kostenwachstum (zuletzt +55 %) sinkt. Erst dann steigt der Gewinn wieder schneller als heute.",
+    "szenario": "Wie Google 2023 wäre es, wenn Muse zur meistgenutzten KI-App nach ChatGPT wird, wie J.P. Morgan es für möglich hält: Dann bekäme Meta neben Werbung eine zweite grosse Einnahmequelle, und die hohen KI-Kosten wären gerechtfertigt. Grösstes Risiko: Muse bleibt eine Spielerei oder wird von Händlern wie Amazon ausgesperrt, während die Kosten weiter steigen und der Free Cashflow nahe null bleibt.",
+    "quellen": [
+     {
+      "titel": "Platform Aeronaut: META 2Q26 AI Summary (Quartalszahlen)",
+      "url": "https://transcripts.platformaeronaut.com/summaries/META-2Q26-AI-Summary"
+     },
+     {
+      "titel": "The Star / Reuters: Wall Street expects Meta's AI agent to shape into a new revenue engine (22.09.2026)",
+      "url": "https://www.thestar.com.my/tech/tech-news/2026/09/22/wall-street-expects-meta039s-ai-agent-to-shape-into-a-new-revenue-engine"
+     }
+    ]
    },
    "fazit": "Das Werbegeschäft wächst so schnell wie seit Jahren nicht, aber Kosten und KI-Investitionen fressen den Free Cashflow auf. Nach dem Sprung im September ist der Kurs heiss gelaufen, und die A/D-Linie zieht nicht mit. Qualität hellgrün, Timing gelb: auf einen Rücksetzer in die Zone 680–692 $ warten.",
    "about": "Meta verdient fast das ganze Geld mit Werbung auf Facebook, Instagram, WhatsApp und Threads, zusammen über 3 Milliarden Nutzer pro Tag. Daneben investiert Meta Milliarden in KI (Meta AI, neu der persönliche KI-Assistent „Muse“) und in Reality Labs (Brillen und VR), das hohe Verluste schreibt.",
@@ -3062,6 +3483,7 @@
     "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Die Erhöhung wird jeweils im Februar angekündigt und gilt ab der April-Zahlung.",
     "serie": "64 Jahre in Folge erhöht."
    },
+   "chance": null,
    "fazit": "Die stärkste Firma der Gruppe, aber kein Schnäppchen. Qualität hellgrün (72), Timing gelb (47). Der grosse Trend zeigt nach oben, doch die Tages-A/D bricht seit August ein: Es wird leise verkauft. Deine Idee, auf eine grössere Korrektur zu warten, passt zu den Zahlen. Kaufzonen: 80–82.5 $ und 76.8–78.5 $.",
    "about": "Coca-Cola verkauft vor allem Getränke-Konzentrat und Markenrechte an Abfüllfirmen auf der ganzen Welt (Coca-Cola, Sprite, Fanta, Powerade, Smartwater, fairlife-Milch). Die Abfüller tragen die teuren Fabriken und Lastwagen, darum hat Coca-Cola eine sehr hohe Marge. Rund zwei Drittel des Umsatzes kommen aus dem Ausland.",
    "kpis": [
@@ -3357,6 +3779,7 @@
     "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Die Erhöhung gilt jeweils ab der Mai-Zahlung.",
     "serie": "63 Jahre in Folge erhöht."
    },
+   "chance": null,
    "fazit": "Sehr profitable Firma mit dem höchsten ROIC der Gruppe (46 %), aber nur 2–3 % Wachstum. Qualität hellgrün (68), Timing orange (41). Der Kurs ist nahe an die Kaufzone 81.8–84.3 $ gelaufen. Für einen Einstieg fehlt noch die Wende auf dem Tageschart: Tagesschluss über 90.10 $.",
    "about": "Colgate-Palmolive verkauft Zahnpasta und Zahnbürsten (Colgate, Weltmarktführer mit über 40 % Marktanteil), Seifen und Duschmittel (Palmolive), Reinigungsmittel und Tiernahrung (Hill's). Rund zwei Drittel des Umsatzes kommen aus dem Ausland, vor allem aus Lateinamerika und Asien.",
    "kpis": [
@@ -3642,6 +4065,7 @@
     "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Die Erhöhung kommt jeweils im April.",
     "serie": "70 Jahre in Folge erhöht."
    },
+   "chance": null,
    "fazit": "Die Qualität ist hoch, aber das Wachstum ist eingeschlafen (organisch 0 % im letzten Quartal) und der Gewinn wächst kaum. Qualität gelb (59), Timing orange (41). Der Kurs bildet seit Januar eine Bodenzone bei 138–142 $ mit leicht steigenden Tiefs, und auf dem Tageschart wird still gekauft. Erst ein Tagesschluss über 149.50 $ wäre ein erstes Wende-Zeichen.",
    "about": "Procter & Gamble ist der grösste Hersteller von Haushalts- und Körperpflegeprodukten der Welt: Waschmittel (Ariel, Tide), Windeln (Pampers), Rasierer (Gillette), Zahnpflege (Oral-B), Haarpflege (Pantene, Head & Shoulders). Diese Dinge kauft man auch in einer Rezession, darum gilt P&G als Musterbeispiel einer defensiven Aktie.",
    "kpis": [
@@ -3930,6 +4354,7 @@
     "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Die Erhöhung gilt jeweils ab der Juni-Zahlung.",
     "serie": "54 Jahre in Folge erhöht."
    },
+   "chance": null,
    "fazit": "Günstig wie seit Jahren nicht (erwartetes KGV rund 14.5 statt sonst 20), aber im klaren Abwärtstrend. Heute (8.10.) wurde der Gewinnausblick erneut gesenkt. Qualität gelb (59), Timing rot (17). Eine Bodenbildung ist noch nicht zu sehen. Erstes Zeichen wäre ein Tagesschluss über 131.20 $.",
    "about": "PepsiCo ist der grösste Snack-Hersteller der Welt (Lay's, Doritos, Cheetos, Quaker) und die Nummer zwei bei Getränken (Pepsi, Gatorade). Rund 55 % des Umsatzes kommen aus Snacks und Lebensmitteln, 45 % aus Getränken. Knapp 60 % stammen aus Nordamerika.",
    "kpis": [
@@ -4217,6 +4642,73 @@
     "betrag": 1.34,
     "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Die Erhöhung wird im April angekündigt und gilt ab der Juni-Zahlung.",
     "serie": "64 Jahre in Folge erhöht."
+   },
+   "chance": {
+    "ticker": "JNJ",
+    "sorgen": [
+     "Am 29.07.2026 senkte J&J die Gewinnprognose 2026 auf 10.96–11.11 $ pro Aktie (nur rund +2 %). Grund sind Kosten für zwei Biotech-Deals (Firefly Bio, Sail Biomedicines), die sofort verbucht werden. 2027 kommen nochmals rund 1.36 $ pro Aktie dazu, falls J&J die Option auf Sail zieht.",
+     "Nach über 70 % Anstieg seit Anfang 2025 ist die Aktie teuer: erwartetes KGV 23 statt eigener Schnitt 16.6.",
+     "Laut bestehender Analyse laufen 2027 Patente für 4–4.5 Mrd. $ Umsatz aus. Im Herzkatheter-Geschäft (EP) drohen Preissenkungen durch Sammelbeschaffung in China und harte Konkurrenz.",
+     "Talk-Klagen: J&J will laut Bericht rund 5.5 Mrd. $ zahlen, um zehntausende Klagen beizulegen (Juli 2026)."
+    ],
+    "sorgen_art": "stimmung",
+    "sorgen_art_text": "Der Umsatz wächst operativ um 6–7 %, der schwache Gewinn kommt vor allem aus einmaligen Deal-Kosten; gedrückt hat vor allem die hohe Bewertung nach der langen Rally.",
+    "aufloeser": [
+     {
+      "was": "Umsatzprognose (6.2–6.8 % operativ) bestätigt oder erhöht, neue Medikamente wachsen stark",
+      "wann": "Zahlen 13.10.2026"
+     },
+     {
+      "was": "Ausblick 2027 zeigt, dass neue Medikamente die Patentabläufe auffangen",
+      "wann": "Zahlen 4. Quartal, voraussichtlich Januar 2027"
+     },
+     {
+      "was": "Abtrennung der Orthopädie (DePuy Synthes), Abspaltung oder Verkauf",
+      "wann": "geplant bis Mitte 2027"
+     }
+    ],
+    "schub_stufe": "mittel",
+    "schub_treiber": [
+     {
+      "titel": "Tremfya und Icotyde (Immunologie)",
+      "text": "Icotyde ist seit März 2026 in den USA zugelassen: die erste Tablette dieser Art gegen mittlere bis schwere Schuppenflechte. Tremfya soll laut CEO grösser werden als Stelara, also über 10 Mrd. $ Umsatz pro Jahr. Beide sollen den Umsatzverlust von Stelara (Spitze rund 11 Mrd. $ in 2023) ersetzen.",
+      "wann": "2026–2030"
+     },
+     {
+      "titel": "Krebsmedikamente",
+      "text": "Darzalex, Carvykti, Tecvayli und Rybrevant gelten als Haupttreiber der Pharma-Sparte. Ohne Stelara wuchs die Pharma-Sparte im 3. Quartal 2025 um 16 %.",
+      "wann": "laufend"
+     },
+     {
+      "titel": "Abtrennung der Orthopädie",
+      "text": "DePuy Synthes (2025 rund 9.3 Mrd. $ Umsatz) soll bis Mitte 2027 abgetrennt werden; laut Bloomberg ist auch ein Verkauf für über 20 Mrd. $ möglich. Der Rest-Konzern hätte dann mehr Anteil an schneller wachsenden Bereichen.",
+      "wann": "bis Mitte 2027"
+     }
+    ],
+    "schub_beweis": "Bei den Zahlen am 13.10.: Pharma-Wachstum ohne Stelara klar zweistellig, erste nennenswerte Icotyde-Umsätze und der Konzernumsatz im Rahmen von 6.2–6.8 % operativem Wachstum.",
+    "szenario": "Anders als Google 2023 ist J&J heute nicht günstig. Chancen-Szenario: Neue Medikamente ersetzen die auslaufenden Patente schneller als gedacht, die Orthopädie-Abtrennung macht J&J schlanker, und der Gewinn wächst ab 2028 wieder klar. Grösstes Risiko: 2027 drücken Patentabläufe und Sail-Kosten den Gewinn, und das KGV fällt Richtung eigener Schnitt (16.6).",
+    "quellen": [
+     {
+      "titel": "SEC: Johnson & Johnson Form 8-K vom 29.07.2026 (Prognosesenkung)",
+      "url": "https://www.sec.gov/Archives/edgar/data/0000200406/000020040626000163/jnj-20260729.htm"
+     },
+     {
+      "titel": "WDEZ/Reuters: Johnson & Johnson lowers 2026 profit forecast (29.07.2026)",
+      "url": "https://wdez.com/2026/07/29/johnson-johnson-lowers-2026-profit-forecast/"
+     },
+     {
+      "titel": "Pharmaceutical Technology: J&J leans on immunology launches to fuel annual growth (13.01.2026)",
+      "url": "https://www.pharmaceutical-technology.com/news/jpm26-jj-leans-on-immunology-launches-to-fuel-annual-growth/"
+     },
+     {
+      "titel": "Healio: FDA approves icotrokinra for plaque psoriasis (18.03.2026)",
+      "url": "https://www.healio.com/news/dermatology/20260318/fda-approves-icotrokinra-first-oral-peptide-for-adults-and-teens-with-plaque-psoriasis"
+     },
+     {
+      "titel": "MassDevice: Johnson & Johnson MedTech eyes $20B ortho sale (20.02.2026)",
+      "url": "https://www.massdevice.com/johnson-johnson-medtech-eyes-20b-ortho-sale/"
+     }
+    ]
    },
    "fazit": "Solider Pharma-Riese nach einer Rally von über 70 % seit Anfang 2025. Jetzt ist er teuer, und der Ausblick wurde gesenkt. Qualität gelb, Timing gelb. Der Tages-RSI ist überverkauft, ein Boden ist aber noch nicht da. Die Zone 241–250 $ ist interessant, wenn sie hält.",
    "about": "Johnson & Johnson hat zwei Standbeine: Innovative Medizin (rund zwei Drittel, z. B. Darzalex gegen Blutkrebs, Tremfya gegen Schuppenflechte und Darmentzündungen) und Medizintechnik (Herzkatheter, OP-Geräte, Orthopädie). Die Konsumgüter (Kenvue) wurden 2023 abgespalten. Die Firma zahlt seit über 60 Jahren eine steigende Dividende.",
@@ -4510,6 +5002,60 @@
     "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Die Erhöhung (zuletzt nur 1 Cent) kommt jeweils im April.",
     "serie": "30 Jahre in Folge erhöht."
    },
+   "chance": {
+    "ticker": "IBM",
+    "sorgen": [
+     "Am 14.07.2026 meldete IBM vorab schwache Zahlen zum 2. Quartal (Umsatz nur +1 %). Die Aktie fiel an einem Tag um 25 % von 290 $ auf 217 $, der grösste Tagesverlust seit mindestens 1968.",
+     "Kunden steckten ihr Budget laut IBM Ende Juni in Server, Speicher und Chips für KI statt in IBM-Software. «Dutzende» Grossaufträge, vor allem Software für Grossrechner, wurden nicht rechtzeitig abgeschlossen.",
+     "Die Umsatzprognose 2026 sank auf 4–5 % (vorher über 5 %), Software auf 6–8 %. Ohne Zukäufe wuchs Software im 2. Quartal gar nicht.",
+     "Nach dem Kauf von Confluent sind die Schulden hoch: Nettoschulden 3.5-mal so hoch wie der Betriebsgewinn vor Abschreibungen (EBITDA)."
+    ],
+    "sorgen_art": "gemischt",
+    "sorgen_art_text": "Ein Teil ist nur Verschiebung (rund ein Drittel der verpassten Aufträge kam in den ersten drei Wochen des 3. Quartals), aber ob KI-Ausgaben IBM-Software dauerhaft verdrängen, ist ungeklärt.",
+    "aufloeser": [
+     {
+      "was": "Restliche verschobene Grossaufträge abgeschlossen, Prognose 4–5 % bestätigt",
+      "wann": "Zahlen 21.10.2026"
+     },
+     {
+      "was": "Software wächst wieder klar, auch ohne Zukäufe",
+      "wann": "Zahlen 4. Quartal, voraussichtlich Januar 2027"
+     },
+     {
+      "was": "Free-Cashflow-Ziel (rund +1 Mrd. $) erreicht und Schulden sinken",
+      "wann": "Jahresende 2026"
+     }
+    ],
+    "schub_stufe": "schwach",
+    "schub_treiber": [
+     {
+      "titel": "Red Hat, Daten-Software und Confluent",
+      "text": "Red Hat wuchs im 2. Quartal um 11 %, die Daten-Software um 18 %. Der wiederkehrende Software-Umsatz liegt bei 24.6 Mrd. $ (+8 %). Das ist solide, hebt das Konzernwachstum aber nicht deutlich über die heutigen 4–5 %.",
+      "wann": "laufend"
+     },
+     {
+      "titel": "Quantencomputer als Fernziel",
+      "text": "IBM will in fünf Jahren über 10 Mrd. $ in Quantencomputer stecken und 2029 ein fehlertolerantes System bauen. Das ist eine grosse Zukunftsoption, bringt in den nächsten 1–3 Jahren aber kaum Umsatz.",
+      "wann": "ab 2029"
+     }
+    ],
+    "schub_beweis": "Bei den Zahlen am 21.10.: Software-Wachstum ohne Zukäufe wieder klar positiv (2. Quartal: 0 %) und Red Hat über 10 %. Wächst der wiederkehrende Software-Umsatz (ARR, 2. Quartal 24.6 Mrd. $) schneller als 8 %, wäre das ein erstes Zeichen.",
+    "szenario": "Chancen-Szenario: Wie Google 2023 könnte IBM zeigen, dass KI das Geschäft am Ende stärkt (KI ist schon rund 50 % der neuen Beratungsaufträge) und Quantencomputer früher Geld bringen als gedacht; dann wäre der Kurs nach dem 25-%-Absturz günstig. Grösstes Risiko: KI-Hardware frisst weiter Software-Budgets, das Wachstum bleibt bei 4–5 % und die hohen Schulden lassen wenig Spielraum.",
+    "quellen": [
+     {
+      "titel": "SEC: IBM Brief an Investoren mit vorläufigen Q2-Zahlen (14.07.2026)",
+      "url": "https://www.sec.gov/Archives/edgar/data/0000051143/000005114326000070/ibm-20260714xex991.htm"
+     },
+     {
+      "titel": "The Motley Fool: IBM stock Q2 preliminary warning, AI capex (19.07.2026)",
+      "url": "https://www.fool.com/investing/2026/07/19/ibm-stock-q2-preliminary-warning-ai-capex/"
+     },
+     {
+      "titel": "MarketBeat: International Business Machines Q2 Earnings Call Highlights (22.07.2026)",
+      "url": "https://www.marketbeat.com/instant-alerts/international-business-machines-q2-earnings-call-highlights-2026-07-22/"
+     }
+    ]
+   },
    "fazit": "Nach einem Kursfeuerwerk im Mai kam im Juli der grösste Tagesverlust der Firmengeschichte. Das Geschäft wächst langsam, die Schulden sind hoch. Qualität gelb, Timing orange. Der Kurs liegt auf der EMA 200 (Woche), aber die A/D-Linie zeigt Abgaben. Abwarten.",
    "about": "IBM verdient heute vor allem mit Software (Red Hat, Datenbanken, Automatisierung, KI-Plattform watsonx), mit IT-Beratung und mit Grossrechnern (IBM Z) für Banken und Versicherungen. Dazu baut IBM Quantencomputer. Ende 2025 kam der Daten-Streaming-Spezialist Confluent dazu.",
    "kpis": [
@@ -4783,6 +5329,64 @@
    "div_info": {
     "zahlt": false,
     "text": "Cloudflare zahlt keine Dividende. Die Firma steckt alles ins Wachstum."
+   },
+   "chance": {
+    "ticker": "NET",
+    "sorgen": [
+     "Die Aktie ist sehr teuer: Du zahlst rund 49 Jahresumsätze, der eigene Schnitt 2021–2025 liegt bei rund 31. Das durchschnittliche Analysten-Kursziel (339 $) liegt laut TIKR unter dem Kurs (349 $ am 02.10.2026).",
+     "Laut eigenem Ausblick sinkt das Wachstum von 36 % im 2. Quartal auf 31 % im 3. Quartal (ganzes Jahr 2026: 32 %).",
+     "Die Bruttomarge fiel innert eines Jahres um 3.2 Prozentpunkte auf 73.1 %, weil die Netzwerkkosten steigen. Dazu kamen im 2. Quartal 151 Mio. $ Kosten für Umbau und Stellenabbau, ausgewiesen bleibt ein Verlust."
+    ],
+    "sorgen_art": "stimmung",
+    "sorgen_art_text": "Die Aktie ist nicht gefallen, sondern seit Januar rund 78 % gestiegen; die Sorgen betreffen vor allem die hohe Bewertung, das Geschäft selbst beschleunigt sich.",
+    "aufloeser": [
+     {
+      "was": "Das Wachstum liegt klar über dem eigenen Ausblick von 31 % und die Bruttomarge stabilisiert sich",
+      "wann": "Zahlen 3. Quartal, voraussichtlich Ende Oktober 2026 (Datum noch nicht bestätigt)"
+     },
+     {
+      "was": "Der Ausblick für 2027 zeigt weiter rund 30 % Wachstum",
+      "wann": "Zahlen 4. Quartal, voraussichtlich Februar 2027"
+     },
+     {
+      "was": "Der Umsatz wächst in die Bewertung hinein: Bei 30 % Wachstum pro Jahr sinkt das Kurs-Umsatz-Verhältnis von selbst, auch ohne Kursrückgang",
+      "wann": "2027–2028"
+     }
+    ],
+    "schub_stufe": "mittel",
+    "schub_treiber": [
+     {
+      "titel": "KI-Agenten und Entwickler-Plattform Workers",
+      "text": "Im 2. Quartal kam erstmals mehr als die Hälfte des Verkehrs im Cloudflare-Netz nicht von Menschen, sondern von Bots und KI-Agenten. Fast 2 Mio. neue Entwickler kamen in einem Quartal dazu, mehr als im ganzen Jahr 2025 (1.5 Mio.), total über 7.4 Mio. Workers ist laut Finanzchef der am schnellsten wachsende Bereich.",
+      "wann": "2026–2028"
+     },
+     {
+      "titel": "Grosskunden geben mehr aus",
+      "text": "4'698 Kunden zahlen über 100'000 $ pro Jahr (+27 %), so viele neue wie nie in 12 Monaten. Bestehende Kunden geben 20 % mehr aus als vor einem Jahr (Net Retention 120 %, ein Jahr zuvor 114 %). Der Auftragsbestand (RPO) stieg um 38 % auf 2.73 Mrd. $.",
+      "wann": "2026–2027"
+     },
+     {
+      "titel": "Bezahlen für KI-Agenten (neu, unbewiesen)",
+      "text": "Seit dem 3. Quartal bietet Cloudflare Monetization Gateway, Wallets und cloudflare.pay an. Damit können Website-Betreiber KI-Agenten für den Zugriff auf Inhalte bezahlen lassen. Umsätze dazu sind noch nicht bekannt.",
+      "wann": "2027 und später"
+     }
+    ],
+    "schub_beweis": "Achte auf die Net Retention (zuletzt 120 %, steigend) und darauf, ob der Auftragsbestand schneller wächst als der Umsatz (zuletzt +38 % gegenüber +36 %). Liegt das Wachstum im 3. Quartal deutlich über den angekündigten 31 %, ist der Schub intakt.",
+    "szenario": "Wie Google 2023 wäre es, wenn Cloudflare zur Standard-Infrastruktur für KI-Agenten im Internet wird: Dann könnte das Wachstum über Jahre bei 30 % oder mehr bleiben, und die heute hohe Bewertung wäre im Nachhinein günstig gewesen. Anders als bei Google ist aber keine Unterbewertung da, die Hoffnung steckt schon im Kurs. Grösstes Risiko: Das Wachstum fällt Richtung 25 %, dann kann die Aktie bei dieser Bewertung leicht 30–50 % fallen, auch wenn das Geschäft gut läuft.",
+    "quellen": [
+     {
+      "titel": "Cloudflare: Second Quarter 2026 Financial Results (SEC 8-K, 06.08.2026)",
+      "url": "https://www.sec.gov/Archives/edgar/data/0001477333/000147733326000053/q226exhibit991.htm"
+     },
+     {
+      "titel": "MarketBeat: Cloudflare Q2 Earnings Call Highlights (08.08.2026)",
+      "url": "https://www.marketbeat.com/instant-alerts/cloudflare-q2-earnings-call-highlights-2026-08-08/"
+     },
+     {
+      "titel": "TIKR: Cloudflare stock is up 78% since January – is the rally already priced in? (04.10.2026)",
+      "url": "https://www.tikr.com/ja/blog/cloudflare-stock-is-up-78-since-january-is-the-rally-already-priced-in"
+     }
+    ]
    },
    "fazit": "Ein echter Gewinner des KI-Booms mit über 30 % Wachstum, aber an der Börse sehr teuer und noch ohne Gewinn. Qualität gelb, Timing gelb. Der Trend ist stark, aber überhitzt (RSI Woche 71). Eine bessere Chance wäre ein Rücksetzer auf 312–333 $.",
    "about": "Cloudflare betreibt ein weltweites Netzwerk mit Rechenzentren in über 300 Städten. Rund ein Fünftel aller Websites läuft darüber. Cloudflare schützt sie vor Angriffen, macht sie schneller und bietet Entwicklern eine Plattform (Workers), um Programme und KI-Agenten direkt im Netz laufen zu lassen. Mehr als die Hälfte des Verkehrs stammt inzwischen nicht mehr von Menschen, sondern von Bots und KI-Agenten.",
@@ -5072,6 +5676,7 @@
     "betrag": 39.82,
     "system": "Quartalsdividende: 4 Zahlungen pro Jahr. Unilever legt die Dividende in Euro fest und zahlt in London in Pence aus, darum schwankt der Betrag leicht mit dem Wechselkurs. Seit der Abspaltung des Glacé-Geschäfts (Dezember 2025) etwas tiefer."
    },
+   "chance": null,
    "fazit": "Der Umbau unter dem neuen Chef wirkt: Unilever wächst wieder kräftig über die Menge (+5.5 % im 2. Quartal, bestes Quartal seit über zehn Jahren). Qualität gelb (53), Timing gelb (46). Der Kurs läuft seit Juli seitwärts in der Zone 4'480–4'810 p, und die Tages-A/D zeigt stille Käufe. Ein Tagesschluss über 4'710 p wäre das Signal.",
    "about": "Unilever verkauft Schönheits- und Körperpflege (Dove, Rexona, Axe, Vaseline), Waschmittel (Omo/Persil, Cif) und Lebensmittel (Knorr, Hellmann's). Die Glacé-Sparte (Magnum, Ben & Jerry's) wurde im Dezember 2025 als eigene Firma abgespalten, das Lebensmittelgeschäft wird bis Mitte 2027 an McCormick verkauft. Übrig bleibt eine reine Pflege- und Haushaltsfirma. Unilever berichtet in Euro, die Aktie wird in London in Pence gehandelt.",
    "kpis": [
@@ -5359,6 +5964,7 @@
      "betrag": 1.25
     }
    },
+   "chance": null,
    "fazit": "Solide Baumarktkette in einer schwachen Branche: Der US-Immobilienmarkt steht still, und Lowe's hat sich mit Zukäufen verschuldet. Der Kurs fällt seit Februar um 39 %. Qualität gelb, Timing rot. Hier ist kein Boden erkennbar. Nur beobachten.",
    "about": "Lowe's betreibt rund 1'700 Baumärkte in den USA, für Heimwerker und Handwerker (Pros). 2025 kaufte Lowe's den Baustoffhändler Foundation Building Materials (FBM) und den Händler ADG, um mehr an Profis zu verkaufen. Das Geschäft hängt stark an Hausverkäufen und Renovationen.",
    "kpis": [
@@ -5634,6 +6240,7 @@
     "betrag": 2.25,
     "system": "Französisches System: eine Dividende pro Jahr, beschlossen an der Generalversammlung Ende April und Anfang Mai ausbezahlt."
    },
+   "chance": null,
    "fazit": "Solide Firma mit steigender Marge, aber die Aktie ist seit November um 26 % gefallen. Qualität gelb (48), Timing rot (28). Kurzfristig überverkauft, der Chef hat im Juli selbst gekauft. Der Trend zeigt aber noch keine Wende. Erstes Zeichen wäre ein Tagesschluss über 62.30 €.",
    "about": "Danone stellt Milchprodukte und Joghurts her (Activia, Danone, Alpro für pflanzliche Produkte), Baby- und Spezialnahrung (Aptamil, Nutricia) und Mineralwasser (Evian, Volvic). Rund 45 % des Umsatzes kommen aus Europa, Nahost und Afrika, 33 % aus Amerika und 22 % aus Asien.",
    "kpis": [
@@ -5920,6 +6527,7 @@
     "system": "Schweizer System: eine Dividende pro Jahr, beschlossen an der Generalversammlung im April und ein paar Tage später ausbezahlt. Auf Schweizer Dividenden werden 35 % Verrechnungssteuer abgezogen, die du als Person mit Wohnsitz in der Schweiz mit der Steuererklärung zurückbekommst.",
     "serie": "Seit 1959 nie gesenkt, 31 Jahre in Folge erhöht."
    },
+   "chance": null,
    "fazit": "Die bekannteste Schweizer Aktie und ein echter Franken-Wert, aber seit 2022 im Abwärtstrend. Qualität orange (36), Timing orange (34). Spannend wird es in der Zone 70–72.5 CHF, wo seit einem Jahr ein Doppelboden liegt. Die Dividende von 4.1 % ist solide. Für eine Wende braucht es weiter steigende Mengen (RIG) und einen Tagesschluss über 78.55 CHF.",
    "about": "Nestlé ist der grösste Nahrungsmittelkonzern der Welt: Kaffee (Nescafé, Nespresso, Starbucks-Produkte im Handel), Tiernahrung (Purina), Baby- und medizinische Ernährung, Süsswaren (KitKat), Fertiggerichte (Maggi) und Wasser. Nestlé verdient den grössten Teil im Ausland: Amerika 39 %, Asien/Ozeanien/Afrika 23 %, Europa 20 %, dazu Nespresso und Health Science.",
    "kpis": [
@@ -6194,6 +6802,7 @@
     "zahlt": false,
     "text": "Tesla hat noch nie eine Dividende bezahlt und steckt den Gewinn in neue Fabriken, KI und Robotaxi."
    },
+   "chance": null,
    "fazit": "Die Börse bezahlt bei Tesla vor allem die Zukunft (Robotaxi, Optimus, mögliche SpaceX-Fusion), nicht die heutigen Zahlen. Die heutigen Zahlen sind schwach: Marge 4 %, Gewinn seit 2023 um drei Viertel gesunken. Qualität orange (34), Timing orange (41). Technisch erholt sich der Kurs seit dem Juli-Tief (297 $) mit höheren Hochs. Ein Tagesschluss über 387 $ wäre das nächste Signal, aber erst nach den Zahlen am 21. Oktober.",
    "about": "Tesla baut Elektroautos (vor allem Model Y und Model 3, dazu Cybertruck, Model S/X, Semi und das Robotaxi Cybercab). Dazu kommen Energiespeicher für Häuser und Stromnetze (Powerwall, Megapack), Solaranlagen und Dienstleistungen (Ladestationen, Versicherung, Software für autonomes Fahren). Der humanoide Roboter Optimus und das Robotaxi-Netz stehen noch am Anfang. Rund drei Viertel des Umsatzes kommen weiterhin aus dem Autogeschäft.",
    "kpis": [
@@ -6483,6 +7092,7 @@
     "betrag": 8.5,
     "system": "Schweizer System: eine Dividende pro Jahr, beschlossen an der Generalversammlung im Mai und ein paar Tage später ausbezahlt. Jungfraubahn zahlt 50 bis 67 % des Gewinns aus, die Höhe schwankt darum mit dem Geschäftsjahr. 35 % Verrechnungssteuer, die du mit der Steuererklärung zurückbekommst."
    },
+   "chance": null,
    "fazit": "Jungfraubahn ist ein sehr profitables Bergbahn-Unternehmen mit fast monopolartiger Stellung (Marge 31 %, mehr Geld als Schulden, Dividende 3.7 %). 2026 fehlen aber wegen des Iran-Kriegs viele Gäste aus Asien: Umsatz und Gewinn sinken. Qualität orange (44), Timing gelb (54). Der Kurs fiel vom März-Hoch 327 CHF bis auf 220 CHF (−33 %) und baut seit drei Wochen zwischen 220 und 233 CHF einen Boden mit steigender A/D. Ein Tagesschluss über 233 CHF wäre das erste Signal.",
    "about": "Jungfraubahn betreibt die Bergbahnen in der Jungfrau-Region im Berner Oberland. Herzstück ist die Zahnradbahn auf das Jungfraujoch (3'454 m, «Top of Europe», höchstgelegener Bahnhof Europas). Dazu kommen die Wengernalpbahn, die Erlebnisberge Harder, First und Schynige Platte, das Skigebiet Jungfrau Ski Region, die V-Bahn mit dem Eiger Express sowie Gastronomie und ein eigenes Wasserkraftwerk. Das Jungfraujoch allein bringt gut die Hälfte der Verkehrserträge. Viele Gäste kommen von weit her: aus Asien (China, Japan, Taiwan, Indien, Südostasien), aus Amerika und aus Europa und der Schweiz.",
    "kpis": [
@@ -6768,6 +7378,73 @@
     "zahlt": false,
     "text": "Intuitive Surgical zahlt keine Dividende. Die Firma steckt das Geld ins Wachstum und kauft eigene Aktien zurück (letzte 12 Monate rund 4 Mrd. $)."
    },
+   "chance": {
+    "ticker": "ISRG",
+    "sorgen": [
+     "Die Zahl der da-Vinci-Operationen in den USA wuchs im 2. Quartal 2026 nur noch um rund 12 %, so langsam wie seit 2021 nicht mehr (erwartet waren 13.2 %).",
+     "Abnehmspritzen (GLP-1) lassen Magenverkleinerungen schrumpfen: Diese da-Vinci-Eingriffe fielen in den USA im hohen einstelligen Prozentbereich. Auslaufende staatliche Zuschüsse zur Krankenversicherung (ACA) kosteten laut Firma zusätzlich etwas Wachstum.",
+     "Neue Konkurrenz (Medtronic Hugo, Johnson & Johnson Ottava), Preisdruck in China und Zölle. Für das 2. Halbjahr 2027 plant Intuitive ein Programm, mit dem Instrumente öfter benutzt werden können. Das wirkt wie eine Preissenkung beim Verbrauchsmaterial.",
+     "Nach den Zahlen im Juli 2026 fiel die Aktie trotz besserer Zahlen als erwartet um rund 12 % auf ein 2-Jahres-Tief, weil die Firma die Prognose nur bestätigte und nicht erhöhte."
+    ],
+    "sorgen_art": "stimmung",
+    "sorgen_art_text": "Umsatz (+19 %) und Marge steigen weiter; gefallen ist vor allem der Preis, den die Börse für das Wachstum bezahlt (KGV von rund 72 im 5-Jahres-Schnitt auf rund 49), auch wenn die Bremsspuren in den USA echt sind.",
+    "aufloeser": [
+     {
+      "was": "US-Operationen wachsen wieder über 12 %, Jahresprognose (13.5–15.5 % mehr da-Vinci-Operationen) bestätigt oder erhöht",
+      "wann": "Zahlen 20.10.2026"
+     },
+     {
+      "was": "Ausblick 2027 zeigt weiterhin rund 13–15 % Wachstum bei den Operationen",
+      "wann": "Zahlen 4. Quartal, voraussichtlich Ende Januar 2027"
+     },
+     {
+      "was": "Klarheit, wie stark das Instrumenten-Programm die Marge drückt",
+      "wann": "2027"
+     },
+     {
+      "was": "Erste Zahlen zeigen, dass Konkurrenten wie Hugo und Ottava kaum Marktanteile holen",
+      "wann": "2026–2027"
+     }
+    ],
+    "schub_stufe": "mittel",
+    "schub_treiber": [
+     {
+      "titel": "Upgrade-Welle da Vinci 5",
+      "text": "Der neue Roboter da Vinci 5 kann z. B. dem Chirurgen spürbar zurückmelden, wie fest er drückt. Im 2. Quartal 2026 wurden 246 Stück platziert (Vorjahr 180), 2025 total 870. Viele der 11'710 installierten Systeme werden über die Jahre ersetzt, das bringt Umsatz und mehr Operationen pro Roboter.",
+      "wann": "2026–2028"
+     },
+     {
+      "titel": "Ion für Lungen-Biopsien",
+      "text": "Mit Ion nimmt der Arzt Gewebeproben tief in der Lunge. Die Ion-Eingriffe wuchsen im 2. Quartal 2026 um 36 %, installiert sind 1'096 Systeme (+21 %). Noch klein im Verhältnis zu da Vinci, wächst aber mehr als doppelt so schnell.",
+      "wann": "2026–2028"
+     },
+     {
+      "titel": "Herz-Eingriffe und Ausland",
+      "text": "Seit Januar 2026 ist da Vinci 5 in den USA für mehrere Herz-Eingriffe zugelassen, die Einführung läuft laut Firma bewusst langsam. Ausserhalb der USA wuchsen die Operationen im 2. Quartal um rund 20 %.",
+      "wann": "2026–2029"
+     }
+    ],
+    "schub_beweis": "Bei den Zahlen am 20.10.: da-Vinci-Operationen weltweit mindestens rund 15 % und in den USA wieder über 12 %. Dazu die Zahl der platzierten da Vinci 5 (2. Quartal: 246) und ein Ion-Wachstum über 30 %.",
+    "szenario": "Chancen-Szenario: Wie bei Google 2023 unterschätzt die Börse den Vorsprung des Marktführers. Wenn da Vinci 5, Ion und das Ausland die US-Delle ausgleichen und die Operationen stabil um rund 15 % wachsen, kann das KGV wieder steigen, während der Gewinn ohnehin weiter wächst. Grösstes Risiko: Abnehmspritzen, Konkurrenz und Preisnachlässe bremsen das Wachstum dauerhaft unter 12 %; dann ist selbst ein KGV um 49 noch teuer.",
+    "quellen": [
+     {
+      "titel": "Intuitive: Announces Second Quarter Earnings 2026",
+      "url": "https://investor.intuitivesurgical.com/news-releases/news-release-details/intuitive-announces-second-quarter-earnings-6"
+     },
+     {
+      "titel": "MD+DI: GLP-1s & Expiring ACA Subsidies Negatively Impact Intuitive's da Vinci Procedures (17.07.2026)",
+      "url": "https://www.mddionline.com/surgical/glp-1s-expiring-aca-subsidies-negatively-impact-intuitive-s-da-vinci-procedures"
+     },
+     {
+      "titel": "Börse Express: Intuitive Surgical Aktie: 12 Prozent US-Wachstum bremst (21.07.2026)",
+      "url": "https://www.boerse-express.com/news/articles/intuitive-surgical-aktie-12-prozent-us-wachstum-bremst-930398"
+     },
+     {
+      "titel": "MD+DI: Intuitive's da Vinci 5 Secures FDA Cardiac Clearance (23.01.2026)",
+      "url": "https://www.mddionline.com/robotics/intuitive-s-da-vinci-5-secures-fda-cardiac-clearance"
+     }
+    ]
+   },
    "fazit": "Intuitive Surgical ist der klare Weltmarktführer bei Operationsrobotern: Umsatz +19 %, Marge 31 %, keine Schulden. Qualität grün (90), Timing gelb (58). Die Aktie fiel von 604 $ bis 329 $ (−46 %), vor allem weil die Börse nicht mehr so viel für das Wachstum bezahlt (KGV von rund 70 auf 49). Seit dem Juli-Tief macht der Tageschart höhere Hochs und höhere Tiefs, der Kurs steht jetzt unter einem Widerstand bei 430–451 $. Erst die Zahlen am 20. Oktober abwarten.",
    "about": "Intuitive Surgical baut den Operationsroboter da Vinci: Der Chirurg sitzt an einer Konsole und steuert feine Instrumente, die durch kleine Schnitte in den Körper gehen. Dazu kommt Ion für Lungen-Biopsien. Weltweit stehen rund 11'700 da-Vinci-Systeme in Spitälern. Das Geschäftsmodell ist wie bei einem Drucker mit Patronen: Der Roboter wird einmal verkauft oder vermietet, danach bringt jede Operation wiederkehrenden Umsatz mit Instrumenten, Zubehör und Service (rund 85 % des Umsatzes).",
    "kpis": [
@@ -7047,6 +7724,77 @@
    "div_info": {
     "zahlt": false,
     "text": "Boston Scientific hat noch nie eine Dividende bezahlt. Das Geld geht in Zukäufe (Penumbra) und Aktienrückkäufe."
+   },
+   "chance": {
+    "ticker": "BSX",
+    "sorgen": [
+     "Die zwei Wachstumsmotoren schwächeln: Beim Herzkatheter Farapulse ist der US-Marktanteil laut Firma schneller als erwartet auf rund 50 % gefallen. Die Watchman-Eingriffe in den USA sollen im 2. Halbjahr 2026 und 2027 im mittleren bis hohen einstelligen Prozentbereich schrumpfen.",
+     "Im Juli 2026 wurde die Jahresprognose erneut gesenkt (organisch 5–6 %). Für 2027 erwartet das Management kaum Gewinnwachstum.",
+     "Ein Hackerangriff am 25.08.2026 legte den Betrieb weltweit acht Tage lahm. Die Ziele für das 3. Quartal und das Jahr sind laut Firma nicht mehr erreichbar.",
+     "Die Aktie hat 2026 rund die Hälfte verloren. Citi stufte im September auf «Neutral» ab (Kursziel 50 $) und senkte die Schätzungen dieses Jahr achtmal."
+    ],
+    "sorgen_art": "echt",
+    "sorgen_art_text": "Der Verlust von Marktanteilen bei Farapulse und die sinkende Watchman-Nachfrage sind strukturelle Probleme; nur der Hackerangriff ist vorübergehend.",
+    "aufloeser": [
+     {
+      "was": "Schaden des Hackerangriffs beziffert, neuer Ausblick, verlorene Eingriffe teilweise nachgeholt",
+      "wann": "Zahlen 28.10.2026"
+     },
+     {
+      "was": "Watchman: Resultate der Studie SIMPLAAFY und eine erwartete Anpassung der Zulassung (Label) für Patienten, die keine Blutverdünner nehmen können oder wollen",
+      "wann": "Studie 2. Halbjahr 2026, Label 2027"
+     },
+     {
+      "was": "Neue Katheter (Farawave Ultra, ICE, Faraflex) holen Marktanteile zurück",
+      "wann": "2. Halbjahr 2027 bis 2028"
+     },
+     {
+      "was": "Abschluss des Penumbra-Kaufs und erste Fortschritte beim Sparprogramm",
+      "wann": "Penumbra erwartet 2. Halbjahr 2026, Sparziel bis Ende 2027 zu über der Hälfte"
+     }
+    ],
+    "schub_stufe": "mittel",
+    "schub_treiber": [
+     {
+      "titel": "Neue Farapulse-Generation",
+      "text": "Farawave Ultra soll das Abbilden des Herzens (Mapping) und die Behandlung in einem Katheter verbinden und laut Firma höhere Preise erlauben. Ausserhalb der USA ist die Technik noch weniger verbreitet; dort soll das Herzrhythmus-Geschäft (EP) 2026 um rund 20 % wachsen.",
+      "wann": "2. Halbjahr 2027–2028"
+     },
+     {
+      "titel": "Kauf von Penumbra",
+      "text": "Für 14.5 Mrd. $ kauft Boston Scientific einen Spezialisten für Katheter, die Blutgerinnsel entfernen. Das bringt ein zusätzliches Wachstumsfeld, belastet laut Firma 2027 aber zuerst die Marge.",
+      "wann": "ab 2027"
+     },
+     {
+      "titel": "Pipeline und Sparprogramm",
+      "text": "Geplant sind u. a. Nierendenervation (gegen Bluthochdruck), ein Lithotripsie-Katheter für Herzkranzgefässe (Seismiq, laut Citi Start Anfang 2027) und der Wiedereinstieg bei Herzklappen (TAVR, Zulassung laut Citi in 2–3 Jahren). Dazu ein Sparprogramm von rund 500 Mio. $ pro Jahr bis Ende 2029.",
+      "wann": "2027–2029"
+     }
+    ],
+    "schub_beweis": "Ab den Zahlen am 28.10.: Farapulse-Umsatz in den USA stabil gegenüber dem Vorquartal und ein Watchman-Rückgang kleiner als die befürchteten mittleren bis hohen einstelligen Prozent. Ab Ende 2027 dann erste Umsätze mit Farawave Ultra.",
+    "szenario": "Chancen-Szenario: Bei einem bereinigten KGV um 13 (eigener Schnitt rund 30) ist viel Pessimismus im Kurs. Holen die neuen Katheter ab Ende 2027 Marktanteile zurück und bringt das Watchman-Label 2027 neue Patienten, könnte die Aktie wie Google nach 2023 stark neu bewertet werden. Grösstes Risiko: Die Konkurrenz bleibt vorne, Watchman schrumpft weiter und die Penumbra-Schulden drücken, dann bleibt die Aktie lange billig.",
+    "quellen": [
+     {
+      "titel": "MD+DI: Pressures Mount from Cyberattack: Boston Scientific Says It Is Unlikely to Meet Guidance (08.09.2026)",
+      "url": "https://www.mddionline.com/business/pressures-mount-from-cyberattack-boston-scientific-cuts-guidance-again"
+     },
+     {
+      "titel": "MassDevice: Citi downgrades Boston Scientific (18.09.2026)",
+      "url": "https://www.massdevice.com/citi-downgrades-boston-scientific-as-cyberattack-recovery-compounds-competitive-pressure/"
+     },
+     {
+      "titel": "Nasdaq: Boston Scientific Q2 Earnings Call Highlights",
+      "url": "https://www.nasdaq.com/articles/boston-scientific-q2-earnings-call-highlights"
+     },
+     {
+      "titel": "Quartr: Boston Scientific at Wells Fargo Healthcare Conference (10.09.2026)",
+      "url": "https://quartr.com/events/boston-scientific-corporation-bsx-wells-fargo-21st-annual-healthcare-conference_3YK5rfio"
+     },
+     {
+      "titel": "Zacks: Cyberattack & Weak 2026 Outlook Weigh on BSX (03.09.2026)",
+      "url": "https://www.zacks.com/stock/news/2984244/cyberattack-weak-2026-outlook-weigh-on-bsx-is-the-stock-a-sell"
+     }
+    ]
    },
    "fazit": "Boston Scientific war 2025 einer der Wachstums-Stars der Medizintechnik und ist 2026 um 60 % gefallen: Die zwei Wachstumstreiber (Watchman und Herz-Ablation) schwächeln, die Prognose wurde dreimal gesenkt, dazu kam ein Hackerangriff. Qualität hellgrün (63), Timing orange (32). Die Qualität profitiert stark von der tiefen Bewertung (bereinigtes KGV 13 statt Ø 30). Der Kurs baut seit Juni einen Boden bei 41–43 $, RSI zeigt eine bullische Divergenz, die A/D aber noch nicht. Erst die Zahlen und den neuen Ausblick am 28. Oktober abwarten.",
    "about": "Boston Scientific stellt Medizintechnik für minimalinvasive Eingriffe her, also Behandlungen über kleine Schnitte oder Katheter. Die wichtigsten Produkte: Watchman (ein kleiner Schirm, der im Herzen ein Gerinnsel-Risiko bei Vorhofflimmern verschliesst), Farapulse (Katheter, der Herzrhythmus-Störungen mit Stromimpulsen behandelt, «Pulsed Field Ablation»), Stents und Ballone für Gefässe, Schrittmacher, Urologie und Endoskopie. Im Januar 2026 kündigte die Firma den Kauf von Penumbra (Gerinnsel-Entfernung) für 14.5 Mrd. $ an.",
@@ -7355,6 +8103,82 @@
     "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr, Ex-Tag jeweils am 15. Januar, April, Juli und Oktober. Die Erhöhung wird im Dezember angekündigt und gilt ab der Februar-Zahlung.",
     "serie": "54 Jahre in Folge erhöht (Dividenden-König), 411 Quartalsdividenden ohne Unterbruch."
    },
+   "chance": {
+    "ticker": "ABT",
+    "sorgen": [
+     "Ohne Zukauf wuchs Abbott im 2. Quartal 2026 nur um 4.8 %. Für das Jahresziel von 6.5–7.5 % muss das 2. Halbjahr deutlich anziehen.",
+     "Die Säuglingsnahrung schrumpft (Nahrung im 1. Quartal −6 %), und Klagen zur Frühgeborenen-Nahrung (NEC) sind offen, z. B. ein Urteil über 70 Mio. $ in Illinois, gegen das Abbott Berufung einlegt.",
+     "Der Kauf von Exact Sciences (rund 21 Mrd. $, abgeschlossen am 23.03.2026) erhöhte die Schulden und kostet 2026 rund 0.20 $ Gewinn pro Aktie. Im April wurde deshalb die Gewinnprognose gesenkt.",
+     "Rückruf bei Libre-3-Sensoren: Einige zeigten zu tiefe Zuckerwerte, laut FDA mit 7 Todesfällen und 860 schweren Verletzungen bis Januar 2026. Abbott sagt, die Ursache sei behoben."
+    ],
+    "sorgen_art": "gemischt",
+    "sorgen_art_text": "Die Probleme sind echt (Nahrung, Klagen, teurer Zukauf), aber die wichtigsten Motoren Libre, Herz-Elektrophysiologie und Krebs-Früherkennung wachsen weiter.",
+    "aufloeser": [
+     {
+      "was": "Wachstum ohne Zukauf klar über 4.8 % und Jahresziel bestätigt",
+      "wann": "Zahlen 21.10.2026"
+     },
+     {
+      "was": "Nahrungsgeschäft wieder im Plus",
+      "wann": "Zahlen 21.10.2026 und Ende Januar 2027"
+     },
+     {
+      "was": "Fortschritte bei den NEC-Klagen (Berufung, Vergleiche)",
+      "wann": "2026–2027"
+     },
+     {
+      "was": "Ausblick 2027 mit wieder höherem Wachstum dank neuer Produkte",
+      "wann": "Zahlen 4. Quartal, voraussichtlich Ende Januar 2027"
+     }
+    ],
+    "schub_stufe": "mittel",
+    "schub_treiber": [
+     {
+      "titel": "Libre Duo: Zucker und Ketone in einem Sensor",
+      "text": "Die FDA hat am 25.08.2026 den ersten Sensor zugelassen, der Zucker und Ketone (Warnzeichen für eine gefährliche Entgleisung) laufend misst. US-Start noch 2026, Anbindung an Insulinpumpen 2026 und 2027. Libre wuchs im 2. Quartal ohne Zukauf um 9.5 %.",
+      "wann": "Ende 2026–2027"
+     },
+     {
+      "titel": "Herzrhythmus-Katheter (Volt PFA)",
+      "text": "Das Herzrhythmus-Geschäft (EP) wuchs im 2. Quartal um 13.4 %. Volt ist in den USA eingeführt, TactiFlex Duo und der Vorhofohr-Verschluss Amulet 360 sollen in den nächsten 12 Monaten kommen.",
+      "wann": "2026–2027"
+     },
+     {
+      "titel": "Krebs-Früherkennung (Exact Sciences)",
+      "text": "Die Krebsdiagnostik mit dem Darmkrebs-Test Cologuard wuchs im 2. Quartal um 13.3 %. Für das 2. Halbjahr werden laut einer Analyse rund 15 % erwartet.",
+      "wann": "2026–2028"
+     },
+     {
+      "titel": "Möglicher Hebel: Typ-2-Diabetes ohne Insulin",
+      "text": "Der grösste Hebel für Libre wäre, wenn US-Krankenkassen Sensoren auch für Typ-2-Diabetiker ohne Insulin bezahlen. Ob und wann das kommt, ist offen.",
+      "wann": "offen"
+     }
+    ],
+    "schub_beweis": "Bei den Zahlen am 21.10.: Wachstum ohne Zukauf Richtung 7 % oder mehr, Libre über 9 % und die Nahrung nicht mehr im Minus.",
+    "szenario": "Chancen-Szenario: Wie bei Google 2023 sieht die Börse vor allem die Baustellen (Nahrung, Klagen, Schulden). Wenn Libre Duo, Volt und Cologuard das Wachstum ab 2027 spürbar heben, könnte das bereinigte KGV von rund 19 Richtung eigener Schnitt von rund 24 steigen. Grösstes Risiko: Das 2. Halbjahr bleibt schwach, die Prognose fällt erneut, und neue NEC-Urteile oder ein weiterer Sensor-Rückruf belasten.",
+    "quellen": [
+     {
+      "titel": "Abbott: Q2 2026 earnings call – What drove results",
+      "url": "https://www.abbott.com/en-us/corpnewsroom/strategy-and-strength/abbotts-Q2-2026-earnings-call"
+     },
+     {
+      "titel": "Hudson Labs: Abbott Q3 2026 Earnings Preview (05.10.2026)",
+      "url": "https://www.hudson-labs.com/research/abbott-q3-2026-earnings-preview-abt-revenue-guidance-key-drivers"
+     },
+     {
+      "titel": "TechRepublic: Libre Duo 10 Day – The First Wearable to Track Glucose and Ketones (03.09.2026)",
+      "url": "https://www.techrepublic.com/article/news-libre-duo-10-day-glucose-ketone-sensor/"
+     },
+     {
+      "titel": "FOX 7: FreeStyle Libre 3 sensors recalled after seven deaths, 860 injuries (04.02.2026)",
+      "url": "https://www.fox7austin.com/news/some-freestyle-libre-3-freestyle-libre-3-sensors-recalled"
+     },
+     {
+      "titel": "24/7 Wall St. (Yahoo Finance): Has the Abbott Laboratories Sell-Off Finally Created an Entry Point? (20.04.2026)",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/abbott-laboratories-sell-off-finally-110527157.html"
+     }
+    ]
+   },
    "fazit": "Abbott ist ein breit aufgestellter Gesundheitskonzern und Dividenden-König (54 Erhöhungen in Folge), hat aber ein schwieriges Jahr: Rückruf bei den Libre-Sensoren, Klagen zur Säuglingsnahrung und ein teurer Kauf (Exact Sciences) auf Kredit. Qualität gelb (48), Timing orange (43). Nach dem Tief im Mai (81.97 $) und der Erholung bis 117 $ ist der Kurs auf 95–100 $ zurückgefallen, genau in die Mitte der Aufwärtsbewegung. Ein Tagesschluss über 101 $ wäre das erste Signal, aber erst die Zahlen am 21. Oktober abwarten.",
    "about": "Abbott verkauft in vier Bereichen: Medizintechnik (vor allem die Zuckermess-Sensoren FreeStyle Libre, dazu Herzschrittmacher, Herzklappen und Gefässtechnik), Diagnostik (Labor- und Schnelltests, seit März 2026 mit Exact Sciences auch Krebs-Früherkennung wie Cologuard), Nahrung (Säuglingsnahrung Similac, Ensure) und Markenmedikamente (Generika in Schwellenländern). Die Medizintechnik ist mit rund 9 % Wachstum der Motor, die Nahrung schrumpft.",
    "kpis": [
@@ -7643,6 +8467,7 @@
     "betrag": 20.7,
     "system": "Britisches System mit Zwischen- und Schlussdividende: Im Juli kommt die kleinere Zwischendividende, im Januar die grössere Schlussdividende (Geschäftsjahr endet im September). In manchen Jahren gibt es zusätzlich eine Sonderdividende."
    },
+   "chance": null,
    "fazit": "Mischkonzern aus Primark (Kleider) und Lebensmitteln. Das Geschäft schwächelt (Primark in Europa, Zucker mit Verlust), dafür ist die Bilanz solid und Ende 2027 wird Primark abgespalten. Qualität orange (33), Timing orange (36). Charttechnisch hält seit März eine Bodenzone bei 1'730–1'800 p, die Wochen-A/D steigt. Ein Tagesschluss über 1'900 p wäre ein erstes Signal.",
    "about": "Associated British Foods (ABF) besteht aus zwei Welten: Primark, eine Billig-Modekette mit rund 450 Läden in Europa und den USA (über die Hälfte des Umsatzes und der grösste Teil des Gewinns), und ein Lebensmittelgeschäft mit Twinings-Tee, Ovaltine, Brot, Zucker (British Sugar), Zutaten und Landwirtschaft. Die Familie Weston kontrolliert rund 56 % der Aktien.",
    "kpis": [
@@ -7932,6 +8757,7 @@
     "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Die Erhöhung kommt jeweils im Sommer und gilt ab der Oktober-Zahlung.",
     "serie": "12 Jahre in Folge erhöht."
    },
+   "chance": null,
    "fazit": "Starke Marken, aber die Zahlen leiden unter dem teuren Kakao der letzten zwei Jahre. Qualität orange (31), Timing orange (38). Interessant: Der Kurs bildet bei 57.5–58.5 $ gerade einen Dreifachboden, und auf der Woche steigen die Tiefs seit Januar. Ein Tagesschluss über 62.20 $ wäre das Signal. Die Entlastung durch den gefallenen Kakaopreis kommt vor allem 2027.",
    "about": "Mondelez ist einer der grössten Snack-Hersteller der Welt: Guetzli (Oreo, LU, belVita), Schokolade (Milka, Cadbury, Toblerone, Côte d'Or) und Kaugummi. Rund drei Viertel des Umsatzes kommen von ausserhalb der USA, ein grosser Teil aus Europa und Schwellenländern.",
    "kpis": [
@@ -8220,6 +9046,7 @@
     "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Seit 2025 nicht mehr erhöht.",
     "serie": "Zahlt seit über 125 Jahren ohne Unterbruch."
    },
+   "chance": null,
    "fazit": "Die Aktie hat sich seit 2023 mehr als halbiert und steht so tief wie seit über zehn Jahren nicht mehr. Umsatz und Gewinn schrumpfen, die Schulden steigen. Qualität orange (30), Timing rot (21). Sehr billig (KGV rund 10), aber ohne Wende in den Zahlen ist das eine mögliche Value-Falle.",
    "about": "General Mills stellt Frühstücksflocken (Cheerios, Cerealien zusammen mit Nestlé), Müesliriegel (Nature Valley), Backwaren (Pillsbury), Glacé (Häagen-Dazs) und Tierfutter (Blue Buffalo) her. Rund drei Viertel des Umsatzes kommen aus Nordamerika.",
    "kpis": [
@@ -8500,6 +9327,7 @@
     "betrag": 0.4,
     "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Seit der Kürzung 2019 unverändert bei 0.40 $."
    },
+   "chance": null,
    "fazit": "Eine schrumpfende Firma mit hoher Dividende. Der Umsatz sinkt seit drei Jahren, es gab Abschreibungen in Milliardenhöhe, und die geplante Aufspaltung wurde gestoppt. Qualität rot (29), Timing rot (15). Die 7.3 % Dividende ist verlockend, aber typisch für eine Dividendenfalle. Erfüllt die Kriterien für ein Qualitäts-Depot nicht.",
    "about": "Kraft Heinz stellt verpackte Lebensmittel her: Ketchup und Saucen (Heinz), Käse und Fertiggerichte (Kraft, Philadelphia), Wurstwaren (Oscar Mayer) und Kinder-Snacks (Lunchables). Rund drei Viertel des Umsatzes kommen aus Nordamerika.",
    "kpis": [
