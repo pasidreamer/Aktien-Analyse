@@ -58,6 +58,31 @@ function divData(s, L) {
 }
 const renditeOf = v => { const r = divData(v.s, v.L); return r.zahlt ? (r.rendite || 0) : 0; };
 
+// Form der Ausschüttung (Währung, Steuern) nach Land
+function divForm(s) {
+  const d = s.div_info || {};
+  if (d.form) return d.form;
+  if (s.land === "USA") return "Bar in US-Dollar aufs Konto. Die USA ziehen Quellensteuer ab, mit dem Formular W-8BEN bei Saxo in der Regel 15 %.";
+  if (s.land === "Schweiz") return "Bar in Franken aufs Konto. Abzug von 35 % Verrechnungssteuer, die du mit der Steuererklärung zurückbekommst.";
+  if (s.land === "Grossbritannien") return s.waehrung === "USD"
+    ? "Bar in US-Dollar (über die US-Variante der Aktie, ADR). Grossbritannien zieht keine Quellensteuer ab, die ADR-Bank behält eine kleine Gebühr."
+    : "Bar in Pfund aufs Konto. Grossbritannien zieht keine Quellensteuer ab.";
+  if (s.land === "Frankreich") return "Bar in Euro aufs Konto. Frankreich zieht Quellensteuer ab (je nach Bank 12.8 bis 25 %), einen Teil kannst du über die Steuererklärung anrechnen lassen.";
+  return `Bar in ${s.waehrung} aufs Konto, abzüglich Quellensteuer.`;
+}
+
+// Unterbewertung: heutiges KGV (mit dem Kurs mitgerechnet) gegen den eigenen 5-Jahres-Schnitt
+function bewertungOf(s, kurs) {
+  const b = s.bewertung;
+  if (!b || !b.wert || !b.schnitt || !s.analyse.kurs) return null;
+  const jetzt = b.wert * kurs / s.analyse.kurs;
+  const abschlag = (1 - jetzt / b.schnitt) * 100;
+  const stufe = abschlag >= 30 ? "stark unterbewertet" : abschlag >= 15 ? "unterbewertet" : abschlag > -10 ? "etwa fair bewertet" : "teurer als üblich";
+  return { jetzt, schnitt: b.schnitt, typ: b.typ || "KGV", abschlag, stufe, unter: abschlag >= 20 };
+}
+const SCHUB = { stark: ["Starker Wachstumsschub möglich", "gruen"], mittel: ["Wachstumsschub möglich", "gelb"], schwach: ["Kein grosser Schub in Sicht", "orange"] };
+const SORGE = { stimmung: "Vor allem Stimmung", gemischt: "Echte Probleme, eher lösbar", echt: "Das Geschäft verschlechtert sich" };
+
 // ---------- Daten ----------
 async function getJSON(url) {
   const r = await fetch(url + (url.includes("?") ? "&" : "?") + "t=" + Date.now(), { cache: "no-store" });
@@ -138,7 +163,8 @@ function view(s) {
     status: zs.status, dist: zs.dist, chance, neu: !!L?.neu,
     dq: q - s.analyse.q, dt: t - s.analyse.t,
     trendT: ref ? t - ref[2] : 0,
-    gesamt: Math.round((q + t) / 2)
+    gesamt: Math.round((q + t) / 2),
+    bew: bewertungOf(s, kurs), schub: s.chance?.schub_stufe === "stark"
   };
 }
 
@@ -163,7 +189,8 @@ function rowHtml(v) {
   return `<a class="row" href="#/aktie/${encodeURIComponent(s.ticker)}">
     ${signal(v.q, v.t)}
     <div class="mid"><div class="nm">${esc(s.name)}</div>
-      <div class="sub">${esc(s.ticker)} · ${esc(regionCode[s.land] || s.land)} · ${esc(s.tags[0])}${s.status !== "beobachten" ? " · " + LISTE[s.status] : ""}${STATE.notes[s.ticker]?.text?.trim() ? " · Notiz" : ""}</div></div>
+      <div class="sub">${esc(s.ticker)} · ${esc(regionCode[s.land] || s.land)} · ${esc(s.tags[0])}${s.status !== "beobachten" ? " · " + LISTE[s.status] : ""}${STATE.notes[s.ticker]?.text?.trim() ? " · Notiz" : ""}</div>
+      ${v.bew?.unter || v.schub ? `<div class="tags">${v.bew?.unter ? `<span class="tg tg-unter">${nf(v.bew.abschlag, 0)} % günstiger als üblich</span>` : ""}${v.schub ? '<span class="tg tg-schub">Wachstumsschub</span>' : ""}</div>` : ""}</div>
     <div class="right"><div class="px">${money(v.kurs, s.waehrung)}</div><div>${chgHtml(v.chg1)}${trendArrow(v.trendT)}</div>
       ${badge(v.status)}${v.neu ? '<span class="badge b-neu">neu</span>' : ""}</div>
   </a>`;
@@ -256,6 +283,10 @@ function filtered() {
     if (f.region !== "Alle" && s.region !== f.region) return false;
     if (f.status !== "Alle" && s.status !== f.status) return false;
     if (f.nurGut && v.q < 60) return false;
+    const fk = f.fokus || "Alle";
+    if (fk === "unter" && !v.bew?.unter) return false;
+    if (fk === "schub" && !v.schub) return false;
+    if (fk === "beides" && !(v.bew?.unter && v.schub)) return false;
     if (q && !(`${s.name} ${s.ticker} ${s.branche} ${s.land}`.toLowerCase().includes(q))) return false;
     return true;
   });
@@ -267,6 +298,7 @@ function filtered() {
     tag: (a, b) => (b.chg1 ?? -999) - (a.chg1 ?? -999),
     zahlen: (a, b) => (a.s.zahlen || "9999").localeCompare(b.s.zahlen || "9999"),
     dividende: (a, b) => renditeOf(b) - renditeOf(a),
+    unterbewertung: (a, b) => (b.bew?.abschlag ?? -999) - (a.bew?.abschlag ?? -999),
     name: (a, b) => a.s.name.localeCompare(b.s.name, "de")
   };
   return list.sort(by[f.sort] || by.chance);
@@ -302,8 +334,10 @@ function renderHome() {
     <div class="controls" id="controls">
       <div class="search"><input id="q" type="search" placeholder="Name, Ticker oder Branche" value="${esc(STATE.filter.q)}" aria-label="Suche">
         <select id="sort" aria-label="Sortierung">
-          ${[["chance", "Beste Chance"], ["qualitaet", "Qualität"], ["timing", "Timing"], ["zone", "Nähe zur Kaufzone"], ["tag", "Tagesveränderung"], ["zahlen", "Nächste Zahlen"], ["dividende", "Dividende"], ["name", "Name"]].map(([k, l]) => `<option value="${k}" ${STATE.filter.sort === k ? "selected" : ""}>${l}</option>`).join("")}
+          ${[["chance", "Beste Chance"], ["qualitaet", "Qualität"], ["timing", "Timing"], ["unterbewertung", "Am stärksten unterbewertet"], ["zone", "Nähe zur Kaufzone"], ["tag", "Tagesveränderung"], ["zahlen", "Nächste Zahlen"], ["dividende", "Dividende"], ["name", "Name"]].map(([k, l]) => `<option value="${k}" ${STATE.filter.sort === k ? "selected" : ""}>${l}</option>`).join("")}
         </select></div>
+      <div class="chips" role="group" aria-label="Chancen">${chipRow("fokus", [["Alle", "Alle Chancen"], ["unter", "Unterbewertet"], ["schub", "Wachstumsschub"], ["beides", "Beides"]],
+        { Alle: all.length, unter: all.filter(v => v.bew?.unter).length, schub: all.filter(v => v.schub).length, beides: all.filter(v => v.bew?.unter && v.schub).length })}</div>
       <div class="chips" role="group" aria-label="Stil">${chipRow("stil", [["Alle", "Alle"], ...tags.map(t => [t, t])], cnt("stil"))}</div>
       <div class="chips" role="group" aria-label="Region und Liste">${chipRow("region", [["Alle", "Alle Regionen"], ...regions.map(r => [r, r])], cnt("region"))}<span class="sep"></span>
         ${chipRow("status", [["Alle", "Alle Listen"], ...["depot", "kaufliste", "beobachten"].filter(x => STATE.stocks.some(s => s.status === x)).map(x => [x, LISTE[x]])])}<span class="sep"></span>
@@ -355,6 +389,7 @@ function divHtml(s, v) {
       <div><span>Wie oft</span><b>${n ? n + "× pro Jahr" : "–"}</b><em>${esc(d.rhythmus || "")}</em></div>
     </div>
     ${d.system ? `<p class="div-sys"><b>System:</b> ${esc(d.system)}</p>` : ""}
+    <p class="div-sys"><b>Form:</b> ${esc(divForm(s))}</p>
     <div class="div-months" role="img" aria-label="Monate mit Ex-Tag ${d.exM.map(x => MON[x - 1]).join(", ")}; Auszahlung ${d.payM.map(x => MON[x - 1]).join(", ")}">${cells}</div>
     <div class="legend"><span><i class="lg-ex"></i>Ex-Tag</span><span><i class="lg-pay"></i>Geld auf dem Konto</span></div>
     ${d.zahlText ? `<p class="div-sys"><b>Zahltage:</b> ${esc(d.zahlText)}</p>` : ""}
@@ -370,6 +405,44 @@ function divHtml(s, v) {
         <li><b>Rendite:</b> Dividenden der letzten 12 Monate geteilt durch den heutigen Kurs.</li>
       </ul></details>
   </div>`;
+}
+
+// Dividende als Kennzahl-Kachel: alles auf einen Blick
+function divKpi(s, v) {
+  const d = divData(s, v.L), w = s.waehrung;
+  if (!d.zahlt) return `<div class="kpi"><span>Dividende</span><b>keine</b><em>${esc(d.text || "Die Firma zahlt keine Dividende.")}</em></div>`;
+  const nx = d.next;
+  const mon = a => a.length ? a.map(x => MON[x - 1]).join(", ") : "–";
+  return `<div class="kpi kpi-div ${d.rendite >= 2.5 ? "g" : "w"}"><span>Dividende</span><b>${d.rendite ? nf(d.rendite, 1) + " %" : money(d.betrag, w)}</b>
+    <em><b>${d.proJahr ? d.proJahr + "× pro Jahr" : ""}</b> (${esc(d.rhythmus || "")}), je ${money(d.betrag, w)}.<br>
+    Ex-Tag im ${mon(d.exM)}, Geld im ${mon(d.payM)}.<br>
+    ${nx ? `Nächste: Ex-Tag ${fmtDate(nx.ex)}${nx.pay ? `, Zahltag ${fmtDate(nx.pay)}` : ""} (${nx.sicher ? "angekündigt" : "geschätzt"}).<br>` : ""}
+    ${esc(divForm(s))} <button type="button" class="jump" data-jump="div-${esc(s.ticker)}">Alle Details</button></em></div>`;
+}
+
+function chanceHtml(v) {
+  const s = v.s, c = s.chance, b = v.bew;
+  if (!c && !b) return "";
+  const meter = b ? (() => {
+    const max = Math.max(b.schnitt, b.jetzt) * 1.15, pos = x => (x / max * 100).toFixed(1);
+    const col = b.abschlag >= 15 ? "gruen" : b.abschlag > -10 ? "gelb" : "orange";
+    return `<div class="bew">
+      <div class="bew-top"><b class="${col}-t">${b.abschlag >= 0 ? nf(b.abschlag, 0) + " % günstiger" : nf(-b.abschlag, 0) + " % teurer"}</b><span>als im eigenen 5-Jahres-Schnitt · ${esc(b.stufe)}</span></div>
+      <div class="bew-bar"><i class="now" style="left:${pos(b.jetzt)}%"></i><i class="avg" style="left:${pos(b.schnitt)}%"></i></div>
+      <div class="bew-leg"><span><i class="now"></i>${esc(b.typ)} heute ${nf(b.jetzt, 1)}</span><span><i class="avg"></i>Schnitt ${nf(b.schnitt, 1)}</span></div>
+    </div>`;
+  })() : "";
+  const sg = c?.sorgen?.length ? `<h3>Was die Börse befürchtet</h3>${c.sorgen_art ? `<p class="pill-line"><span class="pill p-${esc(c.sorgen_art)}">${esc(SORGE[c.sorgen_art] || c.sorgen_art)}</span> ${esc(c.sorgen_art_text || "")}</p>` : ""}<ul class="plain">${c.sorgen.map(x => `<li>${esc(x)}</li>`).join("")}</ul>` : "";
+  const au = c?.aufloeser?.length ? `<h3>Was die Sorgen beenden könnte</h3><ul class="plain when">${c.aufloeser.map(x => `<li><span>${esc(x.was)}</span><em>${esc(x.wann || "")}</em></li>`).join("")}</ul>` : "";
+  const sb = c ? (SCHUB[c.schub_stufe] || SCHUB.mittel) : null;
+  const schub = c ? `<div class="card ch-card"><div class="ch-head"><h3>Wachstumsschub</h3><span class="pill p-${sb[1]}">${sb[0]}</span></div>
+    <ol class="treiber">${(c.schub_treiber || []).map(x => `<li><b>${esc(x.titel)}</b><span>${esc(x.text)}</span>${x.wann ? `<em>${esc(x.wann)}</em>` : ""}</li>`).join("")}</ol>
+    ${c.schub_beweis ? `<p class="beweis"><b>Woran du es erkennst:</b> ${esc(c.schub_beweis)}</p>` : ""}</div>` : "";
+  return `<div class="sec"><h2>Worauf du achten solltest</h2><p>Deine zwei Blickwinkel: Ist die Aktie wegen Sorgen zu günstig, und gibt es einen grossen Wachstumsschub?</p></div>
+    <div class="card ch-card"><div class="ch-head"><h3>Unterbewertung</h3></div>${meter}${sg}${au}${!c ? '<p class="pill-line" style="margin-top:10px">Die Recherche zu Sorgen und Wachstumsschub folgt.</p>' : ""}</div>
+    ${schub}
+    ${c?.szenario ? `<div class="banner plain szen"><b>Das Chancen-Szenario:</b> ${esc(c.szenario)}</div>` : ""}
+    ${c?.quellen?.length ? `<details class="more"><summary>Quellen zu Sorgen und Wachstum</summary><ul class="plain">${c.quellen.map(q => `<li><a href="${esc(q.url)}" target="_blank" rel="noopener">${esc(q.titel)}</a></li>`).join("")}</ul></details>` : ""}`;
 }
 
 function renderDetail(ticker) {
@@ -416,6 +489,8 @@ function renderDetail(ticker) {
       <a class="btn" href="${esc(s.claude)}" target="_blank" rel="noopener">Analyse in Claude öffnen</a>
     </div>
 
+    ${chanceHtml(v)}
+
     <div class="sec"><h2>Meine Notiz</h2><p>${token() ? "Wird auf allen Geräten gespeichert." : "Wird auf diesem Gerät gespeichert. Für alle Geräte unter «So funktioniert's» den GitHub-Schlüssel eintragen."}</p></div>
     <div class="note"><textarea id="note" rows="4" placeholder="Zum Beispiel: Warum ich sie beobachte, mein Kaufplan, was ich nach den Zahlen prüfen will">${esc(STATE.notes[s.ticker]?.text || "")}</textarea>
       <div class="note-bar"><span id="note-state">${STATE.notes[s.ticker]?.ts ? "Zuletzt geändert " + new Date(STATE.notes[s.ticker].ts).toLocaleString("de-CH", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" }) : ""}</span>
@@ -433,9 +508,9 @@ function renderDetail(ticker) {
     <div class="card">${partsHtml(v.qParts)}</div>
 
     <div class="sec"><h2>Wichtige Kennzahlen</h2></div>
-    <div class="kpis">${s.kpis.map(k => `<div class="kpi ${esc(k.ampel)}"><span>${esc(k.name)}</span><b>${esc(k.wert)}</b><em>${esc(k.text)}</em></div>`).join("")}</div>
+    <div class="kpis">${s.kpis.filter(k => !/^Dividende/.test(k.name)).map(k => `<div class="kpi ${esc(k.ampel)}"><span>${esc(k.name)}</span><b>${esc(k.wert)}</b><em>${esc(k.text)}</em></div>`).join("")}${divKpi(s, v)}</div>
 
-    <div class="sec"><h2>Dividende</h2><p>Wann und wie oft ausbezahlt wird.</p></div>
+    <div class="sec" id="div-${esc(s.ticker)}"><h2>Dividende</h2><p>Wann, wie oft und in welcher Form ausbezahlt wird.</p></div>
     ${divHtml(s, v)}
 
     <div class="sec"><h2>Für und gegen</h2></div>
@@ -457,6 +532,7 @@ function renderDetail(ticker) {
     ${s.smart_money?.length ? `<details class="more"><summary>Insider und Smart Money</summary><ul class="plain">${s.smart_money.map(x => `<li>${esc(x)}</li>`).join("")}</ul></details>` : ""}
   `;
   bindNote(s.ticker);
+  $view.querySelectorAll("[data-jump]").forEach(b => b.onclick = () => document.getElementById(b.dataset.jump)?.scrollIntoView({ behavior: "smooth", block: "start" }));
   scrollTo(0, 0);
 }
 
@@ -527,6 +603,11 @@ function renderInfo() {
     <p><b>Q = Qualität:</b> Ist die Firma kaufenswert? 8 Kriterien: Umsatz, Wachstum, Marge, Gewinn, Free Cashflow, ROIC, Schulden und Bewertung.</p>
     <p><b>T = Timing:</b> Ist jetzt der Zeitpunkt? 7 Kriterien: Trend auf Woche und Tag, Struktur (Smart Money Concept), RSI, A/D-Linie, Smart Money und Saisonalität.</p>
     <div class="scale">${[["gruen", "grün", "75–100"], ["hellgruen", "hellgrün", "60–74"], ["gelb", "gelb", "45–59"], ["orange", "orange", "30–44"], ["rot", "rot", "0–29"]].map(([c, n, r]) => `<i class="sw ${c}"></i><span>${n}</span><span>${r}</span>`).join("")}</div>
+    <h3>Worauf du bei einer Aktie achten solltest</h3>
+    <p>Gute Zahlen allein reichen nicht. Die grössten Kursgewinne entstehen oft, wenn zwei Dinge zusammenkommen:</p>
+    <p><b>1. Unterbewertung.</b> Eine gute Firma fällt wegen Sorgen stark, und die Aktie wird viel günstiger als üblich. Das misst die App mit dem <b>KGV</b> (Kurs geteilt durch den Gewinn pro Aktie, also wie viele Jahresgewinne du für die Aktie bezahlst) im Vergleich zum eigenen 5-Jahres-Schnitt. Beispiel: KGV heute 15, Schnitt 25, dann ist die Aktie 40 % günstiger als üblich. Wichtig ist, warum sie günstig ist: Ist es vor allem Stimmung oder ein vorübergehendes Problem, kann der Kurs stark steigen, sobald die Sorgen weg sind. Verschlechtert sich das Geschäft dauerhaft, ist die Aktie zu Recht günstig (eine «Value-Falle»). Darum zeigt die App bei jeder Aktie, was die Börse befürchtet und was diese Sorgen beenden könnte.</p>
+    <p><b>2. Wachstumsschub.</b> Gibt es einen konkreten Grund, warum das Wachstum in den nächsten Jahren deutlich anziehen kann? Zum Beispiel ein neues Produkt, eine Zulassung oder ein neuer Markt. Beispiel Alphabet (Google) 2023: Alle dachten, Google verschläft die KI. Dabei hatte Google mit eigener KI, eigenen KI-Chips und Google Cloud längst die Basis. Als das sichtbar wurde, stieg die Aktie stark. Die App bewertet den Wachstumsschub mit «stark», «möglich» oder «kein grosser Schub in Sicht» und sagt dir, an welcher Kennzahl du früh siehst, ob er kommt.</p>
+    <p><b>So passt das zusammen:</b> Die besten Kandidaten sind unterbewertet, haben einen Wachstumsschub und eine Qualität ab hellgrün. Gekauft wird erst, wenn auch das Timing dreht, also der Trigger ausgelöst ist oder der Kurs in einer Kaufzone hält. Die Filter «Unterbewertet», «Wachstumsschub» und «Beides» in der Übersicht helfen dir, diese Aktien zu finden. «Unterbewertet» heisst dort: mindestens 20 % günstiger als im eigenen 5-Jahres-Schnitt.</p>
     <h3>Was sich automatisch aktualisiert</h3>
     <p>Jeden Börsentag nach US-Börsenschluss holt GitHub die neuen Kurse. Daraus rechnet die App EMA 50/200, RSI und A/D-Linie neu und passt die Timing-Punkte für Trend, RSI, A/D und Saisonalität an. In der Qualität wird die Bewertung mit dem Kurs neu gerechnet: Fällt der Kurs, wird die Aktie günstiger und bekommt eher mehr Punkte.</p>
     <p>Struktur (SMC) und Smart Money bleiben aus der letzten Analyse. Schliesst der Kurs über dem Trigger, springt die Struktur auf mindestens 16 von 20. Bricht der Wochenschluss die Abbruch-Marke, fällt sie auf 2.</p>

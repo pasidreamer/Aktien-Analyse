@@ -219,3 +219,41 @@ details.more{margin-top:8px} details.more summary{cursor:pointer;color:var(--acc
 .divtab td{padding:3px 16px 3px 0;border-top:1px solid var(--line)}
 .ev.ev-div .day{color:var(--gruen)}
 @media (max-width:380px){.div-top b{font-size:16px}}
+
+/* Chancen: Unterbewertung und Wachstumsschub */
+.row .tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+.tg{font-size:11.5px;font-weight:600;padding:2px 7px;border-radius:999px;line-height:1.4}
+.tg-unter{background:var(--gruen-soft);color:var(--gruen)}
+.tg-schub{background:var(--accent-soft);color:var(--accent)}
+.kpi-div{grid-column:1/-1}
+.kpi-div em b{color:var(--ink);font-weight:600}
+.jump{border:0;background:none;padding:0;color:var(--accent);font:inherit;font-weight:600;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+.ch-card{margin-bottom:10px}
+.ch-card h3{font:600 16px var(--font);margin:14px 0 6px}
+.ch-head{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.ch-head h3{margin:0}
+.bew{margin-top:10px}
+.bew-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px}
+.bew-top b{font:700 22px/1.2 var(--num)}
+.bew-top span{font-size:13.5px;color:var(--muted)}
+.gruen-t{color:var(--gruen)} .gelb-t{color:var(--ink)} .orange-t{color:var(--orange)}
+.bew-bar{position:relative;height:10px;border-radius:5px;background:var(--surface2);margin:12px 6px 6px}
+.bew-bar i{position:absolute;top:50%;width:14px;height:14px;border-radius:50%;transform:translate(-50%,-50%);box-sizing:border-box}
+.bew-bar i.now{background:var(--accent);border:2px solid var(--surface)}
+.bew-bar i.avg{background:var(--surface);border:2.5px solid var(--muted)}
+.bew-leg{display:flex;gap:14px;flex-wrap:wrap;font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.bew-leg i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:-1px;box-sizing:border-box}
+.bew-leg i.now{background:var(--accent)} .bew-leg i.avg{border:2px solid var(--muted)}
+.pill{display:inline-block;font-size:12px;font-weight:600;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.p-gruen,.p-stimmung{background:var(--gruen-soft);color:var(--gruen)}
+.p-gelb,.p-gemischt{background:var(--gelb-soft);color:var(--ink)}
+.p-orange,.p-echt{background:var(--orange-soft);color:var(--orange)}
+.pill-line{font-size:14px;margin:0 0 6px;color:var(--muted)}
+.when li{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.when li em{font-style:normal;font-size:12.5px;color:var(--muted);flex:none;max-width:45%;text-align:right}
+.treiber{margin:10px 0 0;padding-left:20px;display:grid;gap:10px}
+.treiber li b{display:block;font-weight:600}
+.treiber li span{display:block;font-size:14.5px;line-height:1.45}
+.treiber li em{display:block;font-style:normal;font-size:12.5px;color:var(--muted);margin-top:2px}
+.beweis{font-size:14.5px;margin:12px 0 0;padding-top:10px;border-top:1px solid var(--line)}
+.szen{margin-bottom:6px;font-size:14.5px;line-height:1.45}
