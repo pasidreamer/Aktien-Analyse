@@ -726,8 +726,8 @@
      6,
      9
     ],
-    "zahl_text": "Schlussdividende im Juni, Zwischendividende im September",
-    "abstand_tage": 35,
+    "zahl_text": "Schlussdividende Ende Juni, Zwischendividende Mitte September",
+    "abstand_tage": 42,
     "betrag": 0.279,
     "system": "Britisches System mit Zwischen- und Schlussdividende: Im September kommt eine kleine Zwischendividende (rund 30 %), im Juni nach der Generalversammlung die grössere Schlussdividende (rund 70 %). Du hältst die US-Variante (ADR), darum wird in Dollar ausbezahlt und der Betrag schwankt mit dem Pfund."
    },
@@ -1028,8 +1028,8 @@
      9,
      12
     ],
-    "zahl_text": "jeweils Mitte März, Juni, September und Dezember",
-    "abstand_tage": 7,
+    "zahl_text": "jeweils Mitte März, Juni, September und Dezember, rund eine Woche nach dem Ex-Tag",
+    "abstand_tage": 8,
     "betrag": 0.22,
     "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Erst seit 2024, die Rendite ist klein (Alphabet kauft vor allem eigene Aktien zurück)."
    },
@@ -1324,8 +1324,13 @@
     "zahl_text": "jeweils um den 10. März, Juni, September und Dezember",
     "abstand_tage": 21,
     "betrag": 0.91,
-    "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Die Erhöhung wird jeweils im September angekündigt und gilt ab der Dezember-Zahlung.",
-    "serie": "Seit 2004 jedes Jahr erhöht."
+    "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Die Erhöhung wird jeweils im September angekündigt und gilt ab der Dezember-Zahlung (2026: von 0.91 auf 0.98 $).",
+    "serie": "Seit 2004 jedes Jahr erhöht.",
+    "angekuendigt": {
+     "ex": "2026-11-19",
+     "zahltag": "2026-12-10",
+     "betrag": 0.98
+    }
    },
    "fazit": "Eine der stärksten Firmen der Welt, und der Kurs hat den Einbruch vom Frühling fast ganz aufgeholt. Qualität grün, Timing hellgrün. Der Kurs steht aber direkt unter dem Allzeithoch: Ein sauberer Einstieg ist ein Rücksetzer in die Zone 477–491 $ oder ein Wochenschluss über 525 $.",
    "about": "Microsoft verdient an drei Säulen: Azure (Rechenzentren und KI-Rechenleistung zur Miete, der Wachstumsmotor), Microsoft 365 (Office, Teams, dazu der KI-Assistent Copilot im Abo) und Windows, LinkedIn und Xbox. Ein grosser Teil des Umsatzes ist wiederkehrend, weil Firmen Abos und Cloud-Verträge über Jahre abschliessen.",
@@ -1906,7 +1911,7 @@
      8,
      11
     ],
-    "zahl_text": "jeweils rund 2 Wochen nach dem Ex-Tag",
+    "zahl_text": "jeweils 2 Wochen nach dem Ex-Tag: Mitte Februar, Mai, August und November",
     "abstand_tage": 14,
     "betrag": 1.47,
     "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr, Erhöhung jeweils im April. Ab und zu eine grosse Sonderdividende (zuletzt 15 $ im Januar 2024)."
@@ -2470,7 +2475,12 @@
     "zahl_text": "jeweils Ende Januar, April, Juli und Oktober",
     "abstand_tage": 30,
     "betrag": 0.88,
-    "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Die Erhöhung wird jeweils im Dezember angekündigt."
+    "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Die Erhöhung wird jeweils im Dezember angekündigt.",
+    "angekuendigt": {
+     "ex": "2026-09-30",
+     "zahltag": "2026-10-30",
+     "betrag": 0.88
+    }
    },
    "fazit": "Eine sehr solide Firma, die gerade wegen Lieferproblemen in einem Geschäftsbereich abgestraft wird. Qualität grün, Timing orange. Der Kurs versucht über 267–269 $ einen Doppelboden. Erst ein Tagesschluss über 290.50 $ wäre das erste Zeichen für eine Wende.",
    "about": "Stryker baut Medizintechnik für Spitäler: künstliche Hüft- und Kniegelenke (inklusive OP-Roboter Mako), Instrumente und Ausstattung für Operationssäle, Wirbelsäulen- und Neurotechnik sowie Kathetersysteme für Blutgefässe. Weil Operationen auch in schwachen Wirtschaftsphasen stattfinden, wächst das Geschäft sehr stetig.",
@@ -2754,7 +2764,7 @@
      12
     ],
     "zahl_text": "jeweils Ende März, Juni, September und Dezember",
-    "abstand_tage": 11,
+    "abstand_tage": 9,
     "betrag": 0.525,
     "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Erst seit 2024, die Rendite ist klein."
    },
@@ -5052,13 +5062,13 @@
      11
     ],
     "zahl_monate": [
-     3,
+     4,
      6,
      9,
      12
     ],
-    "zahl_text": "jeweils März, Juni, September und Dezember",
-    "abstand_tage": 25,
+    "zahl_text": "April, Ende Juni, Mitte September und Anfang Dezember (4 bis 6 Wochen nach dem Ex-Tag)",
+    "abstand_tage": 40,
     "betrag": 39.82,
     "system": "Quartalsdividende: 4 Zahlungen pro Jahr. Unilever legt die Dividende in Euro fest und zahlt in London in Pence aus, darum schwankt der Betrag leicht mit dem Wechselkurs. Seit der Abspaltung des Glacé-Geschäfts (Dezember 2025) etwas tiefer."
    },
@@ -5342,7 +5352,12 @@
     "abstand_tage": 14,
     "betrag": 1.25,
     "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Die Erhöhung kommt jeweils Ende Mai und gilt ab der August-Zahlung.",
-    "serie": "Seit über 50 Jahren jedes Jahr erhöht."
+    "serie": "54 Jahre in Folge erhöht.",
+    "angekuendigt": {
+     "ex": "2026-10-21",
+     "zahltag": "2026-11-04",
+     "betrag": 1.25
+    }
    },
    "fazit": "Solide Baumarktkette in einer schwachen Branche: Der US-Immobilienmarkt steht still, und Lowe's hat sich mit Zukäufen verschuldet. Der Kurs fällt seit Februar um 39 %. Qualität gelb, Timing rot. Hier ist kein Boden erkennbar. Nur beobachten.",
    "about": "Lowe's betreibt rund 1'700 Baumärkte in den USA, für Heimwerker und Handwerker (Pros). 2025 kaufte Lowe's den Baustoffhändler Foundation Building Materials (FBM) und den Händler ADG, um mehr an Profis zu verkaufen. Das Geschäft hängt stark an Hausverkäufen und Renovationen.",
@@ -6576,6 +6591,878 @@
    "claude": "https://claude.ai/artifact/JoPYtZK8bWZLUEj9GifWkj"
   },
   {
+   "ticker": "ISRG",
+   "symbol": "ISRG",
+   "name": "Intuitive Surgical",
+   "tags": [
+    "Wachstum",
+    "Qualität"
+   ],
+   "land": "USA",
+   "region": "USA",
+   "branche": "Medizintechnik, Operationsroboter",
+   "status": "beobachten",
+   "waehrung": "USD",
+   "analyse": {
+    "datenstand": "2026-10-09",
+    "kurs": 423.96,
+    "q": 90,
+    "t": 58
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "4 von 4 Quartalen über Vorjahr (+19 bis +23 %)",
+     "p": 12,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "+20.7 % in den letzten 12 Monaten",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "31.3 % (9 Pkt.), seit 2023 steigend (5 Pkt.)",
+     "p": 14,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "2022–2025 rund +29 % pro Jahr",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Positiv, seit 2023 stark steigend (davor gesunken)",
+     "p": 7,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "21.9 %, stabil",
+     "p": 13,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Keine Schulden, Netto-Cash 5.2 Mrd. $",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "KGV 48.6 statt Ø 72.5 (33 % günstiger)",
+     "p": 14,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs knapp unter EMA 50, über EMA 200: Rücksetzer im Aufwärtstrend",
+     "p": 13,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs über EMA 50, knapp unter EMA 200: mögliche Wende",
+     "p": 4,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Tag: Change of Character, höhere Hochs und Tiefs; Kurs am Widerstand",
+     "p": 14,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "67 / 53, kein Signal",
+     "p": 7,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Beide steigen mit dem Kurs, Woche noch unter dem Frühling",
+     "p": 14,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Rückkäufe 2.6 %, aber viele Insider-Verkäufe",
+     "p": 3,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "Okt gemischt, Nov stark, Dez schwach",
+     "p": 3,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 48.6,
+    "schnitt": 72.5,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      389,
+      405
+     ],
+     [
+      345,
+      360
+     ]
+    ],
+    "widerstand": [
+     [
+      430,
+      451
+     ],
+     [
+      482,
+      512
+     ]
+    ],
+    "trigger": 444,
+    "abbruch": 385
+   },
+   "zahlen": "2026-10-20",
+   "dividende": null,
+   "div_info": {
+    "zahlt": false,
+    "text": "Intuitive Surgical zahlt keine Dividende. Die Firma steckt das Geld ins Wachstum und kauft eigene Aktien zurück (letzte 12 Monate rund 4 Mrd. $)."
+   },
+   "fazit": "Intuitive Surgical ist der klare Weltmarktführer bei Operationsrobotern: Umsatz +19 %, Marge 31 %, keine Schulden. Qualität grün (90), Timing gelb (58). Die Aktie fiel von 604 $ bis 329 $ (−46 %), vor allem weil die Börse nicht mehr so viel für das Wachstum bezahlt (KGV von rund 70 auf 49). Seit dem Juli-Tief macht der Tageschart höhere Hochs und höhere Tiefs, der Kurs steht jetzt unter einem Widerstand bei 430–451 $. Erst die Zahlen am 20. Oktober abwarten.",
+   "about": "Intuitive Surgical baut den Operationsroboter da Vinci: Der Chirurg sitzt an einer Konsole und steuert feine Instrumente, die durch kleine Schnitte in den Körper gehen. Dazu kommt Ion für Lungen-Biopsien. Weltweit stehen rund 11'700 da-Vinci-Systeme in Spitälern. Das Geschäftsmodell ist wie bei einem Drucker mit Patronen: Der Roboter wird einmal verkauft oder vermietet, danach bringt jede Operation wiederkehrenden Umsatz mit Instrumenten, Zubehör und Service (rund 85 % des Umsatzes).",
+   "kpis": [
+    {
+     "ampel": "g",
+     "name": "Umsatzwachstum",
+     "wert": "+20.7 %",
+     "text": "Letzte 12 Monate. Alle Quartale wachsen um 19 bis 23 %. Sehr stark für eine Firma dieser Grösse."
+    },
+    {
+     "ampel": "g",
+     "name": "Operative Marge",
+     "wert": "31.3 %",
+     "text": "Von 100 $ Umsatz bleiben 31 $ Betriebsgewinn. Seit 2023 (24.8 %) jedes Jahr gestiegen, im 2. Quartal 2026 33.6 %."
+    },
+    {
+     "ampel": "g",
+     "name": "Gewinn pro Aktie (EPS)",
+     "wert": "8.72 $",
+     "text": "Letzte 12 Monate. 2022 waren es 3.65 $, also mehr als verdoppelt in drei Jahren."
+    },
+    {
+     "ampel": "g",
+     "name": "ROIC",
+     "wert": "21.9 %",
+     "text": "Auf 100 $ investiertes Kapital fast 22 $ Gewinn. Sehr gut, obwohl die Firma viel Geld auf dem Konto hat."
+    },
+    {
+     "ampel": "g",
+     "name": "Free Cashflow",
+     "wert": "3.2 Mrd. $",
+     "text": "Letzte 12 Monate, seit 2023 (0.75 Mrd. $) stark gestiegen, weil die grossen Fabrik-Investitionen fertig sind."
+    },
+    {
+     "ampel": "g",
+     "name": "Netto-Cash",
+     "wert": "5.2 Mrd. $",
+     "text": "Keine Schulden, dazu rund 8.6 Mrd. $ Geld und Anlagen. Sehr solide."
+    },
+    {
+     "ampel": "g",
+     "name": "KGV",
+     "wert": "48.6",
+     "text": "Du zahlst rund 49 Jahresgewinne. Das ist absolut gesehen teuer. Der eigene 5-Jahres-Schnitt liegt aber bei rund 72. Erwartet für die nächsten 12 Monate: 37.5."
+    },
+    {
+     "ampel": "w",
+     "name": "Operationen da Vinci",
+     "wert": "+15 %",
+     "text": "Weltweit im 2. Quartal 2026. In den USA nur +12 %, so wenig wie seit drei Jahren nicht mehr. Prognose 2026: +13.5 bis 15.5 %."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "482–512 $",
+     "text": "Widerstand: Hochs von Februar bis April."
+    },
+    {
+     "art": "r",
+     "wert": "430–451 $",
+     "text": "Widerstand: EMA 200 Tag (429 $), EMA 50 Woche (436 $), Juli-Hoch (443.84 $) und Tiefs vom April."
+    },
+    {
+     "art": "t",
+     "wert": "444 $",
+     "text": "Trigger: Tagesschluss über dem Juli-Hoch und damit über der Tages-EMA 200."
+    },
+    {
+     "art": "s",
+     "wert": "389–405 $",
+     "text": "Kaufzone 1: Ausbruchs-Niveau (405 $), Tief vom 5.10. (389 $) und EMA 50 Tag (393 $)."
+    },
+    {
+     "art": "s",
+     "wert": "345–360 $",
+     "text": "Kaufzone 2: Tief vom September."
+    },
+    {
+     "art": "r",
+     "wert": "385 $",
+     "text": "Abbruch: Wochenschluss darunter, dann ist die Wende auf dem Tageschart gescheitert."
+    }
+   ],
+   "pro": [
+    "Klarer Marktführer mit über 11'700 installierten Robotern und wiederkehrendem Umsatz.",
+    "Umsatz +19 bis 23 % pro Quartal, Marge steigt wieder.",
+    "Keine Schulden, Milliarden auf dem Konto, Aktienrückkäufe.",
+    "Bewertung so tief wie seit Jahren nicht (KGV 49 statt Ø 72).",
+    "Tageschart hat gedreht: höhere Hochs und Tiefs mit steigender A/D."
+   ],
+   "contra": [
+    "Absolut gesehen immer noch teuer (KGV 49).",
+    "Wachstum der Operationen verlangsamt sich, in den USA nur noch +12 %.",
+    "Neue Konkurrenz: Medtronic Hugo, bald Johnson & Johnson Ottava.",
+    "Preisdruck in China und Zölle.",
+    "Viele Insider-Verkäufe, keine Käufe. Nach Zahlen oft Kurssprünge von 10 %."
+   ],
+   "smart_money": [
+    "Intuitive selbst: Kauft eigene Aktien zurück: rund 4 Mrd. $ in den letzten 12 Monaten (2.6 % des Börsenwerts). Die Aktienzahl sank um 1.1 %.",
+    "Insider-Käufe: Keine Käufe am Markt in den letzten 12 Monaten.",
+    "Insider-Verkäufe: 74 Verkäufe für rund 85 Mio. $, vor allem Ende 2025 nahe am Hoch. Ein Teil davon über vorab festgelegte Verkaufspläne (10b5-1).",
+    "Analysten: 33 Analysten, im Schnitt «Kaufen», Kursziel 478 $. Im Juli wurden die Kursziele gesenkt, UBS stufte Ende Juli auf «Kaufen» hoch (Ziel 500 $)."
+   ],
+   "cheatsheet": "analysen/ISRG.html",
+   "claude": "https://claude.ai/artifact/7gFvbGT7hAMNty1ptLwb4E"
+  },
+  {
+   "ticker": "BSX",
+   "symbol": "BSX",
+   "name": "Boston Scientific",
+   "tags": [
+    "Wachstum"
+   ],
+   "land": "USA",
+   "region": "USA",
+   "branche": "Medizintechnik",
+   "status": "beobachten",
+   "waehrung": "USD",
+   "analyse": {
+    "datenstand": "2026-10-09",
+    "kurs": 42.73,
+    "q": 63,
+    "t": 32
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "4 von 4 Quartalen über Vorjahr, aber stark bremsend",
+     "p": 10,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "Organisch 7 % im 2. Quartal, Jahresprognose zuletzt 5–6 % und nicht mehr erreichbar",
+     "p": 3,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "20.5 % ausgewiesen (6 Pkt.), seit 2021 steigend (6 Pkt.)",
+     "p": 12,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "Bereinigt zuletzt rund +5 %, 2027 kaum Wachstum",
+     "p": 5,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Positiv, seit 2022 stark steigend",
+     "p": 7,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "11.2 %, klar steigend",
+     "p": 7,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Nettoschulden/EBITDA 2.1",
+     "p": 5,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "Bereinigtes KGV 13.3 statt Ø rund 30 (über 50 % günstiger)",
+     "p": 14,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs weit unter beiden, EMA 50 unter 200",
+     "p": 1,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs unter beiden, EMA 200 weit weg",
+     "p": 1,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Tiefere Hochs und Tiefs, seit Juni Boden bei 41–43 $",
+     "p": 3,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "Bullische Divergenz auf Tag und Woche",
+     "p": 12,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Beide schwächer als bei den Juli-Tiefs",
+     "p": 4,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "CEO kauft für 9 Mio. $, Rückkauf 2 Mrd. $",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "Okt und Nov eher schwach, Dez stark",
+     "p": 1,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 13.3,
+    "schnitt": 29.6,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      41.4,
+      42.8
+     ],
+     [
+      35,
+      38.5
+     ]
+    ],
+    "widerstand": [
+     [
+      49.7,
+      53
+     ]
+    ],
+    "trigger": 45.75,
+    "abbruch": 40.5
+   },
+   "zahlen": "2026-10-28",
+   "dividende": null,
+   "div_info": {
+    "zahlt": false,
+    "text": "Boston Scientific hat noch nie eine Dividende bezahlt. Das Geld geht in Zukäufe (Penumbra) und Aktienrückkäufe."
+   },
+   "fazit": "Boston Scientific war 2025 einer der Wachstums-Stars der Medizintechnik und ist 2026 um 60 % gefallen: Die zwei Wachstumstreiber (Watchman und Herz-Ablation) schwächeln, die Prognose wurde dreimal gesenkt, dazu kam ein Hackerangriff. Qualität hellgrün (63), Timing orange (32). Die Qualität profitiert stark von der tiefen Bewertung (bereinigtes KGV 13 statt Ø 30). Der Kurs baut seit Juni einen Boden bei 41–43 $, RSI zeigt eine bullische Divergenz, die A/D aber noch nicht. Erst die Zahlen und den neuen Ausblick am 28. Oktober abwarten.",
+   "about": "Boston Scientific stellt Medizintechnik für minimalinvasive Eingriffe her, also Behandlungen über kleine Schnitte oder Katheter. Die wichtigsten Produkte: Watchman (ein kleiner Schirm, der im Herzen ein Gerinnsel-Risiko bei Vorhofflimmern verschliesst), Farapulse (Katheter, der Herzrhythmus-Störungen mit Stromimpulsen behandelt, «Pulsed Field Ablation»), Stents und Ballone für Gefässe, Schrittmacher, Urologie und Endoskopie. Im Januar 2026 kündigte die Firma den Kauf von Penumbra (Gerinnsel-Entfernung) für 14.5 Mrd. $ an.",
+   "kpis": [
+    {
+     "ampel": "w",
+     "name": "Umsatzwachstum",
+     "wert": "+7.0 %",
+     "text": "Organisch im 2. Quartal 2026. Das Tempo bricht ein: 15.3 % → 12.7 % → 9.4 % → 7.0 %. Für das 3. Quartal waren vor dem Hackerangriff nur 3 bis 5 % geplant."
+    },
+    {
+     "ampel": "w",
+     "name": "Operative Marge",
+     "wert": "20.5 %",
+     "text": "Ausgewiesen, letzte 12 Monate: von 100 $ Umsatz bleiben gut 20 $ Betriebsgewinn. Seit 2021 (15.3 %) jedes Jahr gestiegen. Bereinigt (ohne Abschreibungen auf Zukäufe) rund 28 %."
+    },
+    {
+     "ampel": "w",
+     "name": "Gewinn pro Aktie (bereinigt)",
+     "wert": "3.21 $",
+     "text": "Letzte 12 Monate. 2022: 1.71 $, 2025: 3.06 $. Jetzt nur noch rund +5 %, für 2027 erwartet das Management kaum Wachstum."
+    },
+    {
+     "ampel": "w",
+     "name": "ROIC",
+     "wert": "11.2 %",
+     "text": "Auf 100 $ investiertes Kapital gut 11 $ Gewinn. Mittel, aber seit 2022 (5 %) klar steigend."
+    },
+    {
+     "ampel": "g",
+     "name": "Free Cashflow",
+     "wert": "3.6 Mrd. $",
+     "text": "Letzte 12 Monate. Seit 2022 (0.9 Mrd. $) stark gestiegen."
+    },
+    {
+     "ampel": "w",
+     "name": "Nettoschulden / EBITDA",
+     "wert": "2.1",
+     "text": "Rund 12 Mrd. $ Nettoschulden. Tragbar, wird mit dem Kauf von Penumbra aber höher."
+    },
+    {
+     "ampel": "g",
+     "name": "KGV (bereinigt)",
+     "wert": "13.3",
+     "text": "Du zahlst gut 13 bereinigte Jahresgewinne. Eigener 5-Jahres-Schnitt rund 30. Also mehr als 50 % günstiger als üblich. Ausgewiesen 17.3."
+    },
+    {
+     "ampel": "b",
+     "name": "Prognose 2026",
+     "wert": "3× gesenkt",
+     "text": "Organisch von 10–11 % auf 5–6 %, danach wegen des Hackerangriffs ganz zurückgezogen. Neuer Ausblick am 28. Oktober."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "58.5 $",
+     "text": "Widerstand: Hoch vom Mai."
+    },
+    {
+     "art": "r",
+     "wert": "49.7–53 $",
+     "text": "Widerstand: Hochs von August und September."
+    },
+    {
+     "art": "t",
+     "wert": "45.75 $",
+     "text": "Trigger: Tagesschluss über dem Hoch vom 23.9."
+    },
+    {
+     "art": "s",
+     "wert": "41.4–42.8 $",
+     "text": "Kaufzone 1: Boden seit Juni, fünfmal getestet."
+    },
+    {
+     "art": "s",
+     "wert": "35–38.5 $",
+     "text": "Kaufzone 2: Bewertungszone, bereinigtes KGV 11–12."
+    },
+    {
+     "art": "r",
+     "wert": "40.5 $",
+     "text": "Abbruch: Wochenschluss darunter, dann ist der Boden gebrochen."
+    }
+   ],
+   "pro": [
+    "Sehr günstig bewertet: bereinigtes KGV 13 statt Ø 30.",
+    "Der CEO hat für 9 Mio. $ eigene Aktien gekauft, die Firma kauft zurück.",
+    "Starke Produkte und hohe Marge, Free Cashflow 3.6 Mrd. $.",
+    "Boden bei 41–43 $ seit Juni, RSI mit bullischer Divergenz.",
+    "Sparprogramm (500 Mio. $ pro Jahr) und Penumbra können ab 2027/28 helfen."
+   ],
+   "contra": [
+    "Die beiden Wachstumstreiber Watchman und Herz-Ablation schwächeln, Marktanteile gehen verloren.",
+    "Prognose dreimal gesenkt, 2027 kaum Gewinnwachstum.",
+    "Hackerangriff mit Umsatzausfällen, Sammelklage von Aktionären.",
+    "Mehr Schulden durch den Kauf von Penumbra.",
+    "Klarer Abwärtstrend, A/D zeigt noch Verkaufsdruck, viele Leerverkäufer."
+   ],
+   "smart_money": [
+    "Boston Scientific selbst: Im 2. Quartal 2026 eigene Aktien für 2 Mrd. $ zurückgekauft (rund 3 % des Börsenwerts), der erste Rückkauf seit sechs Quartalen.",
+    "Insider-Käufe: CEO Mike Mahoney kaufte am 3.8.2026 186'240 Aktien zu 48.33 $ (rund 9 Mio. $) mit eigenem Geld. Dazu mehrere Verwaltungsräte im Mai und August (zusammen rund 1 Mio. $). Das ist ein starkes Zeichen.",
+    "Insider-Verkäufe: Rund 29 Mio. $, alle nach Optionsausübungen und nahe am Hoch (Ende 2025 bis Februar 2026).",
+    "Fonds und Analysten: Leerverkäufe stark gestiegen (46.5 statt 27.6 Mio. Aktien). 31 Analysten, im Schnitt «Kaufen», Kursziel rund 60 bis 66 $. Ein Teil der Analysten nennt 2026 ein «verlorenes Jahr»."
+   ],
+   "cheatsheet": "analysen/BSX.html",
+   "claude": "https://claude.ai/artifact/1CTHUcHYHhvPi6Ys9MBY1a"
+  },
+  {
+   "ticker": "ABT",
+   "symbol": "ABT",
+   "name": "Abbott",
+   "tags": [
+    "Dividende",
+    "Defensiv"
+   ],
+   "land": "USA",
+   "region": "USA",
+   "branche": "Medizintechnik, Diagnostik",
+   "status": "beobachten",
+   "waehrung": "USD",
+   "analyse": {
+    "datenstand": "2026-10-09",
+    "kurs": 99.6,
+    "q": 48,
+    "t": 43
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "4 von 4 Quartalen über Vorjahr, Beschleunigung nur durch Zukauf",
+     "p": 12,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "Vergleichbar (ohne Zukauf) rund 4.3 % im 1. Halbjahr 2026",
+     "p": 3,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "17.7 % (6 Pkt.), seit 2021 sinkend (0 Pkt.)",
+     "p": 6,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "Bereinigt 2023–2025 rund +8 % pro Jahr, Prognose 2026 +7 %",
+     "p": 5,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Positiv, schwankend (Tief 2023, seither steigend)",
+     "p": 6,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "7.5 %, stark fallend (Zukauf)",
+     "p": 1,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Nettoschulden/EBITDA 2.3",
+     "p": 5,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "Bereinigtes KGV 18.9 statt Ø rund 24 (über 20 % günstiger)",
+     "p": 10,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs unter beiden, EMA 50 unter 200 seit Mai",
+     "p": 2,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs knapp unter beiden, EMAs flachen ab",
+     "p": 2,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Höhere Tiefs seit Mai, Rücksetzer bis in den Discount (62 %)",
+     "p": 9,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "42 / 46, Tag am 2.10. bei 30 und dreht",
+     "p": 8,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Tag bullische Divergenz, Woche neutral",
+     "p": 11,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Insider-Kauf im April, aber grosser CEO-Verkauf im August",
+     "p": 6,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "Oktober bis Dezember 60–71 % positiv",
+     "p": 5,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 18.9,
+    "schnitt": 24.2,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      95,
+      100
+     ],
+     [
+      87,
+      90
+     ]
+    ],
+    "widerstand": [
+     [
+      104.5,
+      107
+     ],
+     [
+      110,
+      117
+     ]
+    ],
+    "trigger": 101,
+    "abbruch": 94
+   },
+   "zahlen": "2026-10-21",
+   "dividende": "2.5 %",
+   "div_info": {
+    "pro_jahr": 4,
+    "rhythmus": "quartalsweise",
+    "ex_monate": [
+     1,
+     4,
+     7,
+     10
+    ],
+    "zahl_monate": [
+     2,
+     5,
+     8,
+     11
+    ],
+    "zahl_text": "jeweils Mitte Februar, Mai, August und November",
+    "abstand_tage": 31,
+    "betrag": 0.63,
+    "angekuendigt": {
+     "ex": "2026-10-15",
+     "zahltag": "2026-11-16",
+     "betrag": 0.63
+    },
+    "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr, Ex-Tag jeweils am 15. Januar, April, Juli und Oktober. Die Erhöhung wird im Dezember angekündigt und gilt ab der Februar-Zahlung.",
+    "serie": "54 Jahre in Folge erhöht (Dividenden-König), 411 Quartalsdividenden ohne Unterbruch."
+   },
+   "fazit": "Abbott ist ein breit aufgestellter Gesundheitskonzern und Dividenden-König (54 Erhöhungen in Folge), hat aber ein schwieriges Jahr: Rückruf bei den Libre-Sensoren, Klagen zur Säuglingsnahrung und ein teurer Kauf (Exact Sciences) auf Kredit. Qualität gelb (48), Timing orange (43). Nach dem Tief im Mai (81.97 $) und der Erholung bis 117 $ ist der Kurs auf 95–100 $ zurückgefallen, genau in die Mitte der Aufwärtsbewegung. Ein Tagesschluss über 101 $ wäre das erste Signal, aber erst die Zahlen am 21. Oktober abwarten.",
+   "about": "Abbott verkauft in vier Bereichen: Medizintechnik (vor allem die Zuckermess-Sensoren FreeStyle Libre, dazu Herzschrittmacher, Herzklappen und Gefässtechnik), Diagnostik (Labor- und Schnelltests, seit März 2026 mit Exact Sciences auch Krebs-Früherkennung wie Cologuard), Nahrung (Säuglingsnahrung Similac, Ensure) und Markenmedikamente (Generika in Schwellenländern). Die Medizintechnik ist mit rund 9 % Wachstum der Motor, die Nahrung schrumpft.",
+   "kpis": [
+    {
+     "ampel": "w",
+     "name": "Umsatzwachstum",
+     "wert": "+8.1 %",
+     "text": "Letzte 12 Monate, ausgewiesen. Ein Teil kommt vom Kauf von Exact Sciences. Ohne Zukauf (vergleichbar) nur +3.7 % und +4.8 % in den ersten beiden Quartalen 2026."
+    },
+    {
+     "ampel": "w",
+     "name": "Operative Marge",
+     "wert": "17.7 %",
+     "text": "Von 100 $ Umsatz bleiben knapp 18 $ Betriebsgewinn (ausgewiesen, nach Abschreibungen auf Zukäufe). 2021 waren es 21.4 %. Mittel und sinkend."
+    },
+    {
+     "ampel": "w",
+     "name": "Gewinn pro Aktie (bereinigt)",
+     "wert": "5.26 $",
+     "text": "Letzte 12 Monate. 2023: 4.44 $, 2025: 5.15 $. Prognose 2026: 5.45 bis 5.60 $, also rund +7 %."
+    },
+    {
+     "ampel": "b",
+     "name": "ROIC",
+     "wert": "7.5 %",
+     "text": "Auf 100 $ investiertes Kapital 7.50 $ Gewinn. 2021 waren es 17.5 %. Gesunken, vor allem durch den teuren Kauf von Exact Sciences."
+    },
+    {
+     "ampel": "g",
+     "name": "Free Cashflow",
+     "wert": "7.8 Mrd. $",
+     "text": "Letzte 12 Monate, klar positiv und wieder steigend (2023: 5.1 Mrd. $)."
+    },
+    {
+     "ampel": "w",
+     "name": "Nettoschulden / EBITDA",
+     "wert": "2.3",
+     "text": "Vor dem Kauf von Exact Sciences 0.4. Jetzt rund 27 Mrd. $ Nettoschulden: tragbar, aber nicht mehr so solide wie früher."
+    },
+    {
+     "ampel": "g",
+     "name": "KGV (bereinigt)",
+     "wert": "18.9",
+     "text": "Du zahlst knapp 19 bereinigte Jahresgewinne. Eigener 5-Jahres-Schnitt rund 24. Also gut 20 % günstiger als üblich. Ausgewiesen (mit Abschreibungen) liegt das KGV bei 32."
+    },
+    {
+     "ampel": "g",
+     "name": "Dividende",
+     "wert": "2.5 %",
+     "text": "0.63 $ pro Quartal. 54 Jahre in Folge erhöht (Dividenden-König). Rund die Hälfte des bereinigten Gewinns wird ausgeschüttet."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "110–117 $",
+     "text": "Widerstand: Hochs von Ende Juli und August."
+    },
+    {
+     "art": "r",
+     "wert": "104.5–107 $",
+     "text": "Widerstand: Hoch vom 22.9., EMA 200 Tag (105.4 $) und EMA 50 Woche (106.6 $)."
+    },
+    {
+     "art": "t",
+     "wert": "101 $",
+     "text": "Trigger: Tagesschluss über dem Hoch vom 6.10. (100.95 $)."
+    },
+    {
+     "art": "s",
+     "wert": "95–100 $",
+     "text": "Kaufzone 1: 50–62 % der Aufwärtsbewegung, Tief vom 2.10."
+    },
+    {
+     "art": "s",
+     "wert": "87–90 $",
+     "text": "Kaufzone 2: Tiefs von Juni und Juli."
+    },
+    {
+     "art": "r",
+     "wert": "94 $",
+     "text": "Abbruch: Wochenschluss darunter, dann ist die Erholung seit Mai in Frage gestellt."
+    }
+   ],
+   "pro": [
+    "Breit aufgestellt: Medizintechnik, Diagnostik, Nahrung und Medikamente.",
+    "FreeStyle Libre ist Weltmarktführer bei Zuckermess-Sensoren und wächst weiter.",
+    "Dividenden-König: 54 Jahre in Folge erhöht, Rendite 2.5 %.",
+    "Bereinigt rund 20 % günstiger als im eigenen 5-Jahres-Schnitt.",
+    "Insider haben 2026 mit eigenem Geld gekauft, die meisten NEC-Klagen sind verglichen."
+   ],
+   "contra": [
+    "Das vergleichbare Wachstum ist auf 4 bis 5 % gefallen, das Nahrungsgeschäft schrumpft.",
+    "Der Kauf von Exact Sciences hat die Schulden stark erhöht und den ROIC gedrückt.",
+    "Noch rund 1'700 Klagen zur Säuglingsnahrung offen.",
+    "Rückruf bei Libre-3-Sensoren: Vertrauen und Image angekratzt.",
+    "Für die Jahresprognose muss das 2. Halbjahr deutlich stärker wachsen (rund 9 %)."
+   ],
+   "smart_money": [
+    "Abbott selbst: Kaum Aktienrückkäufe (Aktienzahl −0.1 % in einem Jahr), das Geld geht in die Dividende und den Schuldenabbau. Rund 6.7 Mrd. $ Rückkauf-Rahmen wären noch offen.",
+    "Insider-Käufe: CEO Robert Ford kaufte am 23.1.2026 18'800 Aktien zu 107.13 $ (rund 2 Mio. $). Ein Verwaltungsrat kaufte am 4.2. (108.73 $) und am 27.4.2026 (92.65 $) je 10'000 Aktien. Echte Käufe mit eigenem Geld.",
+    "Insider-Verkäufe: Der CEO übte am 25.8.2026 nahe am Hoch Optionen aus und verkaufte rund 399'000 Aktien zu rund 116 $ (rund 46 Mio. $).",
+    "Fonds und Analysten: Die Zahl der Hedgefonds mit Abbott stieg im 2. Quartal von 73 auf 86. 28 Analysten: im Schnitt «Kaufen», Kursziel rund 119 bis 121 $."
+   ],
+   "cheatsheet": "analysen/ABT.html",
+   "claude": "https://claude.ai/artifact/XMM3R11JXWDHckDSvHQwrj"
+  },
+  {
    "ticker": "ABF",
    "symbol": "ABF.L",
    "name": "Associated British Foods",
@@ -6751,7 +7638,7 @@
      1,
      7
     ],
-    "zahl_text": "Zwischendividende im Juli, Schlussdividende im Januar",
+    "zahl_text": "Zwischendividende Anfang Juli, Schlussdividende Anfang Januar",
     "abstand_tage": 33,
     "betrag": 20.7,
     "system": "Britisches System mit Zwischen- und Schlussdividende: Im Juli kommt die kleinere Zwischendividende, im Januar die grössere Schlussdividende (Geschäftsjahr endet im September). In manchen Jahren gibt es zusätzlich eine Sonderdividende."
