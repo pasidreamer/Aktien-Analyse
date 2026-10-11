@@ -1,5 +1,5 @@
 {
- "stand": "2026-10-09",
+ "stand": "2026-10-11",
  "aktien": [
   {
    "ticker": "APP",
@@ -5922,6 +5922,286 @@
    ],
    "cheatsheet": "analysen/TSLA.html",
    "claude": "https://claude.ai/artifact/SPjCZEFLm9CoSbdbnF12BJ"
+  },
+  {
+   "ticker": "JFN",
+   "symbol": "JFN.SW",
+   "name": "Jungfraubahn",
+   "tags": [
+    "Dividende"
+   ],
+   "land": "Schweiz",
+   "region": "Schweiz",
+   "branche": "Bergbahnen, Tourismus",
+   "status": "beobachten",
+   "waehrung": "CHF",
+   "analyse": {
+    "datenstand": "2026-10-09",
+    "kurs": 232.0,
+    "q": 44,
+    "t": 54
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "3 von 4 Halbjahren über Vorjahr, das jüngste (H1 2026) aber −8.6 %",
+     "p": 8,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "Letzte 12 Monate −4.2 % (2025: +3.7 %)",
+     "p": 0,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "30.6 % (9 Pkt.), seit 2023 leicht sinkend, aber hoch (3 Pkt.)",
+     "p": 12,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "2023–2025 flach (13.40–13.60 CHF), letzte 12 Monate −11 %",
+     "p": 2,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Seit 2022 positiv, schwankend",
+     "p": 6,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "9.8 %, seit 2023 stabil um 10–11 %",
+     "p": 2,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Netto-Cash 49 Mio. CHF",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "KGV 19.3 statt Ø 15.5 (2022–2025), rund 24 % teurer",
+     "p": 4,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs unter EMA 50, klar über EMA 200: Rücksetzer im Aufwärtstrend",
+     "p": 12,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs unter beiden, EMA 50 unter 200 seit 11.8., beide fallen",
+     "p": 1,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Tiefere Hochs und Tiefs seit März, erst Bodenbildung 220–233 CHF",
+     "p": 4,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "Tag aus 25 auf 45 gedreht, Woche 38",
+     "p": 9,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Beide höher bei gleichem oder tieferem Kurs (Käufer nehmen auf)",
+     "p": 18,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Ein Insider-Kauf im Mai, kein Rückkauf",
+     "p": 5,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "Oktober bis Dezember überwiegend positiv (58–67 %)",
+     "p": 5,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 19.3,
+    "schnitt": 15.5,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      220,
+      226
+     ],
+     [
+      200,
+      212
+     ]
+    ],
+    "widerstand": [
+     [
+      238,
+      251
+     ],
+     [
+      262,
+      270
+     ]
+    ],
+    "trigger": 233,
+    "abbruch": 218
+   },
+   "zahlen": "2027-03-31",
+   "dividende": "3.7 %",
+   "fazit": "Jungfraubahn ist ein sehr profitables Bergbahn-Unternehmen mit fast monopolartiger Stellung (Marge 31 %, mehr Geld als Schulden, Dividende 3.7 %). 2026 fehlen aber wegen des Iran-Kriegs viele Gäste aus Asien: Umsatz und Gewinn sinken. Qualität orange (44), Timing gelb (54). Der Kurs fiel vom März-Hoch 327 CHF bis auf 220 CHF (−33 %) und baut seit drei Wochen zwischen 220 und 233 CHF einen Boden mit steigender A/D. Ein Tagesschluss über 233 CHF wäre das erste Signal.",
+   "about": "Jungfraubahn betreibt die Bergbahnen in der Jungfrau-Region im Berner Oberland. Herzstück ist die Zahnradbahn auf das Jungfraujoch (3'454 m, «Top of Europe», höchstgelegener Bahnhof Europas). Dazu kommen die Wengernalpbahn, die Erlebnisberge Harder, First und Schynige Platte, das Skigebiet Jungfrau Ski Region, die V-Bahn mit dem Eiger Express sowie Gastronomie und ein eigenes Wasserkraftwerk. Das Jungfraujoch allein bringt gut die Hälfte der Verkehrserträge. Viele Gäste kommen von weit her: aus Asien (China, Japan, Taiwan, Indien, Südostasien), aus Amerika und aus Europa und der Schweiz.",
+   "kpis": [
+    {
+     "ampel": "w",
+     "name": "Umsatzwachstum",
+     "wert": "−4.2 %",
+     "text": "Letzte 12 Monate. Im 1. Halbjahr 2026 sogar −8.6 %, weil 17.6 % weniger Gäste aufs Jungfraujoch kamen. 2025 waren es noch +3.7 %."
+    },
+    {
+     "ampel": "g",
+     "name": "Operative Marge",
+     "wert": "30.6 %",
+     "text": "Von 100 CHF Umsatz bleiben rund 31 CHF Betriebsgewinn. Sehr hoch. Im Rekordjahr 2023 waren es 35.8 %. Die EBITDA-Marge lag im Halbjahr bei 41.5 % (Ziel: über 45 %)."
+    },
+    {
+     "ampel": "w",
+     "name": "Gewinn pro Aktie (EPS)",
+     "wert": "12.05 CHF",
+     "text": "Letzte 12 Monate. 2023 bis 2025 stabil bei 13.40 bis 13.60 CHF. Im 1. Halbjahr 2026 nur 4.96 statt 6.50 CHF (−24 %)."
+    },
+    {
+     "ampel": "w",
+     "name": "ROIC",
+     "wert": "9.8 %",
+     "text": "Auf 100 CHF investiertes Kapital rund 10 CHF Gewinn. Mittel: Bahnen, Tunnel und Seilbahnen brauchen sehr viel Kapital. Seit 2023 stabil um 10 bis 11 %."
+    },
+    {
+     "ampel": "g",
+     "name": "Free Cashflow",
+     "wert": "76.5 Mio. CHF",
+     "text": "2025. Im 1. Halbjahr 2026 18.7 Mio. CHF und damit 12 % mehr als im Vorjahr, trotz weniger Gästen."
+    },
+    {
+     "ampel": "g",
+     "name": "Netto-Cash",
+     "wert": "49 Mio. CHF",
+     "text": "Mehr Geld (169 Mio.) als Schulden (119 Mio.). Eigenkapitalquote 78.6 %: sehr solide Bilanz."
+    },
+    {
+     "ampel": "w",
+     "name": "KGV",
+     "wert": "19.3",
+     "text": "Du zahlst rund 19 Jahresgewinne. Eigener Schnitt 2022–2025: rund 15.5. Also etwa 24 % teurer als üblich, obwohl der Gewinn gerade sinkt."
+    },
+    {
+     "ampel": "g",
+     "name": "Dividende",
+     "wert": "3.7 %",
+     "text": "8.50 CHF pro Aktie (ausbezahlt im Mai 2026). Die Firma schüttet 50 bis 67 % des Gewinns aus, für 2026 ist darum eher etwas weniger zu erwarten."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "262–270 CHF",
+     "text": "Widerstand: Hochs von Juli bis September."
+    },
+    {
+     "art": "r",
+     "wert": "238–251 CHF",
+     "text": "Widerstand: Kurslücke vom 16./17.9. und EMA 50/200 Tag."
+    },
+    {
+     "art": "t",
+     "wert": "233 CHF",
+     "text": "Trigger: Tagesschluss über dem Hoch vom 28.9. (232.50 CHF), idealerweise mit weiter steigender A/D."
+    },
+    {
+     "art": "s",
+     "wert": "220–226 CHF",
+     "text": "Kaufzone 1: Tiefs vom September und Oktober (Bodenbildung)."
+    },
+    {
+     "art": "s",
+     "wert": "200–212 CHF",
+     "text": "Kaufzone 2: Wochen-EMA 200 (209.50 CHF) und Hochs vom Sommer 2025."
+    },
+    {
+     "art": "r",
+     "wert": "218 CHF",
+     "text": "Abbruch: Wochenschluss darunter, dann droht ein Test der Kaufzone 2."
+    }
+   ],
+   "pro": [
+    "Einzigartiges Angebot: Die Bahn aufs Jungfraujoch kann niemand nachbauen.",
+    "Sehr hohe Marge (31 %) und sehr solide Bilanz (Netto-Cash, Eigenkapitalquote 79 %).",
+    "Attraktive Dividende von 3.7 %, regelmässig erhöht.",
+    "Gäste zahlen mehr pro Besuch, Kosten sinken, Cashflow steigt trotz Gästerückgang.",
+    "Grosser Wochentrend seit 2024 intakt, Kauf-Druck (A/D) trotz Kursrutsch."
+   ],
+   "contra": [
+    "Abhängig von Gästen aus Asien: Kriege, Flugpreise und Krisen treffen die Firma direkt.",
+    "Umsatz und Gewinn sinken 2026, wann die Gäste zurückkommen, ist offen.",
+    "Bewertung (KGV 19) immer noch über dem eigenen Schnitt.",
+    "Wenig Handel an der Börse: grosse Sprünge möglich, wie am 16./17. September.",
+    "Wetter, Schneelage und starker Franken schwanken von Jahr zu Jahr. Grosse Investitionen (Firstbahn, Jungfraujoch) ab 2030."
+   ],
+   "smart_money": [
+    "Jungfraubahn selbst: Aktuell kein Aktienrückkauf. 2023 kaufte die Firma für 42 Mio. CHF eigene Aktien, seither wurden wieder Aktien abgegeben (Aktienzahl 5.59 → 5.83 Mio.).",
+    "Insider-Käufe: Im Oktober und November 2025 viele kleine Käufe zu Vorzugspreisen (74–112 CHF): Das ist Mitarbeiterbeteiligung und zählt nicht. Am 5.5.2026 meldete ein Mitglied der Geschäftsleitung einen Kauf von rund 5'000 Aktien zu 249 CHF (rund 1.2 Mio. CHF). Die Angaben der Datenquelle sind teilweise unsauber, nicht nachgeprüft.",
+    "Insider-Verkäufe: Im Januar und Februar 2026, nahe am Hoch, mehrere Verkäufe (u. a. 1'000 Aktien zu 300 CHF). Seit Mai keine Verkäufe gemeldet.",
+    "Analysten: 5 Einstufungen (4× Kaufen, 1× Halten), Kursziele 278 bis 289 CHF, im Schnitt 280.50 CHF. Mitte September wurden die Umsatzschätzungen für 2026 von rund 323 auf 290 Mio. CHF gesenkt."
+   ],
+   "cheatsheet": "analysen/JFN.html",
+   "claude": "https://claude.ai/artifact/JoPYtZK8bWZLUEj9GifWkj"
   },
   {
    "ticker": "ABF",
