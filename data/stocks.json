@@ -862,7 +862,59 @@
     "betrag": 0.279,
     "system": "Britisches System mit Zwischen- und Schlussdividende: Im September kommt eine kleine Zwischendividende (rund 30 %), im Juni nach der Generalversammlung die grössere Schlussdividende (rund 70 %). Du hältst die US-Variante (ADR), darum wird in Dollar ausbezahlt und der Betrag schwankt mit dem Pfund."
    },
-   "chance": null,
+   "chance": {
+    "ticker": "RELX",
+    "sorgen": [
+     "Die Börse fürchtet, dass KI-Sprachmodelle die teuren Datenbanken von RELX (Recht, Wissenschaft, Risikoprüfung) ersetzen und die Preismacht sinkt. Anfang Februar 2026 löste ein neues KI-Werkzeug für Juristen von Anthropic einen Ausverkauf bei RELX, Thomson Reuters und Wolters Kluwer aus.",
+     "Laut interactive investor fiel die Aktie vom Frühling 2025 bis 03.02.2026 um 43 %, von fast 4'200 auf rund 2'360 Pence, also auf das Niveau von Februar 2023. An diesem Tag allein verlor sie 8 %.",
+     "Das Bewertungs-Polster ist weg: Das KGV fiel von rund 30 (eigener Schnitt) auf etwa 19. Die Börse traut RELX also weniger zu, obwohl die Gewinnprognosen nicht gesenkt wurden."
+    ],
+    "sorgen_art": "stimmung",
+    "sorgen_art_text": "Das Geschäft wächst sogar etwas schneller (1. Halbjahr 2026: Umsatz +7 %, Recht +10 %, Marge 35.5 %); bisher zeigt sich die KI-Angst nicht in den Zahlen.",
+    "aufloeser": [
+     {
+      "was": "Das Handels-Update zum 3. Quartal bestätigt Wachstum um +7 % und den Jahresausblick",
+      "wann": "Voraussichtlich Ende Oktober 2026"
+     },
+     {
+      "was": "Die Jahreszahlen 2026 zeigen weiter steigende Marge und Neuverkäufe, besonders bei den KI-Produkten im Rechtsbereich (Lexis+ und Protégé)",
+      "wann": "Jahreszahlen, voraussichtlich Februar 2027"
+     },
+     {
+      "was": "Grosse Kunden (Kanzleien, Banken) bleiben trotz KI-Konkurrenz bei RELX und zahlen mehr für KI-Funktionen; das würde zeigen, dass die eigenen Daten der Burggraben sind",
+      "wann": "2027"
+     }
+    ],
+    "schub_stufe": "mittel",
+    "schub_treiber": [
+     {
+      "titel": "KI-Produkte im Rechtsbereich",
+      "text": "RELX baut KI direkt in seine Rechtsdatenbank ein: Lexis+ mit dem KI-Assistenten Protégé, der selbständig Aufgaben erledigt. Der Rechtsbereich wuchs im 1. Halbjahr 2026 um 10 % (Gewinn +13 %), schneller als früher. Laut Firma kann RELX dank KI teurere Produkte schneller lancieren.",
+      "wann": "2026–2028"
+     },
+     {
+      "titel": "Wissenschaft (Elsevier) beschleunigt",
+      "text": "Der Bereich Wissenschaft, Technik und Medizin wuchs im 1. Halbjahr um 6 % und beschleunigt sich. Neue KI-Werkzeuge wie Scopus AI und der Forschungs-Arbeitsplatz LeapSpace sollen Forschern helfen. Der Effekt auf das Gesamtwachstum ist aber eher klein.",
+      "wann": "2026–2027"
+     }
+    ],
+    "schub_beweis": "Achte bei jeden Zahlen auf das bereinigte Wachstum im Rechtsbereich (zuletzt +10 %) und für die ganze Gruppe (zuletzt +7 %). Steigt das Gruppenwachstum auf 8 % oder mehr, zahlt sich KI für RELX aus statt zu schaden.",
+    "szenario": "Sehr ähnlich wie Google 2023: Die Börse glaubt, KI sei eine Bedrohung, während RELX die KI längst in die eigenen Produkte einbaut und schneller wächst. Wenn sich das über weitere Quartale bestätigt, kann das KGV von rund 19 wieder Richtung 25–30 steigen. Grösstes Risiko: Freie KI-Modelle werden gut genug, dass Kunden bei der nächsten Vertragsverlängerung weniger zahlen wollen; das würde erst mit Verzögerung in den Zahlen sichtbar.",
+    "quellen": [
+     {
+      "titel": "Resultsense: RELX shows AI paying off with 7% first-half growth (23.07.2026)",
+      "url": "https://www.resultsense.com/news/2026-07-23-relx-ai-growth/"
+     },
+     {
+      "titel": "interactive investor: Stockwatch: time to buy Relx shares after fresh plunge? (03.02.2026)",
+      "url": "https://www.ii.co.uk/analysis-commentary/stockwatch-time-relx-shares-after-fresh-plunge-ii538010"
+     },
+     {
+      "titel": "City AM: Relx reassures as AI fears hit data stocks (Februar 2026)",
+      "url": "https://www.cityam.com/relx-reassures-as-ai-fears-hit-data-stocks/"
+     }
+    ]
+   },
    "fazit": "Das Geschäft läuft besser als je zuvor, der Kurs zeigt es nicht. Qualität klar grün, Timing noch orange. Beobachten und auf den Trendwechsel warten.",
    "about": "RELX verkauft Daten und Analyse-Werkzeuge im Abo: LexisNexis Risk (Betrugs- und Kreditprüfung für Banken und Versicherer), Elsevier (wissenschaftliche Fachzeitschriften), LexisNexis Legal (Rechtsdatenbanken) und Messen. Rund drei Viertel des Umsatzes sind wiederkehrend. Der Kurs ist seit Anfang 2025 um rund 40 % gefallen, weil Anleger fürchten, dass KI-Sprachmodelle diese Datenbanken ersetzen. RELX baut KI selbst in seine Produkte ein (zum Beispiel Lexis+ AI) und wächst bisher weiter.",
    "kpis": [
@@ -1864,7 +1916,65 @@
     "betrag": 0.67,
     "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Die Erhöhung wird jeweils Ende Oktober angekündigt und gilt ab der Dezember-Zahlung."
    },
-   "chance": null,
+   "chance": {
+    "ticker": "V",
+    "sorgen": [
+     "Regulierung: Am 13.01.2026 hat Präsident Trump den Credit Card Competition Act unterstützt. Das Gesetz würde grosse US-Banken zwingen, neben Visa oder Mastercard ein zweites, fremdes Kartennetz anzubieten. Das könnte die Gebühren pro Zahlung drücken.",
+     "Dazu läuft die Klage des US-Justizministeriums wegen zu hoher Gebühren bei Debitkarten, und in Grossbritannien und Europa wächst der Druck (Gerichtsurteil gegen Gebühren, digitaler Euro).",
+     "Neue Konkurrenz: Stablecoins (digitale Dollar auf der Blockchain) und Echtzeitzahlungen könnten Kartennetze irgendwann umgehen. Laut Zacks ist das heute aber noch «weitgehend theoretisch».",
+     "Bis Anfang Juni 2026 lag die Aktie über ein Jahr 13.8 % im Minus, während der S&P 500 um 31 % stieg. Inzwischen hat sie sich erholt und notiert knapp unter dem Hoch."
+    ],
+    "sorgen_art": "stimmung",
+    "sorgen_art_text": "Das Geschäft läuft sehr gut (Umsatz +14 %, Ausblick angehoben); die Sorgen sind politische und theoretische Risiken, die sich bisher nicht in den Zahlen zeigen.",
+    "aufloeser": [
+     {
+      "was": "Starke Zahlen zum 4. Geschäftsquartal und ein solider Ausblick für das Geschäftsjahr 2027 (Analysten erwarten rund +13 % Gewinn pro Aktie)",
+      "wann": "Zahlen voraussichtlich Ende Oktober 2026"
+     },
+     {
+      "was": "Der Credit Card Competition Act bleibt im Kongress stecken oder es gibt einen Kompromiss mit den Händlern statt eines Gesetzes",
+      "wann": "Laufend, bis Ende der Legislatur Anfang 2027"
+     },
+     {
+      "was": "Stablecoins werden für Visa zum Geschäft statt zur Gefahr: Die Stablecoin-Abrechnung lief im Frühling auf 7 Mrd. $ pro Jahr (über 50 % mehr als im Quartal davor)",
+      "wann": "2026–2027"
+     }
+    ],
+    "schub_stufe": "mittel",
+    "schub_treiber": [
+     {
+      "titel": "Zusatzdienste (Value-Added Services)",
+      "text": "Visa verkauft neben dem Netz auch Betrugsschutz, Datenanalyse und Beratung an Banken und Händler. Dieser Bereich wuchs im 3. Geschäftsquartal um 34 % auf 3.8 Mrd. $ und macht schon rund ein Drittel des Umsatzes aus. Wächst er so weiter, zieht er das Gesamtwachstum nach oben.",
+      "wann": "2026–2028"
+     },
+     {
+      "titel": "Zahlungen durch KI-Agenten",
+      "text": "Wenn KI-Assistenten künftig selbst einkaufen, braucht es sichere Bezahlwege. Visa hat dafür Partnerschaften mit OpenAI und Meta angekündigt und eigene Produkte (Visa Intelligent Commerce, Agent Score) gestartet. Umsatzzahlen dazu gibt es noch keine.",
+      "wann": "2027–2029"
+     },
+     {
+      "titel": "Stablecoins über das Visa-Netz",
+      "text": "Visa bietet eine eigene Stablecoin-Plattform an. Kartenzahlungen mit Stablecoin-Bezug wuchsen laut Zacks um fast 200 % in über 160 Programmen. Im Verhältnis zu über 4 Billionen $ Zahlungen pro Quartal ist das aber noch klein.",
+      "wann": "2026–2028"
+     }
+    ],
+    "schub_beweis": "Achte bei jeden Zahlen auf das Wachstum der Zusatzdienste (zuletzt +34 %) und deren Anteil am Umsatz (zuletzt rund ein Drittel). Steigt der Anteil weiter und bleibt das Gesamtwachstum über +13 %, wirkt der Schub.",
+    "szenario": "Ähnlich wie Google 2023 fürchtet die Börse, dass neue Technik (Stablecoins, KI) das alte Geschäft verdrängt. Gelingt es Visa, diese Technik selbst ins Netz einzubauen, und bleibt das Gesetz stecken, kann Visa länger zweistellig wachsen als erwartet. Grösstes Risiko: Ein Gesetz oder ein Urteil senkt die Gebühren dauerhaft, dann sinkt das Wachstum auf einstellig.",
+    "quellen": [
+     {
+      "titel": "MarketBeat: Visa Q3 Earnings Call Highlights (28.07.2026)",
+      "url": "https://www.marketbeat.com/instant-alerts/visa-q3-earnings-call-highlights-2026-07-28/"
+     },
+     {
+      "titel": "Nasdaq/Zacks: Visa Down 14% in a Year: Disruption Thesis Weakens? (03.06.2026)",
+      "url": "https://www.nasdaq.com/articles/visa-down-14-year-disruption-thesis-weakens-buy-now"
+     },
+     {
+      "titel": "PYMNTS: President Trump Endorses Credit Card Competition Act (13.01.2026)",
+      "url": "https://www.pymnts.com/credit-cards/2026/president-donald-trump-endorses-legislation-lower-credit-card-swipe-fees/"
+     }
+    ]
+   },
    "fazit": "Eine der profitabelsten Firmen der Welt in einem sauberen Aufwärtstrend. Seit August läuft eine ruhige Seitwärtsphase knapp unter dem Hoch. Qualität grün, Timing hellgrün. Die Zone 357–362 $ ist ein sinnvoller Einstieg, der Ausbruch ein Tagesschluss über 385.60 $.",
    "about": "Visa betreibt das Netzwerk, über das Kartenzahlungen zwischen Bank des Käufers und Bank des Händlers laufen. Visa gibt selbst keine Kredite und trägt kein Ausfallrisiko. Pro Zahlung verdient Visa eine kleine Gebühr. Über 4 Billionen $ Zahlungen laufen pro Quartal über das Netz. Neu kommen Stablecoins (digitale Dollar) und Zahlungen durch KI-Agenten dazu.",
    "kpis": [
@@ -2157,7 +2267,59 @@
     "betrag": 1.47,
     "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr, Erhöhung jeweils im April. Ab und zu eine grosse Sonderdividende (zuletzt 15 $ im Januar 2024)."
    },
-   "chance": null,
+   "chance": {
+    "ticker": "COST",
+    "sorgen": [
+     "Die Bewertung ist sehr hoch: Rund 40 erwartete Jahresgewinne (KGV 40). Schon kleine Enttäuschungen drücken den Kurs. Vor den Zahlen am 24.09.2026 lag die Aktie rund 17 % unter dem Mai-Hoch.",
+     "Die Mitgliedsgebühren wachsen langsamer: im 4. Quartal nur noch +7.3 % statt +14 % im Vorjahr. Grund: Der Effekt der Gebührenerhöhung vom September 2024 ist jetzt fast vollständig in den Zahlen drin.",
+     "Ein Teil des Gewinns war einmalig: 0.15 $ pro Aktie kamen aus der Rückerstattung von US-Zöllen. Ohne diesen Effekt war der Gewinn nur knapp besser als erwartet."
+    ],
+    "sorgen_art": "stimmung",
+    "sorgen_art_text": "Das Geschäft läuft weiter stark (vergleichbare Umsätze +6.7 % ohne Benzin, mehr Kunden, Verlängerungsrate 92.3 %); die Sorge ist vor allem, ob der hohe Preis der Aktie ohne Gebühren-Rückenwind gerechtfertigt bleibt.",
+    "aufloeser": [
+     {
+      "was": "Monatliche Umsatzzahlen zeigen weiter vergleichbare Umsätze um +6 % oder mehr (ohne Benzin)",
+      "wann": "Monatsberichte, jeweils Anfang Monat (z. B. Anfang November 2026)"
+     },
+     {
+      "was": "Die Mitgliedsgebühren wachsen auch ohne Preiserhöhung stabil weiter, getragen von neuen Mitgliedern (zuletzt +3.8 %) und Executive-Mitgliedschaften",
+      "wann": "Zahlen 1. Quartal Geschäftsjahr 2027, voraussichtlich Mitte Dezember 2026"
+     },
+     {
+      "was": "Die Analysten haben ihre Schätzungen für 2027 angepasst, und Costco liefert diese ab. Laut Zacks dürfte die Aktie bis dahin eher seitwärts laufen.",
+      "wann": "Ende 2026 bis Frühling 2027"
+     }
+    ],
+    "schub_stufe": "schwach",
+    "schub_treiber": [
+     {
+      "titel": "Online-Handel und Lieferdienste",
+      "text": "Die digitalen vergleichbaren Umsätze wuchsen im 4. Quartal um 19.5 %. Seit dem 17.09.2026 liefern DoorDash und Uber Eats landesweit aus allen US-Filialen, aber nur an Mitglieder. Das kann zusätzliche Mitglieder bringen, ist im Verhältnis zu fast 300 Mrd. $ Umsatz aber eher ein kleiner Zusatz.",
+      "wann": "Geschäftsjahr 2027"
+     },
+     {
+      "titel": "Neue Filialen",
+      "text": "Costco will von 939 auf 967 Lagerhallen wachsen, also rund 3 % mehr. Das ist stetiges Wachstum wie bisher, kein Sprung.",
+      "wann": "Geschäftsjahr 2027"
+     }
+    ],
+    "schub_beweis": "Achte auf das Wachstum der Mitgliedsgebühren (zuletzt +7.3 %) und die Zahl der zahlenden Mitglieder (zuletzt 84.1 Mio., +3.8 %). Wachsen beide trotz fehlender Preiserhöhung wieder schneller, kommt mehr als nur das übliche Tempo.",
+    "szenario": "Kein klassischer «Google 2023»-Fall: Bei Costco zweifelt niemand am Geschäft, nur am hohen Preis der Aktie. Die Chance liegt darin, dass Costco einfach weiter zweistellig beim Gewinn wächst und die Bewertung mit der Zeit «hineinwächst». Grösstes Risiko: Das Wachstum normalisiert sich auf einstellig, dann kann das KGV von rund 40 deutlich sinken, auch ohne schlechte Nachrichten.",
+    "quellen": [
+     {
+      "titel": "Zacks: Costco's Best Numbers Came With an Asterisk (25.09.2026)",
+      "url": "https://www.zacks.com/commentary/2995938/costcos-best-numbers-came-with-an-asterisk"
+     },
+     {
+      "titel": "Nasdaq: Costco's Membership Fee Boost Is About to Run Out (23.09.2026)",
+      "url": "https://www.nasdaq.com/articles/costcos-membership-fee-boost-about-run-out"
+     },
+     {
+      "titel": "KTTC/AP: DoorDash and Uber Eats to offer delivery from US Costco stores (17.09.2026)",
+      "url": "https://www.kttc.com/2026/09/17/doordash-uber-eats-offer-delivery-us-costco-stores/"
+     }
+    ]
+   },
    "fazit": "Eine der besten Handelsfirmen der Welt, aber nie billig. Seit dem Mai-Hoch hat der Kurs 16 % verloren, die Zahlen bleiben stark. Qualität grün, Timing gelb. Es gibt erste Bodenzeichen (bullische Divergenz). Der Trigger ist ein Tagesschluss über 931 $.",
    "about": "Costco betreibt rund 900 grosse Lagerhallen-Märkte, in denen nur Mitglieder einkaufen dürfen (Jahresgebühr ab 65 $). Die Waren werden fast zum Einkaufspreis verkauft. Der Gewinn kommt zu einem grossen Teil aus den Mitgliedsgebühren, über 90 % der Mitglieder verlängern jedes Jahr. Das macht den Gewinn sehr planbar.",
    "kpis": [
@@ -3483,7 +3645,60 @@
     "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Die Erhöhung wird jeweils im Februar angekündigt und gilt ab der April-Zahlung.",
     "serie": "64 Jahre in Folge erhöht."
    },
-   "chance": null,
+   "chance": {
+    "ticker": "KO",
+    "sorgen": [
+     "Die Aktie ist nicht billig: Rund 25 erwartete Jahresgewinne statt dem eigenen Schnitt von 23. Gemessen am Betriebsgewinn ist Coca-Cola laut TIKR deutlich teurer als PepsiCo. Bei Enttäuschungen fehlt das Polster.",
+     "Ein Steuerstreit mit der US-Steuerbehörde IRS um Gewinnverschiebungen ins Ausland könnte laut TIKR für die Jahre 2010–2025 rund 14 Mrd. $ kosten.",
+     "Abnehmspritzen (GLP-1) könnten den Durst auf süsse Getränke senken, und eine Zuckersteuer in Mexiko belastet 2026 laut TIKR das Geschäft in Lateinamerika.",
+     "Grössere Anleger und Insider verkaufen seit August leise; der Kurs liegt weit über seinem langfristigen Durchschnitt."
+    ],
+    "sorgen_art": "stimmung",
+    "sorgen_art_text": "Das Geschäft läuft so gut wie lange nicht (Menge +5 %, Gewinn pro Aktie +16 % im 2. Quartal, Ausblick angehoben); die Sorgen betreffen vor allem den hohen Preis und mögliche, aber noch nicht sichtbare Risiken.",
+    "aufloeser": [
+     {
+      "was": "Die Zahlen zum 3. Quartal bestätigen den erhöhten Ausblick (rund +5 % organisches Wachstum, +9 bis 10 % Gewinn pro Aktie)",
+      "wann": "Zahlen am 27.10.2026, vor Börsenöffnung"
+     },
+     {
+      "was": "Der Verkauf des Abfüllers in Afrika (Coca-Cola Beverages Africa) wird abgeschlossen; das senkt zwar den Umsatz, hebt aber die Marge",
+      "wann": "Laut Firma 2. Halbjahr 2026"
+     },
+     {
+      "was": "Klarheit im Steuerstreit mit der IRS (Gerichtsentscheid oder Einigung)",
+      "wann": "Unklar, kein fester Termin bekannt"
+     }
+    ],
+    "schub_stufe": "schwach",
+    "schub_treiber": [
+     {
+      "titel": "Zuckerfreie Getränke und fairlife-Milch",
+      "text": "Coca-Cola Zero Sugar wuchs im 1. Quartal 2026 weltweit um 13 % in der Menge. Schon 2024 waren rund 30 % der Menge kalorienarm oder -frei. Die Proteinmilch fairlife mit neuer Fabrik in Michigan könnte sogar von Abnehmspritzen profitieren. Das stützt das Wachstum, hebt es aber kaum über das heutige Tempo von rund 5 %.",
+      "wann": "2026–2027"
+     },
+     {
+      "titel": "Schwellenländer",
+      "text": "In Asien-Pazifik wuchs die Menge im 1. Quartal um 5 %. Mehr Menschen mit mittlerem Einkommen kaufen mehr Markengetränke. Das ist ein langsamer, stetiger Treiber, kein Sprung.",
+      "wann": "langfristig"
+     }
+    ],
+    "schub_beweis": "Achte auf das Mengenwachstum (zuletzt +5 %) und das organische Umsatzwachstum (Ziel 2026: rund +5 %). Liegt die Menge über mehrere Quartale bei +4 % oder mehr, ohne dass nur die Preise steigen, wächst Coca-Cola stärker als ein typischer Getränkeriese.",
+    "szenario": "Kein «Google 2023»-Fall: Coca-Cola ist kein verkanntes Wachstumsunternehmen, sondern eine sehr stabile Qualitätsfirma, die um 5 % beim Umsatz und um 9–10 % beim Gewinn wächst. Die Chance liegt eher darin, sie bei einem Rücksetzer günstiger zu kaufen. Grösstes Risiko: Ein teurer Ausgang des Steuerstreits oder ein schwächeres Wachstum lässt die hohe Bewertung schrumpfen, auch wenn das Geschäft solide bleibt.",
+    "quellen": [
+     {
+      "titel": "FoodNavigator: Coca-Cola raises 2026 guidance after Q2 volume, revenue and profit growth (28.07.2026)",
+      "url": "https://www.foodnavigator.com/Article/2026/07/28/coca-cola-raises-2026-guidance-after-q2-volume-revenue-and-profit-growth/"
+     },
+     {
+      "titel": "TIKR: Coca-Cola's New CEO Just Laid Out His Playbook (11.05.2026)",
+      "url": "https://www.tikr.com/blog/coca-cola-new-ceo-just-laid-out-his-playbook-heres-what-it-means-for-ko-investors-in-2026"
+     },
+     {
+      "titel": "Finviz: The Coca-Cola Company Announces Timing of Third Quarter 2026 Earnings Release",
+      "url": "https://finviz.com/news/396637/the-coca-cola-company-announces-timing-of-third-quarter-2026-earnings-release"
+     }
+    ]
+   },
    "fazit": "Die stärkste Firma der Gruppe, aber kein Schnäppchen. Qualität hellgrün (72), Timing gelb (47). Der grosse Trend zeigt nach oben, doch die Tages-A/D bricht seit August ein: Es wird leise verkauft. Deine Idee, auf eine grössere Korrektur zu warten, passt zu den Zahlen. Kaufzonen: 80–82.5 $ und 76.8–78.5 $.",
    "about": "Coca-Cola verkauft vor allem Getränke-Konzentrat und Markenrechte an Abfüllfirmen auf der ganzen Welt (Coca-Cola, Sprite, Fanta, Powerade, Smartwater, fairlife-Milch). Die Abfüller tragen die teuren Fabriken und Lastwagen, darum hat Coca-Cola eine sehr hohe Marge. Rund zwei Drittel des Umsatzes kommen aus dem Ausland.",
    "kpis": [
@@ -3779,7 +3994,56 @@
     "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Die Erhöhung gilt jeweils ab der Mai-Zahlung.",
     "serie": "63 Jahre in Folge erhöht."
    },
-   "chance": null,
+   "chance": {
+    "ticker": "CL",
+    "sorgen": [
+     "Das Wachstum ist tief: Im 2. Quartal 2026 wuchs der Umsatz aus eigener Kraft nur um 2.4 %, die verkaufte Menge nur um 0.8 %. Das Ziel für 2026 ist +1 bis +4 %.",
+     "Nordamerika schrumpft: Umsatz organisch −3.0 %, verkaufte Menge sogar −3.9 %. Die Firma nennt schwache Nachfrage, mehr Konkurrenz und Händler, die ihre Lager abbauen. Der Chef sagt selbst, er sei damit nicht zufrieden.",
+     "Bei Tiernahrung (Hill's) sank die verkaufte Menge um 1.8 %, das Wachstum kam fast nur über höhere Preise.",
+     "Rohstoffe, Öl und Zölle sollen im 2. Halbjahr laut Firma mehr kosten als im 2. Quartal. Dazu verkaufte der Chef im August Aktien für 14.8 Mio. $."
+    ],
+    "sorgen_art": "stimmung",
+    "sorgen_art_text": "Das Geschäft ist weitgehend intakt (Marge stabil, Ziel für den Gewinn im Juli sogar angehoben, starke Schwellenländer); die Börse straft vor allem das tiefe Wachstum und die Schwäche in Nordamerika ab, die nur rund ein Fünftel des Umsatzes ausmacht.",
+    "aufloeser": [
+     {
+      "was": "Nordamerika stabilisiert sich, weil die Händler ihren Lagerabbau beenden und neue Produkte wie Optic White Pro Series greifen",
+      "wann": "Zahlen 3. Quartal, voraussichtlich Ende Oktober 2026"
+     },
+     {
+      "was": "Colgate bestätigt das angehobene Gewinnziel 2026 (mittlerer einstelliger Zuwachs) trotz höherer Rohstoffkosten",
+      "wann": "Zahlen 3. Quartal, voraussichtlich Ende Oktober 2026"
+     },
+     {
+      "was": "Ein Ausblick 2027 mit wieder steigender Menge und den ersten Einsparungen aus dem laufenden Spar- und Umbauprogramm",
+      "wann": "Zahlen 4. Quartal, voraussichtlich Ende Januar 2027"
+     }
+    ],
+    "schub_stufe": "schwach",
+    "schub_treiber": [
+     {
+      "titel": "Schwellenländer wachsen weiter",
+      "text": "Lateinamerika wuchs im 2. Quartal organisch um 5.3 %, Asien-Pazifik um 5.2 %, Indien laut Firma zweistellig. Diese Märkte machen schon einen grossen Teil des Umsatzes aus. Sie halten das Wachstum am Leben, beschleunigen es aber nicht stark, weil sie schon seit Jahren so wachsen.",
+      "wann": "Laufend"
+     },
+     {
+      "titel": "Frisches Tierfutter bei Hill's",
+      "text": "Nach dem Kauf von Prime100 bringt Hill's frisches Tierfutter in den USA auf den Markt, zuerst nur über Tierärzte und Fachhandel. Das ist ein wachsender Markt, aber im Verhältnis zur Firma noch sehr klein. Umsatzzahlen nennt Colgate nicht.",
+      "wann": "2026–2028"
+     }
+    ],
+    "schub_beweis": "Achte bei den nächsten Zahlen auf zwei Werte: das organische Wachstum in Nordamerika (zuletzt −3.0 %) und die verkaufte Menge im ganzen Konzern (zuletzt +0.8 %). Steigen beide, kann Colgate wieder 4 % oder mehr wachsen, wie in den Jahren 2023 und 2024.",
+    "szenario": "Kein Fall wie Google 2023: Colgate hat keinen versteckten Wachstumsmotor. Die Chance liegt in der Qualität: Mit 46 % ROIC und steigendem freiem Geld reicht schon eine Rückkehr zu 4 % Wachstum, damit die Börse wieder das übliche KGV von rund 24 statt 21.5 zahlt. Grösstes Risiko: Nordamerika bleibt schwach und Rohstoffkosten drücken die Marge; dann bleibt die Aktie eine solide, aber langweilige Dividendenaktie.",
+    "quellen": [
+     {
+      "titel": "Colgate: Medienmitteilung 2. Quartal 2026 (31.07.2026)",
+      "url": "https://investor.colgatepalmolive.com/news-releases/news-release-details/colgate-announces-2nd-quarter-2026-results"
+     },
+     {
+      "titel": "Nasdaq: Colgate-Palmolive Q2 Earnings Call Highlights",
+      "url": "https://www.nasdaq.com/articles/colgate-palmolive-q2-earnings-call-highlights"
+     }
+    ]
+   },
    "fazit": "Sehr profitable Firma mit dem höchsten ROIC der Gruppe (46 %), aber nur 2–3 % Wachstum. Qualität hellgrün (68), Timing orange (41). Der Kurs ist nahe an die Kaufzone 81.8–84.3 $ gelaufen. Für einen Einstieg fehlt noch die Wende auf dem Tageschart: Tagesschluss über 90.10 $.",
    "about": "Colgate-Palmolive verkauft Zahnpasta und Zahnbürsten (Colgate, Weltmarktführer mit über 40 % Marktanteil), Seifen und Duschmittel (Palmolive), Reinigungsmittel und Tiernahrung (Hill's). Rund zwei Drittel des Umsatzes kommen aus dem Ausland, vor allem aus Lateinamerika und Asien.",
    "kpis": [
@@ -4065,7 +4329,60 @@
     "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Die Erhöhung kommt jeweils im April.",
     "serie": "70 Jahre in Folge erhöht."
    },
-   "chance": null,
+   "chance": {
+    "ticker": "PG",
+    "sorgen": [
+     "Das Wachstum ist eingeschlafen: Im letzten Quartal (April–Juni 2026) wuchs der Umsatz aus eigener Kraft um 0 %, im ganzen Geschäftsjahr 2026 nur um 1 %, und das allein über höhere Preise. Früher waren es 4–7 %.",
+     "Für das Geschäftsjahr 2027 (Juli 2026 bis Juni 2027) erwartet P&G beim Gewinn pro Aktie nur 0 bis +3 % (6.89–7.11 $). Höhere Kosten für Rohstoffe, Energie und Transport belasten laut Firma mit rund 1 Mrd. $ nach Steuern.",
+     "Zusammen mit höheren Zinsen und Währungen bremsen diese Gegenwinde den Gewinn um 0.56 $ pro Aktie, also rund 8 Prozentpunkte Wachstum.",
+     "Ein neuer Chef (Shailesh Jejurikar) baut um, das Spar- und Umbauprogramm kostet 1 bis 1.6 Mrd. $ und läuft noch bis 2027."
+    ],
+    "sorgen_art": "gemischt",
+    "sorgen_art_text": "Marken, Marge (25 %) und Cashflow sind intakt, aber die Menge wächst nicht mehr und die Kosten steigen; das ist ein echtes, aber eher vorübergehendes Problem und keine strukturelle Schwäche der Marken.",
+    "aufloeser": [
+     {
+      "was": "Der Umsatz aus eigener Kraft wächst wieder über 0 %, idealerweise mit steigender Menge statt nur höheren Preisen",
+      "wann": "Zahlen 1. Quartal GJ 2027 am 22.10.2026"
+     },
+     {
+      "was": "Die Rohstoff- und Energiepreise fallen, sodass der Kostendruck kleiner ausfällt als die befürchteten 1 Mrd. $",
+      "wann": "Zahlen 2. Quartal, voraussichtlich Ende Januar 2027"
+     },
+     {
+      "was": "Das Umbauprogramm ist abgeschlossen, die Einsparungen fliessen ins Ergebnis und P&G nennt für das Geschäftsjahr 2028 wieder höhere Ziele",
+      "wann": "Zahlen 4. Quartal, Ende Juli 2027"
+     }
+    ],
+    "schub_stufe": "schwach",
+    "schub_treiber": [
+     {
+      "titel": "Erholung in China und bei Beauty",
+      "text": "Die Sparte Beauty wuchs im letzten Quartal als einzige klar (+4 %, davon +3 % mehr Menge). In China gewinnt P&G laut Firma wieder Marktanteile, vor allem bei Windeln, Waschmitteln und Damenhygiene. Beides ist positiv, aber zu klein, um den ganzen Konzern mit 87 Mrd. $ Umsatz deutlich zu beschleunigen.",
+      "wann": "2026–2027"
+     },
+     {
+      "titel": "Sparprogramm als Margen-Hebel",
+      "text": "Das 2025 gestartete Programm streicht Kosten bei Marketing, Verwaltung und Produktion. Die Einsparungen sollen aber zuerst die höheren Rohstoffkosten ausgleichen und in Werbung fliessen. Ein echter Gewinnsprung ist deshalb laut heutigem Ausblick nicht zu erwarten.",
+      "wann": "2027–2028"
+     }
+    ],
+    "schub_beweis": "Achte bei den Zahlen am 22.10.2026 auf das organische Wachstum (zuletzt 0 %) und den Anteil der Menge daran (zuletzt 0 %). Steigt die Menge wieder auf +2 % oder mehr, kehrt P&G zu seinem alten Tempo zurück.",
+    "szenario": "Kein Fall wie Google 2023: Bei P&G gibt es keinen versteckten neuen Wachstumsmotor. Die Chance ist ruhiger: Kehrt das Wachstum auf 3–4 % zurück und lässt der Kostendruck nach, kann die Bewertung vom heutigen KGV 21 wieder auf den eigenen Schnitt von gut 23 steigen, dazu kommen 2.9 % Dividende. Grösstes Risiko: Die Kunden greifen dauerhaft zu Eigenmarken und P&G bleibt bei 0–2 % Wachstum hängen.",
+    "quellen": [
+     {
+      "titel": "P&G: Medienmitteilung 4. Quartal und Geschäftsjahr 2026 (SEC 8-K, 29.07.2026)",
+      "url": "https://www.sec.gov/Archives/edgar/data/0000080424/000008042426000093/fy2526q4amj8-kexhibit991.htm"
+     },
+     {
+      "titel": "Nasdaq: PG Q4 Earnings Call Highlights Consumer Growth Reset",
+      "url": "https://www.nasdaq.com/articles/pg-q4-earnings-call-highlights-consumer-growth-reset"
+     },
+     {
+      "titel": "P&G: Webcast zu den Zahlen 1. Quartal GJ 2026/27 am 22. Oktober",
+      "url": "https://us.pg.com/newsroom/news-releases/PG-to-Webcast-Discussion-of-First-Quarter-2627-Earnings-Results-on-October-22/"
+     }
+    ]
+   },
    "fazit": "Die Qualität ist hoch, aber das Wachstum ist eingeschlafen (organisch 0 % im letzten Quartal) und der Gewinn wächst kaum. Qualität gelb (59), Timing orange (41). Der Kurs bildet seit Januar eine Bodenzone bei 138–142 $ mit leicht steigenden Tiefs, und auf dem Tageschart wird still gekauft. Erst ein Tagesschluss über 149.50 $ wäre ein erstes Wende-Zeichen.",
    "about": "Procter & Gamble ist der grösste Hersteller von Haushalts- und Körperpflegeprodukten der Welt: Waschmittel (Ariel, Tide), Windeln (Pampers), Rasierer (Gillette), Zahnpflege (Oral-B), Haarpflege (Pantene, Head & Shoulders). Diese Dinge kauft man auch in einer Rezession, darum gilt P&G als Musterbeispiel einer defensiven Aktie.",
    "kpis": [
@@ -4354,7 +4671,69 @@
     "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Die Erhöhung gilt jeweils ab der Juni-Zahlung.",
     "serie": "54 Jahre in Folge erhöht."
    },
-   "chance": null,
+   "chance": {
+    "ticker": "PEP",
+    "sorgen": [
+     "Am 08.10.2026 hat PepsiCo den Gewinnausblick für 2026 erneut gesenkt: Der Gewinn pro Aktie soll ohne Währungseffekte nur noch um 1–2 % wachsen. Vorher war das untere Ende von 4–6 % versprochen.",
+     "Das Kerngeschäft Snacks in Nordamerika (Lay's, Doritos) schwächelt: Umsatz im 3. Quartal flach, Betriebsgewinn laut Bericht −12 %. Grund: Im Februar wurden die Preise um bis zu 15 % gesenkt, um Kunden zurückzuholen.",
+     "Bei Getränken in Nordamerika sank die verkaufte Menge im 3. Quartal um 2 %. Dazu kommen höhere Kosten für Energie und Rohstoffe.",
+     "Die Dividende braucht schon rund 78 % des Gewinns. Wächst der Gewinn kaum, wird der Spielraum für weitere Erhöhungen klein."
+    ],
+    "sorgen_art": "gemischt",
+    "sorgen_art_text": "Das Problem in Nordamerika ist echt (weniger Menge, tiefere Preise, tiefere Marge), aber das Ausland wächst stark und die Firma hat mit Preissenkungen, Sortimentskürzung und Sparprogramm klare Gegenmittel gestartet.",
+    "aufloeser": [
+     {
+      "was": "Die Snacks in Nordamerika zeigen wieder steigenden Betriebsgewinn, weil die Menge dank tieferer Preise wächst und erste kleine Preiserhöhungen greifen",
+      "wann": "Zahlen 4. Quartal, voraussichtlich Anfang Februar 2027"
+     },
+     {
+      "was": "PepsiCo nennt Details und Höhe der angekündigten zusätzlichen Kostensenkungen und gibt einen Ausblick 2027 mit wieder höherem Gewinnwachstum",
+      "wann": "In den kommenden Monaten, spätestens mit dem Ausblick Anfang 2027"
+     },
+     {
+      "was": "Die Sortimentskürzung (fast 20 % weniger Produktvarianten in den USA) ist abgeschlossen und senkt die Kosten sichtbar",
+      "wann": "Anfang 2027"
+     }
+    ],
+    "schub_stufe": "mittel",
+    "schub_treiber": [
+     {
+      "titel": "Margen-Hebel durch Sparprogramm",
+      "text": "PepsiCo hat 2025 drei Fabriken geschlossen, streicht fast 20 % der Produktvarianten in den USA und hat weitere Kostensenkungen angekündigt. Laut Firma soll die Kernmarge in drei Jahren um mindestens 1 Prozentpunkt steigen. Bei einem Jahresumsatz von deutlich über 90 Mrd. $ wären das grob 1 Mrd. $ mehr Betriebsgewinn pro Jahr, noch ist das aber nur ein Versprechen.",
+      "wann": "2027–2028"
+     },
+     {
+      "titel": "Starkes Auslandsgeschäft",
+      "text": "Ausserhalb Nordamerikas wächst PepsiCo deutlich schneller: im 3. Quartal organisch +9 % in Europa/Nahost/Afrika und +9 % in Asien-Pazifik, mit 11 % mehr verkaufter Snack-Menge in Asien. Der Betriebsgewinn stieg dort je nach Region um 9–19 %. Das Ausland macht aber nur rund 40 % des Umsatzes aus.",
+      "wann": "Laufend"
+     },
+     {
+      "titel": "Neue Produkte mit Protein und Ballaststoffen",
+      "text": "PepsiCo setzt auf gesündere Varianten, zum Beispiel Doritos Protein (Start 2026), und hat 2025 die Marken Siete und poppi gekauft. Diese Produkte sind im Verhältnis zur Grösse der Firma noch klein, Umsatzzahlen nennt PepsiCo nicht separat.",
+      "wann": "2026–2027"
+     }
+    ],
+    "schub_beweis": "Achte bei den nächsten Zahlen auf zwei Werte bei PepsiCo Foods North America: verkaufte Menge (soll steigen) und Betriebsgewinn (zuletzt −12 %). Dreht der Betriebsgewinn dort ins Plus, greift die Wende.",
+    "szenario": "Nicht wie Google 2023 mit einer versteckten neuen Technologie, eher eine klassische Wende-Geschichte: Die Aktie ist mit einem erwarteten KGV von rund 14 so günstig wie seit Jahren nicht. Greifen Preissenkungen und Sparprogramm 2027, kann schon eine Rückkehr zu 6–8 % Gewinnwachstum die Bewertung wieder Richtung 18–20 heben. Grösstes Risiko: Die US-Kunden bleiben sparsam und Abnehmspritzen (GLP-1) dämpfen den Snack-Konsum dauerhaft; dann bleibt PepsiCo eine Dividendenaktie ohne Wachstum.",
+    "quellen": [
+     {
+      "titel": "PepsiCo: Medienmitteilung 3. Quartal 2026 (SEC 8-K, 08.10.2026)",
+      "url": "https://www.sec.gov/Archives/edgar/data/0000077476/000007747626000050/q320268-kxexhibit991.htm"
+     },
+     {
+      "titel": "TIKR: PepsiCo: A Q3 Beat, a Guidance Cut, and the Lowest P/E in Five Years",
+      "url": "https://www.tikr.com/blog/pepsico-a-q3-beat-a-guidance-cut-and-the-lowest-p-e-in-five-years"
+     },
+     {
+      "titel": "investingLive: PepsiCo lowers profit guidance as cost pressure and a cautious US consumer bite",
+      "url": "https://investinglive.com/stocks/pepsico-lowers-profit-guidance-as-cost-pressure-and-a-cautious-us-consumer-bite/"
+     },
+     {
+      "titel": "Nasdaq: PepsiCo Outlines Shareholder Value Key Actions & Preliminary 2026 View (09.12.2025)",
+      "url": "https://www.nasdaq.com/articles/pepsico-outlines-shareholder-value-key-actions-preliminary-2026-view"
+     }
+    ]
+   },
    "fazit": "Günstig wie seit Jahren nicht (erwartetes KGV rund 14.5 statt sonst 20), aber im klaren Abwärtstrend. Heute (8.10.) wurde der Gewinnausblick erneut gesenkt. Qualität gelb (59), Timing rot (17). Eine Bodenbildung ist noch nicht zu sehen. Erstes Zeichen wäre ein Tagesschluss über 131.20 $.",
    "about": "PepsiCo ist der grösste Snack-Hersteller der Welt (Lay's, Doritos, Cheetos, Quaker) und die Nummer zwei bei Getränken (Pepsi, Gatorade). Rund 55 % des Umsatzes kommen aus Snacks und Lebensmitteln, 45 % aus Getränken. Knapp 60 % stammen aus Nordamerika.",
    "kpis": [
@@ -5676,7 +6055,60 @@
     "betrag": 39.82,
     "system": "Quartalsdividende: 4 Zahlungen pro Jahr. Unilever legt die Dividende in Euro fest und zahlt in London in Pence aus, darum schwankt der Betrag leicht mit dem Wechselkurs. Seit der Abspaltung des Glacé-Geschäfts (Dezember 2025) etwas tiefer."
    },
-   "chance": null,
+   "chance": {
+    "ticker": "ULVR",
+    "sorgen": [
+     "Rohstoffe werden teurer: Unilever rechnet 2026 mit rund 850 Mio. € höheren Kosten, davon rund 550 Mio. € im 2. Halbjahr. Darum will Unilever jetzt mehr über Preise wachsen. Die Börse fragt sich, ob die Kunden dann weniger kaufen (die Menge war zuletzt die grosse Stärke).",
+     "Europa schrumpft (1. Halbjahr −0.5 %), und die Lebensmittel wachsen kaum (+1.2 %), unter anderem wegen Marktanteilsverlusten bei Mayonnaise in den USA.",
+     "Viel Umbau auf einmal: Glacé (Magnum) wurde im Dezember 2025 abgespalten, die Lebensmittel (Knorr, Hellmann's) gehen bis spätestens Mitte 2027 an McCormick. Die Firma wird kleiner, und es ist noch unklar, wie hoch die Restkosten (Kosten, die nach dem Verkauf übrig bleiben) sind.",
+     "In Brasilien tritt am 01.01.2027 eine Steuerreform in Kraft. Unilever warnt, dass Händler im 4. Quartal ihre Lager abbauen könnten, was den Umsatz kurzfristig drückt."
+    ],
+    "sorgen_art": "stimmung",
+    "sorgen_art_text": "Das Geschäft läuft so gut wie seit Jahren nicht (2. Quartal: +5.8 % Wachstum, davon +5.5 % Menge, Prognose angehoben); die Sorgen betreffen vor allem Kosten, Umbau-Risiken und ob das Tempo hält.",
+    "aufloeser": [
+     {
+      "was": "Die Menge wächst trotz Preiserhöhungen weiter um rund 3 % und Unilever bestätigt die angehobene Prognose (Wachstum 4–6 %)",
+      "wann": "Zahlen 3. Quartal, voraussichtlich Ende Oktober 2026 (Datum nicht bestätigt, 2025 war es der 23.10.)"
+     },
+     {
+      "was": "Die Marge steigt trotz teurer Rohstoffe leicht über 20.3 %, wie von der Firma angekündigt",
+      "wann": "Jahreszahlen, voraussichtlich Februar 2027"
+     },
+     {
+      "was": "Der Lebensmittel-Deal mit McCormick wird abgeschlossen: rund 15.7 Mrd. $ in bar plus Aktien der neuen Firma",
+      "wann": "spätestens Mitte 2027"
+     }
+    ],
+    "schub_stufe": "mittel",
+    "schub_treiber": [
+     {
+      "titel": "Reine Pflege- und Haushaltsfirma nach dem Lebensmittel-Verkauf",
+      "text": "Ohne Glacé und Lebensmittel bleiben die schneller wachsenden Bereiche: Haushalt (+9.1 % im 2. Quartal), Schönheit und Wohlbefinden (+8.1 %) und Körperpflege (+5.9 %). Die Lebensmittel wuchsen nur rund 1–2 %. Allein durch das Weglassen der langsamen Teile kann das Wachstum der Rest-Firma leicht steigen.",
+      "wann": "ab Mitte 2027"
+     },
+     {
+      "titel": "Premium-Schönheit und Schwellenländer",
+      "text": "Prestige Beauty (teure Pflege- und Kosmetikmarken) wuchs im 1. Halbjahr um 12 %, dazu kam im Juni der Zukauf von Gruns (Nahrungsergänzung). Die Schwellenländer machen rund 60 % des Umsatzes aus und wuchsen im 2. Quartal um 8.3 %, Indien um 10 %. Das sind echte Treiber, aber sie sind schon im heutigen Tempo enthalten.",
+      "wann": "2026–2028"
+     }
+    ],
+    "schub_beweis": "Achte auf das Mengenwachstum (zuletzt +5.5 % im 2. Quartal, Ziel für 2026 rund 3 %) und auf die Marge (zuletzt 20.3 %). Bleibt die Menge über 3 %, obwohl Unilever die Preise erhöht, hat die Firma echte Preissetzungsmacht.",
+    "szenario": "Kein klassischer Google-Fall, eher ein Umbau, der sich lohnt: Gelingt der Abschied von den Lebensmitteln und wächst die Rest-Firma dauerhaft 5–6 % bei steigender Marge, könnte die Börse Unilever wie die besten Pflegefirmen höher bewerten (heute KGV 16.3, eigener Schnitt 17.6). Grösstes Risiko: Die Preiserhöhungen bremsen die Menge und der Umbau kostet mehr als geplant.",
+    "quellen": [
+     {
+      "titel": "AJ Bell: Unilever lifts full-year view as sales improve ahead of expectations (28.07.2026)",
+      "url": "https://www.ajbell.co.uk/news/articles/unilever-lifts-full-year-view-sales-improve-ahead-expectations"
+     },
+     {
+      "titel": "Motley Fool: Unilever Q2 2026 Earnings Call Transcript (28.07.2026)",
+      "url": "https://www.fool.com/earnings/call-transcripts/2026/07/29/unilever-ul-q2-2026-earnings-call-transcript/"
+     },
+     {
+      "titel": "Powder & Bulk Solids: McCormick to Buy Unilever's Food Business (2026)",
+      "url": "https://www.powderbulksolids.com/food-beverage/mccormick-to-buy-unilever-s-food-business"
+     }
+    ]
+   },
    "fazit": "Der Umbau unter dem neuen Chef wirkt: Unilever wächst wieder kräftig über die Menge (+5.5 % im 2. Quartal, bestes Quartal seit über zehn Jahren). Qualität gelb (53), Timing gelb (46). Der Kurs läuft seit Juli seitwärts in der Zone 4'480–4'810 p, und die Tages-A/D zeigt stille Käufe. Ein Tagesschluss über 4'710 p wäre das Signal.",
    "about": "Unilever verkauft Schönheits- und Körperpflege (Dove, Rexona, Axe, Vaseline), Waschmittel (Omo/Persil, Cif) und Lebensmittel (Knorr, Hellmann's). Die Glacé-Sparte (Magnum, Ben & Jerry's) wurde im Dezember 2025 als eigene Firma abgespalten, das Lebensmittelgeschäft wird bis Mitte 2027 an McCormick verkauft. Übrig bleibt eine reine Pflege- und Haushaltsfirma. Unilever berichtet in Euro, die Aktie wird in London in Pence gehandelt.",
    "kpis": [
@@ -5964,7 +6396,73 @@
      "betrag": 1.25
     }
    },
-   "chance": null,
+   "chance": {
+    "ticker": "LOW",
+    "sorgen": [
+     "Der US-Häusermarkt steht still: Laut Bank of America werden so wenige Häuser verkauft wie seit Jahrzehnten nicht mehr, weil die Hypothekarzinsen hoch sind. Wer nicht umzieht, renoviert weniger.",
+     "Im 2. Quartal stiegen die vergleichbaren Umsätze nur um 0.2 %. Mit den Zahlen im August 2026 hat Lowe's den Ausblick gesenkt: vergleichbare Umsätze 2026 nur noch flach, Gewinn pro Aktie bereinigt rund 12.25 $ (vorher bis 12.75 $). Der Chef spricht von «Druck bei den Heimwerker-Ausgaben».",
+     "Die Zukäufe FBM und ADG haben die Schulden erhöht (rund 3 Jahre Betriebsgewinn) und drücken die Marge. Die Bruttomarge sank im 1. Quartal um 0.7 Prozentpunkte auf 32.7 %.",
+     "Der Kurs ist seit dem Hoch im Februar (286 $) um rund 39 % gefallen."
+    ],
+    "sorgen_art": "gemischt",
+    "sorgen_art_text": "Die Schwäche kommt vor allem vom Zinsumfeld und dem Häusermarkt, also eher vorübergehend; Marge und Rendite auf das Kapital sinken aber schon seit 2023 und die Schulden sind gestiegen.",
+    "aufloeser": [
+     {
+      "was": "Zahlen zum 3. Quartal zeigen, dass der gesenkte Ausblick hält und die vergleichbaren Umsätze nicht ins Minus drehen",
+      "wann": "Zahlen voraussichtlich Mitte bis Ende November 2026"
+     },
+     {
+      "was": "Sinkende Hypothekarzinsen bringen wieder mehr Hausverkäufe und damit mehr Renovationen",
+      "wann": "2027, abhängig von der US-Notenbank"
+     },
+     {
+      "was": "Das neue Wohnbau-Gesetz (ROAD to Housing Act, seit Juli 2026 in Kraft) soll den Bau neuer Häuser erleichtern. Mehr Neubau hilft dem Geschäft mit Profis und Baustoffen.",
+      "wann": "2027–2028"
+     },
+     {
+      "was": "Die Integration von FBM und ADG zeigt erste Einsparungen; Lowe's will 2026 rund 1 Mrd. $ an Effizienz gewinnen",
+      "wann": "Zahlen 4. Quartal, Ende Februar 2027"
+     }
+    ],
+    "schub_stufe": "mittel",
+    "schub_treiber": [
+     {
+      "titel": "Neuer Markt durch FBM und ADG",
+      "text": "Mit den Zukäufen verkauft Lowe's jetzt auch Gipsplatten, Dämmung, Küchenschränke und Böden direkt an Bauprofis. Laut Firma öffnet das einen Markt von rund 250 Mrd. $, in dem Lowe's vorher keinen Umsatz hatte. Ob das profitabel gelingt, ist noch nicht bewiesen.",
+      "wann": "2026–2028"
+     },
+     {
+      "titel": "Erholung des Häusermarkts",
+      "text": "Die US-Häuser sind im Schnitt alt und brauchen Pflege. Wenn die Zinsen sinken und wieder mehr Häuser verkauft werden, kommen die grossen, margenstarken Renovationsprojekte zurück. Das liegt aber ausserhalb der Kontrolle von Lowe's.",
+      "wann": "2027–2028"
+     },
+     {
+      "titel": "Online-Handel",
+      "text": "Die Online-Umsätze wuchsen im 2. Quartal um 15.7 %. Das ist gut, aber im Verhältnis zum Gesamtgeschäft noch zu klein, um das Wachstum allein zu drehen.",
+      "wann": "laufend"
+     }
+    ],
+    "schub_beweis": "Achte bei jeden Zahlen auf die vergleichbaren Umsätze (zuletzt +0.2 %) und die operative Marge (Ziel 2026: 11.6 % bereinigt). Steigen die vergleichbaren Umsätze über +2 % und die Marge wieder, beginnt die Wende.",
+    "szenario": "Kein Technik-Fall wie Google 2023, sondern eine klassische Zyklus-Wette: Heute ist die Stimmung am Boden, die Aktie mit KGV 15 statt üblich rund 20 günstig. Drehen Zinsen und Häusermarkt und zahlen sich die Zukäufe aus, kann Gewinn und Bewertung gleichzeitig steigen. Grösstes Risiko: Der Häusermarkt bleibt jahrelang blockiert, während die Schulden aus den Zukäufen und sinkende Margen den Gewinn weiter drücken.",
+    "quellen": [
+     {
+      "titel": "Insight DIY: Lowe's reports flat Q2 sales, reduces guidance (August 2026)",
+      "url": "https://www.insightdiy.co.uk/news/lowes-reports-flat-q2-sales-reduces-guidance/16777.htm"
+     },
+     {
+      "titel": "Yahoo Finance: Lowe's Just Got Yanked From the BofA Buy List (05.05.2026)",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/lowe-just-got-yanked-bofa-153726097.html"
+     },
+     {
+      "titel": "TIKR: Lowe's Stock Has Fallen 22% From Its Peak. Could the New Housing Bill Make 2026 the Turning Point? (29.06.2026)",
+      "url": "https://www.tikr.com/blog/lowes-stock-has-fallen-22-from-its-peak-could-the-new-housing-bill-make-2026-the-turning-point"
+     },
+     {
+      "titel": "ABC7: Bipartisan housing bill becomes law without Trump's signature (12.07.2026)",
+      "url": "https://abc7chicago.com/amp/post/president-donald-trump-lets-bipartisan-housing-bill-become-law-signing-protest-gop-voter-id/19489190/"
+     }
+    ]
+   },
    "fazit": "Solide Baumarktkette in einer schwachen Branche: Der US-Immobilienmarkt steht still, und Lowe's hat sich mit Zukäufen verschuldet. Der Kurs fällt seit Februar um 39 %. Qualität gelb, Timing rot. Hier ist kein Boden erkennbar. Nur beobachten.",
    "about": "Lowe's betreibt rund 1'700 Baumärkte in den USA, für Heimwerker und Handwerker (Pros). 2025 kaufte Lowe's den Baustoffhändler Foundation Building Materials (FBM) und den Händler ADG, um mehr an Profis zu verkaufen. Das Geschäft hängt stark an Hausverkäufen und Renovationen.",
    "kpis": [
@@ -6240,7 +6738,64 @@
     "betrag": 2.25,
     "system": "Französisches System: eine Dividende pro Jahr, beschlossen an der Generalversammlung Ende April und Anfang Mai ausbezahlt."
    },
-   "chance": null,
+   "chance": {
+    "ticker": "BN",
+    "sorgen": [
+     "China verliert an Tempo: Die Region China/Nordasien wuchs im 2. Quartal nur noch 3.6 %, nach 10.3 % im Quartal davor. Die Bank Jefferies sieht die sinkenden Geburtenraten in China als dauerhaftes Risiko für Babynahrung und stufte die Aktie Ende Juli auf «Underperform» (schlechter als der Markt) herab.",
+     "In den USA verliert Danone Marktanteile, vor allem bei griechischem Joghurt, und muss mehr über Aktionen (Rabatte) verkaufen. Laut Danone ist die Wende dort erst am Anfang.",
+     "Am 30.07.2026 fiel die Aktie trotz guter Zahlen um rund 4 %, weil die Menge mit +1.9 % schwächer war als erwartet. Mitte September stand die Aktie bei rund 61 €, seit Jahresbeginn rund 20 % tiefer.",
+     "Dazu kamen 2026 ein Rückruf von Babymilch in Europa und Lieferprobleme wegen des Iran-Kriegs, die das Wachstum im 1. Quartal gebremst haben."
+    ],
+    "sorgen_art": "gemischt",
+    "sorgen_art_text": "Marge und Gewinn steigen weiter (Halbjahr: Reingewinn +13 %, Marge 13.3 %), aber die Probleme in den USA und in China sind echt; ob sie vorübergehend oder dauerhaft sind, ist noch offen.",
+    "aufloeser": [
+     {
+      "was": "China wächst trotz schwerem Vorjahresvergleich (3. Quartal 2025: +9 % in Asien) weiter, und Nordamerika zeigt erste echte Fortschritte bei den Marktanteilen",
+      "wann": "Umsatz 3. Quartal, 28.10.2026"
+     },
+     {
+      "was": "Danone erreicht das Jahresziel (+3 bis +5 % Wachstum, Betriebsgewinn steigt schneller als der Umsatz) und der freie Cashflow erholt sich nach −27 % im 1. Halbjahr",
+      "wann": "Jahreszahlen, voraussichtlich Februar 2027"
+     },
+     {
+      "was": "Die Probleme bei Babymilch in Europa sind laut Firma gelöst; jetzt muss das Vertrauen der Kundschaft zurückkommen",
+      "wann": "2. Halbjahr 2026 bis 2027"
+     }
+    ],
+    "schub_stufe": "mittel",
+    "schub_treiber": [
+     {
+      "titel": "Protein und Darmgesundheit",
+      "text": "Danone setzt auf Produkte mit viel Protein (z. B. Oikos-Joghurt) und auf Darmgesundheit. Dafür kaufte Danone 2025 The Akkermansia Company (Bakterien für die Darmflora) und Kate Farms (pflanzliche medizinische Ernährung, USA). Diese Firmen zählen ab dem 3. Quartal 2026 zum vergleichbaren Wachstum. Der Trend ist echt, aber im Verhältnis zum Konzern noch klein.",
+      "wann": "2026–2028"
+     },
+     {
+      "titel": "Zukauf von Huel (Mahlzeitenersatz)",
+      "text": "Seit September 2026 gehört Huel zu Danone. Kaufpreis laut Berichten rund 1 Mrd. €, Umsatz rund 250 Mio. £ (2025) mit rund 16 % Wachstum pro Jahr. Das ist ein schnell wachsendes Geschäft, macht aber nur rund 1 % des Danone-Umsatzes aus.",
+      "wann": "ab 4. Quartal 2026"
+     }
+    ],
+    "schub_beweis": "Achte auf die Menge (Volumen/Mix, zuletzt +1.7 % im 1. Halbjahr) und auf Nordamerika (zuletzt +2.6 %). Steigen beide klar über 2–3 %, greifen die neuen Produkte wirklich.",
+    "szenario": "Kein Fall wie Google 2023, eher eine Wette auf eine Beruhigung: Wenn China stabil bleibt und die USA wieder Marktanteile gewinnen, kann die Börse Danone wieder zum eigenen Schnitt bewerten (KGV 16.6 statt 14.6), dazu 3.8 % Dividende. Grösstes Risiko: Weniger Geburten in China und der Joghurt-Wettbewerb in den USA bremsen dauerhaft, dann bleibt Danone eine langsam wachsende Firma.",
+    "quellen": [
+     {
+      "titel": "Danone: Q3 2026 Sales Aide-Mémoire (GlobeNewswire, 01.10.2026)",
+      "url": "https://www.globenewswire.com/news-release/2026/10/01/3373181/0/en/danone-q3-2026-sales-aide-mémoire.html"
+     },
+     {
+      "titel": "DairyNews: Danone's Growth Fails to Prevent Stock Decline Amid China Concerns (30.07.2026)",
+      "url": "https://dairynews.today/news/danone_s_growth_fails_to_prevent_stock_decline_amid_china_concerns_6416305.html"
+     },
+     {
+      "titel": "MarketScreener: Deutsche Bank trims Danone price target, maintains Sell rating (07.04.2026)",
+      "url": "https://www.marketscreener.com/news/deutsche-bank-trims-danone-price-target-maintains-sell-rating-ce7e51d3dd89f226"
+     },
+     {
+      "titel": "BeverageDaily: Danone's €1bn Huel deal (23.03.2026)",
+      "url": "https://www.beveragedaily.com/Article/2026/03/23/danones-1bn-huel-deal-why-the-multinational-is-betting-big-on-meal-replacements"
+     }
+    ]
+   },
    "fazit": "Solide Firma mit steigender Marge, aber die Aktie ist seit November um 26 % gefallen. Qualität gelb (48), Timing rot (28). Kurzfristig überverkauft, der Chef hat im Juli selbst gekauft. Der Trend zeigt aber noch keine Wende. Erstes Zeichen wäre ein Tagesschluss über 62.30 €.",
    "about": "Danone stellt Milchprodukte und Joghurts her (Activia, Danone, Alpro für pflanzliche Produkte), Baby- und Spezialnahrung (Aptamil, Nutricia) und Mineralwasser (Evian, Volvic). Rund 45 % des Umsatzes kommen aus Europa, Nahost und Afrika, 33 % aus Amerika und 22 % aus Asien.",
    "kpis": [
@@ -6527,7 +7082,72 @@
     "system": "Schweizer System: eine Dividende pro Jahr, beschlossen an der Generalversammlung im April und ein paar Tage später ausbezahlt. Auf Schweizer Dividenden werden 35 % Verrechnungssteuer abgezogen, die du als Person mit Wohnsitz in der Schweiz mit der Steuererklärung zurückbekommst.",
     "serie": "Seit 1959 nie gesenkt, 31 Jahre in Folge erhöht."
    },
-   "chance": null,
+   "chance": {
+    "ticker": "NESN",
+    "sorgen": [
+     "Am 23.07.2026 meldete Nestlé für das 1. Halbjahr einen Reingewinn von 3.47 Mrd. CHF, 31 % weniger als im Vorjahr und klar unter den Erwartungen. Grund war vor allem eine Abschreibung (Wertberichtigung auf Geschäfte, die verkauft werden) von rund 1.3–1.4 Mrd. CHF. Die Aktie fiel am Tag um über 6 %.",
+     "Die Marge (Betriebsgewinn pro 100 Franken Umsatz) lag bei 16.4 % und damit leicht unter Vorjahr. Nestlé erwartet für das 2. Halbjahr keine Verbesserung mehr, früher war eine stärkere zweite Jahreshälfte versprochen.",
+     "Der starke Franken frisst den Umsatz: Im 1. Halbjahr sank der Umsatz in Franken um 2.5 %, obwohl Nestlé organisch (ohne Währungen und Zukäufe) 3.6 % wuchs.",
+     "Dazu kommen hohe Nettoschulden von rund 51 Mrd. CHF, US-Zölle, Mehrkosten durch den Nahost-Konflikt (Transport, Energie) und ein Rückruf von Babynahrung, der das Wachstum im 1. Quartal um rund 0.9 Prozentpunkte gebremst hat."
+    ],
+    "sorgen_art": "gemischt",
+    "sorgen_art_text": "Die Menge (RIG, also wie viel mehr Ware verkauft wird) steigt wieder (1. Halbjahr +1.5 % nach +0.2 % im Vorjahr), aber Marge, Schulden und Franken sind echte, wenn auch lösbare Baustellen.",
+    "aufloeser": [
+     {
+      "was": "Die Menge (RIG) steigt im 3. Quartal weiter Richtung 2 % und Nestlé bestätigt das Jahresziel (organisches Wachstum 3–4 %)",
+      "wann": "Umsatz nach 9 Monaten, 22.10.2026"
+     },
+     {
+      "was": "Die Marge steigt für das ganze Jahr 2026 über 16.1 % (Wert 2025), und das Sparprogramm erreicht wie geplant 2 Mrd. CHF für 2026",
+      "wann": "Jahreszahlen, voraussichtlich Februar 2027"
+     },
+     {
+      "was": "Der Verkauf der Hälfte des Wassergeschäfts (Joint Venture «Peranel» mit Platinum Equity) bringt laut Firma rund 2.8 Mrd. CHF Bargeld und senkt die Schulden",
+      "wann": "Abschluss erwartet 1. Halbjahr 2027"
+     },
+     {
+      "was": "Der Rückruf bei Babynahrung ist laut Firma bis Ende Jahr verdaut, Kaffee und Tiernahrung (Purina) wachsen wieder normal",
+      "wann": "Ende 2026 / Anfang 2027"
+     }
+    ],
+    "schub_stufe": "schwach",
+    "schub_treiber": [
+     {
+      "titel": "Sparprogramm und Fokus auf die Kernmarken",
+      "text": "Der neue Chef Philipp Navratil (seit September 2025) streicht rund 16'000 Stellen und will bis Ende 2027 insgesamt 3 Mrd. CHF Kosten sparen, davon waren im 1. Halbjahr 2026 schon 1.7 Mrd. erreicht. Das Geld soll in Werbung und Innovation fliessen. Das hebt vor allem die Marge, macht Nestlé aber nicht zu einem schnell wachsenden Konzern.",
+      "wann": "2026–2027"
+     },
+     {
+      "titel": "Schlankere Firma durch Verkäufe",
+      "text": "Nestlé gibt Teile des Wassergeschäfts und laut Berichten auch Teile der Glacé ab. Übrig bleiben die stärksten Bereiche wie Kaffee, Tiernahrung und Ernährung. Das kann das Wachstum leicht anheben, der Effekt ist aber klein im Verhältnis zur Grösse von Nestlé (über 85 Mrd. CHF Umsatz).",
+      "wann": "2027"
+     }
+    ],
+    "schub_beweis": "Achte vor allem auf die Menge (RIG): zuletzt +1.8 % im 2. Quartal. Steigt sie Richtung 2–3 % und gleichzeitig die Marge über 16.5 %, wirkt der Umbau.",
+    "szenario": "Kein Fall wie Google 2023, eher eine langsame Erholung: Wenn Menge und Marge steigen und der Wasser-Verkauf die Schulden senkt, kann die Börse Nestlé wieder näher an den eigenen Schnitt (KGV um 20 statt rund 16) bewerten, plus 4 % Dividende. Grösstes Risiko: Der Franken bleibt stark und die Marge kommt nicht vom Fleck, dann bleibt die Aktie trotz tiefer Bewertung liegen.",
+    "quellen": [
+     {
+      "titel": "Vermögenszentrum/Reuters: Nestle half-year profit disappoints, strikes deal to sell waters stake (23.07.2026)",
+      "url": "https://www.vermoegenszentrum.ch/en/stock-exchange-and-markets/news/nestle-half-year-profit-disappoints-strikes-deal-sell-waters-stake"
+     },
+     {
+      "titel": "blue News: Nestlé gains momentum in sales volume and reaffirms outlook (23.07.2026)",
+      "url": "https://www.bluewin.ch/en/news/nestle-gains-momentum-in-sales-volume-and-reaffirms-outlook-li.3538627"
+     },
+     {
+      "titel": "Nestlé: Nine-month sales 2026 Aide-mémoire (September 2026)",
+      "url": "https://www.nestle.com/sites/default/files/2026-09/nine-month-sales-aide-memoire-2026.pdf"
+     },
+     {
+      "titel": "Yahoo Finance: Nestlé plans 16,000 job cuts as new CEO sets out strategy (16.10.2025)",
+      "url": "https://finance.yahoo.com/news/nestl-plans-16-000-job-104236557.html"
+     },
+     {
+      "titel": "cash.ch: Nestlé-Aktie auf 13-Monate-Hoch (21.07.2026)",
+      "url": "https://www.cash.ch/news/top-news/nestle-aktie-auf-13-monate-hoch-bringen-die-quartalszahlen-weiteren-schub-954711"
+     }
+    ]
+   },
    "fazit": "Die bekannteste Schweizer Aktie und ein echter Franken-Wert, aber seit 2022 im Abwärtstrend. Qualität orange (36), Timing orange (34). Spannend wird es in der Zone 70–72.5 CHF, wo seit einem Jahr ein Doppelboden liegt. Die Dividende von 4.1 % ist solide. Für eine Wende braucht es weiter steigende Mengen (RIG) und einen Tagesschluss über 78.55 CHF.",
    "about": "Nestlé ist der grösste Nahrungsmittelkonzern der Welt: Kaffee (Nescafé, Nespresso, Starbucks-Produkte im Handel), Tiernahrung (Purina), Baby- und medizinische Ernährung, Süsswaren (KitKat), Fertiggerichte (Maggi) und Wasser. Nestlé verdient den grössten Teil im Ausland: Amerika 39 %, Asien/Ozeanien/Afrika 23 %, Europa 20 %, dazu Nespresso und Health Science.",
    "kpis": [
@@ -6802,7 +7422,74 @@
     "zahlt": false,
     "text": "Tesla hat noch nie eine Dividende bezahlt und steckt den Gewinn in neue Fabriken, KI und Robotaxi."
    },
-   "chance": null,
+   "chance": {
+    "ticker": "TSLA",
+    "sorgen": [
+     "Das Autogeschäft verdient kaum noch Geld: Die operative Marge lag im 2. Quartal 2026 bei nur 1.4 % (2022 waren es 16.8 %). Der bereinigte Gewinn pro Aktie war 0.33 $ statt der erwarteten 0.53 $.",
+     "Tesla hat die Investitionen im 2. Quartal verdoppelt (KI-Rechenzentren, Cybercab, Optimus). Dadurch war der Free Cashflow negativ (−1.1 Mrd. $), und laut Tesla bleibt das noch einige Quartale so.",
+     "Starke Konkurrenz aus China und der Wegfall der US-Steuergutschrift für E-Autos drücken Preise und Absatz. Die Marge bei Energiespeichern fiel von 39.5 % auf 20.4 %.",
+     "Die Bewertung (rund 160–200 erwartete Jahresgewinne) hängt fast ganz an Robotaxi und Roboter. Dazu kommt das Personenrisiko Elon Musk (SpaceX, xAI, Politik) und Spekulation über eine Fusion mit SpaceX, für die es aber keinen offiziellen Vorschlag gibt."
+    ],
+    "sorgen_art": "gemischt",
+    "sorgen_art_text": "Das Kerngeschäft mit Autos hat echte Margenprobleme durch Konkurrenz, aber ein Teil des Gewinnrückgangs ist bewusst gewählt (hohe Investitionen in KI, Robotaxi und Roboter), und der Umsatz wuchs zuletzt wieder (+26 % im 2. Quartal).",
+    "aufloeser": [
+     {
+      "was": "Die Marge im Autogeschäft stabilisiert sich und der Gewinn liegt nicht wieder deutlich unter den Erwartungen",
+      "wann": "Zahlen 3. Quartal am 21.10.2026"
+     },
+     {
+      "was": "Robotaxi ohne Fahrer wird auf weitere Städte (laut Tesla Phoenix, Las Vegas) und ganze Bundesstaaten ausgeweitet, mit klaren Zahlen zur Flottengrösse und zu bezahlten Kilometern",
+      "wann": "Ende 2026 bis 2027"
+     },
+     {
+      "was": "Cybercab, Optimus, Semi und Megapack 3 gehen wie angekündigt in die Produktion",
+      "wann": "Laut Tesla alle noch 2026, Hochlauf 2027"
+     },
+     {
+      "was": "Die Investitionen sinken wieder und der Free Cashflow wird positiv",
+      "wann": "Laut Tesla nicht vor 2027"
+     }
+    ],
+    "schub_stufe": "mittel",
+    "schub_treiber": [
+     {
+      "titel": "Robotaxi und Cybercab",
+      "text": "Tesla fährt laut Firma in sieben grossen US-Regionen ohne Sicherheitsfahrer (z. B. Austin, Miami, Orlando, Tampa), bisher rund 2.5 Mio. bezahlte Meilen. Die Produktion des Cybercab (Auto ohne Lenkrad) hat in Texas begonnen. Gelingt die Ausweitung, entsteht ein ganz neues Geschäft mit wiederkehrenden Fahrten-Umsätzen; Umsatzzahlen nennt Tesla aber noch nicht.",
+      "wann": "2026–2028"
+     },
+     {
+      "titel": "Software für autonomes Fahren (FSD) im Abo",
+      "text": "Ende 2. Quartal hatten 1.48 Mio. Kunden ein FSD-Abo, 56 % mehr als vor einem Jahr. Über 55 % der Neuwagen in Nordamerika wurden mit Abo ausgeliefert. Software hat viel höhere Margen als Autos.",
+      "wann": "laufend"
+     },
+     {
+      "titel": "Energiespeicher",
+      "text": "Tesla installierte im 2. Quartal 13.5 GWh Speicher (+41 %). Die neue Megafactory in Texas soll noch 2026 starten. Allerdings ist die Marge zuletzt stark gesunken und im 3. Quartal lag der Wert (13.7 GWh) unter den Erwartungen.",
+      "wann": "2026–2027"
+     },
+     {
+      "titel": "Roboter Optimus",
+      "text": "Erste Produktionsläufe auf einer neuen Linie in Fremont waren laut Tesla für das 3. Quartal 2026 geplant. Das ist noch ganz am Anfang, Umsätze sind nicht absehbar.",
+      "wann": "frühestens 2027–2028"
+     }
+    ],
+    "schub_beweis": "Achte bei jeden Zahlen auf die Zahl der FSD-Abos (zuletzt 1.48 Mio., +56 %), die bezahlten Robotaxi-Meilen (zuletzt rund 2.5 Mio. kumuliert) und die operative Marge (zuletzt 1.4 %). Wachsen die ersten beiden schnell und steigt die Marge wieder, kommt der Schub im Gewinn an.",
+    "szenario": "Ähnlich wie Google 2023 zweifeln viele, ob Tesla mit Robotaxi und KI Geld verdient, während die Basis (Software, Daten aus Millionen Autos, eigene Fabriken) schon steht. Skaliert das Robotaxi-Netz 2027 in ganzen Bundesstaaten, kann der Gewinn sprunghaft steigen. Grösstes Risiko: Der Preis setzt diesen Erfolg schon voraus; verzögert sich Robotaxi oder bleibt es unrentabel, trifft eine sehr hohe Bewertung auf ein schrumpfendes Autogeschäft.",
+    "quellen": [
+     {
+      "titel": "Not a Tesla App: Summary of Tesla's 2026 Q2 Earnings Call (22.07.2026)",
+      "url": "https://notateslaapp.com/news/4481/summary-of-teslas-2026-q2-earnings-call-cybercab-fsd-ai4-and-more"
+     },
+     {
+      "titel": "SEC: Tesla Q2 2026 Update (Exhibit 99.1)",
+      "url": "https://www.sec.gov/Archives/edgar/data/0001318605/000162828026049213/exhibit991.htm"
+     },
+     {
+      "titel": "Basenor: Tesla-SpaceX Merger Talk: SpaceX IPO Comes First (2026)",
+      "url": "https://www.basenor.com/blogs/news/tesla-spacex-merger-talk-spacex-ipo-comes-first"
+     }
+    ]
+   },
    "fazit": "Die Börse bezahlt bei Tesla vor allem die Zukunft (Robotaxi, Optimus, mögliche SpaceX-Fusion), nicht die heutigen Zahlen. Die heutigen Zahlen sind schwach: Marge 4 %, Gewinn seit 2023 um drei Viertel gesunken. Qualität orange (34), Timing orange (41). Technisch erholt sich der Kurs seit dem Juli-Tief (297 $) mit höheren Hochs. Ein Tagesschluss über 387 $ wäre das nächste Signal, aber erst nach den Zahlen am 21. Oktober.",
    "about": "Tesla baut Elektroautos (vor allem Model Y und Model 3, dazu Cybertruck, Model S/X, Semi und das Robotaxi Cybercab). Dazu kommen Energiespeicher für Häuser und Stromnetze (Powerwall, Megapack), Solaranlagen und Dienstleistungen (Ladestationen, Versicherung, Software für autonomes Fahren). Der humanoide Roboter Optimus und das Robotaxi-Netz stehen noch am Anfang. Rund drei Viertel des Umsatzes kommen weiterhin aus dem Autogeschäft.",
    "kpis": [
@@ -7092,7 +7779,60 @@
     "betrag": 8.5,
     "system": "Schweizer System: eine Dividende pro Jahr, beschlossen an der Generalversammlung im Mai und ein paar Tage später ausbezahlt. Jungfraubahn zahlt 50 bis 67 % des Gewinns aus, die Höhe schwankt darum mit dem Geschäftsjahr. 35 % Verrechnungssteuer, die du mit der Steuererklärung zurückbekommst."
    },
-   "chance": null,
+   "chance": {
+    "ticker": "JFN",
+    "sorgen": [
+     "Seit dem Beginn des Iran-Kriegs am 28.02.2026 fehlen viele Gäste aus Indien und Südostasien. Sie fliegen meist über Dubai, Doha oder Abu Dhabi, und diese Flugverbindungen sind gestört. Von Januar bis Juni kamen 18 % weniger Gäste aufs Jungfraujoch, das 2. Quartal war das schwächste seit Corona.",
+     "Im 1. Halbjahr sank der Umsatz um 9 % auf 137 Mio. CHF, der Gewinn um 22 % auf 28.9 Mio. CHF. Weil die Kosten einer Bergbahn fast fix sind, schlägt jeder fehlende Gast direkt auf den Gewinn durch.",
+     "Analysten erwarten für 2026 rund 14 % weniger Gewinn pro Aktie (rund 11.60 CHF). Die Aktie steht rund 19 % tiefer als zu Jahresbeginn und am 09.10.2026 bei rund 232 CHF, nahe dem tiefsten Stand seit einem Jahr.",
+     "Langfristig: Der Klimawandel verändert das Hochgebirge (weniger Schnee, höhere Schneefallgrenze). Das ist für das Skigebiet ein Risiko."
+    ],
+    "sorgen_art": "gemischt",
+    "sorgen_art_text": "Die Gäste fehlen wirklich, aber wegen eines äusseren Ereignisses (Krieg, gestörte Flüge) und nicht weil das Jungfraujoch an Anziehung verloren hat; die Gäste geben sogar fast 7 % mehr pro Besuch aus.",
+    "aufloeser": [
+     {
+      "was": "Die Flugverbindungen über den Nahen Osten normalisieren sich und die Reiseveranstalter aus Asien buchen wieder. Im Juli und August lag das Minus nur noch bei rund 10 %; laut Chef ist er «vorsichtig optimistisch»",
+      "wann": "Herbst 2026 bis Sommer 2027"
+     },
+     {
+      "was": "Jahreszahlen 2026 mit Gästezahlen für das ganze Jahr, Dividende und Ausblick auf 2027",
+      "wann": "voraussichtlich Frühling 2027 (Datum nicht bestätigt)"
+     },
+     {
+      "was": "Ein guter Winter in der Jungfrau Ski Region (2025: 1.2 Mio. Skifahrertage, +5 %) gleicht einen Teil der fehlenden Asien-Gäste aus",
+      "wann": "Wintersaison 2026/27"
+     }
+    ],
+    "schub_stufe": "schwach",
+    "schub_treiber": [
+     {
+      "titel": "Rückkehr der Gäste aus Asien (Erholung, kein neuer Treiber)",
+      "text": "Kommen die Gäste aus Asien zurück, kann der Gewinn wieder auf das Niveau von 2023–2025 steigen (Gewinn pro Aktie damals 13.40–13.60 CHF statt erwartet rund 11.60 CHF). Das ist aber eine Rückkehr zum alten Stand und kein zusätzliches Wachstum.",
+      "wann": "2027"
+     },
+     {
+      "titel": "Höhere Einnahmen pro Gast und neue Ziele bis 2030",
+      "text": "Jungfraubahn setzt auf zahlungskräftige Einzelreisende; der Umsatz pro Gast stieg im 1. Halbjahr um fast 7 %. Bis 2030 will die Firma laut eigenen Zielen eine EBITDA-Marge (Gewinn vor Zinsen, Steuern und Abschreibungen pro 100 CHF Umsatz) von mindestens 45 % erreichen (Halbjahr 2026: 41.5 %). Geplant sind die Modernisierung der Firstbahn und Ausbauten auf dem Jungfraujoch und am Eigergletscher. Das sind solide, aber kleine Schritte.",
+      "wann": "bis 2030"
+     }
+    ],
+    "schub_beweis": "Achte auf die Gästezahl auf dem Jungfraujoch im Vergleich zum Vorjahr (1. Halbjahr −18 %, Juli/August rund −10 %). Liegt sie wieder bei 0 % oder im Plus und steigt der Umsatz pro Gast weiter, ist die Erholung da.",
+    "szenario": "Kein Fall wie Google 2023, sondern ein klassischer Sorgen-Fall: Die Firma ist einzigartig und schuldenfrei, nur die Gäste fehlen wegen des Krieges. Beruhigt sich die Lage im Nahen Osten, können Gäste und Gewinn rasch zurückkommen, und der Kurs könnte Richtung der Analystenziele (260–271 CHF) steigen. Grösstes Risiko: Der Konflikt und die Flugprobleme dauern an, dann bleibt der Gewinn tief, und die Aktie ist mit einem KGV um 19 nicht billig.",
+    "quellen": [
+     {
+      "titel": "plattformj.ch: Jungfraubahnen – Ausblick sieht gut aus, aber… (28.08.2026)",
+      "url": "https://www.plattformj.ch/artikel/246232/"
+     },
+     {
+      "titel": "cash.ch: Jungfraubahn – bringt eine attraktive Dividendenrendite neuen Schwung in den Titel? (30.09.2026)",
+      "url": "https://www.cash.ch/news/top-news/jungfraubahn-bringt-eine-attraktive-dividendenrendite-neuen-schwung-in-den-titel-972777"
+     },
+     {
+      "titel": "Snow Industry News: Jungfraubahn Group Has New, Ambitious Financial Targets (2026)",
+      "url": "https://www.snowindustrynews.com/articles/jungfraubahn-group-has-new-ambitious-financial-targets"
+     }
+    ]
+   },
    "fazit": "Jungfraubahn ist ein sehr profitables Bergbahn-Unternehmen mit fast monopolartiger Stellung (Marge 31 %, mehr Geld als Schulden, Dividende 3.7 %). 2026 fehlen aber wegen des Iran-Kriegs viele Gäste aus Asien: Umsatz und Gewinn sinken. Qualität orange (44), Timing gelb (54). Der Kurs fiel vom März-Hoch 327 CHF bis auf 220 CHF (−33 %) und baut seit drei Wochen zwischen 220 und 233 CHF einen Boden mit steigender A/D. Ein Tagesschluss über 233 CHF wäre das erste Signal.",
    "about": "Jungfraubahn betreibt die Bergbahnen in der Jungfrau-Region im Berner Oberland. Herzstück ist die Zahnradbahn auf das Jungfraujoch (3'454 m, «Top of Europe», höchstgelegener Bahnhof Europas). Dazu kommen die Wengernalpbahn, die Erlebnisberge Harder, First und Schynige Platte, das Skigebiet Jungfrau Ski Region, die V-Bahn mit dem Eiger Express sowie Gastronomie und ein eigenes Wasserkraftwerk. Das Jungfraujoch allein bringt gut die Hälfte der Verkehrserträge. Viele Gäste kommen von weit her: aus Asien (China, Japan, Taiwan, Indien, Südostasien), aus Amerika und aus Europa und der Schweiz.",
    "kpis": [
@@ -8467,7 +9207,64 @@
     "betrag": 20.7,
     "system": "Britisches System mit Zwischen- und Schlussdividende: Im Juli kommt die kleinere Zwischendividende, im Januar die grössere Schlussdividende (Geschäftsjahr endet im September). In manchen Jahren gibt es zusätzlich eine Sonderdividende."
    },
-   "chance": null,
+   "chance": {
+    "ticker": "ABF",
+    "sorgen": [
+     "Primark verkauft in bestehenden Läden weniger: Im Geschäftsjahr 2026 (bis 12.09.2026) sanken diese vergleichbaren Umsätze um rund 2.6 %, in Kontinentaleuropa im 4. Quartal sogar um 4.3 %. Vor allem Deutschland ist schwach.",
+     "Die Primark-Marge (Betriebsgewinn pro 100 £ Umsatz) fiel von rund 12 % auf rund 10 %, wegen mehr Rabatten und Investitionen in Digitales und Technik.",
+     "Das Zuckergeschäft (British Sugar u. a.) macht wegen tiefer EU-Zuckerpreise Verluste: 2026 am oberen Ende von 25–60 Mio. £, für 2027 erwartet ABF sogar 70–170 Mio. £ Verlust. Laut Berichten bleibt der Zucker bis 2028 im Minus.",
+     "Der Gewinn pro Aktie sinkt seit 2024 (197 p, 2025: 175 p, Erwartung 2026 rund 154 p). Ein Analyst von Quilter Cheviot sagt, die Abspaltung von Primark sei «mehr Struktur als Strategie» und lege nicht automatisch Wert frei."
+    ],
+    "sorgen_art": "gemischt",
+    "sorgen_art_text": "Der Zuckerverlust hängt an schwankenden Preisen und ist eher vorübergehend, die Schwäche von Primark in Kontinentaleuropa dauert aber schon über ein Jahr und könnte strukturell sein.",
+    "aufloeser": [
+     {
+      "was": "Jahreszahlen mit Ausblick: Primark hält die Marge bei rund 10 % und die Lebensmittel (Grocery, Zutaten, Landwirtschaft) wachsen wie angekündigt leicht",
+      "wann": "Jahreszahlen 03.11.2026"
+     },
+     {
+      "was": "Primark dreht in Kontinentaleuropa wieder ins Plus bei den vergleichbaren Umsätzen",
+      "wann": "Zahlen 1. Halbjahr GJ 2027, voraussichtlich April 2027"
+     },
+     {
+      "was": "Die Abspaltung von Primark wird umgesetzt; danach können Anleger beide Teile einzeln bewerten",
+      "wann": "Dezember 2027 (laut Firma)"
+     },
+     {
+      "was": "Die EU-Zuckerpreise erholen sich und der Zuckerverlust wird kleiner",
+      "wann": "2027–2028"
+     }
+    ],
+    "schub_stufe": "schwach",
+    "schub_treiber": [
+     {
+      "titel": "Primark in den USA und neue Läden",
+      "text": "In den USA wächst Primark kräftig (Umsatz im 4. Quartal rund +11 %, im 1. Halbjahr +12 %) und eröffnet laufend neue Läden. Insgesamt plant ABF jedes Jahr 4–5 % mehr Verkaufsfläche. Das US-Geschäft ist aber noch klein im Verhältnis zu ganz Primark (allein im 1. Halbjahr 4.7 Mrd. £ Umsatz).",
+      "wann": "2026–2028"
+     },
+     {
+      "titel": "Abspaltung von Primark",
+      "text": "Bis Dezember 2027 werden Primark und das Lebensmittelgeschäft getrennt. Das kann Wert sichtbar machen, weil Mischkonzerne an der Börse oft tiefer bewertet werden. Es ist aber kein neuer Wachstumstreiber, und Analysten sind sich uneinig, ob es wirklich mehr Wert bringt.",
+      "wann": "Dezember 2027"
+     }
+    ],
+    "schub_beweis": "Achte auf die vergleichbaren Primark-Umsätze in Kontinentaleuropa (zuletzt −4.3 %) und auf die Primark-Marge (rund 10 %). Erst wenn Europa wieder wächst und die Marge steigt, kann der Gewinn wieder zulegen.",
+    "szenario": "Kein Fall wie Google 2023: Hier gibt es keine versteckte neue Technologie, sondern eine mögliche Wende plus Abspaltung. Wenn Primark in Europa stabil wird, der Zucker sich erholt und die Abspaltung 2027 den Mischkonzern-Abschlag auflöst, kann die tief bewertete Aktie (KGV rund 12) deutlich zulegen. Grösstes Risiko: Primark verliert in Europa weiter Kundschaft und der Zuckerverlust wächst wie befürchtet bis 170 Mio. £, dann sinkt der Gewinn ein drittes Jahr in Folge.",
+    "quellen": [
+     {
+      "titel": "ABF Trading Statement Q4 GJ 2026 (London South East, 10.09.2026)",
+      "url": "https://www.lse.co.uk/rns/trading-statement-33wa33v1mi2sn66.html"
+     },
+     {
+      "titel": "FashionUnited: Primark to separate from Associated British Foods by 2027 (21.04.2026)",
+      "url": "https://fashionunited.uk/news/business/primark-to-separate-from-associated-british-foods-by-2027/2026042187568"
+     },
+     {
+      "titel": "Quilter: ABF demerger confirms Primark split but leaves value question unanswered (21.04.2026)",
+      "url": "https://media.quilter.com/search/2026/abf-demerger-confirms-primark-split-but-leaves-value-question-unanswered/"
+     }
+    ]
+   },
    "fazit": "Mischkonzern aus Primark (Kleider) und Lebensmitteln. Das Geschäft schwächelt (Primark in Europa, Zucker mit Verlust), dafür ist die Bilanz solid und Ende 2027 wird Primark abgespalten. Qualität orange (33), Timing orange (36). Charttechnisch hält seit März eine Bodenzone bei 1'730–1'800 p, die Wochen-A/D steigt. Ein Tagesschluss über 1'900 p wäre ein erstes Signal.",
    "about": "Associated British Foods (ABF) besteht aus zwei Welten: Primark, eine Billig-Modekette mit rund 450 Läden in Europa und den USA (über die Hälfte des Umsatzes und der grösste Teil des Gewinns), und ein Lebensmittelgeschäft mit Twinings-Tee, Ovaltine, Brot, Zucker (British Sugar), Zutaten und Landwirtschaft. Die Familie Weston kontrolliert rund 56 % der Aktien.",
    "kpis": [
@@ -8757,7 +9554,60 @@
     "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Die Erhöhung kommt jeweils im Sommer und gilt ab der Oktober-Zahlung.",
     "serie": "12 Jahre in Folge erhöht."
    },
-   "chance": null,
+   "chance": {
+    "ticker": "MDLZ",
+    "sorgen": [
+     "Der teure Kakao der letzten zwei Jahre wirkt noch nach: Weil Mondelez Kakao lange im Voraus einkauft, landen die hohen Preise erst jetzt in der Rechnung. Der bereinigte Gewinn pro Aktie lag im 1. Halbjahr 2026 ohne Währungseffekte 8.8 % unter dem Vorjahr.",
+     "Europa, der wichtigste Schokolade-Markt, schrumpfte im 2. Quartal 2026 um 3.5 %, auch die verkaufte Menge sank (−2.1 %). Die Preiserhöhungen haben Kunden vertrieben, dazu kam eine Hitzewelle.",
+     "Die Schulden sind mit dem 3.3-Fachen des Betriebsgewinns (vor Abschreibungen) eher hoch, die Rendite auf das eingesetzte Kapital mit rund 8 % tief.",
+     "Neues Risiko: Für die Ernte 2026/27 wird laut Bericht wegen Wetterrisiken mit weniger Kakao aus der Elfenbeinküste (rund 1.8 statt 2.2 Mio. Tonnen) gerechnet. Steigt der Preis wieder, fällt die erhoffte Entlastung kleiner aus."
+    ],
+    "sorgen_art": "gemischt",
+    "sorgen_art_text": "Das Problem ist echt, aber vorübergehend: Es kommt vor allem vom Kakaopreis, nicht von schwachen Marken; ausserhalb Europas wächst Mondelez weiter (Lateinamerika +8.4 %, Asien/Afrika/Nahost +7.1 %).",
+    "aufloeser": [
+     {
+      "was": "Mondelez bestätigt das Jahresziel 2026 (Gewinn pro Aktie 0 bis +5 % ohne Währungen) und zeigt, dass die Kakaokosten ihren Höhepunkt überschritten haben",
+      "wann": "Zahlen 3. Quartal, voraussichtlich Ende Oktober 2026"
+     },
+     {
+      "was": "Der Ausblick für 2027 bestätigt das von der Firma angekündigte 'starke Gewinnwachstum' mit einer konkreten Zahl",
+      "wann": "Zahlen 4. Quartal, voraussichtlich Anfang Februar 2027"
+     },
+     {
+      "was": "Europa wächst wieder bei der verkauften Menge, weil die Preiserhöhungen aus dem Vorjahr wegfallen",
+      "wann": "2. Halbjahr 2026 bis Anfang 2027"
+     }
+    ],
+    "schub_stufe": "mittel",
+    "schub_treiber": [
+     {
+      "titel": "Kakaopreis hat sich mehr als halbiert",
+      "text": "Kakao kostete Ende 2024 zeitweise über 12'000 $ pro Tonne, Anfang Oktober 2026 noch rund 5'100 $. Wegen der Absicherungen kommt die Entlastung mit Verzögerung, vor allem 2027. Die Firma erwartet laut Präsentation vom 28.07.2026 ein 'starkes Gewinnwachstum 2027', nennt aber keine Zahl.",
+      "wann": "2027"
+     },
+     {
+      "titel": "Wachstum in Schwellenländern",
+      "text": "Schwellenländer wuchsen im 2. Quartal 2026 um 4.4 %, Lateinamerika um 8.4 %, die Region Asien/Nahost/Afrika um 7.1 % mit deutlich mehr verkaufter Menge (+5.2 %). Mondelez baut dort das Händlernetz stark aus, zum Beispiel in Indien und Brasilien.",
+      "wann": "Laufend"
+     }
+    ],
+    "schub_beweis": "Achte bei jeden Zahlen auf die bereinigte Bruttomarge (zuletzt 34.0 %) und den bereinigten Gewinn pro Aktie (1. Halbjahr −8.8 % ohne Währungen). Steigt die Bruttomarge klar über 35 % und dreht der Gewinn ins Plus, kommt die Kakao-Entlastung an.",
+    "szenario": "Eher eine Rohstoff-Wende als ein Fall wie Google 2023: Die Börse sieht heute vor allem die schwachen Zahlen von 2025 und 2026. Kommt die Kakao-Entlastung 2027 wie erhofft voll an, kann der Gewinn deutlich schneller wachsen als heute und die Bewertung (erwartetes KGV 18.3) wieder steigen. Grösstes Risiko: Eine schlechte Ernte treibt den Kakaopreis erneut hoch, oder Mondelez muss die Preise senken und gibt die Entlastung an die Kunden weiter.",
+    "quellen": [
+     {
+      "titel": "Mondelez: Präsentation Zahlen 2. Quartal 2026 (28.07.2026)",
+      "url": "https://ir.mondelezinternational.com/static-files/f98c56ea-c47a-4262-90b6-3e883d248641"
+     },
+     {
+      "titel": "Trading Economics: Cocoa Futures at Over 2-Month Low (01.10.2026)",
+      "url": "https://tradingeconomics.com/commodity/cocoa/news/588793"
+     },
+     {
+      "titel": "Beta Finch: Zusammenfassung Mondelez Q2 2026 Call",
+      "url": "https://betafinch.com/episodes/MDLZ_2026_Q2_en"
+     }
+    ]
+   },
    "fazit": "Starke Marken, aber die Zahlen leiden unter dem teuren Kakao der letzten zwei Jahre. Qualität orange (31), Timing orange (38). Interessant: Der Kurs bildet bei 57.5–58.5 $ gerade einen Dreifachboden, und auf der Woche steigen die Tiefs seit Januar. Ein Tagesschluss über 62.20 $ wäre das Signal. Die Entlastung durch den gefallenen Kakaopreis kommt vor allem 2027.",
    "about": "Mondelez ist einer der grössten Snack-Hersteller der Welt: Guetzli (Oreo, LU, belVita), Schokolade (Milka, Cadbury, Toblerone, Côte d'Or) und Kaugummi. Rund drei Viertel des Umsatzes kommen von ausserhalb der USA, ein grosser Teil aus Europa und Schwellenländern.",
    "kpis": [
@@ -9046,7 +9896,56 @@
     "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Seit 2025 nicht mehr erhöht.",
     "serie": "Zahlt seit über 125 Jahren ohne Unterbruch."
    },
-   "chance": null,
+   "chance": {
+    "ticker": "GIS",
+    "sorgen": [
+     "Umsatz und Gewinn schrumpfen: Im 1. Quartal des Geschäftsjahres 2027 (Juni–August 2026) blieb der Umsatz aus eigener Kraft flach, der bereinigte Gewinn pro Aktie fiel ohne Währungseffekte um 13 %.",
+     "Das Kerngeschäft Lebensmittel in Nordamerika schrumpfte organisch um 3 %, der Betriebsgewinn dort um 15 %. Für das ganze Geschäftsjahr 2027 erwartet die Firma 3.00–3.20 $ Gewinn pro Aktie, nach 3.55 $ im Vorjahr.",
+     "Die Dividende (rund 7.7 %) wurde nicht mehr erhöht. Ein Dividenden-Analyst (Sure Dividend, Juli 2026) gibt ihr die schlechteste Sicherheitsnote F, weil der Gewinn sinkt und die Ausschüttungsquote steigt.",
+     "Die Schulden sind mit dem 3.8-Fachen des Betriebsgewinns (vor Abschreibungen) hoch, und die Firma hängt stark von US-Kunden ab, die gerade sparen müssen."
+    ],
+    "sorgen_art": "echt",
+    "sorgen_art_text": "Die verkaufte Menge sinkt, die Marge fällt seit 2024 und die Firma musste die Preise senken, um Kunden zu halten; das sind strukturelle Probleme bei verpackten Lebensmitteln in den USA, nicht nur schlechte Stimmung.",
+    "aufloeser": [
+     {
+      "was": "General Mills bestätigt den Jahresausblick und Nordamerika zeigt wieder Wachstum, nachdem die Preissenkungen aus dem Vorjahr abgeschlossen sind",
+      "wann": "Zahlen 2. Quartal GJ 2027, voraussichtlich Mitte Dezember 2026"
+     },
+     {
+      "was": "Die versprochenen Einsparungen von mindestens 750 Mio. $ im Geschäftsjahr 2027 gleichen die höheren Kosten aus, und die Marge hört auf zu fallen",
+      "wann": "Laufend, Bilanz mit den Jahreszahlen Ende Juni 2027"
+     },
+     {
+      "was": "Die Firma bestätigt ausdrücklich die Dividende und senkt mit dem Geld aus den Verkäufen (Joghurt USA, Brasilien) die Schulden",
+      "wann": "2026–2027"
+     }
+    ],
+    "schub_stufe": "schwach",
+    "schub_treiber": [
+     {
+      "titel": "Auslandsgeschäft und Gastronomie wachsen",
+      "text": "Im 1. Quartal wuchsen das Auslandsgeschäft (+4 % organisch, 6 % mehr Menge) und das Geschäft mit Restaurants und Kantinen (+4 % organisch). Beide machen zusammen aber nur rund 30 % des Umsatzes aus und können den Rückgang im Kerngeschäft kaum ausgleichen.",
+      "wann": "Laufend"
+     },
+     {
+      "titel": "Tierfutter (Blue Buffalo) und gesündere Produkte",
+      "text": "General Mills setzt auf Tierfutter und Produkte mit mehr Protein und Ballaststoffen. Die Tierfutter-Sparte war im 1. Quartal aber flach und der Gewinn dort sank um 12 %. Ein Analyst erwartet über fünf Jahre nur rund 2 % Gewinnwachstum pro Jahr, vor allem aus diesem Bereich.",
+      "wann": "2027–2030"
+     }
+    ],
+    "schub_beweis": "Achte bei den nächsten Zahlen auf das organische Wachstum von North America Retail (zuletzt −3 %) und die verkaufte Menge (zuletzt −2 %). Erst wenn beide ins Plus drehen, ist die Wende da; bis dahin ist der Free Cashflow der wichtigste Wert für die Sicherheit der Dividende.",
+    "szenario": "Kein Fall wie Google 2023: General Mills hat keine versteckte Stärke, sondern ist eine reife Firma im Rückwärtsgang. Die Chance liegt nur in der sehr tiefen Bewertung (erwartetes KGV rund 10): Stabilisiert sich der Gewinn ab 2028, kann schon das reichen, damit die Aktie samt hoher Dividende deutlich zulegt. Grösstes Risiko: Der Gewinn fällt weiter, die Schulden bleiben hoch und die Dividende wird gekürzt, dann ist es eine klassische Value-Falle (billig, aber zu Recht).",
+    "quellen": [
+     {
+      "titel": "General Mills: Medienmitteilung 1. Quartal GJ 2027 (SEC 8-K, 23.09.2026)",
+      "url": "https://www.sec.gov/Archives/edgar/data/0000040704/000162828026063141/a20260923ex99.htm"
+     },
+     {
+      "titel": "Sure Dividend: General Mills Analyse (09.07.2026, PDF)",
+      "url": "https://www.suredividend.com/wp-content/uploads/2026/07/GIS-2026-07-09.pdf"
+     }
+    ]
+   },
    "fazit": "Die Aktie hat sich seit 2023 mehr als halbiert und steht so tief wie seit über zehn Jahren nicht mehr. Umsatz und Gewinn schrumpfen, die Schulden steigen. Qualität orange (30), Timing rot (21). Sehr billig (KGV rund 10), aber ohne Wende in den Zahlen ist das eine mögliche Value-Falle.",
    "about": "General Mills stellt Frühstücksflocken (Cheerios, Cerealien zusammen mit Nestlé), Müesliriegel (Nature Valley), Backwaren (Pillsbury), Glacé (Häagen-Dazs) und Tierfutter (Blue Buffalo) her. Rund drei Viertel des Umsatzes kommen aus Nordamerika.",
    "kpis": [
@@ -9327,7 +10226,60 @@
     "betrag": 0.4,
     "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Seit der Kürzung 2019 unverändert bei 0.40 $."
    },
-   "chance": null,
+   "chance": {
+    "ticker": "KHC",
+    "sorgen": [
+     "Kraft Heinz schrumpft: Im 2. Quartal 2026 sank der Umsatz aus eigener Kraft um 1.3 %, in Nordamerika (rund drei Viertel des Umsatzes) um 2.7 %. Die verkaufte Menge ging dort sogar um 3.8 % zurück.",
+     "Im 2. Quartal wurden 7.35 Mrd. $ abgeschrieben. Das heisst: Die Firma selbst schätzt ihre Marken und früheren Übernahmen deutlich weniger wert als bisher. Der bereinigte Gewinn pro Aktie fiel um 18.8 %.",
+     "Die geplante Aufspaltung in zwei Firmen wurde am 11.02.2026 gestoppt. Stattdessen investiert der neue Chef 2026 rund 700 Mio. $ zusätzlich in die Marken, was den Gewinn kurzfristig drückt.",
+     "Berkshire Hathaway (27.5 % der Aktien) hat im Januar 2026 die Möglichkeit eingetragen, bis zu 325 Mio. Aktien zu verkaufen. Ein Verkauf ist nicht sicher, aber die Angst vor so vielen Aktien auf dem Markt drückt auf den Kurs."
+    ],
+    "sorgen_art": "echt",
+    "sorgen_art_text": "Die verkaufte Menge sinkt seit Jahren, die Marken verlieren Marktanteile und mussten in Milliardenhöhe abgeschrieben werden; das ist eine strukturelle Schwäche, auch wenn der Chef sie für 'lösbar' hält.",
+    "aufloeser": [
+     {
+      "was": "Die Marktanteils-Verluste hören auf (zuletzt nur noch rund 0.2–0.3 Prozentpunkte) und Nordamerika schrumpft deutlich weniger als −2.7 %",
+      "wann": "Zahlen 3. Quartal, voraussichtlich Ende Oktober oder Anfang November 2026"
+     },
+     {
+      "was": "Berkshire verkauft seine Aktien geordnet oder erklärt, dass es vorerst nicht verkauft; dann fällt die Unsicherheit weg",
+      "wann": "Offen, jederzeit möglich"
+     },
+     {
+      "was": "Der Ausblick 2027 zeigt, dass die 700 Mio. $ Zusatz-Investitionen wieder Wachstum bringen, und die Schulden sinken weiter",
+      "wann": "Zahlen 4. Quartal, voraussichtlich Februar 2027"
+     }
+    ],
+    "schub_stufe": "schwach",
+    "schub_treiber": [
+     {
+      "titel": "Schwellenländer und Heinz-Saucen",
+      "text": "In Schwellenländern wuchs Kraft Heinz im 2. Quartal organisch um 8.5 %, mit 4 % mehr verkaufter Menge. Die Marke Heinz wächst laut Bericht seit Jahresbeginn um 3 %. Die Schwellenländer machen mit 771 Mio. $ pro Quartal aber nur rund 12 % des Umsatzes aus und können den Rückgang in Nordamerika nicht ausgleichen.",
+      "wann": "Laufend"
+     },
+     {
+      "titel": "Sanierung der Marken",
+      "text": "Der neue Chef Steve Cahillane investiert zusätzlich rund 700 Mio. $ in Werbung, Preise und Produkte, zum Beispiel eine neue Verpackung für Oscar Mayer. Laut Firma verbessern sich die Marktanteile bereits. Ob daraus wieder Wachstum wird, ist noch unbewiesen.",
+      "wann": "2026–2027"
+     }
+    ],
+    "schub_beweis": "Achte bei den nächsten Zahlen auf das organische Wachstum in Nordamerika (zuletzt −2.7 %) und die verkaufte Menge (zuletzt −3.8 %). Erst wenn die Menge wieder steigt, wirken die Investitionen; der Free Cashflow (1. Halbjahr 1.66 Mrd. $, +10 %) zeigt, ob die Dividende sicher bleibt.",
+    "szenario": "Kein Fall wie Google 2023: Hier gibt es keine versteckte Stärke, sondern eine Firma im Umbau. Die Chance: Gelingt die Wende und hören die Marktanteils-Verluste auf, kann die sehr tiefe Bewertung (erwartetes KGV 11) samt 7.3 % Dividende ordentliche Renditen bringen. Grösstes Risiko: Die Marken schrumpfen weiter, Berkshire verkauft in einen schwachen Markt und am Ende muss die Dividende gekürzt werden.",
+    "quellen": [
+     {
+      "titel": "Kraft Heinz: Medienmitteilung 2. Quartal 2026 (SEC 8-K, 05.08.2026)",
+      "url": "https://www.sec.gov/Archives/edgar/data/0001637459/000163745926000052/ex991-erq22026.htm"
+     },
+     {
+      "titel": "24/7 Wall St.: Kraft Heinz Moves to the NYSE. What Happened to the Breakup? (14.09.2026)",
+      "url": "https://247wallst.com/investing/2026/09/14/kraft-heinz-moves-to-the-nyse-what-happened-to-the-breakup/"
+     },
+     {
+      "titel": "Food Processing: Berkshire Hathaway Potentially Liquidating its Holdings in Kraft Heinz (28.01.2026)",
+      "url": "https://www.foodprocessing.com/business-of-food-beverage/business-strategies/news/55353783/berkshire-hathaway-potentially-liquidating-its-holdings-in-kraft-heinz"
+     }
+    ]
+   },
    "fazit": "Eine schrumpfende Firma mit hoher Dividende. Der Umsatz sinkt seit drei Jahren, es gab Abschreibungen in Milliardenhöhe, und die geplante Aufspaltung wurde gestoppt. Qualität rot (29), Timing rot (15). Die 7.3 % Dividende ist verlockend, aber typisch für eine Dividendenfalle. Erfüllt die Kriterien für ein Qualitäts-Depot nicht.",
    "about": "Kraft Heinz stellt verpackte Lebensmittel her: Ketchup und Saucen (Heinz), Käse und Fertiggerichte (Kraft, Philadelphia), Wurstwaren (Oscar Mayer) und Kinder-Snacks (Lunchables). Rund drei Viertel des Umsatzes kommen aus Nordamerika.",
    "kpis": [
