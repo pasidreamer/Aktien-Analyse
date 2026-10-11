@@ -1,0 +1,33 @@
+name: Rohdaten für Analyse
+
+# Holt Kursdaten und Indikatoren für neue Aktien-Checks und legt sie unter rohdaten/ ab.
+on:
+  workflow_dispatch:
+    inputs:
+      symbole:
+        description: "Yahoo-Symbole, mit Leerzeichen getrennt (z. B. ISRG BSX NESN.SW)"
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  holen:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Daten holen
+        env:
+          SYMBOLE: ${{ inputs.symbole }}
+        run: python scripts/rohdaten.py $SYMBOLE
+      - name: Speichern
+        run: |
+          git config user.name "aktien-ampel-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add rohdaten
+          git diff --cached --quiet || (git commit -m "Rohdaten $SYMBOLE" && git pull --rebase && git push)
+        env:
+          SYMBOLE: ${{ inputs.symbole }}
