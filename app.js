@@ -223,7 +223,7 @@ function rowHtml(v) {
   return `<a class="row" href="#/aktie/${encodeURIComponent(s.ticker)}">
     ${signal(v.q, v.t)}
     <div class="mid"><div class="nm">${esc(s.name)}</div>
-      <div class="sub">${esc(s.ticker)} · ${esc(regionCode[s.land] || s.land)} · ${esc(s.tags[0])}${s.status !== "beobachten" ? " · " + LISTE[s.status] : ""}${STATE.notes[s.ticker]?.text?.trim() ? " · Notiz" : ""}</div>
+      <div class="sub">${esc(s.ticker)} · ${esc(regionCode[s.land] || s.land)} · ${esc(s.tags[0])}${window.Depot?.bestand(s.ticker) ? " · Im Depot" : s.status !== "beobachten" ? " · " + LISTE[s.status] : ""}${STATE.notes[s.ticker]?.text?.trim() ? " · Notiz" : ""}</div>
       ${v.bew?.unter || v.schub || kontra(v) ? `<div class="tags">${v.bew?.unter ? `<span class="tg tg-unter">${nf(v.bew.abschlag, 0)} % günstiger als üblich</span>` : ""}${v.schub ? '<span class="tg tg-schub">Wachstumsschub</span>' : ""}${kontra(v) ? '<span class="tg tg-kontra">Kontra-Signal</span>' : ""}</div>` : ""}</div>
     <div class="right"><div class="px">${money(v.kurs, s.waehrung)}</div><div>${chgHtml(v.chg1)}${trendArrow(v.trendT)}</div>
       ${badge(v.status)}${v.neu ? '<span class="badge b-neu">neu</span>' : ""}</div>
@@ -341,7 +341,7 @@ function filtered() {
     const s = v.s;
     if (f.stil !== "Alle" && !s.tags.includes(f.stil)) return false;
     if (f.region !== "Alle" && s.region !== f.region) return false;
-    if (f.status !== "Alle" && s.status !== f.status) return false;
+    if (f.status !== "Alle" && !(f.status === "depot" ? (s.status === "depot" || window.Depot?.bestand(s.ticker)) : s.status === f.status)) return false;
     if (f.nurGut && v.q < 60) return false;
     const fk = f.fokus || "Alle";
     if (fk === "unter" && !v.bew?.unter) return false;
@@ -403,7 +403,7 @@ function renderHome() {
         { Alle: all.length, unter: all.filter(v => v.bew?.unter).length, schub: all.filter(v => v.schub).length, beides: all.filter(v => v.bew?.unter && v.schub).length, kontra: all.filter(kontra).length })}</div>
       <div class="chips" role="group" aria-label="Stil">${chipRow("stil", [["Alle", "Alle"], ...tags.map(t => [t, t])], cnt("stil"))}</div>
       <div class="chips" role="group" aria-label="Region und Liste">${chipRow("region", [["Alle", "Alle Regionen"], ...regions.map(r => [r, r])], cnt("region"))}<span class="sep"></span>
-        ${chipRow("status", [["Alle", "Alle Listen"], ...["depot", "kaufliste", "beobachten"].filter(x => STATE.stocks.some(s => s.status === x)).map(x => [x, LISTE[x]])])}<span class="sep"></span>
+        ${chipRow("status", [["Alle", "Alle Listen"], ...["depot", "kaufliste", "beobachten"].filter(x => STATE.stocks.some(s => s.status === x || (x === "depot" && window.Depot?.bestand(s.ticker)))).map(x => [x, LISTE[x]])])}<span class="sep"></span>
         <button class="chip" id="nurGut" aria-pressed="${STATE.filter.nurGut}">Nur Qualität ab 60</button></div>
     </div>
     <div class="count">${list.length} von ${STATE.stocks.length} Aktien</div>
@@ -556,6 +556,7 @@ function renderDetail(ticker) {
       <a class="btn primary" href="${esc(s.cheatsheet)}">Cheat Sheet öffnen</a>
       <a class="btn" href="${esc(s.claude)}" target="_blank" rel="noopener">Analyse in Claude öffnen</a>
     </div>
+    ${(() => { const b = window.Depot?.bestand(s.ticker); return b ? `<div class="banner plain dp-held"><b>Im Depot:</b> ${nf(b.stueck, b.stueck % 1 ? 3 : 0)} Stück, Einstand ${money(b.einstand, w)}, ${b.guvPct != null ? `${b.guvPct >= 0 ? "+" : "−"}${nf(Math.abs(b.guvPct), 1)} %` : ""} <a href="#/depot/neu/${encodeURIComponent(s.ticker)}">Kauf oder Verkauf eintragen</a></div>` : `<p class="dp-link"><a href="#/depot/neu/${encodeURIComponent(s.ticker)}">Gekauft? Im Depot-Journal eintragen</a></p>`; })()}
 
     ${chanceHtml(v)}
 
@@ -720,16 +721,17 @@ function renderInfo() {
 // ---------- Routing ----------
 function route() {
   const h = location.hash || "#/";
-  const tab = h.startsWith("#/termine") ? "termine" : h.startsWith("#/info") ? "info" : "home";
+  const tab = h.startsWith("#/termine") ? "termine" : h.startsWith("#/info") ? "info" : h.startsWith("#/depot") ? "depot" : "home";
   document.querySelectorAll(".tabs a").forEach(a => a.dataset.tab === tab ? a.setAttribute("aria-current", "page") : a.removeAttribute("aria-current"));
   if (h.startsWith("#/aktie/")) renderDetail(decodeURIComponent(h.slice(8)));
   else if (tab === "termine") renderTermine();
   else if (tab === "info") renderInfo();
+  else if (tab === "depot") window.Depot ? window.Depot.render($view, h.startsWith("#/depot/neu/") ? decodeURIComponent(h.slice(12)) : null) : ($view.innerHTML = '<div class="empty">Das Depot konnte nicht geladen werden.</div>');
   else { renderHome(); const y = store.get("homeScroll", 0); if (y) scrollTo(0, y); }
 }
 let lastHash = location.hash;
 addEventListener("hashchange", () => {
-  if (!lastHash.startsWith("#/aktie/") && !lastHash.startsWith("#/termine") && !lastHash.startsWith("#/info")) store.set("homeScroll", scrollY);
+  if (!lastHash.startsWith("#/aktie/") && !lastHash.startsWith("#/termine") && !lastHash.startsWith("#/info") && !lastHash.startsWith("#/depot")) store.set("homeScroll", scrollY);
   lastHash = location.hash; route();
 });
 
@@ -751,5 +753,6 @@ async function start() {
     if (STATE.live?.aktualisiert !== before) route();
   });
 }
+window.AA = { STATE, view, money, nf, pct, esc, fmtDate, ampel, ampelName, signal, divData, token, b64, unb64, REPO, STATUS };
 start();
 })();

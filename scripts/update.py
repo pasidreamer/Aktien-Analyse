@@ -446,6 +446,14 @@ def markt():
         m["vix"] = {"kurs": round(rows[-1]["c"], 2), "datum": rows[-1]["d"]}
     except Exception as e:
         print("VIX nicht verfügbar:", e, file=sys.stderr)
+    fx = {"CHF": 1.0}
+    for cur, sym in (("USD", "USDCHF=X"), ("EUR", "EURCHF=X"), ("GBP", "GBPCHF=X")):
+        try:
+            rows, _ = fetch(sym, "range=5d&interval=1d")
+            fx[cur] = round(rows[-1]["c"], 5)
+        except Exception as e:
+            print("Wechselkurs fehlt", sym, e, file=sys.stderr)
+    m["fx"] = fx
     try:
         m["fear_greed"] = fear_greed()
     except Exception as e:
