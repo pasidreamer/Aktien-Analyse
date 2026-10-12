@@ -262,3 +262,28 @@ details.more{margin-top:8px} details.more summary{cursor:pointer;color:var(--acc
 .seg{display:inline-flex;background:var(--surface2);border-radius:999px;padding:3px;gap:2px;margin-bottom:8px}
 .seg button{border:0;background:none;color:var(--muted);font:600 13.5px var(--font);padding:6px 14px;border-radius:999px;cursor:pointer}
 .seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+
+/* Marktstimmung und Pessimismus */
+.markt .fg-top{display:flex;justify-content:space-between;align-items:flex-end;gap:6px 12px;flex-wrap:wrap}
+.markt .fg-top>div:first-child{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.fg-lbl{font-size:13px;color:var(--muted);width:100%}
+.fg-val{font:700 32px/1 var(--num)}
+.fg-cmp{font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.fg-bar{position:relative;display:grid;grid-template-columns:25fr 20fr 11fr 20fr 24fr;gap:2px;height:10px;margin:12px 0 4px}
+.fg-bar span{border-radius:3px}
+.fg-bar span:nth-child(1){background:var(--accent)} .fg-bar span:nth-child(2){background:var(--accent-soft)}
+.fg-bar span:nth-child(3){background:var(--surface2)} .fg-bar span:nth-child(4){background:var(--orange-soft)} .fg-bar span:nth-child(5){background:var(--orange)}
+.fg-bar i{position:absolute;top:50%;width:16px;height:16px;border-radius:50%;background:var(--ink);border:3px solid var(--surface);transform:translate(-50%,-50%);box-sizing:border-box}
+.fg-ticks{display:flex;justify-content:space-between;font-size:11.5px;color:var(--muted)}
+.fg-txt{font-size:14.5px;margin:10px 0 0;line-height:1.45}
+.fg-0,.fg-1{background:var(--accent-soft);color:var(--accent)} .fg-2{background:var(--surface2);color:var(--ink)} .fg-3,.fg-4{background:var(--orange-soft);color:var(--orange)}
+.fg-spark{display:block;width:100%;height:46px;margin-top:12px;border-radius:6px}
+.fg-spark-leg{display:flex;justify-content:space-between;gap:8px;font-size:11px;color:var(--muted);margin-top:3px}
+.mk-row{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:13.5px;color:var(--muted);margin-top:12px;padding-top:10px;border-top:1px solid var(--line);font-variant-numeric:tabular-nums}
+.mk-row b{color:var(--ink)}
+.pess{margin:14px 0 4px;padding:10px 12px;border-radius:var(--r-md);background:var(--surface2)}
+.pess-top{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;font-size:14px;font-weight:600;margin-bottom:8px}
+.pess .bar{height:6px;border-radius:3px;background:var(--surface);overflow:hidden;margin-bottom:8px}
+.pess .bar i{display:block;height:100%}
+.p-neutral{background:var(--surface);color:var(--muted)}
+.tg-kontra{background:var(--orange-soft);color:var(--orange)}

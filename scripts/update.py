@@ -385,12 +385,72 @@ def send_alerts(msgs):
     for title, body, tag, prio, t in msgs[:15]:
         req = urllib.request.Request(f"https://ntfy.sh/{topic}", data=body.encode("utf-8"), method="POST", headers={
             "Title": "=?UTF-8?B?" + base64.b64encode(title.encode("utf-8")).decode() + "?=",
-            "Tags": tag, "Priority": str(prio), "Click": f"{APP_URL}#/aktie/{t}"})
+            "Tags": tag, "Priority": str(prio), "Click": f"{APP_URL}#/aktie/{t}" if t else APP_URL})
         try:
             urllib.request.urlopen(req, timeout=20).read()
             print("Meldung gesendet:", title)
         except Exception as e:
             print("Meldung fehlgeschlagen:", title, e, file=sys.stderr)
+
+
+# ---------- Stimmung (Kontra-Indikator) ----------
+def pessimismus(daily, W):
+    """0–100: wie viel Angst im Kurs steckt. Abstand zum 52-Wochen-Hoch, Wochen-RSI, Abstand unter der Wochen-EMA 200."""
+    j = len(W.c) - 1
+    p = daily[-1]["c"]
+    hoch = max(x["h"] for x in daily[-252:])
+    dd = (1 - p / hoch) * 100
+    rw = W.rsi[j]
+    unter = (1 - p / W.e200[j]) * 100
+    t1 = clamp(dd / 40 * 40, 0, 40)                 # 40 % unter dem Hoch = volle 40 Punkte
+    t2 = clamp((55 - rw) / 25 * 30, 0, 30)          # Wochen-RSI 30 oder tiefer = volle 30 Punkte
+    t3 = clamp(unter / 20 * 30, 0, 30)              # 20 % unter der Wochen-EMA 200 = volle 30 Punkte
+    s = round(t1 + t2 + t3)
+    stufe = "hoch" if s >= 60 else "erhöht" if s >= 35 else "normal"
+    return {"wert": s, "stufe": stufe, "abstand_hoch": round(dd, 1), "rsi_w": round(rw, 1), "unter_ema200w": round(unter, 1)}
+
+
+def fear_greed():
+    """CNN Fear & Greed Index (0 = extreme Angst, 100 = extreme Gier)."""
+    url = "https://production.dataviz.cnn.io/index/fearandgreed/graphdata/" + (dt.date.today() - dt.timedelta(days=370)).isoformat()
+    req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "application/json", "Referer": "https://edition.cnn.com/markets/fear-and-greed", "Origin": "https://edition.cnn.com"})
+    with urllib.request.urlopen(req, timeout=30) as r:
+        j = json.load(r)
+    fg = j["fear_and_greed"]
+    hist = j.get("fear_and_greed_historical", {}).get("data", [])
+    verlauf, seen = [], set()
+    for pnt in hist:
+        d = dt.datetime.utcfromtimestamp(pnt["x"] / 1000).date().isoformat()
+        if d not in seen:
+            seen.add(d); verlauf.append([d, round(pnt["y"])])
+    return {"wert": round(fg["score"]), "text": fg.get("rating"), "vortag": round(fg.get("previous_close") or 0),
+            "woche": round(fg.get("previous_1_week") or 0), "monat": round(fg.get("previous_1_month") or 0),
+            "jahr": round(fg.get("previous_1_year") or 0), "verlauf": verlauf[-260:]}
+
+
+def markt():
+    m = {}
+    try:
+        rows, _ = fetch("^GSPC", "range=2y&interval=1d")
+        S = Series(rows)
+        i = len(S.c) - 1
+        hoch = max(x["h"] for x in rows[-252:])
+        m["sp500"] = {"kurs": round(S.c[i], 2), "datum": S.d[i], "chg1": round((S.c[i] / S.c[i - 1] - 1) * 100, 2),
+                      "hoch52": round(hoch, 2), "abstand_hoch": round((1 - S.c[i] / hoch) * 100, 1),
+                      "ema200": round(S.e200[i], 2), "ueber_ema200": S.c[i] > S.e200[i], "rsi": round(S.rsi[i], 1),
+                      "verlauf": [[S.d[k], round(S.c[k], 1)] for k in range(max(0, i - 251), i + 1)]}
+    except Exception as e:
+        print("S&P 500 nicht verfügbar:", e, file=sys.stderr)
+    try:
+        rows, _ = fetch("^VIX", "range=3mo&interval=1d")
+        m["vix"] = {"kurs": round(rows[-1]["c"], 2), "datum": rows[-1]["d"]}
+    except Exception as e:
+        print("VIX nicht verfügbar:", e, file=sys.stderr)
+    try:
+        m["fear_greed"] = fear_greed()
+    except Exception as e:
+        print("Fear & Greed nicht verfügbar:", e, file=sys.stderr)
+    return m
 
 
 # ---------- Dividenden ----------
@@ -456,6 +516,10 @@ def main():
                 monthly = None
             r = evaluate(st, daily, wk, monthly)
             try:
+                r["pessimismus"] = pessimismus(daily, Series(wk))
+            except Exception as e:
+                print("Pessimismus übersprungen", st["ticker"], e, file=sys.stderr)
+            try:
                 r["div"] = dividenden(divs, r["kurs"])
             except Exception as e:
                 print("Dividenden übersprungen", st["ticker"], e, file=sys.stderr)
@@ -480,8 +544,25 @@ def main():
     tomorrow = (dt.date.today() + dt.timedelta(days=1)).isoformat()
     live["erinnert"] = [k for k in old.get("erinnert", []) if k[:10] >= dt.date.today().isoformat()] + \
         [tomorrow + s["ticker"] for s in stocks if s.get("zahlen") == tomorrow and (tomorrow + s["ticker"]) not in old.get("erinnert", [])]
+    live["markt"] = markt()
+    extra = []
     try:
-        send_alerts(build_alerts(stocks, out, old))
+        fg_neu = live["markt"].get("fear_greed", {}).get("wert")
+        fg_alt = old.get("markt", {}).get("fear_greed", {}).get("wert")
+        if fg_neu is not None and fg_alt is not None:
+            if fg_alt >= 25 > fg_neu:
+                extra.append(("Gesamtmarkt: Extreme Angst", f"Der Fear & Greed Index ist auf {fg_neu} gefallen. Historisch oft eine gute Phase, um gute Aktien in kleinen Tranchen zu prüfen. Nicht alles auf einmal.", "warning", 4, None))
+            elif fg_alt <= 75 < fg_neu:
+                extra.append(("Gesamtmarkt: Extreme Gier", f"Der Fear & Greed Index ist auf {fg_neu} gestiegen. Vorsicht beim Nachkaufen, Rücksetzer werden wahrscheinlicher.", "fire", 3, None))
+        for st in stocks:
+            r = out.get(st["ticker"], {}); pv = old.get("aktien", {}).get(st["ticker"], {}).get("pessimismus", {})
+            pn = r.get("pessimismus") or {}
+            if pn.get("wert", 0) >= 60 and pv.get("wert", 100) < 60 and r.get("q", 0) >= 60:
+                extra.append((f"{st['name']}: Kontra-Signal", f"Pessimismus {pn['wert']} von 100 ({pn['abstand_hoch']} % unter dem Jahreshoch) bei Qualität {r['q']}. Die Angst ist gross, die Firma gut.", "eyes", 3, st["ticker"]))
+    except Exception as e:
+        print("Stimmungs-Meldungen übersprungen:", e, file=sys.stderr)
+    try:
+        send_alerts(build_alerts(stocks, out, old) + extra)
     except Exception as e:
         print("Benachrichtigungen übersprungen:", e, file=sys.stderr)
     json.dump(live, open(live_path, "w"), ensure_ascii=False, separators=(",", ":"))

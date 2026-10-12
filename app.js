@@ -82,6 +82,40 @@ function bewertungOf(s, kurs) {
 }
 const SCHUB = { stark: ["Starker Wachstumsschub möglich", "gruen"], mittel: ["Wachstumsschub möglich", "gelb"], schwach: ["Kein grosser Schub in Sicht", "orange"] };
 const SORGE = { stimmung: "Vor allem Stimmung", gemischt: "Echte Probleme, eher lösbar", echt: "Das Geschäft verschlechtert sich" };
+const FG = v => v < 25 ? ["Extreme Angst", "fg-0", "Viele verkaufen aus Angst. Solche Phasen waren in der Vergangenheit oft gute Zeitpunkte, um gute Aktien in kleinen Tranchen zu kaufen. Den genauen Tiefpunkt kennt aber niemand."]
+  : v < 45 ? ["Angst", "fg-1", "Der Markt ist vorsichtig. Erste Gelegenheiten bei guten Firmen, aber noch keine Panik."]
+  : v <= 55 ? ["Neutral", "fg-2", "Weder Angst noch Euphorie. Die einzelne Aktie und ihre Zonen sind wichtiger als der Gesamtmarkt."]
+  : v <= 75 ? ["Gier", "fg-3", "Viel Optimismus. Nicht hinterherlaufen, lieber auf Rücksetzer in die Kaufzonen warten."]
+  : ["Extreme Gier", "fg-4", "Euphorie. Rücksetzer werden wahrscheinlicher, darum beim Nachkaufen vorsichtig sein."];
+const PESS = { hoch: ["Hoher Pessimismus", "fg-0"], "erhöht": ["Erhöhte Sorge", "fg-1"], normal: ["Normale Stimmung", "p-neutral"] };
+const kontra = v => (v.L?.pessimismus?.wert ?? 0) >= 60 && v.q >= 50;
+
+function marktHtml() {
+  const m = STATE.live?.markt;
+  if (!m || (!m.fear_greed && !m.sp500)) return "";
+  const fg = m.fear_greed, sp = m.sp500, vix = m.vix;
+  let gauge = "";
+  if (fg) {
+    const f = FG(fg.wert);
+    const spark = (() => {
+      const h = fg.verlauf || []; if (h.length < 10) return "";
+      const W = 300, H = 46, X = i => i / (h.length - 1) * W, Y = v => H - v / 100 * H;
+      return `<svg class="fg-spark" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img" aria-label="Fear and Greed Index im letzten Jahr">
+        <rect x="0" y="${Y(25)}" width="${W}" height="${H - Y(25)}" fill="var(--accent-soft)"/><rect x="0" y="0" width="${W}" height="${Y(75)}" fill="var(--orange-soft)"/>
+        <path d="${h.map((p, i) => `${i ? "L" : "M"}${X(i).toFixed(1)} ${Y(p[1]).toFixed(1)}`).join("")}" fill="none" stroke="var(--ink)" stroke-width="1.4" vector-effect="non-scaling-stroke"/></svg>
+        <div class="fg-spark-leg"><span>vor 1 Jahr</span><span>blau: extreme Angst · orange: extreme Gier</span><span>heute</span></div>`;
+    })();
+    gauge = `<div class="fg-top"><div><span class="fg-lbl">Fear &amp; Greed Index</span><b class="fg-val">${fg.wert}</b><span class="pill ${f[1]}">${f[0]}</span></div>
+      <div class="fg-cmp">Vortag ${fg.vortag} · vor 1 Woche ${fg.woche} · vor 1 Monat ${fg.monat}</div></div>
+      <div class="fg-bar"><span></span><span></span><span></span><span></span><span></span><i style="left:${fg.wert}%"></i></div>
+      <div class="fg-ticks"><span>Extreme Angst</span><span>Neutral</span><span>Extreme Gier</span></div>
+      <p class="fg-txt">${esc(f[2])}</p>${spark}`;
+  }
+  const spTxt = sp ? `<div class="mk-row"><span><b>S&amp;P 500</b> ${nf(sp.kurs, 0)} ${chgHtml(sp.chg1)}</span><span>${sp.abstand_hoch > 0.5 ? nf(sp.abstand_hoch, 1) + " % unter dem Jahreshoch" : "nahe am Jahreshoch"}</span>
+    <span>${sp.ueber_ema200 ? "über der EMA 200 (Aufwärtstrend)" : "unter der EMA 200 (Abwärtstrend)"}</span>${vix ? `<span>VIX ${nf(vix.kurs, 1)} ${vix.kurs >= 30 ? "(Panik)" : vix.kurs >= 20 ? "(nervös)" : "(ruhig)"}</span>` : ""}</div>` : "";
+  return `<div class="sec"><h2>Marktstimmung</h2><p>Wie viel Angst oder Gier gerade im Gesamtmarkt steckt. Als Gegenspiegel: Extreme Angst kann eine Chance sein.</p></div>
+    <div class="card markt">${gauge}${spTxt}</div>`;
+}
 
 // ---------- Daten ----------
 async function getJSON(url) {
@@ -190,7 +224,7 @@ function rowHtml(v) {
     ${signal(v.q, v.t)}
     <div class="mid"><div class="nm">${esc(s.name)}</div>
       <div class="sub">${esc(s.ticker)} · ${esc(regionCode[s.land] || s.land)} · ${esc(s.tags[0])}${s.status !== "beobachten" ? " · " + LISTE[s.status] : ""}${STATE.notes[s.ticker]?.text?.trim() ? " · Notiz" : ""}</div>
-      ${v.bew?.unter || v.schub ? `<div class="tags">${v.bew?.unter ? `<span class="tg tg-unter">${nf(v.bew.abschlag, 0)} % günstiger als üblich</span>` : ""}${v.schub ? '<span class="tg tg-schub">Wachstumsschub</span>' : ""}</div>` : ""}</div>
+      ${v.bew?.unter || v.schub || kontra(v) ? `<div class="tags">${v.bew?.unter ? `<span class="tg tg-unter">${nf(v.bew.abschlag, 0)} % günstiger als üblich</span>` : ""}${v.schub ? '<span class="tg tg-schub">Wachstumsschub</span>' : ""}${kontra(v) ? '<span class="tg tg-kontra">Kontra-Signal</span>' : ""}</div>` : ""}</div>
     <div class="right"><div class="px">${money(v.kurs, s.waehrung)}</div><div>${chgHtml(v.chg1)}${trendArrow(v.trendT)}</div>
       ${badge(v.status)}${v.neu ? '<span class="badge b-neu">neu</span>' : ""}</div>
   </a>`;
@@ -313,6 +347,7 @@ function filtered() {
     if (fk === "unter" && !v.bew?.unter) return false;
     if (fk === "schub" && !v.schub) return false;
     if (fk === "beides" && !(v.bew?.unter && v.schub)) return false;
+    if (fk === "kontra" && !kontra(v)) return false;
     if (q && !(`${s.name} ${s.ticker} ${s.branche} ${s.land}`.toLowerCase().includes(q))) return false;
     return true;
   });
@@ -348,6 +383,8 @@ function renderHome() {
       <div class="stand">${stand ? `Kurse vom ${stand.toLocaleDateString("de-CH")}, ${stand.toLocaleTimeString("de-CH", { hour: "2-digit", minute: "2-digit" })} Uhr` : "Werte der letzten Analysen, Kurse folgen nach dem ersten Update"}</div></div>
       <button class="iconbtn" id="reload" aria-label="Daten neu laden"><svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.3-5.6M20 4v5h-5"/></svg></button></header>
 
+    ${marktHtml()}
+
     <div class="sec"><h2>Jetzt interessant</h2><p>Qualität mindestens hellgrün und Kurs in der Zone, Trigger ausgelöst oder Timing mindestens hellgrün.</p></div>
     ${hot.length ? `<div class="hot">${hot.map(v => `<a class="hotcard" href="#/aktie/${encodeURIComponent(v.s.ticker)}">${signal(v.q, v.t)}<div><div class="nm">${esc(v.s.name)}</div><div class="tk">${esc(v.s.ticker)} · ${money(v.kurs, v.s.waehrung)}</div></div><div class="why">${esc(reason(v))}</div></a>`).join("")}</div>`
       : `<div class="empty">Gerade erfüllt keine Aktie diese Bedingungen. Die Karte unten zeigt, wer am nächsten dran ist.</div>`}
@@ -362,8 +399,8 @@ function renderHome() {
         <select id="sort" aria-label="Sortierung">
           ${[["chance", "Beste Chance"], ["qualitaet", "Qualität"], ["timing", "Timing"], ["unterbewertung", "Am stärksten unterbewertet"], ["zone", "Nähe zur Kaufzone"], ["tag", "Tagesveränderung"], ["zahlen", "Nächste Zahlen"], ["dividende", "Dividende"], ["name", "Name"]].map(([k, l]) => `<option value="${k}" ${STATE.filter.sort === k ? "selected" : ""}>${l}</option>`).join("")}
         </select></div>
-      <div class="chips" role="group" aria-label="Chancen">${chipRow("fokus", [["Alle", "Alle Chancen"], ["unter", "Unterbewertet"], ["schub", "Wachstumsschub"], ["beides", "Beides"]],
-        { Alle: all.length, unter: all.filter(v => v.bew?.unter).length, schub: all.filter(v => v.schub).length, beides: all.filter(v => v.bew?.unter && v.schub).length })}</div>
+      <div class="chips" role="group" aria-label="Chancen">${chipRow("fokus", [["Alle", "Alle Chancen"], ["unter", "Unterbewertet"], ["schub", "Wachstumsschub"], ["beides", "Beides"], ["kontra", "Kontra-Signal"]],
+        { Alle: all.length, unter: all.filter(v => v.bew?.unter).length, schub: all.filter(v => v.schub).length, beides: all.filter(v => v.bew?.unter && v.schub).length, kontra: all.filter(kontra).length })}</div>
       <div class="chips" role="group" aria-label="Stil">${chipRow("stil", [["Alle", "Alle"], ...tags.map(t => [t, t])], cnt("stil"))}</div>
       <div class="chips" role="group" aria-label="Region und Liste">${chipRow("region", [["Alle", "Alle Regionen"], ...regions.map(r => [r, r])], cnt("region"))}<span class="sep"></span>
         ${chipRow("status", [["Alle", "Alle Listen"], ...["depot", "kaufliste", "beobachten"].filter(x => STATE.stocks.some(s => s.status === x)).map(x => [x, LISTE[x]])])}<span class="sep"></span>
@@ -458,6 +495,11 @@ function chanceHtml(v) {
       <div class="bew-leg"><span><i class="now"></i>${esc(b.typ)} heute ${nf(b.jetzt, 1)}</span><span><i class="avg"></i>Schnitt ${nf(b.schnitt, 1)}</span></div>
     </div>`;
   })() : "";
+  const pe = v.L?.pessimismus;
+  const pess = pe ? `<div class="pess"><div class="pess-top"><span>Stimmung bei dieser Aktie</span><span class="pill ${PESS[pe.stufe]?.[1] || ""}">${PESS[pe.stufe]?.[0] || pe.stufe} · ${pe.wert} von 100</span></div>
+    <div class="bar"><i style="width:${pe.wert}%;background:var(--accent)"></i></div>
+    <p class="pill-line">${nf(pe.abstand_hoch, 0)} % unter dem Jahreshoch · Wochen-RSI ${nf(pe.rsi_w, 0)} · ${pe.unter_ema200w > 0 ? nf(pe.unter_ema200w, 0) + " % unter" : nf(-pe.unter_ema200w, 0) + " % über"} der Wochen-EMA 200.
+    ${pe.wert >= 60 ? (v.q >= 50 ? " <b>Kontra-Signal:</b> Viel Angst bei einer ordentlichen Firma. Wenn die Sorgen unten nicht das Geschäft zerstören, kann hier eine Gelegenheit entstehen." : " Viel Angst, aber auch die Qualität ist schwach: Vorsicht vor einer Value-Falle.") : ""}</p></div>` : "";
   const sg = c?.sorgen?.length ? `<h3>Was die Börse befürchtet</h3>${c.sorgen_art ? `<p class="pill-line"><span class="pill p-${esc(c.sorgen_art)}">${esc(SORGE[c.sorgen_art] || c.sorgen_art)}</span> ${esc(c.sorgen_art_text || "")}</p>` : ""}<ul class="plain">${c.sorgen.map(x => `<li>${esc(x)}</li>`).join("")}</ul>` : "";
   const au = c?.aufloeser?.length ? `<h3>Was die Sorgen beenden könnte</h3><ul class="plain when">${c.aufloeser.map(x => `<li><span>${esc(x.was)}</span><em>${esc(x.wann || "")}</em></li>`).join("")}</ul>` : "";
   const sb = c ? (SCHUB[c.schub_stufe] || SCHUB.mittel) : null;
@@ -465,7 +507,7 @@ function chanceHtml(v) {
     <ol class="treiber">${(c.schub_treiber || []).map(x => `<li><b>${esc(x.titel)}</b><span>${esc(x.text)}</span>${x.wann ? `<em>${esc(x.wann)}</em>` : ""}</li>`).join("")}</ol>
     ${c.schub_beweis ? `<p class="beweis"><b>Woran du es erkennst:</b> ${esc(c.schub_beweis)}</p>` : ""}</div>` : "";
   return `<div class="sec"><h2>Worauf du achten solltest</h2><p>Deine zwei Blickwinkel: Ist die Aktie wegen Sorgen zu günstig, und gibt es einen grossen Wachstumsschub?</p></div>
-    <div class="card ch-card"><div class="ch-head"><h3>Unterbewertung</h3></div>${meter}${sg}${au}${!c ? '<p class="pill-line" style="margin-top:10px">Die Recherche zu Sorgen und Wachstumsschub folgt.</p>' : ""}</div>
+    <div class="card ch-card"><div class="ch-head"><h3>Unterbewertung</h3></div>${meter}${pess}${sg}${au}${!c ? '<p class="pill-line" style="margin-top:10px">Die Recherche zu Sorgen und Wachstumsschub folgt.</p>' : ""}</div>
     ${schub}
     ${c?.szenario ? `<div class="banner plain szen"><b>Das Chancen-Szenario:</b> ${esc(c.szenario)}</div>` : ""}
     ${c?.quellen?.length ? `<details class="more"><summary>Quellen zu Sorgen und Wachstum</summary><ul class="plain">${c.quellen.map(q => `<li><a href="${esc(q.url)}" target="_blank" rel="noopener">${esc(q.titel)}</a></li>`).join("")}</ul></details>` : ""}`;
@@ -639,6 +681,11 @@ function renderInfo() {
     <p><b>1. Unterbewertung.</b> Eine gute Firma fällt wegen Sorgen stark, und die Aktie wird viel günstiger als üblich. Das misst die App mit dem <b>KGV</b> (Kurs geteilt durch den Gewinn pro Aktie, also wie viele Jahresgewinne du für die Aktie bezahlst) im Vergleich zum eigenen 5-Jahres-Schnitt. Beispiel: KGV heute 15, Schnitt 25, dann ist die Aktie 40 % günstiger als üblich. Wichtig ist, warum sie günstig ist: Ist es vor allem Stimmung oder ein vorübergehendes Problem, kann der Kurs stark steigen, sobald die Sorgen weg sind. Verschlechtert sich das Geschäft dauerhaft, ist die Aktie zu Recht günstig (eine «Value-Falle»). Darum zeigt die App bei jeder Aktie, was die Börse befürchtet und was diese Sorgen beenden könnte.</p>
     <p><b>2. Wachstumsschub.</b> Gibt es einen konkreten Grund, warum das Wachstum in den nächsten Jahren deutlich anziehen kann? Zum Beispiel ein neues Produkt, eine Zulassung oder ein neuer Markt. Beispiel Alphabet (Google) 2023: Alle dachten, Google verschläft die KI. Dabei hatte Google mit eigener KI, eigenen KI-Chips und Google Cloud längst die Basis. Als das sichtbar wurde, stieg die Aktie stark. Die App bewertet den Wachstumsschub mit «stark», «möglich» oder «kein grosser Schub in Sicht» und sagt dir, an welcher Kennzahl du früh siehst, ob er kommt.</p>
     <p><b>So passt das zusammen:</b> Die besten Kandidaten sind unterbewertet, haben einen Wachstumsschub und eine Qualität ab hellgrün. Gekauft wird erst, wenn auch das Timing dreht, also der Trigger ausgelöst ist oder der Kurs in einer Kaufzone hält. Die Filter «Unterbewertet», «Wachstumsschub» und «Beides» in der Übersicht helfen dir, diese Aktien zu finden. «Unterbewertet» heisst dort: mindestens 20 % günstiger als im eigenen 5-Jahres-Schnitt.</p>
+    <h3>Gegen den Strom: Angst als Chance</h3>
+    <p>Wenn alle verkaufen und die Schlagzeilen nur noch schwarz malen, ist oft schon viel schlechte Nachricht im Kurs. Darum zeigt die App zwei Stimmungs-Anzeiger:</p>
+    <p><b>Marktstimmung (Gesamtmarkt).</b> Der <b>Fear &amp; Greed Index</b> von CNN misst von 0 bis 100, wie ängstlich oder gierig die Anleger in den USA sind (aus sieben Werten wie Kursschwung, Absicherungen und Schwankung). Unter 25 heisst «Extreme Angst», über 75 «Extreme Gier». Dazu zeigt die App den S&amp;P 500 (Abstand zum Jahreshoch, Trend über oder unter der EMA 200) und den <b>VIX</b>, das «Angstbarometer» der Börse: über 20 nervös, über 30 Panik. Fällt der Index unter 25, bekommst du eine Push-Nachricht.</p>
+    <p><b>Pessimismus pro Aktie (0 bis 100).</b> Setzt sich aus drei Teilen zusammen: wie weit die Aktie unter dem Jahreshoch steht, wie tief der Wochen-RSI ist und wie weit sie unter der Wochen-EMA 200 liegt. Ab 60 ist die Angst gross. Ist die Qualität dabei mindestens 50, zeigt die App ein <b>Kontra-Signal</b>. Bei Qualität ab 60 kommt zusätzlich eine Push-Nachricht.</p>
+    <p><b>Wichtig:</b> Angst allein ist kein Kaufsignal. Manchmal ist eine Aktie zu Recht billig, weil das Geschäft schlechter wird. Darum immer zusammen lesen: Was befürchtet die Börse? Ist es Stimmung oder ein echtes Problem? Und dreht das Timing? Wer gegen den Strom kauft, kauft am besten gestaffelt, zum Beispiel ein Drittel beim Kontra-Signal in der Kaufzone, ein Drittel bei bestätigter Wende (Trigger) und ein Drittel nach den nächsten Zahlen. So musst du den Tiefpunkt nicht genau treffen.</p>
     <h3>Was sich automatisch aktualisiert</h3>
     <p>Jeden Börsentag nach US-Börsenschluss holt GitHub die neuen Kurse. Daraus rechnet die App EMA 50/200, RSI und A/D-Linie neu und passt die Timing-Punkte für Trend, RSI, A/D und Saisonalität an. In der Qualität wird die Bewertung mit dem Kurs neu gerechnet: Fällt der Kurs, wird die Aktie günstiger und bekommt eher mehr Punkte.</p>
     <p>Struktur (SMC) und Smart Money bleiben aus der letzten Analyse. Schliesst der Kurs über dem Trigger, springt die Struktur auf mindestens 16 von 20. Bricht der Wochenschluss die Abbruch-Marke, fällt sie auf 2.</p>
