@@ -107,7 +107,7 @@ function check(d) {
   if (offen.some(p => p.fx == null)) hinweise.push(["info", "Einige Wechselkurse fehlen noch. Sie kommen mit dem nächsten automatischen Update, bis dahin fehlen diese Positionen im Gesamtwert."]);
   offen.forEach(p => {
     const anteil = wert ? (p.wertCHF || 0) / wert * 100 : 0;
-    if (anteil > 20 && offen.length > 1) hinweise.push(["warn", `${p.name} macht ${A().nf(anteil, 0)} % deines Depots aus. Über 20 % in einer Aktie ist ein Klumpenrisiko.`]);
+    if (anteil > 20 && offen.length >= 5) hinweise.push(["warn", `${p.name} macht ${A().nf(anteil, 0)} % deines Depots aus. Über 20 % in einer Aktie ist ein Klumpenrisiko.`]);
     if (p.v && p.v.q < 45) hinweise.push(["warn", `${p.name}: Qualität nur ${p.v.q}. Prüfe, ob dein Kaufgrund noch gilt.`]);
     if (p.v && (p.v.status === "abbruch" || p.v.status === "unter_abbruch")) hinweise.push(["bad", `${p.name} liegt unter der Abbruch-Marke. Entscheide nach deiner Regel, nicht nach Gefühl.`]);
     if (p.s && /^\d{4}-\d{2}-\d{2}$/.test(p.s.zahlen || "")) { const n = Math.round((new Date(p.s.zahlen + "T12:00:00") - new Date()) / 864e5); if (n >= 0 && n <= 14) hinweise.push(["info", `${p.name} meldet in ${n} Tagen Zahlen (${A().fmtDate(p.s.zahlen)}).`]); }
