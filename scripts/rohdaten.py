@@ -53,7 +53,7 @@ def run(sym):
     uname = "Mio" if unit == 1e6 else "Tsd"
     wc = [x["c"] for x in W]; we50, we200, wr, wa = ema(wc, 50), ema(wc, 200), rsi(wc), adline(W)
     dc = [x["c"] for x in D]; de50, de200, dr, da = ema(dc, 50), ema(dc, 200), rsi(dc), adline(D)
-    ws, ds = max(0, len(W) - 104), max(0, len(D) - 130)
+    ws, ds = max(0, len(W) - 104), max(0, len(D) - 260)
     Wr = [[yd(x["d"]), r2(x["c"]), r2(we50[ws + i]), r2(we200[ws + i]), round(wr[ws + i]), round(wa[ws + i] / unit, 1)] for i, x in enumerate(W[ws:])]
     Dr = [[yd(x["d"]), r2(x["h"]), r2(x["l"]), r2(x["c"]), r2(de50[ds + i]), r2(de200[ds + i]), round(dr[ds + i], 1), round(da[ds + i] / unit, 1)] for i, x in enumerate(D[ds:])]
     sm = lambda a, i: "%.1f" % sum(float(r[i]) for r in a)

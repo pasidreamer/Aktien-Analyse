@@ -308,7 +308,9 @@ def evaluate(st, daily, wk, monthly):
     elif trig_hit:
         status = "trigger" if (dt.date.fromisoformat(today) - dt.date.fromisoformat(trig_hit)).days <= 21 else (zone or "ueber_trigger")
     n = len(D.c)
-    k0 = max(0, n - 130)
+    k0 = max(0, n - 505)            # Tageschart: 2 Jahre (App zeigt 1 oder 2 Jahre)
+    w0 = max(0, len(W.c) - 261)     # Wochenchart: 5 Jahre
+    rd = lambda a: [round(x, 2 if abs(x) >= 1 else 4) for x in a]
     return {
         "datum": today,
         "kurs": round(p, 4),
@@ -325,10 +327,8 @@ def evaluate(st, daily, wk, monthly):
         "t": t_total, "tteile": teile,
         "status": status, "dist_zone": None if dist is None else round(dist, 2),
         "trigger_am": trig_hit, "abbruch_am": abb_hit,
-        "chart": {
-            "d": D.d[k0:], "c": [round(x, 3) for x in D.c[k0:]],
-            "e50": [round(x, 3) for x in D.e50[k0:]], "e200": [round(x, 3) for x in D.e200[k0:]],
-        },
+        "chart": {"d": D.d[k0:], "c": rd(D.c[k0:]), "e50": rd(D.e50[k0:]), "e200": rd(D.e200[k0:])},
+        "chartw": {"d": W.d[w0:], "c": rd(W.c[w0:]), "e50": rd(W.e50[w0:]), "e200": rd(W.e200[w0:])},
     }
 
 

@@ -4,7 +4,7 @@
 
 const REPO = "pasidreamer/Aktien-Analyse";
 const NOTES_PATH = "data/notizen.json";
-const STATE = { stocks: [], live: null, verlauf: {}, notes: {}, filter: { q: "", stil: "Alle", region: "Alle", status: "Alle", nurGut: false, sort: "chance" } };
+const STATE = { chartRange: (() => { try { return JSON.parse(localStorage.getItem("chartRange")) || "1J"; } catch { return "1J"; } })(), stocks: [], live: null, verlauf: {}, notes: {}, filter: { q: "", stil: "Alle", region: "Alle", status: "Alle", nurGut: false, sort: "chance" } };
 const $view = document.getElementById("view");
 
 // ---------- Hilfen ----------
@@ -234,11 +234,24 @@ function mapHtml(list) {
   <div class="map-key"><span><i style="background:var(--gruen-soft)"></i>Gute Firma, guter Zeitpunkt</span><span><i style="background:var(--gelb-soft)"></i>Gute Firma, Timing abwarten</span></div></div>`;
 }
 
-// Kurs-Chart mit EMA und Zonen
+// Kurs-Chart mit EMA und Zonen (1 Jahr, 2 Jahre oder 5 Jahre)
+const RANGES = { "1J": ["1 Jahr", "Tageskurse"], "2J": ["2 Jahre", "Tageskurse"], "5J": ["5 Jahre", "Wochenkurse"] };
+function chartData(v, r) {
+  const d = v.L?.chart, w = v.L?.chartw;
+  if (r === "5J" && w?.c?.length) return { ch: w, woche: true };
+  if (!d?.c?.length) return null;
+  const k = r === "2J" ? 0 : Math.max(0, d.c.length - 252);
+  const cut = a => a.slice(k);
+  return { ch: { d: cut(d.d), c: cut(d.c), e50: cut(d.e50), e200: cut(d.e200) }, woche: false };
+}
 function chartHtml(v) {
-  const ch = v.L?.chart; const s = v.s;
-  if (!ch || !ch.c?.length) return `<div class="empty">Der Chart erscheint nach dem ersten automatischen Update der Kurse.</div>`;
-  const W = 340, H = 190, P = { l: 6, r: 44, t: 8, b: 20 };
+  const s = v.s;
+  const r = STATE.chartRange || "1J";
+  const cd = chartData(v, r);
+  const btns = `<div class="seg" role="group" aria-label="Zeitraum">${Object.keys(RANGES).map(k => `<button type="button" data-range="${k}" aria-pressed="${k === r}">${RANGES[k][0]}</button>`).join("")}</div>`;
+  if (!cd) return btns + `<div class="empty">Der Chart erscheint nach dem nächsten automatischen Update der Kurse.</div>`;
+  const ch = cd.ch;
+  const W = 340, H = 200, P = { l: 6, r: 44, t: 8, b: 20 };
   const all = [...ch.c, ...ch.e50, ...ch.e200].filter(x => x != null);
   let lo = Math.min(...ch.c), hi = Math.max(...ch.c);
   const zl = [...(s.zonen.kauf || []), ...(s.zonen.widerstand || [])];
@@ -250,19 +263,31 @@ function chartHtml(v) {
   const path = arr => arr.map((y, i) => `${i ? "L" : "M"}${X(i).toFixed(1)} ${Y(Math.max(lo, Math.min(hi, y))).toFixed(1)}`).join("");
   const band = ([a, b], col) => { const y1 = Y(Math.min(hi, b)), y2 = Y(Math.max(lo, a)); return y2 > y1 ? `<rect x="${P.l}" y="${y1}" width="${W - P.l - P.r}" height="${y2 - y1}" fill="${col}" opacity=".55"/>` : ""; };
   const hline = (y, col, lab) => y && y >= lo && y <= hi ? `<line x1="${P.l}" x2="${W - P.r}" y1="${Y(y)}" y2="${Y(y)}" stroke="${col}" stroke-dasharray="4 3" stroke-width="1.2"/><text class="ax" x="${W - P.r + 3}" y="${Y(y) + 3}" fill="${col}">${lab}</text>` : "";
-  const ticks = [lo + pad, (lo + hi) / 2, hi - pad].map(y => `<text class="ax" x="${W - P.r + 3}" y="${Y(y) + 3}">${nf(y, y >= 1000 ? 0 : y >= 100 ? 0 : 1)}</text>`).join("");
-  const months = []; let last = "";
-  ch.d.forEach((d, i) => { const m = d.slice(5, 7); if (m !== last && i > 3) { months.push(`<text class="ax" x="${X(i)}" y="${H - 5}" text-anchor="middle">${["Jan","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"][+m - 1]}</text>`); } last = m; });
-  return `<div class="card chart"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Kursverlauf der letzten 6 Monate mit Zonen">
+  const ticks = [lo + pad, (lo + hi) / 2, hi - pad].map(y => `<text class="ax" x="${W - P.r + 3}" y="${Y(y) + 3}">${nf(y, y >= 100 ? 0 : 1)}</text>`).join("");
+  // Zeitachse: 1 Jahr jeden 2. Monat, 2 Jahre jedes Quartal, 5 Jahre jedes Jahr
+  const labels = []; let last = "";
+  ch.d.forEach((d, i) => {
+    const y = d.slice(0, 4), m = +d.slice(5, 7), key = r === "5J" ? y : d.slice(0, 7);
+    if (key === last) return; last = key;
+    if (i < 4 || i > n - 4) return;
+    let txt = null;
+    if (r === "5J") txt = y;
+    else if (r === "2J") { if (m % 3 === 1) txt = m === 1 ? y : MON[m - 1]; }
+    else if (m % 2 === 1) txt = m === 1 ? y : MON[m - 1];
+    if (txt) labels.push(`<line x1="${X(i).toFixed(1)}" x2="${X(i).toFixed(1)}" y1="${P.t}" y2="${H - P.b}" stroke="var(--line)" stroke-width=".6"/><text class="ax" x="${X(i).toFixed(1)}" y="${H - 5}" text-anchor="middle">${txt}</text>`);
+  });
+  const e = cd.woche ? " Woche" : "";
+  return `${btns}<div class="card chart"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Kursverlauf ${RANGES[r][0]} mit Zonen">
     ${(s.zonen.kauf || []).map(z => band(z, "var(--gruen-soft)")).join("")}
     ${(s.zonen.widerstand || []).map(z => band(z, "var(--rot-soft)")).join("")}
+    ${labels.join("")}
     ${hline(s.zonen.trigger, "var(--accent)", "Trigger")}${hline(s.zonen.abbruch, "var(--rot)", "Abbruch")}
     <path d="${path(ch.e200)}" fill="none" stroke="var(--orange)" stroke-width="1.4"/>
     <path d="${path(ch.e50)}" fill="none" stroke="var(--gelb)" stroke-width="1.4"/>
-    <path d="${path(ch.c)}" fill="none" stroke="var(--ink)" stroke-width="2"/>
-    ${ticks}${months.join("")}
+    <path d="${path(ch.c)}" fill="none" stroke="var(--ink)" stroke-width="${r === "1J" ? 1.8 : 1.4}"/>
+    ${ticks}
   </svg>
-  <div class="legend"><span><i style="background:var(--ink)"></i>Kurs</span><span><i style="background:var(--gelb)"></i>EMA 50</span><span><i style="background:var(--orange)"></i>EMA 200</span><span><i style="background:var(--gruen-soft);height:9px"></i>Kaufzone</span><span><i style="background:var(--rot-soft);height:9px"></i>Widerstand</span></div></div>`;
+  <div class="legend"><span><i style="background:var(--ink)"></i>Kurs</span><span><i style="background:var(--gelb)"></i>EMA 50${e}</span><span><i style="background:var(--orange)"></i>EMA 200${e}</span><span><i style="background:var(--gruen-soft);height:9px"></i>Kaufzone</span><span><i style="background:var(--rot-soft);height:9px"></i>Widerstand</span></div></div>`;
 }
 
 function partsHtml(parts) {
@@ -496,8 +521,8 @@ function renderDetail(ticker) {
       <div class="note-bar"><span id="note-state">${STATE.notes[s.ticker]?.ts ? "Zuletzt geändert " + new Date(STATE.notes[s.ticker].ts).toLocaleString("de-CH", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" }) : ""}</span>
       <button class="btn small" id="note-save">Notiz speichern</button></div></div>
 
-    <div class="sec"><h2>Chart und Zonen</h2><p>Letzte 6 Monate, Tageskurse.</p></div>
-    ${chartHtml(v)}
+    <div class="sec"><h2>Chart und Zonen</h2><p>Standard ist 1 Jahr. Für den grossen Trend auf 2 oder 5 Jahre umschalten.</p></div>
+    <div id="chartbox">${chartHtml(v)}</div>
     <div class="zones" style="margin-top:10px">${zoneRows.map(r => `<div class="zone${p >= r.lo && p <= r.hi && r.lo !== r.hi ? " here" : ""}"><i class="k" style="background:${r.c}"></i><span><b>${rng(r.lo, r.hi)}</b> ${esc(r.txt)}</span><span class="dist">${distTo(r)}</span></div>`).join("")}</div>
     ${s.zonen_text?.length ? `<details class="more"><summary>Was die Zonen bedeuten</summary><ul class="plain">${s.zonen_text.map(x => `<li><b>${esc(x.wert)}</b>: ${esc(x.text)}</li>`).join("")}</ul></details>` : ""}
 
@@ -532,6 +557,11 @@ function renderDetail(ticker) {
     ${s.smart_money?.length ? `<details class="more"><summary>Insider und Smart Money</summary><ul class="plain">${s.smart_money.map(x => `<li>${esc(x)}</li>`).join("")}</ul></details>` : ""}
   `;
   bindNote(s.ticker);
+  const bindChart = () => document.querySelectorAll("#chartbox [data-range]").forEach(b => b.onclick = () => {
+    STATE.chartRange = b.dataset.range; store.set("chartRange", b.dataset.range);
+    document.getElementById("chartbox").innerHTML = chartHtml(v); bindChart();
+  });
+  bindChart();
   $view.querySelectorAll("[data-jump]").forEach(b => b.onclick = () => document.getElementById(b.dataset.jump)?.scrollIntoView({ behavior: "smooth", block: "start" }));
   scrollTo(0, 0);
 }
