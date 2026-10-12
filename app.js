@@ -262,8 +262,9 @@ function chartHtml(v) {
   const n = ch.c.length, X = i => P.l + i / (n - 1) * (W - P.l - P.r), Y = y => P.t + (1 - (y - lo) / (hi - lo)) * (H - P.t - P.b);
   const path = arr => arr.map((y, i) => `${i ? "L" : "M"}${X(i).toFixed(1)} ${Y(Math.max(lo, Math.min(hi, y))).toFixed(1)}`).join("");
   const band = ([a, b], col) => { const y1 = Y(Math.min(hi, b)), y2 = Y(Math.max(lo, a)); return y2 > y1 ? `<rect x="${P.l}" y="${y1}" width="${W - P.l - P.r}" height="${y2 - y1}" fill="${col}" opacity=".55"/>` : ""; };
-  const hline = (y, col, lab) => y && y >= lo && y <= hi ? `<line x1="${P.l}" x2="${W - P.r}" y1="${Y(y)}" y2="${Y(y)}" stroke="${col}" stroke-dasharray="4 3" stroke-width="1.2"/><text class="ax" x="${W - P.r + 3}" y="${Y(y) + 3}" fill="${col}">${lab}</text>` : "";
-  const ticks = [lo + pad, (lo + hi) / 2, hi - pad].map(y => `<text class="ax" x="${W - P.r + 3}" y="${Y(y) + 3}">${nf(y, y >= 100 ? 0 : 1)}</text>`).join("");
+  const hline = (y, col, lab, dy = 0) => y && y >= lo && y <= hi ? `<line x1="${P.l}" x2="${W - P.r}" y1="${Y(y)}" y2="${Y(y)}" stroke="${col}" stroke-dasharray="4 3" stroke-width="1.2"/><text class="ax" x="${W - P.r + 3}" y="${Y(y) + 3 + dy}" fill="${col}">${lab}</text>` : "";
+  const marks = [s.zonen.trigger, s.zonen.abbruch].filter(x => x && x >= lo && x <= hi).map(Y);
+  const ticks = [lo + pad, (lo + hi) / 2, hi - pad].filter(y => marks.every(m => Math.abs(m - Y(y)) > 11)).map(y => `<text class="ax" x="${W - P.r + 3}" y="${Y(y) + 3}">${nf(y, y >= 100 ? 0 : 1)}</text>`).join("");
   // Zeitachse: 1 Jahr jeden 2. Monat, 2 Jahre jedes Quartal, 5 Jahre jedes Jahr
   const labels = []; let last = "";
   ch.d.forEach((d, i) => {
@@ -281,7 +282,7 @@ function chartHtml(v) {
     ${(s.zonen.kauf || []).map(z => band(z, "var(--gruen-soft)")).join("")}
     ${(s.zonen.widerstand || []).map(z => band(z, "var(--rot-soft)")).join("")}
     ${labels.join("")}
-    ${hline(s.zonen.trigger, "var(--accent)", "Trigger")}${hline(s.zonen.abbruch, "var(--rot)", "Abbruch")}
+    ${(() => { const tY = s.zonen.trigger && s.zonen.trigger >= lo && s.zonen.trigger <= hi ? Y(s.zonen.trigger) : null, aY = s.zonen.abbruch && s.zonen.abbruch >= lo && s.zonen.abbruch <= hi ? Y(s.zonen.abbruch) : null; const close = tY != null && aY != null && Math.abs(tY - aY) < 11; return hline(s.zonen.trigger, "var(--accent)", "Trigger", close ? -5 : 0) + hline(s.zonen.abbruch, "var(--rot)", "Abbruch", close ? 6 : 0); })()}
     <path d="${path(ch.e200)}" fill="none" stroke="var(--orange)" stroke-width="1.4"/>
     <path d="${path(ch.e50)}" fill="none" stroke="var(--gelb)" stroke-width="1.4"/>
     <path d="${path(ch.c)}" fill="none" stroke="var(--ink)" stroke-width="${r === "1J" ? 1.8 : 1.4}"/>
