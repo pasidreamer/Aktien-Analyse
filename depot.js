@@ -1,3 +1,5 @@
+// Private Depot-Seite (nur mit Pascals Claude-Konto lesbar)
+window.DEPOT_SEITE = window.DEPOT_SEITE || "https://claude.ai/artifact/9XEgjr4WvVufmEpSgkhCEA";
 /* Aktien-Ampel – Mein Depot: Journal der eigenen Käufe, Positionen und Depot-Check.
    Die Daten bleiben auf dem Gerät. Auf Wunsch werden sie verschlüsselt (AES-GCM, eigenes Passwort)
    im GitHub-Repository gespeichert, damit iPhone und PC denselben Stand haben. */
