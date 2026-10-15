@@ -172,8 +172,19 @@ function render(root) {
   }).join("");
   const qC = c.q != null ? a.ampel(c.q) : null;
   const leerTxt = `<div class="empty">Noch keine Einträge. Trage deinen ersten Kauf ein: Die App rechnet danach Wert, Gewinn, Dividenden und die Verteilung deines Depots selbst aus.</div>`;
-  root.innerHTML = `<header class="top"><div><h1>Mein Depot</h1><div class="stand">Dein Journal: Käufe, Verkäufe und Dividenden</div></div></header>
+  const seite = window.DEPOT_SEITE;
+  const einfach = `<div class="card prose dp-simple">
+      <h3 style="margin-top:0">So einfach geht's</h3>
+      <p><b>1.</b> In Saxo die Transaktionsübersicht oder die Abrechnungen als PDF herunterladen.</p>
+      <p><b>2.</b> Das PDF im Chat an Claude schicken: «Trag das in mein Depot ein».</p>
+      <p><b>3.</b> Claude trägt alle Käufe, Verkäufe und Dividenden ein und baut dir deine private Depot-Seite: Gewichtung, Branchen, Länder, Währungen, Dividenden und Gewinn pro Aktie.</p>
+      ${seite ? `<a class="btn primary" href="${a.esc(seite)}" target="_blank" rel="noopener">Meine Depot-Seite öffnen</a>` : `<p class="dp-note">Deine Depot-Seite erscheint hier, sobald Claude dein erstes PDF eingetragen hat.</p>`}
+    </div>`;
+  const manuell = d.tx.length || UI.form;
+  root.innerHTML = `<header class="top"><div><h1>Mein Depot</h1><div class="stand">Deine Käufe, Verkäufe und Dividenden</div></div></header>
     ${UI.msg ? `<div class="banner warn">${a.esc(UI.msg)}</div>` : ""}
+    ${einfach}
+    <details class="more dp-manual" ${manuell ? "open" : ""}><summary>Selbst eintragen (optional)</summary>
     ${UI.form ? formHtml(d) : `<div class="actions"><button class="btn primary" id="dp-new">Kauf eintragen</button><button class="btn" id="dp-new-div">Dividende eintragen</button></div>`}
     ${c.offen.length ? `
     <div class="sec"><h2>Depot-Check</h2><p>Automatisch berechnet, Kurse vom letzten Update, alles in Franken.</p></div>
@@ -203,7 +214,8 @@ function render(root) {
       <textarea id="dp-area" rows="5" hidden aria-label="Depot-Daten"></textarea>
       <p id="dp-copy-state" class="dp-note" role="status"></p>
     </div>
-    <p class="dp-note">Persönliches Journal, keine Anlageberatung. Werte mit Kursen und Wechselkursen vom letzten automatischen Update.</p>`;
+    </details>
+    <p class="dp-note">Persönliches Journal, keine Anlageberatung.</p>`;
   bind(root, d);
 }
 
