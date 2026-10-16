@@ -2431,6 +2431,76 @@
     "nachhaltig": 3
    },
    "score": 20
+  },
+  "WKL": {
+   "waehrung": "EUR",
+   "jahre": [
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+   ],
+   "fcf": [
+    1.29,
+    1.22,
+    1.34,
+    1.36
+   ],
+   "umsatz": [
+    5.45,
+    5.58,
+    5.92,
+    6.12
+   ],
+   "fcf_ttm": 1.39,
+   "umsatz_ttm": 6.11,
+   "aktien_mio": [
+    255.8,
+    246.0,
+    238.4,
+    231.8
+   ],
+   "netto_schulden": 4.0,
+   "schulden": 4.93,
+   "cash": 0.93,
+   "boersenwert_chf": 17.1,
+   "k": {
+    "wachstum": 1.9,
+    "steigende_jahre": 2,
+    "jahre_n": 3,
+    "marge": 22.8,
+    "rendite": 7.54,
+    "schulden_jahre": 2.88,
+    "aktien_pa": -3.23,
+    "rueckgabe": 117.0,
+    "abbau": 0.0,
+    "verlustjahre": 0,
+    "sbc": 2.0,
+    "deckung": 1.18
+   },
+   "verwendung": [
+    [
+     "Aktienrückkäufe",
+     79
+    ],
+    [
+     "Dividenden",
+     38
+    ],
+    [
+     "zusätzlich neue Schulden aufgenommen",
+     36
+    ]
+   ],
+   "p": {
+    "wachstum": 7,
+    "marge": 17,
+    "rendite": 15,
+    "schulden": 8,
+    "verwendung": 15,
+    "nachhaltig": 10
+   },
+   "score": 72
   }
  },
  "stand": "2026-10-16"
