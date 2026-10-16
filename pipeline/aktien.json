@@ -1342,5 +1342,47 @@
   "pe_typ": "KGV",
   "zahlen": "2026-11-04",
   "artifact": "3iAMzXvEwcz6hU4PpCmSsW"
+ },
+ "WKL": {
+  "symbol": "WKL.AS",
+  "name": "Wolters Kluwer",
+  "tags": [
+   "Qualität",
+   "Dividende"
+  ],
+  "land": "Niederlande",
+  "region": "Europa",
+  "branche": "Fachinformationen und Software",
+  "status": "beobachten",
+  "waehrung": "EUR",
+  "kurs": 81.64,
+  "datenstand": "2026-10-16",
+  "kauf": [
+   [
+    72,
+    75
+   ],
+   [
+    65,
+    68
+   ]
+  ],
+  "widerstand": [
+   [
+    88,
+    93
+   ],
+   [
+    100,
+    104
+   ]
+  ],
+  "trigger": 83,
+  "abbruch": 64.8,
+  "pe": 15.0,
+  "pe_avg": 26.3,
+  "pe_typ": "KGV",
+  "zahlen": "2026-11-04",
+  "artifact": "5cNkhWogUhD1iPyPsYc6vD"
  }
 }

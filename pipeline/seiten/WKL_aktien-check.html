@@ -1,0 +1,402 @@
+<title>Wolters Kluwer Aktien-Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F3F5F7; --surface:#FFFFFF; --ink:#141B24; --muted:#5A6573; --line:#DDE2E8; --grid:#E9EDF1;
+  --accent:#2F45B5; --accent-soft:#E6E9F8; --chip:#EBEEF2;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+  --good:#1D7A4B; --good-bg:#E3F3EA; --warn:#9A6200; --warn-bg:#FBF0DC; --bad:#B2362A; --bad-bg:#FBE6E3;
+  --zone-sup:rgba(29,122,75,.10); --zone-res:rgba(178,54,42,.09);
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+    --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+    --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+    --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+  --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+  --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;padding-inline:16px;padding-block:24px 56px}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+h1,h2,h3{font-family:var(--display);font-stretch:85%;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:clamp(32px,7vw,48px);font-weight:800;line-height:1}
+h2{font-size:24px;font-weight:700}
+h3{font-size:17px;font-weight:700;font-stretch:95%}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+section{display:flex;flex-direction:column;gap:14px}
+.lead{max-width:68ch;color:var(--muted)}
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;align-items:stretch}
+.hero .id{display:flex;flex-direction:column;gap:10px;justify-content:space-between}
+.price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price b{font-family:var(--display);font-size:34px;font-weight:700}
+.meta{font-size:13px;color:var(--muted)}
+.verdict{font-size:15px;padding:12px 14px;border-radius:10px;background:var(--chip)}
+.scales{display:flex;flex-direction:column;gap:18px}
+.scale-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.scale-h span{font-size:13px;color:var(--muted)}
+.scale-h b{font-family:var(--display);font-size:28px;line-height:1}
+.track{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#C8412F 0%,#E0892F 30%,#E3B63A 50%,#8BBF4B 68%,#2E9A5B 100%);margin-top:8px}
+.pin{position:absolute;top:-5px;width:4px;height:22px;border-radius:2px;background:var(--ink);box-shadow:0 0 0 2px var(--surface);transform:translateX(-2px)}
+.ticks{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);font-family:var(--mono);margin-top:6px}
+.state{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;margin-top:8px}
+.st-good{background:var(--good-bg);color:var(--good)}
+.st-warn{background:var(--warn-bg);color:var(--warn)}
+.st-bad{background:var(--bad-bg);color:var(--bad)}
+/* tables */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;color:var(--muted);font-weight:500;font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:700;border-bottom:none}
+.pts{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{height:6px;border-radius:3px;background:var(--chip);min-width:60px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:3px}
+/* grids */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;border-left:4px solid var(--line)}
+.kpi.g{border-left-color:var(--good)}.kpi.w{border-left-color:var(--warn)}.kpi.b{border-left-color:var(--bad)}
+.kpi span{font-size:12px;color:var(--muted)}
+.kpi b{font-family:var(--mono);font-size:19px;font-weight:500;font-variant-numeric:tabular-nums}
+.kpi em{font-style:normal;font-size:12.5px;color:var(--muted)}
+/* charts */
+.chart{position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:14px;height:3px;border-radius:2px;display:inline-block}
+.swb{width:12px;height:10px;border-radius:2px;display:inline-block}
+.tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12.5px;box-shadow:0 4px 14px rgba(0,0,0,.12);white-space:nowrap;z-index:2}
+.tip b{font-family:var(--mono);font-weight:500}
+.tip .d{font-family:var(--mono);color:var(--muted);font-size:11.5px}
+.note{font-size:13.5px;color:var(--muted)}
+ul.clean{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.pro li::marker{color:var(--good)} .con li::marker{color:var(--bad)}
+.zones{display:flex;flex-direction:column;gap:8px}
+.zone{display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:baseline;padding:10px 12px;border-radius:10px;background:var(--chip);font-size:14px}
+.zone b{font-family:var(--mono);font-weight:500}
+.zone.r{border-left:4px solid var(--bad)} .zone.s{border-left:4px solid var(--good)} .zone.t{border-left:4px solid var(--accent)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+summary{cursor:pointer;font-weight:600}
+details p{margin-top:8px;color:var(--muted);max-width:70ch}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+footer{font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:6px;max-width:80ch}
+footer a{color:var(--accent)}
+@media (max-width:760px){.hero,.two{grid-template-columns:1fr}.zone{grid-template-columns:1fr;gap:2px}}
+</style>
+
+<div class="wrap">
+
+<header class="hero">
+  <div class="card id">
+    <div>
+      <div class="eyebrow">Aktien-Check · 16.10.2026</div>
+      <h1>Wolters Kluwer</h1>
+      <p class="meta">Wolters Kluwer N.V. · Euronext Amsterdam: WKL · Fachinformationen und Software für Ärzte, Steuerberater, Juristen und Firmen · Alphen aan den Rijn, Niederlande</p>
+    </div>
+    <div class="price"><b>81.64 €</b><span class="meta">Stand 16.10.2026 · 52 Wochen: 54.64 – 115.15 € · Allzeithoch 181.30 € am 12.2.2025</span></div>
+    <p class="verdict"><b>Kurz gesagt:</b> Wolters Kluwer ist eine Qualitätsfirma wie RELX: 85 % wiederkehrende Umsätze, Marge 29 %, Free Cashflow 1.4 Mrd. € und ein KGV von nur noch 15 statt rund 26. Die Aktie fiel vom Hoch 181.30 € (Februar 2025) auf 54.64 € (Juni 2026), weil die Börse fürchtet, dass KI wie Claude oder ChatGPT die teuren Fachdatenbanken ersetzt. Die Zahlen zeigen das bisher kaum: Wachstum 5 % statt 6 %. Qualität hellgrün (74), Timing gelb (52). Seit Juni hat die Aktie den Trend gedreht und ist um 49 % gestiegen, kurzfristig ist sie aber überkauft. Schwachpunkt nach deinem Schema: Rückkäufe und Dividende waren 2022 bis 2025 grösser als der Free Cashflow, die Schulden stiegen.</p>
+  </div>
+  <div class="card scales">
+    <div>
+      <div class="scale-h"><span>Qualität · Ist die Firma kaufenswert?</span><b id="q-val">74</b></div>
+      <div class="track"><i class="pin" id="q-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-good">● Solide</span>
+    </div>
+    <div>
+      <div class="scale-h"><span>Timing · Ist jetzt der Zeitpunkt?</span><b id="t-val">52</b></div>
+      <div class="track"><i class="pin" id="t-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-warn">▲ Warten auf Bestätigung</span>
+    </div>
+    <p class="note">Skala: unter 30 rot · 30–45 orange · 45–60 gelb · 60–75 hellgrün · ab 75 grün. Beide Werte setzen sich aus festen Kriterien zusammen, siehe unten.</p>
+  </div>
+</header>
+
+<section>
+  <h2>Was die Firma macht</h2>
+  <p class="lead">Wolters Kluwer verkauft Fachwissen und Software im Abo. Health: UpToDate, das Nachschlagewerk für Ärzte in rund 2'500 US-Spitälern, und Medikamenten-Datenbanken. Tax & Accounting: Steuer- und Buchhaltungssoftware CCH Axcess für Treuhänder und Firmen. Financial & Corporate Compliance: Dienste für Banken und Firmengründungen. Legal & Regulatory: Rechtsdatenbanken und Kanzleisoftware. Corporate Performance & ESG: Software für Finanzplanung und Nachhaltigkeit. 85 % des Umsatzes kommen aus Abos und Verträgen, davon 24 % aus Cloud-Software (+14 %). Rund 60 % des Umsatzes stammen aus Nordamerika.</p>
+  <p class="lead">Am 26. Februar 2025 kündigte die langjährige Chefin Nancy McKinstry ihren Rücktritt an, die Aktie fiel an einem Tag um 8 bis 14 %. Danach drückte die KI-Angst: Konkurrenten wie OpenEvidence (KI für Ärzte) und allgemeine KI-Modelle könnten UpToDate und die Rechtsdatenbanken ersetzen. Am 3. Februar 2026 stellte Anthropic ein Rechts-Plugin für Claude vor, Wolters Kluwer fiel an einem Tag um 10.5 %. Am 6. Mai fiel die Aktie um 13 %, weil das Wachstum im 1. Quartal bei 5 % blieb und nicht anzog. Ende Juni lag sie bei 54.64 €, rund 70 % unter dem Hoch. Die Halbjahreszahlen vom 5. August waren solide (Marge 29.4 %, Gewinn pro Aktie +14 % ohne Währungseffekte, Prognose bestätigt). JPMorgan (Juli) und Bernstein (Mai) stuften hoch. Im Oktober stieg die Aktie in einem Monat um 19 %. Einen klaren Auslöser dafür habe ich nicht gefunden.</p>
+</section>
+
+<section>
+  <h2>Fundamental: die Zahlen</h2>
+  <div class="kpis">
+<div class="kpi w"><span>Organisches Wachstum</span><b>+5 %</b><em>1. Halbjahr 2026, ohne Zukäufe und Währungseffekte. 2021 bis 2025 jedes Jahr 6 %. Gemeldet −0.6 %, weil der Dollar schwach war (60 % des Umsatzes in den USA).</em></div>
+<div class="kpi g"><span>Operative Marge</span><b>29.4 %</b><em>1. Halbjahr 2026 (bereinigt). Von 100 € Umsatz bleiben rund 29 € Betriebsgewinn. Seit 2021 jedes Jahr gestiegen (25.3 %). Sehr gut.</em></div>
+<div class="kpi g"><span>Gewinn pro Aktie (EPS)</span><b>5.42 €</b><em>Letzte 12 Monate, bereinigt. 2021: 3.38 €, also rund +12 % pro Jahr. Im 1. Halbjahr 2026 +14 % ohne Währungseffekte.</em></div>
+<div class="kpi g"><span>ROIC</span><b>18.2 %</b><em>Auf 100 € investiertes Kapital rund 18 € Gewinn. Gut und seit 2021 (13.7 %) gestiegen.</em></div>
+<div class="kpi g"><span>Free Cashflow</span><b>1.38 Mrd. €</b><em>Letzte 12 Monate (bereinigt), 22.5 % vom Umsatz. Seit 2021 von 1.0 Mrd. € gestiegen, nur 2023 ein kleiner Rückgang. 85 % Abo-Umsatz machen ihn gut planbar.</em></div>
+<div class="kpi w"><span>Nettoschulden</span><b>4.0 Mrd. €</b><em>2.0-mal der Betriebsgewinn vor Abschreibungen (EBITDA), im Zielband der Firma (1.5 bis 2.5). Seit 2021 verdoppelt, weil Rückkäufe und Dividende grösser waren als der Free Cashflow.</em></div>
+<div class="kpi g"><span>KGV</span><b>15.0</b><em>Auf den bereinigten Gewinn. Du zahlst 15 Jahresgewinne. Eigener Schnitt 2021–2025: rund 26. Also rund 43 % günstiger als üblich.</em></div>
+<div class="kpi g"><span>Dividende</span><b>3.1 %</b><em>2.52 € für 2025, zweimal pro Jahr: Schlussdividende 1.59 € (bezahlt 17.6.2026) und Zwischendividende 1.01 € (bezahlt 24.9.2026). Seit über 20 Jahren jedes Jahr erhöht.</em></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>Umsatz pro Halbjahr (Mio. €)</h3>
+      <p class="note">Wolters Kluwer berichtet halbjährlich. In Euro zuletzt leicht tiefer (−0.6 %), weil der Dollar schwach war. Ohne Währungseffekte +4 %, organisch +5 %.</p>
+      <div class="chart" id="c-rev"></div>
+    </div>
+    <div class="card">
+      <h3>Operative Marge pro Jahr</h3>
+      <p class="note">Bereinigte operative Marge. Seit 2021 jedes Jahr gestiegen, im 1. Halbjahr 2026 auf 29.4 %. Für 2026 erwartet die Firma rund 28 %, weil sie im 2. Halbjahr mehr in KI-Produkte investiert.</p>
+      <div class="chart" id="c-margin"></div>
+    </div>
+  </div>
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Jahr</th><th class="num">Umsatz Mio. €</th><th class="num">Wachstum</th><th class="num">Op. Marge</th><th class="num">EPS €</th><th class="num">Free Cashflow</th><th class="num">ROIC</th><th class="num">KGV</th></tr></thead>
+      <tbody id="fin-rows"></tbody>
+    </table>
+  </div>
+  <p class="note"><b>Hinweis:</b> Marge, Gewinn pro Aktie und Free Cashflow sind die bereinigten Firmenwerte. Das KGV ist mit dem bereinigten Gewinn gerechnet. Die letzte Zeile ist Juli 2025 bis Juni 2026, Wachstum und Marge dort für das 1. Halbjahr 2026.</p>
+</section>
+
+<section>
+  <h2>Qualität: 74 von 100</h2>
+  <div class="card tbl"><table id="q-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Technik: Wochenchart (2 Jahre)</h2>
+  <div class="card">
+    <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span><span><i class="swb" style="background:var(--zone-sup);border:1px solid var(--good)"></i>Unterstützung</span><span><i class="swb" style="background:var(--zone-res);border:1px solid var(--bad)"></i>Widerstand</span></div>
+    <div class="chart" id="c-week"></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>A/D-Linie, Woche</h3>
+      <p class="note">Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Im Juni (Kurs 57 €) stand die Wochen-A/D bei 107, heute bei 111.7 bei 81.64 €. Sie steigt mit, aber viel schwächer als der Kurs: Der Anstieg seit Juni wird nur teilweise von grossen Käufen getragen.</p>
+      <div class="chart" id="c-adw"></div>
+    </div>
+    <div class="card">
+      <h3>RSI, Woche</h3>
+      <p class="note">Unter 30 überverkauft, über 70 überkauft. Von Januar bis Juni fast immer unter 30 (stark überverkauft, Tiefpunkt 15 im Februar), heute 67: kräftige Erholung, nahe überkauft.</p>
+      <div class="chart" id="c-rsiw"></div>
+    </div>
+  </div>
+
+  <h2>Technik: Tageschart (1 Jahr)</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Kurs, Tag</h3>
+      <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span></div>
+      <div class="chart" id="c-day"></div>
+    </div>
+    <div class="card">
+      <h3>A/D-Linie, Tag</h3>
+      <p class="note">Am 3.9. stand der Kurs bei 70.58 € und die Tages-A/D bei −12.4. Heute steht der Kurs 16 % höher, die A/D aber tiefer bei −17.1 (grosser Abfluss am 18.9.). Seit dem 23.9. steigt sie wieder (−22.5 → −17.1). Gemischtes Bild.</p>
+      <div class="chart" id="c-add"></div>
+    </div>
+  </div>
+
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Indikator</th><th>Tag</th><th>Woche</th><th>Bedeutung</th></tr></thead>
+      <tbody>
+<tr><td>Kurs vs. EMA 50</td><td class="pts">81.6 &gt; 70.3</td><td class="pts">81.6 &gt; 77.9</td><td>Über der mittelfristigen Linie, auf beiden Zeitebenen.</td></tr>
+<tr><td>Kurs vs. EMA 200</td><td class="pts">81.6 &gt; 74.2</td><td class="pts">81.6 &lt; 103.7</td><td>Tag darüber, Woche noch weit darunter.</td></tr>
+<tr><td>EMA 50 vs. EMA 200</td><td class="pts">50 unter 200 (seit März 2025), steigt aber</td><td class="pts">50 unter 200 (seit Dezember 2025)</td><td>Der grosse Trend ist noch abwärts, im Tageschart nähert sich das goldene Kreuz.</td></tr>
+<tr><td>RSI (14)</td><td class="pts">77.5</td><td class="pts">66.7</td><td>Tag überkauft, Woche stark.</td></tr>
+<tr><td>A/D</td><td class="pts">seit 23.9. steigend, aber tiefer als Anfang September</td><td class="pts">leicht steigend</td><td>Bestätigt den Anstieg nur teilweise.</td></tr>
+<tr><td>Volumen</td><td colspan="2">Ø 20 Tage 1.10 Mio. vs. Ø 100 Tage 1.23 Mio. Aktien</td><td>Der Anstieg läuft mit eher wenig Handel.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Struktur und Zonen (Smart Money Concept)</h2>
+  <p class="lead">Vom Allzeithoch 181.30 € (Februar 2025) fiel Wolters Kluwer bis Juni 2026 in einem langen Abwärtstrend. Im Mai und Juni bildete sich ein doppelter Boden (55.90 € am 13.5. und 54.64 € am 25.6.). Danach höhere Tiefs: 59.16 € (23.7.), 64.86 € (11.9.), 65.84 € (1.10.). Am 12.10. brach der Kurs über die Hochs vom April (72.90 €) und Juli (74.12 €): Das ist ein bestätigter Change of Character nach oben, auch im Wochenchart. Seither stieg er auf 81.64 €. Die Aktie ist damit 49 % über dem Tief und im teuren Teil (Premium) der Bewegung. Nach so einem Ausbruch kommt oft ein Rücktest der Ausbruchszone 72 bis 75 €.</p>
+  <div class="zones">
+<div class="zone r"><b>100–104 €</b><span>Widerstand: Wochen-EMA 200 (103.70 €).</span></div>
+<div class="zone r"><b>88–93 €</b><span>Widerstand: Jahresanfang 2026 (Hoch 93.12 € am 12.1.).</span></div>
+<div class="zone t"><b>83 €</b><span><b>Trigger:</b> Tagesschluss über 83 € setzt den Ausbruch fort. Für einen Einstieg besser: Rücksetzer in Kaufzone 1.</span></div>
+<div class="zone s"><b>72–75 €</b><span><b>Kaufzone 1:</b> Ausbruchszone (Hochs April und Juli 72.90 / 74.12 €) und Tages-EMA 200 (74.20 €).</span></div>
+<div class="zone s"><b>65–68 €</b><span><b>Kaufzone 2:</b> Tiefs vom September und Oktober (64.86 / 65.84 €).</span></div>
+<div class="zone r"><b>64.80 €</b><span>Abbruch: Wochenschluss unter dem Tief vom 11.9. Dann wäre die Wende gescheitert.</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Smart Money, Insider und Saisonalität</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Wer kauft, wer verkauft?</h3>
+      <ul class="clean" style="margin-top:8px">
+<li><b>Wolters Kluwer selbst:</b> Rückkauf 2026 bis 500 Mio. € (rund 2.8 % des Börsenwerts), bis 16.9. für 264 Mio. € zu durchschnittlich 67.96 €. 2022 bis 2025 waren es jedes Jahr 1 bis 1.1 Mrd. €. Seit 2021 gibt es 13.6 % weniger Aktien.</li>
+<li><b>Aufsichtsrat kauft:</b> Am 25./26.2.2026 kauften drei Aufsichtsräte nahe am Tief (zu 62.50 bis 64.12 €, zusammen rund 0.34 Mio. €), im November 2025 einer zu 97.49 €. Die Chefin Stacey Caywood kaufte im August 2025 zu 112.92 €.</li>
+<li><b>Insider-Verkäufe:</b> Nur Verkäufe zur Steuerzahlung bei Aktienzuteilungen (CEO und CFO im Februar 2026). Keine freien Verkäufe.</li>
+<li><b>Analysten:</b> Mehrheit positiv. StockAnalysis: 10× stark Kaufen, 2× Kaufen, 3× Halten, 1× Verkaufen. Kursziel im Schnitt 89.78 € (54 bis 120 €). Hochstufungen: Bernstein (Mai) und JPMorgan (Juli).</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Saisonalität seit 1995</h3>
+      <p class="note">Durchschnittliche Monatsrendite in %. 31 Jahre Daten (seit 1995). September (+0.7 %, 69 %), Dezember (+2.1 %, 65 %) und Februar (68 %) sind gute Monate. Oktober +1.6 % (58 %), November +1.2 % (61 %).</p>
+      <div class="chart" id="c-seas"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Timing: 52 von 100</h2>
+  <div class="card tbl"><table id="t-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Worauf du achten solltest: Unterbewertung und Wachstumsschub</h2>
+  <div class="card"><h3>Was die Börse befürchtet</h3><p class="note" style="margin:4px 0">Vor allem Stimmung: Die Zahlen sind solide (Marge 29.4 %, Gewinn pro Aktie +14 % ohne Währungseffekte, Prognose bestätigt), gefallen ist vor allem die Bewertung aus Angst vor KI.</p><ul class="clean"><li>KI könnte teure Fachdatenbanken ersetzen: Am 03.02.2026 stellte Anthropic ein Rechts-Plugin für Claude vor (Wolters Kluwer −10.5 % an einem Tag). OpenEvidence greift UpToDate bei den Ärzten an.</li><li>Das Wachstum zieht nicht an: Organisch 5 % im 1. Quartal und 1. Halbjahr 2026 nach 6 % in den Jahren davor. Am 06.05.2026 fiel die Aktie deshalb um 13 %.</li><li>Die Firma investiert mehr in KI-Produkte (12 bis 13 % vom Umsatz). UBS sieht Unsicherheit für die Marge 2027.</li><li>Die Aktie fiel vom Hoch 181.30 € (Februar 2025) bis auf 54.64 € (Juni 2026), rund 70 %.</li></ul><h3 style="margin-top:12px">Was die Sorgen beenden könnte</h3><ul class="clean"><li>Zwischenbericht 9 Monate: Bleibt das Wachstum bei mindestens 5 % und zieht Tax &amp; Accounting an? <span class="muted">(04.11.2026)</span></li><li>Jahreszahlen 2026 mit Ziel für die Marge 2027, Rückkaufprogramm 2027 und ersten Zahlen, ob KI-Produkte mehr Umsatz bringen <span class="muted">(24.02.2027)</span></li><li>Beweis, dass Kunden für die KI-Versionen mehr bezahlen (UpToDate Expert AI, CCH Axcess mit KI-Agenten) <span class="muted">(2027)</span></li></ul><h3 style="margin-top:12px">Wachstumsschub: Wachstumsschub möglich</h3><ul class="clean"><li><b>Cloud-Software:</b> Wiederkehrende Cloud-Software macht schon 24 % des Umsatzes aus und wächst organisch um 14 %. Je grösser dieser Teil, desto schneller wächst die ganze Firma. <span class="muted">(2026–2028)</span></li><li><b>KI in den eigenen Produkten:</b> UpToDate Expert AI läuft bei über 90 % der rund 2'500 US-Spitalkunden, rund 250 Treuhandfirmen nutzen die KI-Agenten in CCH Axcess. Das schützt die Kunden, ob es auch höhere Preise bringt, zeigt die Firma noch nicht. <span class="muted">(2026–2027)</span></li></ul><p style="margin:10px 0 0"><b>Woran du es erkennst:</b> Achte auf das organische Wachstum (zuletzt 5 %) und das Wachstum der Cloud-Software (zuletzt 14 %). Steigt die Firma wieder auf 6 % oder mehr, ist die KI eher Chance als Gefahr.</p><p style="margin:10px 0 0"><b>Das Chancen-Szenario:</b> Ähnlich wie Google 2023: Alle glauben, KI ersetzt die Fachdatenbanken, dabei baut Wolters Kluwer die KI selbst ein und verkauft sie an Kunden, die ihr seit Jahrzehnten vertrauen. Hält das Wachstum bei 5 bis 6 %, kann sich das KGV von 15 Richtung 20 bis 25 erholen. Grösstes Risiko: KI-Tools werden gut genug und viel billiger, dann sinken Preise und Wachstum, und die Aktie bleibt zu Recht günstig.</p><p class="note" style="margin:10px 0 0">Quellen: <a href="https://www.globenewswire.com/news-release/2026/08/05/3339046/0/en/Wolters-Kluwer-2026-Half-Year-Report.html" target="_blank" rel="noopener">Wolters Kluwer Halbjahresbericht 2026</a>, <a href="https://www.canadianlawyermag.com/news/international/anthropic-legal-tool-jolts-share-price-of-global-legal-data-leaders/393665" target="_blank" rel="noopener">Canadian Lawyer: Anthropic-Rechtstool erschüttert Fachverlage (Februar 2026)</a>, <a href="https://www.debelegger.nl/post/aandeel-wolters-kluwer-daalt-vandaag-13-dit-is-waarom" target="_blank" rel="noopener">De Belegger: Aktie fällt 13 % (06.05.2026)</a>, <a href="https://outsellinc.com/?p=34383" target="_blank" rel="noopener">Outsell: KI-Konkurrenz für Fachinformationen (August 2026)</a></p></div>
+</section>
+
+<section>
+  <h2>Dividende</h2>
+  <div class="card tbl"><table><tr><td style="white-space:nowrap;color:var(--muted)">Wie oft</td><td>2× pro Jahr (halbjährlich)</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Ex-Tag im</td><td>Mai, September</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Geld auf dem Konto im</td><td>Juni, September</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Zahltage</td><td>Schlussdividende Mitte Juni (2026: Ex-Tag 25. Mai, Zahltag 17. Juni), Zwischendividende Ende September (2026: Ex-Tag 1. September, Zahltag 24. September)</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Letzte Zahlung</td><td>1.01 € pro Aktie</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Rendite</td><td>3.1 %</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">System</td><td>Niederländisches System mit Zwischen- und Schlussdividende: Im September kommt die Zwischendividende (40 % der Vorjahresdividende), im Juni nach der Generalversammlung die Schlussdividende. Für 2025 total 2.52 € (+8 %). Seit über 20 Jahren jedes Jahr erhöht.</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Form</td><td>Bar in Euro aufs Konto. Die Niederlande ziehen 15 % Quellensteuer ab, die du in der Regel über die Schweizer Steuererklärung anrechnen lassen kannst (Formular DA-1).</td></tr></table><p class="note" style="margin:10px 0 0"><b>Ex-Tag:</b> Du bekommst die Dividende nur, wenn du die Aktie am Abend vor dem Ex-Tag besitzt. <b>Zahltag:</b> An diesem Tag kommt das Geld aufs Konto (in der Währung der Aktie, abzüglich Quellensteuer). Die nächsten genauen Termine zeigt die App unter «Termine».</p></div>
+</section>
+
+<section>
+  <h2>Pro und Contra</h2>
+  <div class="two">
+    <div class="card pro"><h3>Spricht dafür</h3><ul class="clean" style="margin-top:8px">
+<li>85 % Abo-Umsatz, Kunden sind Spitäler, Treuhänder und Kanzleien, die die Produkte täglich brauchen.</li>
+<li>Marge steigt seit Jahren (29.4 %), Free Cashflow 1.38 Mrd. € (22.5 % vom Umsatz).</li>
+<li>KGV 15 statt rund 26, Free-Cashflow-Rendite 7.6 %, Dividende 3.1 % und seit über 20 Jahren steigend.</li>
+<li>UpToDate Expert AI bei über 90 % der US-Spitalkunden im Einsatz, Cloud-Software +14 %.</li>
+<li>Trendwende im Chart bestätigt, Aufsichtsräte kauften nahe am Tief.</li>
+    </ul></div>
+    <div class="card con"><h3>Spricht dagegen</h3><ul class="clean" style="margin-top:8px">
+<li>KI-Gefahr ist echt offen: Claude, ChatGPT und OpenEvidence könnten Preise und Kunden kosten. Preisdaten zeigt die Firma nicht.</li>
+<li>Wachstum etwas langsamer (5 % statt 6 %), Rechtsbereich am stärksten bedroht.</li>
+<li>Rückkäufe und Dividende waren 2022 bis 2025 grösser als der Free Cashflow, Schulden verdoppelt (4.0 Mrd. €).</li>
+<li>Höhere Investitionen in KI-Produkte könnten die Marge 2027 drücken (UBS).</li>
+<li>Kurzfristig überkauft (RSI 77.5) nach +49 % seit Juni.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section>
+  <h2>Was jetzt zu tun ist</h2>
+  <div class="zones">
+<div class="zone t"><b>Beobachten</b><span>Alarm bei 75 € (oberes Ende Kaufzone 1) und 83 € (Trigger).</span></div>
+<div class="zone s"><b>Timing grün</b><span>Rücksetzer in 72–75 €, der hält, mit steigender A/D. Fundamental: Am 4.11. sollte das organische Wachstum mindestens 5 % bleiben und Tax & Accounting wie versprochen anziehen.</span></div>
+<div class="zone r"><b>Abbruch</b><span>Wochenschluss unter 64.80 €.</span></div>
+<div class="zone "><b>Nächste Zahlen</b><span>4. November 2026: Zwischenbericht 9 Monate (nur Umsatz und Wachstum, bestätigt). Jahreszahlen: 24. Februar 2027.</span></div>
+  </div>
+</section>
+
+<footer>
+  <span>Kursdaten und Indikatoren (EMA, RSI 14, A/D) selbst berechnet aus Yahoo-Finance-Tages-, Wochen- und Monatsdaten, Stand 16.10.2026. <a href="https://stockanalysis.com/quote/ams/WKL/financials/" target="_blank" rel="noopener">StockAnalysis.com</a> (Stand 16.10.2026), <a href="https://www.globenewswire.com/news-release/2026/08/05/3339046/0/en/Wolters-Kluwer-2026-Half-Year-Report.html" target="_blank" rel="noopener">Wolters Kluwer Halbjahr 2026</a>, <a href="https://www.globenewswire.com/news-release/2026/02/25/3244280/0/en/wolters-kluwer-2025-full-year-report.html" target="_blank" rel="noopener">Jahresbericht 2025</a>, <a href="https://www.canadianlawyermag.com/news/international/anthropic-legal-tool-jolts-share-price-of-global-legal-data-leaders/393665" target="_blank" rel="noopener">Canadian Lawyer: Anthropic-Plugin</a>, <a href="https://www.debelegger.nl/post/aandeel-wolters-kluwer-daalt-vandaag-13-dit-is-waarom" target="_blank" rel="noopener">De Belegger (6.5.2026)</a>, <a href="https://hl.co.uk/shares/shares-search-results/w/wolters-kluwer-cva-eur0.12/director-deals" target="_blank" rel="noopener">Insider (HL)</a>, <a href="https://www.marketscreener.com/quote/stock/WOLTERS-KLUWER-N-V-6291/consensus/" target="_blank" rel="noopener">Analysten (MarketScreener)</a>.</span>
+  <span>Persönliche Analyse, keine Anlageberatung. Vergangene Kurse und Saisonalität sagen nichts Sicheres über die Zukunft.</span>
+</footer>
+</div>
+
+<script>
+const Q=[["Umsatztrend", "3 von 4 Halbjahren über Vorjahr in Euro, organisch alle positiv (+5 %)", 10, 15], ["Wachstumstempo", "Organisch 5 % (vorher 6 %)", 3, 10], ["Operative Marge", "29.4 % (9 Pkt.), seit 2021 jedes Jahr gestiegen (6 Pkt.)", 15, 15], ["Gewinnwachstum (EPS)", "Bereinigt 2022–2025 rund +8.5 % pro Jahr, aktuell +14 % ohne Währungseffekte", 8, 10], ["Free Cashflow", "Immer positiv, 3 von 4 Jahren gestiegen (2023 −4.6 %)", 6, 10], ["ROIC", "18.2 % (10 Pkt.), seit 2021 steigend (+1)", 11, 15], ["Schulden", "Nettoschulden/EBITDA 2.0", 7, 10], ["Bewertung vs. eigene Historie", "KGV 15.0 statt Ø 26.3 (2021–2025), rund 43 % günstiger", 14, 15]];
+const T=[["Trend Woche (EMA 50/200)", "Kurs über EMA 50, unter EMA 200: mögliche Wende", 8, 20], ["Trend Tag (EMA 50/200)", "Kurs über beiden, EMA 50 noch unter 200, aber steigend", 7, 10], ["Struktur (SMC)", "Doppelter Boden, höhere Tiefs, CHoCH am 12.10. bestätigt, aber im Premium", 14, 20], ["RSI Tag/Woche", "Tag 77.5 (überkauft), Woche 67", 4, 15], ["A/D Tag/Woche", "Steigen mit, aber schwächer als der Kurs", 8, 20], ["Smart Money", "Start 3, Rückkauf 2.8 % pro Jahr +3, Aufsichtsrats-Käufe älter als 6 Monate", 6, 10], ["Saisonalität", "Oktober 58 %, November 61 %, Dezember 65 % positive Jahre", 5, 5]];
+const FIN=[["2021", 4771, "+3.7 %", "25.3 %", 3.38, 1010, "13.7 %", "30.7"], ["2022", 5453, "+14.3 %", "26.1 %", 4.14, 1220, "15.5 %", "23.6"], ["2023", 5584, "+2.4 %", "26.4 %", 4.55, 1164, "16.8 %", "28.3"], ["2024", 5916, "+6.0 %", "27.1 %", 4.97, 1276, "18.1 %", "32.3"], ["2025", 6125, "+3.5 %", "27.5 %", 5.29, 1348, "18.0 %", "16.7"], ["Letzte 12 Mt.", 6106, "−0.6 %", "29.4 %", 5.42, 1376, "18.2 %", "15.0"]];
+const HALF=[["H2 22", 2853], ["H1 23", 2725], ["H2 23", 2859], ["H1 24", 2891], ["H2 24", 3025], ["H1 25", 3052], ["H2 25", 3073], ["H1 26", 3033]];
+const MARGIN=[["2021", 25.3], ["2022", 26.1], ["2023", 26.4], ["2024", 27.1], ["2025", 27.5], ["H1 26", 29.4]];
+const SEAS=[0.0, 1.1, -0.7, 0.5, 0.4, -0.3, 2.6, -0.7, 0.7, 1.6, 1.2, 2.1];
+const SEASHIT=[52.0, 68.0, 45.0, 56.0, 59.0, 53.0, 56.0, 47.0, 69.0, 58.0, 61.0, 65.0];
+const MON=["Jan","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"];
+const W=`2024-10-21,158.7,144.22,113.68,61,148.9;2024-10-28,157.4,144.74,114.11,59,148.6;2024-11-04,161.85,145.41,114.59,64,149.2;2024-11-11,151.65,145.65,114.96,50,146.6;2024-11-18,157.95,146.13,115.38,56,148.2;2024-11-25,157.95,146.6,115.81,56,150.1;2024-12-02,162.8,147.23,116.27,60,151;2024-12-09,162.4,147.83,116.73,60,151.4;2024-12-16,161.1,148.35,117.17,58,151.1;2024-12-23,161,148.84,117.61,58,151.8;2024-12-30,159.05,149.24,118.02,55,151.2;2025-01-06,165.45,149.88,118.49,62,152.7;2025-01-13,171.3,150.72,119.02,67,154.6;2025-01-20,169.35,151.45,119.52,64,153;2025-01-27,175.75,152.4,120.08,69,154.9;2025-02-03,176.55,153.35,120.64,69,155.9;2025-02-10,178.7,154.34,121.22,71,155.9;2025-02-17,172.6,155.06,121.73,62,153.3;2025-02-24,147.6,154.77,121.99,39,147.6;2025-03-03,142.1,154.27,122.19,36,145.5;2025-03-10,142.6,153.81,122.39,36,148.1;2025-03-17,142.5,153.37,122.59,36,148.8;2025-03-24,145.15,153.05,122.82,39,151;2025-03-31,143.45,152.67,123.02,38,150.8;2025-04-07,144,152.33,123.23,39,153.9;2025-04-14,150.15,152.25,123.5,46,154.6;2025-04-21,152.8,152.27,123.79,48,156.3;2025-04-28,156.2,152.42,124.11,52,158.3;2025-05-05,156.3,152.57,124.43,52,156.5;2025-05-12,160.45,152.88,124.79,56,158.7;2025-05-19,161.25,153.21,125.15,56,161;2025-05-26,156.3,153.33,125.46,51,159;2025-06-02,155.45,153.41,125.76,50,159.2;2025-06-09,146.45,153.14,125.97,41,156.9;2025-06-16,141.65,152.69,126.12,37,154.3;2025-06-23,145.1,152.39,126.31,42,157.7;2025-06-30,138.6,151.85,126.44,37,155.6;2025-07-07,138.85,151.34,126.56,37,155.2;2025-07-14,140.45,150.92,126.7,39,156.2;2025-07-21,134.2,150.26,126.77,34,153.4;2025-07-28,133.1,149.59,126.83,34,150;2025-08-04,118.8,148.38,126.75,26,146;2025-08-11,113.45,147.01,126.62,23,143;2025-08-18,115.3,145.77,126.51,26,143.4;2025-08-25,107.6,144.27,126.32,23,139.9;2025-09-01,108.2,142.85,126.14,23,141.7;2025-09-08,112.3,141.66,126,29,145.4;2025-09-15,114.1,140.58,125.88,31,146.3;2025-09-22,112.25,139.47,125.75,30,143.1;2025-09-29,112.25,138.4,125.61,30,140.3;2025-10-06,109.3,137.26,125.45,28,136.9;2025-10-13,109.15,136.15,125.29,28,135.9;2025-10-20,114.1,135.29,125.18,36,138.1;2025-10-27,106.25,134.15,124.99,30,135.5;2025-11-03,96.54,132.68,124.71,25,131;2025-11-10,94.44,131.18,124.41,24,129.7;2025-11-17,92.76,129.67,124.09,23,130;2025-11-24,91.6,128.18,123.77,23,129.8;2025-12-01,90.28,126.69,123.43,22,130;2025-12-08,88.86,125.21,123.09,22,130.7;2025-12-15,89.52,123.81,122.76,23,128;2025-12-22,88.26,122.41,122.41,22,127.5;2025-12-29,87.96,121.06,122.07,22,127.2;2026-01-05,91.26,119.89,121.76,28,129.1;2026-01-12,87.64,118.63,121.42,26,126.7;2026-01-19,84.38,117.29,121.06,24,126;2026-01-26,78.88,115.78,120.64,21,121.9;2026-02-02,67.7,113.89,120.11,16,112.7;2026-02-09,64.18,111.94,119.55,15,111.6;2026-02-16,62.36,110,118.98,15,110.3;2026-02-23,68.1,108.36,118.48,24,119.1;2026-03-02,68.52,106.79,117.98,25,117.8;2026-03-09,67.26,105.24,117.48,24,116;2026-03-16,65.44,103.68,116.96,23,115;2026-03-23,62.32,102.06,116.41,21,110.9;2026-03-30,65.32,100.62,115.91,27,114;2026-04-06,62.68,99.13,115.38,25,110.5;2026-04-13,71.34,98.04,114.94,38,114.6;2026-04-20,66.42,96.8,114.46,35,110.5;2026-04-27,66.42,95.61,113.98,35,112;2026-05-04,61.9,94.29,113.46,31,108;2026-05-11,61.22,92.99,112.94,31,112.4;2026-05-18,62.5,91.8,112.44,33,109.5;2026-05-25,61.02,90.59,111.93,32,110.9;2026-06-01,63.48,89.53,111.44,36,111.9;2026-06-08,61.1,88.41,110.94,34,109.5;2026-06-15,58.86,87.25,110.42,32,106.4;2026-06-22,57,86.07,109.89,30,107.1;2026-06-29,57.62,84.95,109.37,31,111;2026-07-06,60.5,83.99,108.89,37,111.1;2026-07-13,61.78,83.12,108.42,39,111.3;2026-07-20,62.46,82.31,107.96,40,115.9;2026-07-27,67.88,81.74,107.56,49,114.9;2026-08-03,70.08,81.29,107.19,52,113.8;2026-08-10,69.78,80.84,106.82,52,112.5;2026-08-17,71.22,80.46,106.46,54,115.7;2026-08-24,70.22,80.06,106.1,52,117.3;2026-08-31,68.86,79.62,105.73,50,116;2026-09-07,66.24,79.09,105.34,46,114.6;2026-09-14,68.16,78.67,104.97,49,104.4;2026-09-21,68.66,78.27,104.61,50,106.3;2026-09-28,67.82,77.86,104.24,48,106.5;2026-10-05,75,77.75,103.95,59,111.7;2026-10-16,81.64,77.9,103.73,67,111.7`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+const DD=`2025-10-10,109.3,116.28,136.47,-10.2;2025-10-13,110.15,116.04,136.21,-10.1;2025-10-14,109.95,115.8,135.95,-10.6;2025-10-15,109.75,115.56,135.69,-10.1;2025-10-16,109.5,115.32,135.43,-9.9;2025-10-17,109.15,115.08,135.17,-9.6;2025-10-20,110.2,114.89,134.92,-8.9;2025-10-21,111.35,114.75,134.69,-8.6;2025-10-22,112.75,114.67,134.47,-8.1;2025-10-23,112.85,114.6,134.25,-7.9;2025-10-24,114.1,114.58,134.05,-8;2025-10-27,112.7,114.51,133.84,-8.2;2025-10-28,110.7,114.36,133.61,-8.8;2025-10-29,106,114.03,133.33,-9.7;2025-10-30,105.2,113.68,133.05,-9.8;2025-10-31,106.25,113.39,132.79,-9.7;2025-11-03,106,113.1,132.52,-10;2025-11-04,107,112.86,132.27,-9.9;2025-11-05,108.85,112.71,132.03,-10.4;2025-11-06,100.4,112.22,131.72,-11.3;2025-11-07,96.54,111.61,131.37,-12.3;2025-11-10,93.64,110.9,130.99,-13.2;2025-11-11,95.82,110.31,130.64,-12.4;2025-11-12,93.56,109.66,130.27,-13.5;2025-11-13,93.86,109.04,129.91,-13.4;2025-11-14,94.44,108.46,129.56,-12.5;2025-11-17,91.86,107.81,129.18,-13;2025-11-18,90.46,107.13,128.8,-13.5;2025-11-19,91.36,106.51,128.43,-13.5;2025-11-20,91.16,105.91,128.06,-13.7;2025-11-21,92.76,105.4,127.7,-13.6;2025-11-24,91.54,104.85,127.34,-14.5;2025-11-25,91.38,104.32,126.99,-13.9;2025-11-26,91.7,103.83,126.64,-13.5;2025-11-27,91.02,103.33,126.28,-13.9;2025-11-28,91.6,102.87,125.94,-13.7;2025-12-01,90.64,102.39,125.58,-13.9;2025-12-02,89.16,101.87,125.22,-14;2025-12-03,90.44,101.42,124.88,-13.7;2025-12-04,89.94,100.97,124.53,-13.9;2025-12-05,90.28,100.55,124.19,-14.2;2025-12-08,87.32,100.03,123.82,-14.7;2025-12-09,88.7,99.59,123.47,-15;2025-12-10,88.08,99.14,123.12,-15.4;2025-12-11,88.64,98.72,122.78,-15.1;2025-12-12,88.86,98.34,122.44,-15.2;2025-12-15,91.88,98.08,122.13,-14.6;2025-12-16,90.5,97.79,121.82,-15.2;2025-12-17,90.56,97.5,121.51,-14.7;2025-12-18,90.74,97.24,121.2,-14.5;2025-12-19,89.52,96.94,120.89,-15.9;2025-12-22,90.08,96.67,120.58,-15.7;2025-12-23,88.24,96.34,120.26,-16;2025-12-24,88.26,96.02,119.94,-16;2025-12-29,88.9,95.74,119.63,-16.1;2025-12-30,89.18,95.48,119.33,-15.9;2025-12-31,88.34,95.2,119.02,-15.9;2026-01-02,87.96,94.92,118.71,-15.9;2026-01-05,92.08,94.81,118.45,-15.1;2026-01-06,90.72,94.65,118.17,-14.9;2026-01-07,90.44,94.48,117.89,-15.1;2026-01-08,90.16,94.31,117.62,-14.7;2026-01-09,91.26,94.19,117.36,-14.6;2026-01-12,90.2,94.04,117.09,-15.2;2026-01-13,88.46,93.82,116.8,-15.9;2026-01-14,87.8,93.58,116.51,-16.3;2026-01-15,88,93.36,116.23,-15.8;2026-01-16,87.64,93.14,115.94,-15.2;2026-01-19,84.88,92.81,115.64,-15.7;2026-01-20,84.58,92.49,115.33,-15.9;2026-01-21,84.08,92.16,115.02,-15.6;2026-01-22,83.3,91.81,114.7,-16.4;2026-01-23,84.38,91.52,114.4,-15.6;2026-01-26,83.52,91.21,114.09,-15.6;2026-01-27,80.56,90.79,113.76,-16.3;2026-01-28,81.32,90.42,113.43,-16.2;2026-01-29,79.22,89.98,113.09,-16.8;2026-01-30,78.88,89.55,112.75,-17.5;2026-02-02,80.2,89.18,112.43,-17.7;2026-02-03,70.04,88.43,112.01,-20.7;2026-02-04,68.56,87.65,111.58,-22.5;2026-02-05,69.96,86.96,111.16,-22.4;2026-02-06,67.7,86.2,110.73,-22.4;2026-02-09,66.82,85.44,110.29,-23.2;2026-02-10,65.72,84.67,109.85,-23.9;2026-02-11,62.34,83.79,109.38,-25.9;2026-02-12,60.48,82.88,108.89,-28;2026-02-13,64.18,82.14,108.44,-26.7;2026-02-16,61.84,81.35,107.98,-27.6;2026-02-17,62.14,80.59,107.52,-28.2;2026-02-18,61.74,79.86,107.07,-27.8;2026-02-19,62.32,79.17,106.62,-28.1;2026-02-20,62.36,78.51,106.18,-27.9;2026-02-23,59.68,77.77,105.72,-29;2026-02-24,62.2,77.16,105.29,-28;2026-02-25,63.74,76.63,104.87,-26.4;2026-02-26,66.1,76.22,104.49,-24.9;2026-02-27,68.1,75.9,104.13,-22.8;2026-03-02,68.16,75.6,103.77,-23.7;2026-03-03,68.06,75.3,103.41,-23.7;2026-03-04,67.72,75.01,103.06,-24.8;2026-03-05,68.42,74.75,102.71,-24.4;2026-03-06,68.52,74.5,102.37,-24.5;2026-03-09,68.64,74.27,102.04,-24.3;2026-03-10,67.16,73.99,101.69,-24.8;2026-03-11,67.22,73.73,101.35,-25.8;2026-03-12,67.14,73.47,101.01,-26;2026-03-13,67.26,73.23,100.67,-25.5;2026-03-16,66.58,72.97,100.33,-25.7;2026-03-17,66.28,72.7,99.99,-25.3;2026-03-18,65.3,72.41,99.65,-25.5;2026-03-19,65.06,72.12,99.3,-26.5;2026-03-20,65.44,71.86,98.97,-25.4;2026-03-23,63.82,71.55,98.62,-26.1;2026-03-24,62.56,71.19,98.26,-26.8;2026-03-25,62.74,70.86,97.91,-26.7;2026-03-26,63.96,70.59,97.57,-25.9;2026-03-27,62.32,70.27,97.22,-26.9;2026-03-30,63.82,70.02,96.88,-26.2;2026-03-31,64.62,69.8,96.56,-26.8;2026-04-01,65.08,69.62,96.25,-25.6;2026-04-02,65.32,69.45,95.94,-25.2;2026-04-07,64.72,69.26,95.63,-25.7;2026-04-08,64.6,69.08,95.32,-26.8;2026-04-09,63.56,68.86,95.01,-26.8;2026-04-10,62.68,68.62,94.69,-27.3;2026-04-13,63.54,68.42,94.38,-26.6;2026-04-14,65,68.29,94.08,-26.1;2026-04-15,67.08,68.24,93.81,-25.2;2026-04-16,69.7,68.3,93.57,-24.3;2026-04-17,71.34,68.42,93.35,-24.4;2026-04-20,69.32,68.45,93.11,-25.7;2026-04-21,69.72,68.5,92.88,-25.8;2026-04-22,68.46,68.5,92.64,-26.1;2026-04-23,65.78,68.39,92.37,-27.2;2026-04-24,66.42,68.32,92.11,-26.7;2026-04-27,66.52,68.25,91.86,-26.4;2026-04-28,66.44,68.18,91.61,-25.8;2026-04-29,66.04,68.09,91.35,-25.6;2026-04-30,66.42,68.03,91.1,-25;2026-05-04,68.92,68.06,90.88,-24.4;2026-05-05,68.44,68.08,90.66,-24.4;2026-05-06,63.42,67.89,90.39,-24.7;2026-05-07,61.2,67.63,90.1,-26.7;2026-05-08,61.9,67.41,89.82,-25.7;2026-05-11,61.72,67.18,89.54,-25.7;2026-05-12,60.96,66.94,89.25,-25;2026-05-13,57.1,66.55,88.93,-26;2026-05-14,58.36,66.23,88.63,-25.3;2026-05-15,61.22,66.04,88.36,-23.4;2026-05-18,63.8,65.95,88.11,-22.4;2026-05-19,66.08,65.95,87.89,-21.9;2026-05-20,63.58,65.86,87.65,-21.4;2026-05-21,63.02,65.75,87.41,-21.7;2026-05-22,62.5,65.62,87.16,-22.3;2026-05-25,61.74,65.47,86.9,-22;2026-05-26,60.38,65.27,86.64,-22.8;2026-05-27,61.12,65.11,86.39,-22.1;2026-05-28,60.6,64.93,86.13,-22.1;2026-05-29,61.02,64.78,85.88,-19.7;2026-06-01,64.04,64.75,85.66,-19.1;2026-06-02,61.66,64.63,85.42,-19.9;2026-06-03,60.26,64.46,85.17,-20.7;2026-06-04,64.26,64.45,84.97,-19.6;2026-06-05,63.48,64.41,84.75,-20.6;2026-06-08,63.64,64.38,84.54,-19.8;2026-06-09,64.3,64.38,84.34,-18.9;2026-06-10,63.08,64.33,84.13,-19;2026-06-11,60.68,64.18,83.9,-19.7;2026-06-12,61.1,64.06,83.67,-19;2026-06-15,60.24,63.91,83.44,-20.2;2026-06-16,59.94,63.76,83.2,-20.9;2026-06-17,59.8,63.6,82.97,-20.8;2026-06-18,58.2,63.39,82.72,-21.1;2026-06-19,58.86,63.21,82.49,-20.8;2026-06-22,56.54,62.95,82.23,-21.9;2026-06-23,56.74,62.71,81.97,-21.9;2026-06-24,56.26,62.45,81.72,-22.4;2026-06-25,55.82,62.19,81.46,-22.2;2026-06-26,57,61.99,81.22,-21.2;2026-06-29,56.86,61.79,80.97,-21.5;2026-06-30,56.44,61.58,80.73,-21.6;2026-07-01,57.2,61.41,80.5,-20.4;2026-07-02,57.58,61.26,80.27,-19.3;2026-07-03,57.62,61.11,80.04,-19.3;2026-07-06,57.88,60.99,79.82,-19.8;2026-07-07,60.18,60.96,79.63,-18.9;2026-07-08,59.02,60.88,79.42,-19.3;2026-07-09,59.92,60.84,79.23,-20.8;2026-07-10,60.5,60.83,79.04,-21;2026-07-13,62.44,60.89,78.88,-19.9;2026-07-14,61.26,60.91,78.7,-19.9;2026-07-15,63.18,61,78.55,-19.2;2026-07-16,62.7,61.06,78.39,-18.9;2026-07-17,61.78,61.09,78.22,-19.3;2026-07-20,61.42,61.1,78.06,-19.3;2026-07-21,60,61.06,77.88,-19.8;2026-07-22,59.98,61.02,77.7,-20.1;2026-07-23,59.76,60.97,77.52,-20.4;2026-07-24,62.46,61.03,77.37,-19.2;2026-07-27,67.36,61.28,77.27,-17.5;2026-07-28,71.86,61.69,77.22,-16.3;2026-07-29,74.1,62.18,77.19,-14.5;2026-07-30,68.78,62.44,77.1,-15.7;2026-07-31,67.88,62.65,77.01,-15.7;2026-08-03,69.62,62.92,76.94,-15.6;2026-08-04,71.6,63.26,76.88,-14.5;2026-08-05,70.24,63.54,76.82,-14.7;2026-08-06,69.62,63.78,76.75,-14.6;2026-08-07,70.08,64.02,76.68,-14.2;2026-08-10,70.42,64.27,76.62,-13.6;2026-08-11,70.9,64.53,76.56,-14;2026-08-12,69.16,64.71,76.49,-14.9;2026-08-13,68.32,64.86,76.41,-15.5;2026-08-14,69.78,65.05,76.34,-16.7;2026-08-17,68.52,65.19,76.26,-17.4;2026-08-18,69.98,65.37,76.2,-17;2026-08-19,70.62,65.58,76.14,-16;2026-08-20,70.78,65.78,76.09,-15.6;2026-08-21,71.22,66,76.04,-15.1;2026-08-24,71.7,66.22,76,-14.4;2026-08-25,69.5,66.35,75.93,-14.5;2026-08-26,69.04,66.45,75.87,-14;2026-08-27,70.12,66.6,75.81,-13.2;2026-08-28,70.22,66.74,75.75,-12.8;2026-08-31,70.84,66.9,75.7,-12.6;2026-09-01,69.78,67.01,75.64,-12.6;2026-09-02,68,67.05,75.57,-12.7;2026-09-03,70.58,67.19,75.52,-12.4;2026-09-04,68.86,67.26,75.45,-13.4;2026-09-07,67.9,67.28,75.38,-13.3;2026-09-08,67.26,67.28,75.3,-13.8;2026-09-09,66.8,67.26,75.21,-13.9;2026-09-10,66.2,67.22,75.12,-14.9;2026-09-11,66.24,67.18,75.03,-14.5;2026-09-14,70.72,67.32,74.99,-13;2026-09-15,68.68,67.37,74.93,-13.5;2026-09-16,68.84,67.43,74.87,-12.5;2026-09-17,70.08,67.54,74.82,-11.5;2026-09-18,68.16,67.56,74.75,-20.8;2026-09-21,67.3,67.55,74.68,-21.7;2026-09-22,66.82,67.52,74.6,-22.5;2026-09-23,67.5,67.52,74.53,-21.6;2026-09-24,68.82,67.57,74.47,-21.1;2026-09-25,68.66,67.61,74.42,-20.5;2026-09-28,67.48,67.61,74.35,-20.8;2026-09-29,68,67.62,74.28,-20.5;2026-09-30,67.72,67.63,74.22,-20.7;2026-10-01,68.64,67.67,74.16,-19.8;2026-10-02,67.82,67.67,74.1,-20.6;2026-10-05,68.32,67.7,74.04,-20.8;2026-10-06,69.36,67.76,74,-20.8;2026-10-07,70.9,67.89,73.97,-20.1;2026-10-08,71.78,68.04,73.94,-20.9;2026-10-09,75,68.31,73.95,-19.9;2026-10-12,77.16,68.66,73.99,-19.2;2026-10-13,78.84,69.06,74.03,-17.8;2026-10-14,78.06,69.41,74.07,-18.5;2026-10-15,81.42,69.88,74.15,-17;2026-10-16,81.64,70.34,74.22,-17.1`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+
+const fmtN=(v,d=2)=>v.toLocaleString("de-CH",{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmtD=s=>{const [y,m,d]=s.split("-");return d+"."+m+"."+y.slice(2)};
+const NS="http://www.w3.org/2000/svg";
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+
+function scoreTable(id,rows){
+  let tot=0,max=0;
+  const html='<thead><tr><th>Kriterium</th><th>Stand</th><th class="num">Punkte</th><th style="width:22%"></th></tr></thead><tbody>'+rows.map(r=>{tot+=r[2];max+=r[3];const p=r[2]/r[3];const c=p>=.75?"var(--good)":p>=.45?"var(--warn)":"var(--bad)";
+    return `<tr><td>${r[0]}</td><td class="muted">${r[1]}</td><td class="num">${r[2]} / ${r[3]}</td><td><div class="bar"><i style="width:${p*100}%;background:${c}"></i></div></td></tr>`}).join("")+`<tr class="total"><td>Total</td><td></td><td class="num">${tot} / ${max}</td><td></td></tr></tbody>`;
+  document.getElementById(id).innerHTML=html;return tot;
+}
+const qs=scoreTable("q-tbl",Q), ts=scoreTable("t-tbl",T);
+document.getElementById("q-val").textContent=qs;document.getElementById("t-val").textContent=ts;
+document.getElementById("q-pin").style.left=qs+"%";document.getElementById("t-pin").style.left=ts+"%";
+
+document.getElementById("fin-rows").innerHTML=FIN.map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1].toLocaleString("de-CH")}</td><td class="num">${r[2]}</td><td class="num">${r[3]}</td><td class="num">${fmtN(r[4])}</td><td class="num">${r[5].toLocaleString("de-CH")}</td><td class="num">${r[6]}</td><td class="num">${r[7]}</td></tr>`).join("");
+
+/* generic line chart */
+function lineChart(host,{dates,series,bands=[],yFmt=v=>fmtN(v),h=300,zero=false,refs=[],pad}){
+  const W_=800,H=h,m={t:12,r:56,b:28,l:8};
+  const all=series.flatMap(s=>s.values).concat(bands.flatMap(b=>[b.from,b.to])).concat(refs.map(r=>r.v));
+  if(zero)all.push(0);
+  let lo=Math.min(...all),hi=Math.max(...all);const sp=(hi-lo)||1;lo-=sp*.06;hi+=sp*.06;
+  if(pad){lo=pad[0];hi=pad[1]}
+  const n=dates.length,x=i=>m.l+i*(W_-m.l-m.r)/(n-1),y=v=>m.t+(hi-v)*(H-m.t-m.b)/(hi-lo);
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  // grid
+  const steps=5;for(let k=0;k<=steps;k++){const v=lo+(hi-lo)*k/steps;el("line",{x1:m.l,x2:W_-m.r,y1:y(v),y2:y(v),stroke:"var(--grid)","stroke-width":1},svg);
+    const t=el("text",{x:W_-m.r+6,y:y(v)+4,"font-size":11,fill:"var(--muted)","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=yFmt(v)}
+  bands.forEach(b=>{el("rect",{x:m.l,width:W_-m.l-m.r,y:y(Math.max(b.from,b.to)),height:Math.abs(y(b.from)-y(b.to)),fill:b.type==="res"?"var(--zone-res)":"var(--zone-sup)"},svg)});
+  refs.forEach(r=>{el("line",{x1:m.l,x2:W_-m.r,y1:y(r.v),y2:y(r.v),stroke:"var(--muted)","stroke-dasharray":"4 4","stroke-width":1},svg);
+    const t=el("text",{x:m.l+4,y:y(r.v)-4,"font-size":11,fill:"var(--muted)"},svg);t.textContent=r.label});
+  if(zero)el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  // x labels
+  const every=Math.ceil(n/6);for(let i=0;i<n;i+=every){const t=el("text",{x:x(i),y:H-8,"font-size":11,fill:"var(--muted)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);const d=dates[i];t.textContent=d.slice(5,7)+"/"+d.slice(2,4)}
+  series.forEach(s=>{const dpath=s.values.map((v,i)=>(i?"L":"M")+x(i).toFixed(1)+","+y(v).toFixed(1)).join("");
+    el("path",{d:dpath,fill:"none",stroke:s.color,"stroke-width":s.w||2,"stroke-linejoin":"round","stroke-linecap":"round"},svg);
+    const lv=s.values[n-1];el("circle",{cx:x(n-1),cy:y(lv),r:3.5,fill:s.color,stroke:"var(--surface)","stroke-width":2},svg)});
+  // hover
+  const cross=el("line",{y1:m.t,y2:H-m.b,stroke:"var(--muted)","stroke-width":1,opacity:0},svg);
+  const ov=el("rect",{x:m.l,y:m.t,width:W_-m.l-m.r,height:H-m.t-m.b,fill:"transparent"},svg);
+  host.appendChild(svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;host.appendChild(tip);
+  function move(ev){const r=svg.getBoundingClientRect();const px=(ev.clientX-r.left)*W_/r.width;let i=Math.round((px-m.l)/((W_-m.l-m.r)/(n-1)));i=Math.max(0,Math.min(n-1,i));
+    cross.setAttribute("x1",x(i));cross.setAttribute("x2",x(i));cross.setAttribute("opacity",1);
+    tip.innerHTML=`<div class="d">${fmtD(dates[i])}</div>`+series.map(s=>`<div><i class="sw" style="background:${s.color}"></i> ${s.name}: <b>${yFmt(s.values[i])}</b></div>`).join("");
+    tip.hidden=false;const hx=x(i)*r.width/W_;tip.style.left=Math.min(Math.max(0,hx+12),r.width-tip.offsetWidth)+"px";tip.style.top="8px"}
+  ov.addEventListener("pointermove",move);ov.addEventListener("pointerleave",()=>{tip.hidden=true;cross.setAttribute("opacity",0)});
+}
+function barChart(host,{labels,values,fmt,h=220,color,neg,tipExtra}){
+  const W_=800,H=h,m={t:18,r:8,b:28,l:8};
+  const hi=Math.max(0,...values),lo=Math.min(0,...values);const lo2=lo<0?lo*1.15:lo,hi2=hi*1.15||1;
+  const y=v=>m.t+(hi2-v)*(H-m.t-m.b)/(hi2-lo2);const n=values.length,bw=(W_-m.l-m.r)/n;
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;
+  values.forEach((v,i)=>{const x0=m.l+i*bw+bw*.18,w=bw*.64,y0=y(Math.max(v,0)),hh=Math.max(1,Math.abs(y(v)-y(0)));
+    const r=el("rect",{x:x0,y:y0,width:w,height:hh,rx:4,fill:v<0?(neg||"var(--s2)"):(color||"var(--s1)")},svg);
+    const t=el("text",{x:x0+w/2,y:v<0?y(v)+13:y0-5,"font-size":11.5,fill:"var(--ink)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=fmt(v);
+    const l=el("text",{x:x0+w/2,y:H-8,"font-size":11.5,fill:"var(--muted)","text-anchor":"middle"},svg);l.textContent=labels[i];
+    const hit=el("rect",{x:m.l+i*bw,y:m.t,width:bw,height:H-m.t-m.b,fill:"transparent"},svg);
+    hit.addEventListener("pointerenter",()=>{tip.innerHTML=`<div class="d">${labels[i]}</div><b>${fmt(v)}</b>${tipExtra?tipExtra(i):""}`;tip.hidden=false;const R=svg.getBoundingClientRect();tip.style.left=Math.min((m.l+i*bw)*R.width/W_,R.width-tip.offsetWidth)+"px";tip.style.top="0px"});
+    hit.addEventListener("pointerleave",()=>tip.hidden=true)});
+  host.appendChild(svg);host.appendChild(tip);
+}
+barChart(document.getElementById("c-rev"),{labels:HALF.map(r=>r[0]),values:HALF.map(r=>r[1]),fmt:v=>fmtN(v,0),h:200});
+barChart(document.getElementById("c-margin"),{labels:MARGIN.map(r=>r[0]),values:MARGIN.map(r=>r[1]),fmt:v=>fmtN(v,1)+" %",h:200});
+barChart(document.getElementById("c-seas"),{labels:MON,values:SEAS,fmt:v=>(v>0?"+":"")+fmtN(v,1),h:220,tipExtra:i=>`<div>${SEASHIT[i]} % der Jahre positiv</div>`});
+const BANDS=[{"from": 100, "to": 104, "type": "res"}, {"from": 88, "to": 93, "type": "res"}, {"from": 72, "to": 75, "type": "sup"}, {"from": 65, "to": 68, "type": "sup"}], REFS=[{"v": 83, "label": "Trigger 83"}];
+const wd=W.map(r=>r[0]);
+lineChart(document.getElementById("c-week"),{dates:wd,series:[{name:"Kurs",values:W.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:W.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:W.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,yFmt:v=>fmtN(v,0),h:320});
+lineChart(document.getElementById("c-adw"),{dates:wd,series:[{name:"A/D Woche",values:W.map(r=>r[5]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,zero:true});
+lineChart(document.getElementById("c-rsiw"),{dates:wd,series:[{name:"RSI Woche",values:W.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,refs:[{v:70,label:"70 überkauft"},{v:30,label:"30 überverkauft"}],pad:[10,90]});
+const dd=DD.map(r=>r[0]);
+lineChart(document.getElementById("c-day"),{dates:dd,series:[{name:"Kurs",values:DD.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:DD.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:DD.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,refs:REFS,yFmt:v=>fmtN(v,0),h:260});
+lineChart(document.getElementById("c-add"),{dates:dd,series:[{name:"A/D Tag",values:DD.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:260,zero:true});
+</script>

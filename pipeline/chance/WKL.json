@@ -1,0 +1,58 @@
+{
+ "ticker": "WKL",
+ "sorgen": [
+  "KI könnte teure Fachdatenbanken ersetzen: Am 03.02.2026 stellte Anthropic ein Rechts-Plugin für Claude vor (Wolters Kluwer −10.5 % an einem Tag). OpenEvidence greift UpToDate bei den Ärzten an.",
+  "Das Wachstum zieht nicht an: Organisch 5 % im 1. Quartal und 1. Halbjahr 2026 nach 6 % in den Jahren davor. Am 06.05.2026 fiel die Aktie deshalb um 13 %.",
+  "Die Firma investiert mehr in KI-Produkte (12 bis 13 % vom Umsatz). UBS sieht Unsicherheit für die Marge 2027.",
+  "Die Aktie fiel vom Hoch 181.30 € (Februar 2025) bis auf 54.64 € (Juni 2026), rund 70 %."
+ ],
+ "sorgen_art": "stimmung",
+ "sorgen_art_text": "Die Zahlen sind solide (Marge 29.4 %, Gewinn pro Aktie +14 % ohne Währungseffekte, Prognose bestätigt), gefallen ist vor allem die Bewertung aus Angst vor KI.",
+ "aufloeser": [
+  {
+   "was": "Zwischenbericht 9 Monate: Bleibt das Wachstum bei mindestens 5 % und zieht Tax & Accounting an?",
+   "wann": "04.11.2026"
+  },
+  {
+   "was": "Jahreszahlen 2026 mit Ziel für die Marge 2027, Rückkaufprogramm 2027 und ersten Zahlen, ob KI-Produkte mehr Umsatz bringen",
+   "wann": "24.02.2027"
+  },
+  {
+   "was": "Beweis, dass Kunden für die KI-Versionen mehr bezahlen (UpToDate Expert AI, CCH Axcess mit KI-Agenten)",
+   "wann": "2027"
+  }
+ ],
+ "schub_stufe": "mittel",
+ "schub_treiber": [
+  {
+   "titel": "Cloud-Software",
+   "text": "Wiederkehrende Cloud-Software macht schon 24 % des Umsatzes aus und wächst organisch um 14 %. Je grösser dieser Teil, desto schneller wächst die ganze Firma.",
+   "wann": "2026–2028"
+  },
+  {
+   "titel": "KI in den eigenen Produkten",
+   "text": "UpToDate Expert AI läuft bei über 90 % der rund 2'500 US-Spitalkunden, rund 250 Treuhandfirmen nutzen die KI-Agenten in CCH Axcess. Das schützt die Kunden, ob es auch höhere Preise bringt, zeigt die Firma noch nicht.",
+   "wann": "2026–2027"
+  }
+ ],
+ "schub_beweis": "Achte auf das organische Wachstum (zuletzt 5 %) und das Wachstum der Cloud-Software (zuletzt 14 %). Steigt die Firma wieder auf 6 % oder mehr, ist die KI eher Chance als Gefahr.",
+ "szenario": "Ähnlich wie Google 2023: Alle glauben, KI ersetzt die Fachdatenbanken, dabei baut Wolters Kluwer die KI selbst ein und verkauft sie an Kunden, die ihr seit Jahrzehnten vertrauen. Hält das Wachstum bei 5 bis 6 %, kann sich das KGV von 15 Richtung 20 bis 25 erholen. Grösstes Risiko: KI-Tools werden gut genug und viel billiger, dann sinken Preise und Wachstum, und die Aktie bleibt zu Recht günstig.",
+ "quellen": [
+  {
+   "titel": "Wolters Kluwer Halbjahresbericht 2026",
+   "url": "https://www.globenewswire.com/news-release/2026/08/05/3339046/0/en/Wolters-Kluwer-2026-Half-Year-Report.html"
+  },
+  {
+   "titel": "Canadian Lawyer: Anthropic-Rechtstool erschüttert Fachverlage (Februar 2026)",
+   "url": "https://www.canadianlawyermag.com/news/international/anthropic-legal-tool-jolts-share-price-of-global-legal-data-leaders/393665"
+  },
+  {
+   "titel": "De Belegger: Aktie fällt 13 % (06.05.2026)",
+   "url": "https://www.debelegger.nl/post/aandeel-wolters-kluwer-daalt-vandaag-13-dit-is-waarom"
+  },
+  {
+   "titel": "Outsell: KI-Konkurrenz für Fachinformationen (August 2026)",
+   "url": "https://outsellinc.com/?p=34383"
+  }
+ ]
+}

@@ -12479,6 +12479,362 @@
    ],
    "cheatsheet": "analysen/BMW.html",
    "claude": "https://claude.ai/artifact/3iAMzXvEwcz6hU4PpCmSsW"
+  },
+  {
+   "ticker": "WKL",
+   "symbol": "WKL.AS",
+   "name": "Wolters Kluwer",
+   "tags": [
+    "Qualität",
+    "Dividende"
+   ],
+   "land": "Niederlande",
+   "region": "Europa",
+   "branche": "Fachinformationen und Software",
+   "status": "beobachten",
+   "waehrung": "EUR",
+   "analyse": {
+    "datenstand": "2026-10-16",
+    "kurs": 81.64,
+    "q": 74,
+    "t": 52
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "3 von 4 Halbjahren über Vorjahr in Euro, organisch alle positiv (+5 %)",
+     "p": 10,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "Organisch 5 % (vorher 6 %)",
+     "p": 3,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "29.4 % (9 Pkt.), seit 2021 jedes Jahr gestiegen (6 Pkt.)",
+     "p": 15,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "Bereinigt 2022–2025 rund +8.5 % pro Jahr, aktuell +14 % ohne Währungseffekte",
+     "p": 8,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Immer positiv, 3 von 4 Jahren gestiegen (2023 −4.6 %)",
+     "p": 6,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "18.2 % (10 Pkt.), seit 2021 steigend (+1)",
+     "p": 11,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Nettoschulden/EBITDA 2.0",
+     "p": 7,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "KGV 15.0 statt Ø 26.3 (2021–2025), rund 43 % günstiger",
+     "p": 14,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs über EMA 50, unter EMA 200: mögliche Wende",
+     "p": 8,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs über beiden, EMA 50 noch unter 200, aber steigend",
+     "p": 7,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Doppelter Boden, höhere Tiefs, CHoCH am 12.10. bestätigt, aber im Premium",
+     "p": 14,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "Tag 77.5 (überkauft), Woche 67",
+     "p": 4,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Steigen mit, aber schwächer als der Kurs",
+     "p": 8,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Start 3, Rückkauf 2.8 % pro Jahr +3, Aufsichtsrats-Käufe älter als 6 Monate",
+     "p": 6,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "Oktober 58 %, November 61 %, Dezember 65 % positive Jahre",
+     "p": 5,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 15.0,
+    "schnitt": 26.3,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      72,
+      75
+     ],
+     [
+      65,
+      68
+     ]
+    ],
+    "widerstand": [
+     [
+      88,
+      93
+     ],
+     [
+      100,
+      104
+     ]
+    ],
+    "trigger": 83,
+    "abbruch": 64.8
+   },
+   "zahlen": "2026-11-04",
+   "dividende": "3.1 %",
+   "div_info": {
+    "pro_jahr": 2,
+    "rhythmus": "halbjährlich",
+    "ex_monate": [
+     5,
+     9
+    ],
+    "zahl_monate": [
+     6,
+     9
+    ],
+    "zahl_text": "Schlussdividende Mitte Juni (2026: Ex-Tag 25. Mai, Zahltag 17. Juni), Zwischendividende Ende September (2026: Ex-Tag 1. September, Zahltag 24. September)",
+    "abstand_tage": 23,
+    "betrag": 1.01,
+    "system": "Niederländisches System mit Zwischen- und Schlussdividende: Im September kommt die Zwischendividende (40 % der Vorjahresdividende), im Juni nach der Generalversammlung die Schlussdividende. Für 2025 total 2.52 € (+8 %). Seit über 20 Jahren jedes Jahr erhöht.",
+    "form": "Bar in Euro aufs Konto. Die Niederlande ziehen 15 % Quellensteuer ab, die du in der Regel über die Schweizer Steuererklärung anrechnen lassen kannst (Formular DA-1)."
+   },
+   "chance": {
+    "ticker": "WKL",
+    "sorgen": [
+     "KI könnte teure Fachdatenbanken ersetzen: Am 03.02.2026 stellte Anthropic ein Rechts-Plugin für Claude vor (Wolters Kluwer −10.5 % an einem Tag). OpenEvidence greift UpToDate bei den Ärzten an.",
+     "Das Wachstum zieht nicht an: Organisch 5 % im 1. Quartal und 1. Halbjahr 2026 nach 6 % in den Jahren davor. Am 06.05.2026 fiel die Aktie deshalb um 13 %.",
+     "Die Firma investiert mehr in KI-Produkte (12 bis 13 % vom Umsatz). UBS sieht Unsicherheit für die Marge 2027.",
+     "Die Aktie fiel vom Hoch 181.30 € (Februar 2025) bis auf 54.64 € (Juni 2026), rund 70 %."
+    ],
+    "sorgen_art": "stimmung",
+    "sorgen_art_text": "Die Zahlen sind solide (Marge 29.4 %, Gewinn pro Aktie +14 % ohne Währungseffekte, Prognose bestätigt), gefallen ist vor allem die Bewertung aus Angst vor KI.",
+    "aufloeser": [
+     {
+      "was": "Zwischenbericht 9 Monate: Bleibt das Wachstum bei mindestens 5 % und zieht Tax & Accounting an?",
+      "wann": "04.11.2026"
+     },
+     {
+      "was": "Jahreszahlen 2026 mit Ziel für die Marge 2027, Rückkaufprogramm 2027 und ersten Zahlen, ob KI-Produkte mehr Umsatz bringen",
+      "wann": "24.02.2027"
+     },
+     {
+      "was": "Beweis, dass Kunden für die KI-Versionen mehr bezahlen (UpToDate Expert AI, CCH Axcess mit KI-Agenten)",
+      "wann": "2027"
+     }
+    ],
+    "schub_stufe": "mittel",
+    "schub_treiber": [
+     {
+      "titel": "Cloud-Software",
+      "text": "Wiederkehrende Cloud-Software macht schon 24 % des Umsatzes aus und wächst organisch um 14 %. Je grösser dieser Teil, desto schneller wächst die ganze Firma.",
+      "wann": "2026–2028"
+     },
+     {
+      "titel": "KI in den eigenen Produkten",
+      "text": "UpToDate Expert AI läuft bei über 90 % der rund 2'500 US-Spitalkunden, rund 250 Treuhandfirmen nutzen die KI-Agenten in CCH Axcess. Das schützt die Kunden, ob es auch höhere Preise bringt, zeigt die Firma noch nicht.",
+      "wann": "2026–2027"
+     }
+    ],
+    "schub_beweis": "Achte auf das organische Wachstum (zuletzt 5 %) und das Wachstum der Cloud-Software (zuletzt 14 %). Steigt die Firma wieder auf 6 % oder mehr, ist die KI eher Chance als Gefahr.",
+    "szenario": "Ähnlich wie Google 2023: Alle glauben, KI ersetzt die Fachdatenbanken, dabei baut Wolters Kluwer die KI selbst ein und verkauft sie an Kunden, die ihr seit Jahrzehnten vertrauen. Hält das Wachstum bei 5 bis 6 %, kann sich das KGV von 15 Richtung 20 bis 25 erholen. Grösstes Risiko: KI-Tools werden gut genug und viel billiger, dann sinken Preise und Wachstum, und die Aktie bleibt zu Recht günstig.",
+    "quellen": [
+     {
+      "titel": "Wolters Kluwer Halbjahresbericht 2026",
+      "url": "https://www.globenewswire.com/news-release/2026/08/05/3339046/0/en/Wolters-Kluwer-2026-Half-Year-Report.html"
+     },
+     {
+      "titel": "Canadian Lawyer: Anthropic-Rechtstool erschüttert Fachverlage (Februar 2026)",
+      "url": "https://www.canadianlawyermag.com/news/international/anthropic-legal-tool-jolts-share-price-of-global-legal-data-leaders/393665"
+     },
+     {
+      "titel": "De Belegger: Aktie fällt 13 % (06.05.2026)",
+      "url": "https://www.debelegger.nl/post/aandeel-wolters-kluwer-daalt-vandaag-13-dit-is-waarom"
+     },
+     {
+      "titel": "Outsell: KI-Konkurrenz für Fachinformationen (August 2026)",
+      "url": "https://outsellinc.com/?p=34383"
+     }
+    ]
+   },
+   "fazit": "Wolters Kluwer ist eine Qualitätsfirma wie RELX: 85 % wiederkehrende Umsätze, Marge 29 %, Free Cashflow 1.4 Mrd. € und ein KGV von nur noch 15 statt rund 26. Die Aktie fiel vom Hoch 181.30 € (Februar 2025) auf 54.64 € (Juni 2026), weil die Börse fürchtet, dass KI wie Claude oder ChatGPT die teuren Fachdatenbanken ersetzt. Die Zahlen zeigen das bisher kaum: Wachstum 5 % statt 6 %. Qualität hellgrün (74), Timing gelb (52). Seit Juni hat die Aktie den Trend gedreht und ist um 49 % gestiegen, kurzfristig ist sie aber überkauft. Schwachpunkt nach deinem Schema: Rückkäufe und Dividende waren 2022 bis 2025 grösser als der Free Cashflow, die Schulden stiegen.",
+   "about": "Wolters Kluwer verkauft Fachwissen und Software im Abo. Health: UpToDate, das Nachschlagewerk für Ärzte in rund 2'500 US-Spitälern, und Medikamenten-Datenbanken. Tax & Accounting: Steuer- und Buchhaltungssoftware CCH Axcess für Treuhänder und Firmen. Financial & Corporate Compliance: Dienste für Banken und Firmengründungen. Legal & Regulatory: Rechtsdatenbanken und Kanzleisoftware. Corporate Performance & ESG: Software für Finanzplanung und Nachhaltigkeit. 85 % des Umsatzes kommen aus Abos und Verträgen, davon 24 % aus Cloud-Software (+14 %). Rund 60 % des Umsatzes stammen aus Nordamerika.",
+   "kpis": [
+    {
+     "ampel": "w",
+     "name": "Organisches Wachstum",
+     "wert": "+5 %",
+     "text": "1. Halbjahr 2026, ohne Zukäufe und Währungseffekte. 2021 bis 2025 jedes Jahr 6 %. Gemeldet −0.6 %, weil der Dollar schwach war (60 % des Umsatzes in den USA)."
+    },
+    {
+     "ampel": "g",
+     "name": "Operative Marge",
+     "wert": "29.4 %",
+     "text": "1. Halbjahr 2026 (bereinigt). Von 100 € Umsatz bleiben rund 29 € Betriebsgewinn. Seit 2021 jedes Jahr gestiegen (25.3 %). Sehr gut."
+    },
+    {
+     "ampel": "g",
+     "name": "Gewinn pro Aktie (EPS)",
+     "wert": "5.42 €",
+     "text": "Letzte 12 Monate, bereinigt. 2021: 3.38 €, also rund +12 % pro Jahr. Im 1. Halbjahr 2026 +14 % ohne Währungseffekte."
+    },
+    {
+     "ampel": "g",
+     "name": "ROIC",
+     "wert": "18.2 %",
+     "text": "Auf 100 € investiertes Kapital rund 18 € Gewinn. Gut und seit 2021 (13.7 %) gestiegen."
+    },
+    {
+     "ampel": "g",
+     "name": "Free Cashflow",
+     "wert": "1.38 Mrd. €",
+     "text": "Letzte 12 Monate (bereinigt), 22.5 % vom Umsatz. Seit 2021 von 1.0 Mrd. € gestiegen, nur 2023 ein kleiner Rückgang. 85 % Abo-Umsatz machen ihn gut planbar."
+    },
+    {
+     "ampel": "w",
+     "name": "Nettoschulden",
+     "wert": "4.0 Mrd. €",
+     "text": "2.0-mal der Betriebsgewinn vor Abschreibungen (EBITDA), im Zielband der Firma (1.5 bis 2.5). Seit 2021 verdoppelt, weil Rückkäufe und Dividende grösser waren als der Free Cashflow."
+    },
+    {
+     "ampel": "g",
+     "name": "KGV",
+     "wert": "15.0",
+     "text": "Auf den bereinigten Gewinn. Du zahlst 15 Jahresgewinne. Eigener Schnitt 2021–2025: rund 26. Also rund 43 % günstiger als üblich."
+    },
+    {
+     "ampel": "g",
+     "name": "Dividende",
+     "wert": "3.1 %",
+     "text": "2.52 € für 2025, zweimal pro Jahr: Schlussdividende 1.59 € (bezahlt 17.6.2026) und Zwischendividende 1.01 € (bezahlt 24.9.2026). Seit über 20 Jahren jedes Jahr erhöht."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "100–104 €",
+     "text": "Widerstand: Wochen-EMA 200 (103.70 €)."
+    },
+    {
+     "art": "r",
+     "wert": "88–93 €",
+     "text": "Widerstand: Jahresanfang 2026 (Hoch 93.12 € am 12.1.)."
+    },
+    {
+     "art": "t",
+     "wert": "83 €",
+     "text": "Trigger: Tagesschluss über 83 € setzt den Ausbruch fort. Für einen Einstieg besser: Rücksetzer in Kaufzone 1."
+    },
+    {
+     "art": "s",
+     "wert": "72–75 €",
+     "text": "Kaufzone 1: Ausbruchszone (Hochs April und Juli 72.90 / 74.12 €) und Tages-EMA 200 (74.20 €)."
+    },
+    {
+     "art": "s",
+     "wert": "65–68 €",
+     "text": "Kaufzone 2: Tiefs vom September und Oktober (64.86 / 65.84 €)."
+    },
+    {
+     "art": "r",
+     "wert": "64.80 €",
+     "text": "Abbruch: Wochenschluss unter dem Tief vom 11.9. Dann wäre die Wende gescheitert."
+    }
+   ],
+   "pro": [
+    "85 % Abo-Umsatz, Kunden sind Spitäler, Treuhänder und Kanzleien, die die Produkte täglich brauchen.",
+    "Marge steigt seit Jahren (29.4 %), Free Cashflow 1.38 Mrd. € (22.5 % vom Umsatz).",
+    "KGV 15 statt rund 26, Free-Cashflow-Rendite 7.6 %, Dividende 3.1 % und seit über 20 Jahren steigend.",
+    "UpToDate Expert AI bei über 90 % der US-Spitalkunden im Einsatz, Cloud-Software +14 %.",
+    "Trendwende im Chart bestätigt, Aufsichtsräte kauften nahe am Tief."
+   ],
+   "contra": [
+    "KI-Gefahr ist echt offen: Claude, ChatGPT und OpenEvidence könnten Preise und Kunden kosten. Preisdaten zeigt die Firma nicht.",
+    "Wachstum etwas langsamer (5 % statt 6 %), Rechtsbereich am stärksten bedroht.",
+    "Rückkäufe und Dividende waren 2022 bis 2025 grösser als der Free Cashflow, Schulden verdoppelt (4.0 Mrd. €).",
+    "Höhere Investitionen in KI-Produkte könnten die Marge 2027 drücken (UBS).",
+    "Kurzfristig überkauft (RSI 77.5) nach +49 % seit Juni."
+   ],
+   "smart_money": [
+    "Wolters Kluwer selbst: Rückkauf 2026 bis 500 Mio. € (rund 2.8 % des Börsenwerts), bis 16.9. für 264 Mio. € zu durchschnittlich 67.96 €. 2022 bis 2025 waren es jedes Jahr 1 bis 1.1 Mrd. €. Seit 2021 gibt es 13.6 % weniger Aktien.",
+    "Aufsichtsrat kauft: Am 25./26.2.2026 kauften drei Aufsichtsräte nahe am Tief (zu 62.50 bis 64.12 €, zusammen rund 0.34 Mio. €), im November 2025 einer zu 97.49 €. Die Chefin Stacey Caywood kaufte im August 2025 zu 112.92 €.",
+    "Insider-Verkäufe: Nur Verkäufe zur Steuerzahlung bei Aktienzuteilungen (CEO und CFO im Februar 2026). Keine freien Verkäufe.",
+    "Analysten: Mehrheit positiv. StockAnalysis: 10× stark Kaufen, 2× Kaufen, 3× Halten, 1× Verkaufen. Kursziel im Schnitt 89.78 € (54 bis 120 €). Hochstufungen: Bernstein (Mai) und JPMorgan (Juli)."
+   ],
+   "cheatsheet": "analysen/WKL.html",
+   "claude": "https://claude.ai/artifact/5cNkhWogUhD1iPyPsYc6vD"
   }
  ]
 }
