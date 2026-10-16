@@ -571,5 +571,20 @@
  "AMZN": {
   "zahlt": false,
   "text": "Amazon zahlt keine Dividende und kauft seit 2022 keine Aktien zurück. Das ganze Geld fliesst in Rechenzentren, KI-Chips und Logistik."
+ },
+ "BMW": {
+  "pro_jahr": 1,
+  "rhythmus": "jährlich",
+  "ex_monate": [
+   5
+  ],
+  "zahl_monate": [
+   5
+  ],
+  "zahl_text": "Mitte Mai, wenige Tage nach der Generalversammlung (2026: Ex-Tag 14. Mai, Zahltag 19. Mai; nächste Generalversammlung 12. Mai 2027)",
+  "abstand_tage": 5,
+  "betrag": 4.4,
+  "system": "Deutsches System: eine Dividende pro Jahr, beschlossen an der Generalversammlung im Mai und wenige Tage später ausbezahlt. BMW zahlt 30 bis 40 % des Gewinns aus. Weil der Gewinn 2026 stark sinkt, ist für Mai 2027 eine deutlich tiefere Dividende zu erwarten (rund 2.00 bis 2.70 €).",
+  "form": "Bar in Euro aufs Konto. Deutschland zieht 26.375 % Quellensteuer ab. 15 % kannst du über die Schweizer Steuererklärung anrechnen lassen (Formular DA-1), die restlichen 11.375 % musst du in Deutschland zurückfordern (Bundeszentralamt für Steuern, innert rund 3 Jahren). Lohnt sich erst bei grösseren Beträgen."
  }
 }

@@ -1305,5 +1305,42 @@
   "pe_typ": "KGV",
   "zahlen": "2026-10-29",
   "artifact": "SNhRb4qaqKLYsNhnVAkrwT"
+ },
+ "BMW": {
+  "symbol": "BMW.DE",
+  "name": "BMW",
+  "tags": [
+   "Dividende"
+  ],
+  "land": "Deutschland",
+  "region": "Europa",
+  "branche": "Autos",
+  "status": "beobachten",
+  "waehrung": "EUR",
+  "kurs": 57.14,
+  "datenstand": "2026-10-16",
+  "kauf": [
+   [
+    52,
+    55
+   ]
+  ],
+  "widerstand": [
+   [
+    60,
+    64.5
+   ],
+   [
+    68,
+    70
+   ]
+  ],
+  "trigger": 61,
+  "abbruch": 51.9,
+  "pe": 8.2,
+  "pe_avg": 5.6,
+  "pe_typ": "KGV",
+  "zahlen": "2026-11-04",
+  "artifact": "3iAMzXvEwcz6hU4PpCmSsW"
  }
 }

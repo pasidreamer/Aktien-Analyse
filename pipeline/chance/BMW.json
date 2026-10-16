@@ -1,0 +1,62 @@
+{
+ "ticker": "BMW",
+ "sorgen": [
+  "China bricht weg: BMW verkaufte im 2. Quartal 2026 rund 30 % und im 3. Quartal 25 % weniger Autos in China. Chinesische Hersteller bieten modernere Elektroautos günstiger an.",
+  "Gewinnwarnung am 16.06.2026: Die Auto-Marge für 2026 sinkt auf nur 1 bis 3 %, der Free Cashflow der Autosparte auf über 2.5 Mrd. €. Im 2. Quartal lag die Marge bei 2.3 %, so tief wie seit fünf Jahren nicht.",
+  "Am Investorentag (29./30.09.2026) sagte BMW, dass die Marge erst 2028 auf 3 bis 5 % und erst Anfang der 2030er-Jahre wieder auf 8 bis 10 % steigt.",
+  "Die Dividende dürfte 2027 sinken: BMW zahlt 30 bis 40 % des Gewinns aus, und Analysten erwarten für 2026 rund 44 % weniger Gewinn."
+ ],
+ "sorgen_art": "echt",
+ "sorgen_art_text": "Umsatz, Marge, Gewinn und Free Cashflow sinken seit Jahren, und China ist strukturell verloren. Billig ist die Aktie, weil das Geschäft wirklich schlechter wird.",
+ "aufloeser": [
+  {
+   "was": "Zahlen zum 3. Quartal: Hält die Auto-Marge über 1 %, und wie hoch sind die Kosten für den Stellenabbau?",
+   "wann": "Zahlen 04.11.2026"
+  },
+  {
+   "was": "Start der lokal gebauten iX3 in China: Kann BMW dort wieder Marktanteile gewinnen?",
+   "wann": "ab November 2026"
+  },
+  {
+   "was": "Jahreszahlen 2026, Ausblick 2027 und Höhe der Dividende",
+   "wann": "11.03.2027"
+  },
+  {
+   "was": "Weitere Entscheide zum Sparprogramm aus dem Investorentag",
+   "wann": "Frühling 2027"
+  }
+ ],
+ "schub_stufe": "schwach",
+ "schub_treiber": [
+  {
+   "titel": "Neue Klasse (iX3 und Nachfolger)",
+   "text": "Über 100'000 Bestellungen für den iX3 in Europa in einem Jahr, das Werk in Debrecen läuft seit September rund um die Uhr. In Europa stiegen die Elektro-Verkäufe im 3. Quartal um 37.5 %. Ob die neuen Autos auch gute Margen bringen, ist offen.",
+   "wann": "2026–2028"
+  },
+  {
+   "titel": "Sparprogramm",
+   "text": "20 % weniger Management bis Mitte 2027, rund 8'000 Stellen weniger, Investitionen und Forschung unter 10 % vom Umsatz 2027 (2024: 12.8 %). Das hebt die Marge, aber laut BMW nur langsam auf 3 bis 5 % bis 2028.",
+   "wann": "2027–2028"
+  }
+ ],
+ "schub_beweis": "Achte bei jeden Zahlen auf die EBIT-Marge der Autosparte (Q2 2026: 2.3 %) und die Auslieferungen in China (Q3 2026: −24.8 %). Steigt die Marge wieder über 5 % und sinkt China nicht mehr, kommt die Wende.",
+ "szenario": "Kein Fall wie Google 2023, sondern ein tiefer Wert-Fall: Die Aktie ist so billig, dass schon eine kleine Besserung den Kurs stark heben könnte (Analystenziel im Schnitt 70 €, +23 %). Dafür muss aber China drehen oder die Neue Klasse viel Geld verdienen. Grösstes Risiko: Die Durststrecke dauert bis in die 2030er-Jahre, die Dividende wird gekürzt, und die Aktie bleibt jahrelang billig (Value-Falle).",
+ "quellen": [
+  {
+   "titel": "BMW Group: Anpassung der Prognose 2026 (16.06.2026)",
+   "url": "https://www.press.bmwgroup.com/global/article/detail/T0458585EN/bmw-group-adjusts-guidance-for-2026"
+  },
+  {
+   "titel": "BMW Group: Capital Market Day 2026",
+   "url": "https://www.bmwgroup.com/en/news/general/2026/capital-market-day.html"
+  },
+  {
+   "titel": "Börsen-Zeitung: BMW schwört Börse auf Durststrecke ein",
+   "url": "https://www.boersen-zeitung.de/unternehmen-branchen/bmw-schwoert-boerse-auf-durststrecke-ein"
+  },
+  {
+   "titel": "Morningstar: BMW Prognosesenkung und China",
+   "url": "https://global.morningstar.com/en-eu/stocks/bmw-guidance-cut-china-headwinds-delay-recovery"
+  }
+ ]
+}

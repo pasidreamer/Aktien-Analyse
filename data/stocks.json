@@ -12131,6 +12131,354 @@
    ],
    "cheatsheet": "analysen/AMZN.html",
    "claude": "https://claude.ai/artifact/SNhRb4qaqKLYsNhnVAkrwT"
+  },
+  {
+   "ticker": "BMW",
+   "symbol": "BMW.DE",
+   "name": "BMW",
+   "tags": [
+    "Dividende"
+   ],
+   "land": "Deutschland",
+   "region": "Europa",
+   "branche": "Autos",
+   "status": "beobachten",
+   "waehrung": "EUR",
+   "analyse": {
+    "datenstand": "2026-10-16",
+    "kurs": 57.14,
+    "q": 15,
+    "t": 32
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "0 von 4 Quartalen über Vorjahr",
+     "p": 0,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "Umsatz −6.2 % in 12 Monaten",
+     "p": 0,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "Autos 3.6 % (unter 8 %: 0 Pkt.), seit 2021 fallend (0 Pkt.)",
+     "p": 0,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "Für 2026 rund −44 % erwartet",
+     "p": 0,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Autosparte positiv, aber seit 2022 jedes Jahr gesunken",
+     "p": 3,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "2.9 % (2 Pkt.), fallend (−1)",
+     "p": 1,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Autosparte mit Netto-Cash über 44 Mrd. €",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "KGV 2026e 8.2 statt Ø 5.6 (2021–2025), rund 46 % teurer, weil der Gewinn einbricht",
+     "p": 1,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs weit unter beiden, EMA 50 unter 200 und fallend",
+     "p": 1,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs knapp unter EMA 50, weit unter EMA 200, EMA 50 unter 200",
+     "p": 1,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Tiefere Hochs und Tiefs, erster kleiner CHoCH am 16.10.",
+     "p": 4,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "Bullische Divergenz im Tageschart (Kurs tiefer, RSI höher)",
+     "p": 12,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Beide fallen mit dem Kurs",
+     "p": 4,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Start 3, Rückkauf 3.8 % pro Jahr +3, keine freien Insider-Käufe",
+     "p": 6,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "Oktober 68 %, November 55 %, Dezember 67 % positive Jahre",
+     "p": 4,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 8.2,
+    "schnitt": 5.6,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      52,
+      55
+     ]
+    ],
+    "widerstand": [
+     [
+      60,
+      64.5
+     ],
+     [
+      68,
+      70
+     ]
+    ],
+    "trigger": 61,
+    "abbruch": 51.9
+   },
+   "zahlen": "2026-11-04",
+   "dividende": "7.7 %",
+   "div_info": {
+    "pro_jahr": 1,
+    "rhythmus": "jährlich",
+    "ex_monate": [
+     5
+    ],
+    "zahl_monate": [
+     5
+    ],
+    "zahl_text": "Mitte Mai, wenige Tage nach der Generalversammlung (2026: Ex-Tag 14. Mai, Zahltag 19. Mai; nächste Generalversammlung 12. Mai 2027)",
+    "abstand_tage": 5,
+    "betrag": 4.4,
+    "system": "Deutsches System: eine Dividende pro Jahr, beschlossen an der Generalversammlung im Mai und wenige Tage später ausbezahlt. BMW zahlt 30 bis 40 % des Gewinns aus. Weil der Gewinn 2026 stark sinkt, ist für Mai 2027 eine deutlich tiefere Dividende zu erwarten (rund 2.00 bis 2.70 €).",
+    "form": "Bar in Euro aufs Konto. Deutschland zieht 26.375 % Quellensteuer ab. 15 % kannst du über die Schweizer Steuererklärung anrechnen lassen (Formular DA-1), die restlichen 11.375 % musst du in Deutschland zurückfordern (Bundeszentralamt für Steuern, innert rund 3 Jahren). Lohnt sich erst bei grösseren Beträgen."
+   },
+   "chance": {
+    "ticker": "BMW",
+    "sorgen": [
+     "China bricht weg: BMW verkaufte im 2. Quartal 2026 rund 30 % und im 3. Quartal 25 % weniger Autos in China. Chinesische Hersteller bieten modernere Elektroautos günstiger an.",
+     "Gewinnwarnung am 16.06.2026: Die Auto-Marge für 2026 sinkt auf nur 1 bis 3 %, der Free Cashflow der Autosparte auf über 2.5 Mrd. €. Im 2. Quartal lag die Marge bei 2.3 %, so tief wie seit fünf Jahren nicht.",
+     "Am Investorentag (29./30.09.2026) sagte BMW, dass die Marge erst 2028 auf 3 bis 5 % und erst Anfang der 2030er-Jahre wieder auf 8 bis 10 % steigt.",
+     "Die Dividende dürfte 2027 sinken: BMW zahlt 30 bis 40 % des Gewinns aus, und Analysten erwarten für 2026 rund 44 % weniger Gewinn."
+    ],
+    "sorgen_art": "echt",
+    "sorgen_art_text": "Umsatz, Marge, Gewinn und Free Cashflow sinken seit Jahren, und China ist strukturell verloren. Billig ist die Aktie, weil das Geschäft wirklich schlechter wird.",
+    "aufloeser": [
+     {
+      "was": "Zahlen zum 3. Quartal: Hält die Auto-Marge über 1 %, und wie hoch sind die Kosten für den Stellenabbau?",
+      "wann": "Zahlen 04.11.2026"
+     },
+     {
+      "was": "Start der lokal gebauten iX3 in China: Kann BMW dort wieder Marktanteile gewinnen?",
+      "wann": "ab November 2026"
+     },
+     {
+      "was": "Jahreszahlen 2026, Ausblick 2027 und Höhe der Dividende",
+      "wann": "11.03.2027"
+     },
+     {
+      "was": "Weitere Entscheide zum Sparprogramm aus dem Investorentag",
+      "wann": "Frühling 2027"
+     }
+    ],
+    "schub_stufe": "schwach",
+    "schub_treiber": [
+     {
+      "titel": "Neue Klasse (iX3 und Nachfolger)",
+      "text": "Über 100'000 Bestellungen für den iX3 in Europa in einem Jahr, das Werk in Debrecen läuft seit September rund um die Uhr. In Europa stiegen die Elektro-Verkäufe im 3. Quartal um 37.5 %. Ob die neuen Autos auch gute Margen bringen, ist offen.",
+      "wann": "2026–2028"
+     },
+     {
+      "titel": "Sparprogramm",
+      "text": "20 % weniger Management bis Mitte 2027, rund 8'000 Stellen weniger, Investitionen und Forschung unter 10 % vom Umsatz 2027 (2024: 12.8 %). Das hebt die Marge, aber laut BMW nur langsam auf 3 bis 5 % bis 2028.",
+      "wann": "2027–2028"
+     }
+    ],
+    "schub_beweis": "Achte bei jeden Zahlen auf die EBIT-Marge der Autosparte (Q2 2026: 2.3 %) und die Auslieferungen in China (Q3 2026: −24.8 %). Steigt die Marge wieder über 5 % und sinkt China nicht mehr, kommt die Wende.",
+    "szenario": "Kein Fall wie Google 2023, sondern ein tiefer Wert-Fall: Die Aktie ist so billig, dass schon eine kleine Besserung den Kurs stark heben könnte (Analystenziel im Schnitt 70 €, +23 %). Dafür muss aber China drehen oder die Neue Klasse viel Geld verdienen. Grösstes Risiko: Die Durststrecke dauert bis in die 2030er-Jahre, die Dividende wird gekürzt, und die Aktie bleibt jahrelang billig (Value-Falle).",
+    "quellen": [
+     {
+      "titel": "BMW Group: Anpassung der Prognose 2026 (16.06.2026)",
+      "url": "https://www.press.bmwgroup.com/global/article/detail/T0458585EN/bmw-group-adjusts-guidance-for-2026"
+     },
+     {
+      "titel": "BMW Group: Capital Market Day 2026",
+      "url": "https://www.bmwgroup.com/en/news/general/2026/capital-market-day.html"
+     },
+     {
+      "titel": "Börsen-Zeitung: BMW schwört Börse auf Durststrecke ein",
+      "url": "https://www.boersen-zeitung.de/unternehmen-branchen/bmw-schwoert-boerse-auf-durststrecke-ein"
+     },
+     {
+      "titel": "Morningstar: BMW Prognosesenkung und China",
+      "url": "https://global.morningstar.com/en-eu/stocks/bmw-guidance-cut-china-headwinds-delay-recovery"
+     }
+    ]
+   },
+   "fazit": "BMW ist an der Börse so billig wie selten: Der ganze Börsenwert (33 Mrd. €) liegt unter dem Netto-Bargeld der Autosparte (über 44 Mrd. € Ende 2025). Aber das Geschäft wird wirklich schlechter: Umsatz −6 %, die Auto-Marge fällt von 10 % (2021) auf 1 bis 3 % (Prognose 2026), in China verkauft BMW ein Viertel weniger Autos. Der Free Cashflow der Autosparte sinkt seit 2022 jedes Jahr, und Dividende plus Rückkäufe sind grösser als er. Qualität rot (15), Timing orange (32). Das ist ein klassischer Value-Falle-Kandidat: billig, aber noch ohne Wende.",
+   "about": "BMW baut Autos der Marken BMW, MINI und Rolls-Royce sowie Motorräder und verkauft rund 2.4 Mio. Autos pro Jahr. Dazu kommt eine eigene Bank (Financial Services), die Kunden Autos finanziert und least. Diese Bank macht die grossen Schulden im Konzern aus (rund 117 Mrd. €). Die Autosparte selbst hat mehr Geld als Schulden. Die wichtigsten Märkte sind Europa, China und die USA. Seit 2025 baut BMW die «Neue Klasse», eine neue Generation Elektroautos, als erstes den iX3 in Debrecen (Ungarn). Die Familie Quandt (Stefan Quandt und Susanne Klatten) besitzt rund die Hälfte der Aktien.",
+   "kpis": [
+    {
+     "ampel": "r",
+     "name": "Umsatzwachstum",
+     "wert": "−6.2 %",
+     "text": "Letzte 12 Monate. Seit 2024 sinkt der Umsatz jedes Jahr. Im 3. Quartal 2026 lieferte BMW 6.3 % weniger Autos aus, in China 24.8 % weniger."
+    },
+    {
+     "ampel": "r",
+     "name": "Operative Marge (Autos)",
+     "wert": "3.6 %",
+     "text": "1. Halbjahr 2026: Von 100 € Autoumsatz bleiben 3.60 € Gewinn. 2021 waren es 10.3 %. Für 2026 erwartet BMW nur 1 bis 3 %. Schwach."
+    },
+    {
+     "ampel": "r",
+     "name": "Gewinn pro Aktie (EPS)",
+     "wert": "10.52 €",
+     "text": "Letzte 12 Monate. Für 2026 erwarten Analysten nur 6.70 € (−44 %). 2022 waren es 27.31 €."
+    },
+    {
+     "ampel": "r",
+     "name": "ROIC",
+     "wert": "2.9 %",
+     "text": "Auf 100 € investiertes Kapital nur rund 3 € Gewinn. Sehr schwach und seit 2023 (7.6 %) fallend."
+    },
+    {
+     "ampel": "w",
+     "name": "Free Cashflow (Autos)",
+     "wert": "3.2 Mrd. €",
+     "text": "2025, nur die Autosparte. Fällt seit 2022 jedes Jahr (11.1 → 6.9 → 4.9 → 3.2 Mrd. €). Prognose 2026: über 2.5 Mrd. €. Dividende und Rückkäufe (3.9 Mrd. €) waren 2025 grösser als der FCF."
+    },
+    {
+     "ampel": "g",
+     "name": "Netto-Cash (Autos)",
+     "wert": "über 44 Mrd. €",
+     "text": "Ende 2025. Die Autosparte hat viel mehr Geld als Schulden. Die 117 Mrd. € Schulden im Konzern gehören zur Autobank (Leasing und Kredite an Kunden)."
+    },
+    {
+     "ampel": "w",
+     "name": "KGV",
+     "wert": "8.2",
+     "text": "Auf den erwarteten Gewinn 2026 gerechnet. Auf die letzten 12 Monate nur 5.2. Eigener Schnitt 2021–2025: rund 5.6. Autobauer sind immer tief bewertet. Kurs-Buchwert nur 0.35: Die Börse bezahlt ein Drittel des Buchwerts."
+    },
+    {
+     "ampel": "w",
+     "name": "Dividende",
+     "wert": "7.7 %",
+     "text": "4.40 € pro Aktie, einmal im Jahr (bezahlt am 19.5.2026). Diese Rendite schaut zurück: BMW zahlt 30 bis 40 % des Gewinns aus. Bei 6.70 € Gewinn 2026 wären es nur rund 2.00 bis 2.70 € im Mai 2027."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "68–70 €",
+     "text": "Widerstand: Tages-EMA 200 (67.90 €) und Wochen-EMA 50 (70 €)."
+    },
+    {
+     "art": "r",
+     "wert": "60–64.50 €",
+     "text": "Widerstand: Seitwärtsspanne Juli bis September, Hochs 64.22 und 64.46 €."
+    },
+    {
+     "art": "t",
+     "wert": "61 €",
+     "text": "Trigger: Tagesschluss über 61 € (Beginn des Kursrutsches am 18.9. und über der Tages-EMA 50). Erst dann wäre die Wende bestätigt."
+    },
+    {
+     "art": "s",
+     "wert": "52–55 €",
+     "text": "Kaufzone: Tiefs vom Oktober (51.98 bis 54.12 €). Nur für eine kleine Spekulation."
+    },
+    {
+     "art": "r",
+     "wert": "51.90 €",
+     "text": "Abbruch: Wochenschluss unter dem Tief vom 8.10. Darunter keine Unterstützung in den letzten zwei Jahren."
+    }
+   ],
+   "pro": [
+    "Extrem tief bewertet: Börsenwert (33 Mrd. €) unter dem Netto-Cash der Autosparte (über 44 Mrd. €), Kurs-Buchwert 0.35.",
+    "Neue Klasse kommt gut an: über 100'000 Bestellungen für den iX3 in Europa in einem Jahr.",
+    "Sparprogramm: 20 % weniger Management, rund 8'000 Stellen, Investitionen sinken unter 10 % vom Umsatz.",
+    "Familie Quandt als stabiler Grossaktionär, Rückkäufe laufen bis Ende November.",
+    "Bullische RSI-Divergenz im Tageschart, starke Saison Oktober bis Dezember."
+   ],
+   "contra": [
+    "China bricht weg (−25 bis −30 %): Chinesische Elektroautos sind günstiger und moderner.",
+    "Lange Durststrecke: Marge erst 2028 bei 3–5 %, 8–10 % erst Anfang der 2030er-Jahre.",
+    "Free Cashflow sinkt seit 2022 jedes Jahr, die Ausschüttungen sind grösser als er.",
+    "Dividende 2027 wird voraussichtlich deutlich gekürzt (Politik: 30–40 % vom Gewinn).",
+    "Klarer Abwärtstrend, A/D fällt: Grosse Anleger verkaufen weiter. Value-Falle möglich."
+   ],
+   "smart_money": [
+    "BMW selbst: Rückkaufprogramm bis 2 Mrd. €, 2026 rund 1.25 Mrd. € (rund 3.8 % des Börsenwerts). Die letzte Tranche endet am 30.11.2026, ein neues Programm ist nicht angekündigt. Im Juli kaufte BMW zu 56.76 bis 58.43 €.",
+    "Vorstand: Am 29.5.2026 kauften sechs Vorstände zusammen für rund 2 Mio. € zu 76.16 €. Das hängt mit dem Aktienprogramm für Manager zusammen und ist kein freier Kauf. Nach der Gewinnwarnung keine freien Käufe gefunden.",
+    "Familie Quandt: Stefan Quandt und Susanne Klatten halten rund 50.2 %. 2026 keine Käufe oder Verkäufe bekannt.",
+    "Analysten: Mehrheit «Halten». StockAnalysis: 21 Analysten, 8× Kaufen, 10× Halten, 3× Verkaufen, Kursziel im Schnitt 70 € (58 bis 82.50 €). Zuletzt gesenkt: UBS 60 € (9.10.), Jefferies 60 € (5.10.), JPMorgan 82 € (vorher 100 €)."
+   ],
+   "cheatsheet": "analysen/BMW.html",
+   "claude": "https://claude.ai/artifact/3iAMzXvEwcz6hU4PpCmSsW"
   }
  ]
 }
