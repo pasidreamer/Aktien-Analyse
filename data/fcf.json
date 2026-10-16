@@ -2361,6 +2361,76 @@
     "nachhaltig": 1
    },
    "score": 5
+  },
+  "BMW": {
+   "waehrung": "EUR",
+   "jahre": [
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+   ],
+   "fcf": [
+    14.47,
+    6.66,
+    -4.64,
+    -2.73
+   ],
+   "umsatz": [
+    142.61,
+    155.5,
+    142.38,
+    133.45
+   ],
+   "fcf_ttm": -5.27,
+   "umsatz_ttm": 128.03,
+   "aktien_mio": [
+    657.0,
+    638.7,
+    627.3,
+    613.5
+   ],
+   "netto_schulden": 67.04,
+   "schulden": 88.35,
+   "cash": 21.31,
+   "boersenwert_chf": 32.1,
+   "k": {
+    "wachstum": null,
+    "steigende_jahre": 1,
+    "jahre_n": 3,
+    "marge": -4.1,
+    "rendite": -15.19,
+    "schulden_jahre": null,
+    "aktien_pa": -2.25,
+    "rueckgabe": 97.0,
+    "abbau": 0.0,
+    "verlustjahre": 2,
+    "sbc": 0.0,
+    "deckung": 0.31
+   },
+   "verwendung": [
+    [
+     "Aktienrückkäufe",
+     23
+    ],
+    [
+     "Dividenden",
+     74
+    ],
+    [
+     "zusätzlich neue Schulden aufgenommen",
+     16
+    ]
+   ],
+   "p": {
+    "wachstum": 2,
+    "marge": 0,
+    "rendite": 0,
+    "schulden": 0,
+    "verwendung": 15,
+    "nachhaltig": 3
+   },
+   "score": 20
   }
  },
  "stand": "2026-10-16"
