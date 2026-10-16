@@ -30,11 +30,13 @@ jobs:
         env:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
         run: python scripts/update.py || echo "Kursdaten nicht erreichbar, App wird trotzdem veröffentlicht"
+      - name: Free-Cashflow-Check
+        run: python scripts/fcf.py --fehlende || echo "FCF-Daten nicht erreichbar"
       - name: Ergebnis speichern
         run: |
           git config user.name "aktien-ampel-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/live.json data/verlauf.json 2>/dev/null || true
+          git add data/live.json data/verlauf.json data/fcf.json 2>/dev/null || true
           if ! git diff --cached --quiet; then
             git commit -m "Kurse aktualisiert $(date -u +%Y-%m-%d)"
             git pull --rebase
