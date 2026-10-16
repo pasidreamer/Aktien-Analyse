@@ -2295,6 +2295,72 @@
     "nachhaltig": 9
    },
    "score": 95
+  },
+  "AMZN": {
+   "waehrung": "USD",
+   "jahre": [
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+   ],
+   "fcf": [
+    -16.89,
+    32.22,
+    32.88,
+    7.7
+   ],
+   "umsatz": [
+    513.98,
+    574.78,
+    637.96,
+    716.92
+   ],
+   "fcf_ttm": -11.62,
+   "umsatz_ttm": 775.68,
+   "aktien_mio": [
+    10189.0,
+    10492.0,
+    10721.0,
+    10827.0
+   ],
+   "netto_schulden": 29.96,
+   "schulden": 152.99,
+   "cash": 123.03,
+   "boersenwert_chf": 2250.5,
+   "k": {
+    "wachstum": null,
+    "steigende_jahre": 2,
+    "jahre_n": 3,
+    "marge": -1.5,
+    "rendite": -0.43,
+    "schulden_jahre": null,
+    "aktien_pa": 2.05,
+    "rueckgabe": 8.0,
+    "abbau": 3.0,
+    "verlustjahre": 1,
+    "sbc": 117.0,
+    "deckung": 0.34
+   },
+   "verwendung": [
+    [
+     "Aktienrückkäufe",
+     8
+    ],
+    [
+     "Schuldenabbau",
+     3
+    ]
+   ],
+   "p": {
+    "wachstum": 4,
+    "marge": 0,
+    "rendite": 0,
+    "schulden": 0,
+    "verwendung": 0,
+    "nachhaltig": 1
+   },
+   "score": 5
   }
  },
  "stand": "2026-10-16"
