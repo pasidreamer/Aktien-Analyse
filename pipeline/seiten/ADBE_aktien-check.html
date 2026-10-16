@@ -1,0 +1,402 @@
+<title>Adobe Aktien-Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F3F5F7; --surface:#FFFFFF; --ink:#141B24; --muted:#5A6573; --line:#DDE2E8; --grid:#E9EDF1;
+  --accent:#2F45B5; --accent-soft:#E6E9F8; --chip:#EBEEF2;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+  --good:#1D7A4B; --good-bg:#E3F3EA; --warn:#9A6200; --warn-bg:#FBF0DC; --bad:#B2362A; --bad-bg:#FBE6E3;
+  --zone-sup:rgba(29,122,75,.10); --zone-res:rgba(178,54,42,.09);
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+    --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+    --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+    --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+  --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+  --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;padding-inline:16px;padding-block:24px 56px}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+h1,h2,h3{font-family:var(--display);font-stretch:85%;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:clamp(32px,7vw,48px);font-weight:800;line-height:1}
+h2{font-size:24px;font-weight:700}
+h3{font-size:17px;font-weight:700;font-stretch:95%}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+section{display:flex;flex-direction:column;gap:14px}
+.lead{max-width:68ch;color:var(--muted)}
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;align-items:stretch}
+.hero .id{display:flex;flex-direction:column;gap:10px;justify-content:space-between}
+.price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price b{font-family:var(--display);font-size:34px;font-weight:700}
+.meta{font-size:13px;color:var(--muted)}
+.verdict{font-size:15px;padding:12px 14px;border-radius:10px;background:var(--chip)}
+.scales{display:flex;flex-direction:column;gap:18px}
+.scale-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.scale-h span{font-size:13px;color:var(--muted)}
+.scale-h b{font-family:var(--display);font-size:28px;line-height:1}
+.track{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#C8412F 0%,#E0892F 30%,#E3B63A 50%,#8BBF4B 68%,#2E9A5B 100%);margin-top:8px}
+.pin{position:absolute;top:-5px;width:4px;height:22px;border-radius:2px;background:var(--ink);box-shadow:0 0 0 2px var(--surface);transform:translateX(-2px)}
+.ticks{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);font-family:var(--mono);margin-top:6px}
+.state{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;margin-top:8px}
+.st-good{background:var(--good-bg);color:var(--good)}
+.st-warn{background:var(--warn-bg);color:var(--warn)}
+.st-bad{background:var(--bad-bg);color:var(--bad)}
+/* tables */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;color:var(--muted);font-weight:500;font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:700;border-bottom:none}
+.pts{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{height:6px;border-radius:3px;background:var(--chip);min-width:60px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:3px}
+/* grids */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;border-left:4px solid var(--line)}
+.kpi.g{border-left-color:var(--good)}.kpi.w{border-left-color:var(--warn)}.kpi.b{border-left-color:var(--bad)}
+.kpi span{font-size:12px;color:var(--muted)}
+.kpi b{font-family:var(--mono);font-size:19px;font-weight:500;font-variant-numeric:tabular-nums}
+.kpi em{font-style:normal;font-size:12.5px;color:var(--muted)}
+/* charts */
+.chart{position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:14px;height:3px;border-radius:2px;display:inline-block}
+.swb{width:12px;height:10px;border-radius:2px;display:inline-block}
+.tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12.5px;box-shadow:0 4px 14px rgba(0,0,0,.12);white-space:nowrap;z-index:2}
+.tip b{font-family:var(--mono);font-weight:500}
+.tip .d{font-family:var(--mono);color:var(--muted);font-size:11.5px}
+.note{font-size:13.5px;color:var(--muted)}
+ul.clean{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.pro li::marker{color:var(--good)} .con li::marker{color:var(--bad)}
+.zones{display:flex;flex-direction:column;gap:8px}
+.zone{display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:baseline;padding:10px 12px;border-radius:10px;background:var(--chip);font-size:14px}
+.zone b{font-family:var(--mono);font-weight:500}
+.zone.r{border-left:4px solid var(--bad)} .zone.s{border-left:4px solid var(--good)} .zone.t{border-left:4px solid var(--accent)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+summary{cursor:pointer;font-weight:600}
+details p{margin-top:8px;color:var(--muted);max-width:70ch}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+footer{font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:6px;max-width:80ch}
+footer a{color:var(--accent)}
+@media (max-width:760px){.hero,.two{grid-template-columns:1fr}.zone{grid-template-columns:1fr;gap:2px}}
+</style>
+
+<div class="wrap">
+
+<header class="hero">
+  <div class="card id">
+    <div>
+      <div class="eyebrow">Aktien-Check · 15.10.2026</div>
+      <h1>Adobe</h1>
+      <p class="meta">Adobe Inc. · NASDAQ: ADBE · Software für Kreative (Photoshop, Illustrator, Premiere), PDF (Acrobat) und Marketing · San José, USA</p>
+    </div>
+    <div class="price"><b>251.67 $</b><span class="meta">Schluss 15.10.2026 · 52 Wochen: 190.12 – 363.70 $ · Allzeithoch 699.54 $ im November 2021</span></div>
+    <p class="verdict"><b>Kurz gesagt:</b> Adobe ist ein Free-Cashflow-Monster: 10.6 Mrd. $ freies Geld pro Jahr, 41 % vom Umsatz, und damit kauft Adobe jedes Jahr rund 7 % der eigenen Aktien zurück. Die Börse glaubt aber, dass KI-Werkzeuge Adobe das Geschäft wegnehmen. Darum fiel die Aktie vom Allzeithoch 699.54 $ auf 251.67 $ (−64 %), das KGV liegt bei 14 statt rund 41. Qualität grün (88), Timing gelb (53). Seit dem Tief vom Juni (190.12 $) macht die Aktie höhere Tiefs, heute schloss sie erstmals über dem letzten tieferen Hoch. Das grosse Risiko: Wenn die KI-Sorge stimmt, ist der heutige Free Cashflow nicht nachhaltig.</p>
+  </div>
+  <div class="card scales">
+    <div>
+      <div class="scale-h"><span>Qualität · Ist die Firma kaufenswert?</span><b id="q-val">88</b></div>
+      <div class="track"><i class="pin" id="q-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-good">● Stark: Fundament intakt</span>
+    </div>
+    <div>
+      <div class="scale-h"><span>Timing · Ist jetzt der Zeitpunkt?</span><b id="t-val">53</b></div>
+      <div class="track"><i class="pin" id="t-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-warn">▲ Warten auf Bestätigung</span>
+    </div>
+    <p class="note">Skala: unter 30 rot · 30–45 orange · 45–60 gelb · 60–75 hellgrün · ab 75 grün. Beide Werte setzen sich aus festen Kriterien zusammen, siehe unten.</p>
+  </div>
+</header>
+
+<section>
+  <h2>Was die Firma macht</h2>
+  <p class="lead">Adobe verkauft Software im Abo: Creative Cloud (Photoshop, Illustrator, Premiere, Lightroom, Firefly) für Designer, Fotografen und Videomacher, Acrobat und Adobe Express für PDF und einfache Grafiken, und Marketing-Software für grosse Firmen (Experience Cloud, GenStudio, seit April 2026 auch Semrush für Suchmaschinen). Rund drei Viertel des Umsatzes kommen aus dem Bereich Digital Media. Weil fast alles im Abo läuft, sind die Einnahmen gut planbar: Der jährlich wiederkehrende Umsatz (ARR) lag Ende August 2026 bei 27.5 Mrd. $. Die Produkte sind in vielen Firmen und Schulen Standard.</p>
+  <p class="lead">Seit 2025 fürchtet die Börse, dass KI-Werkzeuge (Canva, Figma, Midjourney, OpenAI, Claude Design und neu auch kostenlose KI-Kopien von Photoshop wie ArtCraft) Adobe-Kunden abwerben. Im Januar und Februar 2026 verkauften Anleger viele Software-Aktien aus KI-Angst. Am 12. März kündigte CEO Shantanu Narayen seinen Rücktritt an, die Aktie fiel um rund 8 %. Am 11. Juni folgte trotz guter Zahlen ein Minus von 6 %: Ein Teil des Wachstums kam vom Zukauf Semrush, das Wachstum aus eigener Kraft wurde langsamer, und Finanzchef Dan Durn ging. Am 18. Juni stand die Aktie bei 190.12 $ (Jahrestief). Seither erholt sie sich, aber im September und Oktober drückten Herabstufungen: Wells Fargo am 12.10. auf Untergewichten (Ziel 225 $), HSBC am 13.10. auf Halten (Ziel 267 $). Das Geschäft selbst wächst weiter: Umsatz +13 % im 3. Quartal, achtmal in Folge besser als erwartet, Prognose zweimal erhöht. Am 15.10. stieg die Aktie um 4.6 % nach einer erweiterten Zusammenarbeit mit NVIDIA.</p>
+</section>
+
+<section>
+  <h2>Fundamental: die Zahlen</h2>
+  <div class="kpis">
+<div class="kpi g"><span>Umsatzwachstum</span><b>+12.0 %</b><em>Letzte 12 Monate. Ohne den Zukauf Semrush rund 11 %. Seit 2022 stabil zwischen 10 und 13 % pro Jahr.</em></div>
+<div class="kpi g"><span>Operative Marge</span><b>36.3 %</b><em>Von 100 $ Umsatz bleiben rund 36 $ Betriebsgewinn. Sehr hoch und seit 5 Jahren stabil zwischen 34 und 37 %.</em></div>
+<div class="kpi g"><span>Gewinn pro Aktie (EPS)</span><b>17.92 $</b><em>Letzte 12 Monate nach offiziellen Regeln (GAAP). Bereinigt 23.65 $, das sind +15 bis +19 % pro Quartal zum Vorjahr. 2021 waren es 10.02 $.</em></div>
+<div class="kpi g"><span>ROIC</span><b>57 %</b><em>Auf 100 $ investiertes Kapital rund 57 $ Gewinn. Ausgezeichnet und seit 2021 (38 %) stark gestiegen.</em></div>
+<div class="kpi g"><span>Free Cashflow</span><b>10.6 Mrd. $</b><em>Letzte 12 Monate. 41 % vom Umsatz bleiben als freies Geld. 2021 waren es 6.9 Mrd. $. Achtung: 2.1 Mrd. $ davon sind Löhne in Aktien, die den FCF schöner machen.</em></div>
+<div class="kpi g"><span>Nettoschulden</span><b>1.1 Mrd. $</b><em>Mit einem Zehntel des Jahres-FCF bezahlt. Früher hatte Adobe mehr Geld als Schulden, die Rückkäufe waren 2024 und 2025 grösser als der FCF.</em></div>
+<div class="kpi g"><span>KGV</span><b>14.1</b><em>Du zahlst 14 Jahresgewinne. Eigener Schnitt 2021–2025: rund 41. Also rund zwei Drittel günstiger als üblich. Die Börse bewertet Adobe wie eine schrumpfende Firma.</em></div>
+<div class="kpi g"><span>Aktienrückkäufe</span><b>−7.5 %</b><em>So viel weniger Aktien gibt es im 3. Quartal 2026 als im Schnitt 2025. Seit 2021 minus 18 %. Neues Programm: 25 Mrd. $ bis 2030, rund ein Viertel des Börsenwerts. Keine Dividende.</em></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>Umsatz pro Quartal (Mio. $)</h3>
+      <p class="note">Alle 8 Quartale über dem Vorjahr, das Wachstum stieg zuletzt von 10.5 auf 12.9 %. Seit Mai 2026 ist Semrush dabei (rund 120 Mio. $ pro Quartal).</p>
+      <div class="chart" id="c-rev"></div>
+    </div>
+    <div class="card">
+      <h3>Operative Marge pro Jahr</h3>
+      <p class="note">Seit 2021 stabil zwischen 34 und 37 %. Bereinigt (ohne Aktienvergütung und Zukäufe) rund 44 %.</p>
+      <div class="chart" id="c-margin"></div>
+    </div>
+  </div>
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Jahr</th><th class="num">Umsatz Mio. $</th><th class="num">Wachstum</th><th class="num">Op. Marge</th><th class="num">EPS $</th><th class="num">Free Cashflow</th><th class="num">ROIC</th><th class="num">KGV</th></tr></thead>
+      <tbody id="fin-rows"></tbody>
+    </table>
+  </div>
+  <p class="note"><b>Hinweis:</b> Adobe hat ein Geschäftsjahr bis Ende November. Q3 26 = Juni bis August 2026. Das KGV-Mittel ist über 2021–2025 gerechnet (60.8, 33.4, 51.4, 40.9, 18.8). Keine Dividende, Adobe gibt das Geld über Aktienrückkäufe zurück.</p>
+</section>
+
+<section>
+  <h2>Qualität: 88 von 100</h2>
+  <div class="card tbl"><table id="q-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Technik: Wochenchart (2 Jahre)</h2>
+  <div class="card">
+    <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span><span><i class="swb" style="background:var(--zone-sup);border:1px solid var(--good)"></i>Unterstützung</span><span><i class="swb" style="background:var(--zone-res);border:1px solid var(--bad)"></i>Widerstand</span></div>
+    <div class="chart" id="c-week"></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>A/D-Linie, Woche</h3>
+      <p class="note">Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Seit dem Tief im Juni (374.8) stieg die Wochen-A/D bis Ende August auf 510.7 und liegt heute bei 469.9. Im Mai stand sie bei gleichem Kurs (253 $) bei 458.8: leicht mehr Kaufdruck als damals.</p>
+      <div class="chart" id="c-adw"></div>
+    </div>
+    <div class="card">
+      <h3>RSI, Woche</h3>
+      <p class="note">Unter 30 überverkauft, über 70 überkauft. Im Februar, April und Juni unter 30 (überverkauft), heute 49.5: neutral, steigend.</p>
+      <div class="chart" id="c-rsiw"></div>
+    </div>
+  </div>
+
+  <h2>Technik: Tageschart (1 Jahr)</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Kurs, Tag</h3>
+      <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span></div>
+      <div class="chart" id="c-day"></div>
+    </div>
+    <div class="card">
+      <h3>A/D-Linie, Tag</h3>
+      <p class="note">Klar positiv: Am 11.9. schloss der Kurs bei 252.23 $ und die A/D stand bei −33.6. Heute fast gleicher Kurs (251.67 $), A/D −23.1. Bei gleichem Preis wurde deutlich mehr gekauft (bullische Divergenz). Auch beim Tief vom 7.10. (227 $) lag die A/D höher als beim Tief vom 28.9.</p>
+      <div class="chart" id="c-add"></div>
+    </div>
+  </div>
+
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Indikator</th><th>Tag</th><th>Woche</th><th>Bedeutung</th></tr></thead>
+      <tbody>
+<tr><td>Kurs vs. EMA 50</td><td class="pts">251.7 &gt; 247.6</td><td class="pts">251.7 &lt; 274.0</td><td>Tag knapp darüber, Woche darunter.</td></tr>
+<tr><td>Kurs vs. EMA 200</td><td class="pts">251.7 &lt; 265.6</td><td class="pts">251.7 &lt; 369.1</td><td>Unter der langfristigen Linie, auf beiden Zeitebenen.</td></tr>
+<tr><td>EMA 50 vs. EMA 200</td><td class="pts">50 unter 200 (seit 19.12.2025)</td><td class="pts">50 unter 200 (seit April 2025)</td><td>Der grosse Trend ist abwärts.</td></tr>
+<tr><td>RSI (14)</td><td class="pts">55.4</td><td class="pts">49.5</td><td>Tag aus 34 (28.9.) nach oben gedreht, Woche neutral.</td></tr>
+<tr><td>A/D</td><td class="pts">höher bei gleichem Kurs (bullische Divergenz)</td><td class="pts">seit Juni gestiegen, leicht positiv</td><td>Tag klar positiv, Woche leicht positiv.</td></tr>
+<tr><td>Volumen</td><td colspan="2">Ø 20 Tage 4.8 Mio. vs. Ø 100 Tage 5.9 Mio. Aktien</td><td>Weniger Handel als im Sommer: Der Verkaufsdruck lässt nach.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Struktur und Zonen (Smart Money Concept)</h2>
+  <p class="lead">Vom Allzeithoch 699.54 $ (November 2021) fiel Adobe in einem langen Abwärtstrend mit tieferen Hochs und Tiefs bis auf 190.12 $ am 18. Juni 2026. Danach stieg die Aktie bis 294.53 $ (1.9.) und damit über die Hochs vom März (285.36 $) und Juni (275.44 $): Im Wochenchart ist das ein erster Change of Character nach oben. Der Rücksetzer endete am 28.9. bei 224.67 $, deutlich über dem Juni-Tief (höheres Tief). Im Tageschart gab es seit September tiefere Hochs (294.53 → 266.10 → 248.30 $). Am 7.10. hielt das Tief bei 227 $ über dem vom 28.9., und am 15.10. schloss der Kurs mit 251.67 $ erstmals über dem Hoch vom 1.10. (248.30 $): ein erster kleiner Change of Character im Tageschart. Darüber liegt der Widerstand 265–275 $ mit der Tages-EMA 200 und der Wochen-EMA 50.</p>
+  <div class="zones">
+<div class="zone r"><b>286–295 $</b><span>Widerstand: Hochs von Ende August und Anfang September (294.53 $).</span></div>
+<div class="zone r"><b>265–275 $</b><span>Widerstand: Hoch vom 14.9. (266.10 $), Tages-EMA 200 (265.60 $) und Wochen-EMA 50 (274 $).</span></div>
+<div class="zone t"><b>267 $</b><span><b>Trigger:</b> Tagesschluss über dem Hoch vom 14.9. und der Tages-EMA 200. Ein erstes Signal kam am 15.10. (Schluss über 248.30 $).</span></div>
+<div class="zone s"><b>232–242 $</b><span><b>Kaufzone 1:</b> Bodenbildung im Oktober (Tagesschlüsse 232.77 bis 242.27 $) und Tief vom 11.9. (241.51 $).</span></div>
+<div class="zone s"><b>200–212 $</b><span><b>Kaufzone 2:</b> Tiefs von Ende Juni und Juli (202.73 $ Wochenschluss, 210.88 $ am 23.7.).</span></div>
+<div class="zone r"><b>224 $</b><span>Abbruch: Wochenschluss unter dem Tief vom 28.9. (224.67 $). Dann wäre das höhere Tief verloren.</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Smart Money, Insider und Saisonalität</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Wer kauft, wer verkauft?</h3>
+      <ul class="clean" style="margin-top:8px">
+<li><b>Adobe selbst:</b> Neues Rückkaufprogramm über 25 Mrd. $ bis April 2030 (rund 25 % des Börsenwerts). In den ersten 9 Monaten 2026 für 6.9 Mrd. $ rund 26 Mio. Aktien zurückgekauft. Das sind rund 7 % des Börsenwerts pro Jahr.</li>
+<li><b>Insider-Kauf:</b> Verwaltungsrat David Ricks (Chef von Eli Lilly) kaufte am 25.6.2026 10'000 Aktien zu 194.51 $ (1.95 Mio. $), fast am Tief.</li>
+<li><b>Insider-Verkäufe:</b> CEO Shantanu Narayen verkaufte in 12 Monaten für rund 49.6 Mio. $ (zuletzt 125'000 Aktien zu rund 250 $ am 16./17.9.). Er gibt den Chefposten am 1.12.2026 ab. Ob die Verkäufe nach einem festen Plan liefen, ist nicht geprüft.</li>
+<li><b>Analysten:</b> Mehrheit «Halten». MarketBeat: 9× Kaufen, 20× Halten, 7× Verkaufen, Kursziel im Schnitt 284 $ (195 bis 430 $). Zuletzt Herabstufungen von Wells Fargo (12.10., Ziel 225 $) und HSBC (13.10., Ziel 267 $). Für Kontra-Anleger: Viele Verkaufen-Stimmen bei einer Firma mit Rekord-Cashflow.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Saisonalität seit 1986</h3>
+      <p class="note">Durchschnittliche Monatsrendite in %. 40 Jahre Daten (seit 1986). Oktober (+6.3 %, 68 % positive Jahre) und November (+3.4 %, 68 %) sind die stärksten Monate, Juni und Juli die schwächsten.</p>
+      <div class="chart" id="c-seas"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Timing: 53 von 100</h2>
+  <div class="card tbl"><table id="t-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Worauf du achten solltest: Unterbewertung und Wachstumsschub</h2>
+  <div class="card"><h3>Was die Börse befürchtet</h3><p class="note" style="margin:4px 0">Echte Probleme, eher lösbar: Die Zahlen sind noch stark (Umsatz +13 %, Rekord-Cashflow), aber das Neugeschäft wird langsamer, und ob KI Adobe langfristig schadet, ist echt offen.</p><ul class="clean"><li>KI-Werkzeuge könnten Adobe vor allem bei günstigen Kunden ersetzen: Canva, Figma, Midjourney, OpenAI, Claude Design (seit 17.04.2026) und kostenlose KI-Kopien von Photoshop wie ArtCraft (Grund für die HSBC-Herabstufung am 13.10.2026).</li><li>Das Neugeschäft aus eigener Kraft wird langsamer. Laut Wells Fargo fiel der neue wiederkehrende Umsatz (ARR) ohne Zukäufe im 3. Quartal um über 40 %. Um das Jahresziel von +10.2 % zu schaffen, braucht Adobe im 4. Quartal fast doppelt so viel Neugeschäft wie im 3. Quartal.</li><li>Chefwechsel: CEO Narayen hört am 01.12.2026 auf, Finanzchef Durn ging im Juni. Narayen verkaufte in 12 Monaten Aktien für rund 50 Mio. $.</li><li>Die Aktie fiel vom Allzeithoch 699.54 $ (2021) auf 251.67 $ (15.10.2026). Das KGV sank von 61 auf 14, obwohl der Gewinn pro Aktie von 10.02 auf 17.92 $ stieg.</li></ul><h3 style="margin-top:12px">Was die Sorgen beenden könnte</h3><ul class="clean"><li>Adobe MAX: Neue KI-Produkte und Preise. Überzeugt Adobe hier, dass Firefly und die Agenten echtes Geld bringen, kann die Stimmung drehen <span class="muted">(10.–12.11.2026)</span></li><li>Zahlen zum 4. Quartal und erste Ziele des neuen CEO für 2027. Entscheidend: Hat Adobe das ARR-Ziel (+10.2 %) erreicht? <span class="muted">(voraussichtlich 09.12.2026 (nicht bestätigt))</span></li><li>Neuer CEO Anil Chakravarthy (bisher Chef des Firmenkunden-Geschäfts) übernimmt und stellt einen festen Finanzchef vor <span class="muted">(ab 01.12.2026)</span></li><li>Der Rückkauf (25 Mrd. $ bis 2030) senkt die Aktienzahl um rund 7 % pro Jahr. Selbst bei gleichem Gewinn steigt so der Gewinn pro Aktie <span class="muted">(laufend)</span></li></ul><h3 style="margin-top:12px">Wachstumsschub: Wachstumsschub möglich</h3><ul class="clean"><li><b>KI-Produkte (Firefly, Acrobat AI, GenStudio):</b> Der Umsatz mit KI-Produkten hat sich laut Adobe innert eines Jahres verdreifacht (über 500 Mio. $ im 2. Quartal 2026, +150 % im 3. Quartal). Das sind aber erst rund 2 % des gesamten wiederkehrenden Umsatzes von 27.5 Mrd. $. <span class="muted">(2027–2028)</span></li><li><b>Marketing-Software für grosse Firmen:</b> Drei Produktlinien für Firmenkunden haben je über 1 Mrd. $ wiederkehrenden Umsatz und wachsen zusammen über 20 %. Dieser Teil ist am wenigsten von günstigen KI-Werkzeugen bedroht, und der neue CEO kommt aus diesem Bereich. <span class="muted">(2026–2028)</span></li><li><b>Rückkäufe als Gewinn-Hebel:</b> Bei rund 10 Mrd. $ Free Cashflow pro Jahr und dem tiefen Kurs kann Adobe jedes Jahr 8 bis 10 % der Aktien zurückkaufen. Das hebt den Gewinn pro Aktie auch ohne schnelleres Wachstum. <span class="muted">(laufend bis 2030)</span></li></ul><p style="margin:10px 0 0"><b>Woran du es erkennst:</b> Schau bei den Zahlen auf das neue wiederkehrende Geschäft (Net New ARR): Im 3. Quartal 2026 waren es rund 0.40 Mrd. $. Liegt es wieder klar darüber und steigt der KI-Umsatz weiter, ist die Wende da.</p><p style="margin:10px 0 0"><b>Das Chancen-Szenario:</b> Ähnlich wie Google 2023: Alle glauben, KI macht Adobe überflüssig, dabei verdient Adobe heute mehr als je zuvor und kauft mit dem Geld die eigenen Aktien billig zurück. Bestätigen die nächsten Zahlen, dass das Neugeschäft hält, kann sich das KGV von 14 Richtung 20 bis 25 erholen. Grösstes Risiko: KI nimmt Adobe wirklich Kunden weg, dann schrumpft der Free Cashflow und die Aktie ist zu Recht billig (Value-Falle).</p><p class="note" style="margin:10px 0 0">Quellen: <a href="https://news.adobe.com/news/2026/09/adobe-q3fy26-financial-results" target="_blank" rel="noopener">Adobe: Q3 FY2026 Ergebnisse (10.09.2026)</a>, <a href="https://247wallst.com/investing/2026/10/12/adobe-falls-4-as-wells-fargo-cuts-to-underweight-with-225-target-servicenow-climbs-3-intuit-ticks-up/" target="_blank" rel="noopener">24/7 Wall St: Wells Fargo stuft ab (12.10.2026)</a>, <a href="https://www.tikr.com/blog/adobe-stock-fell-6-after-a-beat-and-raise-quarter-the-market-got-it-wrong" target="_blank" rel="noopener">TIKR: Adobe fiel trotz guter Zahlen um 6 % (Juni 2026)</a>, <a href="https://www.nasdaq.com/articles/adobe-names-anil-chakravarthy-next-ceo" target="_blank" rel="noopener">Nasdaq: Adobe ernennt Anil Chakravarthy zum CEO</a></p></div>
+</section>
+
+<section>
+  <h2>Dividende</h2>
+  <div class="card tbl"><p style="margin:0">Adobe zahlt keine Dividende. Das ganze freie Geld geht in Aktienrückkäufe: Seit 2021 gibt es 18 % weniger Aktien.</p></div>
+</section>
+
+<section>
+  <h2>Pro und Contra</h2>
+  <div class="two">
+    <div class="card pro"><h3>Spricht dafür</h3><ul class="clean" style="margin-top:8px">
+<li>Riesiger Free Cashflow (10.6 Mrd. $, 41 % vom Umsatz) und sehr hohe Kapitalrendite (57 %).</li>
+<li>Kauft jedes Jahr rund 7 % der eigenen Aktien zurück: Jede Aktie besitzt einen immer grösseren Teil der Firma.</li>
+<li>Sehr günstig: KGV 14 statt rund 41 im eigenen Schnitt, FCF-Rendite fast 11 %.</li>
+<li>Umsatz wächst weiter mit 12 %, acht Quartale in Folge besser als erwartet.</li>
+<li>Kontra-Lage: viel Angst, Analysten skeptisch, Tages-A/D zeigt Käufe bei tiefen Kursen.</li>
+    </ul></div>
+    <div class="card con"><h3>Spricht dagegen</h3><ul class="clean" style="margin-top:8px">
+<li>KI kann vor allem das günstige Kundensegment wegnehmen: kostenlose KI-Kopien, Canva, Figma, Claude Design.</li>
+<li>Wachstum aus eigener Kraft wird langsamer, im 4. Quartal braucht Adobe fast doppelt so viel Neugeschäft wie im 3. Quartal.</li>
+<li>Chefwechsel: neuer CEO ab 1.12.2026, Finanzchef ist nur interimistisch besetzt.</li>
+<li>Rückkäufe waren 2024 und 2025 grösser als der FCF und teils mit Schulden bezahlt. Das Netto-Cash ist weg.</li>
+<li>Der grosse Trend (Wochen-EMA 200 bei 369 $) zeigt klar nach unten.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section>
+  <h2>Was jetzt zu tun ist</h2>
+  <div class="zones">
+<div class="zone t"><b>Beobachten</b><span>Alarm bei 267 $ (Trigger) und 242 $ (oberes Ende Kaufzone 1).</span></div>
+<div class="zone s"><b>Timing grün</b><span>Tagesschluss über 267 $ mit weiter steigender A/D. Oder ein Rücksetzer in 232–242 $, der über 224 $ hält. Fundamental: Adobe MAX (10. bis 12.11.) und die Zahlen im Dezember müssen zeigen, dass das Neugeschäft (ARR) wieder anzieht.</span></div>
+<div class="zone r"><b>Abbruch</b><span>Wochenschluss unter 224 $. Dann wäre die Kaufzone 2 (200–212 $) das nächste Ziel.</span></div>
+<div class="zone "><b>Nächste Zahlen</b><span>4. Quartal und Ziele für 2027: voraussichtlich 9. Dezember 2026 (nicht bestätigt). Vorher Adobe MAX vom 10. bis 12. November.</span></div>
+  </div>
+</section>
+
+<footer>
+  <span>Kursdaten und Indikatoren (EMA, RSI 14, A/D) selbst berechnet aus Yahoo-Finance-Tages-, Wochen- und Monatsdaten, Stand 15.10.2026. <a href="https://stockanalysis.com/stocks/adbe/financials/" target="_blank" rel="noopener">StockAnalysis.com</a> (Stand 15.10.2026), <a href="https://news.adobe.com/news/2026/09/adobe-q3fy26-financial-results" target="_blank" rel="noopener">Adobe Q3 2026</a>, <a href="https://www.tikr.com/blog/adobe-stock-fell-6-after-a-beat-and-raise-quarter-the-market-got-it-wrong" target="_blank" rel="noopener">TIKR zu Q2 2026</a>, <a href="https://247wallst.com/investing/2026/10/12/adobe-falls-4-as-wells-fargo-cuts-to-underweight-with-225-target-servicenow-climbs-3-intuit-ticks-up/" target="_blank" rel="noopener">24/7 Wall St (12.10.2026)</a>, <a href="https://www.nasdaq.com/articles/adobe-names-anil-chakravarthy-next-ceo" target="_blank" rel="noopener">Nasdaq: neuer CEO</a>, <a href="https://www.sherwood.news/markets/adobe-rises-on-usd25-billion-stock-buyback/" target="_blank" rel="noopener">Sherwood: Rückkauf 25 Mrd. $</a>, <a href="https://www.marketbeat.com/stocks/NASDAQ/ADBE/insider-trades/" target="_blank" rel="noopener">Insider (MarketBeat)</a>.</span>
+  <span>Persönliche Analyse, keine Anlageberatung. Vergangene Kurse und Saisonalität sagen nichts Sicheres über die Zukunft.</span>
+</footer>
+</div>
+
+<script>
+const Q=[["Umsatztrend", "4 von 4 Quartalen über Vorjahr, Wachstum steigt von 10.5 auf 12.9 % (teils durch Semrush)", 13, 15], ["Wachstumstempo", "Rund 11 % ohne Zukauf, 12 % mit Semrush", 8, 10], ["Operative Marge", "36.3 % (9 Pkt.), seit 5 Jahren stabil (3 Pkt.)", 12, 15], ["Gewinnwachstum (EPS)", "GAAP 2022–2025 rund +18 % pro Jahr, bereinigt aktuell +15 bis +19 %", 10, 10], ["Free Cashflow", "Immer positiv, 3 von 4 Jahren gestiegen (Delle 2023)", 6, 10], ["ROIC", "57 %, seit 2021 klar steigend", 15, 15], ["Schulden", "Nettoschulden/EBITDA 0.12", 9, 10], ["Bewertung vs. eigene Historie", "KGV 14.1 statt Ø 41 (2021–2025), rund 66 % günstiger", 15, 15]];
+const T=[["Trend Woche (EMA 50/200)", "Kurs unter beiden, EMA 50 unter 200 und fallend", 2, 20], ["Trend Tag (EMA 50/200)", "Kurs über EMA 50, unter EMA 200: mögliche Wende", 4, 10], ["Struktur (SMC)", "Woche: CHoCH im August und höheres Tief. Tag: erster CHoCH am 15.10., noch unbestätigt", 13, 20], ["RSI Tag/Woche", "Tag aus 34 auf 55 gedreht, Woche 50 steigend, aber kein intakter Trend", 10, 15], ["A/D Tag/Woche", "Tag: bullische Divergenz. Woche: leicht positiv", 12, 20], ["Smart Money", "Start 3, Insider-Kauf Juni +4, Rückkauf rund 7 % pro Jahr +3, viele CEO-Verkäufe −3", 7, 10], ["Saisonalität", "Oktober und November je 68 % positive Jahre", 5, 5]];
+const FIN=[["2021", 15785, "+22.7 %", "36.8 %", 10.02, 6882, "38.2 %", "60.8"], ["2022", 17606, "+11.5 %", "34.6 %", 10.1, 7396, "36.8 %", "33.4"], ["2023", 19409, "+10.2 %", "34.3 %", 11.82, 6942, "41.9 %", "51.4"], ["2024", 21505, "+10.8 %", "36.4 %", 12.36, 7873, "50.1 %", "40.9"], ["2025", 23769, "+10.5 %", "36.6 %", 16.7, 9852, "59.3 %", "18.8"], ["Letzte 12 Mt.", 25970, "+12.0 %", "36.3 %", 17.92, 10592, "57.2 %", "14.1"]];
+const HALF=[["Q4 24", 5606], ["Q1 25", 5714], ["Q2 25", 5873], ["Q3 25", 5988], ["Q4 25", 6194], ["Q1 26", 6398], ["Q2 26", 6618], ["Q3 26", 6760]];
+const MARGIN=[["2021", 36.8], ["2022", 34.6], ["2023", 34.3], ["2024", 36.4], ["2025", 36.6], ["12 Mt.", 36.3]];
+const SEAS=[1.8, 2.1, 4.6, 5.7, 1.3, -0.7, -0.8, 0.1, 0.3, 6.3, 3.4, 1.2];
+const SEASHIT=[49.0, 56.0, 66.0, 67.0, 60.0, 48.0, 57.0, 52.0, 54.0, 68.0, 68.0, 52.0];
+const MON=["Jan","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"];
+const W=`2024-10-21,483.72,521.1,466.47,39,615.4;2024-10-28,482.8,519.6,466.63,39,614.1;2024-11-04,494.68,518.62,466.91,43,614.6;2024-11-11,503.37,518.03,467.28,46,603.7;2024-11-18,512.15,517.8,467.72,48,612.8;2024-11-25,515.93,517.72,468.2,50,611.3;2024-12-02,552.96,519.1,469.05,59,623.6;2024-12-09,465.69,517.01,469.01,40,589.2;2024-12-16,447.17,514.27,468.79,37,579.3;2024-12-23,446.48,511.61,468.57,37,578.9;2024-12-30,430.57,508.43,468.19,34,570.9;2025-01-06,405.92,504.41,467.57,31,554.3;2025-01-13,429.99,501.5,467.2,37,567.3;2025-01-20,435.38,498.9,466.88,39,564.1;2025-01-27,437.45,496.49,466.59,39,559.8;2025-02-03,433.07,494.01,466.26,39,550;2025-02-10,460.16,492.68,466.2,46,559.4;2025-02-17,444.32,490.78,465.98,43,551.3;2025-02-24,438.56,488.73,465.71,42,549;2025-03-03,449.4,487.19,465.54,45,557;2025-03-10,394.74,483.57,464.84,35,543;2025-03-17,387.26,479.79,464.07,34,532;2025-03-24,385.71,476.1,463.29,34,514.9;2025-03-31,349.07,471.12,462.15,29,493.4;2025-04-07,352.47,466.47,461.06,30,500;2025-04-14,348.8,461.85,459.94,29,495.8;2025-04-21,367.72,458.16,459.03,35,510.8;2025-04-28,380.87,455.13,458.25,39,520.9;2025-05-05,383.28,452.31,457.5,40,523.4;2025-05-12,417.13,450.93,457.1,49,534.6;2025-05-19,407.69,449.24,456.61,47,523.4;2025-05-26,415.09,447.9,456.2,49,526.2;2025-06-02,416.92,446.68,455.8,49,534.5;2025-06-09,391.68,444.52,455.17,43,519.9;2025-06-16,376.92,441.87,454.39,40,498.7;2025-06-23,385.83,439.68,453.71,43,507.8;2025-06-30,379.31,437.31,452.97,41,501.4;2025-07-07,363.35,434.41,452.07,38,482.9;2025-07-14,365.79,431.72,451.22,39,490;2025-07-21,370.74,429.33,450.41,40,492.1;2025-07-28,347.8,426.13,449.39,35,473.3;2025-08-04,341.05,422.79,448.32,34,471.2;2025-08-11,354.85,420.13,447.39,39,487.4;2025-08-18,362.09,417.85,446.54,42,498.6;2025-08-25,356.7,415.45,445.64,40,498.2;2025-09-01,348.97,412.85,444.68,38,506.8;2025-09-08,349.36,410.36,443.73,39,491.8;2025-09-15,365.9,408.61,442.96,45,511.7;2025-09-22,360.37,406.72,442.14,43,515.9;2025-09-29,346.74,404.37,441.19,40,506.2;2025-10-06,337.51,401.75,440.16,37,488.2;2025-10-13,333.26,399.06,439.09,36,486.4;2025-10-20,353.52,397.28,438.24,44,494.2;2025-10-27,340.31,395.04,437.27,41,483.3;2025-11-03,326.95,392.37,436.17,37,472.4;2025-11-10,331.11,389.97,435.12,39,469.7;2025-11-17,324.19,387.39,434.02,37,473.7;2025-11-24,320.13,384.75,432.89,36,472.2;2025-12-01,346.26,383.24,432.02,47,491;2025-12-08,356.43,382.19,431.27,50,508.5;2025-12-15,355.86,381.16,430.52,50,525.6;2025-12-22,353.8,380.09,429.76,49,523.1;2025-12-29,333.3,378.25,428.8,42,512;2026-01-05,333.95,376.51,427.85,43,508.3;2026-01-12,296.12,373.36,426.54,33,479.7;2026-01-19,301.07,370.53,425.3,35,493.8;2026-01-26,293.25,367.5,423.98,33,488.6;2026-02-02,268.38,363.61,422.43,28,463.7;2026-02-09,263.97,359.7,420.86,28,474.9;2026-02-16,258.61,355.74,419.24,27,466.2;2026-02-23,262.41,352.08,417.68,29,491.9;2026-03-02,283.62,349.39,416.35,38,513.5;2026-03-09,249.32,345.47,414.69,31,475.9;2026-03-16,248.15,341.65,413.03,31,467.7;2026-03-23,234.84,337.46,411.26,28,447.5;2026-03-30,242.92,333.76,409.58,32,457;2026-04-06,225.35,329.5,407.75,29,436.6;2026-04-13,244.45,326.17,406.12,36,444.6;2026-04-20,245.44,323,404.52,37,442.7;2026-04-27,250.71,320.17,402.99,39,457.9;2026-05-04,253.04,317.54,401.5,40,458.8;2026-05-11,247.6,314.79,399.97,38,466.2;2026-05-18,244.76,312.05,398.43,37,447.6;2026-05-25,259.21,309.97,397.04,44,465.9;2026-06-01,251.44,307.68,395.59,41,441.9;2026-06-08,204.02,303.61,393.69,30,398.2;2026-06-15,195.16,299.36,391.71,29,374.8;2026-06-22,202.73,295.57,389.83,32,408.4;2026-06-29,219.72,292.6,388.14,39,429.5;2026-07-06,223.64,289.89,386.5,40,434.7;2026-07-13,237.25,287.83,385.01,45,455.6;2026-07-20,225.11,285.37,383.42,42,458.1;2026-07-27,250.41,284,382.1,50,462.7;2026-08-03,265.21,283.26,380.94,54,476.1;2026-08-10,264.02,282.51,379.77,53,475.5;2026-08-17,275.3,282.22,378.73,57,493.8;2026-08-24,291.52,282.59,377.87,61,510.7;2026-08-31,266.51,281.96,376.76,52,491;2026-09-07,252.23,280.79,375.52,48,491.2;2026-09-14,248.92,279.54,374.26,48,471.1;2026-09-21,235.47,277.81,372.88,44,449.1;2026-09-28,237.69,276.24,371.53,45,451.3;2026-10-05,242.27,274.91,370.25,46,466.5;2026-10-15,251.67,274,369.07,49,469.9`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+const DD=`2025-10-03,346.74,357.96,394.45,-47.2;2025-10-06,350.14,357.65,394.01,-46.9;2025-10-07,348.31,357.28,393.55,-47.2;2025-10-08,348.77,356.95,393.11,-49.3;2025-10-09,347.47,356.58,392.65,-49.3;2025-10-10,337.51,355.83,392.1,-53.1;2025-10-13,339.32,355.18,391.58,-51.3;2025-10-14,335.94,354.43,391.02,-51.2;2025-10-15,330.63,353.5,390.42,-53.4;2025-10-16,329.23,352.54,389.81,-56.2;2025-10-17,333.26,351.79,389.25,-54.2;2025-10-20,343.4,351.46,388.8,-50.9;2025-10-21,357.55,351.7,388.48,-47;2025-10-22,354.09,351.79,388.14,-49.3;2025-10-23,354.12,351.88,387.8,-47.1;2025-10-24,353.52,351.95,387.46,-48.9;2025-10-27,357.8,352.18,387.17,-46.8;2025-10-28,359.91,352.48,386.9,-47.6;2025-10-29,337.86,351.91,386.41,-53.8;2025-10-30,339.24,351.41,385.94,-53.5;2025-10-31,340.31,350.97,385.49,-51.4;2025-11-03,337.47,350.45,385.01,-51.5;2025-11-04,335.35,349.85,384.51,-52.8;2025-11-05,335.53,349.29,384.03,-51.4;2025-11-06,327.35,348.43,383.46,-52.7;2025-11-07,326.95,347.59,382.9,-52.8;2025-11-10,328.85,346.85,382.36,-51.1;2025-11-11,333.22,346.32,381.87,-49.2;2025-11-12,337.05,345.96,381.43,-47.8;2025-11-13,333.6,345.47,380.95,-50.1;2025-11-14,331.11,344.91,380.46,-50.2;2025-11-17,325.07,344.13,379.9,-53;2025-11-18,324.47,343.36,379.35,-52.1;2025-11-19,318.11,342.37,378.74,-53.2;2025-11-20,312.4,341.19,378.08,-56.9;2025-11-21,324.19,340.53,377.55,-54.2;2025-11-24,318.73,339.67,376.96,-59;2025-11-25,319.55,338.88,376.39,-57.7;2025-11-26,317.52,338.05,375.8,-59.2;2025-11-28,320.13,337.34,375.25,-59.1;2025-12-01,322.85,336.77,374.73,-57.8;2025-12-02,322.81,336.23,374.21,-57;2025-12-03,326.78,335.86,373.74,-54.1;2025-12-04,328.73,335.58,373.29,-52.8;2025-12-05,346.26,336,373.02,-47.1;2025-12-08,339.12,336.12,372.69,-50.5;2025-12-09,344.32,336.44,372.4,-49.4;2025-12-10,343.13,336.7,372.11,-51.5;2025-12-11,350.43,337.24,371.9,-47.1;2025-12-12,356.43,337.99,371.74,-46.6;2025-12-15,351.15,338.51,371.54,-44.9;2025-12-16,347.89,338.88,371.3,-47.1;2025-12-17,354.66,339.5,371.14,-45.5;2025-12-18,355.81,340.14,370.98,-44.6;2025-12-19,355.86,340.75,370.83,-40.8;2025-12-22,357.53,341.41,370.7,-40.3;2025-12-23,352.42,341.84,370.52,-42.1;2025-12-24,352.98,342.28,370.35,-42.1;2025-12-26,353.8,342.73,370.18,-42.4;2025-12-29,353.16,343.14,370.01,-43.2;2025-12-30,352.51,343.51,369.84,-43.3;2025-12-31,349.99,343.76,369.64,-45;2026-01-02,333.3,343.35,369.28,-49.7;2026-01-05,331.56,342.89,368.9,-48.9;2026-01-06,335.99,342.62,368.58,-46;2026-01-07,338.1,342.44,368.27,-46.5;2026-01-08,339.04,342.31,367.98,-46.7;2026-01-09,333.95,341.98,367.64,-45;2026-01-12,327.65,341.42,367.24,-44.5;2026-01-13,309.93,340.18,366.67,-49.8;2026-01-14,304.44,338.78,366.06,-52.4;2026-01-15,304.09,337.42,365.44,-51.3;2026-01-16,296.12,335.8,364.75,-58.6;2026-01-20,290.37,334.02,364.01,-61.3;2026-01-21,294.23,332.46,363.31,-56.2;2026-01-22,299.73,331.18,362.68,-54.4;2026-01-23,301.07,330,362.07,-55.2;2026-01-26,304.72,329,361.5,-53.7;2026-01-27,297.42,327.77,360.86,-54.6;2026-01-28,299.58,326.66,360.25,-56.1;2026-01-29,291.65,325.29,359.57,-52;2026-01-30,293.25,324.03,358.91,-51.2;2026-02-02,293.38,322.83,358.26,-53;2026-02-03,271.93,320.83,357.4,-60.2;2026-02-04,279.71,319.22,356.62,-54.6;2026-02-05,269.39,317.27,355.76,-60;2026-02-06,268.38,315.35,354.89,-61.9;2026-02-09,266.9,313.45,354.01,-60.2;2026-02-10,264.67,311.54,353.12,-64.8;2026-02-11,257.16,309.4,352.17,-70.5;2026-02-12,262.5,307.56,351.28,-62.1;2026-02-13,263.97,305.85,350.41,-57.8;2026-02-17,260.45,304.07,349.51,-59.4;2026-02-18,263.17,302.47,348.65,-54.9;2026-02-19,259.21,300.77,347.76,-56.9;2026-02-20,258.61,299.12,346.88,-56.2;2026-02-23,246.68,297.06,345.88,-60.9;2026-02-24,255.17,295.42,344.98,-57.8;2026-02-25,257.81,293.95,344.11,-52.9;2026-02-26,259.04,292.58,343.26,-54.8;2026-02-27,262.41,291.39,342.46,-50.1;2026-03-02,260.88,290.2,341.65,-49.9;2026-03-03,270.99,289.44,340.94,-45.5;2026-03-04,273.12,288.8,340.27,-46;2026-03-05,281.74,288.53,339.69,-44.4;2026-03-06,283.62,288.33,339.13,-39.9;2026-03-09,282.44,288.1,338.56,-38.7;2026-03-10,275.13,287.59,337.93,-38.9;2026-03-11,273.71,287.05,337.29,-39.9;2026-03-12,269.78,286.37,336.62,-49;2026-03-13,249.32,284.92,335.75,-58.5;2026-03-16,251.86,283.62,334.92,-55.7;2026-03-17,254.2,282.47,334.12,-58.2;2026-03-18,246,281.04,333.24,-64.3;2026-03-19,245.99,279.66,332.37,-66.2;2026-03-20,248.15,278.43,331.53,-58.2;2026-03-23,247.64,277.22,330.7,-59.9;2026-03-24,238.87,275.72,329.78,-64;2026-03-25,237.25,274.21,328.86,-65.6;2026-03-26,240.88,272.9,327.99,-63.9;2026-03-27,234.84,271.41,327.06,-66.1;2026-03-30,241.13,270.22,326.21,-64.5;2026-03-31,243.08,269.16,325.38,-61.9;2026-04-01,241.37,268.07,324.54,-60;2026-04-02,242.92,267.08,323.73,-58.5;2026-04-06,244.36,266.19,322.94,-57.7;2026-04-07,240.14,265.17,322.12,-59.5;2026-04-08,239.31,264.15,321.29,-62.4;2026-04-09,229.94,262.81,320.38,-65.7;2026-04-10,225.35,261.34,319.44,-69.5;2026-04-13,240.11,260.51,318.65,-63.4;2026-04-14,235.72,259.54,317.82,-66.6;2026-04-15,244.66,258.96,317.1,-63.7;2026-04-16,248.16,258.53,316.41,-66;2026-04-17,244.45,257.98,315.69,-71.1;2026-04-20,248.63,257.61,315.03,-70.9;2026-04-21,247.18,257.2,314.35,-74.2;2026-04-22,255.94,257.15,313.77,-72.9;2026-04-23,238.98,256.44,313.03,-74.4;2026-04-24,245.44,256.01,312.35,-68.3;2026-04-27,239.31,255.36,311.63,-73.1;2026-04-28,243.2,254.88,310.95,-73.1;2026-04-29,243.57,254.44,310.28,-70.5;2026-04-30,246.1,254.11,309.64,-66;2026-05-01,250.71,253.98,309.05,-63.9;2026-05-04,253.96,253.97,308.5,-60.9;2026-05-05,255.62,254.04,307.98,-57.9;2026-05-06,250.17,253.89,307.4,-59.6;2026-05-07,256.51,253.99,306.89,-59.1;2026-05-08,253.04,253.95,306.36,-55.8;2026-05-11,246.15,253.65,305.76,-58.2;2026-05-12,240.83,253.14,305.11,-61;2026-05-13,236.07,252.47,304.43,-60.9;2026-05-14,237.01,251.87,303.76,-57.8;2026-05-15,247.6,251.7,303.2,-52.8;2026-05-18,255.64,251.86,302.72,-47.8;2026-05-19,254.99,251.98,302.25,-50.9;2026-05-20,253.37,252.03,301.76,-46.5;2026-05-21,244.1,251.72,301.19,-47.8;2026-05-22,244.76,251.45,300.63,-49.4;2026-05-26,240.49,251.02,300.03,-50.1;2026-05-27,238.24,250.52,299.41,-52.6;2026-05-28,241.44,250.16,298.84,-52;2026-05-29,259.21,250.52,298.44,-43.1;2026-06-01,274.03,251.44,298.2,-36.4;2026-06-02,262.11,251.86,297.84,-40.2;2026-06-03,256.24,252.03,297.43,-40.1;2026-06-04,258.42,252.28,297.04,-45.2;2026-06-05,251.44,252.25,296.59,-48.3;2026-06-08,244.99,251.96,296.07,-52;2026-06-09,237.88,251.41,295.49,-53.6;2026-06-10,233.38,250.7,294.87,-56.2;2026-06-11,218.8,249.45,294.12,-72.3;2026-06-12,204.02,247.67,293.22,-56.6;2026-06-15,206.36,246.05,292.36,-64.3;2026-06-16,207.32,244.53,291.51,-64.3;2026-06-17,196.28,242.64,290.56,-72.6;2026-06-18,195.16,240.78,289.61,-64.5;2026-06-22,194.9,238.98,288.67,-65.2;2026-06-23,197.43,237.35,287.76,-66.6;2026-06-24,196.57,235.75,286.86,-70.7;2026-06-25,193.41,234.09,285.93,-74.7;2026-06-26,202.73,232.86,285.1,-67.2;2026-06-29,206.43,231.82,284.32,-68.7;2026-06-30,205.02,230.77,283.53,-64.1;2026-07-01,210.98,230,282.8,-63;2026-07-02,219.72,229.59,282.18,-59.7;2026-07-06,218.07,229.14,281.54,-57.2;2026-07-07,221.54,228.84,280.94,-63.8;2026-07-08,220.94,228.53,280.35,-61.8;2026-07-09,222.65,228.3,279.77,-57.3;2026-07-10,223.64,228.12,279.21,-59.6;2026-07-13,230.61,228.22,278.73,-56.9;2026-07-14,220.78,227.93,278.15,-57.5;2026-07-15,224.56,227.79,277.62,-60.4;2026-07-16,235.31,228.09,277.2,-54.8;2026-07-17,237.25,228.45,276.8,-52.9;2026-07-20,234.74,228.69,276.38,-49.9;2026-07-21,227.16,228.63,275.89,-49.6;2026-07-22,218.36,228.23,275.32,-53.7;2026-07-23,212.17,227.6,274.69,-57.1;2026-07-24,225.11,227.5,274.2,-54;2026-07-27,237.75,227.91,273.84,-52.4;2026-07-28,249.18,228.74,273.59,-50.7;2026-07-29,263.43,230.1,273.49,-44;2026-07-30,247.9,230.8,273.23,-45;2026-07-31,250.41,231.57,273.01,-39.7;2026-08-03,251.34,232.34,272.79,-43.9;2026-08-04,257.49,233.33,272.64,-40.4;2026-08-05,259.32,234.35,272.51,-38.7;2026-08-06,260.24,235.36,272.39,-34.4;2026-08-07,265.21,236.53,272.31,-35;2026-08-10,272.96,237.96,272.32,-31.1;2026-08-11,263.71,238.97,272.23,-34.7;2026-08-12,258.75,239.75,272.1,-35.2;2026-08-13,270.49,240.95,272.08,-30.9;2026-08-14,264.02,241.86,272,-32.6;2026-08-17,254.04,242.34,271.83,-34.4;2026-08-18,263.14,243.15,271.74,-34;2026-08-19,272.47,244.3,271.75,-31.1;2026-08-20,272.22,245.4,271.75,-30.8;2026-08-21,275.3,246.57,271.79,-28.6;2026-08-24,276.27,247.73,271.83,-28.4;2026-08-25,273.92,248.76,271.85,-27.2;2026-08-26,273.47,249.73,271.87,-24.4;2026-08-27,289.15,251.28,272.04,-19.9;2026-08-28,291.52,252.85,272.23,-18.8;2026-08-31,292.79,254.42,272.44,-15.3;2026-09-01,286.08,255.66,272.57,-19.2;2026-09-02,279.79,256.61,272.65,-22.7;2026-09-03,285.75,257.75,272.78,-24.7;2026-09-04,266.51,258.09,272.71,-28.5;2026-09-08,257.26,258.06,272.56,-30.1;2026-09-09,254.86,257.94,272.38,-33.5;2026-09-10,248.83,257.58,272.15,-39.6;2026-09-11,252.23,257.37,271.95,-33.6;2026-09-14,265.6,257.69,271.89,-28.5;2026-09-15,257.76,257.69,271.75,-32.7;2026-09-16,250.5,257.41,271.54,-35.2;2026-09-17,252.67,257.23,271.35,-30.3;2026-09-18,248.92,256.9,271.13,-34.2;2026-09-21,249.52,256.61,270.91,-31.8;2026-09-22,238.25,255.89,270.59,-38.7;2026-09-23,240.69,255.29,270.29,-36.7;2026-09-24,238.93,254.65,269.98,-38.3;2026-09-25,235.47,253.9,269.63,-40.9;2026-09-28,231.01,253,269.25,-36.4;2026-09-29,233.17,252.23,268.89,-32.6;2026-09-30,239.94,251.74,268.6,-29;2026-10-01,241.28,251.33,268.33,-30.6;2026-10-02,237.69,250.8,268.02,-33;2026-10-05,238.79,250.33,267.73,-32.3;2026-10-06,238.12,249.85,267.44,-33.3;2026-10-07,232.77,249.18,267.09,-32.5;2026-10-08,241.05,248.86,266.83,-26.8;2026-10-09,242.27,248.6,266.59,-27.3;2026-10-12,238.14,248.19,266.31,-26.8;2026-10-13,236.28,247.72,266.01,-29.2;2026-10-14,240.68,247.45,265.76,-26.5;2026-10-15,251.67,247.61,265.62,-23.1`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+
+const fmtN=(v,d=2)=>v.toLocaleString("de-CH",{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmtD=s=>{const [y,m,d]=s.split("-");return d+"."+m+"."+y.slice(2)};
+const NS="http://www.w3.org/2000/svg";
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+
+function scoreTable(id,rows){
+  let tot=0,max=0;
+  const html='<thead><tr><th>Kriterium</th><th>Stand</th><th class="num">Punkte</th><th style="width:22%"></th></tr></thead><tbody>'+rows.map(r=>{tot+=r[2];max+=r[3];const p=r[2]/r[3];const c=p>=.75?"var(--good)":p>=.45?"var(--warn)":"var(--bad)";
+    return `<tr><td>${r[0]}</td><td class="muted">${r[1]}</td><td class="num">${r[2]} / ${r[3]}</td><td><div class="bar"><i style="width:${p*100}%;background:${c}"></i></div></td></tr>`}).join("")+`<tr class="total"><td>Total</td><td></td><td class="num">${tot} / ${max}</td><td></td></tr></tbody>`;
+  document.getElementById(id).innerHTML=html;return tot;
+}
+const qs=scoreTable("q-tbl",Q), ts=scoreTable("t-tbl",T);
+document.getElementById("q-val").textContent=qs;document.getElementById("t-val").textContent=ts;
+document.getElementById("q-pin").style.left=qs+"%";document.getElementById("t-pin").style.left=ts+"%";
+
+document.getElementById("fin-rows").innerHTML=FIN.map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1].toLocaleString("de-CH")}</td><td class="num">${r[2]}</td><td class="num">${r[3]}</td><td class="num">${fmtN(r[4])}</td><td class="num">${r[5].toLocaleString("de-CH")}</td><td class="num">${r[6]}</td><td class="num">${r[7]}</td></tr>`).join("");
+
+/* generic line chart */
+function lineChart(host,{dates,series,bands=[],yFmt=v=>fmtN(v),h=300,zero=false,refs=[],pad}){
+  const W_=800,H=h,m={t:12,r:56,b:28,l:8};
+  const all=series.flatMap(s=>s.values).concat(bands.flatMap(b=>[b.from,b.to])).concat(refs.map(r=>r.v));
+  if(zero)all.push(0);
+  let lo=Math.min(...all),hi=Math.max(...all);const sp=(hi-lo)||1;lo-=sp*.06;hi+=sp*.06;
+  if(pad){lo=pad[0];hi=pad[1]}
+  const n=dates.length,x=i=>m.l+i*(W_-m.l-m.r)/(n-1),y=v=>m.t+(hi-v)*(H-m.t-m.b)/(hi-lo);
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  // grid
+  const steps=5;for(let k=0;k<=steps;k++){const v=lo+(hi-lo)*k/steps;el("line",{x1:m.l,x2:W_-m.r,y1:y(v),y2:y(v),stroke:"var(--grid)","stroke-width":1},svg);
+    const t=el("text",{x:W_-m.r+6,y:y(v)+4,"font-size":11,fill:"var(--muted)","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=yFmt(v)}
+  bands.forEach(b=>{el("rect",{x:m.l,width:W_-m.l-m.r,y:y(Math.max(b.from,b.to)),height:Math.abs(y(b.from)-y(b.to)),fill:b.type==="res"?"var(--zone-res)":"var(--zone-sup)"},svg)});
+  refs.forEach(r=>{el("line",{x1:m.l,x2:W_-m.r,y1:y(r.v),y2:y(r.v),stroke:"var(--muted)","stroke-dasharray":"4 4","stroke-width":1},svg);
+    const t=el("text",{x:m.l+4,y:y(r.v)-4,"font-size":11,fill:"var(--muted)"},svg);t.textContent=r.label});
+  if(zero)el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  // x labels
+  const every=Math.ceil(n/6);for(let i=0;i<n;i+=every){const t=el("text",{x:x(i),y:H-8,"font-size":11,fill:"var(--muted)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);const d=dates[i];t.textContent=d.slice(5,7)+"/"+d.slice(2,4)}
+  series.forEach(s=>{const dpath=s.values.map((v,i)=>(i?"L":"M")+x(i).toFixed(1)+","+y(v).toFixed(1)).join("");
+    el("path",{d:dpath,fill:"none",stroke:s.color,"stroke-width":s.w||2,"stroke-linejoin":"round","stroke-linecap":"round"},svg);
+    const lv=s.values[n-1];el("circle",{cx:x(n-1),cy:y(lv),r:3.5,fill:s.color,stroke:"var(--surface)","stroke-width":2},svg)});
+  // hover
+  const cross=el("line",{y1:m.t,y2:H-m.b,stroke:"var(--muted)","stroke-width":1,opacity:0},svg);
+  const ov=el("rect",{x:m.l,y:m.t,width:W_-m.l-m.r,height:H-m.t-m.b,fill:"transparent"},svg);
+  host.appendChild(svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;host.appendChild(tip);
+  function move(ev){const r=svg.getBoundingClientRect();const px=(ev.clientX-r.left)*W_/r.width;let i=Math.round((px-m.l)/((W_-m.l-m.r)/(n-1)));i=Math.max(0,Math.min(n-1,i));
+    cross.setAttribute("x1",x(i));cross.setAttribute("x2",x(i));cross.setAttribute("opacity",1);
+    tip.innerHTML=`<div class="d">${fmtD(dates[i])}</div>`+series.map(s=>`<div><i class="sw" style="background:${s.color}"></i> ${s.name}: <b>${yFmt(s.values[i])}</b></div>`).join("");
+    tip.hidden=false;const hx=x(i)*r.width/W_;tip.style.left=Math.min(Math.max(0,hx+12),r.width-tip.offsetWidth)+"px";tip.style.top="8px"}
+  ov.addEventListener("pointermove",move);ov.addEventListener("pointerleave",()=>{tip.hidden=true;cross.setAttribute("opacity",0)});
+}
+function barChart(host,{labels,values,fmt,h=220,color,neg,tipExtra}){
+  const W_=800,H=h,m={t:18,r:8,b:28,l:8};
+  const hi=Math.max(0,...values),lo=Math.min(0,...values);const lo2=lo<0?lo*1.15:lo,hi2=hi*1.15||1;
+  const y=v=>m.t+(hi2-v)*(H-m.t-m.b)/(hi2-lo2);const n=values.length,bw=(W_-m.l-m.r)/n;
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;
+  values.forEach((v,i)=>{const x0=m.l+i*bw+bw*.18,w=bw*.64,y0=y(Math.max(v,0)),hh=Math.max(1,Math.abs(y(v)-y(0)));
+    const r=el("rect",{x:x0,y:y0,width:w,height:hh,rx:4,fill:v<0?(neg||"var(--s2)"):(color||"var(--s1)")},svg);
+    const t=el("text",{x:x0+w/2,y:v<0?y(v)+13:y0-5,"font-size":11.5,fill:"var(--ink)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=fmt(v);
+    const l=el("text",{x:x0+w/2,y:H-8,"font-size":11.5,fill:"var(--muted)","text-anchor":"middle"},svg);l.textContent=labels[i];
+    const hit=el("rect",{x:m.l+i*bw,y:m.t,width:bw,height:H-m.t-m.b,fill:"transparent"},svg);
+    hit.addEventListener("pointerenter",()=>{tip.innerHTML=`<div class="d">${labels[i]}</div><b>${fmt(v)}</b>${tipExtra?tipExtra(i):""}`;tip.hidden=false;const R=svg.getBoundingClientRect();tip.style.left=Math.min((m.l+i*bw)*R.width/W_,R.width-tip.offsetWidth)+"px";tip.style.top="0px"});
+    hit.addEventListener("pointerleave",()=>tip.hidden=true)});
+  host.appendChild(svg);host.appendChild(tip);
+}
+barChart(document.getElementById("c-rev"),{labels:HALF.map(r=>r[0]),values:HALF.map(r=>r[1]),fmt:v=>fmtN(v,0),h:200});
+barChart(document.getElementById("c-margin"),{labels:MARGIN.map(r=>r[0]),values:MARGIN.map(r=>r[1]),fmt:v=>fmtN(v,1)+" %",h:200});
+barChart(document.getElementById("c-seas"),{labels:MON,values:SEAS,fmt:v=>(v>0?"+":"")+fmtN(v,1),h:220,tipExtra:i=>`<div>${SEASHIT[i]} % der Jahre positiv</div>`});
+const BANDS=[{"from": 286, "to": 295, "type": "res"}, {"from": 265, "to": 275, "type": "res"}, {"from": 232, "to": 242, "type": "sup"}, {"from": 200, "to": 212, "type": "sup"}], REFS=[{"v": 267, "label": "Trigger 267"}];
+const wd=W.map(r=>r[0]);
+lineChart(document.getElementById("c-week"),{dates:wd,series:[{name:"Kurs",values:W.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:W.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:W.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,yFmt:v=>fmtN(v,0),h:320});
+lineChart(document.getElementById("c-adw"),{dates:wd,series:[{name:"A/D Woche",values:W.map(r=>r[5]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,zero:true});
+lineChart(document.getElementById("c-rsiw"),{dates:wd,series:[{name:"RSI Woche",values:W.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,refs:[{v:70,label:"70 überkauft"},{v:30,label:"30 überverkauft"}],pad:[10,90]});
+const dd=DD.map(r=>r[0]);
+lineChart(document.getElementById("c-day"),{dates:dd,series:[{name:"Kurs",values:DD.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:DD.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:DD.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,refs:REFS,yFmt:v=>fmtN(v,0),h:260});
+lineChart(document.getElementById("c-add"),{dates:dd,series:[{name:"A/D Tag",values:DD.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:260,zero:true});
+</script>

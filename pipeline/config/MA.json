@@ -1,0 +1,411 @@
+{
+ "ticker": "MA",
+ "name": "Mastercard",
+ "datum": "15.10.2026",
+ "waehrung": "USD",
+ "land": "USA",
+ "meta": "Mastercard Inc. · NYSE: MA · Zahlungsnetzwerk für Karten und digitale Zahlungen · Purchase, New York, USA",
+ "price": "616.32 $",
+ "pricemeta": "Schluss 15.10.2026 · 52 Wochen: 464.52 – 619.80 $ · Allzeithoch 619.80 $ am 15.10.2026",
+ "verdict": "Mastercard verdient an fast jeder Kartenzahlung ein kleines Stück und behält davon über die Hälfte als freies Geld: 16.7 Mrd. $ Free Cashflow, 48 % vom Umsatz. Qualität grün (85), Timing hellgrün (64). Die Aktie ist am 15.10.2026 auf ein neues Allzeithoch gestiegen (619.80 $), 33 % über dem Tief vom Juni. Sie ist damit weit weg von jeder Kaufzone und kurzfristig überkauft (RSI 75). Ein Rücksetzer auf 590 bis 602 $ wäre der bessere Einstieg.",
+ "about": "Mastercard betreibt eines der zwei grossen Kartennetzwerke der Welt (das andere ist Visa). Mastercard gibt selbst keine Karten aus und leiht kein Geld aus. Die Banken geben die Karten aus, Mastercard leitet die Zahlung weiter und kassiert pro Zahlung eine kleine Gebühr. 2025 liefen 10.6 Billionen $ über das Netz. Dazu kommen Zusatzdienste wie Betrugsschutz, Datenanalyse und Cybersicherheit (rund 40 % des Umsatzes, stark wachsend). Besonders lukrativ sind Zahlungen über Landesgrenzen, zum Beispiel wenn du im Ausland mit Karte zahlst.",
+ "why": "2026 fiel die Aktie zuerst: Am 12./13. Januar unterstützte Präsident Trump ein Gesetz (Credit Card Competition Act), das Banken zwingen würde, Zahlungen auch über ein zweites Netz zu leiten. Mastercard fiel an einem Tag um rund 4 bis 5 %. Im März kaufte Mastercard die Stablecoin-Firma BVNK für bis zu 1.8 Mrd. $, und der Krieg im Nahen Osten bremste die Auslandzahlungen. Anfang Juni stand die Aktie bei 464.52 $. Die Zahlen blieben aber stark: Im 2. Quartal stieg der Gewinn pro Aktie um 22 %, und Mastercard war besser als erwartet. Seit Juli steigt die Aktie, am 13. August wurde bekannt, dass Bill Ackmans Fonds Pershing Square für rund 1.1 Mrd. $ eingestiegen ist. Vom 2. bis 15. Oktober stieg sie um 11.6 % bis auf ein neues Allzeithoch.",
+ "kpis": [
+  [
+   "g",
+   "Umsatzwachstum",
+   "+16.0 %",
+   "Letzte 12 Monate. Ohne Währungseffekte rund 12 %. Seit 2021 im Schnitt +15 % pro Jahr."
+  ],
+  [
+   "g",
+   "Operative Marge",
+   "59.9 %",
+   "Von 100 $ Umsatz bleiben rund 60 $ Betriebsgewinn (bereinigt, offiziell rund 58 %). Eine der höchsten Margen überhaupt, seit 2021 gestiegen."
+  ],
+  [
+   "g",
+   "Gewinn pro Aktie (EPS)",
+   "18.18 $",
+   "Letzte 12 Monate. 2021 waren es 8.76 $, also rund +17 % pro Jahr. Im 2. Quartal 2026 +22 %."
+  ],
+  [
+   "g",
+   "ROIC",
+   "94 %",
+   "Auf 100 $ investiertes Kapital rund 94 $ Gewinn. Extrem hoch, weil ein Zahlungsnetz kaum Kapital braucht."
+  ],
+  [
+   "g",
+   "Free Cashflow",
+   "16.7 Mrd. $",
+   "Letzte 12 Monate, 48 % vom Umsatz. Achtung: 2.7 % weniger als 2025, im 1. Halbjahr 2026 sogar −6.7 %. Den Grund nennt die Firma nicht klar."
+  ],
+  [
+   "w",
+   "Nettoschulden",
+   "12.9 Mrd. $",
+   "In 0.8 Jahren mit dem Free Cashflow bezahlt: gut. Aber die Schulden stiegen seit Dezember um 4.8 Mrd. $, weil Rückkäufe und Dividende grösser waren als der FCF."
+  ],
+  [
+   "w",
+   "KGV",
+   "33.9",
+   "Du zahlst rund 34 Jahresgewinne. Eigener Schnitt 2021–2025: rund 36.4. Also etwa 7 % günstiger als üblich, absolut aber teuer."
+  ],
+  [
+   "w",
+   "Dividende",
+   "0.6 %",
+   "0.87 $ pro Quartal, 4× pro Jahr. Nächste Zahlung am 9.11.2026. Seit 14 Jahren jedes Jahr erhöht, zuletzt um 14 %. Tiefe Rendite, weil das meiste Geld in Rückkäufe geht."
+  ]
+ ],
+ "revtitle": "Umsatz pro Quartal (Mio. $)",
+ "revunit": "Mio. $",
+ "epsunit": "$",
+ "revnote": "Alle 8 Quartale über dem Vorjahr. Das Wachstum sank zuletzt leicht von 17.6 % auf 14.1 % (ohne Währungseffekte 12 %).",
+ "marginnote": "Bereinigte operative Marge (ohne Rechtsfälle und Umbau). Seit 2021 von 54 % auf 60 % gestiegen.",
+ "finnote": "<b>Hinweis:</b> Marge bereinigt nach StockAnalysis, offiziell (GAAP) 1 bis 2 Punkte tiefer. Das KGV-Mittel ist über 2021–2025 gerechnet (40.6, 33.7, 35.7, 37.5, 34.3).",
+ "FIN": [
+  [
+   "2021",
+   18884,
+   "+23.4 %",
+   "54.4 %",
+   8.76,
+   9056,
+   "73.2 %",
+   "40.6"
+  ],
+  [
+   "2022",
+   22237,
+   "+17.8 %",
+   "57.1 %",
+   10.22,
+   10753,
+   "76.8 %",
+   "33.7"
+  ],
+  [
+   "2023",
+   25098,
+   "+12.9 %",
+   "58.0 %",
+   11.83,
+   11609,
+   "85.2 %",
+   "35.7"
+  ],
+  [
+   "2024",
+   28167,
+   "+12.2 %",
+   "58.4 %",
+   13.89,
+   14306,
+   "89.6 %",
+   "37.5"
+  ],
+  [
+   "2025",
+   32791,
+   "+16.4 %",
+   "59.2 %",
+   16.52,
+   17159,
+   "93.6 %",
+   "34.3"
+  ],
+  [
+   "Letzte 12 Mt.",
+   35083,
+   "+16.0 %",
+   "59.9 %",
+   18.18,
+   16702,
+   "93.8 %",
+   "33.9"
+  ]
+ ],
+ "QREV": [
+  [
+   "Q3 24",
+   7369
+  ],
+  [
+   "Q4 24",
+   7489
+  ],
+  [
+   "Q1 25",
+   7250
+  ],
+  [
+   "Q2 25",
+   8133
+  ],
+  [
+   "Q3 25",
+   8602
+  ],
+  [
+   "Q4 25",
+   8806
+  ],
+  [
+   "Q1 26",
+   8398
+  ],
+  [
+   "Q2 26",
+   9277
+  ]
+ ],
+ "revdec": 0,
+ "MARGIN": [
+  [
+   "2021",
+   54.4
+  ],
+  [
+   "2022",
+   57.1
+  ],
+  [
+   "2023",
+   58.0
+  ],
+  [
+   "2024",
+   58.4
+  ],
+  [
+   "2025",
+   59.2
+  ],
+  [
+   "12 Mt.",
+   59.9
+  ]
+ ],
+ "Q": [
+  [
+   "Umsatztrend",
+   "4 von 4 Quartalen über Vorjahr, Wachstum leicht sinkend (17.6 → 14.1 %)",
+   12,
+   15
+  ],
+  [
+   "Wachstumstempo",
+   "Rund 12 % ohne Währungseffekte",
+   8,
+   10
+  ],
+  [
+   "Operative Marge",
+   "Rund 60 % (9 Pkt.), seit 2021 steigend (6 Pkt.)",
+   15,
+   15
+  ],
+  [
+   "Gewinnwachstum (EPS)",
+   "Rund +17 % pro Jahr seit 2021, Q2 2026 +22 %",
+   10,
+   10
+  ],
+  [
+   "Free Cashflow",
+   "2021–2025 jedes Jahr gestiegen, letzte 12 Monate aber −2.7 %",
+   9,
+   10
+  ],
+  [
+   "ROIC",
+   "94 %, steigend",
+   15,
+   15
+  ],
+  [
+   "Schulden",
+   "Nettoschulden/EBITDA 0.58",
+   9,
+   10
+  ],
+  [
+   "Bewertung vs. eigene Historie",
+   "KGV 33.9 statt Ø 36.4 (2021–2025), rund 7 % günstiger",
+   7,
+   15
+  ]
+ ],
+ "adwnote": "Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Achtung: Ende August stand die Wochen-A/D bei 1'072.5 (Kurs 595 $). Heute liegt der Kurs mit 616 $ höher, die A/D mit 1'065.5 leicht tiefer. Der Anstieg wird nicht ganz von mehr Käufen bestätigt.",
+ "rsiwnote": "Unter 30 überverkauft, über 70 überkauft. Im März und Juni um 34 bis 40, heute 67: stark, knapp unter überkauft.",
+ "addnote": "Am 28.8. stand der Kurs bei 595 $ und die Tages-A/D bei 36.2. Heute steht der Kurs 21 $ höher, die A/D aber tiefer bei 35.3. Seit dem 2.10. steigt die A/D wieder (26.3 → 35.3), aber noch nicht über das Hoch vom August.",
+ "ind": [
+  [
+   "Kurs vs. EMA 50",
+   "616.3 &gt; 570.0",
+   "616.3 &gt; 544.8",
+   "Klar darüber, auf beiden Zeitebenen."
+  ],
+  [
+   "Kurs vs. EMA 200",
+   "616.3 &gt; 546.0",
+   "616.3 &gt; 487.4",
+   "Klar darüber."
+  ],
+  [
+   "EMA 50 vs. EMA 200",
+   "50 über 200 (seit 3.8.2026)",
+   "50 über 200 (seit 2016)",
+   "Aufwärtstrend auf beiden Zeitebenen."
+  ],
+  [
+   "RSI (14)",
+   "74.7",
+   "67.2",
+   "Tag überkauft, Woche stark."
+  ],
+  [
+   "A/D",
+   "steigt seit 2.10., noch unter dem August-Hoch",
+   "leicht unter dem August-Hoch",
+   "Neues Kurshoch ohne neues A/D-Hoch: leichte Warnung."
+  ],
+  [
+   "Volumen",
+   "Ø 20 Tage 3.1 Mio. vs. Ø 100 Tage 3.3 Mio. Aktien",
+   "Der Anstieg läuft mit eher wenig Handel."
+  ]
+ ],
+ "smc": "Nach dem Tief vom 3. Juni (464.52 $) macht Mastercard höhere Hochs und höhere Tiefs: Tiefs 464.52 → 515.11 → 523.61 → 556.06 → 545.41 $ (2.10.), Hochs 504.64 → 543.65 → 551.72 → 583.71 → 601.23 $. Am 15.10. brach der Kurs über die alten Hochs von August 2025 und August 2026 (rund 601 bis 602 $) und schloss bei 616.32 $ (Break of Structure, neues Allzeithoch). Die Aktie steht damit im teuren Bereich (Premium) der Bewegung. Der übliche Ablauf nach einem Ausbruch: ein Rücksetzer auf die alte Hochzone 590 bis 602 $, die dann von oben hält.",
+ "zones": [
+  [
+   "t",
+   "620 $",
+   "<b>Trigger:</b> Tagesschluss über dem Allzeithoch (619.80 $) bestätigt den Ausbruch. Besser: Rücksetzer in Kaufzone 1, der hält."
+  ],
+  [
+   "s",
+   "590–602 $",
+   "<b>Kaufzone 1:</b> Alte Hochs von August 2025 und August 2026, jetzt Unterstützung (Rücktest nach dem Ausbruch)."
+  ],
+  [
+   "s",
+   "545–570 $",
+   "<b>Kaufzone 2:</b> Tief vom 2.10. (545.41 $), Tages-EMA 200 (546 $) und Tages-EMA 50 (570 $)."
+  ],
+  [
+   "r",
+   "545 $",
+   "Abbruch: Wochenschluss unter dem Tief vom 2.10. Dann wäre die Reihe höherer Tiefs gebrochen."
+  ]
+ ],
+ "smart": [
+  "<b>Mastercard selbst:</b> Kauft laufend Aktien zurück, in den letzten 12 Monaten für 16 Mrd. $ (rund 3 % des Börsenwerts). Am meisten im Frühling, als der Kurs um 500 $ stand. Restprogramm Ende Juli: 7.8 Mrd. $, ein neues Programm kommt wohl im Dezember.",
+  "<b>Insider:</b> In 12 Monaten keine Käufe, nur Verkäufe (rund 67 Mio. $), meist nach Optionsausübungen und nach festen Plänen. CEO Michael Miebach verkaufte im Juli und August für rund 28 Mio. $.",
+  "<b>Grosse Investoren:</b> Pershing Square (Bill Ackman) ist im 2. Quartal 2026 neu mit rund 1.1 Mrd. $ eingestiegen (2.12 Mio. Aktien).",
+  "<b>Analysten:</b> Fast alle positiv. MarketBeat: 32 von 34 Kaufen, Kursziel im Schnitt 683 $ (+11 %), höchstes 756 $. Zuletzt erhöht: Baird auf 710 $ (9.10.)."
+ ],
+ "seasnote": "Durchschnittliche Monatsrendite in %. 20 Jahre Daten (seit 2006). November (+5.6 %, 70 % positive Jahre), April (+4.8 %, 80 %) und Juli (+3.6 %, 86 %) sind stark, September der schwächste Monat.",
+ "T": [
+  [
+   "Trend Woche (EMA 50/200)",
+   "Kurs über beiden, EMA 50 über 200, beide steigen",
+   20,
+   20
+  ],
+  [
+   "Trend Tag (EMA 50/200)",
+   "Kurs über beiden, EMA 50 über 200 seit 3.8.",
+   10,
+   10
+  ],
+  [
+   "Struktur (SMC)",
+   "Höhere Hochs und Tiefs, Ausbruch auf Allzeithoch, aber im Premium",
+   14,
+   20
+  ],
+  [
+   "RSI Tag/Woche",
+   "Tag 75 (überkauft), Woche 67",
+   4,
+   15
+  ],
+  [
+   "A/D Tag/Woche",
+   "Neues Kurshoch ohne neues A/D-Hoch auf beiden Ebenen",
+   6,
+   20
+  ],
+  [
+   "Smart Money",
+   "Start 3, Rückkauf 3 % pro Jahr +3, Pershing Square +2, viele Insider-Verkäufe −3",
+   5,
+   10
+  ],
+  [
+   "Saisonalität",
+   "Oktober 68 %, November 70 %, Dezember 55 % positive Jahre",
+   5,
+   5
+  ]
+ ],
+ "pro": [
+  "Eines von zwei grossen Kartennetzen der Welt: Jede Kartenzahlung bringt Geld, fast ohne Kapital.",
+  "Riesige Marge (rund 60 %) und Kapitalrendite (94 %), Gewinn pro Aktie +17 % pro Jahr.",
+  "Free Cashflow geht fast ganz an die Aktionäre: Aktienzahl sinkt rund 2 % pro Jahr, Dividende steigt seit 14 Jahren.",
+  "Zusatzdienste (Betrugsschutz, Daten) wachsen mit rund 20 % und machen schon 40 % des Umsatzes aus.",
+  "Starker Aufwärtstrend, Ackman neu eingestiegen."
+ ],
+ "con": [
+  "Politisches Risiko in den USA: Gesetz für ein zweites Netz (CCCA) mit Trumps Unterstützung, Druck auf Gebühren.",
+  "Stablecoins und neue Zahlungswege könnten Karten langfristig umgehen.",
+  "Free Cashflow sank zuletzt (−2.7 %), Rückkäufe teils mit neuen Schulden bezahlt.",
+  "Auslandzahlungen wachsen langsamer (15 → 12 %), Krieg und Reisen bremsen.",
+  "Kurz nach einem Allzeithoch überkauft (RSI 75), A/D bestätigt den Anstieg nicht ganz."
+ ],
+ "todo": [
+  [
+   "t",
+   "Beobachten",
+   "Alarm bei 602 $ (oberes Ende Kaufzone 1) und 620 $ (Trigger)."
+  ],
+  [
+   "s",
+   "Timing grün",
+   "Rücksetzer in 590–602 $, der hält, und danach steigende Tages-A/D. Oder Tagesschluss über 620 $ mit neuem A/D-Hoch. Fundamental: Am 29.10. sollte der Free Cashflow wieder steigen."
+  ],
+  [
+   "r",
+   "Abbruch",
+   "Wochenschluss unter 545 $."
+  ],
+  [
+   "",
+   "Nächste Zahlen",
+   "29. Oktober 2026 vor Börsenbeginn (3. Quartal, bestätigt). Im Dezember meist Dividendenerhöhung und neues Rückkaufprogramm."
+  ]
+ ],
+ "bands": [
+  {
+   "from": 590,
+   "to": 602,
+   "type": "sup"
+  },
+  {
+   "from": 545,
+   "to": 570,
+   "type": "sup"
+  }
+ ],
+ "refs": [
+  {
+   "v": 620,
+   "label": "Trigger 620"
+  }
+ ],
+ "sources": "<a href=\"https://stockanalysis.com/stocks/ma/financials/\" target=\"_blank\" rel=\"noopener\">StockAnalysis.com</a> (Stand 15.10.2026), <a href=\"https://www.sec.gov/Archives/edgar/data/0001141391/000114139126000081/ma06302026-exx991xearnings.htm\" target=\"_blank\" rel=\"noopener\">Mastercard Q2 2026</a>, <a href=\"https://stockanalysis.com/stocks/ma/dividend/\" target=\"_blank\" rel=\"noopener\">Dividenden (StockAnalysis)</a>, <a href=\"https://finance.yahoo.com/news/trump-says-credit-card-swipe-130002654.html\" target=\"_blank\" rel=\"noopener\">Yahoo: Trump und CCCA</a>, <a href=\"https://www.tikr.com/blog/why-mastercard-repurchased-5-7-billion-in-shares-while-the-stock-sat-near-52-week-lows\" target=\"_blank\" rel=\"noopener\">TIKR: Rückkäufe am Tief</a>, <a href=\"https://cryptobriefing.com/pershing-square-invests-visa-mastercard-sp-global/\" target=\"_blank\" rel=\"noopener\">Pershing Square</a>, <a href=\"https://www.marketbeat.com/stocks/NYSE/MA/insider-trades/\" target=\"_blank\" rel=\"noopener\">Insider (MarketBeat)</a>."
+}

@@ -1,0 +1,400 @@
+<title>Booking Holdings Aktien-Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F3F5F7; --surface:#FFFFFF; --ink:#141B24; --muted:#5A6573; --line:#DDE2E8; --grid:#E9EDF1;
+  --accent:#2F45B5; --accent-soft:#E6E9F8; --chip:#EBEEF2;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+  --good:#1D7A4B; --good-bg:#E3F3EA; --warn:#9A6200; --warn-bg:#FBF0DC; --bad:#B2362A; --bad-bg:#FBE6E3;
+  --zone-sup:rgba(29,122,75,.10); --zone-res:rgba(178,54,42,.09);
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+    --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+    --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+    --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+  --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+  --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;padding-inline:16px;padding-block:24px 56px}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+h1,h2,h3{font-family:var(--display);font-stretch:85%;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:clamp(32px,7vw,48px);font-weight:800;line-height:1}
+h2{font-size:24px;font-weight:700}
+h3{font-size:17px;font-weight:700;font-stretch:95%}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+section{display:flex;flex-direction:column;gap:14px}
+.lead{max-width:68ch;color:var(--muted)}
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;align-items:stretch}
+.hero .id{display:flex;flex-direction:column;gap:10px;justify-content:space-between}
+.price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price b{font-family:var(--display);font-size:34px;font-weight:700}
+.meta{font-size:13px;color:var(--muted)}
+.verdict{font-size:15px;padding:12px 14px;border-radius:10px;background:var(--chip)}
+.scales{display:flex;flex-direction:column;gap:18px}
+.scale-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.scale-h span{font-size:13px;color:var(--muted)}
+.scale-h b{font-family:var(--display);font-size:28px;line-height:1}
+.track{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#C8412F 0%,#E0892F 30%,#E3B63A 50%,#8BBF4B 68%,#2E9A5B 100%);margin-top:8px}
+.pin{position:absolute;top:-5px;width:4px;height:22px;border-radius:2px;background:var(--ink);box-shadow:0 0 0 2px var(--surface);transform:translateX(-2px)}
+.ticks{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);font-family:var(--mono);margin-top:6px}
+.state{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;margin-top:8px}
+.st-good{background:var(--good-bg);color:var(--good)}
+.st-warn{background:var(--warn-bg);color:var(--warn)}
+.st-bad{background:var(--bad-bg);color:var(--bad)}
+/* tables */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;color:var(--muted);font-weight:500;font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:700;border-bottom:none}
+.pts{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{height:6px;border-radius:3px;background:var(--chip);min-width:60px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:3px}
+/* grids */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;border-left:4px solid var(--line)}
+.kpi.g{border-left-color:var(--good)}.kpi.w{border-left-color:var(--warn)}.kpi.b{border-left-color:var(--bad)}
+.kpi span{font-size:12px;color:var(--muted)}
+.kpi b{font-family:var(--mono);font-size:19px;font-weight:500;font-variant-numeric:tabular-nums}
+.kpi em{font-style:normal;font-size:12.5px;color:var(--muted)}
+/* charts */
+.chart{position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:14px;height:3px;border-radius:2px;display:inline-block}
+.swb{width:12px;height:10px;border-radius:2px;display:inline-block}
+.tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12.5px;box-shadow:0 4px 14px rgba(0,0,0,.12);white-space:nowrap;z-index:2}
+.tip b{font-family:var(--mono);font-weight:500}
+.tip .d{font-family:var(--mono);color:var(--muted);font-size:11.5px}
+.note{font-size:13.5px;color:var(--muted)}
+ul.clean{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.pro li::marker{color:var(--good)} .con li::marker{color:var(--bad)}
+.zones{display:flex;flex-direction:column;gap:8px}
+.zone{display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:baseline;padding:10px 12px;border-radius:10px;background:var(--chip);font-size:14px}
+.zone b{font-family:var(--mono);font-weight:500}
+.zone.r{border-left:4px solid var(--bad)} .zone.s{border-left:4px solid var(--good)} .zone.t{border-left:4px solid var(--accent)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+summary{cursor:pointer;font-weight:600}
+details p{margin-top:8px;color:var(--muted);max-width:70ch}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+footer{font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:6px;max-width:80ch}
+footer a{color:var(--accent)}
+@media (max-width:760px){.hero,.two{grid-template-columns:1fr}.zone{grid-template-columns:1fr;gap:2px}}
+</style>
+
+<div class="wrap">
+
+<header class="hero">
+  <div class="card id">
+    <div>
+      <div class="eyebrow">Aktien-Check · 15.10.2026</div>
+      <h1>Booking Holdings</h1>
+      <p class="meta">Booking Holdings Inc. · NASDAQ: BKNG · Online-Reisebuchung (Booking.com, Priceline, Agoda, KAYAK, OpenTable) · Norwalk, USA</p>
+    </div>
+    <div class="price"><b>165.80 $</b><span class="meta">Schluss 15.10.2026 · 52 Wochen: 150.14 – 220.81 $ · Allzeithoch 233.58 $ im Juli 2025 (nach Aktiensplit 25:1 vom April 2026)</span></div>
+    <p class="verdict"><b>Kurz gesagt:</b> Booking verdient sehr gut: 9.5 Mrd. $ Free Cashflow (34 % vom Umsatz), und fast alles geht an die Aktionäre zurück. Seit 2021 gibt es 27 % weniger Aktien. Die Börse fürchtet aber, dass KI-Assistenten von Google, OpenAI und Meta die Reisebuchung übernehmen. Darum fiel die Aktie seit August um 28 % auf 165.80 $, das KGV liegt bei 18 statt rund 29. Qualität grün (89), Timing gelb (55). Seit Februar hält der Boden bei 150 bis 155 $ dreimal, und die A/D zeigt beim letzten Tief mehr Käufe als vorher.</p>
+  </div>
+  <div class="card scales">
+    <div>
+      <div class="scale-h"><span>Qualität · Ist die Firma kaufenswert?</span><b id="q-val">89</b></div>
+      <div class="track"><i class="pin" id="q-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-good">● Stark: Fundament intakt</span>
+    </div>
+    <div>
+      <div class="scale-h"><span>Timing · Ist jetzt der Zeitpunkt?</span><b id="t-val">55</b></div>
+      <div class="track"><i class="pin" id="t-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-warn">▲ Warten auf Bestätigung</span>
+    </div>
+    <p class="note">Skala: unter 30 rot · 30–45 orange · 45–60 gelb · 60–75 hellgrün · ab 75 grün. Beide Werte setzen sich aus festen Kriterien zusammen, siehe unten.</p>
+  </div>
+</header>
+
+<section>
+  <h2>Was die Firma macht</h2>
+  <p class="lead">Booking Holdings ist die grösste Online-Reisefirma der Welt. Booking.com vermittelt Hotels, Ferienwohnungen, Flüge und Mietautos, dazu kommen Priceline (USA), Agoda (Asien), KAYAK (Preisvergleich) und OpenTable (Restaurant-Reservationen). Booking verdient vor allem eine Provision pro Buchung, rund 15 % vom Zimmerpreis. Im 2. Quartal 2026 liefen Buchungen für 51 Mrd. $ über die Plattformen, 325 Mio. Übernachtungen. Rund zwei Drittel der Kunden kommen direkt (App oder Webseite), nicht über Google.</p>
+  <p class="lead">Die Aktie fiel vom Hoch im Juli 2025 (233.58 $) zuerst bis 150.14 $ am 15. Mai 2026: Im Februar und April senkte Booking den Ausblick, der Krieg im Nahen Osten bremste Fernreisen, und KI-Assistenten wurden zur Angst Nummer eins. Nach starken Zahlen im August stieg sie bis 217.32 $. Dann folgten acht Wochen mit Verlusten in Folge, so viele wie noch nie seit dem Börsengang 1999: Am 8. September startete Meta den KI-Assistenten Muse, der Reisen bucht (−6.7 %). Am 9. September bestätigte ein EU-Gericht das Verbot der Übernahme von eTraveli (−3.8 %). Am 23. September ging Konkurrent Expedia eine Partnerschaft mit Muse ein, Booking nicht (−5.1 %). Anfang Oktober berichtete Reuters über eine mögliche Klage der US-Behörde FTC (über 500 Mio. $). Am 14. Oktober gründete Booking die eigene KI-Firma Vayo, die Aktie stieg an zwei Tagen um 5 %. Wichtig: Bisher kommen laut Booking deutlich unter 1 % der Buchungen über KI-Assistenten.</p>
+</section>
+
+<section>
+  <h2>Fundamental: die Zahlen</h2>
+  <div class="kpis">
+<div class="kpi w"><span>Umsatzwachstum</span><b>+12.9 %</b><em>Letzte 12 Monate. Ohne Währungseffekte im 2. Quartal nur rund 7 %. Für 2026 erwartet Booking ein Wachstum im hohen einstelligen Bereich.</em></div>
+<div class="kpi g"><span>Operative Marge</span><b>34.9 %</b><em>Von 100 $ Umsatz bleiben rund 35 $ Betriebsgewinn. Seit 2021 von 24 % stark gestiegen, ein Sparprogramm (650 Mio. $ bis Ende 2027) hilft weiter.</em></div>
+<div class="kpi g"><span>Gewinn pro Aktie (EPS)</span><b>9.05 $</b><em>Letzte 12 Monate nach offiziellen Regeln. Bereinigt 2025 9.12 $ (+22 %), für 2026 erwartet Booking +12 bis +15 %.</em></div>
+<div class="kpi g"><span>ROIC</span><b>92 %</b><em>Auf 100 $ investiertes Kapital rund 92 $ Gewinn. Extrem hoch, auch weil das Eigenkapital wegen der Rückkäufe negativ ist.</em></div>
+<div class="kpi g"><span>Free Cashflow</span><b>9.5 Mrd. $</b><em>Letzte 12 Monate, 34 % vom Umsatz. Seit 2021 fast vervierfacht. Nur 6 % davon sind Löhne in Aktien: Der FCF ist echt.</em></div>
+<div class="kpi g"><span>Nettoschulden</span><b>3.4 Mrd. $</b><em>In 0.4 Jahren mit dem FCF bezahlt. Das Eigenkapital ist negativ (−10.8 Mrd. $), weil Booking mehr Aktien zurückkaufte als es Gewinn behielt. Kein Verlustproblem.</em></div>
+<div class="kpi g"><span>KGV</span><b>18.3</b><em>Du zahlst 18 Jahresgewinne. Eigener Schnitt 2022–2025: rund 28.6. Also rund 36 % günstiger als üblich, das KGV ist das tiefste seit über 10 Jahren.</em></div>
+<div class="kpi w"><span>Dividende</span><b>1.0 %</b><em>0.42 $ pro Quartal, 4× pro Jahr. Erst seit 2024, zuletzt +9.4 %. Zusammen mit den Rückkäufen gibt Booking rund 5 % des Börsenwerts pro Jahr zurück.</em></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>Umsatz pro Quartal (Mio. $)</h3>
+      <p class="note">Alle 8 Quartale über dem Vorjahr. Achtung Saison: Das 3. Quartal (Sommer) ist immer das grösste, das 1. das kleinste. Im 2. Quartal 2026 nur noch +8 %.</p>
+      <div class="chart" id="c-rev"></div>
+    </div>
+    <div class="card">
+      <h3>Operative Marge pro Jahr</h3>
+      <p class="note">Von 24 % (2021, Corona-Erholung) auf rund 35 % gestiegen.</p>
+      <div class="chart" id="c-margin"></div>
+    </div>
+  </div>
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Jahr</th><th class="num">Umsatz Mio. $</th><th class="num">Wachstum</th><th class="num">Op. Marge</th><th class="num">EPS $</th><th class="num">Free Cashflow</th><th class="num">ROIC</th><th class="num">KGV</th></tr></thead>
+      <tbody id="fin-rows"></tbody>
+    </table>
+  </div>
+  <p class="note"><b>Hinweis:</b> Aktiensplit 25:1 am 2. April 2026, alle Werte pro Aktie sind angepasst. 2025 drückten ein Währungsverlust (1.4 Mrd. $) und eine Abschreibung auf KAYAK den offiziellen Gewinn. Das KGV-Mittel ist über 2022–2025 gerechnet, weil 2021 (KGV 85) noch von Corona verzerrt war.</p>
+</section>
+
+<section>
+  <h2>Qualität: 89 von 100</h2>
+  <div class="card tbl"><table id="q-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Technik: Wochenchart (2 Jahre)</h2>
+  <div class="card">
+    <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span><span><i class="swb" style="background:var(--zone-sup);border:1px solid var(--good)"></i>Unterstützung</span><span><i class="swb" style="background:var(--zone-res);border:1px solid var(--bad)"></i>Widerstand</span></div>
+    <div class="chart" id="c-week"></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>A/D-Linie, Woche</h3>
+      <p class="note">Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Wichtig: Beim Tief im Mai (Wochenschluss 154.13 $) stand die Wochen-A/D bei 499.4. Beim Tief Anfang Oktober (Wochenschluss 159.02 $) lag sie mit 498.9 gleich, heute bei 526.9. Bei ähnlichem Kurs wird eher gekauft als im Mai.</p>
+      <div class="chart" id="c-adw"></div>
+    </div>
+    <div class="card">
+      <h3>RSI, Woche</h3>
+      <p class="note">Unter 30 überverkauft, über 70 überkauft. Im Februar bei 29 (überverkauft), im August bei 65, heute 42: schwach, aber nicht überverkauft.</p>
+      <div class="chart" id="c-rsiw"></div>
+    </div>
+  </div>
+
+  <h2>Technik: Tageschart (1 Jahr)</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Kurs, Tag</h3>
+      <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span></div>
+      <div class="chart" id="c-day"></div>
+    </div>
+    <div class="card">
+      <h3>A/D-Linie, Tag</h3>
+      <p class="note">Bullische Divergenz: Am 23.9. fiel der Kurs auf 155.37 $ bei einer A/D von 70.2. Am 5.10. fiel er tiefer auf 154.06 $, die A/D lag aber höher bei 72.7, heute bei 76.6. Trotz tieferem Kurs wurde mehr gekauft.</p>
+      <div class="chart" id="c-add"></div>
+    </div>
+  </div>
+
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Indikator</th><th>Tag</th><th>Woche</th><th>Bedeutung</th></tr></thead>
+      <tbody>
+<tr><td>Kurs vs. EMA 50</td><td class="pts">165.8 &lt; 173.6</td><td class="pts">165.8 &lt; 183.6</td><td>Unter der mittelfristigen Linie, auf beiden Zeitebenen.</td></tr>
+<tr><td>Kurs vs. EMA 200</td><td class="pts">165.8 &lt; 182.7</td><td class="pts">165.8 &gt; 164.4 (knapp)</td><td>Woche knapp über der langfristigen Linie.</td></tr>
+<tr><td>EMA 50 vs. EMA 200</td><td class="pts">50 unter 200 (seit 23.9.2026)</td><td class="pts">50 über 200 (seit 2020)</td><td>Tag abwärts, Woche noch aufwärts.</td></tr>
+<tr><td>RSI (14)</td><td class="pts">48.3</td><td class="pts">42.5</td><td>Tag: tieferes Kurstief am 5.10., aber höheres RSI-Tief (29.8 statt 21.4): bullische Divergenz.</td></tr>
+<tr><td>A/D</td><td class="pts">höher bei tieferem Kurs</td><td class="pts">höher als beim Mai-Tief</td><td>Auf beiden Zeitebenen positiv.</td></tr>
+<tr><td>Volumen</td><td colspan="2">Ø 20 Tage 8.4 Mio. vs. Ø 100 Tage 7.2 Mio. Aktien</td><td>Mehr Handel als üblich im Abverkauf.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Struktur und Zonen (Smart Money Concept)</h2>
+  <p class="lead">Seit Februar 2026 läuft Booking in einer grossen Spanne zwischen rund 150 und 218 $. Die Tiefs liegen fast gleich hoch: 150.62 $ (23.2.), 150.14 $ (20.5.) und 154.06 $ (5.10.). Das ist ein dreifacher Boden mit leicht höherem letzten Tief. Die Hochs: 193.92 $ (April) und 217.32 $ (August). Seit August fiel der Kurs in einer klaren Abwärtsbewegung mit tieferen Hochs und Tiefen. Am 15.10. stieg er bis 168.49 $ und schloss bei 165.80 $, knapp unter dem Hoch vom 28.9. (166.19 $). Ein Tagesschluss darüber wäre ein erster Change of Character. Darüber warten die Tages-EMAs (173.60 und 182.70 $) und die Wochen-EMA 50 (183.60 $) als Widerstand.</p>
+  <div class="zones">
+<div class="zone r"><b>204–218 $</b><span>Widerstand: Hochs vom August (217.32 $).</span></div>
+<div class="zone r"><b>173–184 $</b><span>Widerstand: Tages-EMA 50 (173.60 $), Tages-EMA 200 (182.70 $), Wochen-EMA 50 (183.60 $).</span></div>
+<div class="zone t"><b>167 $</b><span><b>Trigger:</b> Tagesschluss über dem Hoch vom 28.9. (166.19 $). Bestätigung über 177 $ (Hoch vom 10.9.).</span></div>
+<div class="zone s"><b>150–158 $</b><span><b>Kaufzone:</b> Dreifacher Boden 150.14 / 150.62 / 154.06 $ von Februar, Mai und Oktober.</span></div>
+<div class="zone r"><b>150 $</b><span>Abbruch: Wochenschluss unter dem Tief vom Mai (150.14 $). Dann ist der Boden gebrochen.</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Smart Money, Insider und Saisonalität</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Wer kauft, wer verkauft?</h3>
+      <ul class="clean" style="margin-top:8px">
+<li><b>Booking selbst:</b> Kaufte in den letzten 12 Monaten für 10.5 Mrd. $ Aktien zurück (rund 8.5 % des Börsenwerts), im 1. Halbjahr 2026 für 7.4 Mrd. $ zu rund 173 $. Restprogramm Ende Juni: 14.5 Mrd. $ (rund 12 % des Börsenwerts).</li>
+<li><b>Insider:</b> In 12 Monaten keine Käufe, 32 Verkäufe für rund 60.5 Mio. $. CEO Glenn Fogel verkaufte regelmässig jeden Monat (rund 31 Mio. $, zuletzt im April), Finanzchef Steenbergen im August für 4.2 Mio. $ zu 211 $.</li>
+<li><b>Analysten:</b> Mehrheit positiv. MarketBeat: 3× stark Kaufen, 26× Kaufen, 7× Halten, 1× Verkaufen, Kursziel im Schnitt 234 $ (170 bis 298 $). Seit Ende September senken mehrere Banken die Ziele: Truist 216 $, Wells Fargo 190 $, Cantor 170 $ (12.10.).</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Saisonalität seit 1999</h3>
+      <p class="note">Durchschnittliche Monatsrendite in %. 27 Jahre Daten (seit 1999). Februar bis April und November sind stark, September der schwächste Monat (−4.9 %, nur 41 % positive Jahre). Oktober +1.6 % (56 %).</p>
+      <div class="chart" id="c-seas"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Timing: 55 von 100</h2>
+  <div class="card tbl"><table id="t-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Worauf du achten solltest: Unterbewertung und Wachstumsschub</h2>
+  <div class="card"><h3>Was die Börse befürchtet</h3><p class="note" style="margin:4px 0">Echte Probleme, eher lösbar: Das Wachstum sinkt wirklich, aber Gewinn und Cashflow sind auf Rekordhöhe, und die KI-Gefahr zeigt sich in den Zahlen bisher nicht (unter 1 % der Buchungen).</p><ul class="clean"><li>KI-Assistenten könnten Reisen direkt buchen und Booking umgehen oder nur noch als günstigen Zulieferer nutzen: Google testet seit August 2026 Hotelbuchungen im KI-Modus, Meta startete am 08.09.2026 Muse, und Expedia ging am 23.09.2026 eine Partnerschaft mit Muse ein.</li><li>Das Wachstum wird langsamer: Übernachtungen +8 % (Q3 2025), +5 % (Q2 2026), Prognose für Q3 2026 nur +3 bis +5 %. Booking senkte den Umsatzausblick 2026 zweimal.</li><li>Rechtliche Risiken: mögliche FTC-Klage gegen Priceline (über 500 Mio. $), EU-Gericht bestätigt am 09.09.2026 das Verbot der eTraveli-Übernahme, Untersuchung in Italien.</li><li>Die Aktie fiel acht Wochen in Folge, das gab es seit dem Börsengang 1999 noch nie. Seit August minus 28 %.</li></ul><h3 style="margin-top:12px">Was die Sorgen beenden könnte</h3><ul class="clean"><li>Zahlen zum 3. Quartal: Liegen die Übernachtungen am oberen Ende der Prognose, und was sagt Booking zu KI-Buchungen und 2027? <span class="muted">(Zahlen 03.11.2026)</span></li><li>Booking wird Partner eines grossen KI-Assistenten (z. B. Meta Muse) oder zeigt mit der eigenen KI-Firma Vayo erste Erfolge <span class="muted">(Ende 2026 bis 2027)</span></li><li>Jahreszahlen und Ausblick 2027. Ab März 2027 fällt der Vergleich mit dem kriegsgeschwächten Frühling 2026 leichter <span class="muted">(Februar 2027)</span></li><li>Einigung mit der US-Behörde FTC <span class="muted">(Termin offen)</span></li></ul><h3 style="margin-top:12px">Wachstumsschub: Wachstumsschub möglich</h3><ul class="clean"><li><b>Sparprogramm und Rückkäufe:</b> Booking will bis Ende 2027 jährlich rund 650 Mio. $ Kosten sparen und hat noch 14.5 Mrd. $ für Rückkäufe (rund 12 % des Börsenwerts). Beides hebt den Gewinn pro Aktie auch bei langsamem Umsatz. <span class="muted">(2026–2027)</span></li><li><b>Zahlungen und «Connected Trip»:</b> Immer mehr Buchungen laufen über Bookings eigene Zahlungsabwicklung (73 % im 2. Quartal 2026, +4 Punkte). Damit verdient Booking an Hotel, Flug und Mietauto in einer Reise. Die Kombi-Buchungen wachsen zweistellig, sind aber noch klein. <span class="muted">(2026–2028)</span></li></ul><p style="margin:10px 0 0"><b>Woran du es erkennst:</b> Achte auf die Übernachtungen (Room Nights) im Vergleich zum Vorjahr: Prognose Q3 2026 +3 bis +5 %. Steigen sie wieder über 6 % und bleibt der Anteil direkter Kunden bei rund zwei Dritteln, schadet KI weniger als befürchtet.</p><p style="margin:10px 0 0"><b>Das Chancen-Szenario:</b> Ähnlich wie Google 2023: Alle glauben, KI macht Booking überflüssig. Booking hat aber die Hotels unter Vertrag, die Bewertungen der Gäste und zwei Drittel direkte Kunden, und arbeitet selbst mit Google und OpenAI zusammen. Zeigen die nächsten Zahlen keinen KI-Schaden, kann das KGV von 18 Richtung 25 steigen. Grösstes Risiko: Die KI-Assistenten übernehmen den Kundenkontakt und drücken die Provisionen, dann ist die Aktie zu Recht billig.</p><p class="note" style="margin:10px 0 0">Quellen: <a href="https://s201.q4cdn.com/865305287/files/doc_financials/2026/q2/Q2-26-BKNG-Earnings-Release-Final.pdf" target="_blank" rel="noopener">Booking Holdings: Ergebnisse Q2 2026</a>, <a href="https://www.tikr.com/blog/booking-holdings-bkng-shares-drop-expedia-meta-muse-ai-partnership" target="_blank" rel="noopener">TIKR: Expedia geht mit Meta Muse zusammen (24.09.2026)</a>, <a href="https://www.tikr.com/blog/booking-holdings-faces-ftc-action-over-hotel-ads-more-than-500-million-at-stake" target="_blank" rel="noopener">TIKR: FTC-Klage droht (08.10.2026)</a>, <a href="https://geekwire.com/2026/booking-holdings-unveils-ai-travel-startup-vayo-based-in-seattle-with-a-planned-100m-investment" target="_blank" rel="noopener">GeekWire: Booking gründet KI-Firma Vayo (14.10.2026)</a></p></div>
+</section>
+
+<section>
+  <h2>Dividende</h2>
+  <div class="card tbl"><table><tr><td style="white-space:nowrap;color:var(--muted)">Wie oft</td><td>4× pro Jahr (quartalsweise)</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Ex-Tag im</td><td>März, Juni, September, Dezember</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Geld auf dem Konto im</td><td>März, Juni, September, Dezember</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Zahltage</td><td>jeweils am letzten Geschäftstag im März, Juni, September und Dezember</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Letzte Zahlung</td><td>0.42 $ pro Aktie</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Rendite</td><td>1.0 %</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">System</td><td>US-Quartalsdividende seit 2024: 4 gleich hohe Zahlungen pro Jahr. Ex-Tag Anfang März, Juni, September und Dezember, Auszahlung am Monatsende. Die Erhöhung kommt mit den Jahreszahlen im Februar (2026: +9.4 % auf 0.42 $).</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Form</td><td>Bar in US-Dollar aufs Konto. Die USA ziehen Quellensteuer ab, mit dem Formular W-8BEN bei Saxo in der Regel 15 %.</td></tr></table><p class="note" style="margin:10px 0 0"><b>Ex-Tag:</b> Du bekommst die Dividende nur, wenn du die Aktie am Abend vor dem Ex-Tag besitzt. <b>Zahltag:</b> An diesem Tag kommt das Geld aufs Konto (in der Währung der Aktie, abzüglich Quellensteuer). Die nächsten genauen Termine zeigt die App unter «Termine».</p></div>
+</section>
+
+<section>
+  <h2>Pro und Contra</h2>
+  <div class="two">
+    <div class="card pro"><h3>Spricht dafür</h3><ul class="clean" style="margin-top:8px">
+<li>Grösste Reiseplattform der Welt mit 9.5 Mrd. $ echtem Free Cashflow (wenig Löhne in Aktien).</li>
+<li>Gibt fast alles an die Aktionäre zurück: rund 4 % weniger Aktien pro Jahr plus Dividende.</li>
+<li>Sehr günstig: KGV 18 statt rund 29, FCF-Rendite 7.7 %.</li>
+<li>Zwei Drittel der Kunden kommen direkt, KI-Assistenten bringen bisher unter 1 % der Buchungen.</li>
+<li>Boden bei 150 bis 155 $ hält, Tages-A/D und RSI zeigen bullische Divergenzen.</li>
+    </ul></div>
+    <div class="card con"><h3>Spricht dagegen</h3><ul class="clean" style="margin-top:8px">
+<li>KI-Assistenten (Google, OpenAI, Meta Muse) könnten Booking zum reinen Zulieferer machen. Expedia arbeitet mit Muse, Booking nicht.</li>
+<li>Wachstum wird langsamer: Übernachtungen nur noch +3 bis +5 % erwartet.</li>
+<li>Rechtliche Risiken: mögliche FTC-Klage (über 500 Mio. $), EU-Regeln, eTraveli-Verbot.</li>
+<li>Rückkäufe teils mit neuen Schulden bezahlt, Eigenkapital negativ.</li>
+<li>Insider verkaufen laufend und kaufen nie, Tagestrend klar abwärts.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section>
+  <h2>Was jetzt zu tun ist</h2>
+  <div class="zones">
+<div class="zone t"><b>Beobachten</b><span>Alarm bei 167 $ (Trigger) und 158 $ (oberes Ende Kaufzone).</span></div>
+<div class="zone s"><b>Timing grün</b><span>Tagesschluss über 167 $, danach über 177 $ mit weiter steigender A/D. Oder ein erneuter Test von 150–158 $, der hält. Fundamental: Am 3.11. sollten die Übernachtungen am oberen Ende der Prognose (+5 %) liegen.</span></div>
+<div class="zone r"><b>Abbruch</b><span>Wochenschluss unter 150 $. Dann ist der dreifache Boden gebrochen.</span></div>
+<div class="zone "><b>Nächste Zahlen</b><span>3. November 2026 nach US-Börsenschluss (3. Quartal, bestätigt). Erwartet: bereinigter Gewinn 4.49 $ pro Aktie, Umsatz 9.54 Mrd. $.</span></div>
+  </div>
+</section>
+
+<footer>
+  <span>Kursdaten und Indikatoren (EMA, RSI 14, A/D) selbst berechnet aus Yahoo-Finance-Tages-, Wochen- und Monatsdaten, Stand 15.10.2026. <a href="https://stockanalysis.com/stocks/bkng/financials/" target="_blank" rel="noopener">StockAnalysis.com</a> (Stand 15.10.2026), <a href="https://s201.q4cdn.com/865305287/files/doc_financials/2026/q2/Q2-26-BKNG-Earnings-Release-Final.pdf" target="_blank" rel="noopener">Booking Q2 2026</a>, <a href="https://www.tikr.com/blog/booking-holdings-bkng-shares-drop-expedia-meta-muse-ai-partnership" target="_blank" rel="noopener">TIKR: Expedia und Muse</a>, <a href="https://www.tikr.com/blog/booking-holdings-faces-ftc-action-over-hotel-ads-more-than-500-million-at-stake" target="_blank" rel="noopener">TIKR: FTC</a>, <a href="https://geekwire.com/2026/booking-holdings-unveils-ai-travel-startup-vayo-based-in-seattle-with-a-planned-100m-investment" target="_blank" rel="noopener">GeekWire: Vayo</a>, <a href="https://www.marketbeat.com/stocks/NASDAQ/BKNG/insider-trades/" target="_blank" rel="noopener">Insider (MarketBeat)</a>, <a href="https://www.marketbeat.com/stocks/NASDAQ/BKNG/forecast/" target="_blank" rel="noopener">Analysten (MarketBeat)</a>.</span>
+  <span>Persönliche Analyse, keine Anlageberatung. Vergangene Kurse und Saisonalität sagen nichts Sicheres über die Zukunft.</span>
+</footer>
+</div>
+
+<script>
+const Q=[["Umsatztrend", "4 von 4 Quartalen über Vorjahr, zuletzt aber nur noch +8 %", 12, 15], ["Wachstumstempo", "Ohne Währungseffekte rund 7 bis 10 %, Ausblick 2026 hoch einstellig", 6, 10], ["Operative Marge", "34.9 % (9 Pkt.), seit 2021 klar steigend (6 Pkt.)", 15, 15], ["Gewinnwachstum (EPS)", "Bereinigt 2025 +22 %, Ausblick 2026 +12 bis +15 %", 8, 10], ["Free Cashflow", "Jedes Jahr seit 2021 gestiegen", 10, 10], ["ROIC", "Über 60 %, zuletzt 92 %", 15, 15], ["Schulden", "Nettoschulden/EBITDA rund 0.3", 9, 10], ["Bewertung vs. eigene Historie", "KGV 18.3 statt Ø 28.6 (2022–2025), rund 36 % günstiger", 14, 15]];
+const T=[["Trend Woche (EMA 50/200)", "Kurs knapp über EMA 200, unter EMA 50: Rücksetzer im Aufwärtstrend", 12, 20], ["Trend Tag (EMA 50/200)", "Kurs unter beiden, EMA 50 unter 200 seit 23.9.", 1, 10], ["Struktur (SMC)", "Spanne 150–218 $ mit dreifachem Boden, seit August tiefere Hochs", 8, 20], ["RSI Tag/Woche", "Bullische Divergenz im Tageschart (Kurs tiefer, RSI höher), RSI dreht nach oben", 12, 15], ["A/D Tag/Woche", "Auf beiden Zeitebenen höher bei gleichem oder tieferem Kurs", 16, 20], ["Smart Money", "Start 3, Rückkauf über 8 % pro Jahr +3, viele Insider-Verkäufe −3", 3, 10], ["Saisonalität", "Oktober 56 %, November 58 %, Dezember 46 % positive Jahre", 3, 5]];
+const FIN=[["2021", 10958, "+61.2 %", "24.0 %", 1.13, 2516, "32.6 %", "84.6"], ["2022", 17090, "+56.0 %", "28.5 %", 3.05, 6186, "75.4 %", "25.6"], ["2023", 21365, "+25.0 %", "27.7 %", 4.7, 6999, "63.5 %", "28.9"], ["2024", 23739, "+11.1 %", "32.0 %", 6.91, 7894, "53.1 %", "28.0"], ["2025", 26917, "+13.4 %", "35.2 %", 6.62, 9087, "60.9 %", "31.9"], ["Letzte 12 Mt.", 28241, "+12.9 %", "34.9 %", 9.05, 9539, "92.5 %", "18.3"]];
+const HALF=[["Q3 24", 7994], ["Q4 24", 5471], ["Q1 25", 4762], ["Q2 25", 6798], ["Q3 25", 9008], ["Q4 25", 6349], ["Q1 26", 5532], ["Q2 26", 7352]];
+const MARGIN=[["2021", 24.0], ["2022", 28.5], ["2023", 27.7], ["2024", 32.0], ["2025", 35.2], ["12 Mt.", 34.9]];
+const SEAS=[-0.1, 5.6, 3.8, 3.5, -1.8, -1.9, -1.0, 3.6, -4.9, 1.6, 4.3, 1.4];
+const SEASHIT=[42.0, 70.0, 69.0, 69.0, 48.0, 41.0, 56.0, 64.0, 41.0, 56.0, 58.0, 46.0];
+const MON=["Jan","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"];
+const W=`2024-10-21,173.91,147.05,114.07,65,596.6;2024-10-28,189.96,148.73,114.83,73,623.1;2024-11-04,197.73,150.65,115.65,75,634;2024-11-11,199.01,152.55,116.48,76,623;2024-11-18,207.09,154.69,117.38,78,643.4;2024-11-25,208.08,156.78,118.28,79,656.4;2024-12-02,212.01,158.95,119.22,80,670.6;2024-12-09,209.1,160.92,120.11,77,671.3;2024-12-16,201.94,162.52,120.93,69,661;2024-12-23,201.5,164.05,121.73,68,656;2024-12-30,196.15,165.31,122.47,63,646.4;2025-01-06,189.58,166.26,123.14,57,628.3;2025-01-13,197.07,167.47,123.87,61,647;2025-01-20,190.6,168.38,124.54,56,646.9;2025-01-27,189.5,169.21,125.18,55,644.7;2025-02-03,195.5,170.24,125.88,59,653;2025-02-10,201.78,171.47,126.64,62,668.6;2025-02-17,199.63,172.58,127.36,61,636.3;2025-02-24,200.64,173.68,128.09,61,637.4;2025-03-03,186.94,174.2,128.68,50,610.8;2025-03-10,178.62,174.37,129.17,44,620;2025-03-17,184.69,174.78,129.73,49,649.1;2025-03-24,185.37,175.19,130.28,49,628.3;2025-03-31,171.36,175.04,130.69,41,586.3;2025-04-07,183.46,175.37,131.21,49,628.8;2025-04-14,182.93,175.67,131.73,49,623.4;2025-04-21,193.54,176.37,132.34,55,647.3;2025-04-28,208.11,177.61,133.1,62,684.6;2025-05-05,202.9,178.61,133.79,58,668.2;2025-05-12,212.68,179.94,134.58,63,692.2;2025-05-19,213.31,181.25,135.36,63,699.5;2025-05-26,220.76,182.8,136.21,66,717.9;2025-06-02,224.58,184.44,137.09,67,734.3;2025-06-09,211.94,185.52,137.83,58,710.9;2025-06-16,212.16,186.56,138.57,58,698.1;2025-06-23,227.73,188.18,139.46,65,723.6;2025-06-30,228.67,189.76,140.35,65,722.8;2025-07-07,228.68,191.29,141.23,65,715.7;2025-07-14,228.12,192.73,142.09,65,714.6;2025-07-21,225.29,194.01,142.92,63,696.4;2025-07-28,215.45,194.85,143.64,55,670.5;2025-08-04,216.24,195.69,144.36,55,658.2;2025-08-11,218.17,196.57,145.1,57,663.2;2025-08-18,228.83,197.84,145.93,63,676.8;2025-08-25,223.96,198.86,146.71,59,661.6;2025-09-01,220.23,199.7,147.44,56,651.4;2025-09-08,218.33,200.43,148.15,54,642.8;2025-09-15,217.78,201.11,148.84,54,626.9;2025-09-22,221.92,201.93,149.57,57,642.3;2025-09-29,216.72,202.51,150.23,52,642.3;2025-10-06,206.6,202.67,150.79,45,623.4;2025-10-13,202.8,202.67,151.31,43,615.1;2025-10-20,205.85,202.8,151.85,45,599.5;2025-10-27,203.11,202.81,152.36,43,593.6;2025-11-03,197.6,202.61,152.81,40,585.2;2025-11-10,201.92,202.58,153.3,44,576.6;2025-11-17,190.72,202.11,153.68,37,565.1;2025-11-24,196.59,201.9,154.1,42,578.5;2025-12-01,207.88,202.13,154.64,50,612.3;2025-12-08,212.07,202.52,155.21,53,637.5;2025-12-15,215.75,203.04,155.81,55,626.3;2025-12-22,217.61,203.61,156.43,56,626.6;2025-12-29,212.93,203.98,156.99,53,622.4;2026-01-05,219.68,204.59,157.61,57,640.8;2026-01-12,204.64,204.59,158.08,47,620.1;2026-01-19,203.94,204.57,158.54,46,619.7;2026-01-26,200.07,204.39,158.95,44,603;2026-02-02,178.29,203.37,159.14,34,558.1;2026-02-09,165.62,201.89,159.21,29,507.8;2026-02-16,163.07,200.37,159.25,29,505.8;2026-02-23,169.57,199.16,159.35,33,585.9;2026-03-02,182.02,198.49,159.57,42,632.9;2026-03-09,169.65,197.36,159.67,37,600;2026-03-16,172.96,196.4,159.81,39,586.4;2026-03-23,162.49,195.07,159.83,35,552.4;2026-03-30,167.77,194,159.91,38,567.6;2026-04-06,173.46,193.19,160.05,42,556.3;2026-04-13,192.01,193.15,160.36,52,585.2;2026-04-20,180.25,192.64,160.56,46,572.4;2026-04-27,169.63,191.74,160.65,42,556.3;2026-05-04,165.93,190.73,160.71,41,529.7;2026-05-11,154.13,189.29,160.64,37,499.4;2026-05-18,161.06,188.18,160.64,40,527.2;2026-05-25,167.43,187.37,160.71,44,535.8;2026-06-01,165.84,186.53,160.76,43,525.9;2026-06-08,164.94,185.68,160.8,43,535.6;2026-06-15,171.78,185.13,160.91,47,523.6;2026-06-22,181.46,184.99,161.12,52,560.4;2026-06-29,184.56,184.97,161.35,53,582.4;2026-07-06,178.39,184.72,161.52,50,579.7;2026-07-13,181.68,184.6,161.72,52,592.6;2026-07-20,177.46,184.32,161.88,49,595.9;2026-07-27,192.9,184.65,162.19,57,596.8;2026-08-03,214.42,185.82,162.71,65,633.8;2026-08-10,212.06,186.85,163.2,64,635.6;2026-08-17,209.62,187.74,163.66,62,633.3;2026-08-24,205.63,188.44,164.08,60,621.5;2026-08-31,193.29,188.63,164.37,53,598;2026-09-07,173.92,188.06,164.46,44,575.1;2026-09-14,167.9,187.27,164.5,42,532.4;2026-09-21,163.95,186.35,164.49,40,530.1;2026-09-28,159.02,185.28,164.44,38,498.9;2026-10-05,160.34,184.3,164.4,39,525.9;2026-10-15,165.8,183.58,164.41,42,526.9`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+const DD=`2025-10-03,216.72,220.28,209.06,111.2;2025-10-06,216.79,220.14,209.13,110.1;2025-10-07,209.68,219.73,209.14,106.5;2025-10-08,205.25,219.16,209.1,101.7;2025-10-09,207.68,218.71,209.09,106;2025-10-10,206.6,218.24,209.06,104.2;2025-10-13,210.15,217.92,209.07,108.3;2025-10-14,211.21,217.66,209.09,110.2;2025-10-15,203.23,217.09,209.04,104.4;2025-10-16,198.09,216.35,208.93,98.9;2025-10-17,202.8,215.81,208.87,105;2025-10-20,205.68,215.42,208.83,107.4;2025-10-21,211.44,215.26,208.86,113.2;2025-10-22,209.22,215.02,208.86,110.2;2025-10-23,203.74,214.58,208.81,103.6;2025-10-24,205.85,214.24,208.78,105.7;2025-10-27,210.18,214.08,208.8,109.5;2025-10-28,204.82,213.72,208.76,99.3;2025-10-29,203.03,213.3,208.7,99.5;2025-10-30,203.21,212.9,208.65,93.1;2025-10-31,203.11,212.52,208.59,94;2025-11-03,201.22,212.08,208.52,93.6;2025-11-04,199.67,211.59,208.43,91.4;2025-11-05,196.45,210.99,208.31,88;2025-11-06,195.96,210.41,208.19,89.3;2025-11-07,197.6,209.9,208.08,86.8;2025-11-10,198.34,209.45,207.98,82.5;2025-11-11,202.03,209.16,207.93,85.6;2025-11-12,207.02,209.07,207.92,91.1;2025-11-13,203.02,208.84,207.87,84.9;2025-11-14,201.92,208.57,207.81,82.3;2025-11-17,192.16,207.92,207.65,73.9;2025-11-18,191.32,207.27,207.49,70;2025-11-19,187.63,206.5,207.29,65.2;2025-11-20,183.32,205.59,207.05,57.8;2025-11-21,190.72,205.01,206.89,65.9;2025-11-24,195.01,204.62,206.77,70.4;2025-11-25,196.25,204.29,206.67,69.7;2025-11-26,196.47,203.98,206.57,67.9;2025-11-28,196.59,203.69,206.47,67.5;2025-12-01,195.67,203.38,206.36,62.7;2025-12-02,205.4,203.46,206.35,70.2;2025-12-03,201.89,203.4,206.31,65.5;2025-12-04,201.09,203.31,206.25,62;2025-12-05,207.88,203.49,206.27,69.4;2025-12-08,207.1,203.63,206.28,71.5;2025-12-09,207.83,203.79,206.29,77.6;2025-12-10,211.09,204.08,206.34,82.3;2025-12-11,211.19,204.36,206.39,80.2;2025-12-12,212.07,204.66,206.45,77.2;2025-12-15,218.31,205.19,206.57,82.8;2025-12-16,217.48,205.68,206.67,79.1;2025-12-17,213.64,205.99,206.74,75.1;2025-12-18,213.82,206.3,206.81,71.6;2025-12-19,215.75,206.67,206.9,74.3;2025-12-22,216.28,207.04,207,72.3;2025-12-23,217.57,207.46,207.1,75.1;2025-12-24,217.86,207.86,207.21,75.1;2025-12-26,217.61,208.25,207.31,74.5;2025-12-29,217.65,208.61,207.41,75.3;2025-12-30,217.09,208.95,207.51,74.2;2025-12-31,214.21,209.15,207.58,71.5;2026-01-02,212.93,209.3,207.63,72.9;2026-01-05,214.69,209.51,207.7,73.2;2026-01-06,213.94,209.69,207.76,76.4;2026-01-07,217.83,210.01,207.86,79.2;2026-01-08,217.8,210.31,207.96,82.2;2026-01-09,219.68,210.68,208.08,85.2;2026-01-12,215.66,210.87,208.15,83.7;2026-01-13,212.59,210.94,208.2,81.9;2026-01-14,207.48,210.81,208.19,82.9;2026-01-15,207.72,210.68,208.19,83.8;2026-01-16,204.64,210.45,208.15,76.3;2026-01-20,201.08,210.08,208.08,79.3;2026-01-21,206.54,209.94,208.07,84.9;2026-01-22,206.04,209.79,208.05,82.1;2026-01-23,203.94,209.56,208,82.1;2026-01-26,204.29,209.35,207.97,80;2026-01-27,206.14,209.23,207.95,83.1;2026-01-28,203.41,209,207.9,79.3;2026-01-29,204.53,208.82,207.87,81.1;2026-01-30,200.07,208.48,207.79,78.7;2026-02-02,204.89,208.34,207.76,83.4;2026-02-03,185.79,207.45,207.55,69.4;2026-02-04,184.29,206.55,207.31,81.9;2026-02-05,177.74,205.42,207.02,73.1;2026-02-06,178.29,204.35,206.73,74.9;2026-02-09,169.48,202.99,206.36,60.7;2026-02-10,171.25,201.74,206.01,61.1;2026-02-11,172.5,200.59,205.68,65.6;2026-02-12,166.36,199.25,205.29,51.2;2026-02-13,165.62,197.93,204.89,53.5;2026-02-17,165.61,196.66,204.5,61.1;2026-02-18,170.8,195.65,204.17,73.8;2026-02-19,160.3,194.26,203.73,74;2026-02-20,163.07,193.04,203.33,93.1;2026-02-23,154.83,191.54,202.84,87.6;2026-02-24,162.74,190.41,202.45,104.9;2026-02-25,166.52,189.48,202.09,118.9;2026-02-26,170.01,188.71,201.77,125.5;2026-02-27,169.57,187.96,201.45,146.6;2026-03-02,167.19,187.15,201.11,154.6;2026-03-03,166.15,186.32,200.76,158.2;2026-03-04,170.14,185.69,200.45,161.2;2026-03-05,184.53,185.64,200.3,176.3;2026-03-06,182.02,185.5,200.11,180.8;2026-03-09,177.63,185.19,199.89,185.4;2026-03-10,174.87,184.79,199.64,187.2;2026-03-11,172.9,184.32,199.38,184.5;2026-03-12,168.71,183.71,199.07,178.5;2026-03-13,169.65,183.16,198.78,173.6;2026-03-16,171.72,182.71,198.51,173.3;2026-03-17,177.69,182.51,198.3,177;2026-03-18,175.26,182.23,198.07,170.9;2026-03-19,171.77,181.82,197.81,167.2;2026-03-20,172.96,181.47,197.56,177.4;2026-03-23,175.87,181.25,197.35,175.5;2026-03-24,171.63,180.87,197.09,170.4;2026-03-25,169.51,180.43,196.82,167.8;2026-03-26,168.55,179.96,196.54,164.9;2026-03-27,162.49,179.28,196.2,159.2;2026-03-30,164.7,178.71,195.88,161.2;2026-03-31,168.41,178.3,195.61,167.4;2026-04-01,167.38,177.87,195.33,170.4;2026-04-02,167.77,177.48,195.06,175.6;2026-04-06,176.19,177.43,194.87,182.8;2026-04-07,173.41,177.27,194.65,184.6;2026-04-08,181,177.42,194.52,178.2;2026-04-09,176.6,177.38,194.34,176.5;2026-04-10,173.46,177.23,194.13,173.9;2026-04-13,177.25,177.23,193.96,178.9;2026-04-14,181.12,177.38,193.84,181;2026-04-15,185.69,177.71,193.76,184.4;2026-04-16,184.56,177.98,193.66,179.7;2026-04-17,192.01,178.53,193.65,185.1;2026-04-20,192.03,179.06,193.63,188;2026-04-21,190.86,179.52,193.6,186.8;2026-04-22,179.4,179.52,193.46,179.6;2026-04-23,176.75,179.41,193.3,178;2026-04-24,180.25,179.44,193.17,180.4;2026-04-27,177.52,179.36,193.01,175.7;2026-04-28,173.38,179.13,192.82,166.2;2026-04-29,173.98,178.93,192.63,172.9;2026-04-30,168.36,178.51,192.39,166.6;2026-05-01,169.63,178.17,192.16,165.8;2026-05-04,165.58,177.67,191.9,161;2026-05-05,167.63,177.28,191.65,164.4;2026-05-06,168.32,176.93,191.42,155.6;2026-05-07,171.28,176.71,191.22,157.3;2026-05-08,165.93,176.28,190.97,149.5;2026-05-11,157.8,175.56,190.64,142.9;2026-05-12,160.56,174.97,190.34,147.2;2026-05-13,155.03,174.19,189.99,141.3;2026-05-14,154.48,173.42,189.64,137;2026-05-15,154.13,172.66,189.28,134.2;2026-05-18,155.07,171.97,188.94,134.6;2026-05-19,154.54,171.29,188.6,128.8;2026-05-20,156.95,170.72,188.28,134.4;2026-05-21,159.68,170.29,188,140.2;2026-05-22,161.06,169.93,187.73,140.8;2026-05-26,163.3,169.67,187.49,138.1;2026-05-27,168.37,169.62,187.3,140.4;2026-05-28,169.82,169.63,187.12,147.2;2026-05-29,167.43,169.54,186.93,139.8;2026-06-01,169.25,169.53,186.75,142.2;2026-06-02,167.21,169.44,186.56,146.8;2026-06-03,164.78,169.25,186.34,141;2026-06-04,167.49,169.19,186.15,137.4;2026-06-05,165.84,169.05,185.95,131.7;2026-06-08,162.3,168.79,185.72,125.4;2026-06-09,163.99,168.6,185.5,122.6;2026-06-10,160.64,168.29,185.25,119.7;2026-06-11,163.59,168.1,185.04,124.5;2026-06-12,164.94,167.98,184.84,124.3;2026-06-15,174.64,168.24,184.74,128.5;2026-06-16,175.72,168.53,184.65,130.3;2026-06-17,171.63,168.66,184.52,126.2;2026-06-18,171.78,168.78,184.39,121;2026-06-22,167.77,168.74,184.22,121.5;2026-06-23,168.94,168.75,184.07,125.7;2026-06-24,181.25,169.24,184.04,132.3;2026-06-25,177.05,169.54,183.97,123;2026-06-26,181.46,170.01,183.95,128.5;2026-06-29,182.41,170.5,183.93,122.2;2026-06-30,178.24,170.8,183.88,120;2026-07-01,182.64,171.27,183.87,122.1;2026-07-02,184.56,171.79,183.87,125.1;2026-07-06,181.03,172.15,183.84,118.8;2026-07-07,181.95,172.53,183.83,115;2026-07-08,174.29,172.6,183.73,112.1;2026-07-09,175.52,172.72,183.65,116.5;2026-07-10,178.39,172.94,183.6,117.4;2026-07-13,175.8,173.05,183.52,114.4;2026-07-14,174.85,173.12,183.43,116;2026-07-15,182.8,173.5,183.43,122.2;2026-07-16,184.61,173.94,183.44,125.5;2026-07-17,181.68,174.24,183.42,125.8;2026-07-20,179.45,174.44,183.38,125.2;2026-07-21,179.4,174.64,183.34,126.6;2026-07-22,177.86,174.77,183.29,125.3;2026-07-23,172.83,174.69,183.18,124.2;2026-07-24,177.46,174.8,183.13,124.3;2026-07-27,186.79,175.27,183.16,129;2026-07-28,199.31,176.21,183.32,137;2026-07-29,201.3,177.2,183.5,139.3;2026-07-30,193.24,177.82,183.6,136.5;2026-07-31,192.9,178.42,183.69,136.5;2026-08-03,192.71,178.98,183.78,132.3;2026-08-04,194.27,179.58,183.89,138.2;2026-08-05,207.02,180.65,184.12,138.7;2026-08-06,207.39,181.7,184.35,135.4;2026-08-07,214.42,182.98,184.65,140.5;2026-08-10,212.88,184.16,184.93,141.3;2026-08-11,212.87,185.28,185.21,142.9;2026-08-12,212.26,186.34,185.47,145.9;2026-08-13,213.34,187.4,185.75,148.3;2026-08-14,212.06,188.37,186.01,145.1;2026-08-17,204.76,189.01,186.2,140.1;2026-08-18,208.25,189.76,186.42,140.1;2026-08-19,213,190.67,186.68,141.3;2026-08-20,209.87,191.43,186.91,138.3;2026-08-21,209.62,192.14,187.14,139.4;2026-08-24,213.36,192.97,187.4,140.4;2026-08-25,213.78,193.79,187.66,138.7;2026-08-26,208.89,194.38,187.88,135.6;2026-08-27,202.56,194.7,188.02,131.6;2026-08-28,205.63,195.13,188.2,132.1;2026-08-31,199.09,195.29,188.31,127.6;2026-09-01,195.69,195.3,188.38,123.2;2026-09-02,199.6,195.47,188.49,126;2026-09-03,195.13,195.46,188.56,119.4;2026-09-04,193.29,195.37,188.6,117.2;2026-09-08,180.3,194.78,188.52,107.7;2026-09-09,173.43,193.94,188.37,106.4;2026-09-10,174.33,193.17,188.23,107.1;2026-09-11,173.92,192.42,188.09,106.6;2026-09-14,175.35,191.75,187.96,100;2026-09-15,171.32,190.95,187.8,96;2026-09-16,171.4,190.18,187.63,94.5;2026-09-17,170.52,189.41,187.46,93.2;2026-09-18,167.9,188.57,187.27,86.9;2026-09-21,168.52,187.78,187.08,88.2;2026-09-22,164.22,186.86,186.85,82.1;2026-09-23,155.9,185.64,186.55,70.2;2026-09-24,157.41,184.54,186.26,70.7;2026-09-25,163.95,183.73,186.03,77.8;2026-09-28,163.87,182.95,185.81,79.1;2026-09-29,162.34,182.14,185.58,78.1;2026-09-30,162.91,181.39,185.35,76.2;2026-10-01,160.28,180.56,185.11,71.1;2026-10-02,159.02,179.72,184.85,66;2026-10-05,158.33,178.88,184.58,72.7;2026-10-06,157.63,178.04,184.31,71.9;2026-10-07,155.87,177.17,184.03,67.9;2026-10-08,159.97,176.5,183.79,73.9;2026-10-09,160.34,175.87,183.56,75.4;2026-10-12,158.43,175.18,183.31,71.9;2026-10-13,157.51,174.49,183.05,69.1;2026-10-14,160.68,173.95,182.83,75.6;2026-10-15,165.8,173.63,182.66,76.6`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+
+const fmtN=(v,d=2)=>v.toLocaleString("de-CH",{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmtD=s=>{const [y,m,d]=s.split("-");return d+"."+m+"."+y.slice(2)};
+const NS="http://www.w3.org/2000/svg";
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+
+function scoreTable(id,rows){
+  let tot=0,max=0;
+  const html='<thead><tr><th>Kriterium</th><th>Stand</th><th class="num">Punkte</th><th style="width:22%"></th></tr></thead><tbody>'+rows.map(r=>{tot+=r[2];max+=r[3];const p=r[2]/r[3];const c=p>=.75?"var(--good)":p>=.45?"var(--warn)":"var(--bad)";
+    return `<tr><td>${r[0]}</td><td class="muted">${r[1]}</td><td class="num">${r[2]} / ${r[3]}</td><td><div class="bar"><i style="width:${p*100}%;background:${c}"></i></div></td></tr>`}).join("")+`<tr class="total"><td>Total</td><td></td><td class="num">${tot} / ${max}</td><td></td></tr></tbody>`;
+  document.getElementById(id).innerHTML=html;return tot;
+}
+const qs=scoreTable("q-tbl",Q), ts=scoreTable("t-tbl",T);
+document.getElementById("q-val").textContent=qs;document.getElementById("t-val").textContent=ts;
+document.getElementById("q-pin").style.left=qs+"%";document.getElementById("t-pin").style.left=ts+"%";
+
+document.getElementById("fin-rows").innerHTML=FIN.map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1].toLocaleString("de-CH")}</td><td class="num">${r[2]}</td><td class="num">${r[3]}</td><td class="num">${fmtN(r[4])}</td><td class="num">${r[5].toLocaleString("de-CH")}</td><td class="num">${r[6]}</td><td class="num">${r[7]}</td></tr>`).join("");
+
+/* generic line chart */
+function lineChart(host,{dates,series,bands=[],yFmt=v=>fmtN(v),h=300,zero=false,refs=[],pad}){
+  const W_=800,H=h,m={t:12,r:56,b:28,l:8};
+  const all=series.flatMap(s=>s.values).concat(bands.flatMap(b=>[b.from,b.to])).concat(refs.map(r=>r.v));
+  if(zero)all.push(0);
+  let lo=Math.min(...all),hi=Math.max(...all);const sp=(hi-lo)||1;lo-=sp*.06;hi+=sp*.06;
+  if(pad){lo=pad[0];hi=pad[1]}
+  const n=dates.length,x=i=>m.l+i*(W_-m.l-m.r)/(n-1),y=v=>m.t+(hi-v)*(H-m.t-m.b)/(hi-lo);
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  // grid
+  const steps=5;for(let k=0;k<=steps;k++){const v=lo+(hi-lo)*k/steps;el("line",{x1:m.l,x2:W_-m.r,y1:y(v),y2:y(v),stroke:"var(--grid)","stroke-width":1},svg);
+    const t=el("text",{x:W_-m.r+6,y:y(v)+4,"font-size":11,fill:"var(--muted)","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=yFmt(v)}
+  bands.forEach(b=>{el("rect",{x:m.l,width:W_-m.l-m.r,y:y(Math.max(b.from,b.to)),height:Math.abs(y(b.from)-y(b.to)),fill:b.type==="res"?"var(--zone-res)":"var(--zone-sup)"},svg)});
+  refs.forEach(r=>{el("line",{x1:m.l,x2:W_-m.r,y1:y(r.v),y2:y(r.v),stroke:"var(--muted)","stroke-dasharray":"4 4","stroke-width":1},svg);
+    const t=el("text",{x:m.l+4,y:y(r.v)-4,"font-size":11,fill:"var(--muted)"},svg);t.textContent=r.label});
+  if(zero)el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  // x labels
+  const every=Math.ceil(n/6);for(let i=0;i<n;i+=every){const t=el("text",{x:x(i),y:H-8,"font-size":11,fill:"var(--muted)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);const d=dates[i];t.textContent=d.slice(5,7)+"/"+d.slice(2,4)}
+  series.forEach(s=>{const dpath=s.values.map((v,i)=>(i?"L":"M")+x(i).toFixed(1)+","+y(v).toFixed(1)).join("");
+    el("path",{d:dpath,fill:"none",stroke:s.color,"stroke-width":s.w||2,"stroke-linejoin":"round","stroke-linecap":"round"},svg);
+    const lv=s.values[n-1];el("circle",{cx:x(n-1),cy:y(lv),r:3.5,fill:s.color,stroke:"var(--surface)","stroke-width":2},svg)});
+  // hover
+  const cross=el("line",{y1:m.t,y2:H-m.b,stroke:"var(--muted)","stroke-width":1,opacity:0},svg);
+  const ov=el("rect",{x:m.l,y:m.t,width:W_-m.l-m.r,height:H-m.t-m.b,fill:"transparent"},svg);
+  host.appendChild(svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;host.appendChild(tip);
+  function move(ev){const r=svg.getBoundingClientRect();const px=(ev.clientX-r.left)*W_/r.width;let i=Math.round((px-m.l)/((W_-m.l-m.r)/(n-1)));i=Math.max(0,Math.min(n-1,i));
+    cross.setAttribute("x1",x(i));cross.setAttribute("x2",x(i));cross.setAttribute("opacity",1);
+    tip.innerHTML=`<div class="d">${fmtD(dates[i])}</div>`+series.map(s=>`<div><i class="sw" style="background:${s.color}"></i> ${s.name}: <b>${yFmt(s.values[i])}</b></div>`).join("");
+    tip.hidden=false;const hx=x(i)*r.width/W_;tip.style.left=Math.min(Math.max(0,hx+12),r.width-tip.offsetWidth)+"px";tip.style.top="8px"}
+  ov.addEventListener("pointermove",move);ov.addEventListener("pointerleave",()=>{tip.hidden=true;cross.setAttribute("opacity",0)});
+}
+function barChart(host,{labels,values,fmt,h=220,color,neg,tipExtra}){
+  const W_=800,H=h,m={t:18,r:8,b:28,l:8};
+  const hi=Math.max(0,...values),lo=Math.min(0,...values);const lo2=lo<0?lo*1.15:lo,hi2=hi*1.15||1;
+  const y=v=>m.t+(hi2-v)*(H-m.t-m.b)/(hi2-lo2);const n=values.length,bw=(W_-m.l-m.r)/n;
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;
+  values.forEach((v,i)=>{const x0=m.l+i*bw+bw*.18,w=bw*.64,y0=y(Math.max(v,0)),hh=Math.max(1,Math.abs(y(v)-y(0)));
+    const r=el("rect",{x:x0,y:y0,width:w,height:hh,rx:4,fill:v<0?(neg||"var(--s2)"):(color||"var(--s1)")},svg);
+    const t=el("text",{x:x0+w/2,y:v<0?y(v)+13:y0-5,"font-size":11.5,fill:"var(--ink)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=fmt(v);
+    const l=el("text",{x:x0+w/2,y:H-8,"font-size":11.5,fill:"var(--muted)","text-anchor":"middle"},svg);l.textContent=labels[i];
+    const hit=el("rect",{x:m.l+i*bw,y:m.t,width:bw,height:H-m.t-m.b,fill:"transparent"},svg);
+    hit.addEventListener("pointerenter",()=>{tip.innerHTML=`<div class="d">${labels[i]}</div><b>${fmt(v)}</b>${tipExtra?tipExtra(i):""}`;tip.hidden=false;const R=svg.getBoundingClientRect();tip.style.left=Math.min((m.l+i*bw)*R.width/W_,R.width-tip.offsetWidth)+"px";tip.style.top="0px"});
+    hit.addEventListener("pointerleave",()=>tip.hidden=true)});
+  host.appendChild(svg);host.appendChild(tip);
+}
+barChart(document.getElementById("c-rev"),{labels:HALF.map(r=>r[0]),values:HALF.map(r=>r[1]),fmt:v=>fmtN(v,0),h:200});
+barChart(document.getElementById("c-margin"),{labels:MARGIN.map(r=>r[0]),values:MARGIN.map(r=>r[1]),fmt:v=>fmtN(v,1)+" %",h:200});
+barChart(document.getElementById("c-seas"),{labels:MON,values:SEAS,fmt:v=>(v>0?"+":"")+fmtN(v,1),h:220,tipExtra:i=>`<div>${SEASHIT[i]} % der Jahre positiv</div>`});
+const BANDS=[{"from": 204, "to": 218, "type": "res"}, {"from": 173, "to": 184, "type": "res"}, {"from": 150, "to": 158, "type": "sup"}], REFS=[{"v": 167, "label": "Trigger 167"}];
+const wd=W.map(r=>r[0]);
+lineChart(document.getElementById("c-week"),{dates:wd,series:[{name:"Kurs",values:W.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:W.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:W.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,yFmt:v=>fmtN(v,0),h:320});
+lineChart(document.getElementById("c-adw"),{dates:wd,series:[{name:"A/D Woche",values:W.map(r=>r[5]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,zero:true});
+lineChart(document.getElementById("c-rsiw"),{dates:wd,series:[{name:"RSI Woche",values:W.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,refs:[{v:70,label:"70 überkauft"},{v:30,label:"30 überverkauft"}],pad:[10,90]});
+const dd=DD.map(r=>r[0]);
+lineChart(document.getElementById("c-day"),{dates:dd,series:[{name:"Kurs",values:DD.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:DD.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:DD.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,refs:REFS,yFmt:v=>fmtN(v,0),h:260});
+lineChart(document.getElementById("c-add"),{dates:dd,series:[{name:"A/D Tag",values:DD.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:260,zero:true});
+</script>

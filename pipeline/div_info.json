@@ -523,5 +523,49 @@
   "betrag": 3.615,
   "system": "Niederländisch-italienisches System: eine Dividende pro Jahr in Euro, beschlossen an der Generalversammlung Mitte April und Anfang Mai ausbezahlt. Ferrari schüttet rund 35 bis 40 % des Gewinns aus und hat die Dividende 2026 um 21 % erhöht. Kaufst du an der NYSE, kommt der Betrag in Dollar umgerechnet.",
   "form": "Bar in US-Dollar aufs Konto (an der Börse Mailand gekauft: in Euro). Ferrari ist rechtlich eine niederländische Firma: Die Niederlande ziehen 15 % Quellensteuer ab, die du in der Regel über die Steuererklärung anrechnen lassen kannst (Formular DA-1)."
+ },
+ "ADBE": {
+  "zahlt": false,
+  "text": "Adobe zahlt keine Dividende. Das ganze freie Geld geht in Aktienrückkäufe: Seit 2021 gibt es 18 % weniger Aktien."
+ },
+ "MA": {
+  "pro_jahr": 4,
+  "rhythmus": "quartalsweise",
+  "ex_monate": [
+   1,
+   4,
+   7,
+   10
+  ],
+  "zahl_monate": [
+   2,
+   5,
+   8,
+   11
+  ],
+  "zahl_text": "jeweils um den 7. bis 9. im Februar, Mai, August und November (nächste: 9.11.2026)",
+  "abstand_tage": 30,
+  "betrag": 0.87,
+  "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Ex-Tag ist jeweils um den 9. Januar, April, Juli und Oktober. Die Erhöhung wird im Dezember angekündigt (zuletzt +14 % auf 0.87 $) und gilt ab der Februar-Zahlung."
+ },
+ "BKNG": {
+  "pro_jahr": 4,
+  "rhythmus": "quartalsweise",
+  "ex_monate": [
+   3,
+   6,
+   9,
+   12
+  ],
+  "zahl_monate": [
+   3,
+   6,
+   9,
+   12
+  ],
+  "zahl_text": "jeweils am letzten Geschäftstag im März, Juni, September und Dezember",
+  "abstand_tage": 24,
+  "betrag": 0.42,
+  "system": "US-Quartalsdividende seit 2024: 4 gleich hohe Zahlungen pro Jahr. Ex-Tag Anfang März, Juni, September und Dezember, Auszahlung am Monatsende. Die Erhöhung kommt mit den Jahreszahlen im Februar (2026: +9.4 % auf 0.42 $)."
  }
 }

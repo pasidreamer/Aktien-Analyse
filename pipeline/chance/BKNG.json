@@ -1,0 +1,62 @@
+{
+ "ticker": "BKNG",
+ "sorgen": [
+  "KI-Assistenten könnten Reisen direkt buchen und Booking umgehen oder nur noch als günstigen Zulieferer nutzen: Google testet seit August 2026 Hotelbuchungen im KI-Modus, Meta startete am 08.09.2026 Muse, und Expedia ging am 23.09.2026 eine Partnerschaft mit Muse ein.",
+  "Das Wachstum wird langsamer: Übernachtungen +8 % (Q3 2025), +5 % (Q2 2026), Prognose für Q3 2026 nur +3 bis +5 %. Booking senkte den Umsatzausblick 2026 zweimal.",
+  "Rechtliche Risiken: mögliche FTC-Klage gegen Priceline (über 500 Mio. $), EU-Gericht bestätigt am 09.09.2026 das Verbot der eTraveli-Übernahme, Untersuchung in Italien.",
+  "Die Aktie fiel acht Wochen in Folge, das gab es seit dem Börsengang 1999 noch nie. Seit August minus 28 %."
+ ],
+ "sorgen_art": "gemischt",
+ "sorgen_art_text": "Das Wachstum sinkt wirklich, aber Gewinn und Cashflow sind auf Rekordhöhe, und die KI-Gefahr zeigt sich in den Zahlen bisher nicht (unter 1 % der Buchungen).",
+ "aufloeser": [
+  {
+   "was": "Zahlen zum 3. Quartal: Liegen die Übernachtungen am oberen Ende der Prognose, und was sagt Booking zu KI-Buchungen und 2027?",
+   "wann": "Zahlen 03.11.2026"
+  },
+  {
+   "was": "Booking wird Partner eines grossen KI-Assistenten (z. B. Meta Muse) oder zeigt mit der eigenen KI-Firma Vayo erste Erfolge",
+   "wann": "Ende 2026 bis 2027"
+  },
+  {
+   "was": "Jahreszahlen und Ausblick 2027. Ab März 2027 fällt der Vergleich mit dem kriegsgeschwächten Frühling 2026 leichter",
+   "wann": "Februar 2027"
+  },
+  {
+   "was": "Einigung mit der US-Behörde FTC",
+   "wann": "Termin offen"
+  }
+ ],
+ "schub_stufe": "mittel",
+ "schub_treiber": [
+  {
+   "titel": "Sparprogramm und Rückkäufe",
+   "text": "Booking will bis Ende 2027 jährlich rund 650 Mio. $ Kosten sparen und hat noch 14.5 Mrd. $ für Rückkäufe (rund 12 % des Börsenwerts). Beides hebt den Gewinn pro Aktie auch bei langsamem Umsatz.",
+   "wann": "2026–2027"
+  },
+  {
+   "titel": "Zahlungen und «Connected Trip»",
+   "text": "Immer mehr Buchungen laufen über Bookings eigene Zahlungsabwicklung (73 % im 2. Quartal 2026, +4 Punkte). Damit verdient Booking an Hotel, Flug und Mietauto in einer Reise. Die Kombi-Buchungen wachsen zweistellig, sind aber noch klein.",
+   "wann": "2026–2028"
+  }
+ ],
+ "schub_beweis": "Achte auf die Übernachtungen (Room Nights) im Vergleich zum Vorjahr: Prognose Q3 2026 +3 bis +5 %. Steigen sie wieder über 6 % und bleibt der Anteil direkter Kunden bei rund zwei Dritteln, schadet KI weniger als befürchtet.",
+ "szenario": "Ähnlich wie Google 2023: Alle glauben, KI macht Booking überflüssig. Booking hat aber die Hotels unter Vertrag, die Bewertungen der Gäste und zwei Drittel direkte Kunden, und arbeitet selbst mit Google und OpenAI zusammen. Zeigen die nächsten Zahlen keinen KI-Schaden, kann das KGV von 18 Richtung 25 steigen. Grösstes Risiko: Die KI-Assistenten übernehmen den Kundenkontakt und drücken die Provisionen, dann ist die Aktie zu Recht billig.",
+ "quellen": [
+  {
+   "titel": "Booking Holdings: Ergebnisse Q2 2026",
+   "url": "https://s201.q4cdn.com/865305287/files/doc_financials/2026/q2/Q2-26-BKNG-Earnings-Release-Final.pdf"
+  },
+  {
+   "titel": "TIKR: Expedia geht mit Meta Muse zusammen (24.09.2026)",
+   "url": "https://www.tikr.com/blog/booking-holdings-bkng-shares-drop-expedia-meta-muse-ai-partnership"
+  },
+  {
+   "titel": "TIKR: FTC-Klage droht (08.10.2026)",
+   "url": "https://www.tikr.com/blog/booking-holdings-faces-ftc-action-over-hotel-ads-more-than-500-million-at-stake"
+  },
+  {
+   "titel": "GeekWire: Booking gründet KI-Firma Vayo (14.10.2026)",
+   "url": "https://geekwire.com/2026/booking-holdings-unveils-ai-travel-startup-vayo-based-in-seattle-with-a-planned-100m-investment"
+  }
+ ]
+}

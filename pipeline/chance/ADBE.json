@@ -1,0 +1,67 @@
+{
+ "ticker": "ADBE",
+ "sorgen": [
+  "KI-Werkzeuge könnten Adobe vor allem bei günstigen Kunden ersetzen: Canva, Figma, Midjourney, OpenAI, Claude Design (seit 17.04.2026) und kostenlose KI-Kopien von Photoshop wie ArtCraft (Grund für die HSBC-Herabstufung am 13.10.2026).",
+  "Das Neugeschäft aus eigener Kraft wird langsamer. Laut Wells Fargo fiel der neue wiederkehrende Umsatz (ARR) ohne Zukäufe im 3. Quartal um über 40 %. Um das Jahresziel von +10.2 % zu schaffen, braucht Adobe im 4. Quartal fast doppelt so viel Neugeschäft wie im 3. Quartal.",
+  "Chefwechsel: CEO Narayen hört am 01.12.2026 auf, Finanzchef Durn ging im Juni. Narayen verkaufte in 12 Monaten Aktien für rund 50 Mio. $.",
+  "Die Aktie fiel vom Allzeithoch 699.54 $ (2021) auf 251.67 $ (15.10.2026). Das KGV sank von 61 auf 14, obwohl der Gewinn pro Aktie von 10.02 auf 17.92 $ stieg."
+ ],
+ "sorgen_art": "gemischt",
+ "sorgen_art_text": "Die Zahlen sind noch stark (Umsatz +13 %, Rekord-Cashflow), aber das Neugeschäft wird langsamer, und ob KI Adobe langfristig schadet, ist echt offen.",
+ "aufloeser": [
+  {
+   "was": "Adobe MAX: Neue KI-Produkte und Preise. Überzeugt Adobe hier, dass Firefly und die Agenten echtes Geld bringen, kann die Stimmung drehen",
+   "wann": "10.–12.11.2026"
+  },
+  {
+   "was": "Zahlen zum 4. Quartal und erste Ziele des neuen CEO für 2027. Entscheidend: Hat Adobe das ARR-Ziel (+10.2 %) erreicht?",
+   "wann": "voraussichtlich 09.12.2026 (nicht bestätigt)"
+  },
+  {
+   "was": "Neuer CEO Anil Chakravarthy (bisher Chef des Firmenkunden-Geschäfts) übernimmt und stellt einen festen Finanzchef vor",
+   "wann": "ab 01.12.2026"
+  },
+  {
+   "was": "Der Rückkauf (25 Mrd. $ bis 2030) senkt die Aktienzahl um rund 7 % pro Jahr. Selbst bei gleichem Gewinn steigt so der Gewinn pro Aktie",
+   "wann": "laufend"
+  }
+ ],
+ "schub_stufe": "mittel",
+ "schub_treiber": [
+  {
+   "titel": "KI-Produkte (Firefly, Acrobat AI, GenStudio)",
+   "text": "Der Umsatz mit KI-Produkten hat sich laut Adobe innert eines Jahres verdreifacht (über 500 Mio. $ im 2. Quartal 2026, +150 % im 3. Quartal). Das sind aber erst rund 2 % des gesamten wiederkehrenden Umsatzes von 27.5 Mrd. $.",
+   "wann": "2027–2028"
+  },
+  {
+   "titel": "Marketing-Software für grosse Firmen",
+   "text": "Drei Produktlinien für Firmenkunden haben je über 1 Mrd. $ wiederkehrenden Umsatz und wachsen zusammen über 20 %. Dieser Teil ist am wenigsten von günstigen KI-Werkzeugen bedroht, und der neue CEO kommt aus diesem Bereich.",
+   "wann": "2026–2028"
+  },
+  {
+   "titel": "Rückkäufe als Gewinn-Hebel",
+   "text": "Bei rund 10 Mrd. $ Free Cashflow pro Jahr und dem tiefen Kurs kann Adobe jedes Jahr 8 bis 10 % der Aktien zurückkaufen. Das hebt den Gewinn pro Aktie auch ohne schnelleres Wachstum.",
+   "wann": "laufend bis 2030"
+  }
+ ],
+ "schub_beweis": "Schau bei den Zahlen auf das neue wiederkehrende Geschäft (Net New ARR): Im 3. Quartal 2026 waren es rund 0.40 Mrd. $. Liegt es wieder klar darüber und steigt der KI-Umsatz weiter, ist die Wende da.",
+ "szenario": "Ähnlich wie Google 2023: Alle glauben, KI macht Adobe überflüssig, dabei verdient Adobe heute mehr als je zuvor und kauft mit dem Geld die eigenen Aktien billig zurück. Bestätigen die nächsten Zahlen, dass das Neugeschäft hält, kann sich das KGV von 14 Richtung 20 bis 25 erholen. Grösstes Risiko: KI nimmt Adobe wirklich Kunden weg, dann schrumpft der Free Cashflow und die Aktie ist zu Recht billig (Value-Falle).",
+ "quellen": [
+  {
+   "titel": "Adobe: Q3 FY2026 Ergebnisse (10.09.2026)",
+   "url": "https://news.adobe.com/news/2026/09/adobe-q3fy26-financial-results"
+  },
+  {
+   "titel": "24/7 Wall St: Wells Fargo stuft ab (12.10.2026)",
+   "url": "https://247wallst.com/investing/2026/10/12/adobe-falls-4-as-wells-fargo-cuts-to-underweight-with-225-target-servicenow-climbs-3-intuit-ticks-up/"
+  },
+  {
+   "titel": "TIKR: Adobe fiel trotz guter Zahlen um 6 % (Juni 2026)",
+   "url": "https://www.tikr.com/blog/adobe-stock-fell-6-after-a-beat-and-raise-quarter-the-market-got-it-wrong"
+  },
+  {
+   "titel": "Nasdaq: Adobe ernennt Anil Chakravarthy zum CEO",
+   "url": "https://www.nasdaq.com/articles/adobe-names-anil-chakravarthy-next-ceo"
+  }
+ ]
+}

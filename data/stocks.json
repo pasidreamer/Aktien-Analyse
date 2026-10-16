@@ -10392,7 +10392,7 @@
     "datenstand": "2026-10-15",
     "kurs": 398.24,
     "q": 83,
-    "t": 69
+    "t": 63
    },
    "qualitaet": [
     {
@@ -10407,7 +10407,7 @@
      "k": "wachstum",
      "name": "Wachstumstempo",
      "txt": "Letzte 12 Monate +5.7 % (2023: +17 %), klar langsamer",
-     "p": 4,
+     "p": 3,
      "max": 10,
      "auto": false
     },
@@ -10446,8 +10446,8 @@
     {
      "k": "schulden",
      "name": "Schulden",
-     "txt": "Industriell fast schuldenfrei (0.2 Mrd. €), mit Kundenkrediten 1.7 Mrd. €",
-     "p": 8,
+     "txt": "Nettoschulden/EBITDA unter 1 (industriell 0.2 Mrd. €, mit Kundenkrediten 1.7 Mrd. €)",
+     "p": 9,
      "max": 10,
      "auto": false
     },
@@ -10464,23 +10464,23 @@
     {
      "k": "trend_w",
      "name": "Trend Woche (EMA 50/200)",
-     "txt": "Kurs über EMA 50 und 200, EMA 50 dreht seit Juli wieder nach oben",
-     "p": 17,
+     "txt": "Kurs über EMA 50 und 200, EMA 50 über 200",
+     "p": 18,
      "max": 20,
      "auto": true
     },
     {
      "k": "trend_d",
      "name": "Trend Tag (EMA 50/200)",
-     "txt": "Kurs knapp über EMA 50, über EMA 200, EMA 50 über 200 seit 11.8.",
-     "p": 7,
+     "txt": "Kurs knapp über EMA 50 und über EMA 200, EMA 50 über 200 seit 11.8.",
+     "p": 9,
      "max": 10,
      "auto": true
     },
     {
      "k": "smc",
      "name": "Struktur (SMC)",
-     "txt": "Woche: höhere Tiefs seit März. Tag: Korrektur mit tieferen Hochs seit August",
+     "txt": "Woche: höhere Tiefs seit März. Tag: Korrektur mit tieferen Hochs seit August, Tief vom 5.10. hält",
      "p": 11,
      "max": 20,
      "auto": false
@@ -10488,31 +10488,31 @@
     {
      "k": "rsi",
      "name": "RSI Tag/Woche",
-     "txt": "Tag 51, Woche 53: neutral",
-     "p": 9,
+     "txt": "Tag 51, Woche 53: neutral, kein Signal",
+     "p": 7,
      "max": 15,
      "auto": true
     },
     {
      "k": "ad",
      "name": "A/D Tag/Woche",
-     "txt": "Woche fast am Hoch bei 9 % tieferem Kurs, Tag neutral",
-     "p": 15,
+     "txt": "Woche fast am Hoch bei 9 % tieferem Kurs (positiv), Tag neutral",
+     "p": 12,
      "max": 20,
      "auto": true
     },
     {
      "k": "smart",
      "name": "Smart Money",
-     "txt": "Grosser Rückkauf nahe am Tief, Analysten positiv, keine Insider-Käufe",
-     "p": 7,
+     "txt": "Rückkauf rund 1.3 % des Börsenwerts pro Jahr (unter 2 %), keine Insider-Käufe",
+     "p": 3,
      "max": 10,
      "auto": false
     },
     {
      "k": "saison",
      "name": "Saisonalität",
-     "txt": "Oktober +0.3 % (67 %), November +3.0 % (55 %), Dezember schwach",
+     "txt": "Oktober 67 %, November 55 %, Dezember nur 27 % positive Jahre",
      "p": 3,
      "max": 5,
      "auto": true
@@ -10622,7 +10622,7 @@
      }
     ]
    },
-   "fazit": "Ferrari ist eine der profitabelsten Firmen der Welt: 29 % operative Marge, 31 % Rendite auf das eingesetzte Kapital, und die Kunden warten bis 2027 auf ihr Auto. Qualität grün (83), Timing hellgrün (69). Der Kurs fiel vom Hoch 519 $ (Juli 2025) bis 312.51 $ (März 2026), weil das Wachstum langsamer wird und das erste Elektroauto Luce schlecht ankam. Seit März macht die Aktie höhere Tiefs, und die Firma kauft für Milliarden eigene Aktien zurück. Heute liegt der Kurs knapp über der Kaufzone 381 bis 391 $. Teuer bleibt sie trotzdem: KGV 38.5.",
+   "fazit": "Ferrari ist eine der profitabelsten Firmen der Welt: 29 % operative Marge, 31 % Rendite auf das eingesetzte Kapital, und die Kunden warten bis 2027 auf ihr Auto. Qualität grün (83), Timing hellgrün (63). Der Kurs fiel vom Hoch 519 $ (Juli 2025) bis 312.51 $ (März 2026), weil das Wachstum langsamer wird und das erste Elektroauto Luce schlecht ankam. Seit März macht die Aktie höhere Tiefs, und die Firma kauft für Milliarden eigene Aktien zurück. Heute liegt der Kurs knapp über der Kaufzone 381 bis 391 $. Teuer bleibt sie trotzdem: KGV 38.5.",
    "about": "Ferrari baut Sportwagen in Maranello bei Modena und verkauft bewusst weniger Autos, als die Kunden wollen: rund 13'600 Autos pro Jahr. Ein Ferrari kostet meist zwischen 250'000 und 600'000 Euro, Sondermodelle wie der F80 rund 3.6 Millionen. Rund 80 % des Umsatzes kommen aus Autos und Ersatzteilen. Dazu kommen Sponsoring, Formel-1-Einnahmen, Markenrechte, Lifestyle (Mode, Museen, Freizeitparks) und Motoren für Maserati. Einen grossen Teil verdient Ferrari mit Sonderwünschen der Kunden (Personalisierung), die rund ein Fünftel des Autopreises ausmachen. Grösster Aktionär ist Exor, die Holding der Familie Agnelli.",
    "kpis": [
     {
@@ -10728,6 +10728,1058 @@
    ],
    "cheatsheet": "analysen/RACE.html",
    "claude": "https://claude.ai/artifact/YCTHn1Zbh5kEESfCvw6hKQ"
+  },
+  {
+   "ticker": "ADBE",
+   "symbol": "ADBE",
+   "name": "Adobe",
+   "tags": [
+    "Qualität"
+   ],
+   "land": "USA",
+   "region": "USA",
+   "branche": "Software für Kreative und Marketing",
+   "status": "beobachten",
+   "waehrung": "USD",
+   "analyse": {
+    "datenstand": "2026-10-15",
+    "kurs": 251.67,
+    "q": 88,
+    "t": 53
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "4 von 4 Quartalen über Vorjahr, Wachstum steigt von 10.5 auf 12.9 % (teils durch Semrush)",
+     "p": 13,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "Rund 11 % ohne Zukauf, 12 % mit Semrush",
+     "p": 8,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "36.3 % (9 Pkt.), seit 5 Jahren stabil (3 Pkt.)",
+     "p": 12,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "GAAP 2022–2025 rund +18 % pro Jahr, bereinigt aktuell +15 bis +19 %",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Immer positiv, 3 von 4 Jahren gestiegen (Delle 2023)",
+     "p": 6,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "57 %, seit 2021 klar steigend",
+     "p": 15,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Nettoschulden/EBITDA 0.12",
+     "p": 9,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "KGV 14.1 statt Ø 41 (2021–2025), rund 66 % günstiger",
+     "p": 15,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs unter beiden, EMA 50 unter 200 und fallend",
+     "p": 2,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs über EMA 50, unter EMA 200: mögliche Wende",
+     "p": 4,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Woche: CHoCH im August und höheres Tief. Tag: erster CHoCH am 15.10., noch unbestätigt",
+     "p": 13,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "Tag aus 34 auf 55 gedreht, Woche 50 steigend, aber kein intakter Trend",
+     "p": 10,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Tag: bullische Divergenz. Woche: leicht positiv",
+     "p": 12,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Start 3, Insider-Kauf Juni +4, Rückkauf rund 7 % pro Jahr +3, viele CEO-Verkäufe −3",
+     "p": 7,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "Oktober und November je 68 % positive Jahre",
+     "p": 5,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 14.1,
+    "schnitt": 41.1,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      232,
+      242
+     ],
+     [
+      200,
+      212
+     ]
+    ],
+    "widerstand": [
+     [
+      265,
+      275
+     ],
+     [
+      286,
+      295
+     ]
+    ],
+    "trigger": 267,
+    "abbruch": 224
+   },
+   "zahlen": "2026-12-09",
+   "dividende": null,
+   "div_info": {
+    "zahlt": false,
+    "text": "Adobe zahlt keine Dividende. Das ganze freie Geld geht in Aktienrückkäufe: Seit 2021 gibt es 18 % weniger Aktien."
+   },
+   "chance": {
+    "ticker": "ADBE",
+    "sorgen": [
+     "KI-Werkzeuge könnten Adobe vor allem bei günstigen Kunden ersetzen: Canva, Figma, Midjourney, OpenAI, Claude Design (seit 17.04.2026) und kostenlose KI-Kopien von Photoshop wie ArtCraft (Grund für die HSBC-Herabstufung am 13.10.2026).",
+     "Das Neugeschäft aus eigener Kraft wird langsamer. Laut Wells Fargo fiel der neue wiederkehrende Umsatz (ARR) ohne Zukäufe im 3. Quartal um über 40 %. Um das Jahresziel von +10.2 % zu schaffen, braucht Adobe im 4. Quartal fast doppelt so viel Neugeschäft wie im 3. Quartal.",
+     "Chefwechsel: CEO Narayen hört am 01.12.2026 auf, Finanzchef Durn ging im Juni. Narayen verkaufte in 12 Monaten Aktien für rund 50 Mio. $.",
+     "Die Aktie fiel vom Allzeithoch 699.54 $ (2021) auf 251.67 $ (15.10.2026). Das KGV sank von 61 auf 14, obwohl der Gewinn pro Aktie von 10.02 auf 17.92 $ stieg."
+    ],
+    "sorgen_art": "gemischt",
+    "sorgen_art_text": "Die Zahlen sind noch stark (Umsatz +13 %, Rekord-Cashflow), aber das Neugeschäft wird langsamer, und ob KI Adobe langfristig schadet, ist echt offen.",
+    "aufloeser": [
+     {
+      "was": "Adobe MAX: Neue KI-Produkte und Preise. Überzeugt Adobe hier, dass Firefly und die Agenten echtes Geld bringen, kann die Stimmung drehen",
+      "wann": "10.–12.11.2026"
+     },
+     {
+      "was": "Zahlen zum 4. Quartal und erste Ziele des neuen CEO für 2027. Entscheidend: Hat Adobe das ARR-Ziel (+10.2 %) erreicht?",
+      "wann": "voraussichtlich 09.12.2026 (nicht bestätigt)"
+     },
+     {
+      "was": "Neuer CEO Anil Chakravarthy (bisher Chef des Firmenkunden-Geschäfts) übernimmt und stellt einen festen Finanzchef vor",
+      "wann": "ab 01.12.2026"
+     },
+     {
+      "was": "Der Rückkauf (25 Mrd. $ bis 2030) senkt die Aktienzahl um rund 7 % pro Jahr. Selbst bei gleichem Gewinn steigt so der Gewinn pro Aktie",
+      "wann": "laufend"
+     }
+    ],
+    "schub_stufe": "mittel",
+    "schub_treiber": [
+     {
+      "titel": "KI-Produkte (Firefly, Acrobat AI, GenStudio)",
+      "text": "Der Umsatz mit KI-Produkten hat sich laut Adobe innert eines Jahres verdreifacht (über 500 Mio. $ im 2. Quartal 2026, +150 % im 3. Quartal). Das sind aber erst rund 2 % des gesamten wiederkehrenden Umsatzes von 27.5 Mrd. $.",
+      "wann": "2027–2028"
+     },
+     {
+      "titel": "Marketing-Software für grosse Firmen",
+      "text": "Drei Produktlinien für Firmenkunden haben je über 1 Mrd. $ wiederkehrenden Umsatz und wachsen zusammen über 20 %. Dieser Teil ist am wenigsten von günstigen KI-Werkzeugen bedroht, und der neue CEO kommt aus diesem Bereich.",
+      "wann": "2026–2028"
+     },
+     {
+      "titel": "Rückkäufe als Gewinn-Hebel",
+      "text": "Bei rund 10 Mrd. $ Free Cashflow pro Jahr und dem tiefen Kurs kann Adobe jedes Jahr 8 bis 10 % der Aktien zurückkaufen. Das hebt den Gewinn pro Aktie auch ohne schnelleres Wachstum.",
+      "wann": "laufend bis 2030"
+     }
+    ],
+    "schub_beweis": "Schau bei den Zahlen auf das neue wiederkehrende Geschäft (Net New ARR): Im 3. Quartal 2026 waren es rund 0.40 Mrd. $. Liegt es wieder klar darüber und steigt der KI-Umsatz weiter, ist die Wende da.",
+    "szenario": "Ähnlich wie Google 2023: Alle glauben, KI macht Adobe überflüssig, dabei verdient Adobe heute mehr als je zuvor und kauft mit dem Geld die eigenen Aktien billig zurück. Bestätigen die nächsten Zahlen, dass das Neugeschäft hält, kann sich das KGV von 14 Richtung 20 bis 25 erholen. Grösstes Risiko: KI nimmt Adobe wirklich Kunden weg, dann schrumpft der Free Cashflow und die Aktie ist zu Recht billig (Value-Falle).",
+    "quellen": [
+     {
+      "titel": "Adobe: Q3 FY2026 Ergebnisse (10.09.2026)",
+      "url": "https://news.adobe.com/news/2026/09/adobe-q3fy26-financial-results"
+     },
+     {
+      "titel": "24/7 Wall St: Wells Fargo stuft ab (12.10.2026)",
+      "url": "https://247wallst.com/investing/2026/10/12/adobe-falls-4-as-wells-fargo-cuts-to-underweight-with-225-target-servicenow-climbs-3-intuit-ticks-up/"
+     },
+     {
+      "titel": "TIKR: Adobe fiel trotz guter Zahlen um 6 % (Juni 2026)",
+      "url": "https://www.tikr.com/blog/adobe-stock-fell-6-after-a-beat-and-raise-quarter-the-market-got-it-wrong"
+     },
+     {
+      "titel": "Nasdaq: Adobe ernennt Anil Chakravarthy zum CEO",
+      "url": "https://www.nasdaq.com/articles/adobe-names-anil-chakravarthy-next-ceo"
+     }
+    ]
+   },
+   "fazit": "Adobe ist ein Free-Cashflow-Monster: 10.6 Mrd. $ freies Geld pro Jahr, 41 % vom Umsatz, und damit kauft Adobe jedes Jahr rund 7 % der eigenen Aktien zurück. Die Börse glaubt aber, dass KI-Werkzeuge Adobe das Geschäft wegnehmen. Darum fiel die Aktie vom Allzeithoch 699.54 $ auf 251.67 $ (−64 %), das KGV liegt bei 14 statt rund 41. Qualität grün (88), Timing gelb (53). Seit dem Tief vom Juni (190.12 $) macht die Aktie höhere Tiefs, heute schloss sie erstmals über dem letzten tieferen Hoch. Das grosse Risiko: Wenn die KI-Sorge stimmt, ist der heutige Free Cashflow nicht nachhaltig.",
+   "about": "Adobe verkauft Software im Abo: Creative Cloud (Photoshop, Illustrator, Premiere, Lightroom, Firefly) für Designer, Fotografen und Videomacher, Acrobat und Adobe Express für PDF und einfache Grafiken, und Marketing-Software für grosse Firmen (Experience Cloud, GenStudio, seit April 2026 auch Semrush für Suchmaschinen). Rund drei Viertel des Umsatzes kommen aus dem Bereich Digital Media. Weil fast alles im Abo läuft, sind die Einnahmen gut planbar: Der jährlich wiederkehrende Umsatz (ARR) lag Ende August 2026 bei 27.5 Mrd. $. Die Produkte sind in vielen Firmen und Schulen Standard.",
+   "kpis": [
+    {
+     "ampel": "g",
+     "name": "Umsatzwachstum",
+     "wert": "+12.0 %",
+     "text": "Letzte 12 Monate. Ohne den Zukauf Semrush rund 11 %. Seit 2022 stabil zwischen 10 und 13 % pro Jahr."
+    },
+    {
+     "ampel": "g",
+     "name": "Operative Marge",
+     "wert": "36.3 %",
+     "text": "Von 100 $ Umsatz bleiben rund 36 $ Betriebsgewinn. Sehr hoch und seit 5 Jahren stabil zwischen 34 und 37 %."
+    },
+    {
+     "ampel": "g",
+     "name": "Gewinn pro Aktie (EPS)",
+     "wert": "17.92 $",
+     "text": "Letzte 12 Monate nach offiziellen Regeln (GAAP). Bereinigt 23.65 $, das sind +15 bis +19 % pro Quartal zum Vorjahr. 2021 waren es 10.02 $."
+    },
+    {
+     "ampel": "g",
+     "name": "ROIC",
+     "wert": "57 %",
+     "text": "Auf 100 $ investiertes Kapital rund 57 $ Gewinn. Ausgezeichnet und seit 2021 (38 %) stark gestiegen."
+    },
+    {
+     "ampel": "g",
+     "name": "Free Cashflow",
+     "wert": "10.6 Mrd. $",
+     "text": "Letzte 12 Monate. 41 % vom Umsatz bleiben als freies Geld. 2021 waren es 6.9 Mrd. $. Achtung: 2.1 Mrd. $ davon sind Löhne in Aktien, die den FCF schöner machen."
+    },
+    {
+     "ampel": "g",
+     "name": "Nettoschulden",
+     "wert": "1.1 Mrd. $",
+     "text": "Mit einem Zehntel des Jahres-FCF bezahlt. Früher hatte Adobe mehr Geld als Schulden, die Rückkäufe waren 2024 und 2025 grösser als der FCF."
+    },
+    {
+     "ampel": "g",
+     "name": "KGV",
+     "wert": "14.1",
+     "text": "Du zahlst 14 Jahresgewinne. Eigener Schnitt 2021–2025: rund 41. Also rund zwei Drittel günstiger als üblich. Die Börse bewertet Adobe wie eine schrumpfende Firma."
+    },
+    {
+     "ampel": "g",
+     "name": "Aktienrückkäufe",
+     "wert": "−7.5 %",
+     "text": "So viel weniger Aktien gibt es im 3. Quartal 2026 als im Schnitt 2025. Seit 2021 minus 18 %. Neues Programm: 25 Mrd. $ bis 2030, rund ein Viertel des Börsenwerts. Keine Dividende."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "286–295 $",
+     "text": "Widerstand: Hochs von Ende August und Anfang September (294.53 $)."
+    },
+    {
+     "art": "r",
+     "wert": "265–275 $",
+     "text": "Widerstand: Hoch vom 14.9. (266.10 $), Tages-EMA 200 (265.60 $) und Wochen-EMA 50 (274 $)."
+    },
+    {
+     "art": "t",
+     "wert": "267 $",
+     "text": "Trigger: Tagesschluss über dem Hoch vom 14.9. und der Tages-EMA 200. Ein erstes Signal kam am 15.10. (Schluss über 248.30 $)."
+    },
+    {
+     "art": "s",
+     "wert": "232–242 $",
+     "text": "Kaufzone 1: Bodenbildung im Oktober (Tagesschlüsse 232.77 bis 242.27 $) und Tief vom 11.9. (241.51 $)."
+    },
+    {
+     "art": "s",
+     "wert": "200–212 $",
+     "text": "Kaufzone 2: Tiefs von Ende Juni und Juli (202.73 $ Wochenschluss, 210.88 $ am 23.7.)."
+    },
+    {
+     "art": "r",
+     "wert": "224 $",
+     "text": "Abbruch: Wochenschluss unter dem Tief vom 28.9. (224.67 $). Dann wäre das höhere Tief verloren."
+    }
+   ],
+   "pro": [
+    "Riesiger Free Cashflow (10.6 Mrd. $, 41 % vom Umsatz) und sehr hohe Kapitalrendite (57 %).",
+    "Kauft jedes Jahr rund 7 % der eigenen Aktien zurück: Jede Aktie besitzt einen immer grösseren Teil der Firma.",
+    "Sehr günstig: KGV 14 statt rund 41 im eigenen Schnitt, FCF-Rendite fast 11 %.",
+    "Umsatz wächst weiter mit 12 %, acht Quartale in Folge besser als erwartet.",
+    "Kontra-Lage: viel Angst, Analysten skeptisch, Tages-A/D zeigt Käufe bei tiefen Kursen."
+   ],
+   "contra": [
+    "KI kann vor allem das günstige Kundensegment wegnehmen: kostenlose KI-Kopien, Canva, Figma, Claude Design.",
+    "Wachstum aus eigener Kraft wird langsamer, im 4. Quartal braucht Adobe fast doppelt so viel Neugeschäft wie im 3. Quartal.",
+    "Chefwechsel: neuer CEO ab 1.12.2026, Finanzchef ist nur interimistisch besetzt.",
+    "Rückkäufe waren 2024 und 2025 grösser als der FCF und teils mit Schulden bezahlt. Das Netto-Cash ist weg.",
+    "Der grosse Trend (Wochen-EMA 200 bei 369 $) zeigt klar nach unten."
+   ],
+   "smart_money": [
+    "Adobe selbst: Neues Rückkaufprogramm über 25 Mrd. $ bis April 2030 (rund 25 % des Börsenwerts). In den ersten 9 Monaten 2026 für 6.9 Mrd. $ rund 26 Mio. Aktien zurückgekauft. Das sind rund 7 % des Börsenwerts pro Jahr.",
+    "Insider-Kauf: Verwaltungsrat David Ricks (Chef von Eli Lilly) kaufte am 25.6.2026 10'000 Aktien zu 194.51 $ (1.95 Mio. $), fast am Tief.",
+    "Insider-Verkäufe: CEO Shantanu Narayen verkaufte in 12 Monaten für rund 49.6 Mio. $ (zuletzt 125'000 Aktien zu rund 250 $ am 16./17.9.). Er gibt den Chefposten am 1.12.2026 ab. Ob die Verkäufe nach einem festen Plan liefen, ist nicht geprüft.",
+    "Analysten: Mehrheit «Halten». MarketBeat: 9× Kaufen, 20× Halten, 7× Verkaufen, Kursziel im Schnitt 284 $ (195 bis 430 $). Zuletzt Herabstufungen von Wells Fargo (12.10., Ziel 225 $) und HSBC (13.10., Ziel 267 $). Für Kontra-Anleger: Viele Verkaufen-Stimmen bei einer Firma mit Rekord-Cashflow."
+   ],
+   "cheatsheet": "analysen/ADBE.html",
+   "claude": "https://claude.ai/artifact/LYhu5sTR4vfREY9hRzKL5H"
+  },
+  {
+   "ticker": "MA",
+   "symbol": "MA",
+   "name": "Mastercard",
+   "tags": [
+    "Qualität",
+    "Wachstum"
+   ],
+   "land": "USA",
+   "region": "USA",
+   "branche": "Zahlungsnetzwerk",
+   "status": "beobachten",
+   "waehrung": "USD",
+   "analyse": {
+    "datenstand": "2026-10-15",
+    "kurs": 616.32,
+    "q": 85,
+    "t": 64
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "4 von 4 Quartalen über Vorjahr, Wachstum leicht sinkend (17.6 → 14.1 %)",
+     "p": 12,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "Rund 12 % ohne Währungseffekte",
+     "p": 8,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "Rund 60 % (9 Pkt.), seit 2021 steigend (6 Pkt.)",
+     "p": 15,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "Rund +17 % pro Jahr seit 2021, Q2 2026 +22 %",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "2021–2025 jedes Jahr gestiegen, letzte 12 Monate aber −2.7 %",
+     "p": 9,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "94 %, steigend",
+     "p": 15,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Nettoschulden/EBITDA 0.58",
+     "p": 9,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "KGV 33.9 statt Ø 36.4 (2021–2025), rund 7 % günstiger",
+     "p": 7,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs über beiden, EMA 50 über 200, beide steigen",
+     "p": 20,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs über beiden, EMA 50 über 200 seit 3.8.",
+     "p": 10,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Höhere Hochs und Tiefs, Ausbruch auf Allzeithoch, aber im Premium",
+     "p": 14,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "Tag 75 (überkauft), Woche 67",
+     "p": 4,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Neues Kurshoch ohne neues A/D-Hoch auf beiden Ebenen",
+     "p": 6,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Start 3, Rückkauf 3 % pro Jahr +3, Pershing Square +2, viele Insider-Verkäufe −3",
+     "p": 5,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "Oktober 68 %, November 70 %, Dezember 55 % positive Jahre",
+     "p": 5,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 33.9,
+    "schnitt": 36.4,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      590,
+      602
+     ],
+     [
+      545,
+      570
+     ]
+    ],
+    "widerstand": [],
+    "trigger": 620,
+    "abbruch": 545
+   },
+   "zahlen": "2026-10-29",
+   "dividende": "0.6 %",
+   "div_info": {
+    "pro_jahr": 4,
+    "rhythmus": "quartalsweise",
+    "ex_monate": [
+     1,
+     4,
+     7,
+     10
+    ],
+    "zahl_monate": [
+     2,
+     5,
+     8,
+     11
+    ],
+    "zahl_text": "jeweils um den 7. bis 9. im Februar, Mai, August und November (nächste: 9.11.2026)",
+    "abstand_tage": 30,
+    "betrag": 0.87,
+    "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Ex-Tag ist jeweils um den 9. Januar, April, Juli und Oktober. Die Erhöhung wird im Dezember angekündigt (zuletzt +14 % auf 0.87 $) und gilt ab der Februar-Zahlung."
+   },
+   "chance": {
+    "ticker": "MA",
+    "sorgen": [
+     "US-Politik: Präsident Trump unterstützt seit Januar 2026 den Credit Card Competition Act. Grosse Banken müssten Zahlungen dann auch über ein zweites Netz anbieten. Mastercard fiel am Tag der Ankündigung um rund 4 bis 5 %.",
+     "Stablecoins: Händler wie Walmart und Amazon prüfen eigene Digital-Dollar, um Kartengebühren zu sparen. Mastercard antwortet mit dem Kauf von BVNK (bis 1.8 Mrd. $, abgeschlossen am 03.08.2026).",
+     "Die besonders lukrativen Auslandzahlungen wachsen langsamer: +15 % 2025, +13 % im 1. Quartal, +12 % im 2. Quartal 2026, auch wegen des Kriegs im Nahen Osten.",
+     "Der Free Cashflow sank im 1. Halbjahr 2026 um 6.7 %, und Mastercard nahm neue Schulden auf, um Rückkäufe zu bezahlen."
+    ],
+    "sorgen_art": "stimmung",
+    "sorgen_art_text": "Die Zahlen sind stark (Gewinn pro Aktie +22 %), die Sorgen sind vor allem Politik und Zukunftsangst. Die Aktie steht schon wieder auf dem Allzeithoch.",
+    "aufloeser": [
+     {
+      "was": "Zahlen zum 3. Quartal: Steigt der Free Cashflow wieder und halten die Auslandzahlungen?",
+      "wann": "Zahlen 29.10.2026"
+     },
+     {
+      "was": "Kommt der Credit Card Competition Act bis Ende der Legislatur nicht zur Abstimmung, muss er neu eingereicht werden",
+      "wann": "bis Januar 2027"
+     },
+     {
+      "was": "Endgültige Genehmigung des US-Vergleichs mit den Händlern macht die Gebühren für 8 Jahre planbar",
+      "wann": "Datum offen"
+     },
+     {
+      "was": "Dividendenerhöhung und neues Rückkaufprogramm",
+      "wann": "Dezember 2026"
+     }
+    ],
+    "schub_stufe": "mittel",
+    "schub_treiber": [
+     {
+      "titel": "Zusatzdienste (Betrugsschutz, Daten, Cybersicherheit)",
+      "text": "Umsatz 2025 13.3 Mrd. $ (+23 %), schon 40 % des Gesamtumsatzes, im 2. Quartal 2026 +18 % ohne Währungseffekte. Je grösser dieser Teil, desto weniger hängt Mastercard an den Kartengebühren.",
+      "wann": "laufend"
+     },
+     {
+      "titel": "Bargeld wird digital",
+      "text": "Weltweit werden immer noch viele Zahlungen bar gemacht. Jede, die auf Karte oder Handy wechselt, bringt Mastercard Geld. Das Zahlungsvolumen wuchs 2025 um 9 %.",
+      "wann": "laufend"
+     },
+     {
+      "titel": "KI-Einkäufe (Agent Pay)",
+      "text": "Mastercard baut die Bezahlung für KI-Assistenten, die für Kunden einkaufen. Seit 2026 weltweit verfügbar, Umsätze nennt Mastercard noch keine. Eine Chance, aber noch unbewiesen.",
+      "wann": "2027–2029"
+     }
+    ],
+    "schub_beweis": "Achte bei den Zahlen auf das Wachstum der Zusatzdienste (zuletzt +18 % ohne Währungseffekte) und der Auslandzahlungen (zuletzt +12 %). Steigen beide wieder, kommt Schub.",
+    "szenario": "Kein klassischer Sorgen-Fall: Mastercard ist eine Qualitätsfirma im Aufwärtstrend, die Sorgen im Frühling sind schon ausgepreist. Der Kurs kann mit dem Gewinn um 12 bis 15 % pro Jahr steigen. Grösstes Risiko: Das Gesetz für ein zweites Netz wird beschlossen, dann sinken Gebühren und Gewinn in den USA.",
+    "quellen": [
+     {
+      "titel": "Mastercard: Ergebnisse Q2 2026 (SEC)",
+      "url": "https://www.sec.gov/Archives/edgar/data/0001141391/000114139126000081/ma06302026-exx991xearnings.htm"
+     },
+     {
+      "titel": "Yahoo Finance: Trump und Kartengebühren (Januar 2026)",
+      "url": "https://finance.yahoo.com/news/trump-says-credit-card-swipe-130002654.html"
+     },
+     {
+      "titel": "Payments Dive: CCCA sucht neuen Weg",
+      "url": "https://www.paymentsdive.com/news/ccca-seeks-new-path-to-passage/813789/"
+     },
+     {
+      "titel": "TIKR: Rückkäufe nahe am Jahrestief",
+      "url": "https://www.tikr.com/blog/why-mastercard-repurchased-5-7-billion-in-shares-while-the-stock-sat-near-52-week-lows"
+     }
+    ]
+   },
+   "fazit": "Mastercard verdient an fast jeder Kartenzahlung ein kleines Stück und behält davon über die Hälfte als freies Geld: 16.7 Mrd. $ Free Cashflow, 48 % vom Umsatz. Qualität grün (85), Timing hellgrün (64). Die Aktie ist am 15.10.2026 auf ein neues Allzeithoch gestiegen (619.80 $), 33 % über dem Tief vom Juni. Sie ist damit weit weg von jeder Kaufzone und kurzfristig überkauft (RSI 75). Ein Rücksetzer auf 590 bis 602 $ wäre der bessere Einstieg.",
+   "about": "Mastercard betreibt eines der zwei grossen Kartennetzwerke der Welt (das andere ist Visa). Mastercard gibt selbst keine Karten aus und leiht kein Geld aus. Die Banken geben die Karten aus, Mastercard leitet die Zahlung weiter und kassiert pro Zahlung eine kleine Gebühr. 2025 liefen 10.6 Billionen $ über das Netz. Dazu kommen Zusatzdienste wie Betrugsschutz, Datenanalyse und Cybersicherheit (rund 40 % des Umsatzes, stark wachsend). Besonders lukrativ sind Zahlungen über Landesgrenzen, zum Beispiel wenn du im Ausland mit Karte zahlst.",
+   "kpis": [
+    {
+     "ampel": "g",
+     "name": "Umsatzwachstum",
+     "wert": "+16.0 %",
+     "text": "Letzte 12 Monate. Ohne Währungseffekte rund 12 %. Seit 2021 im Schnitt +15 % pro Jahr."
+    },
+    {
+     "ampel": "g",
+     "name": "Operative Marge",
+     "wert": "59.9 %",
+     "text": "Von 100 $ Umsatz bleiben rund 60 $ Betriebsgewinn (bereinigt, offiziell rund 58 %). Eine der höchsten Margen überhaupt, seit 2021 gestiegen."
+    },
+    {
+     "ampel": "g",
+     "name": "Gewinn pro Aktie (EPS)",
+     "wert": "18.18 $",
+     "text": "Letzte 12 Monate. 2021 waren es 8.76 $, also rund +17 % pro Jahr. Im 2. Quartal 2026 +22 %."
+    },
+    {
+     "ampel": "g",
+     "name": "ROIC",
+     "wert": "94 %",
+     "text": "Auf 100 $ investiertes Kapital rund 94 $ Gewinn. Extrem hoch, weil ein Zahlungsnetz kaum Kapital braucht."
+    },
+    {
+     "ampel": "g",
+     "name": "Free Cashflow",
+     "wert": "16.7 Mrd. $",
+     "text": "Letzte 12 Monate, 48 % vom Umsatz. Achtung: 2.7 % weniger als 2025, im 1. Halbjahr 2026 sogar −6.7 %. Den Grund nennt die Firma nicht klar."
+    },
+    {
+     "ampel": "w",
+     "name": "Nettoschulden",
+     "wert": "12.9 Mrd. $",
+     "text": "In 0.8 Jahren mit dem Free Cashflow bezahlt: gut. Aber die Schulden stiegen seit Dezember um 4.8 Mrd. $, weil Rückkäufe und Dividende grösser waren als der FCF."
+    },
+    {
+     "ampel": "w",
+     "name": "KGV",
+     "wert": "33.9",
+     "text": "Du zahlst rund 34 Jahresgewinne. Eigener Schnitt 2021–2025: rund 36.4. Also etwa 7 % günstiger als üblich, absolut aber teuer."
+    },
+    {
+     "ampel": "w",
+     "name": "Dividende",
+     "wert": "0.6 %",
+     "text": "0.87 $ pro Quartal, 4× pro Jahr. Nächste Zahlung am 9.11.2026. Seit 14 Jahren jedes Jahr erhöht, zuletzt um 14 %. Tiefe Rendite, weil das meiste Geld in Rückkäufe geht."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "t",
+     "wert": "620 $",
+     "text": "Trigger: Tagesschluss über dem Allzeithoch (619.80 $) bestätigt den Ausbruch. Besser: Rücksetzer in Kaufzone 1, der hält."
+    },
+    {
+     "art": "s",
+     "wert": "590–602 $",
+     "text": "Kaufzone 1: Alte Hochs von August 2025 und August 2026, jetzt Unterstützung (Rücktest nach dem Ausbruch)."
+    },
+    {
+     "art": "s",
+     "wert": "545–570 $",
+     "text": "Kaufzone 2: Tief vom 2.10. (545.41 $), Tages-EMA 200 (546 $) und Tages-EMA 50 (570 $)."
+    },
+    {
+     "art": "r",
+     "wert": "545 $",
+     "text": "Abbruch: Wochenschluss unter dem Tief vom 2.10. Dann wäre die Reihe höherer Tiefs gebrochen."
+    }
+   ],
+   "pro": [
+    "Eines von zwei grossen Kartennetzen der Welt: Jede Kartenzahlung bringt Geld, fast ohne Kapital.",
+    "Riesige Marge (rund 60 %) und Kapitalrendite (94 %), Gewinn pro Aktie +17 % pro Jahr.",
+    "Free Cashflow geht fast ganz an die Aktionäre: Aktienzahl sinkt rund 2 % pro Jahr, Dividende steigt seit 14 Jahren.",
+    "Zusatzdienste (Betrugsschutz, Daten) wachsen mit rund 20 % und machen schon 40 % des Umsatzes aus.",
+    "Starker Aufwärtstrend, Ackman neu eingestiegen."
+   ],
+   "contra": [
+    "Politisches Risiko in den USA: Gesetz für ein zweites Netz (CCCA) mit Trumps Unterstützung, Druck auf Gebühren.",
+    "Stablecoins und neue Zahlungswege könnten Karten langfristig umgehen.",
+    "Free Cashflow sank zuletzt (−2.7 %), Rückkäufe teils mit neuen Schulden bezahlt.",
+    "Auslandzahlungen wachsen langsamer (15 → 12 %), Krieg und Reisen bremsen.",
+    "Kurz nach einem Allzeithoch überkauft (RSI 75), A/D bestätigt den Anstieg nicht ganz."
+   ],
+   "smart_money": [
+    "Mastercard selbst: Kauft laufend Aktien zurück, in den letzten 12 Monaten für 16 Mrd. $ (rund 3 % des Börsenwerts). Am meisten im Frühling, als der Kurs um 500 $ stand. Restprogramm Ende Juli: 7.8 Mrd. $, ein neues Programm kommt wohl im Dezember.",
+    "Insider: In 12 Monaten keine Käufe, nur Verkäufe (rund 67 Mio. $), meist nach Optionsausübungen und nach festen Plänen. CEO Michael Miebach verkaufte im Juli und August für rund 28 Mio. $.",
+    "Grosse Investoren: Pershing Square (Bill Ackman) ist im 2. Quartal 2026 neu mit rund 1.1 Mrd. $ eingestiegen (2.12 Mio. Aktien).",
+    "Analysten: Fast alle positiv. MarketBeat: 32 von 34 Kaufen, Kursziel im Schnitt 683 $ (+11 %), höchstes 756 $. Zuletzt erhöht: Baird auf 710 $ (9.10.)."
+   ],
+   "cheatsheet": "analysen/MA.html",
+   "claude": "https://claude.ai/artifact/KLUfbVB5M3eFjhY68DnbVN"
+  },
+  {
+   "ticker": "BKNG",
+   "symbol": "BKNG",
+   "name": "Booking Holdings",
+   "tags": [
+    "Qualität"
+   ],
+   "land": "USA",
+   "region": "USA",
+   "branche": "Online-Reisebuchung",
+   "status": "beobachten",
+   "waehrung": "USD",
+   "analyse": {
+    "datenstand": "2026-10-15",
+    "kurs": 165.8,
+    "q": 89,
+    "t": 55
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "4 von 4 Quartalen über Vorjahr, zuletzt aber nur noch +8 %",
+     "p": 12,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "Ohne Währungseffekte rund 7 bis 10 %, Ausblick 2026 hoch einstellig",
+     "p": 6,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "34.9 % (9 Pkt.), seit 2021 klar steigend (6 Pkt.)",
+     "p": 15,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "Bereinigt 2025 +22 %, Ausblick 2026 +12 bis +15 %",
+     "p": 8,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Jedes Jahr seit 2021 gestiegen",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "Über 60 %, zuletzt 92 %",
+     "p": 15,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Nettoschulden/EBITDA rund 0.3",
+     "p": 9,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "KGV 18.3 statt Ø 28.6 (2022–2025), rund 36 % günstiger",
+     "p": 14,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs knapp über EMA 200, unter EMA 50: Rücksetzer im Aufwärtstrend",
+     "p": 12,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs unter beiden, EMA 50 unter 200 seit 23.9.",
+     "p": 1,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Spanne 150–218 $ mit dreifachem Boden, seit August tiefere Hochs",
+     "p": 8,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "Bullische Divergenz im Tageschart (Kurs tiefer, RSI höher), RSI dreht nach oben",
+     "p": 12,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Auf beiden Zeitebenen höher bei gleichem oder tieferem Kurs",
+     "p": 16,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Start 3, Rückkauf über 8 % pro Jahr +3, viele Insider-Verkäufe −3",
+     "p": 3,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "Oktober 56 %, November 58 %, Dezember 46 % positive Jahre",
+     "p": 3,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 18.3,
+    "schnitt": 28.6,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      150,
+      158
+     ]
+    ],
+    "widerstand": [
+     [
+      173,
+      184
+     ],
+     [
+      204,
+      218
+     ]
+    ],
+    "trigger": 167,
+    "abbruch": 150
+   },
+   "zahlen": "2026-11-03",
+   "dividende": "1.0 %",
+   "div_info": {
+    "pro_jahr": 4,
+    "rhythmus": "quartalsweise",
+    "ex_monate": [
+     3,
+     6,
+     9,
+     12
+    ],
+    "zahl_monate": [
+     3,
+     6,
+     9,
+     12
+    ],
+    "zahl_text": "jeweils am letzten Geschäftstag im März, Juni, September und Dezember",
+    "abstand_tage": 24,
+    "betrag": 0.42,
+    "system": "US-Quartalsdividende seit 2024: 4 gleich hohe Zahlungen pro Jahr. Ex-Tag Anfang März, Juni, September und Dezember, Auszahlung am Monatsende. Die Erhöhung kommt mit den Jahreszahlen im Februar (2026: +9.4 % auf 0.42 $)."
+   },
+   "chance": {
+    "ticker": "BKNG",
+    "sorgen": [
+     "KI-Assistenten könnten Reisen direkt buchen und Booking umgehen oder nur noch als günstigen Zulieferer nutzen: Google testet seit August 2026 Hotelbuchungen im KI-Modus, Meta startete am 08.09.2026 Muse, und Expedia ging am 23.09.2026 eine Partnerschaft mit Muse ein.",
+     "Das Wachstum wird langsamer: Übernachtungen +8 % (Q3 2025), +5 % (Q2 2026), Prognose für Q3 2026 nur +3 bis +5 %. Booking senkte den Umsatzausblick 2026 zweimal.",
+     "Rechtliche Risiken: mögliche FTC-Klage gegen Priceline (über 500 Mio. $), EU-Gericht bestätigt am 09.09.2026 das Verbot der eTraveli-Übernahme, Untersuchung in Italien.",
+     "Die Aktie fiel acht Wochen in Folge, das gab es seit dem Börsengang 1999 noch nie. Seit August minus 28 %."
+    ],
+    "sorgen_art": "gemischt",
+    "sorgen_art_text": "Das Wachstum sinkt wirklich, aber Gewinn und Cashflow sind auf Rekordhöhe, und die KI-Gefahr zeigt sich in den Zahlen bisher nicht (unter 1 % der Buchungen).",
+    "aufloeser": [
+     {
+      "was": "Zahlen zum 3. Quartal: Liegen die Übernachtungen am oberen Ende der Prognose, und was sagt Booking zu KI-Buchungen und 2027?",
+      "wann": "Zahlen 03.11.2026"
+     },
+     {
+      "was": "Booking wird Partner eines grossen KI-Assistenten (z. B. Meta Muse) oder zeigt mit der eigenen KI-Firma Vayo erste Erfolge",
+      "wann": "Ende 2026 bis 2027"
+     },
+     {
+      "was": "Jahreszahlen und Ausblick 2027. Ab März 2027 fällt der Vergleich mit dem kriegsgeschwächten Frühling 2026 leichter",
+      "wann": "Februar 2027"
+     },
+     {
+      "was": "Einigung mit der US-Behörde FTC",
+      "wann": "Termin offen"
+     }
+    ],
+    "schub_stufe": "mittel",
+    "schub_treiber": [
+     {
+      "titel": "Sparprogramm und Rückkäufe",
+      "text": "Booking will bis Ende 2027 jährlich rund 650 Mio. $ Kosten sparen und hat noch 14.5 Mrd. $ für Rückkäufe (rund 12 % des Börsenwerts). Beides hebt den Gewinn pro Aktie auch bei langsamem Umsatz.",
+      "wann": "2026–2027"
+     },
+     {
+      "titel": "Zahlungen und «Connected Trip»",
+      "text": "Immer mehr Buchungen laufen über Bookings eigene Zahlungsabwicklung (73 % im 2. Quartal 2026, +4 Punkte). Damit verdient Booking an Hotel, Flug und Mietauto in einer Reise. Die Kombi-Buchungen wachsen zweistellig, sind aber noch klein.",
+      "wann": "2026–2028"
+     }
+    ],
+    "schub_beweis": "Achte auf die Übernachtungen (Room Nights) im Vergleich zum Vorjahr: Prognose Q3 2026 +3 bis +5 %. Steigen sie wieder über 6 % und bleibt der Anteil direkter Kunden bei rund zwei Dritteln, schadet KI weniger als befürchtet.",
+    "szenario": "Ähnlich wie Google 2023: Alle glauben, KI macht Booking überflüssig. Booking hat aber die Hotels unter Vertrag, die Bewertungen der Gäste und zwei Drittel direkte Kunden, und arbeitet selbst mit Google und OpenAI zusammen. Zeigen die nächsten Zahlen keinen KI-Schaden, kann das KGV von 18 Richtung 25 steigen. Grösstes Risiko: Die KI-Assistenten übernehmen den Kundenkontakt und drücken die Provisionen, dann ist die Aktie zu Recht billig.",
+    "quellen": [
+     {
+      "titel": "Booking Holdings: Ergebnisse Q2 2026",
+      "url": "https://s201.q4cdn.com/865305287/files/doc_financials/2026/q2/Q2-26-BKNG-Earnings-Release-Final.pdf"
+     },
+     {
+      "titel": "TIKR: Expedia geht mit Meta Muse zusammen (24.09.2026)",
+      "url": "https://www.tikr.com/blog/booking-holdings-bkng-shares-drop-expedia-meta-muse-ai-partnership"
+     },
+     {
+      "titel": "TIKR: FTC-Klage droht (08.10.2026)",
+      "url": "https://www.tikr.com/blog/booking-holdings-faces-ftc-action-over-hotel-ads-more-than-500-million-at-stake"
+     },
+     {
+      "titel": "GeekWire: Booking gründet KI-Firma Vayo (14.10.2026)",
+      "url": "https://geekwire.com/2026/booking-holdings-unveils-ai-travel-startup-vayo-based-in-seattle-with-a-planned-100m-investment"
+     }
+    ]
+   },
+   "fazit": "Booking verdient sehr gut: 9.5 Mrd. $ Free Cashflow (34 % vom Umsatz), und fast alles geht an die Aktionäre zurück. Seit 2021 gibt es 27 % weniger Aktien. Die Börse fürchtet aber, dass KI-Assistenten von Google, OpenAI und Meta die Reisebuchung übernehmen. Darum fiel die Aktie seit August um 28 % auf 165.80 $, das KGV liegt bei 18 statt rund 29. Qualität grün (89), Timing gelb (55). Seit Februar hält der Boden bei 150 bis 155 $ dreimal, und die A/D zeigt beim letzten Tief mehr Käufe als vorher.",
+   "about": "Booking Holdings ist die grösste Online-Reisefirma der Welt. Booking.com vermittelt Hotels, Ferienwohnungen, Flüge und Mietautos, dazu kommen Priceline (USA), Agoda (Asien), KAYAK (Preisvergleich) und OpenTable (Restaurant-Reservationen). Booking verdient vor allem eine Provision pro Buchung, rund 15 % vom Zimmerpreis. Im 2. Quartal 2026 liefen Buchungen für 51 Mrd. $ über die Plattformen, 325 Mio. Übernachtungen. Rund zwei Drittel der Kunden kommen direkt (App oder Webseite), nicht über Google.",
+   "kpis": [
+    {
+     "ampel": "w",
+     "name": "Umsatzwachstum",
+     "wert": "+12.9 %",
+     "text": "Letzte 12 Monate. Ohne Währungseffekte im 2. Quartal nur rund 7 %. Für 2026 erwartet Booking ein Wachstum im hohen einstelligen Bereich."
+    },
+    {
+     "ampel": "g",
+     "name": "Operative Marge",
+     "wert": "34.9 %",
+     "text": "Von 100 $ Umsatz bleiben rund 35 $ Betriebsgewinn. Seit 2021 von 24 % stark gestiegen, ein Sparprogramm (650 Mio. $ bis Ende 2027) hilft weiter."
+    },
+    {
+     "ampel": "g",
+     "name": "Gewinn pro Aktie (EPS)",
+     "wert": "9.05 $",
+     "text": "Letzte 12 Monate nach offiziellen Regeln. Bereinigt 2025 9.12 $ (+22 %), für 2026 erwartet Booking +12 bis +15 %."
+    },
+    {
+     "ampel": "g",
+     "name": "ROIC",
+     "wert": "92 %",
+     "text": "Auf 100 $ investiertes Kapital rund 92 $ Gewinn. Extrem hoch, auch weil das Eigenkapital wegen der Rückkäufe negativ ist."
+    },
+    {
+     "ampel": "g",
+     "name": "Free Cashflow",
+     "wert": "9.5 Mrd. $",
+     "text": "Letzte 12 Monate, 34 % vom Umsatz. Seit 2021 fast vervierfacht. Nur 6 % davon sind Löhne in Aktien: Der FCF ist echt."
+    },
+    {
+     "ampel": "g",
+     "name": "Nettoschulden",
+     "wert": "3.4 Mrd. $",
+     "text": "In 0.4 Jahren mit dem FCF bezahlt. Das Eigenkapital ist negativ (−10.8 Mrd. $), weil Booking mehr Aktien zurückkaufte als es Gewinn behielt. Kein Verlustproblem."
+    },
+    {
+     "ampel": "g",
+     "name": "KGV",
+     "wert": "18.3",
+     "text": "Du zahlst 18 Jahresgewinne. Eigener Schnitt 2022–2025: rund 28.6. Also rund 36 % günstiger als üblich, das KGV ist das tiefste seit über 10 Jahren."
+    },
+    {
+     "ampel": "w",
+     "name": "Dividende",
+     "wert": "1.0 %",
+     "text": "0.42 $ pro Quartal, 4× pro Jahr. Erst seit 2024, zuletzt +9.4 %. Zusammen mit den Rückkäufen gibt Booking rund 5 % des Börsenwerts pro Jahr zurück."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "204–218 $",
+     "text": "Widerstand: Hochs vom August (217.32 $)."
+    },
+    {
+     "art": "r",
+     "wert": "173–184 $",
+     "text": "Widerstand: Tages-EMA 50 (173.60 $), Tages-EMA 200 (182.70 $), Wochen-EMA 50 (183.60 $)."
+    },
+    {
+     "art": "t",
+     "wert": "167 $",
+     "text": "Trigger: Tagesschluss über dem Hoch vom 28.9. (166.19 $). Bestätigung über 177 $ (Hoch vom 10.9.)."
+    },
+    {
+     "art": "s",
+     "wert": "150–158 $",
+     "text": "Kaufzone: Dreifacher Boden 150.14 / 150.62 / 154.06 $ von Februar, Mai und Oktober."
+    },
+    {
+     "art": "r",
+     "wert": "150 $",
+     "text": "Abbruch: Wochenschluss unter dem Tief vom Mai (150.14 $). Dann ist der Boden gebrochen."
+    }
+   ],
+   "pro": [
+    "Grösste Reiseplattform der Welt mit 9.5 Mrd. $ echtem Free Cashflow (wenig Löhne in Aktien).",
+    "Gibt fast alles an die Aktionäre zurück: rund 4 % weniger Aktien pro Jahr plus Dividende.",
+    "Sehr günstig: KGV 18 statt rund 29, FCF-Rendite 7.7 %.",
+    "Zwei Drittel der Kunden kommen direkt, KI-Assistenten bringen bisher unter 1 % der Buchungen.",
+    "Boden bei 150 bis 155 $ hält, Tages-A/D und RSI zeigen bullische Divergenzen."
+   ],
+   "contra": [
+    "KI-Assistenten (Google, OpenAI, Meta Muse) könnten Booking zum reinen Zulieferer machen. Expedia arbeitet mit Muse, Booking nicht.",
+    "Wachstum wird langsamer: Übernachtungen nur noch +3 bis +5 % erwartet.",
+    "Rechtliche Risiken: mögliche FTC-Klage (über 500 Mio. $), EU-Regeln, eTraveli-Verbot.",
+    "Rückkäufe teils mit neuen Schulden bezahlt, Eigenkapital negativ.",
+    "Insider verkaufen laufend und kaufen nie, Tagestrend klar abwärts."
+   ],
+   "smart_money": [
+    "Booking selbst: Kaufte in den letzten 12 Monaten für 10.5 Mrd. $ Aktien zurück (rund 8.5 % des Börsenwerts), im 1. Halbjahr 2026 für 7.4 Mrd. $ zu rund 173 $. Restprogramm Ende Juni: 14.5 Mrd. $ (rund 12 % des Börsenwerts).",
+    "Insider: In 12 Monaten keine Käufe, 32 Verkäufe für rund 60.5 Mio. $. CEO Glenn Fogel verkaufte regelmässig jeden Monat (rund 31 Mio. $, zuletzt im April), Finanzchef Steenbergen im August für 4.2 Mio. $ zu 211 $.",
+    "Analysten: Mehrheit positiv. MarketBeat: 3× stark Kaufen, 26× Kaufen, 7× Halten, 1× Verkaufen, Kursziel im Schnitt 234 $ (170 bis 298 $). Seit Ende September senken mehrere Banken die Ziele: Truist 216 $, Wells Fargo 190 $, Cantor 170 $ (12.10.)."
+   ],
+   "cheatsheet": "analysen/BKNG.html",
+   "claude": "https://claude.ai/artifact/6mRA4VugxZDkHLf1Bepsh4"
   }
  ]
 }

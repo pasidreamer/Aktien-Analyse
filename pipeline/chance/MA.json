@@ -1,0 +1,67 @@
+{
+ "ticker": "MA",
+ "sorgen": [
+  "US-Politik: Präsident Trump unterstützt seit Januar 2026 den Credit Card Competition Act. Grosse Banken müssten Zahlungen dann auch über ein zweites Netz anbieten. Mastercard fiel am Tag der Ankündigung um rund 4 bis 5 %.",
+  "Stablecoins: Händler wie Walmart und Amazon prüfen eigene Digital-Dollar, um Kartengebühren zu sparen. Mastercard antwortet mit dem Kauf von BVNK (bis 1.8 Mrd. $, abgeschlossen am 03.08.2026).",
+  "Die besonders lukrativen Auslandzahlungen wachsen langsamer: +15 % 2025, +13 % im 1. Quartal, +12 % im 2. Quartal 2026, auch wegen des Kriegs im Nahen Osten.",
+  "Der Free Cashflow sank im 1. Halbjahr 2026 um 6.7 %, und Mastercard nahm neue Schulden auf, um Rückkäufe zu bezahlen."
+ ],
+ "sorgen_art": "stimmung",
+ "sorgen_art_text": "Die Zahlen sind stark (Gewinn pro Aktie +22 %), die Sorgen sind vor allem Politik und Zukunftsangst. Die Aktie steht schon wieder auf dem Allzeithoch.",
+ "aufloeser": [
+  {
+   "was": "Zahlen zum 3. Quartal: Steigt der Free Cashflow wieder und halten die Auslandzahlungen?",
+   "wann": "Zahlen 29.10.2026"
+  },
+  {
+   "was": "Kommt der Credit Card Competition Act bis Ende der Legislatur nicht zur Abstimmung, muss er neu eingereicht werden",
+   "wann": "bis Januar 2027"
+  },
+  {
+   "was": "Endgültige Genehmigung des US-Vergleichs mit den Händlern macht die Gebühren für 8 Jahre planbar",
+   "wann": "Datum offen"
+  },
+  {
+   "was": "Dividendenerhöhung und neues Rückkaufprogramm",
+   "wann": "Dezember 2026"
+  }
+ ],
+ "schub_stufe": "mittel",
+ "schub_treiber": [
+  {
+   "titel": "Zusatzdienste (Betrugsschutz, Daten, Cybersicherheit)",
+   "text": "Umsatz 2025 13.3 Mrd. $ (+23 %), schon 40 % des Gesamtumsatzes, im 2. Quartal 2026 +18 % ohne Währungseffekte. Je grösser dieser Teil, desto weniger hängt Mastercard an den Kartengebühren.",
+   "wann": "laufend"
+  },
+  {
+   "titel": "Bargeld wird digital",
+   "text": "Weltweit werden immer noch viele Zahlungen bar gemacht. Jede, die auf Karte oder Handy wechselt, bringt Mastercard Geld. Das Zahlungsvolumen wuchs 2025 um 9 %.",
+   "wann": "laufend"
+  },
+  {
+   "titel": "KI-Einkäufe (Agent Pay)",
+   "text": "Mastercard baut die Bezahlung für KI-Assistenten, die für Kunden einkaufen. Seit 2026 weltweit verfügbar, Umsätze nennt Mastercard noch keine. Eine Chance, aber noch unbewiesen.",
+   "wann": "2027–2029"
+  }
+ ],
+ "schub_beweis": "Achte bei den Zahlen auf das Wachstum der Zusatzdienste (zuletzt +18 % ohne Währungseffekte) und der Auslandzahlungen (zuletzt +12 %). Steigen beide wieder, kommt Schub.",
+ "szenario": "Kein klassischer Sorgen-Fall: Mastercard ist eine Qualitätsfirma im Aufwärtstrend, die Sorgen im Frühling sind schon ausgepreist. Der Kurs kann mit dem Gewinn um 12 bis 15 % pro Jahr steigen. Grösstes Risiko: Das Gesetz für ein zweites Netz wird beschlossen, dann sinken Gebühren und Gewinn in den USA.",
+ "quellen": [
+  {
+   "titel": "Mastercard: Ergebnisse Q2 2026 (SEC)",
+   "url": "https://www.sec.gov/Archives/edgar/data/0001141391/000114139126000081/ma06302026-exx991xearnings.htm"
+  },
+  {
+   "titel": "Yahoo Finance: Trump und Kartengebühren (Januar 2026)",
+   "url": "https://finance.yahoo.com/news/trump-says-credit-card-swipe-130002654.html"
+  },
+  {
+   "titel": "Payments Dive: CCCA sucht neuen Weg",
+   "url": "https://www.paymentsdive.com/news/ccca-seeks-new-path-to-passage/813789/"
+  },
+  {
+   "titel": "TIKR: Rückkäufe nahe am Jahrestief",
+   "url": "https://www.tikr.com/blog/why-mastercard-repurchased-5-7-billion-in-shares-while-the-stock-sat-near-52-week-lows"
+  }
+ ]
+}

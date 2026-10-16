@@ -39,7 +39,8 @@ Arbeitsordner: das geklonte Repo (z. B. /home/claude/aktien-ampel). Alle Pfade u
    EMAs, Kurslücken), Trigger (Tagesschluss über dem letzten tieferen Hoch), Abbruch (Wochenschluss unter ...), Widerstände.
    Charts zeigen mindestens 1 Jahr.
 6. **Konfiguration schreiben:** `pipeline/config/TICKER.json`. Vorlage: `pipeline/config/RACE.json` (gleiche Felder, gleiche
-   Struktur). Hilfstexte für A/D, RSI und Saisonalität: `pipeline/helpers.py`. Wichtig:
+   Struktur). Am einfachsten mit einem kleinen Skript wie `pipeline/cfg/cfg_ADBE.py`, das die JSON-Datei schreibt.
+   Hilfstexte für A/D, RSI und Saisonalität: `pipeline/helpers.py`. Wichtig:
    - `Q` und `T`: Listen [Name, Begründung, Punkte, Max] in der Reihenfolge des Schemas.
    - `kpis`: 8 Kacheln [Farbe g/w/r, Name, Wert, Erklärung], die letzte heisst «Dividende».
    - `FIN`: 5 Jahre plus «Letzte 12 Mt.» [Jahr, Umsatz, Wachstum, Marge, EPS, FCF, ROIC, KGV]. `QREV`: 8 Quartale.

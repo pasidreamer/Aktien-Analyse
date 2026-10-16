@@ -1,0 +1,400 @@
+<title>Mastercard Aktien-Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F3F5F7; --surface:#FFFFFF; --ink:#141B24; --muted:#5A6573; --line:#DDE2E8; --grid:#E9EDF1;
+  --accent:#2F45B5; --accent-soft:#E6E9F8; --chip:#EBEEF2;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+  --good:#1D7A4B; --good-bg:#E3F3EA; --warn:#9A6200; --warn-bg:#FBF0DC; --bad:#B2362A; --bad-bg:#FBE6E3;
+  --zone-sup:rgba(29,122,75,.10); --zone-res:rgba(178,54,42,.09);
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+    --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+    --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+    --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+  --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+  --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;padding-inline:16px;padding-block:24px 56px}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+h1,h2,h3{font-family:var(--display);font-stretch:85%;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:clamp(32px,7vw,48px);font-weight:800;line-height:1}
+h2{font-size:24px;font-weight:700}
+h3{font-size:17px;font-weight:700;font-stretch:95%}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+section{display:flex;flex-direction:column;gap:14px}
+.lead{max-width:68ch;color:var(--muted)}
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;align-items:stretch}
+.hero .id{display:flex;flex-direction:column;gap:10px;justify-content:space-between}
+.price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price b{font-family:var(--display);font-size:34px;font-weight:700}
+.meta{font-size:13px;color:var(--muted)}
+.verdict{font-size:15px;padding:12px 14px;border-radius:10px;background:var(--chip)}
+.scales{display:flex;flex-direction:column;gap:18px}
+.scale-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.scale-h span{font-size:13px;color:var(--muted)}
+.scale-h b{font-family:var(--display);font-size:28px;line-height:1}
+.track{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#C8412F 0%,#E0892F 30%,#E3B63A 50%,#8BBF4B 68%,#2E9A5B 100%);margin-top:8px}
+.pin{position:absolute;top:-5px;width:4px;height:22px;border-radius:2px;background:var(--ink);box-shadow:0 0 0 2px var(--surface);transform:translateX(-2px)}
+.ticks{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);font-family:var(--mono);margin-top:6px}
+.state{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;margin-top:8px}
+.st-good{background:var(--good-bg);color:var(--good)}
+.st-warn{background:var(--warn-bg);color:var(--warn)}
+.st-bad{background:var(--bad-bg);color:var(--bad)}
+/* tables */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;color:var(--muted);font-weight:500;font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:700;border-bottom:none}
+.pts{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{height:6px;border-radius:3px;background:var(--chip);min-width:60px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:3px}
+/* grids */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;border-left:4px solid var(--line)}
+.kpi.g{border-left-color:var(--good)}.kpi.w{border-left-color:var(--warn)}.kpi.b{border-left-color:var(--bad)}
+.kpi span{font-size:12px;color:var(--muted)}
+.kpi b{font-family:var(--mono);font-size:19px;font-weight:500;font-variant-numeric:tabular-nums}
+.kpi em{font-style:normal;font-size:12.5px;color:var(--muted)}
+/* charts */
+.chart{position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:14px;height:3px;border-radius:2px;display:inline-block}
+.swb{width:12px;height:10px;border-radius:2px;display:inline-block}
+.tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12.5px;box-shadow:0 4px 14px rgba(0,0,0,.12);white-space:nowrap;z-index:2}
+.tip b{font-family:var(--mono);font-weight:500}
+.tip .d{font-family:var(--mono);color:var(--muted);font-size:11.5px}
+.note{font-size:13.5px;color:var(--muted)}
+ul.clean{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.pro li::marker{color:var(--good)} .con li::marker{color:var(--bad)}
+.zones{display:flex;flex-direction:column;gap:8px}
+.zone{display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:baseline;padding:10px 12px;border-radius:10px;background:var(--chip);font-size:14px}
+.zone b{font-family:var(--mono);font-weight:500}
+.zone.r{border-left:4px solid var(--bad)} .zone.s{border-left:4px solid var(--good)} .zone.t{border-left:4px solid var(--accent)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+summary{cursor:pointer;font-weight:600}
+details p{margin-top:8px;color:var(--muted);max-width:70ch}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+footer{font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:6px;max-width:80ch}
+footer a{color:var(--accent)}
+@media (max-width:760px){.hero,.two{grid-template-columns:1fr}.zone{grid-template-columns:1fr;gap:2px}}
+</style>
+
+<div class="wrap">
+
+<header class="hero">
+  <div class="card id">
+    <div>
+      <div class="eyebrow">Aktien-Check · 15.10.2026</div>
+      <h1>Mastercard</h1>
+      <p class="meta">Mastercard Inc. · NYSE: MA · Zahlungsnetzwerk für Karten und digitale Zahlungen · Purchase, New York, USA</p>
+    </div>
+    <div class="price"><b>616.32 $</b><span class="meta">Schluss 15.10.2026 · 52 Wochen: 464.52 – 619.80 $ · Allzeithoch 619.80 $ am 15.10.2026</span></div>
+    <p class="verdict"><b>Kurz gesagt:</b> Mastercard verdient an fast jeder Kartenzahlung ein kleines Stück und behält davon über die Hälfte als freies Geld: 16.7 Mrd. $ Free Cashflow, 48 % vom Umsatz. Qualität grün (85), Timing hellgrün (64). Die Aktie ist am 15.10.2026 auf ein neues Allzeithoch gestiegen (619.80 $), 33 % über dem Tief vom Juni. Sie ist damit weit weg von jeder Kaufzone und kurzfristig überkauft (RSI 75). Ein Rücksetzer auf 590 bis 602 $ wäre der bessere Einstieg.</p>
+  </div>
+  <div class="card scales">
+    <div>
+      <div class="scale-h"><span>Qualität · Ist die Firma kaufenswert?</span><b id="q-val">85</b></div>
+      <div class="track"><i class="pin" id="q-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-good">● Stark: Fundament intakt</span>
+    </div>
+    <div>
+      <div class="scale-h"><span>Timing · Ist jetzt der Zeitpunkt?</span><b id="t-val">64</b></div>
+      <div class="track"><i class="pin" id="t-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-good">● Einstieg in Zonen möglich</span>
+    </div>
+    <p class="note">Skala: unter 30 rot · 30–45 orange · 45–60 gelb · 60–75 hellgrün · ab 75 grün. Beide Werte setzen sich aus festen Kriterien zusammen, siehe unten.</p>
+  </div>
+</header>
+
+<section>
+  <h2>Was die Firma macht</h2>
+  <p class="lead">Mastercard betreibt eines der zwei grossen Kartennetzwerke der Welt (das andere ist Visa). Mastercard gibt selbst keine Karten aus und leiht kein Geld aus. Die Banken geben die Karten aus, Mastercard leitet die Zahlung weiter und kassiert pro Zahlung eine kleine Gebühr. 2025 liefen 10.6 Billionen $ über das Netz. Dazu kommen Zusatzdienste wie Betrugsschutz, Datenanalyse und Cybersicherheit (rund 40 % des Umsatzes, stark wachsend). Besonders lukrativ sind Zahlungen über Landesgrenzen, zum Beispiel wenn du im Ausland mit Karte zahlst.</p>
+  <p class="lead">2026 fiel die Aktie zuerst: Am 12./13. Januar unterstützte Präsident Trump ein Gesetz (Credit Card Competition Act), das Banken zwingen würde, Zahlungen auch über ein zweites Netz zu leiten. Mastercard fiel an einem Tag um rund 4 bis 5 %. Im März kaufte Mastercard die Stablecoin-Firma BVNK für bis zu 1.8 Mrd. $, und der Krieg im Nahen Osten bremste die Auslandzahlungen. Anfang Juni stand die Aktie bei 464.52 $. Die Zahlen blieben aber stark: Im 2. Quartal stieg der Gewinn pro Aktie um 22 %, und Mastercard war besser als erwartet. Seit Juli steigt die Aktie, am 13. August wurde bekannt, dass Bill Ackmans Fonds Pershing Square für rund 1.1 Mrd. $ eingestiegen ist. Vom 2. bis 15. Oktober stieg sie um 11.6 % bis auf ein neues Allzeithoch.</p>
+</section>
+
+<section>
+  <h2>Fundamental: die Zahlen</h2>
+  <div class="kpis">
+<div class="kpi g"><span>Umsatzwachstum</span><b>+16.0 %</b><em>Letzte 12 Monate. Ohne Währungseffekte rund 12 %. Seit 2021 im Schnitt +15 % pro Jahr.</em></div>
+<div class="kpi g"><span>Operative Marge</span><b>59.9 %</b><em>Von 100 $ Umsatz bleiben rund 60 $ Betriebsgewinn (bereinigt, offiziell rund 58 %). Eine der höchsten Margen überhaupt, seit 2021 gestiegen.</em></div>
+<div class="kpi g"><span>Gewinn pro Aktie (EPS)</span><b>18.18 $</b><em>Letzte 12 Monate. 2021 waren es 8.76 $, also rund +17 % pro Jahr. Im 2. Quartal 2026 +22 %.</em></div>
+<div class="kpi g"><span>ROIC</span><b>94 %</b><em>Auf 100 $ investiertes Kapital rund 94 $ Gewinn. Extrem hoch, weil ein Zahlungsnetz kaum Kapital braucht.</em></div>
+<div class="kpi g"><span>Free Cashflow</span><b>16.7 Mrd. $</b><em>Letzte 12 Monate, 48 % vom Umsatz. Achtung: 2.7 % weniger als 2025, im 1. Halbjahr 2026 sogar −6.7 %. Den Grund nennt die Firma nicht klar.</em></div>
+<div class="kpi w"><span>Nettoschulden</span><b>12.9 Mrd. $</b><em>In 0.8 Jahren mit dem Free Cashflow bezahlt: gut. Aber die Schulden stiegen seit Dezember um 4.8 Mrd. $, weil Rückkäufe und Dividende grösser waren als der FCF.</em></div>
+<div class="kpi w"><span>KGV</span><b>33.9</b><em>Du zahlst rund 34 Jahresgewinne. Eigener Schnitt 2021–2025: rund 36.4. Also etwa 7 % günstiger als üblich, absolut aber teuer.</em></div>
+<div class="kpi w"><span>Dividende</span><b>0.6 %</b><em>0.87 $ pro Quartal, 4× pro Jahr. Nächste Zahlung am 9.11.2026. Seit 14 Jahren jedes Jahr erhöht, zuletzt um 14 %. Tiefe Rendite, weil das meiste Geld in Rückkäufe geht.</em></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>Umsatz pro Quartal (Mio. $)</h3>
+      <p class="note">Alle 8 Quartale über dem Vorjahr. Das Wachstum sank zuletzt leicht von 17.6 % auf 14.1 % (ohne Währungseffekte 12 %).</p>
+      <div class="chart" id="c-rev"></div>
+    </div>
+    <div class="card">
+      <h3>Operative Marge pro Jahr</h3>
+      <p class="note">Bereinigte operative Marge (ohne Rechtsfälle und Umbau). Seit 2021 von 54 % auf 60 % gestiegen.</p>
+      <div class="chart" id="c-margin"></div>
+    </div>
+  </div>
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Jahr</th><th class="num">Umsatz Mio. $</th><th class="num">Wachstum</th><th class="num">Op. Marge</th><th class="num">EPS $</th><th class="num">Free Cashflow</th><th class="num">ROIC</th><th class="num">KGV</th></tr></thead>
+      <tbody id="fin-rows"></tbody>
+    </table>
+  </div>
+  <p class="note"><b>Hinweis:</b> Marge bereinigt nach StockAnalysis, offiziell (GAAP) 1 bis 2 Punkte tiefer. Das KGV-Mittel ist über 2021–2025 gerechnet (40.6, 33.7, 35.7, 37.5, 34.3).</p>
+</section>
+
+<section>
+  <h2>Qualität: 85 von 100</h2>
+  <div class="card tbl"><table id="q-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Technik: Wochenchart (2 Jahre)</h2>
+  <div class="card">
+    <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span><span><i class="swb" style="background:var(--zone-sup);border:1px solid var(--good)"></i>Unterstützung</span><span><i class="swb" style="background:var(--zone-res);border:1px solid var(--bad)"></i>Widerstand</span></div>
+    <div class="chart" id="c-week"></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>A/D-Linie, Woche</h3>
+      <p class="note">Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Achtung: Ende August stand die Wochen-A/D bei 1'072.5 (Kurs 595 $). Heute liegt der Kurs mit 616 $ höher, die A/D mit 1'065.5 leicht tiefer. Der Anstieg wird nicht ganz von mehr Käufen bestätigt.</p>
+      <div class="chart" id="c-adw"></div>
+    </div>
+    <div class="card">
+      <h3>RSI, Woche</h3>
+      <p class="note">Unter 30 überverkauft, über 70 überkauft. Im März und Juni um 34 bis 40, heute 67: stark, knapp unter überkauft.</p>
+      <div class="chart" id="c-rsiw"></div>
+    </div>
+  </div>
+
+  <h2>Technik: Tageschart (1 Jahr)</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Kurs, Tag</h3>
+      <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span></div>
+      <div class="chart" id="c-day"></div>
+    </div>
+    <div class="card">
+      <h3>A/D-Linie, Tag</h3>
+      <p class="note">Am 28.8. stand der Kurs bei 595 $ und die Tages-A/D bei 36.2. Heute steht der Kurs 21 $ höher, die A/D aber tiefer bei 35.3. Seit dem 2.10. steigt die A/D wieder (26.3 → 35.3), aber noch nicht über das Hoch vom August.</p>
+      <div class="chart" id="c-add"></div>
+    </div>
+  </div>
+
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Indikator</th><th>Tag</th><th>Woche</th><th>Bedeutung</th></tr></thead>
+      <tbody>
+<tr><td>Kurs vs. EMA 50</td><td class="pts">616.3 &gt; 570.0</td><td class="pts">616.3 &gt; 544.8</td><td>Klar darüber, auf beiden Zeitebenen.</td></tr>
+<tr><td>Kurs vs. EMA 200</td><td class="pts">616.3 &gt; 546.0</td><td class="pts">616.3 &gt; 487.4</td><td>Klar darüber.</td></tr>
+<tr><td>EMA 50 vs. EMA 200</td><td class="pts">50 über 200 (seit 3.8.2026)</td><td class="pts">50 über 200 (seit 2016)</td><td>Aufwärtstrend auf beiden Zeitebenen.</td></tr>
+<tr><td>RSI (14)</td><td class="pts">74.7</td><td class="pts">67.2</td><td>Tag überkauft, Woche stark.</td></tr>
+<tr><td>A/D</td><td class="pts">steigt seit 2.10., noch unter dem August-Hoch</td><td class="pts">leicht unter dem August-Hoch</td><td>Neues Kurshoch ohne neues A/D-Hoch: leichte Warnung.</td></tr>
+<tr><td>Volumen</td><td colspan="2">Ø 20 Tage 3.1 Mio. vs. Ø 100 Tage 3.3 Mio. Aktien</td><td>Der Anstieg läuft mit eher wenig Handel.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Struktur und Zonen (Smart Money Concept)</h2>
+  <p class="lead">Nach dem Tief vom 3. Juni (464.52 $) macht Mastercard höhere Hochs und höhere Tiefs: Tiefs 464.52 → 515.11 → 523.61 → 556.06 → 545.41 $ (2.10.), Hochs 504.64 → 543.65 → 551.72 → 583.71 → 601.23 $. Am 15.10. brach der Kurs über die alten Hochs von August 2025 und August 2026 (rund 601 bis 602 $) und schloss bei 616.32 $ (Break of Structure, neues Allzeithoch). Die Aktie steht damit im teuren Bereich (Premium) der Bewegung. Der übliche Ablauf nach einem Ausbruch: ein Rücksetzer auf die alte Hochzone 590 bis 602 $, die dann von oben hält.</p>
+  <div class="zones">
+<div class="zone t"><b>620 $</b><span><b>Trigger:</b> Tagesschluss über dem Allzeithoch (619.80 $) bestätigt den Ausbruch. Besser: Rücksetzer in Kaufzone 1, der hält.</span></div>
+<div class="zone s"><b>590–602 $</b><span><b>Kaufzone 1:</b> Alte Hochs von August 2025 und August 2026, jetzt Unterstützung (Rücktest nach dem Ausbruch).</span></div>
+<div class="zone s"><b>545–570 $</b><span><b>Kaufzone 2:</b> Tief vom 2.10. (545.41 $), Tages-EMA 200 (546 $) und Tages-EMA 50 (570 $).</span></div>
+<div class="zone r"><b>545 $</b><span>Abbruch: Wochenschluss unter dem Tief vom 2.10. Dann wäre die Reihe höherer Tiefs gebrochen.</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Smart Money, Insider und Saisonalität</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Wer kauft, wer verkauft?</h3>
+      <ul class="clean" style="margin-top:8px">
+<li><b>Mastercard selbst:</b> Kauft laufend Aktien zurück, in den letzten 12 Monaten für 16 Mrd. $ (rund 3 % des Börsenwerts). Am meisten im Frühling, als der Kurs um 500 $ stand. Restprogramm Ende Juli: 7.8 Mrd. $, ein neues Programm kommt wohl im Dezember.</li>
+<li><b>Insider:</b> In 12 Monaten keine Käufe, nur Verkäufe (rund 67 Mio. $), meist nach Optionsausübungen und nach festen Plänen. CEO Michael Miebach verkaufte im Juli und August für rund 28 Mio. $.</li>
+<li><b>Grosse Investoren:</b> Pershing Square (Bill Ackman) ist im 2. Quartal 2026 neu mit rund 1.1 Mrd. $ eingestiegen (2.12 Mio. Aktien).</li>
+<li><b>Analysten:</b> Fast alle positiv. MarketBeat: 32 von 34 Kaufen, Kursziel im Schnitt 683 $ (+11 %), höchstes 756 $. Zuletzt erhöht: Baird auf 710 $ (9.10.).</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Saisonalität seit 2006</h3>
+      <p class="note">Durchschnittliche Monatsrendite in %. 20 Jahre Daten (seit 2006). November (+5.6 %, 70 % positive Jahre), April (+4.8 %, 80 %) und Juli (+3.6 %, 86 %) sind stark, September der schwächste Monat.</p>
+      <div class="chart" id="c-seas"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Timing: 64 von 100</h2>
+  <div class="card tbl"><table id="t-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Worauf du achten solltest: Unterbewertung und Wachstumsschub</h2>
+  <div class="card"><h3>Was die Börse befürchtet</h3><p class="note" style="margin:4px 0">Vor allem Stimmung: Die Zahlen sind stark (Gewinn pro Aktie +22 %), die Sorgen sind vor allem Politik und Zukunftsangst. Die Aktie steht schon wieder auf dem Allzeithoch.</p><ul class="clean"><li>US-Politik: Präsident Trump unterstützt seit Januar 2026 den Credit Card Competition Act. Grosse Banken müssten Zahlungen dann auch über ein zweites Netz anbieten. Mastercard fiel am Tag der Ankündigung um rund 4 bis 5 %.</li><li>Stablecoins: Händler wie Walmart und Amazon prüfen eigene Digital-Dollar, um Kartengebühren zu sparen. Mastercard antwortet mit dem Kauf von BVNK (bis 1.8 Mrd. $, abgeschlossen am 03.08.2026).</li><li>Die besonders lukrativen Auslandzahlungen wachsen langsamer: +15 % 2025, +13 % im 1. Quartal, +12 % im 2. Quartal 2026, auch wegen des Kriegs im Nahen Osten.</li><li>Der Free Cashflow sank im 1. Halbjahr 2026 um 6.7 %, und Mastercard nahm neue Schulden auf, um Rückkäufe zu bezahlen.</li></ul><h3 style="margin-top:12px">Was die Sorgen beenden könnte</h3><ul class="clean"><li>Zahlen zum 3. Quartal: Steigt der Free Cashflow wieder und halten die Auslandzahlungen? <span class="muted">(Zahlen 29.10.2026)</span></li><li>Kommt der Credit Card Competition Act bis Ende der Legislatur nicht zur Abstimmung, muss er neu eingereicht werden <span class="muted">(bis Januar 2027)</span></li><li>Endgültige Genehmigung des US-Vergleichs mit den Händlern macht die Gebühren für 8 Jahre planbar <span class="muted">(Datum offen)</span></li><li>Dividendenerhöhung und neues Rückkaufprogramm <span class="muted">(Dezember 2026)</span></li></ul><h3 style="margin-top:12px">Wachstumsschub: Wachstumsschub möglich</h3><ul class="clean"><li><b>Zusatzdienste (Betrugsschutz, Daten, Cybersicherheit):</b> Umsatz 2025 13.3 Mrd. $ (+23 %), schon 40 % des Gesamtumsatzes, im 2. Quartal 2026 +18 % ohne Währungseffekte. Je grösser dieser Teil, desto weniger hängt Mastercard an den Kartengebühren. <span class="muted">(laufend)</span></li><li><b>Bargeld wird digital:</b> Weltweit werden immer noch viele Zahlungen bar gemacht. Jede, die auf Karte oder Handy wechselt, bringt Mastercard Geld. Das Zahlungsvolumen wuchs 2025 um 9 %. <span class="muted">(laufend)</span></li><li><b>KI-Einkäufe (Agent Pay):</b> Mastercard baut die Bezahlung für KI-Assistenten, die für Kunden einkaufen. Seit 2026 weltweit verfügbar, Umsätze nennt Mastercard noch keine. Eine Chance, aber noch unbewiesen. <span class="muted">(2027–2029)</span></li></ul><p style="margin:10px 0 0"><b>Woran du es erkennst:</b> Achte bei den Zahlen auf das Wachstum der Zusatzdienste (zuletzt +18 % ohne Währungseffekte) und der Auslandzahlungen (zuletzt +12 %). Steigen beide wieder, kommt Schub.</p><p style="margin:10px 0 0"><b>Das Chancen-Szenario:</b> Kein klassischer Sorgen-Fall: Mastercard ist eine Qualitätsfirma im Aufwärtstrend, die Sorgen im Frühling sind schon ausgepreist. Der Kurs kann mit dem Gewinn um 12 bis 15 % pro Jahr steigen. Grösstes Risiko: Das Gesetz für ein zweites Netz wird beschlossen, dann sinken Gebühren und Gewinn in den USA.</p><p class="note" style="margin:10px 0 0">Quellen: <a href="https://www.sec.gov/Archives/edgar/data/0001141391/000114139126000081/ma06302026-exx991xearnings.htm" target="_blank" rel="noopener">Mastercard: Ergebnisse Q2 2026 (SEC)</a>, <a href="https://finance.yahoo.com/news/trump-says-credit-card-swipe-130002654.html" target="_blank" rel="noopener">Yahoo Finance: Trump und Kartengebühren (Januar 2026)</a>, <a href="https://www.paymentsdive.com/news/ccca-seeks-new-path-to-passage/813789/" target="_blank" rel="noopener">Payments Dive: CCCA sucht neuen Weg</a>, <a href="https://www.tikr.com/blog/why-mastercard-repurchased-5-7-billion-in-shares-while-the-stock-sat-near-52-week-lows" target="_blank" rel="noopener">TIKR: Rückkäufe nahe am Jahrestief</a></p></div>
+</section>
+
+<section>
+  <h2>Dividende</h2>
+  <div class="card tbl"><table><tr><td style="white-space:nowrap;color:var(--muted)">Wie oft</td><td>4× pro Jahr (quartalsweise)</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Ex-Tag im</td><td>Januar, April, Juli, Oktober</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Geld auf dem Konto im</td><td>Februar, Mai, August, November</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Zahltage</td><td>jeweils um den 7. bis 9. im Februar, Mai, August und November (nächste: 9.11.2026)</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Letzte Zahlung</td><td>0.87 $ pro Aktie</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Rendite</td><td>0.6 %</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">System</td><td>US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Ex-Tag ist jeweils um den 9. Januar, April, Juli und Oktober. Die Erhöhung wird im Dezember angekündigt (zuletzt +14 % auf 0.87 $) und gilt ab der Februar-Zahlung.</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Form</td><td>Bar in US-Dollar aufs Konto. Die USA ziehen Quellensteuer ab, mit dem Formular W-8BEN bei Saxo in der Regel 15 %.</td></tr></table><p class="note" style="margin:10px 0 0"><b>Ex-Tag:</b> Du bekommst die Dividende nur, wenn du die Aktie am Abend vor dem Ex-Tag besitzt. <b>Zahltag:</b> An diesem Tag kommt das Geld aufs Konto (in der Währung der Aktie, abzüglich Quellensteuer). Die nächsten genauen Termine zeigt die App unter «Termine».</p></div>
+</section>
+
+<section>
+  <h2>Pro und Contra</h2>
+  <div class="two">
+    <div class="card pro"><h3>Spricht dafür</h3><ul class="clean" style="margin-top:8px">
+<li>Eines von zwei grossen Kartennetzen der Welt: Jede Kartenzahlung bringt Geld, fast ohne Kapital.</li>
+<li>Riesige Marge (rund 60 %) und Kapitalrendite (94 %), Gewinn pro Aktie +17 % pro Jahr.</li>
+<li>Free Cashflow geht fast ganz an die Aktionäre: Aktienzahl sinkt rund 2 % pro Jahr, Dividende steigt seit 14 Jahren.</li>
+<li>Zusatzdienste (Betrugsschutz, Daten) wachsen mit rund 20 % und machen schon 40 % des Umsatzes aus.</li>
+<li>Starker Aufwärtstrend, Ackman neu eingestiegen.</li>
+    </ul></div>
+    <div class="card con"><h3>Spricht dagegen</h3><ul class="clean" style="margin-top:8px">
+<li>Politisches Risiko in den USA: Gesetz für ein zweites Netz (CCCA) mit Trumps Unterstützung, Druck auf Gebühren.</li>
+<li>Stablecoins und neue Zahlungswege könnten Karten langfristig umgehen.</li>
+<li>Free Cashflow sank zuletzt (−2.7 %), Rückkäufe teils mit neuen Schulden bezahlt.</li>
+<li>Auslandzahlungen wachsen langsamer (15 → 12 %), Krieg und Reisen bremsen.</li>
+<li>Kurz nach einem Allzeithoch überkauft (RSI 75), A/D bestätigt den Anstieg nicht ganz.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section>
+  <h2>Was jetzt zu tun ist</h2>
+  <div class="zones">
+<div class="zone t"><b>Beobachten</b><span>Alarm bei 602 $ (oberes Ende Kaufzone 1) und 620 $ (Trigger).</span></div>
+<div class="zone s"><b>Timing grün</b><span>Rücksetzer in 590–602 $, der hält, und danach steigende Tages-A/D. Oder Tagesschluss über 620 $ mit neuem A/D-Hoch. Fundamental: Am 29.10. sollte der Free Cashflow wieder steigen.</span></div>
+<div class="zone r"><b>Abbruch</b><span>Wochenschluss unter 545 $.</span></div>
+<div class="zone "><b>Nächste Zahlen</b><span>29. Oktober 2026 vor Börsenbeginn (3. Quartal, bestätigt). Im Dezember meist Dividendenerhöhung und neues Rückkaufprogramm.</span></div>
+  </div>
+</section>
+
+<footer>
+  <span>Kursdaten und Indikatoren (EMA, RSI 14, A/D) selbst berechnet aus Yahoo-Finance-Tages-, Wochen- und Monatsdaten, Stand 15.10.2026. <a href="https://stockanalysis.com/stocks/ma/financials/" target="_blank" rel="noopener">StockAnalysis.com</a> (Stand 15.10.2026), <a href="https://www.sec.gov/Archives/edgar/data/0001141391/000114139126000081/ma06302026-exx991xearnings.htm" target="_blank" rel="noopener">Mastercard Q2 2026</a>, <a href="https://stockanalysis.com/stocks/ma/dividend/" target="_blank" rel="noopener">Dividenden (StockAnalysis)</a>, <a href="https://finance.yahoo.com/news/trump-says-credit-card-swipe-130002654.html" target="_blank" rel="noopener">Yahoo: Trump und CCCA</a>, <a href="https://www.tikr.com/blog/why-mastercard-repurchased-5-7-billion-in-shares-while-the-stock-sat-near-52-week-lows" target="_blank" rel="noopener">TIKR: Rückkäufe am Tief</a>, <a href="https://cryptobriefing.com/pershing-square-invests-visa-mastercard-sp-global/" target="_blank" rel="noopener">Pershing Square</a>, <a href="https://www.marketbeat.com/stocks/NYSE/MA/insider-trades/" target="_blank" rel="noopener">Insider (MarketBeat)</a>.</span>
+  <span>Persönliche Analyse, keine Anlageberatung. Vergangene Kurse und Saisonalität sagen nichts Sicheres über die Zukunft.</span>
+</footer>
+</div>
+
+<script>
+const Q=[["Umsatztrend", "4 von 4 Quartalen über Vorjahr, Wachstum leicht sinkend (17.6 → 14.1 %)", 12, 15], ["Wachstumstempo", "Rund 12 % ohne Währungseffekte", 8, 10], ["Operative Marge", "Rund 60 % (9 Pkt.), seit 2021 steigend (6 Pkt.)", 15, 15], ["Gewinnwachstum (EPS)", "Rund +17 % pro Jahr seit 2021, Q2 2026 +22 %", 10, 10], ["Free Cashflow", "2021–2025 jedes Jahr gestiegen, letzte 12 Monate aber −2.7 %", 9, 10], ["ROIC", "94 %, steigend", 15, 15], ["Schulden", "Nettoschulden/EBITDA 0.58", 9, 10], ["Bewertung vs. eigene Historie", "KGV 33.9 statt Ø 36.4 (2021–2025), rund 7 % günstiger", 7, 15]];
+const T=[["Trend Woche (EMA 50/200)", "Kurs über beiden, EMA 50 über 200, beide steigen", 20, 20], ["Trend Tag (EMA 50/200)", "Kurs über beiden, EMA 50 über 200 seit 3.8.", 10, 10], ["Struktur (SMC)", "Höhere Hochs und Tiefs, Ausbruch auf Allzeithoch, aber im Premium", 14, 20], ["RSI Tag/Woche", "Tag 75 (überkauft), Woche 67", 4, 15], ["A/D Tag/Woche", "Neues Kurshoch ohne neues A/D-Hoch auf beiden Ebenen", 6, 20], ["Smart Money", "Start 3, Rückkauf 3 % pro Jahr +3, Pershing Square +2, viele Insider-Verkäufe −3", 5, 10], ["Saisonalität", "Oktober 68 %, November 70 %, Dezember 55 % positive Jahre", 5, 5]];
+const FIN=[["2021", 18884, "+23.4 %", "54.4 %", 8.76, 9056, "73.2 %", "40.6"], ["2022", 22237, "+17.8 %", "57.1 %", 10.22, 10753, "76.8 %", "33.7"], ["2023", 25098, "+12.9 %", "58.0 %", 11.83, 11609, "85.2 %", "35.7"], ["2024", 28167, "+12.2 %", "58.4 %", 13.89, 14306, "89.6 %", "37.5"], ["2025", 32791, "+16.4 %", "59.2 %", 16.52, 17159, "93.6 %", "34.3"], ["Letzte 12 Mt.", 35083, "+16.0 %", "59.9 %", 18.18, 16702, "93.8 %", "33.9"]];
+const HALF=[["Q3 24", 7369], ["Q4 24", 7489], ["Q1 25", 7250], ["Q2 25", 8133], ["Q3 25", 8602], ["Q4 25", 8806], ["Q1 26", 8398], ["Q2 26", 9277]];
+const MARGIN=[["2021", 54.4], ["2022", 57.1], ["2023", 58.0], ["2024", 58.4], ["2025", 59.2], ["12 Mt.", 59.9]];
+const SEAS=[1.3, 1.8, 1.5, 4.8, 1.9, -0.0, 3.6, 1.9, 0.5, 3.5, 5.6, 1.6];
+const SEASHIT=[55.0, 55.0, 60.0, 80.0, 50.0, 52.0, 86.0, 62.0, 48.0, 68.0, 70.0, 55.0];
+const MON=["Jan","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"];
+const W=`2024-10-21,507.36,456.06,384.98,66,1012.2;2024-10-28,508.08,458.1,386.21,66,1006.4;2024-11-04,524.76,460.71,387.59,71,1015;2024-11-11,521.89,463.11,388.92,69,1010.3;2024-11-18,520.86,465.38,390.23,68,1018.3;2024-11-25,532.94,468.03,391.65,72,1024.9;2024-12-02,528.57,470.4,393.02,69,1027.9;2024-12-09,529,472.7,394.37,69,1028.5;2024-12-16,528.03,474.87,395.7,68,1027.9;2024-12-23,532.2,477.12,397.06,70,1029.9;2024-12-30,521.36,478.85,398.29,62,1026.3;2025-01-06,504.67,479.87,399.35,52,1017.4;2025-01-13,524.7,481.62,400.6,60,1028.2;2025-01-20,533.49,483.66,401.92,63,1033;2025-01-27,555.43,486.47,403.45,69,1033.9;2025-02-03,562.75,489.46,405.04,71,1035.3;2025-02-10,564.76,492.42,406.62,72,1036.3;2025-02-17,557.51,494.97,408.13,67,1028.5;2025-02-24,576.31,498.16,409.8,72,1041.4;2025-03-03,546.77,500.07,411.16,58,1033;2025-03-10,527.64,501.15,412.32,51,1027.3;2025-03-17,535.69,502.5,413.55,53,1035.4;2025-03-24,540.61,504,414.81,55,1024.9;2025-03-31,489.77,503.44,415.56,40,1005.8;2025-04-07,509.75,503.69,416.5,46,1020.6;2025-04-14,517.33,504.22,417.5,48,1022.1;2025-04-21,533.48,505.37,418.65,53,1028.4;2025-04-28,559.39,507.49,420.05,59,1039;2025-05-05,568.64,509.88,421.53,61,1043.4;2025-05-12,583.28,512.76,423.14,64,1054;2025-05-19,563.58,514.76,424.54,57,1044.6;2025-05-26,585.6,517.53,426.14,62,1054.9;2025-06-02,590.12,520.38,427.77,63,1062.7;2025-06-09,562.03,522.01,429.11,55,1054.9;2025-06-16,532.97,522.44,430.14,48,1039.2;2025-06-23,550.32,523.54,431.34,52,1043.8;2025-06-30,569.24,525.33,432.71,56,1056.1;2025-07-07,550.18,526.3,433.88,51,1047.1;2025-07-14,552.66,527.34,435.06,52,1045.3;2025-07-21,568.22,528.94,436.39,55,1053.2;2025-07-28,559.89,530.15,437.62,53,1043.6;2025-08-04,574.32,531.89,438.98,56,1055.3;2025-08-11,581.7,533.84,440.4,58,1057.9;2025-08-18,598.96,536.39,441.97,61,1066.6;2025-08-25,595.29,538.7,443.5,60,1071.7;2025-09-01,584.22,540.49,444.9,57,1067.8;2025-09-08,580.41,542.05,446.25,55,1067;2025-09-15,584.16,543.7,447.62,56,1059.8;2025-09-22,565.13,544.54,448.79,50,1047;2025-09-29,580.45,545.95,450.1,55,1056.8;2025-10-06,557.48,546.4,451.17,48,1044.8;2025-10-13,560.97,546.98,452.26,49,1047.7;2025-10-20,573.67,548.02,453.47,53,1052.7;2025-10-27,551.99,548.18,454.45,47,1044.4;2025-11-03,551.97,548.33,455.42,47,1047.9;2025-11-10,545.73,548.23,456.32,45,1039.3;2025-11-17,540.4,547.92,457.15,43,1043.7;2025-11-24,550.53,548.02,458.08,47,1054.9;2025-12-01,545.52,547.92,458.95,45,1049.8;2025-12-08,571.93,548.86,460.08,54,1063.1;2025-12-15,572.23,549.78,461.19,54,1077.7;2025-12-22,579.6,550.95,462.37,56,1081;2025-12-29,563.13,551.43,463.37,50,1075.3;2026-01-05,575.54,552.37,464.49,54,1076.9;2026-01-12,539.49,551.87,465.24,44,1061.2;2026-01-19,524.74,550.8,465.83,40,1052.3;2026-01-26,538.79,550.33,466.55,45,1066.2;2026-02-02,548.74,550.27,467.37,48,1061.7;2026-02-09,518.36,549.02,467.88,41,1046.9;2026-02-16,526.41,548.13,468.46,43,1052.5;2026-02-23,517.21,546.92,468.95,41,1069.6;2026-03-02,522.34,545.96,469.48,43,1079.3;2026-03-09,497.99,544.07,469.76,37,1067.6;2026-03-16,496.32,542.2,470.03,37,1060.2;2026-03-23,484.24,539.93,470.17,34,1049;2026-03-30,493.44,538.11,470.4,38,1047.4;2026-04-06,498.66,536.56,470.68,40,1043;2026-04-13,521.3,535.96,471.18,47,1052.6;2026-04-20,504.17,534.71,471.51,43,1047.1;2026-04-27,495.46,533.17,471.75,41,1027.9;2026-05-04,495.48,531.7,471.99,41,1020.3;2026-05-11,494.2,530.23,472.21,41,1014.9;2026-05-18,498.54,528.98,472.47,42,1010.9;2026-05-25,493.98,527.61,472.68,41,1012.5;2026-06-01,491.08,526.18,472.87,40,1027.1;2026-06-08,489.98,524.76,473.04,40,1026.2;2026-06-15,489.79,523.39,473.2,40,1014.8;2026-06-22,499.02,522.43,473.46,44,1026.2;2026-06-29,539.39,523.1,474.12,59,1043.8;2026-07-06,526.74,523.24,474.64,54,1041.1;2026-07-13,543.6,524.04,475.33,59,1045.5;2026-07-20,539.66,524.65,475.97,58,1049.5;2026-07-27,573.1,526.55,476.93,66,1059.5;2026-08-03,562.95,527.98,477.79,62,1046.2;2026-08-10,569.29,529.6,478.7,63,1056.4;2026-08-17,580.63,531.6,479.71,66,1068.1;2026-08-24,595.3,534.1,480.86,69,1072.5;2026-08-31,579.21,535.87,481.84,62,1060.6;2026-09-07,569.19,537.17,482.71,59,1060.2;2026-09-14,565.24,538.27,483.53,57,1051.4;2026-09-21,567.65,539.43,484.37,58,1059.6;2026-09-28,552.26,539.93,485.05,52,1052.5;2026-10-05,589.14,541.86,486.08,62,1063.5;2026-10-15,616.32,544.78,487.38,67,1065.5`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+const DD=`2025-10-03,580.45,577.19,558.59,45;2025-10-06,578.81,577.26,558.8,46.6;2025-10-07,579.84,577.36,559,45;2025-10-08,576.44,577.32,559.18,43.3;2025-10-09,564.55,576.82,559.23,41.3;2025-10-10,557.48,576.06,559.21,38.2;2025-10-13,559.24,575.4,559.21,38.3;2025-10-14,567.92,575.11,559.3,40.2;2025-10-15,562.81,574.63,559.34,39.6;2025-10-16,549.88,573.66,559.24,37.4;2025-10-17,560.97,573.16,559.26,39.2;2025-10-20,566.36,572.89,559.33,40.9;2025-10-21,572.03,572.86,559.46,42.2;2025-10-22,571.36,572.8,559.57,41.7;2025-10-23,573.77,572.84,559.72,41.2;2025-10-24,573.67,572.87,559.85,39.7;2025-10-27,572.36,572.85,559.98,40.5;2025-10-28,565.93,572.58,560.04,37.9;2025-10-29,554.58,571.87,559.98,35.7;2025-10-30,553.68,571.16,559.92,35.4;2025-10-31,551.99,570.41,559.84,37.4;2025-11-03,544.07,569.37,559.69,36.5;2025-11-04,552.75,568.72,559.62,38.5;2025-11-05,553.31,568.12,559.55,38.8;2025-11-06,553.28,567.54,559.49,40.2;2025-11-07,551.97,566.93,559.42,38.5;2025-11-10,552.96,566.38,559.35,39.3;2025-11-11,558.35,566.06,559.34,41.1;2025-11-12,561.23,565.87,559.36,40.6;2025-11-13,555.57,565.47,559.32,38.9;2025-11-14,545.73,564.7,559.19,37;2025-11-17,536.85,563.6,558.97,34.7;2025-11-18,527.58,562.19,558.65,33;2025-11-19,530.36,560.94,558.37,35.1;2025-11-20,527.88,559.65,558.07,32.3;2025-11-21,540.4,558.89,557.89,33.7;2025-11-24,537.85,558.07,557.69,31.4;2025-11-25,546.47,557.61,557.58,32.4;2025-11-26,544.93,557.11,557.46,30.9;2025-11-28,550.53,556.86,557.39,31.8;2025-12-01,543.97,556.35,557.25,30;2025-12-02,545.91,555.94,557.14,29.1;2025-12-03,553.73,555.85,557.11,30.9;2025-12-04,542.31,555.32,556.96,28.9;2025-12-05,545.52,554.94,556.85,28.7;2025-12-08,540.44,554.37,556.68,27.8;2025-12-09,537.55,553.71,556.49,26.9;2025-12-10,538.86,553.13,556.32,25;2025-12-11,563.37,553.53,556.39,28.1;2025-12-12,571.93,554.25,556.54,30;2025-12-15,569.13,554.84,556.67,29;2025-12-16,566.02,555.27,556.76,28.5;2025-12-17,565.47,555.67,556.85,26.8;2025-12-18,566.21,556.09,556.94,26.9;2025-12-19,572.23,556.72,557.09,32.8;2025-12-22,575.7,557.46,557.28,33.1;2025-12-23,576.35,558.2,557.47,31.6;2025-12-24,579.45,559.04,557.69,31.6;2025-12-26,579.6,559.84,557.9,31.3;2025-12-29,577.9,560.55,558.1,30.3;2025-12-30,577.42,561.21,558.29,31.5;2025-12-31,570.88,561.59,558.42,29.9;2026-01-02,563.13,561.65,558.47,28.5;2026-01-05,568.57,561.92,558.57,28.9;2026-01-06,580.34,562.65,558.78,32.3;2026-01-07,579.92,563.32,558.99,30.9;2026-01-08,580.07,563.98,559.2,30.2;2026-01-09,575.54,564.43,559.37,28.1;2026-01-12,566.28,564.51,559.44,30.7;2026-01-13,544.99,563.74,559.29,29.8;2026-01-14,546.82,563.08,559.17,32.4;2026-01-15,542.65,562.28,559,31.1;2026-01-16,539.49,561.38,558.81,28.6;2026-01-20,531.74,560.22,558.54,27.9;2026-01-21,527.57,558.94,558.23,25.1;2026-01-22,532.86,557.92,557.98,29.9;2026-01-23,524.74,556.62,557.65,28.7;2026-01-26,527.36,555.47,557.35,29.8;2026-01-27,520.41,554.09,556.98,26.6;2026-01-28,521.37,552.81,556.62,27.2;2026-01-29,543.73,552.45,556.5,32.5;2026-01-30,538.79,551.92,556.32,31.8;2026-02-02,555.37,552.05,556.31,35.4;2026-02-03,550.72,552,556.26,31.4;2026-02-04,553.52,552.06,556.23,34.1;2026-02-05,551.89,552.05,556.18,31;2026-02-06,548.74,551.92,556.11,31.2;2026-02-09,535.33,551.27,555.9,27.8;2026-02-10,540.39,550.85,555.75,27.6;2026-02-11,537.46,550.32,555.57,28.1;2026-02-12,527.46,549.43,555.29,24.8;2026-02-13,518.36,548.21,554.92,21.8;2026-02-17,521.93,547.18,554.59,22.7;2026-02-18,527.98,546.42,554.33,24.5;2026-02-19,520.26,545.4,553.99,24;2026-02-20,526.41,544.65,553.71,26.1;2026-02-23,496.03,542.75,553.14,22.1;2026-02-24,498,540.99,552.59,25.7;2026-02-25,509.39,539.75,552.16,28.7;2026-02-26,514.77,538.77,551.79,29;2026-02-27,517.21,537.93,551.45,32.8;2026-03-02,521,537.26,551.14,34.5;2026-03-03,524.32,536.76,550.88,37.2;2026-03-04,522.92,536.21,550.6,36.9;2026-03-05,524.66,535.76,550.34,40.4;2026-03-06,522.34,535.23,550.06,43.1;2026-03-09,517.72,534.55,549.74,44.8;2026-03-10,514.72,533.77,549.39,44.5;2026-03-11,504,532.6,548.94,42.2;2026-03-12,497.31,531.22,548.43,40.1;2026-03-13,497.99,529.91,547.92,39.5;2026-03-16,508.5,529.08,547.53,42.9;2026-03-17,506.58,528.19,547.12,40.1;2026-03-18,488.47,526.64,546.54,36.9;2026-03-19,491.14,525.24,545.99,36.2;2026-03-20,496.32,524.11,545.49,37.9;2026-03-23,500.38,523.18,545.05,34.9;2026-03-24,498.93,522.23,544.59,35.3;2026-03-25,502.76,521.46,544.17,36.3;2026-03-26,500.75,520.65,543.74,34.7;2026-03-27,484.24,519.22,543.15,32.2;2026-03-30,494,518.23,542.66,34.6;2026-03-31,499.66,517.51,542.23,37.5;2026-04-01,491.65,516.49,541.73,36.1;2026-04-02,493.44,515.59,541.25,35.9;2026-04-06,501.5,515.04,540.85,38.2;2026-04-07,498.28,514.38,540.43,37.3;2026-04-08,507.12,514.09,540.1,35.1;2026-04-09,503.57,513.68,539.73,36.1;2026-04-10,498.66,513.09,539.32,35.2;2026-04-13,508.58,512.92,539.02,38.4;2026-04-14,513.16,512.92,538.76,40.5;2026-04-15,519.96,513.2,538.57,41.9;2026-04-16,518.54,513.41,538.37,40.6;2026-04-17,521.3,513.72,538.2,39.1;2026-04-20,516.65,513.83,537.99,37.7;2026-04-21,511.35,513.74,537.72,34.9;2026-04-22,510.16,513.6,537.45,35.1;2026-04-23,502.38,513.16,537.1,34.3;2026-04-24,504.17,512.8,536.77,36;2026-04-27,506.43,512.55,536.47,37;2026-04-28,507.62,512.36,536.18,33.4;2026-04-29,525.23,512.87,536.08,31.3;2026-04-30,502.92,512.48,535.75,28.5;2026-05-01,495.46,511.81,535.34,25.7;2026-05-04,504.74,511.53,535.04,28.5;2026-05-05,497.08,510.96,534.66,27.3;2026-05-06,491.89,510.22,534.24,24.6;2026-05-07,500.94,509.85,533.91,27.2;2026-05-08,495.48,509.29,533.52,26.7;2026-05-11,497.81,508.84,533.17,27.5;2026-05-12,499.81,508.48,532.84,24.2;2026-05-13,490.64,507.79,532.42,21.2;2026-05-14,489.94,507.09,531.99,20.1;2026-05-15,494.2,506.58,531.62,18;2026-05-18,505.79,506.55,531.36,21.8;2026-05-19,499.7,506.28,531.05,19;2026-05-20,498.04,505.96,530.72,21.3;2026-05-21,499.62,505.71,530.41,23;2026-05-22,498.54,505.43,530.09,21.7;2026-05-26,493.01,504.94,529.72,20.5;2026-05-27,495.04,504.55,529.38,19.8;2026-05-28,493.75,504.13,529.02,22.9;2026-05-29,493.98,503.73,528.67,19;2026-06-01,495.25,503.4,528.34,21.6;2026-06-02,477.68,502.39,527.84,16.6;2026-06-03,471.55,501.18,527.28,15.6;2026-06-04,481.76,500.42,526.82,14.7;2026-06-05,491.08,500.05,526.47,16.4;2026-06-08,485.67,499.49,526.06,15.4;2026-06-09,495.24,499.32,525.76,18.6;2026-06-10,489.08,498.92,525.39,16.8;2026-06-11,486.51,498.43,525,15.2;2026-06-12,489.98,498.1,524.65,16.8;2026-06-15,490.64,497.81,524.32,17.4;2026-06-16,501.33,497.95,524.09,21.3;2026-06-17,492.99,497.75,523.78,18.6;2026-06-18,489.79,497.44,523.44,13.6;2026-06-22,484.09,496.92,523.05,10.3;2026-06-23,488.07,496.57,522.7,10.4;2026-06-24,494.41,496.49,522.42,11.6;2026-06-25,488.92,496.19,522.09,8;2026-06-26,499.02,496.3,521.86,11;2026-06-29,509.64,496.82,521.73,11.5;2026-06-30,513.6,497.48,521.65,15.6;2026-07-01,522.44,498.46,521.66,15.9;2026-07-02,539.39,500.06,521.84,19.6;2026-07-06,533.1,501.36,521.95,19.9;2026-07-07,531.62,502.55,522.05,17.3;2026-07-08,519.86,503.23,522.02,15.5;2026-07-09,523.2,504.01,522.04,18.4;2026-07-10,526.74,504.9,522.08,19.2;2026-07-13,537.7,506.19,522.24,20.7;2026-07-14,538.02,507.44,522.4,20.9;2026-07-15,535.21,508.52,522.52,20.9;2026-07-16,551.54,510.21,522.81,23.7;2026-07-17,543.6,511.52,523.02,22.4;2026-07-20,547.44,512.93,523.26,24.7;2026-07-21,538.3,513.92,523.41,22.9;2026-07-22,531.98,514.63,523.5,21.2;2026-07-23,530.29,515.25,523.56,23;2026-07-24,539.66,516.2,523.72,25.4;2026-07-27,551.71,517.6,524,26.9;2026-07-28,562.75,519.37,524.39,28.4;2026-07-29,563.32,521.09,524.78,28.8;2026-07-30,577.35,523.3,525.3,30.3;2026-07-31,573.1,525.25,525.77,33.2;2026-08-03,570.97,527.04,526.22,29.7;2026-08-04,571.1,528.77,526.67,31.4;2026-08-05,570.48,530.41,527.11,29.9;2026-08-06,575.95,532.19,527.59,32.7;2026-08-07,562.95,533.4,527.94,30.4;2026-08-10,563.17,534.57,528.29,30.5;2026-08-11,561.44,535.62,528.62,28.9;2026-08-12,559.73,536.57,528.93,28.9;2026-08-13,567.04,537.76,529.31,30.4;2026-08-14,569.29,539,529.71,31.8;2026-08-17,562.26,539.91,530.03,29.5;2026-08-18,574.31,541.26,530.48,31.3;2026-08-19,573.72,542.53,530.91,29.8;2026-08-20,573.85,543.76,531.33,28.6;2026-08-21,580.63,545.21,531.82,30;2026-08-24,599.86,547.35,532.5,33.1;2026-08-25,599.37,549.39,533.17,34.3;2026-08-26,598.47,551.31,533.82,35.3;2026-08-27,591.73,552.9,534.39,36;2026-08-28,595.3,554.56,535,36.2;2026-08-31,589.31,555.92,535.54,33.9;2026-09-01,581.1,556.91,535.99,30.7;2026-09-02,588.14,558.14,536.51,31.3;2026-09-03,585.71,559.22,537,30;2026-09-04,579.21,560,537.42,28.5;2026-09-08,570.89,560.43,537.75,28.2;2026-09-09,567.5,560.71,538.05,27.7;2026-09-10,565.37,560.89,538.32,27.3;2026-09-11,569.19,561.21,538.63,27.6;2026-09-14,574.42,561.73,538.98,28.4;2026-09-15,573.27,562.18,539.33,30.1;2026-09-16,567.75,562.4,539.61,29.2;2026-09-17,565.73,562.53,539.87,28.3;2026-09-18,565.24,562.64,540.12,28.4;2026-09-21,567.65,562.84,540.39,29.7;2026-09-22,555.89,562.56,540.55,27.1;2026-09-23,559.92,562.46,540.74,27.1;2026-09-24,566.08,562.6,540.99,28.2;2026-09-25,567.65,562.8,541.26,29.7;2026-09-28,568.26,563.01,541.53,31.6;2026-09-29,563.58,563.04,541.75,31;2026-09-30,551.47,562.58,541.84,26;2026-10-01,550,562.09,541.92,25.1;2026-10-02,552.26,561.7,542.03,26.3;2026-10-05,564.59,561.82,542.25,28.3;2026-10-06,566.58,562,542.49,29;2026-10-07,570.06,562.32,542.77,28.8;2026-10-08,574.76,562.81,543.09,28.7;2026-10-09,589.14,563.84,543.55,30.5;2026-10-12,595.09,565.07,544.06,30.8;2026-10-13,604.8,566.62,544.66,33.8;2026-10-14,603.24,568.06,545.25,33.4;2026-10-15,616.32,569.95,545.95,35.3`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+
+const fmtN=(v,d=2)=>v.toLocaleString("de-CH",{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmtD=s=>{const [y,m,d]=s.split("-");return d+"."+m+"."+y.slice(2)};
+const NS="http://www.w3.org/2000/svg";
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+
+function scoreTable(id,rows){
+  let tot=0,max=0;
+  const html='<thead><tr><th>Kriterium</th><th>Stand</th><th class="num">Punkte</th><th style="width:22%"></th></tr></thead><tbody>'+rows.map(r=>{tot+=r[2];max+=r[3];const p=r[2]/r[3];const c=p>=.75?"var(--good)":p>=.45?"var(--warn)":"var(--bad)";
+    return `<tr><td>${r[0]}</td><td class="muted">${r[1]}</td><td class="num">${r[2]} / ${r[3]}</td><td><div class="bar"><i style="width:${p*100}%;background:${c}"></i></div></td></tr>`}).join("")+`<tr class="total"><td>Total</td><td></td><td class="num">${tot} / ${max}</td><td></td></tr></tbody>`;
+  document.getElementById(id).innerHTML=html;return tot;
+}
+const qs=scoreTable("q-tbl",Q), ts=scoreTable("t-tbl",T);
+document.getElementById("q-val").textContent=qs;document.getElementById("t-val").textContent=ts;
+document.getElementById("q-pin").style.left=qs+"%";document.getElementById("t-pin").style.left=ts+"%";
+
+document.getElementById("fin-rows").innerHTML=FIN.map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1].toLocaleString("de-CH")}</td><td class="num">${r[2]}</td><td class="num">${r[3]}</td><td class="num">${fmtN(r[4])}</td><td class="num">${r[5].toLocaleString("de-CH")}</td><td class="num">${r[6]}</td><td class="num">${r[7]}</td></tr>`).join("");
+
+/* generic line chart */
+function lineChart(host,{dates,series,bands=[],yFmt=v=>fmtN(v),h=300,zero=false,refs=[],pad}){
+  const W_=800,H=h,m={t:12,r:56,b:28,l:8};
+  const all=series.flatMap(s=>s.values).concat(bands.flatMap(b=>[b.from,b.to])).concat(refs.map(r=>r.v));
+  if(zero)all.push(0);
+  let lo=Math.min(...all),hi=Math.max(...all);const sp=(hi-lo)||1;lo-=sp*.06;hi+=sp*.06;
+  if(pad){lo=pad[0];hi=pad[1]}
+  const n=dates.length,x=i=>m.l+i*(W_-m.l-m.r)/(n-1),y=v=>m.t+(hi-v)*(H-m.t-m.b)/(hi-lo);
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  // grid
+  const steps=5;for(let k=0;k<=steps;k++){const v=lo+(hi-lo)*k/steps;el("line",{x1:m.l,x2:W_-m.r,y1:y(v),y2:y(v),stroke:"var(--grid)","stroke-width":1},svg);
+    const t=el("text",{x:W_-m.r+6,y:y(v)+4,"font-size":11,fill:"var(--muted)","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=yFmt(v)}
+  bands.forEach(b=>{el("rect",{x:m.l,width:W_-m.l-m.r,y:y(Math.max(b.from,b.to)),height:Math.abs(y(b.from)-y(b.to)),fill:b.type==="res"?"var(--zone-res)":"var(--zone-sup)"},svg)});
+  refs.forEach(r=>{el("line",{x1:m.l,x2:W_-m.r,y1:y(r.v),y2:y(r.v),stroke:"var(--muted)","stroke-dasharray":"4 4","stroke-width":1},svg);
+    const t=el("text",{x:m.l+4,y:y(r.v)-4,"font-size":11,fill:"var(--muted)"},svg);t.textContent=r.label});
+  if(zero)el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  // x labels
+  const every=Math.ceil(n/6);for(let i=0;i<n;i+=every){const t=el("text",{x:x(i),y:H-8,"font-size":11,fill:"var(--muted)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);const d=dates[i];t.textContent=d.slice(5,7)+"/"+d.slice(2,4)}
+  series.forEach(s=>{const dpath=s.values.map((v,i)=>(i?"L":"M")+x(i).toFixed(1)+","+y(v).toFixed(1)).join("");
+    el("path",{d:dpath,fill:"none",stroke:s.color,"stroke-width":s.w||2,"stroke-linejoin":"round","stroke-linecap":"round"},svg);
+    const lv=s.values[n-1];el("circle",{cx:x(n-1),cy:y(lv),r:3.5,fill:s.color,stroke:"var(--surface)","stroke-width":2},svg)});
+  // hover
+  const cross=el("line",{y1:m.t,y2:H-m.b,stroke:"var(--muted)","stroke-width":1,opacity:0},svg);
+  const ov=el("rect",{x:m.l,y:m.t,width:W_-m.l-m.r,height:H-m.t-m.b,fill:"transparent"},svg);
+  host.appendChild(svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;host.appendChild(tip);
+  function move(ev){const r=svg.getBoundingClientRect();const px=(ev.clientX-r.left)*W_/r.width;let i=Math.round((px-m.l)/((W_-m.l-m.r)/(n-1)));i=Math.max(0,Math.min(n-1,i));
+    cross.setAttribute("x1",x(i));cross.setAttribute("x2",x(i));cross.setAttribute("opacity",1);
+    tip.innerHTML=`<div class="d">${fmtD(dates[i])}</div>`+series.map(s=>`<div><i class="sw" style="background:${s.color}"></i> ${s.name}: <b>${yFmt(s.values[i])}</b></div>`).join("");
+    tip.hidden=false;const hx=x(i)*r.width/W_;tip.style.left=Math.min(Math.max(0,hx+12),r.width-tip.offsetWidth)+"px";tip.style.top="8px"}
+  ov.addEventListener("pointermove",move);ov.addEventListener("pointerleave",()=>{tip.hidden=true;cross.setAttribute("opacity",0)});
+}
+function barChart(host,{labels,values,fmt,h=220,color,neg,tipExtra}){
+  const W_=800,H=h,m={t:18,r:8,b:28,l:8};
+  const hi=Math.max(0,...values),lo=Math.min(0,...values);const lo2=lo<0?lo*1.15:lo,hi2=hi*1.15||1;
+  const y=v=>m.t+(hi2-v)*(H-m.t-m.b)/(hi2-lo2);const n=values.length,bw=(W_-m.l-m.r)/n;
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;
+  values.forEach((v,i)=>{const x0=m.l+i*bw+bw*.18,w=bw*.64,y0=y(Math.max(v,0)),hh=Math.max(1,Math.abs(y(v)-y(0)));
+    const r=el("rect",{x:x0,y:y0,width:w,height:hh,rx:4,fill:v<0?(neg||"var(--s2)"):(color||"var(--s1)")},svg);
+    const t=el("text",{x:x0+w/2,y:v<0?y(v)+13:y0-5,"font-size":11.5,fill:"var(--ink)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=fmt(v);
+    const l=el("text",{x:x0+w/2,y:H-8,"font-size":11.5,fill:"var(--muted)","text-anchor":"middle"},svg);l.textContent=labels[i];
+    const hit=el("rect",{x:m.l+i*bw,y:m.t,width:bw,height:H-m.t-m.b,fill:"transparent"},svg);
+    hit.addEventListener("pointerenter",()=>{tip.innerHTML=`<div class="d">${labels[i]}</div><b>${fmt(v)}</b>${tipExtra?tipExtra(i):""}`;tip.hidden=false;const R=svg.getBoundingClientRect();tip.style.left=Math.min((m.l+i*bw)*R.width/W_,R.width-tip.offsetWidth)+"px";tip.style.top="0px"});
+    hit.addEventListener("pointerleave",()=>tip.hidden=true)});
+  host.appendChild(svg);host.appendChild(tip);
+}
+barChart(document.getElementById("c-rev"),{labels:HALF.map(r=>r[0]),values:HALF.map(r=>r[1]),fmt:v=>fmtN(v,0),h:200});
+barChart(document.getElementById("c-margin"),{labels:MARGIN.map(r=>r[0]),values:MARGIN.map(r=>r[1]),fmt:v=>fmtN(v,1)+" %",h:200});
+barChart(document.getElementById("c-seas"),{labels:MON,values:SEAS,fmt:v=>(v>0?"+":"")+fmtN(v,1),h:220,tipExtra:i=>`<div>${SEASHIT[i]} % der Jahre positiv</div>`});
+const BANDS=[{"from": 590, "to": 602, "type": "sup"}, {"from": 545, "to": 570, "type": "sup"}], REFS=[{"v": 620, "label": "Trigger 620"}];
+const wd=W.map(r=>r[0]);
+lineChart(document.getElementById("c-week"),{dates:wd,series:[{name:"Kurs",values:W.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:W.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:W.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,yFmt:v=>fmtN(v,0),h:320});
+lineChart(document.getElementById("c-adw"),{dates:wd,series:[{name:"A/D Woche",values:W.map(r=>r[5]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,zero:true});
+lineChart(document.getElementById("c-rsiw"),{dates:wd,series:[{name:"RSI Woche",values:W.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,refs:[{v:70,label:"70 überkauft"},{v:30,label:"30 überverkauft"}],pad:[10,90]});
+const dd=DD.map(r=>r[0]);
+lineChart(document.getElementById("c-day"),{dates:dd,series:[{name:"Kurs",values:DD.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:DD.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:DD.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,refs:REFS,yFmt:v=>fmtN(v,0),h:260});
+lineChart(document.getElementById("c-add"),{dates:dd,series:[{name:"A/D Tag",values:DD.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:260,zero:true});
+</script>

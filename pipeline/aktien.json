@@ -1153,5 +1153,116 @@
   "pe_typ": "KGV",
   "zahlen": "2026-11-03",
   "artifact": "YCTHn1Zbh5kEESfCvw6hKQ"
+ },
+ "ADBE": {
+  "symbol": "ADBE",
+  "name": "Adobe",
+  "tags": [
+   "Qualität"
+  ],
+  "land": "USA",
+  "region": "USA",
+  "branche": "Software für Kreative und Marketing",
+  "status": "beobachten",
+  "waehrung": "USD",
+  "kurs": 251.67,
+  "datenstand": "2026-10-15",
+  "kauf": [
+   [
+    232,
+    242
+   ],
+   [
+    200,
+    212
+   ]
+  ],
+  "widerstand": [
+   [
+    265,
+    275
+   ],
+   [
+    286,
+    295
+   ]
+  ],
+  "trigger": 267,
+  "abbruch": 224,
+  "pe": 14.1,
+  "pe_avg": 41.1,
+  "pe_typ": "KGV",
+  "zahlen": "2026-12-09",
+  "artifact": "LYhu5sTR4vfREY9hRzKL5H"
+ },
+ "MA": {
+  "symbol": "MA",
+  "name": "Mastercard",
+  "tags": [
+   "Qualität",
+   "Wachstum"
+  ],
+  "land": "USA",
+  "region": "USA",
+  "branche": "Zahlungsnetzwerk",
+  "status": "beobachten",
+  "waehrung": "USD",
+  "kurs": 616.32,
+  "datenstand": "2026-10-15",
+  "kauf": [
+   [
+    590,
+    602
+   ],
+   [
+    545,
+    570
+   ]
+  ],
+  "widerstand": [],
+  "trigger": 620,
+  "abbruch": 545,
+  "pe": 33.9,
+  "pe_avg": 36.4,
+  "pe_typ": "KGV",
+  "zahlen": "2026-10-29",
+  "artifact": "KLUfbVB5M3eFjhY68DnbVN"
+ },
+ "BKNG": {
+  "symbol": "BKNG",
+  "name": "Booking Holdings",
+  "tags": [
+   "Qualität"
+  ],
+  "land": "USA",
+  "region": "USA",
+  "branche": "Online-Reisebuchung",
+  "status": "beobachten",
+  "waehrung": "USD",
+  "kurs": 165.8,
+  "datenstand": "2026-10-15",
+  "kauf": [
+   [
+    150,
+    158
+   ]
+  ],
+  "widerstand": [
+   [
+    173,
+    184
+   ],
+   [
+    204,
+    218
+   ]
+  ],
+  "trigger": 167,
+  "abbruch": 150,
+  "pe": 18.3,
+  "pe_avg": 28.6,
+  "pe_typ": "KGV",
+  "zahlen": "2026-11-03",
+  "artifact": "6mRA4VugxZDkHLf1Bepsh4"
  }
 }
