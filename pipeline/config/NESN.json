@@ -1,0 +1,396 @@
+{
+ "ticker": "NESN",
+ "name": "Nestlé",
+ "datum": "08.10.2026",
+ "meta": "Nestlé S.A. · SIX Swiss Exchange: NESN · Nahrungsmittel und Getränke (Nescafé, Nespresso, Purina, Maggi, KitKat) · Schweiz",
+ "price": "75.91 CHF",
+ "pricemeta": "Kurs 08.10.2026 mittags · 52 Wochen: 70.29 – 87.09 CHF · Allzeithoch 129.80 CHF (2022)",
+ "verdict": "Die bekannteste Schweizer Aktie und ein echter Franken-Wert, aber seit 2022 im Abwärtstrend. Qualität orange (36), Timing orange (34). Spannend wird es in der Zone 70–72.5 CHF, wo seit einem Jahr ein Doppelboden liegt. Die Dividende von 4.1 % ist solide. Für eine Wende braucht es weiter steigende Mengen (RIG) und einen Tagesschluss über 78.55 CHF.",
+ "about": "Nestlé ist der grösste Nahrungsmittelkonzern der Welt: Kaffee (Nescafé, Nespresso, Starbucks-Produkte im Handel), Tiernahrung (Purina), Baby- und medizinische Ernährung, Süsswaren (KitKat), Fertiggerichte (Maggi) und Wasser. Nestlé verdient den grössten Teil im Ausland: Amerika 39 %, Asien/Ozeanien/Afrika 23 %, Europa 20 %, dazu Nespresso und Health Science.",
+ "why": "Seit dem Hoch 2022 (rund 130 CHF) hat die Aktie über 40 % verloren. Nach den Preiserhöhungen kauften die Kunden kaum mehr Menge, der starke Franken drückt den Umsatz in CHF um 5–6 % pro Jahr, und die Marge sank. 2025 gab es einen Chefwechsel (Laurent Freixe musste im September gehen, neuer Chef ist Philipp Navratil) und einen neuen Präsidenten (Pablo Isla). Navratil baut um: 16'000 Stellen weniger bis 2027, 3 Mrd. CHF Einsparungen, Wasser in ein Gemeinschaftsunternehmen, Glacé und Vitamine werden verkauft. Im Januar belastete ein Rückruf von Babynahrung, im September stellte Russland das dortige Geschäft unter Zwangsverwaltung. Positiv: Die Menge (RIG) wächst wieder (+1.5 % im 1. Halbjahr nach +0.2 % im Vorjahr).",
+ "kpis": [
+  [
+   "w",
+   "Organisches Wachstum",
+   "+3.6 %",
+   "1. Halbjahr 2026: Menge (RIG) +1.5 %, Preis +2.1 %. Ziel 2026: 3–4 %. Die Menge steigt endlich wieder."
+  ],
+  [
+   "w",
+   "Operative Marge (bereinigt)",
+   "16.0 %",
+   "Von 100 Franken Umsatz bleiben 16 Franken Betriebsgewinn. Gut, aber seit 2023 (17.3 %) gesunken."
+  ],
+  [
+   "b",
+   "Gewinn pro Aktie (bereinigt)",
+   "4.37 CHF",
+   "Seit 2023 (4.80) jedes Jahr leicht gesunken, vor allem wegen des starken Frankens."
+  ],
+  [
+   "w",
+   "ROIC",
+   "12.3 %",
+   "Mittel und seit 2024 (14.1 %) sinkend."
+  ],
+  [
+   "g",
+   "Free Cashflow",
+   "10.2 Mrd. CHF",
+   "Hoch und stabil. Ziel 2026: über 9 Mrd."
+  ],
+  [
+   "b",
+   "Nettoschulden / EBITDA",
+   "3.4",
+   "Eher hoch, vor allem wegen der Aktienrückkäufe der letzten Jahre."
+  ],
+  [
+   "g",
+   "KGV erwartet",
+   "16.1",
+   "Eigener Schnitt: 20.3. Rund 21 % günstiger als üblich."
+  ],
+  [
+   "g",
+   "Dividende",
+   "4.1 %",
+   "3.10 CHF, seit 1959 nie gesenkt, 31 Jahre in Folge erhöht. Rund 70 % des bereinigten Gewinns."
+  ]
+ ],
+ "revtitle": "Umsatz pro Halbjahr (Mrd. CHF)",
+ "revunit": "Mio. CHF",
+ "epsunit": "CHF",
+ "margintitle": "Bereinigte operative Marge pro Jahr",
+ "revnote": "In Franken sinkt der Umsatz, weil der starke Franken die Auslandsumsätze kleiner macht (−6 % im 1. Halbjahr 2026). Ohne Währungen wächst Nestlé um 3–4 %.",
+ "marginnote": "Bereinigte operative Marge (UTOP). 2025 deutlich gesunken, 2026 soll sie wieder steigen.",
+ "finnote": "<b>Hinweis:</b> Wachstum in Franken (ausgewiesen). Organisch, also ohne Währungen und Zukäufe, wuchs Nestlé 2022 +8.3 %, 2023 +7.2 %, 2024 +2.2 %, 2025 +3.5 %. Marge bereinigt (UTOP). EPS ausgewiesen, bereinigt 2025: 4.42 CHF. Das ausgewiesene KGV ist durch Abschreibungen auf das Wassergeschäft erhöht.",
+ "FIN": [
+  [
+   "2022",
+   94424,
+   "+8.4 %",
+   "17.1 %",
+   3.42,
+   6600,
+   "12.2 %",
+   "31.9"
+  ],
+  [
+   "2023",
+   92998,
+   "−1.5 %",
+   "17.3 %",
+   4.24,
+   10403,
+   "13.9 %",
+   "22.5"
+  ],
+  [
+   "2024",
+   91354,
+   "−1.8 %",
+   "17.2 %",
+   4.19,
+   10666,
+   "14.1 %",
+   "17.7"
+  ],
+  [
+   "2025",
+   89490,
+   "−2.0 %",
+   "16.1 %",
+   3.51,
+   9154,
+   "12.7 %",
+   "22.4"
+  ],
+  [
+   "Letzte 12 Mt.",
+   88371,
+   "−2.4 %",
+   "16.0 %",
+   2.89,
+   10222,
+   "12.3 %",
+   "25.9"
+  ]
+ ],
+ "QREV": [
+  [
+   "H1 23",
+   46.29
+  ],
+  [
+   "H2 23",
+   46.71
+  ],
+  [
+   "H1 24",
+   45.05
+  ],
+  [
+   "H2 24",
+   46.31
+  ],
+  [
+   "H1 25",
+   44.23
+  ],
+  [
+   "H2 25",
+   45.26
+  ],
+  [
+   "H1 26",
+   43.11
+  ]
+ ],
+ "revdec": 1,
+ "MARGIN": [
+  [
+   "2022",
+   17.1
+  ],
+  [
+   "2023",
+   17.3
+  ],
+  [
+   "2024",
+   17.2
+  ],
+  [
+   "2025",
+   16.1
+  ],
+  [
+   "12 Mt.",
+   16.0
+  ]
+ ],
+ "Q": [
+  [
+   "Umsatztrend",
+   "In Franken 0 von 4 Halbjahren höher, organisch alle positiv",
+   4,
+   15
+  ],
+  [
+   "Wachstumstempo",
+   "Organisch 3.6 %",
+   3,
+   10
+  ],
+  [
+   "Operative Marge",
+   "16.0 % (6 Pkt.), fallend (0 Pkt.)",
+   6,
+   15
+  ],
+  [
+   "Gewinnwachstum (EPS)",
+   "Bereinigt seit 2023 leicht sinkend",
+   0,
+   10
+  ],
+  [
+   "Free Cashflow",
+   "Hoch, aber schwankend",
+   6,
+   10
+  ],
+  [
+   "ROIC",
+   "12.3 %, sinkend",
+   5,
+   15
+  ],
+  [
+   "Schulden",
+   "Nettoschulden/EBITDA 3.4",
+   2,
+   10
+  ],
+  [
+   "Bewertung vs. eigene Historie",
+   "Erw. KGV 16.1 statt Ø 20.3 (−21 %)",
+   10,
+   15
+  ]
+ ],
+ "adwnote": "Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien (Handel an der Heimatbörse). Wichtig: Heute steht der Kurs etwa gleich tief wie im Januar 2026 (73.4 CHF) und im September 2025 (71.1 CHF). Die Wochen-A/D liegt heute aber höher (542 statt 505 und 498). Auf diesem Niveau wurde also eher gekauft.",
+ "rsiwnote": "Unter 30 überverkauft, über 70 überkauft. Heute 42: schwach, aber weit weg von Panik.",
+ "addnote": "Seit dem Juli-Hoch fällt die Tages-A/D mit dem Kurs (92 auf 55). In den letzten Tagen dreht sie leicht nach oben (58.5).",
+ "ind": [
+  [
+   "Kurs vs. EMA 50",
+   "75.9 &lt; 78.1",
+   "75.9 &lt; 79.2",
+   "Unter der mittelfristigen Linie."
+  ],
+  [
+   "Kurs vs. EMA 200",
+   "75.9 &lt; 79.1",
+   "75.9 &lt; 87.3",
+   "Unter der langfristigen Linie: Abwärtstrend."
+  ],
+  [
+   "EMA 50 vs. EMA 200",
+   "50 unter 200 (seit 21.9.2026)",
+   "50 unter 200 (seit November 2023)",
+   "Abwärtstrend. Die Wochen-EMA 50 läuft aber seit einem Jahr flach (79–81)."
+  ],
+  [
+   "RSI (14)",
+   "43.5",
+   "42.4",
+   "Schwach, kein Signal."
+  ],
+  [
+   "A/D",
+   "fällt seit Juli",
+   "höher als bei früheren Tiefs",
+   "Woche positiv, Tag noch negativ."
+  ],
+  [
+   "Volumen",
+   "Ø 20 Tage 3.2 Mio. vs. Ø 100 Tage 3.3 Mio.",
+   "Normal, kein Ausverkauf."
+  ]
+ ],
+ "smc": "Seit Mitte 2025 läuft Nestlé seitwärts zwischen rund 70 und 87 CHF. Die beiden tiefsten Punkte liegen bei 70.88 CHF (September 2025) und 70.29 CHF (Januar 2026): ein Doppelboden. Danach kamen höhere Tiefs (74.37, 75.14, 76.18 CHF). Seit dem Juli-Hoch (87.09 CHF) macht der Tageschart aber tiefere Hochs (83.91 → 81.19 → 78.53 CHF) und tiefere Tiefs (bis 74.48 CHF am 5.10.). Ein Tagesschluss über 78.55 CHF wäre der Change of Character.",
+ "zones": [
+  [
+   "r",
+   "80.8–81.5 CHF",
+   "Widerstand: Hochs vom August/September und Wochen-EMA 50."
+  ],
+  [
+   "t",
+   "78.55 CHF",
+   "<b>Trigger:</b> Tagesschluss über dem letzten tieferen Hoch (28.9.)."
+  ],
+  [
+   "s",
+   "74.4–75 CHF",
+   "Aktuelles Oktober-Tief."
+  ],
+  [
+   "s",
+   "70–72.5 CHF",
+   "<b>Kaufzone:</b> Doppelboden von September 2025 und Januar 2026. Dort läge die Dividendenrendite bei rund 4.4 %."
+  ],
+  [
+   "r",
+   "69.50 CHF",
+   "Abbruch: Wochenschluss darunter = tiefster Stand seit 2016."
+  ]
+ ],
+ "smart": [
+  "<b>Nestlé selbst:</b> Zurzeit kein Aktienrückkauf (zuerst Schulden abbauen).",
+  "<b>Insider-Käufe:</b> Ein Verwaltungsrat kaufte Ende 2025 für rund 1.6 Mio. CHF Aktien zu 78–80 CHF (älter als 6 Monate). Keine Verkäufe gefunden.",
+  "<b>Analysten:</b> Überwiegend „Kaufen“, durchschnittliches Kursziel rund 88 CHF. Jefferies stufte am 18.9. auf „Kaufen“ hoch."
+ ],
+ "seasnote": "Durchschnittliche Monatsrendite in %. Rund 36 Jahre. Oktober bis Dezember: 61–64 % positive Jahre. September ist der schwächste Monat.",
+ "T": [
+  [
+   "Trend Woche (EMA 50/200)",
+   "Kurs unter beiden, EMA 50 flach",
+   3,
+   20
+  ],
+  [
+   "Trend Tag (EMA 50/200)",
+   "Kurs unter beiden, frisches Death Cross",
+   1,
+   10
+  ],
+  [
+   "Struktur (SMC)",
+   "Spanne 70–87 CHF, Tag tiefere Hochs und Tiefs",
+   5,
+   20
+  ],
+  [
+   "RSI Tag/Woche",
+   "44 / 42, kein Signal",
+   7,
+   15
+  ],
+  [
+   "A/D Tag/Woche",
+   "Woche über früheren Tiefs, Tag fällt",
+   10,
+   20
+  ],
+  [
+   "Smart Money",
+   "Kein Rückkauf, keine Verkäufe",
+   3,
+   10
+  ],
+  [
+   "Saisonalität",
+   "Okt–Dez: 61–64 % positive Jahre",
+   5,
+   5
+  ]
+ ],
+ "pro": [
+  "Franken-Aktie: kein Währungsrisiko beim Kauf, Dividende in CHF.",
+  "Die Menge (RIG) wächst wieder.",
+  "Bewertung 21 % unter dem eigenen Schnitt.",
+  "Dividende 4.1 %, seit 1959 nie gesenkt.",
+  "Doppelboden bei 70–72.5 CHF, Wochen-A/D höher als bei früheren Tiefs."
+ ],
+ "con": [
+  "Umsatz und Gewinn in Franken sinken seit Jahren.",
+  "Verdient rund 80 % im Ausland: Ein starker Franken drückt weiter.",
+  "Marge gesunken, Schulden eher hoch.",
+  "Viel Unruhe: Chefwechsel, Umbau, Rückruf, Russland.",
+  "Trend auf Tag und Woche abwärts."
+ ],
+ "todo": [
+  [
+   "t",
+   "Beobachten",
+   "Alarm bei 72.50 CHF (Kaufzone) und 78.55 CHF (Trigger)."
+  ],
+  [
+   "s",
+   "Timing grün",
+   "Kurs in der Kaufzone 70–72.5 CHF mit Tagesschluss über dem letzten tieferen Hoch, oder Tagesschluss über 78.55 CHF mit steigender A/D."
+  ],
+  [
+   "r",
+   "Abbruch",
+   "Wochenschluss unter 69.50 CHF."
+  ],
+  [
+   "",
+   "Nächste Zahlen",
+   "22. Oktober 2026 (Umsatz 9 Monate). Entscheidend: Steigt die Menge (RIG) weiter?"
+  ]
+ ],
+ "bands": [
+  {
+   "from": 80.8,
+   "to": 81.5,
+   "type": "res"
+  },
+  {
+   "from": 70,
+   "to": 72.5,
+   "type": "sup"
+  }
+ ],
+ "refs": [
+  {
+   "v": 78.55,
+   "label": "Trigger 78.55"
+  }
+ ],
+ "sources": "<a href=\"https://stockanalysis.com/quote/swx/NESN/financials/\" target=\"_blank\" rel=\"noopener\">StockAnalysis.com</a> (Stand 08.10.2026), <a href=\"https://www.nestle.com/investors\" target=\"_blank\" rel=\"noopener\">Nestlé Investor Relations</a>, <a href=\"https://www.marketscreener.com/quote/stock/NESTLE-S-A-9365334/consensus/\" target=\"_blank\" rel=\"noopener\">Konsens (MarketScreener)</a>."
+}

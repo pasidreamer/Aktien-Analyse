@@ -1,0 +1,29 @@
+{
+ "ticker": "ABF",
+ "sorgen": [
+  "Primark verkauft in bestehenden Läden weniger: Im Geschäftsjahr 2026 (bis 12.09.2026) sanken diese vergleichbaren Umsätze um rund 2.6 %, in Kontinentaleuropa im 4. Quartal sogar um 4.3 %. Vor allem Deutschland ist schwach.",
+  "Die Primark-Marge (Betriebsgewinn pro 100 £ Umsatz) fiel von rund 12 % auf rund 10 %, wegen mehr Rabatten und Investitionen in Digitales und Technik.",
+  "Das Zuckergeschäft (British Sugar u. a.) macht wegen tiefer EU-Zuckerpreise Verluste: 2026 am oberen Ende von 25–60 Mio. £, für 2027 erwartet ABF sogar 70–170 Mio. £ Verlust. Laut Berichten bleibt der Zucker bis 2028 im Minus.",
+  "Der Gewinn pro Aktie sinkt seit 2024 (197 p, 2025: 175 p, Erwartung 2026 rund 154 p). Ein Analyst von Quilter Cheviot sagt, die Abspaltung von Primark sei «mehr Struktur als Strategie» und lege nicht automatisch Wert frei."
+ ],
+ "sorgen_art": "gemischt",
+ "sorgen_art_text": "Der Zuckerverlust hängt an schwankenden Preisen und ist eher vorübergehend, die Schwäche von Primark in Kontinentaleuropa dauert aber schon über ein Jahr und könnte strukturell sein.",
+ "aufloeser": [
+  {"was": "Jahreszahlen mit Ausblick: Primark hält die Marge bei rund 10 % und die Lebensmittel (Grocery, Zutaten, Landwirtschaft) wachsen wie angekündigt leicht", "wann": "Jahreszahlen 03.11.2026"},
+  {"was": "Primark dreht in Kontinentaleuropa wieder ins Plus bei den vergleichbaren Umsätzen", "wann": "Zahlen 1. Halbjahr GJ 2027, voraussichtlich April 2027"},
+  {"was": "Die Abspaltung von Primark wird umgesetzt; danach können Anleger beide Teile einzeln bewerten", "wann": "Dezember 2027 (laut Firma)"},
+  {"was": "Die EU-Zuckerpreise erholen sich und der Zuckerverlust wird kleiner", "wann": "2027–2028"}
+ ],
+ "schub_stufe": "schwach",
+ "schub_treiber": [
+  {"titel": "Primark in den USA und neue Läden", "text": "In den USA wächst Primark kräftig (Umsatz im 4. Quartal rund +11 %, im 1. Halbjahr +12 %) und eröffnet laufend neue Läden. Insgesamt plant ABF jedes Jahr 4–5 % mehr Verkaufsfläche. Das US-Geschäft ist aber noch klein im Verhältnis zu ganz Primark (allein im 1. Halbjahr 4.7 Mrd. £ Umsatz).", "wann": "2026–2028"},
+  {"titel": "Abspaltung von Primark", "text": "Bis Dezember 2027 werden Primark und das Lebensmittelgeschäft getrennt. Das kann Wert sichtbar machen, weil Mischkonzerne an der Börse oft tiefer bewertet werden. Es ist aber kein neuer Wachstumstreiber, und Analysten sind sich uneinig, ob es wirklich mehr Wert bringt.", "wann": "Dezember 2027"}
+ ],
+ "schub_beweis": "Achte auf die vergleichbaren Primark-Umsätze in Kontinentaleuropa (zuletzt −4.3 %) und auf die Primark-Marge (rund 10 %). Erst wenn Europa wieder wächst und die Marge steigt, kann der Gewinn wieder zulegen.",
+ "szenario": "Kein Fall wie Google 2023: Hier gibt es keine versteckte neue Technologie, sondern eine mögliche Wende plus Abspaltung. Wenn Primark in Europa stabil wird, der Zucker sich erholt und die Abspaltung 2027 den Mischkonzern-Abschlag auflöst, kann die tief bewertete Aktie (KGV rund 12) deutlich zulegen. Grösstes Risiko: Primark verliert in Europa weiter Kundschaft und der Zuckerverlust wächst wie befürchtet bis 170 Mio. £, dann sinkt der Gewinn ein drittes Jahr in Folge.",
+ "quellen": [
+  {"titel": "ABF Trading Statement Q4 GJ 2026 (London South East, 10.09.2026)", "url": "https://www.lse.co.uk/rns/trading-statement-33wa33v1mi2sn66.html"},
+  {"titel": "FashionUnited: Primark to separate from Associated British Foods by 2027 (21.04.2026)", "url": "https://fashionunited.uk/news/business/primark-to-separate-from-associated-british-foods-by-2027/2026042187568"},
+  {"titel": "Quilter: ABF demerger confirms Primark split but leaves value question unanswered (21.04.2026)", "url": "https://media.quilter.com/search/2026/abf-demerger-confirms-primark-split-but-leaves-value-question-unanswered/"}
+ ]
+}

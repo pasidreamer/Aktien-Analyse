@@ -1,0 +1,28 @@
+{
+ "ticker": "JFN",
+ "sorgen": [
+  "Seit dem Beginn des Iran-Kriegs am 28.02.2026 fehlen viele Gäste aus Indien und Südostasien. Sie fliegen meist über Dubai, Doha oder Abu Dhabi, und diese Flugverbindungen sind gestört. Von Januar bis Juni kamen 18 % weniger Gäste aufs Jungfraujoch, das 2. Quartal war das schwächste seit Corona.",
+  "Im 1. Halbjahr sank der Umsatz um 9 % auf 137 Mio. CHF, der Gewinn um 22 % auf 28.9 Mio. CHF. Weil die Kosten einer Bergbahn fast fix sind, schlägt jeder fehlende Gast direkt auf den Gewinn durch.",
+  "Analysten erwarten für 2026 rund 14 % weniger Gewinn pro Aktie (rund 11.60 CHF). Die Aktie steht rund 19 % tiefer als zu Jahresbeginn und am 09.10.2026 bei rund 232 CHF, nahe dem tiefsten Stand seit einem Jahr.",
+  "Langfristig: Der Klimawandel verändert das Hochgebirge (weniger Schnee, höhere Schneefallgrenze). Das ist für das Skigebiet ein Risiko."
+ ],
+ "sorgen_art": "gemischt",
+ "sorgen_art_text": "Die Gäste fehlen wirklich, aber wegen eines äusseren Ereignisses (Krieg, gestörte Flüge) und nicht weil das Jungfraujoch an Anziehung verloren hat; die Gäste geben sogar fast 7 % mehr pro Besuch aus.",
+ "aufloeser": [
+  {"was": "Die Flugverbindungen über den Nahen Osten normalisieren sich und die Reiseveranstalter aus Asien buchen wieder. Im Juli und August lag das Minus nur noch bei rund 10 %; laut Chef ist er «vorsichtig optimistisch»", "wann": "Herbst 2026 bis Sommer 2027"},
+  {"was": "Jahreszahlen 2026 mit Gästezahlen für das ganze Jahr, Dividende und Ausblick auf 2027", "wann": "voraussichtlich Frühling 2027 (Datum nicht bestätigt)"},
+  {"was": "Ein guter Winter in der Jungfrau Ski Region (2025: 1.2 Mio. Skifahrertage, +5 %) gleicht einen Teil der fehlenden Asien-Gäste aus", "wann": "Wintersaison 2026/27"}
+ ],
+ "schub_stufe": "schwach",
+ "schub_treiber": [
+  {"titel": "Rückkehr der Gäste aus Asien (Erholung, kein neuer Treiber)", "text": "Kommen die Gäste aus Asien zurück, kann der Gewinn wieder auf das Niveau von 2023–2025 steigen (Gewinn pro Aktie damals 13.40–13.60 CHF statt erwartet rund 11.60 CHF). Das ist aber eine Rückkehr zum alten Stand und kein zusätzliches Wachstum.", "wann": "2027"},
+  {"titel": "Höhere Einnahmen pro Gast und neue Ziele bis 2030", "text": "Jungfraubahn setzt auf zahlungskräftige Einzelreisende; der Umsatz pro Gast stieg im 1. Halbjahr um fast 7 %. Bis 2030 will die Firma laut eigenen Zielen eine EBITDA-Marge (Gewinn vor Zinsen, Steuern und Abschreibungen pro 100 CHF Umsatz) von mindestens 45 % erreichen (Halbjahr 2026: 41.5 %). Geplant sind die Modernisierung der Firstbahn und Ausbauten auf dem Jungfraujoch und am Eigergletscher. Das sind solide, aber kleine Schritte.", "wann": "bis 2030"}
+ ],
+ "schub_beweis": "Achte auf die Gästezahl auf dem Jungfraujoch im Vergleich zum Vorjahr (1. Halbjahr −18 %, Juli/August rund −10 %). Liegt sie wieder bei 0 % oder im Plus und steigt der Umsatz pro Gast weiter, ist die Erholung da.",
+ "szenario": "Kein Fall wie Google 2023, sondern ein klassischer Sorgen-Fall: Die Firma ist einzigartig und schuldenfrei, nur die Gäste fehlen wegen des Krieges. Beruhigt sich die Lage im Nahen Osten, können Gäste und Gewinn rasch zurückkommen, und der Kurs könnte Richtung der Analystenziele (260–271 CHF) steigen. Grösstes Risiko: Der Konflikt und die Flugprobleme dauern an, dann bleibt der Gewinn tief, und die Aktie ist mit einem KGV um 19 nicht billig.",
+ "quellen": [
+  {"titel": "plattformj.ch: Jungfraubahnen – Ausblick sieht gut aus, aber… (28.08.2026)", "url": "https://www.plattformj.ch/artikel/246232/"},
+  {"titel": "cash.ch: Jungfraubahn – bringt eine attraktive Dividendenrendite neuen Schwung in den Titel? (30.09.2026)", "url": "https://www.cash.ch/news/top-news/jungfraubahn-bringt-eine-attraktive-dividendenrendite-neuen-schwung-in-den-titel-972777"},
+  {"titel": "Snow Industry News: Jungfraubahn Group Has New, Ambitious Financial Targets (2026)", "url": "https://www.snowindustrynews.com/articles/jungfraubahn-group-has-new-ambitious-financial-targets"}
+ ]
+}

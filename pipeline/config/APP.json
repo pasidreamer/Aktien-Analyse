@@ -1,0 +1,383 @@
+{
+ "ticker": "APP",
+ "name": "AppLovin",
+ "datum": "05.10.2026",
+ "meta": "AppLovin Corporation · NASDAQ: APP · KI-gesteuerte Werbung für Apps und Onlinehändler · USA",
+ "price": "281.97 $",
+ "pricemeta": "Schluss 05.10.2026 · Allzeithoch Dezember 2025: 745.60 $ · −62 % seither",
+ "verdict": "Auf dem Papier eine der profitabelsten Wachstumsfirmen überhaupt, an der Börse aber im freien Fall. Qualität laut Schema sehr hoch, Timing rot. Das Schema misst die Risiken hier nur teilweise: ein einziges Produkt, nachlassendes Wachstum, viel Misstrauen. Erst einen Boden abwarten.",
+ "about": "AppLovin verkauft Werbung: Die KI-Plattform Axon entscheidet in Sekundenbruchteilen, welche Werbung in welcher App gezeigt wird, und kassiert pro Erfolg. Ursprünglich ging es um Handyspiele, seit 2025 zunehmend um Onlinehändler und andere Branchen. Das eigene Spiele-Geschäft wurde 2025 verkauft. Übrig blieb eine reine Software-Plattform mit enormen Margen.",
+ "why": "Die Aktie stieg von 2024 bis Dezember 2025 um über 1'000 % auf 745.60 $. Seither fiel sie um 62 %. Am 6. August verlor sie 20 %: Der Umsatz im 2. Quartal (1.92 Mrd. $, +53 %) lag knapp unter der Erwartung (1.94 Mrd.), der Ausblick ebenfalls. Das Management räumte ein, dass sich das KI-Modell im Quartal nicht im gewohnten Tempo verbessert hatte. Dazu kamen Leerverkäufer-Berichte und Medienberichte (Oktober 2025) über eine Untersuchung der US-Börsenaufsicht zu den Datenpraktiken. Insider verkauften in 12 Monaten Aktien für über 560 Mio. $.",
+ "kpis": [
+  [
+   "g",
+   "Umsatzwachstum",
+   "+53 %",
+   "2. Quartal. Immer noch enorm, aber das Tempo sinkt (Q1: +59 %, 2025: +70 %)."
+  ],
+  [
+   "g",
+   "Operative Marge",
+   "77.4 %",
+   "Von 100 $ Umsatz bleiben 77 $ Betriebsgewinn. Kaum eine Firma erreicht das."
+  ],
+  [
+   "g",
+   "Gewinn pro Aktie (EPS)",
+   "+57 %",
+   "2. Quartal, 3.76 $."
+  ],
+  [
+   "g",
+   "Free Cashflow",
+   "4.53 Mrd. $",
+   "Letzte 12 Monate. Zwei Drittel des Umsatzes bleiben als freies Geld."
+  ],
+  [
+   "g",
+   "ROIC",
+   "133 %",
+   "Gewinn pro investiertem Dollar. Extrem hoch, weil fast kein Kapital nötig ist."
+  ],
+  [
+   "g",
+   "Nettoschulden / EBITDA",
+   "0.1",
+   "Fast schuldenfrei."
+  ],
+  [
+   "g",
+   "KGV erwartet",
+   "15.7",
+   "Eigener Schnitt 2021–2025: rund 47. So günstig war AppLovin noch nie."
+  ],
+  [
+   "b",
+   "Risiko",
+   "hoch",
+   "Ein Produkt, abhängig von App-Stores und Datenregeln. Behörden-Fragen und Leerverkäufer im Hintergrund."
+  ]
+ ],
+ "revnote": "Nur fortgeführtes Geschäft (ohne verkaufte Spiele). Werte aus Firmenmeldungen und Jahreszahlen abgeleitet.",
+ "marginnote": "Seit dem Umbau zur reinen Werbeplattform explodiert.",
+ "finnote": "<b>Hinweis:</b> 2022 und 2023 enthalten noch das inzwischen verkaufte Spiele-Geschäft bzw. sind nur teilweise umgestellt. Darum der scheinbare Umsatzrückgang 2023. Aussagekräftig sind die Jahre ab 2024. Die Quartale im Chart habe ich aus den Wachstumsraten der Firmenmeldungen abgeleitet.",
+ "FIN": [
+  [
+   "2022",
+   2817,
+   "+0.9 %",
+   "−0.7 %",
+   -0.52,
+   412,
+   "−0.5 %",
+   "n. a."
+  ],
+  [
+   "2023",
+   1842,
+   "Umstellung",
+   "41.9 %",
+   0.98,
+   1062,
+   "17.4 %",
+   "37.8"
+  ],
+  [
+   "2024",
+   3224,
+   "+75.1 %",
+   "59.3 %",
+   4.53,
+   2099,
+   "47.8 %",
+   "68.9"
+  ],
+  [
+   "2025",
+   5481,
+   "+70.0 %",
+   "75.8 %",
+   9.75,
+   4015,
+   "99.3 %",
+   "68.3"
+  ],
+  [
+   "Letzte 12 Mt.",
+   6829,
+   "+60.6 %",
+   "77.4 %",
+   13.01,
+   4528,
+   "132.7 %",
+   "21.7"
+  ]
+ ],
+ "QREV": [
+  [
+   "Q1 25",
+   1.16
+  ],
+  [
+   "Q2 25",
+   1.26
+  ],
+  [
+   "Q3 25",
+   1.41
+  ],
+  [
+   "Q4 25",
+   1.66
+  ],
+  [
+   "Q1 26",
+   1.84
+  ],
+  [
+   "Q2 26",
+   1.92
+  ]
+ ],
+ "MARGIN": [
+  [
+   "2022",
+   -0.7
+  ],
+  [
+   "2023",
+   41.9
+  ],
+  [
+   "2024",
+   59.3
+  ],
+  [
+   "2025",
+   75.8
+  ],
+  [
+   "12 Mt.",
+   77.4
+  ]
+ ],
+ "Q": [
+  [
+   "Umsatztrend",
+   "4 von 4 Quartalen über Vorjahr, aber Tempo sinkt",
+   12,
+   15
+  ],
+  [
+   "Wachstumstempo",
+   "+53 %",
+   10,
+   10
+  ],
+  [
+   "Operative Marge",
+   "77 % (9 Pkt.), steigend (6 Pkt.)",
+   15,
+   15
+  ],
+  [
+   "Gewinnwachstum (EPS)",
+   "+57 %",
+   10,
+   10
+  ],
+  [
+   "Free Cashflow",
+   "Jedes Jahr gestiegen",
+   10,
+   10
+  ],
+  [
+   "ROIC",
+   "133 %",
+   15,
+   15
+  ],
+  [
+   "Schulden",
+   "Nettoschulden/EBITDA 0.1",
+   9,
+   10
+  ],
+  [
+   "Bewertung vs. eigene Historie",
+   "Erw. KGV 15.7 vs. Ø rund 47 (−67 %)",
+   15,
+   15
+  ]
+ ],
+ "adwnote": "Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Fällt seit Juni steil auf den tiefsten Stand seit Ende 2024.",
+ "rsiwnote": "Unter 30 überverkauft, über 70 überkauft. 2024 über 90 (extrem), heute 35: schwach.",
+ "addnote": "Die Tages-A/D fällt seit August weiter, auch am neuen Tief Anfang Oktober. Noch keine Aufnahme durch grosse Käufer.",
+ "ind": [
+  [
+   "Kurs vs. EMA 50",
+   "282.0 &lt; 337.5",
+   "282.0 &lt; 416.9",
+   "Weit unter der mittelfristigen Linie."
+  ],
+  [
+   "Kurs vs. EMA 200",
+   "282.0 &lt; 422.0",
+   "282.0 &lt; 300.4",
+   "Unter der langfristigen Linie, auch auf der Woche."
+  ],
+  [
+   "EMA 50 vs. EMA 200",
+   "50 unter 200 (seit 21.7.)",
+   "50 noch über 200",
+   "Tag im Abwärtstrend, Woche kippt."
+  ],
+  [
+   "RSI (14)",
+   "36.5",
+   "35.3",
+   "Schwach. Auf dem Tag leichte bullische Divergenz (Tief Oktober tiefer, RSI höher als im August)."
+  ],
+  [
+   "A/D",
+   "fällt",
+   "fällt",
+   "Verkäufer dominieren."
+  ],
+  [
+   "Volumen",
+   "Ø 20 Tage 5.4 Mio. vs. Ø 100 Tage 5.7 Mio.",
+   "Normal."
+  ]
+ ],
+ "smc": "Klarer Abwärtstrend: tiefere Hochs (622 → 576.50 → 437.80 → 338.30 $) und tiefere Tiefs (418.50 → 303.20 → 297.50 → 266.80 $). Das letzte tiefere Hoch liegt bei 338.30 $ (14.9.). Unter dem aktuellen Kurs liegt die nächste Zone erst bei 220–250 $ (Tiefs vom Frühling 2025).",
+ "zones": [
+  [
+   "r",
+   "335–338 $",
+   "Widerstand: Hochs vom 28.8. und 14.9., EMA 50 (Tag)."
+  ],
+  [
+   "t",
+   "338.30 $",
+   "<b>Trigger: Change of Character.</b> Tagesschluss über dem letzten tieferen Hoch."
+  ],
+  [
+   "s",
+   "266.8 $",
+   "Aktuelles Tief vom 28.9."
+  ],
+  [
+   "s",
+   "220–250 $",
+   "Nächste Zone: Tiefs vom Frühling 2025."
+  ]
+ ],
+ "smart": [
+  "<b>AppLovin selbst:</b> Kauft Aktien zurück (rund 1.8 % pro Jahr, 551 Mio. $ im 2. Quartal).",
+  "<b>Insider-Käufe:</b> Keine.",
+  "<b>Insider-Verkäufe:</b> Über 560 Mio. $ in 12 Monaten: CEO Adam Foroughi, CTO Vasily Shikin und Verwaltungsrat Eduardo Vivas je mehrere hundert Mio. $.",
+  "<b>Analysten:</b> Durchschnittliches Kursziel 497 $, Einstufung „Buy“. Seit August wurden viele Ziele gesenkt."
+ ],
+ "seasnote": "Durchschnittliche Monatsrendite in %, nur 5 Jahre seit dem Börsengang. Kaum aussagekräftig.",
+ "T": [
+  [
+   "Trend Woche (EMA 50/200)",
+   "Kurs unter beiden, EMAs noch nicht gekreuzt",
+   3,
+   20
+  ],
+  [
+   "Trend Tag (EMA 50/200)",
+   "Kurs weit unter beiden, Death Cross",
+   0,
+   10
+  ],
+  [
+   "Struktur (SMC)",
+   "Tiefere Hochs und tiefere Tiefs",
+   2,
+   20
+  ],
+  [
+   "RSI Tag/Woche",
+   "Leichte bullische Divergenz auf dem Tag",
+   12,
+   15
+  ],
+  [
+   "A/D Tag/Woche",
+   "Beide fallen mit dem Kurs",
+   3,
+   20
+  ],
+  [
+   "Smart Money",
+   "Rückkauf unter 2 %, massive Insider-Verkäufe",
+   0,
+   10
+  ],
+  [
+   "Saisonalität",
+   "Nur 5 Jahre, unter 50 % positive Jahre",
+   1,
+   5
+  ]
+ ],
+ "pro": [
+  "Aussergewöhnlich profitabel: 77 % Marge, ROIC über 100 %.",
+  "Wächst immer noch über 50 % pro Jahr.",
+  "Erwartetes KGV unter 16, so tief wie nie.",
+  "Hoher Free Cashflow, Rückkäufe laufen.",
+  "Erste kleine bullische Divergenz beim Tages-RSI."
+ ],
+ "con": [
+  "Klarer Abwärtstrend, A/D fällt auf beiden Zeitebenen.",
+  "Wachstum verlangsamt sich, KI-Modell machte zuletzt weniger Fortschritte.",
+  "Ein-Produkt-Firma, abhängig von Apple, Google und Datenschutzregeln.",
+  "Berichte über behördliche Untersuchungen und Leerverkäufer-Vorwürfe.",
+  "Massive Insider-Verkäufe, sehr hohe Schwankung (Beta 2.5)."
+ ],
+ "todo": [
+  [
+   "t",
+   "Beobachten",
+   "Alarm bei 338.30 $ (Trigger) und bei 266 $ (aktuelles Tief)."
+  ],
+  [
+   "s",
+   "Timing grün",
+   "Höheres Tief über 266.80 $ mit steigender Tages-A/D, danach Tagesschluss über 338.30 $."
+  ],
+  [
+   "r",
+   "Abbruch",
+   "Nicht relevant, solange nicht gekauft."
+  ],
+  [
+   "",
+   "Nächste Zahlen",
+   "4. November 2026 (3. Quartal). Ausblick der Firma: 2.06–2.09 Mrd. $ Umsatz (+46–48 %)."
+  ]
+ ],
+ "bands": [
+  {
+   "from": 335,
+   "to": 338.3,
+   "type": "res"
+  },
+  {
+   "from": 262,
+   "to": 268,
+   "type": "sup"
+  }
+ ],
+ "refs": [
+  {
+   "v": 338.3,
+   "label": "Trigger 338.30"
+  }
+ ],
+ "sources": "<a href=\"https://stockanalysis.com/stocks/app/financials/\" target=\"_blank\" rel=\"noopener\">StockAnalysis.com</a> (Stand 05.10.2026), <a href=\"https://www.fool.com/investing/2026/08/09/applovin-revenue-jump-why-stock-plunge/\" target=\"_blank\" rel=\"noopener\">Q2-Zahlen (Motley Fool)</a>, <a href=\"https://www.cnbc.com/2026/08/06/applovin-stock-q2-earnings-revenue.html\" target=\"_blank\" rel=\"noopener\">CNBC</a>, <a href=\"https://www.stocktitan.net/sec-filings/APP/8-k-app-lovin-corp-reports-material-event-3a9f786204d2.html\" target=\"_blank\" rel=\"noopener\">Q1-Zahlen (StockTitan)</a>, <a href=\"https://www.marketbeat.com/stocks/NASDAQ/APP/insider-trades/\" target=\"_blank\" rel=\"noopener\">Insider (MarketBeat)</a>. Die Quartalsseite von StockAnalysis war bei der Recherche nicht abrufbar."
+}

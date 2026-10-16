@@ -1,0 +1,384 @@
+{
+ "ticker": "BN",
+ "name": "Danone",
+ "datum": "08.10.2026",
+ "meta": "Danone S.A. · Euronext Paris: BN · Milchprodukte (Activia, Alpro), Spezialnahrung (Aptamil), Wasser (Evian) · Frankreich",
+ "price": "59.20 €",
+ "pricemeta": "Kurs 08.10.2026 mittags · 52 Wochen: 57.26 – 80.14 € · Hoch 2019: 82.38 €",
+ "verdict": "Solide Firma mit steigender Marge, aber die Aktie ist seit November um 26 % gefallen. Qualität gelb (48), Timing rot (28). Kurzfristig überverkauft, der Chef hat im Juli selbst gekauft. Der Trend zeigt aber noch keine Wende. Erstes Zeichen wäre ein Tagesschluss über 62.30 €.",
+ "about": "Danone stellt Milchprodukte und Joghurts her (Activia, Danone, Alpro für pflanzliche Produkte), Baby- und Spezialnahrung (Aptamil, Nutricia) und Mineralwasser (Evian, Volvic). Rund 45 % des Umsatzes kommen aus Europa, Nahost und Afrika, 33 % aus Amerika und 22 % aus Asien.",
+ "why": "Unter Chef Antoine de Saint-Affrique (seit 2021) hat Danone wieder Tritt gefasst: Wachstum 4–5 % pro Jahr und steigende Marge. Die Aktie stieg darum bis November 2025 auf 80 €. Seither belasteten der Rückruf von Babynahrung im Januar (Giftstoff bei einem Zulieferer, betraf auch Nestlé), Marktanteilsverluste bei Joghurt in den USA gegen Chobani, eine Abkühlung in China und mehrere Herabstufungen (Jefferies im Juli direkt von Kaufen auf Verkaufen, Deutsche Bank im September). Im 1. Halbjahr sank zudem der freie Cashflow um 27 %.",
+ "kpis": [
+  [
+   "w",
+   "Organisches Wachstum",
+   "+3.5 %",
+   "1. Halbjahr 2026 (Menge/Mix +1.7, Preis +1.8). Ziel 2026: +3 bis +5 %."
+  ],
+  [
+   "w",
+   "Operative Marge",
+   "13.4 %",
+   "Wiederkehrend. Mittel, aber seit 2022 (12.2 %) jedes Jahr gestiegen."
+  ],
+  [
+   "w",
+   "Gewinn pro Aktie",
+   "+3 bis 5 % p. a.",
+   "Wiederkehrend seit 2022 (3.43 → 3.80 €). Langsam, aber stetig."
+  ],
+  [
+   "w",
+   "ROIC",
+   "10.7 %",
+   "Mittel, seit 2022 (6.8 %) klar gestiegen."
+  ],
+  [
+   "w",
+   "Free Cashflow",
+   "2.5 Mrd. €",
+   "Positiv, im 1. Halbjahr aber −27 %."
+  ],
+  [
+   "g",
+   "Nettoschulden / EBITDA",
+   "2.0",
+   "Tragbar."
+  ],
+  [
+   "g",
+   "KGV erwartet",
+   "14.6",
+   "Eigener Schnitt: 16.6. Rund 12 % günstiger als üblich."
+  ],
+  [
+   "g",
+   "Dividende",
+   "3.8 %",
+   "2.25 €, seit 2022 jedes Jahr erhöht (2020 gekürzt)."
+  ]
+ ],
+ "revtitle": "Umsatz pro Halbjahr (Mrd. €)",
+ "revunit": "Mio. €",
+ "epsunit": "€",
+ "margintitle": "Wiederkehrende operative Marge pro Jahr",
+ "revnote": "In Euro fast flach, weil Dollar, Peso und Yuan schwach waren. Ohne Währungen wächst Danone um 3.5–4.5 %.",
+ "marginnote": "Die wiederkehrende Marge steigt seit 2022 jedes Jahr.",
+ "finnote": "<b>Hinweis:</b> Wachstum in Euro (ausgewiesen). Organisch wuchs Danone 2022 +7.8 %, 2023 +7.0 %, 2024 +4.3 %, 2025 +4.5 %. Marge = wiederkehrende operative Marge. EPS ausgewiesen, durch Abschreibungen gedrückt (wiederkehrend 2025: 3.80 €). Das ausgewiesene KGV ist darum verzerrt.",
+ "FIN": [
+  [
+   "2022",
+   27661,
+   "+13.9 %",
+   "12.2 %",
+   1.48,
+   2127,
+   "6.8 %",
+   "32.6"
+  ],
+  [
+   "2023",
+   27619,
+   "−0.2 %",
+   "12.6 %",
+   1.36,
+   2600,
+   "7.1 %",
+   "43.1"
+  ],
+  [
+   "2024",
+   27376,
+   "−0.9 %",
+   "13.0 %",
+   3.13,
+   3003,
+   "10.0 %",
+   "20.8"
+  ],
+  [
+   "2025",
+   27283,
+   "−0.3 %",
+   "13.4 %",
+   2.82,
+   2799,
+   "10.7 %",
+   "27.1"
+  ],
+  [
+   "Letzte 12 Mt.",
+   27482,
+   "+0.7 %",
+   "n. a.",
+   3.02,
+   2480,
+   "10.0 %",
+   "19.7"
+  ]
+ ],
+ "QREV": [
+  [
+   "H1 24",
+   13.76
+  ],
+  [
+   "H2 24",
+   13.62
+  ],
+  [
+   "H1 25",
+   13.74
+  ],
+  [
+   "H2 25",
+   13.55
+  ],
+  [
+   "H1 26",
+   13.94
+  ]
+ ],
+ "revdec": 2,
+ "MARGIN": [
+  [
+   "2022",
+   12.2
+  ],
+  [
+   "2023",
+   12.6
+  ],
+  [
+   "2024",
+   13.0
+  ],
+  [
+   "2025",
+   13.4
+  ]
+ ],
+ "Q": [
+  [
+   "Umsatztrend",
+   "In Euro 1 von 3 Halbjahren höher, organisch alle positiv",
+   6,
+   15
+  ],
+  [
+   "Wachstumstempo",
+   "Organisch 3.5 %",
+   3,
+   10
+  ],
+  [
+   "Operative Marge",
+   "13.4 % (3 Pkt.), steigend (6 Pkt.)",
+   9,
+   15
+  ],
+  [
+   "Gewinnwachstum (EPS)",
+   "Wiederkehrend rund +3 bis 5 % pro Jahr",
+   2,
+   10
+  ],
+  [
+   "Free Cashflow",
+   "Positiv, zuletzt sinkend",
+   5,
+   10
+  ],
+  [
+   "ROIC",
+   "10.7 %, steigend",
+   7,
+   15
+  ],
+  [
+   "Schulden",
+   "Nettoschulden/EBITDA 2.0",
+   6,
+   10
+  ],
+  [
+   "Bewertung vs. eigene Historie",
+   "Erw. KGV 14.6 statt Ø 16.6 (−12 %)",
+   10,
+   15
+  ]
+ ],
+ "adwnote": "Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien (Handel an der Heimatbörse). Die Wochen-A/D fällt seit April deutlich (134 auf 83). In den letzten zwei Wochen dreht sie leicht nach oben (89).",
+ "rsiwnote": "Unter 30 überverkauft, über 70 überkauft. Heute 33: nahe am überverkauften Bereich. Beim Juni-Tief lag er bei 31, jetzt bei tieferem Kurs etwas höher: leichte bullische Divergenz.",
+ "addnote": "Die Tages-A/D fällt seit Juli mit dem Kurs auf ein neues Tief. Noch kein Käuferwechsel.",
+ "ind": [
+  [
+   "Kurs vs. EMA 50",
+   "59.2 &lt; 62.7",
+   "59.2 &lt; 67.4",
+   "Unter der mittelfristigen Linie."
+  ],
+  [
+   "Kurs vs. EMA 200",
+   "59.2 &lt; 67.1",
+   "59.2 &lt; 65.5",
+   "Unter der langfristigen Linie."
+  ],
+  [
+   "EMA 50 vs. EMA 200",
+   "50 unter 200 (seit 6.2.2026)",
+   "50 noch über 200",
+   "Tag abwärts. Auf der Woche droht bald ein Death Cross."
+  ],
+  [
+   "RSI (14)",
+   "40.8",
+   "33.3",
+   "Tag erholt sich vom Tief (23 am 1.10.), Woche schwach."
+  ],
+  [
+   "A/D",
+   "neues Tief",
+   "fällt seit April",
+   "Die Verkäufer dominieren."
+  ],
+  [
+   "Volumen",
+   "Ø 20 Tage 1.3 Mio. vs. Ø 100 Tage 1.4 Mio.",
+   "Ruhig, kein Ausverkauf."
+  ]
+ ],
+ "smc": "Seit dem Hoch im November 2025 (80.14 €) macht Danone tiefere Hochs (74.60 → 74.68 €) und tiefere Tiefs (63.52 → 60.64 → 57.26 €). Am 1. Oktober lag der Tages-RSI bei 23, seither leichte Erholung. Unterstützungen aus der Vergangenheit: 57 € (Tief 2024) und darunter die Spanne von 2022/2023 (rund 47–60 €). Ein erstes Wende-Zeichen wäre ein Tagesschluss über 62.30 €.",
+ "zones": [
+  [
+   "r",
+   "64.5–65.5 €",
+   "Widerstand: Hochs vom August/September."
+  ],
+  [
+   "t",
+   "62.30 €",
+   "<b>Trigger:</b> Tagesschluss über dem letzten tieferen Hoch (14.9.)."
+  ],
+  [
+   "s",
+   "57–58 €",
+   "Oktober-Tief und Tief 2024."
+  ],
+  [
+   "s",
+   "52–54 €",
+   "Tiefere Zone aus 2022/2023, falls 57 € bricht."
+  ],
+  [
+   "r",
+   "56.50 €",
+   "Abbruch der aktuellen Bodenbildung: Wochenschluss darunter."
+  ]
+ ],
+ "smart": [
+  "<b>Insider-Kauf:</b> Chef Antoine de Saint-Affrique kaufte am 31.7.2026 Aktien für rund 67'000 € zu 67.32 €. Klein, aber ein freier Kauf am Markt.",
+  "<b>Danone selbst:</b> Kauft nur Aktien für Mitarbeiterprogramme zurück.",
+  "<b>Analysten:</b> Im Durchschnitt „Kaufen“, Kursziel rund 79 €. Aber: Jefferies (Verkaufen, 62 €) und Deutsche Bank (Verkaufen, 61 €) sind negativ geworden."
+ ],
+ "seasnote": "Durchschnittliche Monatsrendite in %. Rund 37 Jahre. Oktober und Dezember unter 50 % positive Jahre, November besser (59 %).",
+ "T": [
+  [
+   "Trend Woche (EMA 50/200)",
+   "Kurs unter beiden, EMA 50 noch über 200",
+   3,
+   20
+  ],
+  [
+   "Trend Tag (EMA 50/200)",
+   "Kurs unter beiden",
+   0,
+   10
+  ],
+  [
+   "Struktur (SMC)",
+   "Tiefere Hochs und Tiefs",
+   2,
+   20
+  ],
+  [
+   "RSI Tag/Woche",
+   "Woche leichte bullische Divergenz, Tag dreht aus 23",
+   10,
+   15
+  ],
+  [
+   "A/D Tag/Woche",
+   "Beide fallen, Woche dreht leicht",
+   4,
+   20
+  ],
+  [
+   "Smart Money",
+   "Insider-Kauf des Chefs (Juli)",
+   7,
+   10
+  ],
+  [
+   "Saisonalität",
+   "Okt–Dez gemischt (46–59 %)",
+   2,
+   5
+  ]
+ ],
+ "pro": [
+  "Marge und ROIC steigen seit Jahren.",
+  "Wächst organisch 3–5 %.",
+  "Bewertung 12 % unter dem Schnitt, Dividende 3.8 %.",
+  "Der Chef hat selbst gekauft.",
+  "Euro-Aktie: verteilt dein Währungsrisiko weg vom Dollar."
+ ],
+ "con": [
+  "Klarer Abwärtstrend, tiefere Hochs und Tiefs.",
+  "Marktanteilsverluste in den USA, China kühlt ab.",
+  "Freier Cashflow im 1. Halbjahr −27 %.",
+  "Zwei grosse Banken raten zum Verkauf.",
+  "A/D zeigt noch keine Käufer."
+ ],
+ "todo": [
+  [
+   "t",
+   "Beobachten",
+   "Alarm bei 62.30 € (Trigger) und 57 € (Tief)."
+  ],
+  [
+   "s",
+   "Timing grün",
+   "Höheres Tief über 57 € und Tagesschluss über 62.30 € mit steigender A/D."
+  ],
+  [
+   "r",
+   "Abbruch",
+   "Wochenschluss unter 56.50 €: dann ist die Zone 52–54 € das nächste Ziel."
+  ],
+  [
+   "",
+   "Nächste Zahlen",
+   "28. Oktober 2026 (Umsatz 3. Quartal)."
+  ]
+ ],
+ "bands": [
+  {
+   "from": 64.5,
+   "to": 65.5,
+   "type": "res"
+  },
+  {
+   "from": 57,
+   "to": 58,
+   "type": "sup"
+  }
+ ],
+ "refs": [
+  {
+   "v": 62.3,
+   "label": "Trigger 62.30"
+  }
+ ],
+ "sources": "<a href=\"https://stockanalysis.com/quote/epa/BN/financials/\" target=\"_blank\" rel=\"noopener\">StockAnalysis.com</a> (Stand 08.10.2026), <a href=\"https://www.danone.com/investors.html\" target=\"_blank\" rel=\"noopener\">Danone Investor Relations</a>, <a href=\"https://www.marketscreener.com/quote/stock/DANONE-4634/consensus/\" target=\"_blank\" rel=\"noopener\">Konsens (MarketScreener)</a>."
+}

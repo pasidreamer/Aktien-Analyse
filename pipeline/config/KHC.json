@@ -1,0 +1,392 @@
+{
+ "ticker": "KHC",
+ "name": "Kraft Heinz",
+ "datum": "08.10.2026",
+ "meta": "The Kraft Heinz Company · Nasdaq: KHC · Verpackte Lebensmittel, Saucen (Heinz, Kraft, Philadelphia) · USA",
+ "price": "21.98 $",
+ "pricemeta": "Schluss 07.10.2026 · 52 Wochen: 21.03 – 28.09 $ · Allzeithoch 97.77 $ (2017)",
+ "verdict": "Eine schrumpfende Firma mit hoher Dividende. Der Umsatz sinkt seit drei Jahren, es gab Abschreibungen in Milliardenhöhe, und die geplante Aufspaltung wurde gestoppt. Qualität rot (29), Timing rot (15). Die 7.3 % Dividende ist verlockend, aber typisch für eine Dividendenfalle. Erfüllt die Kriterien für ein Qualitäts-Depot nicht.",
+ "about": "Kraft Heinz stellt verpackte Lebensmittel her: Ketchup und Saucen (Heinz), Käse und Fertiggerichte (Kraft, Philadelphia), Wurstwaren (Oscar Mayer) und Kinder-Snacks (Lunchables). Rund drei Viertel des Umsatzes kommen aus Nordamerika.",
+ "why": "Die Aktie ist seit 2017 um fast 80 % gefallen. Die Marken verlieren Kunden an Eigenmarken und frischere Produkte. 2025 und 2026 musste Kraft Heinz zusammen über 16 Mrd. $ auf Marken abschreiben. Im September 2025 wurde eine Aufspaltung in zwei Firmen angekündigt, der neue Chef Steve Cahillane hat sie im Februar 2026 gestoppt und investiert stattdessen rund 700 Mio. $ in die Marken. Im Januar 2026 liess Berkshire Hathaway (Warren Buffett, 27.5 % der Aktien) alle Aktien für einen möglichen Verkauf registrieren.",
+ "kpis": [
+  [
+   "b",
+   "Organisches Wachstum",
+   "−1.3 %",
+   "2. Quartal 2026 (Preis +1.3, Menge −2.6). Ziel 2026: −2.0 bis −0.5 %. Die Firma schrumpft."
+  ],
+  [
+   "g",
+   "Operative Marge",
+   "18.0 %",
+   "Ohne Abschreibungen. Gut, aber seit 2024 (21.4 %) fallend."
+  ],
+  [
+   "b",
+   "Gewinn pro Aktie (bereinigt)",
+   "≈ −20 %",
+   "Ziel 2026: 2.03–2.09 $. Ausgewiesen wegen der Abschreibungen negativ."
+  ],
+  [
+   "b",
+   "ROIC",
+   "8.0 %",
+   "Tief: Zu viel Kapital steckt in teuren früheren Übernahmen."
+  ],
+  [
+   "g",
+   "Free Cashflow",
+   "3.8 Mrd. $",
+   "Der Lichtblick: steigt seit 2022 jedes Jahr."
+  ],
+  [
+   "w",
+   "Nettoschulden / EBITDA",
+   "3.0",
+   "Eher hoch."
+  ],
+  [
+   "w",
+   "KGV erwartet",
+   "11.0",
+   "Eigener Schnitt: 12.2. Billig, aber das war die Aktie schon immer."
+  ],
+  [
+   "w",
+   "Dividende",
+   "7.3 %",
+   "Seit 2019 nicht erhöht (damals gekürzt). Braucht rund 50 % des freien Cashflows. Hoch, weil der Kurs so tief ist."
+  ]
+ ],
+ "revnote": "3 von 4 Quartalen unter Vorjahr.",
+ "margintitle": "Operative Marge pro Jahr (ohne Abschreibungen)",
+ "marginnote": "Ohne Abschreibungen. Seit 2024 fallend.",
+ "finnote": "<b>Hinweis:</b> Ausgewiesener Gewinn 2025 und in den letzten 12 Monaten negativ wegen Abschreibungen von 9.3 Mrd. $ (2025) und 7.35 Mrd. $ (2026). Das KGV ist dann nicht sinnvoll. Erwartetes KGV auf bereinigtem Gewinn: 11.0.",
+ "FIN": [
+  [
+   "2022",
+   26485,
+   "+1.7 %",
+   "19.1 %",
+   1.91,
+   1553,
+   "5.9 %",
+   "21.1"
+  ],
+  [
+   "2023",
+   26640,
+   "+0.6 %",
+   "19.7 %",
+   2.31,
+   2963,
+   "6.0 %",
+   "15.9"
+  ],
+  [
+   "2024",
+   25846,
+   "−3.0 %",
+   "21.4 %",
+   2.26,
+   3160,
+   "8.0 %",
+   "13.5"
+  ],
+  [
+   "2025",
+   24942,
+   "−3.5 %",
+   "19.1 %",
+   -4.93,
+   3661,
+   "7.4 %",
+   "n. a."
+  ],
+  [
+   "Letzte 12 Mt.",
+   24900,
+   "−1.6 %",
+   "18.0 %",
+   -2.87,
+   3816,
+   "8.1 %",
+   "n. a."
+  ]
+ ],
+ "QREV": [
+  [
+   "Q3 24",
+   6.38
+  ],
+  [
+   "Q4 24",
+   6.58
+  ],
+  [
+   "Q1 25",
+   6.0
+  ],
+  [
+   "Q2 25",
+   6.35
+  ],
+  [
+   "Q3 25",
+   6.24
+  ],
+  [
+   "Q4 25",
+   6.35
+  ],
+  [
+   "Q1 26",
+   6.05
+  ],
+  [
+   "Q2 26",
+   6.26
+  ]
+ ],
+ "revdec": 2,
+ "MARGIN": [
+  [
+   "2022",
+   19.1
+  ],
+  [
+   "2023",
+   19.7
+  ],
+  [
+   "2024",
+   21.4
+  ],
+  [
+   "2025",
+   19.1
+  ],
+  [
+   "12 Mt.",
+   18.0
+  ]
+ ],
+ "Q": [
+  [
+   "Umsatztrend",
+   "1 von 4 Quartalen über Vorjahr",
+   0,
+   15
+  ],
+  [
+   "Wachstumstempo",
+   "Organisch −1.3 %",
+   0,
+   10
+  ],
+  [
+   "Operative Marge",
+   "18.0 % (6 Pkt.), fallend (0 Pkt.)",
+   6,
+   15
+  ],
+  [
+   "Gewinnwachstum (EPS)",
+   "Bereinigt rund −20 %",
+   0,
+   10
+  ],
+  [
+   "Free Cashflow",
+   "Seit 2022 jedes Jahr gestiegen",
+   10,
+   10
+  ],
+  [
+   "ROIC",
+   "8.0 %",
+   2,
+   15
+  ],
+  [
+   "Schulden",
+   "Nettoschulden/EBITDA 3.0",
+   3,
+   10
+  ],
+  [
+   "Bewertung vs. eigene Historie",
+   "Erw. KGV 11.0 statt Ø 12.2 (−10 %)",
+   8,
+   15
+  ]
+ ],
+ "adwnote": "Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Die Wochen-A/D ist seit Jahren tief im Minus. Im Sommer erholte sie sich, seit August fällt sie wieder stark.",
+ "rsiwnote": "Unter 30 überverkauft, über 70 überkauft. Heute 37: schwach.",
+ "addnote": "Tages-A/D auf dem tiefsten Stand der Periode. Die Verkäufer dominieren.",
+ "ind": [
+  [
+   "Kurs vs. EMA 50",
+   "22.0 &lt; 24.2",
+   "22.0 &lt; 24.7",
+   "Unter der mittelfristigen Linie."
+  ],
+  [
+   "Kurs vs. EMA 200",
+   "22.0 &lt; 24.5",
+   "22.0 &lt; 30.1",
+   "Weit unter der langfristigen Linie."
+  ],
+  [
+   "EMA 50 vs. EMA 200",
+   "50 unter 200 (seit 30.9.2026)",
+   "50 unter 200 (seit Jahren)",
+   "Abwärtstrend auf beiden Ebenen."
+  ],
+  [
+   "RSI (14)",
+   "25.3",
+   "36.5",
+   "Tag überverkauft, ohne Bodenzeichen."
+  ],
+  [
+   "A/D",
+   "neues Tief",
+   "fällt",
+   "Keine Käufer sichtbar."
+  ],
+  [
+   "Volumen",
+   "Ø 20 Tage 21.3 Mio. vs. Ø 100 Tage 16.0 Mio.",
+   "Hohes Volumen beim Fallen: Verkaufsdruck."
+  ]
+ ],
+ "smc": "Seit Januar 2026 läuft Kraft Heinz in einer Spanne zwischen rund 21 und 28 $. Die Tiefs liegen bei 21.99 $ (Januar), 21.03 $ (März, Allzeittief), 21.75 $ (April) und 22.00 $ (Juni). Der Ausbruchsversuch im Juli (28.09 $) scheiterte. Seither tiefere Hochs (26.44 → 25.20 $), und jetzt steht der Kurs wieder an der Untergrenze (21.84 $). Bricht 21 $, gibt es keine Unterstützung aus der Vergangenheit mehr.",
+ "zones": [
+  [
+   "r",
+   "24.2–25.2 $",
+   "Widerstand: EMA 50/200 Tag und Hoch vom 17.9."
+  ],
+  [
+   "t",
+   "25.20 $",
+   "Trigger: Ein Tagesschluss darüber wäre ein erstes Wende-Zeichen."
+  ],
+  [
+   "s",
+   "21.0–22.0 $",
+   "Untergrenze der Spanne seit Januar (Allzeittief 21.03 $)."
+  ],
+  [
+   "r",
+   "20.90 $",
+   "Abbruch: Wochenschluss darunter = neues Allzeittief."
+  ]
+ ],
+ "smart": [
+  "<b>Kraft Heinz selbst:</b> Kaum Rückkäufe (28 Mio. $ in 12 Monaten).",
+  "<b>Berkshire Hathaway:</b> Hält 27.5 %, hat aber im Januar alle Aktien für einen möglichen Verkauf registriert. Verkauft wurde laut den Meldungen bisher nichts. Das hängt wie ein Damoklesschwert über dem Kurs.",
+  "<b>Insider:</b> Keine Käufe. Verkäufe u. a. von Miguel Patricio (Präsident, früher Chef) für 3.1 Mio. $.",
+  "<b>Analysten:</b> „Halten“ bis „Reduzieren“, durchschnittliches Kursziel rund 24–25 $."
+ ],
+ "seasnote": "Durchschnittliche Monatsrendite in %. Nur 11 Jahre (seit der Fusion 2015), darum wenig aussagekräftig. Der Oktober war nur in 31 % der Jahre positiv.",
+ "T": [
+  [
+   "Trend Woche (EMA 50/200)",
+   "Kurs weit unter beiden",
+   1,
+   20
+  ],
+  [
+   "Trend Tag (EMA 50/200)",
+   "Kurs unter beiden, frisches Death Cross",
+   0,
+   10
+  ],
+  [
+   "Struktur (SMC)",
+   "Spanne 21–28 $, Tag tiefere Hochs, Test der Untergrenze",
+   5,
+   20
+  ],
+  [
+   "RSI Tag/Woche",
+   "25 / 37, überverkauft ohne Bodenzeichen",
+   5,
+   15
+  ],
+  [
+   "A/D Tag/Woche",
+   "Beide fallen",
+   3,
+   20
+  ],
+  [
+   "Smart Money",
+   "Insider-Verkäufe, Verkaufsrisiko durch Berkshire",
+   0,
+   10
+  ],
+  [
+   "Saisonalität",
+   "Okt–Dez schwach (31–55 %)",
+   1,
+   5
+  ]
+ ],
+ "pro": [
+  "Free Cashflow steigt jedes Jahr.",
+  "Bewertung sehr tief (erwartetes KGV 11).",
+  "Neuer Chef investiert in die Marken.",
+  "Hohe Dividende (7.3 %), aktuell vom Cashflow gedeckt."
+ ],
+ "con": [
+  "Der Umsatz schrumpft seit drei Jahren.",
+  "Riesige Abschreibungen: Die Marken sind weniger wert als gedacht.",
+  "Aufspaltung gestoppt, Strategie unklar.",
+  "Berkshire könnte 27.5 % der Aktien verkaufen.",
+  "Klarer Abwärtstrend, A/D auf neuem Tief."
+ ],
+ "todo": [
+  [
+   "",
+   "Kein Kandidat",
+   "Erfüllt die Qualitätskriterien für dein Depot zurzeit nicht. Nur beobachten."
+  ],
+  [
+   "t",
+   "Neu prüfen, wenn",
+   "der Umsatz wieder wächst (organisch positiv) und der Kurs über 25.20 $ schliesst."
+  ],
+  [
+   "r",
+   "Abbruch",
+   "Wochenschluss unter 20.90 $ = neues Allzeittief."
+  ],
+  [
+   "",
+   "Nächste Zahlen",
+   "Ende Oktober / Anfang November 2026 (3. Quartal), Datum noch nicht bestätigt."
+  ]
+ ],
+ "bands": [
+  {
+   "from": 24.2,
+   "to": 25.2,
+   "type": "res"
+  },
+  {
+   "from": 21.0,
+   "to": 22.0,
+   "type": "sup"
+  }
+ ],
+ "refs": [
+  {
+   "v": 20.9,
+   "label": "Abbruch 20.90"
+  }
+ ],
+ "sources": "<a href=\"https://stockanalysis.com/stocks/khc/financials/\" target=\"_blank\" rel=\"noopener\">StockAnalysis.com</a> (Stand 08.10.2026), <a href=\"https://www.sec.gov/Archives/edgar/data/0001637459/000163745926000052/ex991-erq22026.htm\" target=\"_blank\" rel=\"noopener\">Kraft Heinz Q2 2026</a>, <a href=\"https://www.marketbeat.com/stocks/NASDAQ/KHC/insider-trades/\" target=\"_blank\" rel=\"noopener\">Insider (MarketBeat)</a>."
+}

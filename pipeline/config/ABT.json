@@ -1,0 +1,419 @@
+{
+ "ticker": "ABT",
+ "name": "Abbott",
+ "datum": "11.10.2026",
+ "meta": "Abbott Laboratories · NYSE: ABT · Medizintechnik (Diabetes-Sensoren FreeStyle Libre, Herz), Diagnostik, Nahrung, Generika · USA",
+ "price": "99.60 $",
+ "pricemeta": "Schluss 09.10.2026 · 52 Wochen: 81.97 – 135.13 $ · Hoch 142.60 $ (März 2025)",
+ "verdict": "Abbott ist ein breit aufgestellter Gesundheitskonzern und Dividenden-König (54 Erhöhungen in Folge), hat aber ein schwieriges Jahr: Rückruf bei den Libre-Sensoren, Klagen zur Säuglingsnahrung und ein teurer Kauf (Exact Sciences) auf Kredit. Qualität gelb (48), Timing orange (43). Nach dem Tief im Mai (81.97 $) und der Erholung bis 117 $ ist der Kurs auf 95–100 $ zurückgefallen, genau in die Mitte der Aufwärtsbewegung. Ein Tagesschluss über 101 $ wäre das erste Signal, aber erst die Zahlen am 21. Oktober abwarten.",
+ "about": "Abbott verkauft in vier Bereichen: Medizintechnik (vor allem die Zuckermess-Sensoren FreeStyle Libre, dazu Herzschrittmacher, Herzklappen und Gefässtechnik), Diagnostik (Labor- und Schnelltests, seit März 2026 mit Exact Sciences auch Krebs-Früherkennung wie Cologuard), Nahrung (Säuglingsnahrung Similac, Ensure) und Markenmedikamente (Generika in Schwellenländern). Die Medizintechnik ist mit rund 9 % Wachstum der Motor, die Nahrung schrumpft.",
+ "why": "Im März 2025 stand die Aktie auf dem Rekord von 142.60 $. Danach kamen mehrere schlechte Nachrichten: Im November 2025 ein grosser Rückruf von Libre-3-Sensoren (rund 3 Mio. Stück, von der US-Behörde FDA als schwerste Klasse eingestuft). Am 22. Januar 2026 enttäuschten die Zahlen (Umsatz unter den Erwartungen, Nahrung −9 %), die Aktie fiel an einem Tag bis zu 11 %. Im März übernahm Abbott Exact Sciences für über 20 Mrd. $, bezahlt fast ganz mit neuen Schulden. Im April senkte Abbott darum die Gewinnprognose. Anfang Mai bestätigte ein Gericht eine Strafe von 495 Mio. $ wegen Säuglingsnahrung (NEC-Klagen): Am 11. Mai fiel die Aktie auf 81.97 $. Danach drehte sie: gute Zahlen im Juli (Prognose erhöht) und im August ein Vergleich über rund 670 Mio. $, der viele Klagen beendet. Bis Ende August stieg der Kurs auf 117 $. Seither fiel er wieder auf rund 100 $. Einen einzelnen klaren Auslöser dafür gibt es nicht, im September kamen ein weiterer Vergleich mit dem US-Justizministerium (385 Mio. $) und Sorgen um das schwache Nahrungsgeschäft. Wichtig: Das Kerngeschäft wächst noch, aber langsamer (vergleichbar rund 4 bis 5 % statt früher 7 bis 10 %).",
+ "kpis": [
+  [
+   "w",
+   "Umsatzwachstum",
+   "+8.1 %",
+   "Letzte 12 Monate, ausgewiesen. Ein Teil kommt vom Kauf von Exact Sciences. Ohne Zukauf (vergleichbar) nur +3.7 % und +4.8 % in den ersten beiden Quartalen 2026."
+  ],
+  [
+   "w",
+   "Operative Marge",
+   "17.7 %",
+   "Von 100 $ Umsatz bleiben knapp 18 $ Betriebsgewinn (ausgewiesen, nach Abschreibungen auf Zukäufe). 2021 waren es 21.4 %. Mittel und sinkend."
+  ],
+  [
+   "w",
+   "Gewinn pro Aktie (bereinigt)",
+   "5.26 $",
+   "Letzte 12 Monate. 2023: 4.44 $, 2025: 5.15 $. Prognose 2026: 5.45 bis 5.60 $, also rund +7 %."
+  ],
+  [
+   "b",
+   "ROIC",
+   "7.5 %",
+   "Auf 100 $ investiertes Kapital 7.50 $ Gewinn. 2021 waren es 17.5 %. Gesunken, vor allem durch den teuren Kauf von Exact Sciences."
+  ],
+  [
+   "g",
+   "Free Cashflow",
+   "7.8 Mrd. $",
+   "Letzte 12 Monate, klar positiv und wieder steigend (2023: 5.1 Mrd. $)."
+  ],
+  [
+   "w",
+   "Nettoschulden / EBITDA",
+   "2.3",
+   "Vor dem Kauf von Exact Sciences 0.4. Jetzt rund 27 Mrd. $ Nettoschulden: tragbar, aber nicht mehr so solide wie früher."
+  ],
+  [
+   "g",
+   "KGV (bereinigt)",
+   "18.9",
+   "Du zahlst knapp 19 bereinigte Jahresgewinne. Eigener 5-Jahres-Schnitt rund 24. Also gut 20 % günstiger als üblich. Ausgewiesen (mit Abschreibungen) liegt das KGV bei 32."
+  ],
+  [
+   "g",
+   "Dividende",
+   "2.5 %",
+   "0.63 $ pro Quartal. 54 Jahre in Folge erhöht (Dividenden-König). Rund die Hälfte des bereinigten Gewinns wird ausgeschüttet."
+  ]
+ ],
+ "revtitle": "Umsatz pro Quartal (Mrd. $)",
+ "revnote": "Alle 4 letzten Quartale über Vorjahr. Der Sprung im 2. Quartal 2026 (+13 %) kommt vor allem vom Kauf von Exact Sciences.",
+ "margintitle": "Operative Marge pro Jahr (ausgewiesen)",
+ "marginnote": "Ausgewiesene Marge, also nach Abschreibungen auf Zukäufe. Seit 2021 eher sinkend. Abbott selbst rechnet mit einer bereinigten Marge über 20 %.",
+ "finnote": "<b>Hinweis:</b> EPS und KGV bereinigt (ohne Abschreibungen auf Zukäufe und Einmaleffekte), so wie Abbott und die Analysten rechnen. Ausgewiesenes EPS: 2022 3.91 $, 2023 3.26 $, 2024 7.64 $ (Steuer-Sondereffekt), 2025 3.72 $. Die KGV-Werte der Vorjahre sind mit dem Jahresschlusskurs gerechnet und gerundet.",
+ "pecol": "KGV bereinigt",
+ "FIN": [
+  [
+   "2022",
+   43653,
+   "+1.3 %",
+   "20.9 %",
+   5.34,
+   7804,
+   "17.0 %",
+   "20.6"
+  ],
+  [
+   "2023",
+   40109,
+   "−8.1 %",
+   "18.0 %",
+   4.44,
+   5059,
+   "13.5 %",
+   "24.8"
+  ],
+  [
+   "2024",
+   41950,
+   "+4.6 %",
+   "17.9 %",
+   4.67,
+   6351,
+   "14.6 %",
+   "24.2"
+  ],
+  [
+   "2025",
+   44328,
+   "+5.7 %",
+   "20.1 %",
+   5.15,
+   7395,
+   "12.1 %",
+   "24.3"
+  ],
+  [
+   "Letzte 12 Mt.",
+   46585,
+   "+8.1 %",
+   "17.7 %",
+   5.26,
+   7824,
+   "7.5 %",
+   "18.9"
+  ]
+ ],
+ "QREV": [
+  [
+   "Q3 24",
+   10.64
+  ],
+  [
+   "Q4 24",
+   10.97
+  ],
+  [
+   "Q1 25",
+   10.36
+  ],
+  [
+   "Q2 25",
+   11.14
+  ],
+  [
+   "Q3 25",
+   11.37
+  ],
+  [
+   "Q4 25",
+   11.46
+  ],
+  [
+   "Q1 26",
+   11.16
+  ],
+  [
+   "Q2 26",
+   12.59
+  ]
+ ],
+ "revdec": 2,
+ "MARGIN": [
+  [
+   "2021",
+   21.4
+  ],
+  [
+   "2022",
+   20.9
+  ],
+  [
+   "2023",
+   18.0
+  ],
+  [
+   "2024",
+   17.9
+  ],
+  [
+   "2025",
+   20.1
+  ],
+  [
+   "12 Mt.",
+   17.7
+  ]
+ ],
+ "Q": [
+  [
+   "Umsatztrend",
+   "4 von 4 Quartalen über Vorjahr, Beschleunigung nur durch Zukauf",
+   12,
+   15
+  ],
+  [
+   "Wachstumstempo",
+   "Vergleichbar (ohne Zukauf) rund 4.3 % im 1. Halbjahr 2026",
+   3,
+   10
+  ],
+  [
+   "Operative Marge",
+   "17.7 % (6 Pkt.), seit 2021 sinkend (0 Pkt.)",
+   6,
+   15
+  ],
+  [
+   "Gewinnwachstum (EPS)",
+   "Bereinigt 2023–2025 rund +8 % pro Jahr, Prognose 2026 +7 %",
+   5,
+   10
+  ],
+  [
+   "Free Cashflow",
+   "Positiv, schwankend (Tief 2023, seither steigend)",
+   6,
+   10
+  ],
+  [
+   "ROIC",
+   "7.5 %, stark fallend (Zukauf)",
+   1,
+   15
+  ],
+  [
+   "Schulden",
+   "Nettoschulden/EBITDA 2.3",
+   5,
+   10
+  ],
+  [
+   "Bewertung vs. eigene Historie",
+   "Bereinigtes KGV 18.9 statt Ø rund 24 (über 20 % günstiger)",
+   10,
+   15
+  ]
+ ],
+ "adwnote": "Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Seit dem Tief im Mai (1'296) steigt die Wochen-A/D wieder. Heute (1'360) steht sie gleich hoch wie im Juli bei gleichem Kurs (100.68 $, 1'362): neutral, kein klarer Verkaufsdruck.",
+ "rsiwnote": "Unter 30 überverkauft, über 70 überkauft. Im Mai bei 18 (stark überverkauft), im August 67, heute 46: neutral.",
+ "addnote": "Wichtig: Am Tief vom 17.9. (100.33 $) lag die Tages-A/D bei −137. Am tieferen Tief vom 2.10. (95.06 $) lag sie mit −128 höher, heute bei −121. Tieferer Kurs, höhere A/D: Käufer nehmen die Aktie auf (bullische Divergenz).",
+ "ind": [
+  [
+   "Kurs vs. EMA 50",
+   "99.6 &lt; 102.7",
+   "99.6 &lt; 106.6",
+   "Unter der mittelfristigen Linie."
+  ],
+  [
+   "Kurs vs. EMA 200",
+   "99.6 &lt; 105.4",
+   "99.6 &lt; 111.3",
+   "Unter der langfristigen Linie."
+  ],
+  [
+   "EMA 50 vs. EMA 200",
+   "50 unter 200 (seit 3.12.2025)",
+   "50 unter 200 (seit 18.5.2026)",
+   "Abwärtstrend auf beiden Ebenen."
+  ],
+  [
+   "RSI (14)",
+   "42.3",
+   "45.9",
+   "Neutral, am 2.10. bei 30."
+  ],
+  [
+   "A/D",
+   "höher am tieferen Tief (bullisch)",
+   "seit Mai steigend, heute neutral",
+   "Tag positiv, Woche neutral."
+  ],
+  [
+   "Volumen",
+   "Ø 20 Tage 9.4 Mio. vs. Ø 100 Tage 10.8 Mio.",
+   "Ruhiger Rücksetzer, kein Ausverkauf."
+  ]
+ ],
+ "smc": "Vom Mai-Tief (81.97 $) bis Ende August lief Abbott sauber aufwärts: höhere Tiefs (84.96 → 87.07 → 87.64 → 102.89 $) und höhere Hochs (89.34 → 92.73 → 98.14 → 110.04 → 117.34 $). Seit dem Hoch vom 24.8. kam ein Rücksetzer mit tieferen Hochs (117.34 → 104.54 → 100.95 $) und tieferen Tiefs (100.33 → 95.06 $). Das Tief vom 2.10. (95.06 $) liegt genau bei 62 % der Aufwärtsbewegung (Fibonacci), die Mitte (50 %) liegt bei 99.65 $. Der Kurs steht also im Discount, dem günstigen Teil der Bewegung. Ein Tagesschluss über 101 $ (Hoch vom 6.10.) wäre der Change of Character, über 104.54 $ die Bestätigung.",
+ "zones": [
+  [
+   "r",
+   "110–117 $",
+   "Widerstand: Hochs von Ende Juli und August."
+  ],
+  [
+   "r",
+   "104.5–107 $",
+   "Widerstand: Hoch vom 22.9., EMA 200 Tag (105.4 $) und EMA 50 Woche (106.6 $)."
+  ],
+  [
+   "t",
+   "101 $",
+   "<b>Trigger:</b> Tagesschluss über dem Hoch vom 6.10. (100.95 $)."
+  ],
+  [
+   "s",
+   "95–100 $",
+   "<b>Kaufzone 1:</b> 50–62 % der Aufwärtsbewegung, Tief vom 2.10."
+  ],
+  [
+   "s",
+   "87–90 $",
+   "<b>Kaufzone 2:</b> Tiefs von Juni und Juli."
+  ],
+  [
+   "r",
+   "94 $",
+   "Abbruch: Wochenschluss darunter, dann ist die Erholung seit Mai in Frage gestellt."
+  ]
+ ],
+ "smart": [
+  "<b>Abbott selbst:</b> Kaum Aktienrückkäufe (Aktienzahl −0.1 % in einem Jahr), das Geld geht in die Dividende und den Schuldenabbau. Rund 6.7 Mrd. $ Rückkauf-Rahmen wären noch offen.",
+  "<b>Insider-Käufe:</b> CEO Robert Ford kaufte am 23.1.2026 18'800 Aktien zu 107.13 $ (rund 2 Mio. $). Ein Verwaltungsrat kaufte am 4.2. (108.73 $) und am 27.4.2026 (92.65 $) je 10'000 Aktien. Echte Käufe mit eigenem Geld.",
+  "<b>Insider-Verkäufe:</b> Der CEO übte am 25.8.2026 nahe am Hoch Optionen aus und verkaufte rund 399'000 Aktien zu rund 116 $ (rund 46 Mio. $).",
+  "<b>Fonds und Analysten:</b> Die Zahl der Hedgefonds mit Abbott stieg im 2. Quartal von 73 auf 86. 28 Analysten: im Schnitt «Kaufen», Kursziel rund 119 bis 121 $."
+ ],
+ "seasnote": "Durchschnittliche Monatsrendite in %. Über 40 Jahre Daten (seit 1985). Oktober bis Dezember sind solide (60–71 % positive Jahre), der November ist mit +2.0 % am stärksten.",
+ "T": [
+  [
+   "Trend Woche (EMA 50/200)",
+   "Kurs unter beiden, EMA 50 unter 200 seit Mai",
+   2,
+   20
+  ],
+  [
+   "Trend Tag (EMA 50/200)",
+   "Kurs knapp unter beiden, EMAs flachen ab",
+   2,
+   10
+  ],
+  [
+   "Struktur (SMC)",
+   "Höhere Tiefs seit Mai, Rücksetzer bis in den Discount (62 %)",
+   9,
+   20
+  ],
+  [
+   "RSI Tag/Woche",
+   "42 / 46, Tag am 2.10. bei 30 und dreht",
+   8,
+   15
+  ],
+  [
+   "A/D Tag/Woche",
+   "Tag bullische Divergenz, Woche neutral",
+   11,
+   20
+  ],
+  [
+   "Smart Money",
+   "Insider-Kauf im April, aber grosser CEO-Verkauf im August",
+   6,
+   10
+  ],
+  [
+   "Saisonalität",
+   "Oktober bis Dezember 60–71 % positiv",
+   5,
+   5
+  ]
+ ],
+ "pro": [
+  "Breit aufgestellt: Medizintechnik, Diagnostik, Nahrung und Medikamente.",
+  "FreeStyle Libre ist Weltmarktführer bei Zuckermess-Sensoren und wächst weiter.",
+  "Dividenden-König: 54 Jahre in Folge erhöht, Rendite 2.5 %.",
+  "Bereinigt rund 20 % günstiger als im eigenen 5-Jahres-Schnitt.",
+  "Insider haben 2026 mit eigenem Geld gekauft, die meisten NEC-Klagen sind verglichen."
+ ],
+ "con": [
+  "Das vergleichbare Wachstum ist auf 4 bis 5 % gefallen, das Nahrungsgeschäft schrumpft.",
+  "Der Kauf von Exact Sciences hat die Schulden stark erhöht und den ROIC gedrückt.",
+  "Noch rund 1'700 Klagen zur Säuglingsnahrung offen.",
+  "Rückruf bei Libre-3-Sensoren: Vertrauen und Image angekratzt.",
+  "Für die Jahresprognose muss das 2. Halbjahr deutlich stärker wachsen (rund 9 %)."
+ ],
+ "todo": [
+  [
+   "t",
+   "Beobachten",
+   "Alarm bei 101 $ (Trigger) und 95 $ (unteres Ende Kaufzone 1)."
+  ],
+  [
+   "s",
+   "Timing grün",
+   "Erst die Zahlen am 21.10. abwarten. Danach Tagesschluss über 101 $ und über 104.54 $ mit steigender A/D. Oder ein Test von 95–100 $, der hält."
+  ],
+  [
+   "r",
+   "Abbruch",
+   "Wochenschluss unter 94 $."
+  ],
+  [
+   "",
+   "Nächste Zahlen",
+   "21. Oktober 2026 vor US-Börsenbeginn (3. Quartal). Entscheidend: vergleichbares Wachstum, Nahrung, Libre und ob die Jahresprognose hält (bereinigtes EPS Q3: 1.38–1.46 $)."
+  ]
+ ],
+ "bands": [
+  {
+   "from": 110,
+   "to": 117,
+   "type": "res"
+  },
+  {
+   "from": 104.5,
+   "to": 107,
+   "type": "res"
+  },
+  {
+   "from": 95,
+   "to": 100,
+   "type": "sup"
+  },
+  {
+   "from": 87,
+   "to": 90,
+   "type": "sup"
+  }
+ ],
+ "refs": [
+  {
+   "v": 101,
+   "label": "Trigger 101"
+  }
+ ],
+ "sources": "<a href=\"https://stockanalysis.com/stocks/abt/financials/\" target=\"_blank\" rel=\"noopener\">StockAnalysis.com</a> (Stand 11.10.2026), <a href=\"https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000001800&type=8-K\" target=\"_blank\" rel=\"noopener\">Abbott 8-K Quartalsberichte (SEC)</a>, <a href=\"https://www.justice.gov/\" target=\"_blank\" rel=\"noopener\">US-Justizministerium (Vergleich 14.9.2026)</a>, <a href=\"https://www.marketbeat.com/stocks/NYSE/ABT/insider-trades/\" target=\"_blank\" rel=\"noopener\">Insider (MarketBeat)</a>."
+}

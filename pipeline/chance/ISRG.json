@@ -1,0 +1,31 @@
+{
+ "ticker": "ISRG",
+ "sorgen": [
+  "Die Zahl der da-Vinci-Operationen in den USA wuchs im 2. Quartal 2026 nur noch um rund 12 %, so langsam wie seit 2021 nicht mehr (erwartet waren 13.2 %).",
+  "Abnehmspritzen (GLP-1) lassen Magenverkleinerungen schrumpfen: Diese da-Vinci-Eingriffe fielen in den USA im hohen einstelligen Prozentbereich. Auslaufende staatliche Zuschüsse zur Krankenversicherung (ACA) kosteten laut Firma zusätzlich etwas Wachstum.",
+  "Neue Konkurrenz (Medtronic Hugo, Johnson & Johnson Ottava), Preisdruck in China und Zölle. Für das 2. Halbjahr 2027 plant Intuitive ein Programm, mit dem Instrumente öfter benutzt werden können. Das wirkt wie eine Preissenkung beim Verbrauchsmaterial.",
+  "Nach den Zahlen im Juli 2026 fiel die Aktie trotz besserer Zahlen als erwartet um rund 12 % auf ein 2-Jahres-Tief, weil die Firma die Prognose nur bestätigte und nicht erhöhte."
+ ],
+ "sorgen_art": "stimmung",
+ "sorgen_art_text": "Umsatz (+19 %) und Marge steigen weiter; gefallen ist vor allem der Preis, den die Börse für das Wachstum bezahlt (KGV von rund 72 im 5-Jahres-Schnitt auf rund 49), auch wenn die Bremsspuren in den USA echt sind.",
+ "aufloeser": [
+  {"was": "US-Operationen wachsen wieder über 12 %, Jahresprognose (13.5–15.5 % mehr da-Vinci-Operationen) bestätigt oder erhöht", "wann": "Zahlen 20.10.2026"},
+  {"was": "Ausblick 2027 zeigt weiterhin rund 13–15 % Wachstum bei den Operationen", "wann": "Zahlen 4. Quartal, voraussichtlich Ende Januar 2027"},
+  {"was": "Klarheit, wie stark das Instrumenten-Programm die Marge drückt", "wann": "2027"},
+  {"was": "Erste Zahlen zeigen, dass Konkurrenten wie Hugo und Ottava kaum Marktanteile holen", "wann": "2026–2027"}
+ ],
+ "schub_stufe": "mittel",
+ "schub_treiber": [
+  {"titel": "Upgrade-Welle da Vinci 5", "text": "Der neue Roboter da Vinci 5 kann z. B. dem Chirurgen spürbar zurückmelden, wie fest er drückt. Im 2. Quartal 2026 wurden 246 Stück platziert (Vorjahr 180), 2025 total 870. Viele der 11'710 installierten Systeme werden über die Jahre ersetzt, das bringt Umsatz und mehr Operationen pro Roboter.", "wann": "2026–2028"},
+  {"titel": "Ion für Lungen-Biopsien", "text": "Mit Ion nimmt der Arzt Gewebeproben tief in der Lunge. Die Ion-Eingriffe wuchsen im 2. Quartal 2026 um 36 %, installiert sind 1'096 Systeme (+21 %). Noch klein im Verhältnis zu da Vinci, wächst aber mehr als doppelt so schnell.", "wann": "2026–2028"},
+  {"titel": "Herz-Eingriffe und Ausland", "text": "Seit Januar 2026 ist da Vinci 5 in den USA für mehrere Herz-Eingriffe zugelassen, die Einführung läuft laut Firma bewusst langsam. Ausserhalb der USA wuchsen die Operationen im 2. Quartal um rund 20 %.", "wann": "2026–2029"}
+ ],
+ "schub_beweis": "Bei den Zahlen am 20.10.: da-Vinci-Operationen weltweit mindestens rund 15 % und in den USA wieder über 12 %. Dazu die Zahl der platzierten da Vinci 5 (2. Quartal: 246) und ein Ion-Wachstum über 30 %.",
+ "szenario": "Chancen-Szenario: Wie bei Google 2023 unterschätzt die Börse den Vorsprung des Marktführers. Wenn da Vinci 5, Ion und das Ausland die US-Delle ausgleichen und die Operationen stabil um rund 15 % wachsen, kann das KGV wieder steigen, während der Gewinn ohnehin weiter wächst. Grösstes Risiko: Abnehmspritzen, Konkurrenz und Preisnachlässe bremsen das Wachstum dauerhaft unter 12 %; dann ist selbst ein KGV um 49 noch teuer.",
+ "quellen": [
+  {"titel": "Intuitive: Announces Second Quarter Earnings 2026", "url": "https://investor.intuitivesurgical.com/news-releases/news-release-details/intuitive-announces-second-quarter-earnings-6"},
+  {"titel": "MD+DI: GLP-1s & Expiring ACA Subsidies Negatively Impact Intuitive's da Vinci Procedures (17.07.2026)", "url": "https://www.mddionline.com/surgical/glp-1s-expiring-aca-subsidies-negatively-impact-intuitive-s-da-vinci-procedures"},
+  {"titel": "Börse Express: Intuitive Surgical Aktie: 12 Prozent US-Wachstum bremst (21.07.2026)", "url": "https://www.boerse-express.com/news/articles/intuitive-surgical-aktie-12-prozent-us-wachstum-bremst-930398"},
+  {"titel": "MD+DI: Intuitive's da Vinci 5 Secures FDA Cardiac Clearance (23.01.2026)", "url": "https://www.mddionline.com/robotics/intuitive-s-da-vinci-5-secures-fda-cardiac-clearance"}
+ ]
+}

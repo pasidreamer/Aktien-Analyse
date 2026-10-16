@@ -1,0 +1,31 @@
+{
+ "ticker": "NESN",
+ "sorgen": [
+  "Am 23.07.2026 meldete Nestlé für das 1. Halbjahr einen Reingewinn von 3.47 Mrd. CHF, 31 % weniger als im Vorjahr und klar unter den Erwartungen. Grund war vor allem eine Abschreibung (Wertberichtigung auf Geschäfte, die verkauft werden) von rund 1.3–1.4 Mrd. CHF. Die Aktie fiel am Tag um über 6 %.",
+  "Die Marge (Betriebsgewinn pro 100 Franken Umsatz) lag bei 16.4 % und damit leicht unter Vorjahr. Nestlé erwartet für das 2. Halbjahr keine Verbesserung mehr, früher war eine stärkere zweite Jahreshälfte versprochen.",
+  "Der starke Franken frisst den Umsatz: Im 1. Halbjahr sank der Umsatz in Franken um 2.5 %, obwohl Nestlé organisch (ohne Währungen und Zukäufe) 3.6 % wuchs.",
+  "Dazu kommen hohe Nettoschulden von rund 51 Mrd. CHF, US-Zölle, Mehrkosten durch den Nahost-Konflikt (Transport, Energie) und ein Rückruf von Babynahrung, der das Wachstum im 1. Quartal um rund 0.9 Prozentpunkte gebremst hat."
+ ],
+ "sorgen_art": "gemischt",
+ "sorgen_art_text": "Die Menge (RIG, also wie viel mehr Ware verkauft wird) steigt wieder (1. Halbjahr +1.5 % nach +0.2 % im Vorjahr), aber Marge, Schulden und Franken sind echte, wenn auch lösbare Baustellen.",
+ "aufloeser": [
+  {"was": "Die Menge (RIG) steigt im 3. Quartal weiter Richtung 2 % und Nestlé bestätigt das Jahresziel (organisches Wachstum 3–4 %)", "wann": "Umsatz nach 9 Monaten, 22.10.2026"},
+  {"was": "Die Marge steigt für das ganze Jahr 2026 über 16.1 % (Wert 2025), und das Sparprogramm erreicht wie geplant 2 Mrd. CHF für 2026", "wann": "Jahreszahlen, voraussichtlich Februar 2027"},
+  {"was": "Der Verkauf der Hälfte des Wassergeschäfts (Joint Venture «Peranel» mit Platinum Equity) bringt laut Firma rund 2.8 Mrd. CHF Bargeld und senkt die Schulden", "wann": "Abschluss erwartet 1. Halbjahr 2027"},
+  {"was": "Der Rückruf bei Babynahrung ist laut Firma bis Ende Jahr verdaut, Kaffee und Tiernahrung (Purina) wachsen wieder normal", "wann": "Ende 2026 / Anfang 2027"}
+ ],
+ "schub_stufe": "schwach",
+ "schub_treiber": [
+  {"titel": "Sparprogramm und Fokus auf die Kernmarken", "text": "Der neue Chef Philipp Navratil (seit September 2025) streicht rund 16'000 Stellen und will bis Ende 2027 insgesamt 3 Mrd. CHF Kosten sparen, davon waren im 1. Halbjahr 2026 schon 1.7 Mrd. erreicht. Das Geld soll in Werbung und Innovation fliessen. Das hebt vor allem die Marge, macht Nestlé aber nicht zu einem schnell wachsenden Konzern.", "wann": "2026–2027"},
+  {"titel": "Schlankere Firma durch Verkäufe", "text": "Nestlé gibt Teile des Wassergeschäfts und laut Berichten auch Teile der Glacé ab. Übrig bleiben die stärksten Bereiche wie Kaffee, Tiernahrung und Ernährung. Das kann das Wachstum leicht anheben, der Effekt ist aber klein im Verhältnis zur Grösse von Nestlé (über 85 Mrd. CHF Umsatz).", "wann": "2027"}
+ ],
+ "schub_beweis": "Achte vor allem auf die Menge (RIG): zuletzt +1.8 % im 2. Quartal. Steigt sie Richtung 2–3 % und gleichzeitig die Marge über 16.5 %, wirkt der Umbau.",
+ "szenario": "Kein Fall wie Google 2023, eher eine langsame Erholung: Wenn Menge und Marge steigen und der Wasser-Verkauf die Schulden senkt, kann die Börse Nestlé wieder näher an den eigenen Schnitt (KGV um 20 statt rund 16) bewerten, plus 4 % Dividende. Grösstes Risiko: Der Franken bleibt stark und die Marge kommt nicht vom Fleck, dann bleibt die Aktie trotz tiefer Bewertung liegen.",
+ "quellen": [
+  {"titel": "Vermögenszentrum/Reuters: Nestle half-year profit disappoints, strikes deal to sell waters stake (23.07.2026)", "url": "https://www.vermoegenszentrum.ch/en/stock-exchange-and-markets/news/nestle-half-year-profit-disappoints-strikes-deal-sell-waters-stake"},
+  {"titel": "blue News: Nestlé gains momentum in sales volume and reaffirms outlook (23.07.2026)", "url": "https://www.bluewin.ch/en/news/nestle-gains-momentum-in-sales-volume-and-reaffirms-outlook-li.3538627"},
+  {"titel": "Nestlé: Nine-month sales 2026 Aide-mémoire (September 2026)", "url": "https://www.nestle.com/sites/default/files/2026-09/nine-month-sales-aide-memoire-2026.pdf"},
+  {"titel": "Yahoo Finance: Nestlé plans 16,000 job cuts as new CEO sets out strategy (16.10.2025)", "url": "https://finance.yahoo.com/news/nestl-plans-16-000-job-104236557.html"},
+  {"titel": "cash.ch: Nestlé-Aktie auf 13-Monate-Hoch (21.07.2026)", "url": "https://www.cash.ch/news/top-news/nestle-aktie-auf-13-monate-hoch-bringen-die-quartalszahlen-weiteren-schub-954711"}
+ ]
+}

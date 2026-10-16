@@ -1,0 +1,28 @@
+{
+ "ticker": "ULVR",
+ "sorgen": [
+  "Rohstoffe werden teurer: Unilever rechnet 2026 mit rund 850 Mio. € höheren Kosten, davon rund 550 Mio. € im 2. Halbjahr. Darum will Unilever jetzt mehr über Preise wachsen. Die Börse fragt sich, ob die Kunden dann weniger kaufen (die Menge war zuletzt die grosse Stärke).",
+  "Europa schrumpft (1. Halbjahr −0.5 %), und die Lebensmittel wachsen kaum (+1.2 %), unter anderem wegen Marktanteilsverlusten bei Mayonnaise in den USA.",
+  "Viel Umbau auf einmal: Glacé (Magnum) wurde im Dezember 2025 abgespalten, die Lebensmittel (Knorr, Hellmann's) gehen bis spätestens Mitte 2027 an McCormick. Die Firma wird kleiner, und es ist noch unklar, wie hoch die Restkosten (Kosten, die nach dem Verkauf übrig bleiben) sind.",
+  "In Brasilien tritt am 01.01.2027 eine Steuerreform in Kraft. Unilever warnt, dass Händler im 4. Quartal ihre Lager abbauen könnten, was den Umsatz kurzfristig drückt."
+ ],
+ "sorgen_art": "stimmung",
+ "sorgen_art_text": "Das Geschäft läuft so gut wie seit Jahren nicht (2. Quartal: +5.8 % Wachstum, davon +5.5 % Menge, Prognose angehoben); die Sorgen betreffen vor allem Kosten, Umbau-Risiken und ob das Tempo hält.",
+ "aufloeser": [
+  {"was": "Die Menge wächst trotz Preiserhöhungen weiter um rund 3 % und Unilever bestätigt die angehobene Prognose (Wachstum 4–6 %)", "wann": "Zahlen 3. Quartal, voraussichtlich Ende Oktober 2026 (Datum nicht bestätigt, 2025 war es der 23.10.)"},
+  {"was": "Die Marge steigt trotz teurer Rohstoffe leicht über 20.3 %, wie von der Firma angekündigt", "wann": "Jahreszahlen, voraussichtlich Februar 2027"},
+  {"was": "Der Lebensmittel-Deal mit McCormick wird abgeschlossen: rund 15.7 Mrd. $ in bar plus Aktien der neuen Firma", "wann": "spätestens Mitte 2027"}
+ ],
+ "schub_stufe": "mittel",
+ "schub_treiber": [
+  {"titel": "Reine Pflege- und Haushaltsfirma nach dem Lebensmittel-Verkauf", "text": "Ohne Glacé und Lebensmittel bleiben die schneller wachsenden Bereiche: Haushalt (+9.1 % im 2. Quartal), Schönheit und Wohlbefinden (+8.1 %) und Körperpflege (+5.9 %). Die Lebensmittel wuchsen nur rund 1–2 %. Allein durch das Weglassen der langsamen Teile kann das Wachstum der Rest-Firma leicht steigen.", "wann": "ab Mitte 2027"},
+  {"titel": "Premium-Schönheit und Schwellenländer", "text": "Prestige Beauty (teure Pflege- und Kosmetikmarken) wuchs im 1. Halbjahr um 12 %, dazu kam im Juni der Zukauf von Gruns (Nahrungsergänzung). Die Schwellenländer machen rund 60 % des Umsatzes aus und wuchsen im 2. Quartal um 8.3 %, Indien um 10 %. Das sind echte Treiber, aber sie sind schon im heutigen Tempo enthalten.", "wann": "2026–2028"}
+ ],
+ "schub_beweis": "Achte auf das Mengenwachstum (zuletzt +5.5 % im 2. Quartal, Ziel für 2026 rund 3 %) und auf die Marge (zuletzt 20.3 %). Bleibt die Menge über 3 %, obwohl Unilever die Preise erhöht, hat die Firma echte Preissetzungsmacht.",
+ "szenario": "Kein klassischer Google-Fall, eher ein Umbau, der sich lohnt: Gelingt der Abschied von den Lebensmitteln und wächst die Rest-Firma dauerhaft 5–6 % bei steigender Marge, könnte die Börse Unilever wie die besten Pflegefirmen höher bewerten (heute KGV 16.3, eigener Schnitt 17.6). Grösstes Risiko: Die Preiserhöhungen bremsen die Menge und der Umbau kostet mehr als geplant.",
+ "quellen": [
+  {"titel": "AJ Bell: Unilever lifts full-year view as sales improve ahead of expectations (28.07.2026)", "url": "https://www.ajbell.co.uk/news/articles/unilever-lifts-full-year-view-sales-improve-ahead-expectations"},
+  {"titel": "Motley Fool: Unilever Q2 2026 Earnings Call Transcript (28.07.2026)", "url": "https://www.fool.com/earnings/call-transcripts/2026/07/29/unilever-ul-q2-2026-earnings-call-transcript/"},
+  {"titel": "Powder & Bulk Solids: McCormick to Buy Unilever's Food Business (2026)", "url": "https://www.powderbulksolids.com/food-beverage/mccormick-to-buy-unilever-s-food-business"}
+ ]
+}

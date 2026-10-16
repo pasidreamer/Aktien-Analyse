@@ -1,0 +1,29 @@
+{
+ "ticker": "APP",
+ "sorgen": [
+  "Das Wachstum lässt nach: Im 2. Quartal +53 %, aber unter der eigenen Prognose. Für das 3. Quartal erwartet AppLovin rund +47 %. Grund laut Firma: Das KI-Modell Axon machte wegen eines Umbaus weniger Fortschritte.",
+  "Seit September 2026 läuft eine Sammelklage (Käufer vom 12.02. bis 05.08.2026). Vorwurf, noch unbewiesen: AppLovin habe die KI-Fortschritte zu positiv dargestellt. Die US-Börsenaufsicht SEC hat laut Finanzchef ihre Untersuchung ohne Massnahmen beendet.",
+  "Das neue Geschäft mit Onlinehändlern kommt langsamer voran: AppLovin kann laut Chef noch nicht zuverlässig fertige Video-Werbung erstellen. Die Research-Firma Edgewater meldete im September, dass die Marktanteilsgewinne stocken.",
+  "Der Kurs liegt rund 54 % unter dem Jahresanfang. Das durchschnittliche Analysten-Kursziel fiel von rund 654 $ (Juni) auf rund 498 $ (September)."
+ ],
+ "sorgen_art": "gemischt",
+ "sorgen_art_text": "Die Verlangsamung und die Verzögerungen bei Onlinehändlern sind echt, aber die Firma wächst immer noch über 40 % mit über 80 % EBITDA-Marge, und die Ursache (Modell-Umbau) könnte vorübergehend sein.",
+ "aufloeser": [
+  {"was": "Erstes volles Quartal mit den neuen Axon-Modellen: Umsatz mindestens 2.055–2.085 Mrd. $ wie angekündigt und ein Ausblick für das 4. Quartal ohne weitere Abschwächung", "wann": "Zahlen 3. Quartal, Anfang November 2026 (laut Analyse 04.11.2026)"},
+  {"was": "AppLovin zeigt, dass das Geschäft mit Onlinehändlern messbar wächst (z. B. eigene Zahlen zu Kunden oder Umsatzanteil)", "wann": "Zahlen November 2026 und Februar 2027"},
+  {"was": "Die Sammelklage verliert an Bedeutung oder wird abgewiesen (nächster Verfahrensschritt: Frist für den Hauptkläger am 16.11.2026)", "wann": "Ab 16.11.2026, Verfahren dauert meist Jahre"}
+ ],
+ "schub_stufe": "mittel",
+ "schub_treiber": [
+  {"titel": "Werbeplattform für alle Firmen (Self-Serve)", "text": "Seit Ende Juni 2026 kann jede Firma selbst Werbung über AppLovin schalten, nicht mehr nur Spielefirmen. Die Ausgaben von Onlinehändlern erreichten im 2. Quartal einen Rekord, 28 % über dem 4. Quartal 2025. Die Firma schätzte früher, 100'000 neue Kunden könnten rund 7 Mrd. $ Werbeausgaben im ersten Jahr bringen; zum Vergleich: Der ganze Umsatz im 2. Quartal lag bei 1.92 Mrd. $.", "wann": "2026–2028"},
+  {"titel": "Neue Axon-Modelle", "text": "Nach dem 2. Quartal wurden grössere Verbesserungen am KI-Modell Axon eingeführt. Das 3. Quartal ist das erste volle Quartal damit. Bessere Modelle bedeuten bei AppLovin direkt mehr Umsatz, weil pro Erfolg bezahlt wird.", "wann": "ab 3. Quartal 2026"},
+  {"titel": "KI erstellt Werbevideos automatisch", "text": "Laut Chef ist die Herstellung von Werbung der grösste Engpass für neue Kunden. Gelingt es, 30–60 Sekunden lange Videos automatisch zu erstellen, öffnet sich der Markt für viele mittlere und grosse Marken. Noch ist das aber nicht so weit.", "wann": "2027"}
+ ],
+ "schub_beweis": "Achte auf das Umsatzwachstum zum Vorquartal (Ausblick 3. Quartal: rund +7 %) und auf den Ausblick für das 4. Quartal. Steigt das Wachstum wieder und nennt AppLovin erstmals Zahlen zum Geschäft mit Onlinehändlern, kommt der Schub.",
+ "szenario": "Wie Google 2023: Die Börse glaubt, die Wachstumsgeschichte sei vorbei, und bewertet AppLovin mit einem erwarteten KGV von rund 16 statt früher rund 47. Zeigen die neuen Axon-Modelle und das Geschäft mit Onlinehändlern Wirkung, könnte sich diese Bewertung deutlich erholen. Grösstes Risiko: Das Wachstum fällt weiter, Konkurrenz (zum Beispiel neue Werbe-Werkzeuge von Meta) und Klagen belasten, und die Firma bleibt von einem einzigen Produkt sowie von den Regeln von Apple und Google abhängig.",
+ "quellen": [
+  {"titel": "TIKR: AppLovin stock is down 54% in 2026 and facing a class action (27.09.2026)", "url": "https://www.tikr.com/ja/blog/applovin-stock-is-down-54-in-2026-and-facing-a-class-action-heres-where-it-could-go"},
+  {"titel": "Common Thread Co: AppLovin Q2 2026 – AI model pause and record ecommerce spending", "url": "https://commonthreadco.com/blogs/coachs-corner/applovin-q2-2026-earnings-ecommerce-advertisers"},
+  {"titel": "Finsee: AppLovin (APP) Q2 2026 earnings review", "url": "https://finsee.ai/earnings/app/2026/q2/en/"}
+ ]
+}

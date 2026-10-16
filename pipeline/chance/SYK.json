@@ -1,0 +1,31 @@
+{
+ "ticker": "SYK",
+ "sorgen": [
+  "Ein Hackerangriff im März 2026 legte Teile der Produktion lahm. Die Kosten für das Aufräumen drücken laut Firma bis Ende 2026 auf die Marge.",
+  "Im Gefässgeschäft (Peripheral Vascular, ehemals Inari) fehlt Ware. Das kostet laut Firma 0.7–0.8 Prozentpunkte Wachstum im 2. und 3. Quartal, im 4. Quartal ähnlich viel. Stryker verliert dort Marktanteile, weil es Kunden nicht voll beliefern kann.",
+  "Der Gelenkersatz lief im Sommer schwächer, vor allem Hüften in Europa. In den USA drohen zudem tiefere Medicare-Vergütungen (staatliche Krankenkasse für Ältere) für Hüft- und Knieoperationen.",
+  "Die Börse zweifelt, ob das Jahresziel von 8.3–9.3 % organischem Wachstum (ohne Zukäufe und Währungen) noch klappt. Die Aktie fiel vom 52-Wochen-Hoch bei 393 $ auf rund 285 $."
+ ],
+ "sorgen_art": "gemischt",
+ "sorgen_art_text": "Die Probleme sind echt (fehlende Ware, Folgen des Hackerangriffs), betreffen aber vor allem die Lieferung und nicht die Nachfrage und sollten laut Firma vorübergehend sein.",
+ "aufloeser": [
+  {"was": "Zahlen zum 3. Quartal: Jahresziel bestätigt und Rückstände im Gefässgeschäft auf ein normales Mass gesunken (so hat es die Firma angekündigt)", "wann": "Zahlen 29.10.2026"},
+  {"was": "Gefässgeschäft wächst wieder, Lieferprobleme gelöst", "wann": "Zahlen 4. Quartal, voraussichtlich Ende Januar 2027"},
+  {"was": "Ausblick 2027 mit wieder rund 8–9 % organischem Wachstum und steigender Marge", "wann": "Ende Januar 2027"},
+  {"was": "Klarheit über die Medicare-Vergütung für Gelenkoperationen (Firma hofft auf einen Kompromiss)", "wann": "Endgültige US-Regeln für 2027, üblicherweise im November 2026"}
+ ],
+ "schub_stufe": "mittel",
+ "schub_treiber": [
+  {"titel": "Mako-Roboter: Schulter und mehr", "text": "Mako ist Strykers OP-Roboter für Knie und Hüfte. Bis Mitte 2026 wurden über 2.5 Mio. Operationen damit gemacht, das 2. Quartal 2026 war das beste je. Die Schulter-Version soll im 2. Halbjahr 2026 voll eingeführt werden. Jeder neue Roboter bindet das Spital an Strykers Implantate.", "wann": "2026–2028"},
+  {"titel": "Gefässgeschäft (Inari) nach den Lieferproblemen", "text": "Mit Inari kaufte Stryker Katheter, die Blutgerinnsel aus Venen und Lunge entfernen. Der Markt wächst schnell. Laut Firma ist das Problem die Lieferung, nicht die Nachfrage: Sind die Rückstände weg, fällt die Bremse von 0.7–0.8 Prozentpunkten weg.", "wann": "ab 2027"},
+  {"titel": "Volle Auftragsbücher bei Spitalausrüstung", "text": "Die Bestellungen für Spitalausrüstung (OP-Technik, Betten, Mako) sind laut Firma stark, der Auftragsbestand ist hoch. Werden sie ausgeliefert, kommt der Umsatz mit Verzögerung. Analysten fragen aber, wie schnell das gelingt.", "wann": "2. Halbjahr 2026–2027"}
+ ],
+ "schub_beweis": "Bei den Zahlen am 29.10.: organisches Wachstum mindestens im Zielbereich 8.3–9.3 %, das Gefässgeschäft (Peripheral Vascular) wieder im Plus und die bereinigte operative Marge über dem Vorjahr (2. Quartal: 27.4 %).",
+ "szenario": "Chancen-Szenario: Wie bei Google 2023 merkt die Börse, dass das Kerngeschäft nie kaputt war. Sind Hackerfolgen und Lieferprobleme bis Anfang 2027 gelöst, könnte das erwartete KGV (Kurs geteilt durch Gewinn) von rund 18 zurück Richtung eigener Schnitt von rund 26 steigen. Grösstes Risiko: Die Lieferprobleme dauern länger, Marktanteile im Gefässgeschäft bleiben weg und Medicare kürzt die Vergütung für Gelenke, dann wird der Ausblick gesenkt.",
+ "quellen": [
+  {"titel": "MD+DI: Stryker's Post-Cyberattack Rebound Leaves Investors Unconvinced (31.07.2026)", "url": "https://www.mddionline.com/medical-device-markets/stryker-s-post-cyberattack-rebound-leaves-investors-unconvinced"},
+  {"titel": "TIKR: Stryker Stock Drops As Supply Chain Constraints Impact Peripheral Vascular Business (09.09.2026)", "url": "https://www.tikr.com/blog/stryker-stock-drops-peripheral-vascular-supply-constraints"},
+  {"titel": "OrthoWorld: Stryker Expects Hack Impact to Normalize Over Course of Year (04.05.2026)", "url": "https://www.orthoworld.com/stryker-expects-hack-impact-to-normalize-over-course-of-year/"},
+  {"titel": "Becker's Spine: Stryker's orthopedic momentum continues (05.11.2025)", "url": "https://www.beckersspine.com/orthopedic/strykers-orthopedic-momentum-continues-5-earnings-call-notes/"}
+ ]
+}

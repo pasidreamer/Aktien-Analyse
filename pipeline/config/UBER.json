@@ -1,0 +1,391 @@
+{
+ "ticker": "UBER",
+ "name": "Uber",
+ "datum": "05.10.2026",
+ "meta": "Uber Technologies, Inc. · NYSE: UBER · Fahrdienste, Essenslieferung (Uber Eats), Fracht · USA",
+ "price": "69.48 $",
+ "pricemeta": "Schluss 05.10.2026 · Allzeithoch Oktober 2025: 102 $ · seit Februar Seitwärtsphase 65–82 $",
+ "verdict": "Fundamental stärker denn je, aber die Börse fürchtet Robotaxis. Der Chef hat im September für 10 Mio. $ eigene Aktien gekauft. Qualität grün, Timing orange. Der Kurs liegt am unteren Rand der Spanne und auf der EMA 200 (Woche). Die Zone 65–68 $ ist interessant, der Trigger ein Tagesschluss über 73.20 $.",
+ "about": "Uber vermittelt Fahrten (Mobility), liefert Essen und Einkäufe (Uber Eats) und vermittelt Lastwagen-Frachten. Uber besitzt keine Autos: Die Plattform bringt Kunden und Fahrer zusammen und behält eine Gebühr. Seit 2023 ist Uber profitabel. Für die Zukunft setzt Uber darauf, auch Robotaxis anderer Firmen (Waymo, Wayve und andere) über die eigene App anzubieten.",
+ "why": "Seit dem Hoch im Oktober 2025 (102 $) fiel die Aktie um rund 30 %. Hauptgrund ist die Angst vor Robotaxis: Tesla treibt sein Cybercab voran, und Waymo will ab 2028 in Atlanta und Austin Fahrten direkt statt über Uber verkaufen. Bei den Zahlen vom 5. August lag der Ausblick knapp unter den Erwartungen, das Fahrtenwachstum verlangsamte sich wegen neuer Konkurrenz in Brasilien. Uber baut 10 % der Stellen ab und will über 10 Mrd. $ in autonome Fahrzeuge investieren. Gleichzeitig erreichte der Free Cashflow erstmals über 10 Mrd. $.",
+ "kpis": [
+  [
+   "w",
+   "Umsatzwachstum",
+   "+12 %",
+   "2. Quartal. Verlangsamt sich (2025 noch +18 %)."
+  ],
+  [
+   "g",
+   "Bruttobuchungen",
+   "58 Mrd. $",
+   "Wert aller Fahrten und Lieferungen im 2. Quartal. Uber gewann so viele Neukunden wie seit fünf Jahren nicht."
+  ],
+  [
+   "w",
+   "Operative Marge",
+   "12.1 %",
+   "Von 100 $ Umsatz bleiben 12 $. Steigt seit 2022 (−5.7 %) jedes Jahr."
+  ],
+  [
+   "g",
+   "Free Cashflow",
+   "10.1 Mrd. $",
+   "Letzte 12 Monate. Rendite über 7 % auf den Börsenwert."
+  ],
+  [
+   "g",
+   "ROIC",
+   "19.2 %",
+   "Gewinn pro investiertem Dollar. Seit 2022 von negativ auf fast 20 % gestiegen."
+  ],
+  [
+   "g",
+   "Nettoschulden / EBITDA",
+   "0.6",
+   "Gut tragbar."
+  ],
+  [
+   "g",
+   "KGV erwartet",
+   "16.8",
+   "Für ein Wachstumsunternehmen günstig. 2024 lag es noch bei 28."
+  ],
+  [
+   "g",
+   "Aktienrückkauf",
+   "2.3 % pro Jahr",
+   "Uber kauft laufend eigene Aktien zurück."
+  ]
+ ],
+ "revnote": "Jedes Quartal über Vorjahr, Tempo sinkt von 20 % auf 12 %.",
+ "marginnote": "Seit 2022 jedes Jahr deutlich höher.",
+ "finnote": "<b>Hinweis zum Gewinn pro Aktie:</b> Das ausgewiesene EPS schwankt stark durch Bewertungsgewinne auf Beteiligungen und 2024 durch eine einmalige Steuergutschrift. Aussagekräftiger sind Betriebsgewinn und Free Cashflow, die beide stark steigen.",
+ "FIN": [
+  [
+   "2022",
+   31877,
+   "+82.6 %",
+   "−5.7 %",
+   -4.65,
+   390,
+   "−9.5 %",
+   "n. a."
+  ],
+  [
+   "2023",
+   37281,
+   "+17.0 %",
+   "3.0 %",
+   0.87,
+   3362,
+   "5.8 %",
+   "67.2"
+  ],
+  [
+   "2024",
+   43978,
+   "+18.0 %",
+   "6.4 %",
+   4.56,
+   6895,
+   "12.2 %",
+   "12.9"
+  ],
+  [
+   "2025",
+   52017,
+   "+18.3 %",
+   "10.7 %",
+   4.73,
+   9763,
+   "18.7 %",
+   "16.9"
+  ],
+  [
+   "Letzte 12 Mt.",
+   55227,
+   "+16.7 %",
+   "12.1 %",
+   4.58,
+   10116,
+   "19.2 %",
+   "14.9"
+  ]
+ ],
+ "QREV": [
+  [
+   "Q3 24",
+   11.19
+  ],
+  [
+   "Q4 24",
+   11.96
+  ],
+  [
+   "Q1 25",
+   11.53
+  ],
+  [
+   "Q2 25",
+   12.65
+  ],
+  [
+   "Q3 25",
+   13.47
+  ],
+  [
+   "Q4 25",
+   14.37
+  ],
+  [
+   "Q1 26",
+   13.2
+  ],
+  [
+   "Q2 26",
+   14.19
+  ]
+ ],
+ "MARGIN": [
+  [
+   "2022",
+   -5.7
+  ],
+  [
+   "2023",
+   3.0
+  ],
+  [
+   "2024",
+   6.4
+  ],
+  [
+   "2025",
+   10.7
+  ],
+  [
+   "12 Mt.",
+   12.1
+  ]
+ ],
+ "Q": [
+  [
+   "Umsatztrend",
+   "4 von 4 Quartalen über Vorjahr, Tempo sinkt",
+   12,
+   15
+  ],
+  [
+   "Wachstumstempo",
+   "+16.7 % in 12 Monaten",
+   10,
+   10
+  ],
+  [
+   "Operative Marge",
+   "12.1 % (3 Pkt.), steigend (6 Pkt.)",
+   9,
+   15
+  ],
+  [
+   "Gewinnwachstum (EPS)",
+   "Betriebsgewinn stark steigend (EPS verzerrt)",
+   10,
+   10
+  ],
+  [
+   "Free Cashflow",
+   "Jedes Jahr gestiegen",
+   10,
+   10
+  ],
+  [
+   "ROIC",
+   "19.2 %, steigend (+1)",
+   11,
+   15
+  ],
+  [
+   "Schulden",
+   "Nettoschulden/EBITDA 0.6",
+   9,
+   10
+  ],
+  [
+   "Bewertung vs. eigene Historie",
+   "Erw. KGV 16.8 vs. 24–28 in den Vorjahren",
+   14,
+   15
+  ]
+ ],
+ "adwnote": "Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Seit Juni seitwärts: Am Juli-Tief und heute etwa auf gleicher Höhe.",
+ "rsiwnote": "Unter 30 überverkauft, über 70 überkauft. Heute 43: schwach, ohne Signal.",
+ "addnote": "Seit Ende August fällt die Tages-A/D mit dem Kurs. Höher als am Juli-Tief, aber tiefer als am 10.9. bei ähnlichem Kurs.",
+ "ind": [
+  [
+   "Kurs vs. EMA 50",
+   "69.5 &lt; 72.1",
+   "69.5 &lt; 75.6",
+   "Unter der mittelfristigen Linie."
+  ],
+  [
+   "Kurs vs. EMA 200",
+   "69.5 &lt; 75.5",
+   "69.5 &gt; 68.8",
+   "Woche genau auf der langfristigen Linie."
+  ],
+  [
+   "EMA 50 vs. EMA 200",
+   "50 unter 200 (seit 31.12.2025)",
+   "50 über 200",
+   "Tag im Abwärtstrend, Woche noch im Aufwärtstrend."
+  ],
+  [
+   "RSI (14)",
+   "43.4",
+   "43.2",
+   "Neutral bis schwach."
+  ],
+  [
+   "A/D",
+   "fällt seit August",
+   "seitwärts",
+   "Gemischt."
+  ],
+  [
+   "Volumen",
+   "Ø 20 Tage 19.3 Mio. vs. Ø 100 Tage 19.3 Mio.",
+   "Normal."
+  ]
+ ],
+ "smc": "Seit Februar läuft Uber in einer breiten Spanne zwischen rund 65 und 82 $. Die Tiefs liegen auf ähnlicher Höhe (69.00 → 68.50 → 67.20 → 65.40 → 67.20 $), die Hochs ebenso (79 → 81 → 78 → 82 $). Der Kurs steht im unteren Teil der Spanne (Discount). Das Tief vom September (67.20 $) liegt über dem Juli-Tief (65.40 $), ein kleines höheres Tief.",
+ "zones": [
+  [
+   "r",
+   "75.5–77.8 $",
+   "Widerstand: EMA 200 (Tag), EMA 50 (Woche) und Hoch vom 29.6."
+  ],
+  [
+   "t",
+   "73.20 $",
+   "<b>Trigger:</b> Tagesschluss über der EMA 50 (Tag) und dem Hoch vom 14.9."
+  ],
+  [
+   "s",
+   "65.4–68.8 $",
+   "Kaufzone: Tiefs vom Juli und September, EMA 200 (Woche). Hier kaufte auch der CEO (70.96 $)."
+  ],
+  [
+   "r",
+   "65 $",
+   "Abbruch: Wochenschluss darunter bricht die Spanne nach unten."
+  ]
+ ],
+ "smart": [
+  "<b>Uber selbst:</b> Kauft rund 2.3 % der Aktien pro Jahr zurück.",
+  "<b>Insider-Käufe:</b> CEO Dara Khosrowshahi kaufte am 10.9. für 10 Mio. $ (zu 70.96 $), COO Andrew Macdonald am 4.9. für 5.3 Mio. $. Ein starkes Vertrauenssignal.",
+  "<b>Insider-Verkäufe:</b> Rund 76 Mio. $ in 12 Monaten, vor allem frühere Verkäufe des CEO.",
+  "<b>Analysten:</b> Durchschnittliches Kursziel 101 $, Einstufung „Buy“."
+ ],
+ "seasnote": "Durchschnittliche Monatsrendite in %, nur 7 Jahre seit dem Börsengang. Oktober und Dezember waren meist schwach. Wenig aussagekräftig.",
+ "T": [
+  [
+   "Trend Woche (EMA 50/200)",
+   "Kurs unter EMA 50, auf EMA 200 (Rücksetzer im Aufwärtstrend)",
+   12,
+   20
+  ],
+  [
+   "Trend Tag (EMA 50/200)",
+   "Kurs unter beiden, Death Cross",
+   1,
+   10
+  ],
+  [
+   "Struktur (SMC)",
+   "Seitwärtsspanne, kleines höheres Tief, Kurs im Discount",
+   9,
+   20
+  ],
+  [
+   "RSI Tag/Woche",
+   "43 / 43: ohne Signal",
+   7,
+   15
+  ],
+  [
+   "A/D Tag/Woche",
+   "Woche seitwärts, Tag fällt",
+   6,
+   20
+  ],
+  [
+   "Smart Money",
+   "CEO- und COO-Käufe, Rückkauf über 2 %, aber auch Verkäufe",
+   7,
+   10
+  ],
+  [
+   "Saisonalität",
+   "Okt–Dez: unter 50 % positive Jahre (nur 7 Jahre)",
+   1,
+   5
+  ]
+ ],
+ "pro": [
+  "Free Cashflow über 10 Mrd. $, Marge und ROIC steigen jedes Jahr.",
+  "Erwartetes KGV unter 17, Free-Cashflow-Rendite über 7 %.",
+  "CEO und COO kauften im September für über 15 Mio. $ eigene Aktien.",
+  "Laufende Rückkäufe.",
+  "Kurs an der Unterkante der Spanne und auf der EMA 200 (Woche)."
+ ],
+ "con": [
+  "Robotaxis könnten Ubers Rolle als Vermittler schwächen.",
+  "Umsatzwachstum verlangsamt sich.",
+  "Neue Konkurrenz in Brasilien.",
+  "Tageschart im Abwärtstrend, Tages-A/D fällt.",
+  "Hohe Investitionen in autonome Fahrzeuge (über 10 Mrd. $)."
+ ],
+ "todo": [
+  [
+   "t",
+   "Beobachten",
+   "Alarm bei 73.20 $ (Trigger) und bei 66 $ (Kaufzone)."
+  ],
+  [
+   "s",
+   "Timing grün",
+   "Kurs hält 65.4–68.8 $ mit steigender Tages-A/D, danach Tagesschluss über 73.20 $. Dann springt das Timing auf rund 65."
+  ],
+  [
+   "r",
+   "Abbruch",
+   "Wochenschluss unter 65 $."
+  ],
+  [
+   "",
+   "Nächste Zahlen",
+   "4. November 2026 vor Börsenbeginn (3. Quartal)."
+  ]
+ ],
+ "bands": [
+  {
+   "from": 75.5,
+   "to": 77.8,
+   "type": "res"
+  },
+  {
+   "from": 65.4,
+   "to": 68.8,
+   "type": "sup"
+  }
+ ],
+ "refs": [
+  {
+   "v": 73.2,
+   "label": "Trigger 73.20"
+  }
+ ],
+ "sources": "<a href=\"https://stockanalysis.com/stocks/uber/financials/\" target=\"_blank\" rel=\"noopener\">StockAnalysis.com</a> (Stand 05.10.2026), <a href=\"https://thenextweb.com/news/uber-q2-earnings-robotaxi-waymo-wayve-london\" target=\"_blank\" rel=\"noopener\">Q2-Zahlen (The Next Web)</a>, <a href=\"https://247wallst.com/investing/2026/09/08/uber-falls-4-on-tesla-cybercab-threat-as-slovenia-clears-full-self-driving-tsla-stock-rises-4/\" target=\"_blank\" rel=\"noopener\">Robotaxi-Sorgen (24/7 Wall St.)</a>, <a href=\"https://www.marketbeat.com/stocks/NYSE/UBER/insider-trades/\" target=\"_blank\" rel=\"noopener\">Insider (MarketBeat)</a>."
+}

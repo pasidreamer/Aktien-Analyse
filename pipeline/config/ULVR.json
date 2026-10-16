@@ -1,0 +1,387 @@
+{
+ "ticker": "ULVR",
+ "name": "Unilever",
+ "datum": "08.10.2026",
+ "meta": "Unilever PLC · London: ULVR · Körperpflege (Dove, Rexona, Vaseline), Haushalt (Omo, Cif), Lebensmittel (Knorr) · Grossbritannien",
+ "price": "4'614.5 p",
+ "pricemeta": "Kurs 08.10.2026 mittags, in Pence (= 46.15 £) · 52 Wochen (Schlusskurse): 4'078 – 5'472 p",
+ "verdict": "Der Umbau unter dem neuen Chef wirkt: Unilever wächst wieder kräftig über die Menge (+5.5 % im 2. Quartal, bestes Quartal seit über zehn Jahren). Qualität gelb (53), Timing gelb (46). Der Kurs läuft seit Juli seitwärts in der Zone 4'480–4'810 p, und die Tages-A/D zeigt stille Käufe. Ein Tagesschluss über 4'710 p wäre das Signal.",
+ "about": "Unilever verkauft Schönheits- und Körperpflege (Dove, Rexona, Axe, Vaseline), Waschmittel (Omo/Persil, Cif) und Lebensmittel (Knorr, Hellmann's). Die Glacé-Sparte (Magnum, Ben & Jerry's) wurde im Dezember 2025 als eigene Firma abgespalten, das Lebensmittelgeschäft wird bis Mitte 2027 an McCormick verkauft. Übrig bleibt eine reine Pflege- und Haushaltsfirma. Unilever berichtet in Euro, die Aktie wird in London in Pence gehandelt.",
+ "why": "Seit März 2025 ist Fernando Fernandez Chef und konzentriert Unilever auf die stärksten Marken. Im März 2026 kündigte er den Verkauf von Knorr und Hellmann's an McCormick für 44.8 Mrd. $ an. Die Börse mochte das zuerst nicht (Aktie −5 %, Tief im Juni bei 4'078 p). Im Juli überzeugten die Halbjahreszahlen: Menge +4.2 %, Ausblick angehoben, Aktie +6 %. Seither läuft der Kurs seitwärts, weil der ganze Sektor schwach ist.",
+ "kpis": [
+  [
+   "g",
+   "Organisches Wachstum",
+   "+4.8 %",
+   "1. Halbjahr 2026: Menge +4.2 %, Preis +0.6 %. Fast nur Menge: sehr gesund. Ziel 2026: 4–6 %."
+  ],
+  [
+   "g",
+   "Operative Marge",
+   "20.0 %",
+   "Bereinigt. Von 100 € Umsatz bleiben 20 € Betriebsgewinn. Seit Jahren steigend."
+  ],
+  [
+   "w",
+   "Gewinn pro Aktie (bereinigt)",
+   "+3 bis 5 %",
+   "2025: 3.08 €, Erwartung 2026: rund 3.22 €. Langsam."
+  ],
+  [
+   "g",
+   "ROIC",
+   "19 %",
+   "Bereinigt. Gut und stabil."
+  ],
+  [
+   "g",
+   "Free Cashflow",
+   "≈ 6 Mrd. €",
+   "Positiv und stabil um 6 Mrd. €."
+  ],
+  [
+   "w",
+   "Nettoschulden / EBITDA",
+   "2.3",
+   "Mittel, soll bis Ende Jahr auf rund 2 sinken."
+  ],
+  [
+   "w",
+   "KGV erwartet",
+   "16.3",
+   "Eigener Schnitt: 17.6. Rund 7 % günstiger, also etwa normal."
+  ],
+  [
+   "g",
+   "Dividende",
+   "3.6 %",
+   "Vierteljährlich, zuletzt +3 %. Dazu Rückkäufe von 6 Mrd. € bis 2029."
+  ]
+ ],
+ "revtitle": "Umsatz pro Quartal (Mrd. €, ohne Glacé)",
+ "revunit": "Mio. €",
+ "epsunit": "€",
+ "margintitle": "Operative Marge pro Jahr (ausgewiesen)",
+ "revnote": "In Euro kaum Wachstum, weil schwache Währungen (Dollar, Schwellenländer) bis zu 8 % kosten. Ohne Währungen wächst Unilever um rund 5 %. Q3 2025 ist grob geschätzt.",
+ "marginnote": "Ausgewiesen. Bereinigt: 19.4 % (2024) und 20.0 % (2025). Tendenz steigend.",
+ "finnote": "<b>Hinweis:</b> Die Jahre sind wegen der Abspaltung der Glacé-Sparte (Dezember 2025) und einer Aktienzusammenlegung (8 zu 9) nicht ganz vergleichbar: 2022 inklusive Glacé, danach grösstenteils ohne. Der Gewinn der letzten 12 Monate enthält einen Buchgewinn aus der Abspaltung. Bereinigter Gewinn pro Aktie 2025: 3.08 €. ROIC ab 2024 bereinigt (Firmenangabe).",
+ "FIN": [
+  [
+   "2022",
+   60073,
+   "+14.5 %",
+   "15.8 %",
+   3.78,
+   5826,
+   "16.7 %",
+   "15.6"
+  ],
+  [
+   "2023",
+   51680,
+   "n. a.",
+   "17.9 %",
+   2.89,
+   8232,
+   "15.9 %",
+   "16.9"
+  ],
+  [
+   "2024",
+   52479,
+   "+1.6 %",
+   "16.8 %",
+   2.44,
+   6300,
+   "19.1 %",
+   "23.7"
+  ],
+  [
+   "2025",
+   50503,
+   "−3.8 %",
+   "17.9 %",
+   2.59,
+   5921,
+   "19.0 %",
+   "12.8"
+  ],
+  [
+   "Letzte 12 Mt.",
+   50620,
+   "n. a.",
+   "20.0 %",
+   4.23,
+   6300,
+   "15.8 %",
+   "21.1"
+  ]
+ ],
+ "QREV": [
+  [
+   "Q1 25",
+   12.99
+  ],
+  [
+   "Q2 25",
+   12.57
+  ],
+  [
+   "Q3 25",
+   12.4
+  ],
+  [
+   "Q4 25",
+   12.6
+  ],
+  [
+   "Q1 26",
+   12.56
+  ],
+  [
+   "Q2 26",
+   13.05
+  ]
+ ],
+ "revdec": 2,
+ "MARGIN": [
+  [
+   "2022",
+   15.8
+  ],
+  [
+   "2023",
+   17.9
+  ],
+  [
+   "2024",
+   16.8
+  ],
+  [
+   "2025",
+   17.9
+  ],
+  [
+   "12 Mt.",
+   20.0
+  ]
+ ],
+ "Q": [
+  [
+   "Umsatztrend",
+   "In Euro gemischt, organisch steigend und schneller",
+   8,
+   15
+  ],
+  [
+   "Wachstumstempo",
+   "Organisch 4.8 %",
+   3,
+   10
+  ],
+  [
+   "Operative Marge",
+   "20.0 % bereinigt (6 Pkt.), steigend (6 Pkt.)",
+   12,
+   15
+  ],
+  [
+   "Gewinnwachstum (EPS)",
+   "Bereinigt rund +3 bis 5 % pro Jahr",
+   2,
+   10
+  ],
+  [
+   "Free Cashflow",
+   "Positiv, schwankend um 6 Mrd. €",
+   6,
+   10
+  ],
+  [
+   "ROIC",
+   "Bereinigt 19 %, stabil",
+   10,
+   15
+  ],
+  [
+   "Schulden",
+   "Nettoschulden/EBITDA 2.3",
+   5,
+   10
+  ],
+  [
+   "Bewertung vs. eigene Historie",
+   "Erw. KGV 16.3 statt Ø 17.6 (−7 %)",
+   7,
+   15
+  ]
+ ],
+ "adwnote": "Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien (Handel an der Heimatbörse). Vom Juni-Tief (284) bis heute (339) gestiegen: Seit dem Tief wird eher gekauft.",
+ "rsiwnote": "Unter 30 überverkauft, über 70 überkauft. Heute 50: genau neutral.",
+ "addnote": "Bullisches Detail: Am 17.8. lag der Kurs bei 4'512 p und die Tages-A/D bei 26. Am 2.10. lag der Kurs tiefer (4'484 p), die A/D aber höher (37). Tieferer Kurs, höhere A/D: Auf Tagesbasis wird still eingesammelt.",
+ "ind": [
+  [
+   "Kurs vs. EMA 50",
+   "4'615 &lt; 4'627",
+   "4'615 &lt; 4'653",
+   "Ganz knapp unter der mittelfristigen Linie."
+  ],
+  [
+   "Kurs vs. EMA 200",
+   "4'615 &lt; 4'644",
+   "4'615 &lt; 4'647",
+   "Ganz knapp unter der langfristigen Linie. Alle Linien liegen auf einem Haufen: Der Markt ist unentschieden."
+  ],
+  [
+   "EMA 50 vs. EMA 200",
+   "50 knapp unter 200 (seit 29.9.2026)",
+   "50 knapp über 200",
+   "Kein klarer Trend."
+  ],
+  [
+   "RSI (14)",
+   "49.2",
+   "50.3",
+   "Neutral."
+  ],
+  [
+   "A/D",
+   "bullische Divergenz",
+   "steigt seit Juni",
+   "Käufer nehmen auf."
+  ],
+  [
+   "Volumen",
+   "Ø 20 Tage 3.2 Mio. vs. Ø 100 Tage 3.9 Mio.",
+   "Ruhig, der Verkaufsdruck lässt nach."
+  ]
+ ],
+ "smc": "Von Februar (5'467 p) bis Juni (4'078 p) fiel Unilever um 25 %. Danach stieg der Kurs auf 4'998 p (28.7.) und läuft seither seitwärts: Tiefs bei 4'512, 4'551 und 4'484 p, Hochs bei 4'811 und 4'709 p. Die Spanne wird enger. Ein Tagesschluss über 4'710 p (Hoch vom 24.9.) wäre der Change of Character. Hinweis: Die Hoch/Tief-Daten von Yahoo für London enthalten einzelne Fehlwerte, darum habe ich die Struktur aus Schlusskursen bestimmt.",
+ "zones": [
+  [
+   "r",
+   "4'780–4'810 p",
+   "Widerstand: Hochs vom August/September."
+  ],
+  [
+   "t",
+   "4'710 p",
+   "<b>Trigger:</b> Tagesschluss über dem Hoch vom 24.9."
+  ],
+  [
+   "s",
+   "4'480–4'550 p",
+   "<b>Kaufzone:</b> Tiefs von August, September und Oktober."
+  ],
+  [
+   "r",
+   "4'450 p",
+   "Abbruch: Wochenschluss darunter, dann droht ein Rückfall Richtung 4'200 p."
+  ]
+ ],
+ "smart": [
+  "<b>Insider-Käufe:</b> Zwei Verwaltungsräte kauften Ende Mai 2026 (Judith McKenna rund 250'000 $, Benoît Potier 100'000 €). Der Chef verkaufte im Februar nur zugeteilte Plan-Aktien.",
+  "<b>Unilever selbst:</b> Rückkauf von 1.5 Mrd. € im Frühling, 6 Mrd. € geplant bis 2029.",
+  "<b>Analysten:</b> Im Durchschnitt „Halten“, Kursziel rund 5'200 p (rund 13 % über heute)."
+ ],
+ "seasnote": "Durchschnittliche Monatsrendite in %. Rund 37 Jahre. Dezember ist mit +2.6 % und 70 % positiven Jahren der beste Monat. Oktober und November etwa 50/50.",
+ "T": [
+  [
+   "Trend Woche (EMA 50/200)",
+   "Kurs knapp unter beiden, Linien flach",
+   7,
+   20
+  ],
+  [
+   "Trend Tag (EMA 50/200)",
+   "Kurs knapp unter beiden, frisches knappes Death Cross",
+   3,
+   10
+  ],
+  [
+   "Struktur (SMC)",
+   "Seitwärts seit Juli, Spanne wird enger",
+   8,
+   20
+  ],
+  [
+   "RSI Tag/Woche",
+   "49 / 50, neutral",
+   7,
+   15
+  ],
+  [
+   "A/D Tag/Woche",
+   "Tag bullische Divergenz, Woche steigt seit Juni",
+   11,
+   20
+  ],
+  [
+   "Smart Money",
+   "Insider-Käufe (Mai), Rückkaufprogramm",
+   7,
+   10
+  ],
+  [
+   "Saisonalität",
+   "Okt/Nov 50/50, Dez stark",
+   3,
+   5
+  ]
+ ],
+ "pro": [
+  "Wächst über die Menge, nicht über Preise: das gesündeste Wachstum der Gruppe.",
+  "Marge steigt, Fokus auf die stärksten Marken.",
+  "Insider-Käufe und Rückkäufe.",
+  "Bullische A/D-Divergenz in der Seitwärtszone.",
+  "Berichtet in Euro, Aktie in Pfund: verteilt dein Währungsrisiko weg vom Dollar."
+ ],
+ "con": [
+  "Viel Umbau: Glacé abgespalten, Lebensmittel werden verkauft. Die Firma wird kleiner.",
+  "Der Gewinn pro Aktie wächst langsam.",
+  "Schulden mittel (2.3-fach).",
+  "Kein klarer Trend, alle Linien flach.",
+  "Beim Kauf in London fallen 0.5 % britische Stempelsteuer an."
+ ],
+ "todo": [
+  [
+   "t",
+   "Beobachten",
+   "Alarm bei 4'710 p (Trigger) und 4'550 p (Kaufzone)."
+  ],
+  [
+   "s",
+   "Timing grün",
+   "Tagesschluss über 4'710 p mit steigender A/D, oder Rücksetzer in die Kaufzone 4'480–4'550 p mit Wende auf dem Tageschart."
+  ],
+  [
+   "r",
+   "Abbruch",
+   "Wochenschluss unter 4'450 p."
+  ],
+  [
+   "",
+   "Nächste Zahlen",
+   "28. Oktober 2026 (Umsatz 3. Quartal), Investorentag in New York am 4. November."
+  ]
+ ],
+ "bands": [
+  {
+   "from": 4780,
+   "to": 4810,
+   "type": "res"
+  },
+  {
+   "from": 4480,
+   "to": 4550,
+   "type": "sup"
+  }
+ ],
+ "refs": [
+  {
+   "v": 4710,
+   "label": "Trigger 4'710"
+  }
+ ],
+ "sources": "<a href=\"https://stockanalysis.com/quote/lon/ULVR/financials/\" target=\"_blank\" rel=\"noopener\">StockAnalysis.com</a> (Stand 08.10.2026), <a href=\"https://www.unilever.com/investors/\" target=\"_blank\" rel=\"noopener\">Unilever Investor Relations</a>, <a href=\"https://www.unilever.com/investors/the-magnum-ice-cream-company-demerger/\" target=\"_blank\" rel=\"noopener\">Abspaltung Magnum</a>."
+}

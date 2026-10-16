@@ -1,0 +1,417 @@
+{
+ "ticker": "ISRG",
+ "name": "Intuitive Surgical",
+ "datum": "11.10.2026",
+ "meta": "Intuitive Surgical, Inc. · Nasdaq: ISRG · Operationsroboter (da Vinci, Ion) · USA",
+ "price": "423.96 $",
+ "pricemeta": "Schluss 09.10.2026 · 52 Wochen: 328.57 – 603.88 $ · Hoch 616 $ (Januar 2025)",
+ "verdict": "Intuitive Surgical ist der klare Weltmarktführer bei Operationsrobotern: Umsatz +19 %, Marge 31 %, keine Schulden. Qualität grün (90), Timing gelb (58). Die Aktie fiel von 604 $ bis 329 $ (−46 %), vor allem weil die Börse nicht mehr so viel für das Wachstum bezahlt (KGV von rund 70 auf 49). Seit dem Juli-Tief macht der Tageschart höhere Hochs und höhere Tiefs, der Kurs steht jetzt unter einem Widerstand bei 430–451 $. Erst die Zahlen am 20. Oktober abwarten.",
+ "about": "Intuitive Surgical baut den Operationsroboter da Vinci: Der Chirurg sitzt an einer Konsole und steuert feine Instrumente, die durch kleine Schnitte in den Körper gehen. Dazu kommt Ion für Lungen-Biopsien. Weltweit stehen rund 11'700 da-Vinci-Systeme in Spitälern. Das Geschäftsmodell ist wie bei einem Drucker mit Patronen: Der Roboter wird einmal verkauft oder vermietet, danach bringt jede Operation wiederkehrenden Umsatz mit Instrumenten, Zubehör und Service (rund 85 % des Umsatzes).",
+ "why": "Im Januar 2026 stand die Aktie bei 604 $ und damit bei rund 70 Jahresgewinnen. Am 14. Januar kündigte Intuitive für 2026 nur noch 13 bis 15 % mehr Operationen an (2025: rund 18 %), die Aktie fiel an einem Tag fast 6 %. Danach drückten neue Konkurrenten (Medtronic Hugo ist in den USA zugelassen, Johnson & Johnson bringt bald Ottava), Preisdruck in China und Zölle auf die Stimmung. Am 16. Juli kamen gute Zahlen (Gewinn über den Erwartungen), aber in den USA wuchsen die Operationen nur noch um 12 %, so langsam wie seit drei Jahren nicht mehr. Die Aktie fiel am nächsten Tag fast 10 % und erreichte am 23. Juli das Tief von 328.57 $. Seither erholt sie sich: Ende Juli stufte UBS auf «Kaufen» hoch und nannte den Ausverkauf übertrieben, im September stieg der Kurs um über 20 %. Wichtig: Das Geschäft wächst weiter stark (Umsatz +19 %, Marge steigt). Der grösste Teil des Kursrückgangs kommt daher, dass die Börse nicht mehr so viel für das Wachstum bezahlen will.",
+ "kpis": [
+  [
+   "g",
+   "Umsatzwachstum",
+   "+20.7 %",
+   "Letzte 12 Monate. Alle Quartale wachsen um 19 bis 23 %. Sehr stark für eine Firma dieser Grösse."
+  ],
+  [
+   "g",
+   "Operative Marge",
+   "31.3 %",
+   "Von 100 $ Umsatz bleiben 31 $ Betriebsgewinn. Seit 2023 (24.8 %) jedes Jahr gestiegen, im 2. Quartal 2026 33.6 %."
+  ],
+  [
+   "g",
+   "Gewinn pro Aktie (EPS)",
+   "8.72 $",
+   "Letzte 12 Monate. 2022 waren es 3.65 $, also mehr als verdoppelt in drei Jahren."
+  ],
+  [
+   "g",
+   "ROIC",
+   "21.9 %",
+   "Auf 100 $ investiertes Kapital fast 22 $ Gewinn. Sehr gut, obwohl die Firma viel Geld auf dem Konto hat."
+  ],
+  [
+   "g",
+   "Free Cashflow",
+   "3.2 Mrd. $",
+   "Letzte 12 Monate, seit 2023 (0.75 Mrd. $) stark gestiegen, weil die grossen Fabrik-Investitionen fertig sind."
+  ],
+  [
+   "g",
+   "Netto-Cash",
+   "5.2 Mrd. $",
+   "Keine Schulden, dazu rund 8.6 Mrd. $ Geld und Anlagen. Sehr solide."
+  ],
+  [
+   "g",
+   "KGV",
+   "48.6",
+   "Du zahlst rund 49 Jahresgewinne. Das ist absolut gesehen teuer. Der eigene 5-Jahres-Schnitt liegt aber bei rund 72. Erwartet für die nächsten 12 Monate: 37.5."
+  ],
+  [
+   "w",
+   "Operationen da Vinci",
+   "+15 %",
+   "Weltweit im 2. Quartal 2026. In den USA nur +12 %, so wenig wie seit drei Jahren nicht mehr. Prognose 2026: +13.5 bis 15.5 %."
+  ]
+ ],
+ "revtitle": "Umsatz pro Quartal (Mrd. $)",
+ "revnote": "Alle 4 letzten Quartale deutlich über Vorjahr (+19 bis +23 %). Das Tempo bleibt hoch, beschleunigt aber nicht mehr.",
+ "marginnote": "2022 und 2023 drückten hohe Investitionen in neue Fabriken die Marge. Seither steigt sie wieder.",
+ "finnote": "<b>Hinweis:</b> Intuitive zahlt keine Dividende, kauft aber eigene Aktien zurück (letzte 12 Monate rund 4 Mrd. $). Das KGV war früher extrem hoch (66 bis 80), darum wirkt es heute «günstig», ist aber immer noch hoch.",
+ "FIN": [
+  [
+   "2022",
+   6222,
+   "+9.0 %",
+   "25.8 %",
+   3.65,
+   958,
+   "18.0 %",
+   "70.9"
+  ],
+  [
+   "2023",
+   7124,
+   "+14.5 %",
+   "24.8 %",
+   5.03,
+   750,
+   "21.4 %",
+   "66.1"
+  ],
+  [
+   "2024",
+   8352,
+   "+17.2 %",
+   "28.1 %",
+   6.42,
+   1304,
+   "19.6 %",
+   "80.1"
+  ],
+  [
+   "2025",
+   10065,
+   "+20.5 %",
+   "29.3 %",
+   7.87,
+   2491,
+   "20.6 %",
+   "70.3"
+  ],
+  [
+   "Letzte 12 Mt.",
+   11034,
+   "+20.7 %",
+   "31.3 %",
+   8.72,
+   3223,
+   "21.9 %",
+   "48.6"
+  ]
+ ],
+ "QREV": [
+  [
+   "Q3 24",
+   2.04
+  ],
+  [
+   "Q4 24",
+   2.41
+  ],
+  [
+   "Q1 25",
+   2.25
+  ],
+  [
+   "Q2 25",
+   2.44
+  ],
+  [
+   "Q3 25",
+   2.51
+  ],
+  [
+   "Q4 25",
+   2.87
+  ],
+  [
+   "Q1 26",
+   2.77
+  ],
+  [
+   "Q2 26",
+   2.89
+  ]
+ ],
+ "revdec": 2,
+ "MARGIN": [
+  [
+   "2021",
+   31.9
+  ],
+  [
+   "2022",
+   25.8
+  ],
+  [
+   "2023",
+   24.8
+  ],
+  [
+   "2024",
+   28.1
+  ],
+  [
+   "2025",
+   29.3
+  ],
+  [
+   "12 Mt.",
+   31.3
+  ]
+ ],
+ "Q": [
+  [
+   "Umsatztrend",
+   "4 von 4 Quartalen über Vorjahr (+19 bis +23 %)",
+   12,
+   15
+  ],
+  [
+   "Wachstumstempo",
+   "+20.7 % in den letzten 12 Monaten",
+   10,
+   10
+  ],
+  [
+   "Operative Marge",
+   "31.3 % (9 Pkt.), seit 2023 steigend (5 Pkt.)",
+   14,
+   15
+  ],
+  [
+   "Gewinnwachstum (EPS)",
+   "2022–2025 rund +29 % pro Jahr",
+   10,
+   10
+  ],
+  [
+   "Free Cashflow",
+   "Positiv, seit 2023 stark steigend (davor gesunken)",
+   7,
+   10
+  ],
+  [
+   "ROIC",
+   "21.9 %, stabil",
+   13,
+   15
+  ],
+  [
+   "Schulden",
+   "Keine Schulden, Netto-Cash 5.2 Mrd. $",
+   10,
+   10
+  ],
+  [
+   "Bewertung vs. eigene Historie",
+   "KGV 48.6 statt Ø 72.5 (33 % günstiger)",
+   14,
+   15
+  ]
+ ],
+ "adwnote": "Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Seit dem Juli-Tief (526) steigt die Wochen-A/D mit dem Kurs auf heute 544. Sie liegt aber noch weit unter dem Stand von Anfang 2026 (rund 600): Die grossen Verkäufe vom Frühling sind noch nicht aufgeholt.",
+ "rsiwnote": "Unter 30 überverkauft, über 70 überkauft. Im Juli bei 27 (überverkauft), heute 53: neutral.",
+ "addnote": "Die Tages-A/D steigt seit dem Juli-Tief (−23) mit dem Kurs und bestätigt jedes neue Hoch: am 28.9. (416.51 $) −8, heute (423.96 $) −6. Am Tief vom 10.9. (345.25 $) lag sie mit −22 höher als im Juli: Die Käufer sind zurück.",
+ "ind": [
+  [
+   "Kurs vs. EMA 50",
+   "424.0 &gt; 393.1",
+   "424.0 &lt; 435.7",
+   "Tag über der mittelfristigen Linie, Woche knapp darunter."
+  ],
+  [
+   "Kurs vs. EMA 200",
+   "424.0 &lt; 429.4",
+   "424.0 &gt; 418.7",
+   "Tag knapp unter, Woche knapp über der langfristigen Linie."
+  ],
+  [
+   "EMA 50 vs. EMA 200",
+   "50 unter 200 (seit 25.2.2026)",
+   "50 über 200 (seit 2017)",
+   "Tag noch abwärts, der grosse Wochentrend ist intakt."
+  ],
+  [
+   "RSI (14)",
+   "66.7",
+   "53.2",
+   "Tag stark, aber noch nicht überkauft."
+  ],
+  [
+   "A/D",
+   "steigt mit dem Kurs, bestätigt Hochs",
+   "steigt seit Juli, aber unter dem Frühling",
+   "Positiv."
+  ],
+  [
+   "Volumen",
+   "Ø 20 Tage 2.2 Mio. vs. Ø 100 Tage 2.8 Mio.",
+   "Der Anstieg kommt mit weniger Handel als der Absturz."
+  ]
+ ],
+ "smc": "Auf der Woche lief Intuitive seit Januar abwärts: tiefere Hochs (603.88 → 511.88 → 491.15 → 443.84 → 405.34 $) und tiefere Tiefs (465.69 → 447.78 → 396.68 → 328.57 $). Auf dem Tageschart hat sich das gedreht: Nach dem Tief vom 23.7. kam ein höheres Tief am 10.9. (345.25 $), dann brach der Kurs am 28.9. über das August-Hoch (405.34 $): ein Change of Character nach oben. Danach ein weiteres höheres Tief (389.11 $ am 5.10.) und heute ein neues Hoch. Jetzt steht der Kurs vor einem dicken Widerstand bei 430–451 $ (EMA 200 Tag, EMA 50 Woche, Juli-Hoch 443.84 $, Tiefs vom April). Ein Tagesschluss über 444 $ würde auch auf der Woche die Wende bestätigen.",
+ "zones": [
+  [
+   "r",
+   "482–512 $",
+   "Widerstand: Hochs von Februar bis April."
+  ],
+  [
+   "r",
+   "430–451 $",
+   "Widerstand: EMA 200 Tag (429 $), EMA 50 Woche (436 $), Juli-Hoch (443.84 $) und Tiefs vom April."
+  ],
+  [
+   "t",
+   "444 $",
+   "<b>Trigger:</b> Tagesschluss über dem Juli-Hoch und damit über der Tages-EMA 200."
+  ],
+  [
+   "s",
+   "389–405 $",
+   "<b>Kaufzone 1:</b> Ausbruchs-Niveau (405 $), Tief vom 5.10. (389 $) und EMA 50 Tag (393 $)."
+  ],
+  [
+   "s",
+   "345–360 $",
+   "<b>Kaufzone 2:</b> Tief vom September."
+  ],
+  [
+   "r",
+   "385 $",
+   "Abbruch: Wochenschluss darunter, dann ist die Wende auf dem Tageschart gescheitert."
+  ]
+ ],
+ "smart": [
+  "<b>Intuitive selbst:</b> Kauft eigene Aktien zurück: rund 4 Mrd. $ in den letzten 12 Monaten (2.6 % des Börsenwerts). Die Aktienzahl sank um 1.1 %.",
+  "<b>Insider-Käufe:</b> Keine Käufe am Markt in den letzten 12 Monaten.",
+  "<b>Insider-Verkäufe:</b> 74 Verkäufe für rund 85 Mio. $, vor allem Ende 2025 nahe am Hoch. Ein Teil davon über vorab festgelegte Verkaufspläne (10b5-1).",
+  "<b>Analysten:</b> 33 Analysten, im Schnitt «Kaufen», Kursziel 478 $. Im Juli wurden die Kursziele gesenkt, UBS stufte Ende Juli auf «Kaufen» hoch (Ziel 500 $)."
+ ],
+ "seasnote": "Durchschnittliche Monatsrendite in %. 26 Jahre Daten (seit 2000). Der November ist mit +4.1 % und 77 % positiven Jahren der stärkste Monat, der Oktober ist gemischt (54 %), der Dezember schwach (46 %).",
+ "T": [
+  [
+   "Trend Woche (EMA 50/200)",
+   "Kurs knapp unter EMA 50, über EMA 200: Rücksetzer im Aufwärtstrend",
+   13,
+   20
+  ],
+  [
+   "Trend Tag (EMA 50/200)",
+   "Kurs über EMA 50, knapp unter EMA 200: mögliche Wende",
+   4,
+   10
+  ],
+  [
+   "Struktur (SMC)",
+   "Tag: Change of Character, höhere Hochs und Tiefs; Kurs am Widerstand",
+   14,
+   20
+  ],
+  [
+   "RSI Tag/Woche",
+   "67 / 53, kein Signal",
+   7,
+   15
+  ],
+  [
+   "A/D Tag/Woche",
+   "Beide steigen mit dem Kurs, Woche noch unter dem Frühling",
+   14,
+   20
+  ],
+  [
+   "Smart Money",
+   "Rückkäufe 2.6 %, aber viele Insider-Verkäufe",
+   3,
+   10
+  ],
+  [
+   "Saisonalität",
+   "Okt gemischt, Nov stark, Dez schwach",
+   3,
+   5
+  ]
+ ],
+ "pro": [
+  "Klarer Marktführer mit über 11'700 installierten Robotern und wiederkehrendem Umsatz.",
+  "Umsatz +19 bis 23 % pro Quartal, Marge steigt wieder.",
+  "Keine Schulden, Milliarden auf dem Konto, Aktienrückkäufe.",
+  "Bewertung so tief wie seit Jahren nicht (KGV 49 statt Ø 72).",
+  "Tageschart hat gedreht: höhere Hochs und Tiefs mit steigender A/D."
+ ],
+ "con": [
+  "Absolut gesehen immer noch teuer (KGV 49).",
+  "Wachstum der Operationen verlangsamt sich, in den USA nur noch +12 %.",
+  "Neue Konkurrenz: Medtronic Hugo, bald Johnson & Johnson Ottava.",
+  "Preisdruck in China und Zölle.",
+  "Viele Insider-Verkäufe, keine Käufe. Nach Zahlen oft Kurssprünge von 10 %."
+ ],
+ "todo": [
+  [
+   "t",
+   "Beobachten",
+   "Alarm bei 444 $ (Trigger) und 405 $ (oberes Ende Kaufzone 1)."
+  ],
+  [
+   "s",
+   "Timing grün",
+   "Erst die Zahlen am 20.10. abwarten. Danach Tagesschluss über 444 $ mit steigender A/D, oder ein Rücksetzer in 389–405 $, der hält."
+  ],
+  [
+   "r",
+   "Abbruch",
+   "Wochenschluss unter 385 $."
+  ],
+  [
+   "",
+   "Nächste Zahlen",
+   "20. Oktober 2026 nach US-Börsenschluss (3. Quartal). Entscheidend: Wachstum der Operationen in den USA und der Ausblick für 2027."
+  ]
+ ],
+ "bands": [
+  {
+   "from": 482,
+   "to": 512,
+   "type": "res"
+  },
+  {
+   "from": 430,
+   "to": 451,
+   "type": "res"
+  },
+  {
+   "from": 389,
+   "to": 405,
+   "type": "sup"
+  },
+  {
+   "from": 345,
+   "to": 360,
+   "type": "sup"
+  }
+ ],
+ "refs": [
+  {
+   "v": 444,
+   "label": "Trigger 444"
+  }
+ ],
+ "sources": "<a href=\"https://stockanalysis.com/stocks/isrg/financials/\" target=\"_blank\" rel=\"noopener\">StockAnalysis.com</a> (Stand 11.10.2026), <a href=\"https://www.sec.gov/Archives/edgar/data/0001035267/000103526726000047/q226ex-991earningsrelease.htm\" target=\"_blank\" rel=\"noopener\">Intuitive Q2 2026 (SEC)</a>, <a href=\"https://www.marketbeat.com/stocks/NASDAQ/ISRG/insider-trades/\" target=\"_blank\" rel=\"noopener\">Insider (MarketBeat)</a>."
+}

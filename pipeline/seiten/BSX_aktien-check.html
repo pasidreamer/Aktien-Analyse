@@ -1,0 +1,402 @@
+<title>Boston Scientific Aktien-Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F3F5F7; --surface:#FFFFFF; --ink:#141B24; --muted:#5A6573; --line:#DDE2E8; --grid:#E9EDF1;
+  --accent:#2F45B5; --accent-soft:#E6E9F8; --chip:#EBEEF2;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+  --good:#1D7A4B; --good-bg:#E3F3EA; --warn:#9A6200; --warn-bg:#FBF0DC; --bad:#B2362A; --bad-bg:#FBE6E3;
+  --zone-sup:rgba(29,122,75,.10); --zone-res:rgba(178,54,42,.09);
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+    --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+    --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+    --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+  --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+  --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;padding-inline:16px;padding-block:24px 56px}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+h1,h2,h3{font-family:var(--display);font-stretch:85%;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:clamp(32px,7vw,48px);font-weight:800;line-height:1}
+h2{font-size:24px;font-weight:700}
+h3{font-size:17px;font-weight:700;font-stretch:95%}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+section{display:flex;flex-direction:column;gap:14px}
+.lead{max-width:68ch;color:var(--muted)}
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;align-items:stretch}
+.hero .id{display:flex;flex-direction:column;gap:10px;justify-content:space-between}
+.price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price b{font-family:var(--display);font-size:34px;font-weight:700}
+.meta{font-size:13px;color:var(--muted)}
+.verdict{font-size:15px;padding:12px 14px;border-radius:10px;background:var(--chip)}
+.scales{display:flex;flex-direction:column;gap:18px}
+.scale-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.scale-h span{font-size:13px;color:var(--muted)}
+.scale-h b{font-family:var(--display);font-size:28px;line-height:1}
+.track{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#C8412F 0%,#E0892F 30%,#E3B63A 50%,#8BBF4B 68%,#2E9A5B 100%);margin-top:8px}
+.pin{position:absolute;top:-5px;width:4px;height:22px;border-radius:2px;background:var(--ink);box-shadow:0 0 0 2px var(--surface);transform:translateX(-2px)}
+.ticks{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);font-family:var(--mono);margin-top:6px}
+.state{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;margin-top:8px}
+.st-good{background:var(--good-bg);color:var(--good)}
+.st-warn{background:var(--warn-bg);color:var(--warn)}
+.st-bad{background:var(--bad-bg);color:var(--bad)}
+/* tables */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;color:var(--muted);font-weight:500;font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:700;border-bottom:none}
+.pts{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{height:6px;border-radius:3px;background:var(--chip);min-width:60px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:3px}
+/* grids */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;border-left:4px solid var(--line)}
+.kpi.g{border-left-color:var(--good)}.kpi.w{border-left-color:var(--warn)}.kpi.b{border-left-color:var(--bad)}
+.kpi span{font-size:12px;color:var(--muted)}
+.kpi b{font-family:var(--mono);font-size:19px;font-weight:500;font-variant-numeric:tabular-nums}
+.kpi em{font-style:normal;font-size:12.5px;color:var(--muted)}
+/* charts */
+.chart{position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:14px;height:3px;border-radius:2px;display:inline-block}
+.swb{width:12px;height:10px;border-radius:2px;display:inline-block}
+.tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12.5px;box-shadow:0 4px 14px rgba(0,0,0,.12);white-space:nowrap;z-index:2}
+.tip b{font-family:var(--mono);font-weight:500}
+.tip .d{font-family:var(--mono);color:var(--muted);font-size:11.5px}
+.note{font-size:13.5px;color:var(--muted)}
+ul.clean{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.pro li::marker{color:var(--good)} .con li::marker{color:var(--bad)}
+.zones{display:flex;flex-direction:column;gap:8px}
+.zone{display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:baseline;padding:10px 12px;border-radius:10px;background:var(--chip);font-size:14px}
+.zone b{font-family:var(--mono);font-weight:500}
+.zone.r{border-left:4px solid var(--bad)} .zone.s{border-left:4px solid var(--good)} .zone.t{border-left:4px solid var(--accent)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+summary{cursor:pointer;font-weight:600}
+details p{margin-top:8px;color:var(--muted);max-width:70ch}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+footer{font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:6px;max-width:80ch}
+footer a{color:var(--accent)}
+@media (max-width:760px){.hero,.two{grid-template-columns:1fr}.zone{grid-template-columns:1fr;gap:2px}}
+</style>
+
+<div class="wrap">
+
+<header class="hero">
+  <div class="card id">
+    <div>
+      <div class="eyebrow">Aktien-Check · 11.10.2026</div>
+      <h1>Boston Scientific</h1>
+      <p class="meta">Boston Scientific Corporation · NYSE: BSX · Medizintechnik (Herzrhythmus, Watchman, Gefässe, Urologie) · USA</p>
+    </div>
+    <div class="price"><b>42.73 $</b><span class="meta">Schluss 09.10.2026 · 52 Wochen: 41.39 – 105.65 $ · Hoch 109.50 $ (September 2025)</span></div>
+    <p class="verdict"><b>Kurz gesagt:</b> Boston Scientific war 2025 einer der Wachstums-Stars der Medizintechnik und ist 2026 um 60 % gefallen: Die zwei Wachstumstreiber (Watchman und Herz-Ablation) schwächeln, die Prognose wurde dreimal gesenkt, dazu kam ein Hackerangriff. Qualität hellgrün (63), Timing orange (32). Die Qualität profitiert stark von der tiefen Bewertung (bereinigtes KGV 13 statt Ø 30). Der Kurs baut seit Juni einen Boden bei 41–43 $, RSI zeigt eine bullische Divergenz, die A/D aber noch nicht. Erst die Zahlen und den neuen Ausblick am 28. Oktober abwarten.</p>
+  </div>
+  <div class="card scales">
+    <div>
+      <div class="scale-h"><span>Qualität · Ist die Firma kaufenswert?</span><b id="q-val">63</b></div>
+      <div class="track"><i class="pin" id="q-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-good">● Solide</span>
+    </div>
+    <div>
+      <div class="scale-h"><span>Timing · Ist jetzt der Zeitpunkt?</span><b id="t-val">32</b></div>
+      <div class="track"><i class="pin" id="t-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-warn">▲ Beobachten: Trigger noch nicht erreicht</span>
+    </div>
+    <p class="note">Skala: unter 30 rot · 30–45 orange · 45–60 gelb · 60–75 hellgrün · ab 75 grün. Beide Werte setzen sich aus festen Kriterien zusammen, siehe unten.</p>
+  </div>
+</header>
+
+<section>
+  <h2>Was die Firma macht</h2>
+  <p class="lead">Boston Scientific stellt Medizintechnik für minimalinvasive Eingriffe her, also Behandlungen über kleine Schnitte oder Katheter. Die wichtigsten Produkte: Watchman (ein kleiner Schirm, der im Herzen ein Gerinnsel-Risiko bei Vorhofflimmern verschliesst), Farapulse (Katheter, der Herzrhythmus-Störungen mit Stromimpulsen behandelt, «Pulsed Field Ablation»), Stents und Ballone für Gefässe, Schrittmacher, Urologie und Endoskopie. Im Januar 2026 kündigte die Firma den Kauf von Penumbra (Gerinnsel-Entfernung) für 14.5 Mrd. $ an.</p>
+  <p class="lead">2025 wuchs Boston Scientific organisch um fast 16 %, die Aktie stand Ende Jahr bei 95 $. Am 4. Februar 2026 kam der erste Schock: schwächere Verkäufe bei der Herz-Ablation in den USA und ein vorsichtiger Ausblick, die Aktie fiel an einem Tag um 17.6 %. Danach wurde es Schritt für Schritt schlechter: Ende April und Ende Juli senkte die Firma die Jahresprognose (organisch von 10–11 % auf 5–6 %). Watchman wächst kaum noch (2025 rund +30 %, im 2. Quartal 2026 nur +4 %), bei der Ablation verliert Boston Scientific in den USA Marktanteile an Medtronic, Johnson & Johnson und Abbott. Ende Mai sagte der CEO, Watchman bleibe flach, die Aktie fiel in einer Woche um 15 %. Am 25. August meldete die Firma einen Hackerangriff, der Produktion und Versand weltweit gestört hat. Am 8. September folgte die Warnung, dass die Prognose nicht mehr erreicht wird. Für 2027 erwartet das Management kaum Gewinnwachstum, eine deutliche Besserung erst 2028. Echte Probleme im Geschäft und schlechte Stimmung kommen hier zusammen: Die Börse bewertet die Aktie heute nur noch mit rund 13 bereinigten Jahresgewinnen statt rund 30.</p>
+</section>
+
+<section>
+  <h2>Fundamental: die Zahlen</h2>
+  <div class="kpis">
+<div class="kpi w"><span>Umsatzwachstum</span><b>+7.0 %</b><em>Organisch im 2. Quartal 2026. Das Tempo bricht ein: 15.3 % → 12.7 % → 9.4 % → 7.0 %. Für das 3. Quartal waren vor dem Hackerangriff nur 3 bis 5 % geplant.</em></div>
+<div class="kpi w"><span>Operative Marge</span><b>20.5 %</b><em>Ausgewiesen, letzte 12 Monate: von 100 $ Umsatz bleiben gut 20 $ Betriebsgewinn. Seit 2021 (15.3 %) jedes Jahr gestiegen. Bereinigt (ohne Abschreibungen auf Zukäufe) rund 28 %.</em></div>
+<div class="kpi w"><span>Gewinn pro Aktie (bereinigt)</span><b>3.21 $</b><em>Letzte 12 Monate. 2022: 1.71 $, 2025: 3.06 $. Jetzt nur noch rund +5 %, für 2027 erwartet das Management kaum Wachstum.</em></div>
+<div class="kpi w"><span>ROIC</span><b>11.2 %</b><em>Auf 100 $ investiertes Kapital gut 11 $ Gewinn. Mittel, aber seit 2022 (5 %) klar steigend.</em></div>
+<div class="kpi g"><span>Free Cashflow</span><b>3.6 Mrd. $</b><em>Letzte 12 Monate. Seit 2022 (0.9 Mrd. $) stark gestiegen.</em></div>
+<div class="kpi w"><span>Nettoschulden / EBITDA</span><b>2.1</b><em>Rund 12 Mrd. $ Nettoschulden. Tragbar, wird mit dem Kauf von Penumbra aber höher.</em></div>
+<div class="kpi g"><span>KGV (bereinigt)</span><b>13.3</b><em>Du zahlst gut 13 bereinigte Jahresgewinne. Eigener 5-Jahres-Schnitt rund 30. Also mehr als 50 % günstiger als üblich. Ausgewiesen 17.3.</em></div>
+<div class="kpi b"><span>Prognose 2026</span><b>3× gesenkt</b><em>Organisch von 10–11 % auf 5–6 %, danach wegen des Hackerangriffs ganz zurückgezogen. Neuer Ausblick am 28. Oktober.</em></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>Umsatz pro Quartal (Mrd. $)</h3>
+      <p class="note">Alle 4 letzten Quartale über Vorjahr, aber das Wachstum halbiert sich fast jedes Halbjahr (+20 % → +7.5 %).</p>
+      <div class="chart" id="c-rev"></div>
+    </div>
+    <div class="card">
+      <h3>Operative Marge pro Jahr (ausgewiesen)</h3>
+      <p class="note">Ausgewiesene Marge, seit 2021 jedes Jahr gestiegen. Die Restrukturierung (700–800 Mio. $ Kosten) soll ab 2027 rund 500 Mio. $ pro Jahr sparen.</p>
+      <div class="chart" id="c-margin"></div>
+    </div>
+  </div>
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Jahr</th><th class="num">Umsatz Mio. $</th><th class="num">Wachstum</th><th class="num">Op. Marge</th><th class="num">EPS $</th><th class="num">Free Cashflow</th><th class="num">ROIC</th><th class="num">KGV bereinigt</th></tr></thead>
+      <tbody id="fin-rows"></tbody>
+    </table>
+  </div>
+  <p class="note"><b>Hinweis:</b> EPS und KGV bereinigt (ohne Abschreibungen auf Zukäufe und Einmaleffekte), so wie die Firma und die Analysten rechnen. Ausgewiesenes EPS: 2022 0.45 $, 2023 1.07 $, 2024 1.25 $, 2025 1.94 $. Die KGV-Werte 2022–2024 sind mit gerundeten Jahresschlusskursen gerechnet.</p>
+</section>
+
+<section>
+  <h2>Qualität: 63 von 100</h2>
+  <div class="card tbl"><table id="q-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Technik: Wochenchart (2 Jahre)</h2>
+  <div class="card">
+    <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span><span><i class="swb" style="background:var(--zone-sup);border:1px solid var(--good)"></i>Unterstützung</span><span><i class="swb" style="background:var(--zone-res);border:1px solid var(--bad)"></i>Widerstand</span></div>
+    <div class="chart" id="c-week"></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>A/D-Linie, Woche</h3>
+      <p class="note">Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Die Wochen-A/D fällt seit Anfang 2026 stark (1'893 → 1'064). Wichtig: Beim Juli-Tief (44 $) stand sie bei 1'167, heute bei ähnlichem Kurs nur bei 1'064. Auf Wochenbasis wird noch verkauft.</p>
+      <div class="chart" id="c-adw"></div>
+    </div>
+    <div class="card">
+      <h3>RSI, Woche</h3>
+      <p class="note">Unter 30 überverkauft, über 70 überkauft. Im Juni und Juli bei 23–24 (stark überverkauft), heute 32 bei tieferem Kurs: bullische Divergenz.</p>
+      <div class="chart" id="c-rsiw"></div>
+    </div>
+  </div>
+
+  <h2>Technik: Tageschart (6 Monate)</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Kurs, Tag</h3>
+      <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span></div>
+      <div class="chart" id="c-day"></div>
+    </div>
+    <div class="card">
+      <h3>A/D-Linie, Tag</h3>
+      <p class="note">Die Tages-A/D lag bei den Tiefs im Juni und Juli (42.2 $) bei −358, heute bei ähnlichem Kurs bei −365: kein Kaufdruck. Seit dem Tief vom 10.9. (−381) zieht sie leicht an. Noch kein klares Bodenzeichen.</p>
+      <div class="chart" id="c-add"></div>
+    </div>
+  </div>
+
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Indikator</th><th>Tag</th><th>Woche</th><th>Bedeutung</th></tr></thead>
+      <tbody>
+<tr><td>Kurs vs. EMA 50</td><td class="pts">42.7 &lt; 45.4</td><td class="pts">42.7 &lt; 61.8</td><td>Unter der mittelfristigen Linie.</td></tr>
+<tr><td>Kurs vs. EMA 200</td><td class="pts">42.7 &lt; 59.0</td><td class="pts">42.7 &lt; 69.4</td><td>Weit unter der langfristigen Linie.</td></tr>
+<tr><td>EMA 50 vs. EMA 200</td><td class="pts">50 unter 200 (seit 8.12.2025)</td><td class="pts">50 unter 200 (seit 13.7.2026)</td><td>Klarer Abwärtstrend auf beiden Ebenen.</td></tr>
+<tr><td>RSI (14)</td><td class="pts">41.1</td><td class="pts">32.3</td><td>Bullische Divergenz auf Tag und Woche: tieferer Kurs, höherer RSI.</td></tr>
+<tr><td>A/D</td><td class="pts">tiefer als bei den Juli-Tiefs</td><td class="pts">fällt weiter</td><td>Noch Verkaufsdruck.</td></tr>
+<tr><td>Volumen</td><td colspan="2">Ø 20 Tage 19.6 Mio. vs. Ø 100 Tage 20.7 Mio.</td><td>Normal, kein Ausverkauf mehr.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Struktur und Zonen (Smart Money Concept)</h2>
+  <p class="lead">Seit dem Hoch im November 2025 (105.65 $) nur tiefere Hochs (100.9 → 76.87 → 71.94 → 66.88 → 58.51 → 50.14 → 46.37 $) und tiefere Tiefs: ein klarer Abwärtstrend. Seit Ende Juni läuft der Kurs aber seitwärts: Die Tiefs liegen fast gleich (42.25 $ am 30.6., 42.20 $ am 15.7., 42.78 $ am 10.9., 42.72 $ am 21.9.), nur am 8.10. leicht tiefer (41.39 $). Der Ausbruch im August bis 52.99 $ scheiterte. Ein Tagesschluss über 45.75 $ (Hoch vom 23.9.) wäre ein erster Change of Character. Bestätigt wäre die Wende erst über 50 $.</p>
+  <div class="zones">
+<div class="zone r"><b>58.5 $</b><span>Widerstand: Hoch vom Mai.</span></div>
+<div class="zone r"><b>49.7–53 $</b><span>Widerstand: Hochs von August und September.</span></div>
+<div class="zone t"><b>45.75 $</b><span><b>Trigger:</b> Tagesschluss über dem Hoch vom 23.9.</span></div>
+<div class="zone s"><b>41.4–42.8 $</b><span><b>Kaufzone 1:</b> Boden seit Juni, fünfmal getestet.</span></div>
+<div class="zone s"><b>35–38.5 $</b><span><b>Kaufzone 2:</b> Bewertungszone, bereinigtes KGV 11–12.</span></div>
+<div class="zone r"><b>40.5 $</b><span>Abbruch: Wochenschluss darunter, dann ist der Boden gebrochen.</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Smart Money, Insider und Saisonalität</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Wer kauft, wer verkauft?</h3>
+      <ul class="clean" style="margin-top:8px">
+<li><b>Boston Scientific selbst:</b> Im 2. Quartal 2026 eigene Aktien für 2 Mrd. $ zurückgekauft (rund 3 % des Börsenwerts), der erste Rückkauf seit sechs Quartalen.</li>
+<li><b>Insider-Käufe:</b> CEO Mike Mahoney kaufte am 3.8.2026 186'240 Aktien zu 48.33 $ (rund 9 Mio. $) mit eigenem Geld. Dazu mehrere Verwaltungsräte im Mai und August (zusammen rund 1 Mio. $). Das ist ein starkes Zeichen.</li>
+<li><b>Insider-Verkäufe:</b> Rund 29 Mio. $, alle nach Optionsausübungen und nahe am Hoch (Ende 2025 bis Februar 2026).</li>
+<li><b>Fonds und Analysten:</b> Leerverkäufe stark gestiegen (46.5 statt 27.6 Mio. Aktien). 31 Analysten, im Schnitt «Kaufen», Kursziel rund 60 bis 66 $. Ein Teil der Analysten nennt 2026 ein «verlorenes Jahr».</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Saisonalität seit 1992</h3>
+      <p class="note">Durchschnittliche Monatsrendite in %. 34 Jahre Daten (seit 1992). Dezember (+3.6 %, 76 %) und Januar (+5.2 %, 62 %) sind stark, September ist der schwächste Monat (−2.7 %). Oktober und November sind eher schwach (44–47 %).</p>
+      <div class="chart" id="c-seas"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Timing: 32 von 100</h2>
+  <div class="card tbl"><table id="t-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Worauf du achten solltest: Unterbewertung und Wachstumsschub</h2>
+  <div class="card"><h3>Was die Börse befürchtet</h3><p class="note" style="margin:4px 0">Das Geschäft verschlechtert sich: Der Verlust von Marktanteilen bei Farapulse und die sinkende Watchman-Nachfrage sind strukturelle Probleme; nur der Hackerangriff ist vorübergehend.</p><ul class="clean"><li>Die zwei Wachstumsmotoren schwächeln: Beim Herzkatheter Farapulse ist der US-Marktanteil laut Firma schneller als erwartet auf rund 50 % gefallen. Die Watchman-Eingriffe in den USA sollen im 2. Halbjahr 2026 und 2027 im mittleren bis hohen einstelligen Prozentbereich schrumpfen.</li><li>Im Juli 2026 wurde die Jahresprognose erneut gesenkt (organisch 5–6 %). Für 2027 erwartet das Management kaum Gewinnwachstum.</li><li>Ein Hackerangriff am 25.08.2026 legte den Betrieb weltweit acht Tage lahm. Die Ziele für das 3. Quartal und das Jahr sind laut Firma nicht mehr erreichbar.</li><li>Die Aktie hat 2026 rund die Hälfte verloren. Citi stufte im September auf «Neutral» ab (Kursziel 50 $) und senkte die Schätzungen dieses Jahr achtmal.</li></ul><h3 style="margin-top:12px">Was die Sorgen beenden könnte</h3><ul class="clean"><li>Schaden des Hackerangriffs beziffert, neuer Ausblick, verlorene Eingriffe teilweise nachgeholt <span class="muted">(Zahlen 28.10.2026)</span></li><li>Watchman: Resultate der Studie SIMPLAAFY und eine erwartete Anpassung der Zulassung (Label) für Patienten, die keine Blutverdünner nehmen können oder wollen <span class="muted">(Studie 2. Halbjahr 2026, Label 2027)</span></li><li>Neue Katheter (Farawave Ultra, ICE, Faraflex) holen Marktanteile zurück <span class="muted">(2. Halbjahr 2027 bis 2028)</span></li><li>Abschluss des Penumbra-Kaufs und erste Fortschritte beim Sparprogramm <span class="muted">(Penumbra erwartet 2. Halbjahr 2026, Sparziel bis Ende 2027 zu über der Hälfte)</span></li></ul><h3 style="margin-top:12px">Wachstumsschub: Wachstumsschub möglich</h3><ul class="clean"><li><b>Neue Farapulse-Generation:</b> Farawave Ultra soll das Abbilden des Herzens (Mapping) und die Behandlung in einem Katheter verbinden und laut Firma höhere Preise erlauben. Ausserhalb der USA ist die Technik noch weniger verbreitet; dort soll das Herzrhythmus-Geschäft (EP) 2026 um rund 20 % wachsen. <span class="muted">(2. Halbjahr 2027–2028)</span></li><li><b>Kauf von Penumbra:</b> Für 14.5 Mrd. $ kauft Boston Scientific einen Spezialisten für Katheter, die Blutgerinnsel entfernen. Das bringt ein zusätzliches Wachstumsfeld, belastet laut Firma 2027 aber zuerst die Marge. <span class="muted">(ab 2027)</span></li><li><b>Pipeline und Sparprogramm:</b> Geplant sind u. a. Nierendenervation (gegen Bluthochdruck), ein Lithotripsie-Katheter für Herzkranzgefässe (Seismiq, laut Citi Start Anfang 2027) und der Wiedereinstieg bei Herzklappen (TAVR, Zulassung laut Citi in 2–3 Jahren). Dazu ein Sparprogramm von rund 500 Mio. $ pro Jahr bis Ende 2029. <span class="muted">(2027–2029)</span></li></ul><p style="margin:10px 0 0"><b>Woran du es erkennst:</b> Ab den Zahlen am 28.10.: Farapulse-Umsatz in den USA stabil gegenüber dem Vorquartal und ein Watchman-Rückgang kleiner als die befürchteten mittleren bis hohen einstelligen Prozent. Ab Ende 2027 dann erste Umsätze mit Farawave Ultra.</p><p style="margin:10px 0 0"><b>Das Chancen-Szenario:</b> Chancen-Szenario: Bei einem bereinigten KGV um 13 (eigener Schnitt rund 30) ist viel Pessimismus im Kurs. Holen die neuen Katheter ab Ende 2027 Marktanteile zurück und bringt das Watchman-Label 2027 neue Patienten, könnte die Aktie wie Google nach 2023 stark neu bewertet werden. Grösstes Risiko: Die Konkurrenz bleibt vorne, Watchman schrumpft weiter und die Penumbra-Schulden drücken, dann bleibt die Aktie lange billig.</p><p class="note" style="margin:10px 0 0">Quellen: <a href="https://www.mddionline.com/business/pressures-mount-from-cyberattack-boston-scientific-cuts-guidance-again" target="_blank" rel="noopener">MD+DI: Pressures Mount from Cyberattack: Boston Scientific Says It Is Unlikely to Meet Guidance (08.09.2026)</a>, <a href="https://www.massdevice.com/citi-downgrades-boston-scientific-as-cyberattack-recovery-compounds-competitive-pressure/" target="_blank" rel="noopener">MassDevice: Citi downgrades Boston Scientific (18.09.2026)</a>, <a href="https://www.nasdaq.com/articles/boston-scientific-q2-earnings-call-highlights" target="_blank" rel="noopener">Nasdaq: Boston Scientific Q2 Earnings Call Highlights</a>, <a href="https://quartr.com/events/boston-scientific-corporation-bsx-wells-fargo-21st-annual-healthcare-conference_3YK5rfio" target="_blank" rel="noopener">Quartr: Boston Scientific at Wells Fargo Healthcare Conference (10.09.2026)</a>, <a href="https://www.zacks.com/stock/news/2984244/cyberattack-weak-2026-outlook-weigh-on-bsx-is-the-stock-a-sell" target="_blank" rel="noopener">Zacks: Cyberattack &amp; Weak 2026 Outlook Weigh on BSX (03.09.2026)</a></p></div>
+</section>
+
+<section>
+  <h2>Dividende</h2>
+  <div class="card tbl"><p style="margin:0">Boston Scientific hat noch nie eine Dividende bezahlt. Das Geld geht in Zukäufe (Penumbra) und Aktienrückkäufe.</p></div>
+</section>
+
+<section>
+  <h2>Pro und Contra</h2>
+  <div class="two">
+    <div class="card pro"><h3>Spricht dafür</h3><ul class="clean" style="margin-top:8px">
+<li>Sehr günstig bewertet: bereinigtes KGV 13 statt Ø 30.</li>
+<li>Der CEO hat für 9 Mio. $ eigene Aktien gekauft, die Firma kauft zurück.</li>
+<li>Starke Produkte und hohe Marge, Free Cashflow 3.6 Mrd. $.</li>
+<li>Boden bei 41–43 $ seit Juni, RSI mit bullischer Divergenz.</li>
+<li>Sparprogramm (500 Mio. $ pro Jahr) und Penumbra können ab 2027/28 helfen.</li>
+    </ul></div>
+    <div class="card con"><h3>Spricht dagegen</h3><ul class="clean" style="margin-top:8px">
+<li>Die beiden Wachstumstreiber Watchman und Herz-Ablation schwächeln, Marktanteile gehen verloren.</li>
+<li>Prognose dreimal gesenkt, 2027 kaum Gewinnwachstum.</li>
+<li>Hackerangriff mit Umsatzausfällen, Sammelklage von Aktionären.</li>
+<li>Mehr Schulden durch den Kauf von Penumbra.</li>
+<li>Klarer Abwärtstrend, A/D zeigt noch Verkaufsdruck, viele Leerverkäufer.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section>
+  <h2>Was jetzt zu tun ist</h2>
+  <div class="zones">
+<div class="zone t"><b>Beobachten</b><span>Alarm bei 45.75 $ (Trigger) und 41.4 $ (unteres Ende Kaufzone 1).</span></div>
+<div class="zone s"><b>Timing grün</b><span>Erst die Zahlen und den neuen Ausblick am 28.10. abwarten. Danach Tagesschluss über 45.75 $ und über 50 $, mit drehender A/D.</span></div>
+<div class="zone r"><b>Abbruch</b><span>Wochenschluss unter 40.5 $.</span></div>
+<div class="zone "><b>Nächste Zahlen</b><span>28. Oktober 2026 vor US-Börsenbeginn (3. Quartal). Entscheidend: Schaden durch den Hackerangriff, Watchman, Herz-Ablation und der Ausblick für 2027.</span></div>
+  </div>
+</section>
+
+<footer>
+  <span>Kursdaten und Indikatoren (EMA, RSI 14, A/D) selbst berechnet aus Yahoo-Finance-Tages-, Wochen- und Monatsdaten, Stand 11.10.2026. <a href="https://stockanalysis.com/stocks/bsx/financials/" target="_blank" rel="noopener">StockAnalysis.com</a> (Stand 11.10.2026), <a href="https://news.bostonscientific.com/2026-07-29-Boston-Scientific-announces-results-for-second-quarter-2026" target="_blank" rel="noopener">Boston Scientific Q2 2026</a>, <a href="https://www.massdevice.com/boston-scientific-missed-guidance-cybersecurity-incident/" target="_blank" rel="noopener">Hackerangriff (MassDevice, 8.9.2026)</a>, <a href="https://www.sec.gov/Archives/edgar/data/0000885725/000122520826006950/doc4.xml" target="_blank" rel="noopener">CEO-Kauf (SEC Form 4)</a>, <a href="https://www.marketbeat.com/stocks/NYSE/BSX/insider-trades/" target="_blank" rel="noopener">Insider (MarketBeat)</a>.</span>
+  <span>Persönliche Analyse, keine Anlageberatung. Vergangene Kurse und Saisonalität sagen nichts Sicheres über die Zukunft.</span>
+</footer>
+</div>
+
+<script>
+const Q=[["Umsatztrend", "4 von 4 Quartalen über Vorjahr, aber stark bremsend", 10, 15], ["Wachstumstempo", "Organisch 7 % im 2. Quartal, Jahresprognose zuletzt 5–6 % und nicht mehr erreichbar", 3, 10], ["Operative Marge", "20.5 % ausgewiesen (6 Pkt.), seit 2021 steigend (6 Pkt.)", 12, 15], ["Gewinnwachstum (EPS)", "Bereinigt zuletzt rund +5 %, 2027 kaum Wachstum", 5, 10], ["Free Cashflow", "Positiv, seit 2022 stark steigend", 7, 10], ["ROIC", "11.2 %, klar steigend", 7, 15], ["Schulden", "Nettoschulden/EBITDA 2.1", 5, 10], ["Bewertung vs. eigene Historie", "Bereinigtes KGV 13.3 statt Ø rund 30 (über 50 % günstiger)", 14, 15]];
+const T=[["Trend Woche (EMA 50/200)", "Kurs weit unter beiden, EMA 50 unter 200", 1, 20], ["Trend Tag (EMA 50/200)", "Kurs unter beiden, EMA 200 weit weg", 1, 10], ["Struktur (SMC)", "Tiefere Hochs und Tiefs, seit Juni Boden bei 41–43 $", 3, 20], ["RSI Tag/Woche", "Bullische Divergenz auf Tag und Woche", 12, 15], ["A/D Tag/Woche", "Beide schwächer als bei den Juli-Tiefs", 4, 20], ["Smart Money", "CEO kauft für 9 Mio. $, Rückkauf 2 Mrd. $", 10, 10], ["Saisonalität", "Okt und Nov eher schwach, Dez stark", 1, 5]];
+const FIN=[["2022", 12682, "+6.7 %", "16.0 %", 1.71, 938, "5.0 %", "27.1"], ["2023", 14240, "+12.3 %", "17.0 %", 2.05, 1792, "7.2 %", "28.2"], ["2024", 16747, "+17.6 %", "17.9 %", 2.51, 2645, "8.0 %", "35.6"], ["2025", 20074, "+19.9 %", "19.8 %", 3.06, 3658, "10.1 %", "31.2"], ["Letzte 12 Mt.", 20996, "+13.5 %", "20.5 %", 3.21, 3625, "11.2 %", "13.3"]];
+const HALF=[["Q3 24", 4.21], ["Q4 24", 4.56], ["Q1 25", 4.66], ["Q2 25", 5.06], ["Q3 25", 5.07], ["Q4 25", 5.29], ["Q1 26", 5.2], ["Q2 26", 5.44]];
+const MARGIN=[["2021", 15.3], ["2022", 16.0], ["2023", 17.0], ["2024", 17.9], ["2025", 19.8], ["12 Mt.", 20.5]];
+const SEAS=[5.2, -0.1, 0.4, 1.6, 1.5, 0.1, 2.1, 0.4, -2.7, 0.0, -1.0, 3.6];
+const SEASHIT=[62.0, 53.0, 55.0, 65.0, 59.0, 49.0, 63.0, 46.0, 37.0, 44.0, 47.0, 76.0];
+const MON=["Jan","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"];
+const W=`2024-10-14,88.07,72.09,54.66,82,1836.4;2024-10-21,84.73,72.58,54.96,68,1813.7;2024-10-28,83.62,73.02,55.25,64,1822.7;2024-11-04,88.25,73.61,55.57,71,1843.2;2024-11-11,86.99,74.14,55.89,67,1831.6;2024-11-18,90,74.76,56.23,71,1828;2024-11-25,90.66,75.38,56.57,72,1841.2;2024-12-02,90.07,75.96,56.9,70,1832.8;2024-12-09,90.11,76.52,57.23,70,1835.2;2024-12-16,88.95,77,57.55,66,1827.1;2024-12-23,90.66,77.54,57.88,69,1832.2;2024-12-30,90.69,78.05,58.2,69,1842.8;2025-01-06,94.88,78.71,58.57,75,1851.5;2025-01-13,98.66,79.5,58.97,79,1874.2;2025-01-20,101.94,80.38,59.4,82,1895.4;2025-01-27,102.36,81.24,59.82,82,1895.2;2025-02-03,105.25,82.18,60.27,84,1910.9;2025-02-10,106.11,83.12,60.73,85,1920.9;2025-02-17,104.49,83.96,61.17,79,1923.6;2025-02-24,103.79,84.73,61.59,77,1958.9;2025-03-03,99.13,85.3,61.96,63,1936.4;2025-03-10,97.16,85.76,62.31,58,1960;2025-03-17,100.69,86.35,62.7,63,1976.3;2025-03-24,99.36,86.86,63.06,60,1955.1;2025-03-31,89.7,86.97,63.33,44,1895.8;2025-04-07,93.67,87.23,63.63,50,1917.6;2025-04-14,95.12,87.54,63.94,52,1916.7;2025-04-21,101.9,88.11,64.32,60,1958.1;2025-04-28,104.93,88.77,64.72,63,1983;2025-05-05,102.86,89.32,65.1,60,1963.8;2025-05-12,106.04,89.97,65.51,63,1994.7;2025-05-19,104.5,90.54,65.9,61,1977.5;2025-05-26,105.26,91.12,66.29,61,1980.9;2025-06-02,102.09,91.55,66.65,56,1961.5;2025-06-09,99.74,91.87,66.97,52,1960.8;2025-06-16,101.3,92.24,67.32,55,1958.4;2025-06-23,106.53,92.8,67.71,61,1991.4;2025-06-30,104.32,93.25,68.07,57,1983.4;2025-07-07,103.2,93.64,68.42,55,1984.9;2025-07-14,103.64,94.04,68.77,56,1979.5;2025-07-21,106.14,94.51,69.14,59,1982;2025-07-28,105.41,94.94,69.5,58,1975.8;2025-08-04,103.14,95.26,69.84,54,1964;2025-08-11,103.17,95.57,70.17,54,1964.6;2025-08-18,106.17,95.99,70.53,58,1991.9;2025-08-25,105.5,96.36,70.88,57,1985;2025-09-01,107.22,96.78,71.24,60,1995.9;2025-09-08,102.71,97.02,71.55,51,1956.7;2025-09-15,97.83,97.05,71.81,44,1904.7;2025-09-22,98.18,97.09,72.07,44,1909.6;2025-09-29,97.32,97.1,72.33,43,1951.4;2025-10-06,95.41,97.04,72.56,40,1913.8;2025-10-13,99.24,97.12,72.82,47,1945.5;2025-10-20,101.11,97.28,73.1,51,1923.2;2025-10-27,100.72,97.41,73.38,50,1911.1;2025-11-03,100.02,97.52,73.64,49,1929.9;2025-11-10,102.69,97.72,73.93,53,1935.4;2025-11-17,96.88,97.69,74.16,44,1895.4;2025-11-24,101.58,97.84,74.43,51,1927.7;2025-12-01,97.52,97.83,74.66,46,1895.1;2025-12-08,92.58,97.62,74.84,40,1860.1;2025-12-15,95.61,97.54,75.05,45,1896.6;2025-12-22,96.06,97.48,75.26,45,1901.8;2025-12-29,94.71,97.37,75.45,44,1889.8;2026-01-05,97.64,97.39,75.67,48,1893;2026-01-12,88.07,97.02,75.79,37,1833.4;2026-01-19,92.51,96.84,75.96,44,1882.4;2026-01-26,93.53,96.71,76.14,45,1899.6;2026-02-02,76.27,95.91,76.14,31,1739.7;2026-02-09,74.73,95.08,76.12,30,1749.8;2026-02-16,74.58,94.28,76.11,30,1707.3;2026-02-23,76.85,93.59,76.11,34,1781;2026-03-02,71.35,92.72,76.07,30,1728.2;2026-03-09,69.13,91.8,76,29,1706.4;2026-03-16,69.48,90.92,75.93,29,1662.9;2026-03-23,69.17,90.07,75.87,29,1645.7;2026-03-30,62.82,89,75.74,25,1614.1;2026-04-06,61.79,87.93,75.6,24,1600.5;2026-04-13,64.23,87,75.48,29,1621.5;2026-04-20,62.07,86.02,75.35,27,1583.8;2026-04-27,56.5,84.87,75.16,24,1503.7;2026-05-04,53.93,83.65,74.95,22,1424.2;2026-05-11,52.68,82.44,74.73,22,1353.1;2026-05-18,57.78,81.47,74.56,31,1409.5;2026-05-25,48.31,80.17,74.3,25,1264.7;2026-06-01,48.55,78.93,74.04,25,1256.3;2026-06-08,46.91,77.68,73.77,24,1208.1;2026-06-15,45.29,76.41,73.49,24,1169.9;2026-06-22,44.23,75.14,73.2,23,1100.8;2026-06-29,45.14,73.97,72.92,25,1174.2;2026-07-06,44.77,72.82,72.64,24,1156.1;2026-07-13,44.03,71.69,72.36,24,1166.5;2026-07-20,44.25,70.62,72.08,24,1217;2026-07-27,46.73,69.68,71.82,30,1333.2;2026-08-03,49.31,68.88,71.6,35,1373.8;2026-08-10,51.83,68.21,71.4,40,1401.7;2026-08-17,50.37,67.51,71.19,39,1377.6;2026-08-24,46.84,66.7,70.95,35,1287.3;2026-08-31,47.8,65.96,70.72,36,1283.8;2026-09-07,42.98,65.06,70.45,31,1195.4;2026-09-14,43.34,64.21,70.18,32,1113.6;2026-09-21,43.92,63.41,69.91,33,1093.6;2026-09-28,42.6,62.6,69.64,32,1053.7;2026-10-09,42.73,61.82,69.37,32,1063.5`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+const DD=`2026-04-07,61.86,73.96,88.47,-81.3;2026-04-08,62.56,73.51,88.22,-87.2;2026-04-09,61.28,73.03,87.95,-90;2026-04-10,61.79,72.59,87.69,-75.2;2026-04-13,63.18,72.22,87.44,-63;2026-04-14,63.82,71.89,87.21,-62.8;2026-04-15,64.61,71.61,86.98,-59.7;2026-04-16,63.42,71.29,86.75,-69.7;2026-04-17,64.23,71.01,86.53,-73.7;2026-04-20,60.99,70.62,86.27,-86;2026-04-21,59.52,70.18,86.01,-109.8;2026-04-22,64.87,69.97,85.8,-79.7;2026-04-23,65.69,69.81,85.6,-86.6;2026-04-24,62.07,69.5,85.36,-103.3;2026-04-27,59.95,69.13,85.11,-120.6;2026-04-28,58.45,68.71,84.84,-131.6;2026-04-29,57.15,68.26,84.57,-127.9;2026-04-30,57.61,67.84,84.3,-113;2026-05-01,56.5,67.39,84.02,-131.3;2026-05-04,56.85,66.98,83.75,-137.6;2026-05-05,55.98,66.55,83.48,-147.9;2026-05-06,56,66.14,83.2,-132.6;2026-05-07,56.57,65.76,82.94,-153.2;2026-05-08,53.93,65.3,82.65,-169.9;2026-05-11,53.37,64.83,82.36,-182.4;2026-05-12,54.1,64.41,82.08,-178.7;2026-05-13,53.06,63.96,81.79,-190.6;2026-05-14,53.55,63.55,81.51,-180.4;2026-05-15,52.68,63.13,81.22,-192.7;2026-05-18,55.92,62.85,80.97,-180.7;2026-05-19,56.81,62.61,80.73,-184.2;2026-05-20,56.67,62.38,80.49,-174;2026-05-21,57.15,62.17,80.26,-161.5;2026-05-22,57.78,62,80.03,-165.1;2026-05-26,57.64,61.83,79.81,-167.2;2026-05-27,50.46,61.38,79.52,-205.9;2026-05-28,49.11,60.9,79.22,-219.9;2026-05-29,48.31,60.41,78.91,-245.7;2026-06-01,47.98,59.92,78.6,-246.8;2026-06-02,47.68,59.44,78.29,-255.8;2026-06-03,47.69,58.98,77.99,-262.4;2026-06-04,48.85,58.58,77.7,-263.1;2026-06-05,48.55,58.19,77.41,-277.5;2026-06-08,48.7,57.82,77.12,-271.7;2026-06-09,48.96,57.47,76.84,-280.8;2026-06-10,48.34,57.11,76.56,-281.8;2026-06-11,47.17,56.72,76.27,-295.1;2026-06-12,46.91,56.34,75.97,-294.8;2026-06-15,46.76,55.96,75.68,-299;2026-06-16,46.92,55.61,75.4,-294.9;2026-06-17,44.95,55.19,75.09,-312.2;2026-06-18,45.29,54.8,74.8,-292.6;2026-06-22,44.33,54.39,74.49,-301.4;2026-06-23,45.6,54.04,74.21,-285.3;2026-06-24,44.46,53.67,73.91,-297.9;2026-06-25,44.2,53.3,73.62,-308.9;2026-06-26,44.23,52.94,73.32,-328.4;2026-06-29,43.48,52.57,73.03,-347.2;2026-06-30,42.68,52.18,72.72,-358.3;2026-07-01,43.06,51.83,72.43,-366.8;2026-07-02,45.14,51.56,72.16,-355.3;2026-07-06,44.6,51.29,71.88,-354.6;2026-07-07,45.3,51.06,71.62,-363.3;2026-07-08,44.81,50.81,71.35,-354.5;2026-07-09,44.99,50.58,71.09,-345.1;2026-07-10,44.77,50.35,70.83,-346.9;2026-07-13,44.65,50.13,70.57,-353;2026-07-14,42.63,49.84,70.29,-361.5;2026-07-15,43.04,49.57,70.02,-358.8;2026-07-16,44.62,49.38,69.77,-358.4;2026-07-17,44.03,49.17,69.51,-368.3;2026-07-20,43.77,48.95,69.25,-372.3;2026-07-21,43.19,48.73,68.99,-378.8;2026-07-22,42.97,48.5,68.73,-384.2;2026-07-23,43.58,48.31,68.48,-370.8;2026-07-24,44.25,48.15,68.24,-369.3;2026-07-27,45.51,48.05,68.02,-368;2026-07-28,46.06,47.97,67.8,-385;2026-07-29,46.04,47.89,67.58,-353.6;2026-07-30,46,47.82,67.37,-334;2026-07-31,46.73,47.78,67.16,-316.4;2026-08-03,48.43,47.8,66.98,-310.1;2026-08-04,49.09,47.85,66.8,-292.7;2026-08-05,47.74,47.85,66.61,-300.4;2026-08-06,49.3,47.9,66.44,-307.7;2026-08-07,49.31,47.96,66.27,-313.8;2026-08-10,50.46,48.06,66.11,-305.5;2026-08-11,51.19,48.18,65.96,-298.1;2026-08-12,51.42,48.31,65.82,-285.1;2026-08-13,51.69,48.44,65.67,-287.6;2026-08-14,51.83,48.57,65.54,-300.7;2026-08-17,51.43,48.69,65.4,-310.5;2026-08-18,50.47,48.76,65.25,-322;2026-08-19,52.01,48.88,65.12,-314.9;2026-08-20,49.37,48.9,64.96,-335.1;2026-08-21,50.37,48.96,64.81,-319.3;2026-08-24,49.01,48.96,64.66,-334.8;2026-08-25,49.86,49,64.51,-321.6;2026-08-26,48.17,48.96,64.35,-301.5;2026-08-27,46.67,48.87,64.17,-316.5;2026-08-28,46.84,48.79,64,-317.4;2026-08-31,48.3,48.78,63.84,-307.3;2026-09-01,48.08,48.75,63.69,-308.8;2026-09-02,48.37,48.73,63.53,-316.9;2026-09-03,46.95,48.66,63.37,-334.2;2026-09-04,47.8,48.63,63.21,-325.2;2026-09-08,44.98,48.49,63.03,-351.4;2026-09-09,44.96,48.35,62.85,-367.5;2026-09-10,43.1,48.14,62.66,-381.4;2026-09-11,42.98,47.94,62.46,-395.4;2026-09-14,45.05,47.83,62.29,-378;2026-09-15,43.87,47.67,62.1,-389.4;2026-09-16,43.91,47.52,61.92,-403.3;2026-09-17,43.55,47.37,61.74,-380.9;2026-09-18,43.34,47.21,61.56,-390.2;2026-09-21,43.72,47.07,61.38,-369.3;2026-09-22,44.92,46.99,61.22,-354.7;2026-09-23,44.62,46.9,61.05,-359.9;2026-09-24,44.68,46.81,60.89,-366.3;2026-09-25,43.92,46.7,60.72,-369.7;2026-09-28,44.11,46.59,60.55,-349.7;2026-09-29,43.88,46.49,60.39,-346.4;2026-09-30,43.65,46.38,60.22,-345.6;2026-10-01,43.23,46.25,60.05,-353.6;2026-10-02,42.6,46.11,59.88,-355.8;2026-10-05,42.4,45.96,59.7,-366.5;2026-10-06,42.19,45.82,59.53,-372.7;2026-10-07,41.58,45.65,59.35,-386.1;2026-10-08,42.04,45.51,59.18,-375.2;2026-10-09,42.73,45.4,59.02,-365.2`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+
+const fmtN=(v,d=2)=>v.toLocaleString("de-CH",{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmtD=s=>{const [y,m,d]=s.split("-");return d+"."+m+"."+y.slice(2)};
+const NS="http://www.w3.org/2000/svg";
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+
+function scoreTable(id,rows){
+  let tot=0,max=0;
+  const html='<thead><tr><th>Kriterium</th><th>Stand</th><th class="num">Punkte</th><th style="width:22%"></th></tr></thead><tbody>'+rows.map(r=>{tot+=r[2];max+=r[3];const p=r[2]/r[3];const c=p>=.75?"var(--good)":p>=.45?"var(--warn)":"var(--bad)";
+    return `<tr><td>${r[0]}</td><td class="muted">${r[1]}</td><td class="num">${r[2]} / ${r[3]}</td><td><div class="bar"><i style="width:${p*100}%;background:${c}"></i></div></td></tr>`}).join("")+`<tr class="total"><td>Total</td><td></td><td class="num">${tot} / ${max}</td><td></td></tr></tbody>`;
+  document.getElementById(id).innerHTML=html;return tot;
+}
+const qs=scoreTable("q-tbl",Q), ts=scoreTable("t-tbl",T);
+document.getElementById("q-val").textContent=qs;document.getElementById("t-val").textContent=ts;
+document.getElementById("q-pin").style.left=qs+"%";document.getElementById("t-pin").style.left=ts+"%";
+
+document.getElementById("fin-rows").innerHTML=FIN.map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1].toLocaleString("de-CH")}</td><td class="num">${r[2]}</td><td class="num">${r[3]}</td><td class="num">${fmtN(r[4])}</td><td class="num">${r[5].toLocaleString("de-CH")}</td><td class="num">${r[6]}</td><td class="num">${r[7]}</td></tr>`).join("");
+
+/* generic line chart */
+function lineChart(host,{dates,series,bands=[],yFmt=v=>fmtN(v),h=300,zero=false,refs=[],pad}){
+  const W_=800,H=h,m={t:12,r:56,b:28,l:8};
+  const all=series.flatMap(s=>s.values).concat(bands.flatMap(b=>[b.from,b.to])).concat(refs.map(r=>r.v));
+  if(zero)all.push(0);
+  let lo=Math.min(...all),hi=Math.max(...all);const sp=(hi-lo)||1;lo-=sp*.06;hi+=sp*.06;
+  if(pad){lo=pad[0];hi=pad[1]}
+  const n=dates.length,x=i=>m.l+i*(W_-m.l-m.r)/(n-1),y=v=>m.t+(hi-v)*(H-m.t-m.b)/(hi-lo);
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  // grid
+  const steps=5;for(let k=0;k<=steps;k++){const v=lo+(hi-lo)*k/steps;el("line",{x1:m.l,x2:W_-m.r,y1:y(v),y2:y(v),stroke:"var(--grid)","stroke-width":1},svg);
+    const t=el("text",{x:W_-m.r+6,y:y(v)+4,"font-size":11,fill:"var(--muted)","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=yFmt(v)}
+  bands.forEach(b=>{el("rect",{x:m.l,width:W_-m.l-m.r,y:y(Math.max(b.from,b.to)),height:Math.abs(y(b.from)-y(b.to)),fill:b.type==="res"?"var(--zone-res)":"var(--zone-sup)"},svg)});
+  refs.forEach(r=>{el("line",{x1:m.l,x2:W_-m.r,y1:y(r.v),y2:y(r.v),stroke:"var(--muted)","stroke-dasharray":"4 4","stroke-width":1},svg);
+    const t=el("text",{x:m.l+4,y:y(r.v)-4,"font-size":11,fill:"var(--muted)"},svg);t.textContent=r.label});
+  if(zero)el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  // x labels
+  const every=Math.ceil(n/6);for(let i=0;i<n;i+=every){const t=el("text",{x:x(i),y:H-8,"font-size":11,fill:"var(--muted)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);const d=dates[i];t.textContent=d.slice(5,7)+"/"+d.slice(2,4)}
+  series.forEach(s=>{const dpath=s.values.map((v,i)=>(i?"L":"M")+x(i).toFixed(1)+","+y(v).toFixed(1)).join("");
+    el("path",{d:dpath,fill:"none",stroke:s.color,"stroke-width":s.w||2,"stroke-linejoin":"round","stroke-linecap":"round"},svg);
+    const lv=s.values[n-1];el("circle",{cx:x(n-1),cy:y(lv),r:3.5,fill:s.color,stroke:"var(--surface)","stroke-width":2},svg)});
+  // hover
+  const cross=el("line",{y1:m.t,y2:H-m.b,stroke:"var(--muted)","stroke-width":1,opacity:0},svg);
+  const ov=el("rect",{x:m.l,y:m.t,width:W_-m.l-m.r,height:H-m.t-m.b,fill:"transparent"},svg);
+  host.appendChild(svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;host.appendChild(tip);
+  function move(ev){const r=svg.getBoundingClientRect();const px=(ev.clientX-r.left)*W_/r.width;let i=Math.round((px-m.l)/((W_-m.l-m.r)/(n-1)));i=Math.max(0,Math.min(n-1,i));
+    cross.setAttribute("x1",x(i));cross.setAttribute("x2",x(i));cross.setAttribute("opacity",1);
+    tip.innerHTML=`<div class="d">${fmtD(dates[i])}</div>`+series.map(s=>`<div><i class="sw" style="background:${s.color}"></i> ${s.name}: <b>${yFmt(s.values[i])}</b></div>`).join("");
+    tip.hidden=false;const hx=x(i)*r.width/W_;tip.style.left=Math.min(Math.max(0,hx+12),r.width-tip.offsetWidth)+"px";tip.style.top="8px"}
+  ov.addEventListener("pointermove",move);ov.addEventListener("pointerleave",()=>{tip.hidden=true;cross.setAttribute("opacity",0)});
+}
+function barChart(host,{labels,values,fmt,h=220,color,neg,tipExtra}){
+  const W_=800,H=h,m={t:18,r:8,b:28,l:8};
+  const hi=Math.max(0,...values),lo=Math.min(0,...values);const lo2=lo<0?lo*1.15:lo,hi2=hi*1.15||1;
+  const y=v=>m.t+(hi2-v)*(H-m.t-m.b)/(hi2-lo2);const n=values.length,bw=(W_-m.l-m.r)/n;
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;
+  values.forEach((v,i)=>{const x0=m.l+i*bw+bw*.18,w=bw*.64,y0=y(Math.max(v,0)),hh=Math.max(1,Math.abs(y(v)-y(0)));
+    const r=el("rect",{x:x0,y:y0,width:w,height:hh,rx:4,fill:v<0?(neg||"var(--s2)"):(color||"var(--s1)")},svg);
+    const t=el("text",{x:x0+w/2,y:v<0?y(v)+13:y0-5,"font-size":11.5,fill:"var(--ink)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=fmt(v);
+    const l=el("text",{x:x0+w/2,y:H-8,"font-size":11.5,fill:"var(--muted)","text-anchor":"middle"},svg);l.textContent=labels[i];
+    const hit=el("rect",{x:m.l+i*bw,y:m.t,width:bw,height:H-m.t-m.b,fill:"transparent"},svg);
+    hit.addEventListener("pointerenter",()=>{tip.innerHTML=`<div class="d">${labels[i]}</div><b>${fmt(v)}</b>${tipExtra?tipExtra(i):""}`;tip.hidden=false;const R=svg.getBoundingClientRect();tip.style.left=Math.min((m.l+i*bw)*R.width/W_,R.width-tip.offsetWidth)+"px";tip.style.top="0px"});
+    hit.addEventListener("pointerleave",()=>tip.hidden=true)});
+  host.appendChild(svg);host.appendChild(tip);
+}
+barChart(document.getElementById("c-rev"),{labels:HALF.map(r=>r[0]),values:HALF.map(r=>r[1]),fmt:v=>fmtN(v,2),h:200});
+barChart(document.getElementById("c-margin"),{labels:MARGIN.map(r=>r[0]),values:MARGIN.map(r=>r[1]),fmt:v=>fmtN(v,1)+" %",h:200});
+barChart(document.getElementById("c-seas"),{labels:MON,values:SEAS,fmt:v=>(v>0?"+":"")+fmtN(v,1),h:220,tipExtra:i=>`<div>${SEASHIT[i]} % der Jahre positiv</div>`});
+const BANDS=[{"from": 49.7, "to": 53, "type": "res"}, {"from": 41.4, "to": 42.8, "type": "sup"}], REFS=[{"v": 45.75, "label": "Trigger 45.75"}];
+const wd=W.map(r=>r[0]);
+lineChart(document.getElementById("c-week"),{dates:wd,series:[{name:"Kurs",values:W.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:W.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:W.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,yFmt:v=>fmtN(v,0),h:320});
+lineChart(document.getElementById("c-adw"),{dates:wd,series:[{name:"A/D Woche",values:W.map(r=>r[5]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,zero:true});
+lineChart(document.getElementById("c-rsiw"),{dates:wd,series:[{name:"RSI Woche",values:W.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,refs:[{v:70,label:"70 überkauft"},{v:30,label:"30 überverkauft"}],pad:[10,90]});
+const dd=DD.map(r=>r[0]);
+lineChart(document.getElementById("c-day"),{dates:dd,series:[{name:"Kurs",values:DD.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:DD.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:DD.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,refs:REFS,yFmt:v=>fmtN(v,0),h:260});
+lineChart(document.getElementById("c-add"),{dates:dd,series:[{name:"A/D Tag",values:DD.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:260,zero:true});
+</script>

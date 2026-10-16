@@ -124,7 +124,8 @@ async function getJSON(url) {
   return r.json();
 }
 async function load(force) {
-  const [s, l, v, n] = await Promise.allSettled([getJSON("data/stocks.json"), getJSON("data/live.json"), getJSON("data/verlauf.json"), loadNotes()]);
+  const [s, l, v, n, f] = await Promise.allSettled([getJSON("data/stocks.json"), getJSON("data/live.json"), getJSON("data/verlauf.json"), loadNotes(), getJSON("data/fcf.json")]);
+  STATE.fcf = f.status === "fulfilled" ? f.value : null;
   if (s.status !== "fulfilled") throw new Error("stocks.json fehlt");
   STATE.stocks = s.value.aktien;
   STATE.stand = s.value.stand;
@@ -198,7 +199,8 @@ function view(s) {
     dq: q - s.analyse.q, dt: t - s.analyse.t,
     trendT: ref ? t - ref[2] : 0,
     gesamt: Math.round((q + t) / 2),
-    bew: bewertungOf(s, kurs), schub: s.chance?.schub_stufe === "stark"
+    bew: bewertungOf(s, kurs), schub: s.chance?.schub_stufe === "stark",
+    fcf: STATE.fcf?.aktien?.[s.ticker] || null
   };
 }
 
@@ -348,6 +350,7 @@ function filtered() {
     if (fk === "schub" && !v.schub) return false;
     if (fk === "beides" && !(v.bew?.unter && v.schub)) return false;
     if (fk === "kontra" && !kontra(v)) return false;
+    if (fk === "cash" && !((v.fcf?.score ?? 0) >= 70)) return false;
     if (q && !(`${s.name} ${s.ticker} ${s.branche} ${s.land}`.toLowerCase().includes(q))) return false;
     return true;
   });
@@ -360,6 +363,7 @@ function filtered() {
     zahlen: (a, b) => (a.s.zahlen || "9999").localeCompare(b.s.zahlen || "9999"),
     dividende: (a, b) => renditeOf(b) - renditeOf(a),
     unterbewertung: (a, b) => (b.bew?.abschlag ?? -999) - (a.bew?.abschlag ?? -999),
+    cashflow: (a, b) => (b.fcf?.score ?? -1) - (a.fcf?.score ?? -1),
     name: (a, b) => a.s.name.localeCompare(b.s.name, "de")
   };
   return list.sort(by[f.sort] || by.chance);
@@ -397,10 +401,10 @@ function renderHome() {
     <div class="controls" id="controls">
       <div class="search"><input id="q" type="search" placeholder="Name, Ticker oder Branche" value="${esc(STATE.filter.q)}" aria-label="Suche">
         <select id="sort" aria-label="Sortierung">
-          ${[["chance", "Beste Chance"], ["qualitaet", "Qualität"], ["timing", "Timing"], ["unterbewertung", "Am stärksten unterbewertet"], ["zone", "Nähe zur Kaufzone"], ["tag", "Tagesveränderung"], ["zahlen", "Nächste Zahlen"], ["dividende", "Dividende"], ["name", "Name"]].map(([k, l]) => `<option value="${k}" ${STATE.filter.sort === k ? "selected" : ""}>${l}</option>`).join("")}
+          ${[["chance", "Beste Chance"], ["qualitaet", "Qualität"], ["timing", "Timing"], ["unterbewertung", "Am stärksten unterbewertet"], ["cashflow", "Free Cashflow"], ["zone", "Nähe zur Kaufzone"], ["tag", "Tagesveränderung"], ["zahlen", "Nächste Zahlen"], ["dividende", "Dividende"], ["name", "Name"]].map(([k, l]) => `<option value="${k}" ${STATE.filter.sort === k ? "selected" : ""}>${l}</option>`).join("")}
         </select></div>
-      <div class="chips" role="group" aria-label="Chancen">${chipRow("fokus", [["Alle", "Alle Chancen"], ["unter", "Unterbewertet"], ["schub", "Wachstumsschub"], ["beides", "Beides"], ["kontra", "Kontra-Signal"]],
-        { Alle: all.length, unter: all.filter(v => v.bew?.unter).length, schub: all.filter(v => v.schub).length, beides: all.filter(v => v.bew?.unter && v.schub).length, kontra: all.filter(kontra).length })}</div>
+      <div class="chips" role="group" aria-label="Chancen">${chipRow("fokus", [["Alle", "Alle Chancen"], ["unter", "Unterbewertet"], ["schub", "Wachstumsschub"], ["beides", "Beides"], ["kontra", "Kontra-Signal"], ["cash", "Starker Cashflow"]],
+        { Alle: all.length, unter: all.filter(v => v.bew?.unter).length, schub: all.filter(v => v.schub).length, beides: all.filter(v => v.bew?.unter && v.schub).length, kontra: all.filter(kontra).length, cash: all.filter(v => (v.fcf?.score ?? 0) >= 70).length })}</div>
       <div class="chips" role="group" aria-label="Stil">${chipRow("stil", [["Alle", "Alle"], ...tags.map(t => [t, t])], cnt("stil"))}</div>
       <div class="chips" role="group" aria-label="Region und Liste">${chipRow("region", [["Alle", "Alle Regionen"], ...regions.map(r => [r, r])], cnt("region"))}<span class="sep"></span>
         ${chipRow("status", [["Alle", "Alle Listen"], ...["depot", "kaufliste", "beobachten"].filter(x => STATE.stocks.some(s => s.status === x || (x === "depot" && window.Depot?.bestand(s.ticker)))).map(x => [x, LISTE[x]])])}<span class="sep"></span>
@@ -513,6 +517,76 @@ function chanceHtml(v) {
     ${c?.quellen?.length ? `<details class="more"><summary>Quellen zu Sorgen und Wachstum</summary><ul class="plain">${c.quellen.map(q => `<li><a href="${esc(q.url)}" target="_blank" rel="noopener">${esc(q.titel)}</a></li>`).join("")}</ul></details>` : ""}`;
 }
 
+
+// ---------- Free Cashflow ----------
+// Geld, das nach allen Kosten und Investitionen übrig bleibt. Sechs Fragen, zusammen 100 Punkte.
+const FCF_MAX = { wachstum: 20, marge: 20, rendite: 15, schulden: 20, verwendung: 15, nachhaltig: 10 };
+const mrd = (v, w) => v == null ? "–" : `${nf(v, Math.abs(v) >= 10 ? 1 : 2)} Mrd. ${w === "GBp" ? "GBP" : w}`;
+function fcfWarn(v) {
+  const pe = v.L?.pessimismus;
+  return pe && pe.abstand_hoch >= 30 && pe.unter_ema200w > 0;
+}
+function fcfText(v) {
+  const f = v.fcf, k = f.k, w = f.waehrung, j = f.jahre;
+  const span = `${j[0]}–${j[j.length - 1]}`;
+  const rows = [];
+  rows.push(["wachstum", "1. Wächst der Free Cashflow?",
+    k.wachstum == null ? `Von ${mrd(f.fcf[0], w)} auf ${mrd(f.fcf[f.fcf.length - 1], w)} (${span}). Ein Jahr war negativ, darum kein sauberes Wachstum.`
+      : `${k.wachstum >= 0 ? "+" : "−"}${nf(Math.abs(k.wachstum), 1)} % pro Jahr (${span}), in ${k.steigende_jahre} von ${k.jahre_n} Jahren gestiegen. ${k.wachstum >= 10 ? "Stark." : k.wachstum >= 3 ? "Ordentlich." : "Schwach."}`]);
+  rows.push(["marge", "2. Wie viel vom Umsatz bleibt übrig?",
+    `FCF-Marge ${nf(k.marge, 1)} %: Von 100 Umsatz bleiben ${nf(k.marge, 0)} als freies Geld. ${k.marge >= 25 ? "Sehr gut, typisch für Firmen mit Preismacht." : k.marge >= 15 ? "Gut." : k.marge >= 8 ? "Mittel." : "Tief: Viel Umsatz, aber wenig bleibt hängen (oder grosse Investitionen)."}`]);
+  rows.push(["rendite", "3. Wie viel im Verhältnis zum Börsenwert?",
+    k.rendite == null ? "Börsenwert nicht verfügbar." : `FCF-Rendite ${nf(k.rendite, 1)} %: Für 100 CHF Aktie erwirtschaftet die Firma ${nf(k.rendite, 1)} CHF freies Geld pro Jahr. ${k.rendite >= 5 ? "Günstig bewertet." : k.rendite >= 3 ? "Fair." : "Teuer: Die Börse zahlt viel für künftiges Wachstum."}`]);
+  rows.push(["schulden", "4. Wie schnell wären die Schulden bezahlt?",
+    f.netto_schulden <= 0 ? `Mehr Geld als Schulden (${mrd(-f.netto_schulden, w)} Netto-Cash). Sehr stark.`
+      : k.schulden_jahre == null ? `Nettoschulden ${mrd(f.netto_schulden, w)}, aber kein positiver Free Cashflow zum Abzahlen.`
+      : `Nettoschulden ${mrd(f.netto_schulden, w)}. Mit dem Free Cashflow in ${nf(k.schulden_jahre, 1)} Jahren bezahlt. ${k.schulden_jahre <= 0.5 ? "Sehr stark: Der halbe FCF eines Jahres reicht." : k.schulden_jahre <= 2 ? "Gut." : k.schulden_jahre <= 4 ? "Mittel." : "Hoch: Viel Geld geht an die Banken."}`]);
+  const use = (f.verwendung || []).map(([n, x]) => `${n} ${x} %`).join(", ");
+  rows.push(["verwendung", "5. Wofür wird das Geld genutzt?",
+    `${k.aktien_pa == null ? "" : k.aktien_pa < -0.3 ? `Die Aktienzahl sinkt um ${nf(-k.aktien_pa, 1)} % pro Jahr: Jede deiner Aktien gehört ein grösseres Stück der Firma. ` : k.aktien_pa > 0.3 ? `Achtung: Die Aktienzahl steigt um ${nf(k.aktien_pa, 1)} % pro Jahr (neue Aktien für Mitarbeiter). Dein Anteil wird kleiner. ` : "Die Aktienzahl bleibt etwa gleich. "}${use ? `Vom Free Cashflow ${span} ging: ${use}.` : ""}`]);
+  rows.push(["nachhaltig", "6. Ist der Free Cashflow echt und nachhaltig?",
+    `${k.verlustjahre ? `${k.verlustjahre} Jahr(e) mit negativem FCF. ` : "Kein Jahr mit negativem FCF. "}Aktien-Vergütung für Mitarbeiter: ${nf(k.sbc, 0)} % des FCF${k.sbc >= 25 ? " (hoch: Ein Teil des FCF ist «geschönt», weil Löhne in Aktien bezahlt werden)" : k.sbc >= 10 ? " (mittel)" : " (tief, gut)"}. ${k.deckung != null ? `Der FCF ist ${nf(k.deckung, 1)}-mal so gross wie der Gewinn${k.deckung < 0.8 ? " (wenig Cash aus dem Gewinn, oft wegen hoher Investitionen)" : k.deckung > 1.6 ? " (deutlich mehr Cash als Gewinn, z. B. wegen Abschreibungen)" : " (passt gut zusammen)"}.` : ""}`]);
+  return rows;
+}
+function fcfChart(f) {
+  const w = 300, h = 120, n = f.fcf.length, max = Math.max(...f.fcf.map(Math.abs), 0.001), bw = w / n * 0.56;
+  const hasNeg = f.fcf.some(x => x < 0), base = hasNeg ? h * 0.62 : h - 18;
+  const bars = f.fcf.map((x, i) => {
+    const bh = Math.abs(x) / max * (hasNeg ? base - 18 : base - 18), cx = (i + 0.5) * w / n;
+    const y = x >= 0 ? base - bh : base;
+    const m = f.umsatz[i] ? x / f.umsatz[i] * 100 : null;
+    return `<rect x="${(cx - bw / 2).toFixed(1)}" y="${y.toFixed(1)}" width="${bw.toFixed(1)}" height="${Math.max(bh, 1).toFixed(1)}" rx="3" fill="${x >= 0 ? "var(--accent)" : "var(--rot)"}"><title>${f.jahre[i]}: ${mrd(x, f.waehrung)}${m != null ? `, Marge ${nf(m, 0)} %` : ""}</title></rect>
+      <text x="${cx.toFixed(1)}" y="${(x >= 0 ? y - 4 : y + bh + 11).toFixed(1)}" text-anchor="middle" class="fc-v">${nf(x, Math.abs(x) >= 10 ? 0 : 1)}</text>
+      <text x="${cx.toFixed(1)}" y="${h - 3}" text-anchor="middle" class="fc-y">${f.jahre[i]}</text>`;
+  }).join("");
+  return `<svg class="fc-chart" viewBox="0 0 ${w} ${h}" role="img" aria-label="Free Cashflow pro Jahr in Mrd. ${esc(f.waehrung)}: ${f.jahre.map((y, i) => `${y} ${nf(f.fcf[i], 1)}`).join(", ")}">${bars}</svg>`;
+}
+function fcfHtml(v) {
+  const f = v.fcf;
+  if (!f) return `<div class="sec"><h2>Free Cashflow</h2></div><div class="card prose"><p>Die Free-Cashflow-Daten für diese Aktie werden beim nächsten Update geholt.</p></div>`;
+  const c = ampel(f.score);
+  const verdict = f.score >= 75 ? "Sehr starker Free Cashflow" : f.score >= 60 ? "Guter Free Cashflow" : f.score >= 45 ? "Gemischt" : f.score >= 30 ? "Schwach" : "Kaum freies Geld";
+  const parts = fcfText(v).map(([k, name, txt]) => ({ name, txt, p: f.p[k], max: FCF_MAX[k] }));
+  return `<div class="sec" id="fcf"><h2>Free Cashflow ${f.score} von 100</h2><p>Free Cashflow ist das Geld, das nach allen Kosten und Investitionen übrig bleibt. Damit kann die Firma Aktien zurückkaufen, Schulden abzahlen oder Dividenden zahlen.</p></div>
+    <div class="card fc">
+      <div class="fc-top"><span class="pill p-${c === "hellgruen" ? "gruen" : c === "rot" ? "orange" : c}">${verdict}</span>
+        <span class="fc-now">Letzte 12 Monate: <b>${mrd(f.fcf_ttm, f.waehrung)}</b> bei ${mrd(f.umsatz_ttm, f.waehrung)} Umsatz</span></div>
+      ${fcfChart(f)}
+      <p class="fc-cap">Free Cashflow pro Geschäftsjahr in Mrd. ${esc(f.waehrung === "GBp" ? "GBP" : f.waehrung)}</p>
+      ${fcfWarn(v) ? `<div class="banner warn"><b>Achtung Nachhaltigkeit:</b> Der Kurs liegt ${nf(v.L.pessimismus.abstand_hoch, 0)} % unter dem Jahreshoch und unter der Wochen-EMA 200, obwohl die Firma Geld verdient. Die Börse zweifelt, ob der Free Cashflow in Zukunft hält. Prüfe unten bei «Was die Börse befürchtet», warum.</div>` : ""}
+      ${partsHtml(parts)}
+      <details class="more"><summary>So rechnet die App</summary><ul class="plain">
+        <li><b>Wachstum (20):</b> Durchschnittliches Wachstum pro Jahr und wie oft der FCF gestiegen ist.</li>
+        <li><b>Marge (20):</b> FCF geteilt durch Umsatz. Ab 30 % volle Punkte.</li>
+        <li><b>Rendite (15):</b> FCF geteilt durch den Börsenwert. 100 Mrd. Börsenwert und 10 Mrd. FCF sind 10 %. Ab 7 % volle Punkte.</li>
+        <li><b>Schulden (20):</b> Nettoschulden (Schulden minus Bargeld) geteilt durch den FCF. Netto-Cash oder unter einem halben Jahr: fast volle Punkte.</li>
+        <li><b>Verwendung (15):</b> Sinkende Aktienzahl durch Rückkäufe und wie viel vom FCF an die Aktionäre geht oder Schulden tilgt.</li>
+        <li><b>Nachhaltigkeit (10):</b> Keine negativen Jahre, wenig Aktien-Vergütung, FCF passt zum Gewinn. Fällt die Aktie stark, zeigt die App zusätzlich eine Warnung.</li>
+        <li>Daten: Jahreszahlen von Yahoo Finance, Stand ${fmtDate(STATE.fcf?.stand)}. Bei Firmen mit Kundenkrediten (z. B. Ferrari) oder Banken ist der FCF nur eingeschränkt vergleichbar.</li>
+      </ul></details>
+    </div>`;
+}
+
 function renderDetail(ticker) {
   const s = STATE.stocks.find(x => x.ticker === ticker);
   if (!s) { $view.innerHTML = `<a class="back" href="#/">Zurück</a><div class="empty">Diese Aktie ist nicht in der Liste.</div>`; return; }
@@ -578,6 +652,8 @@ function renderDetail(ticker) {
 
     <div class="sec"><h2>Wichtige Kennzahlen</h2></div>
     <div class="kpis">${s.kpis.filter(k => !/^Dividende/.test(k.name)).map(k => `<div class="kpi ${esc(k.ampel)}"><span>${esc(k.name)}</span><b>${esc(k.wert)}</b><em>${esc(k.text)}</em></div>`).join("")}${divKpi(s, v)}</div>
+
+    ${fcfHtml(v)}
 
     <div class="sec" id="div-${esc(s.ticker)}"><h2>Dividende</h2><p>Wann, wie oft und in welcher Form ausbezahlt wird.</p></div>
     ${divHtml(s, v)}
@@ -682,6 +758,10 @@ function renderInfo() {
     <p><b>1. Unterbewertung.</b> Eine gute Firma fällt wegen Sorgen stark, und die Aktie wird viel günstiger als üblich. Das misst die App mit dem <b>KGV</b> (Kurs geteilt durch den Gewinn pro Aktie, also wie viele Jahresgewinne du für die Aktie bezahlst) im Vergleich zum eigenen 5-Jahres-Schnitt. Beispiel: KGV heute 15, Schnitt 25, dann ist die Aktie 40 % günstiger als üblich. Wichtig ist, warum sie günstig ist: Ist es vor allem Stimmung oder ein vorübergehendes Problem, kann der Kurs stark steigen, sobald die Sorgen weg sind. Verschlechtert sich das Geschäft dauerhaft, ist die Aktie zu Recht günstig (eine «Value-Falle»). Darum zeigt die App bei jeder Aktie, was die Börse befürchtet und was diese Sorgen beenden könnte.</p>
     <p><b>2. Wachstumsschub.</b> Gibt es einen konkreten Grund, warum das Wachstum in den nächsten Jahren deutlich anziehen kann? Zum Beispiel ein neues Produkt, eine Zulassung oder ein neuer Markt. Beispiel Alphabet (Google) 2023: Alle dachten, Google verschläft die KI. Dabei hatte Google mit eigener KI, eigenen KI-Chips und Google Cloud längst die Basis. Als das sichtbar wurde, stieg die Aktie stark. Die App bewertet den Wachstumsschub mit «stark», «möglich» oder «kein grosser Schub in Sicht» und sagt dir, an welcher Kennzahl du früh siehst, ob er kommt.</p>
     <p><b>So passt das zusammen:</b> Die besten Kandidaten sind unterbewertet, haben einen Wachstumsschub und eine Qualität ab hellgrün. Gekauft wird erst, wenn auch das Timing dreht, also der Trigger ausgelöst ist oder der Kurs in einer Kaufzone hält. Die Filter «Unterbewertet», «Wachstumsschub» und «Beides» in der Übersicht helfen dir, diese Aktien zu finden. «Unterbewertet» heisst dort: mindestens 20 % günstiger als im eigenen 5-Jahres-Schnitt.</p>
+    <h3>Free Cashflow: das Geld, das wirklich übrig bleibt</h3>
+    <p><b>Free Cashflow (FCF)</b> ist das Geld, das nach allen Kosten und Investitionen in der Kasse bleibt. Eine Firma, deren FCF Jahr für Jahr wächst, kann Aktien zurückkaufen (dann gehört jeder Aktie ein grösseres Stück der Firma), Schulden abzahlen oder Dividenden zahlen. Die App prüft sechs Fragen und vergibt bis 100 Punkte:</p>
+    <p><b>1. Wächst er?</b> <b>2. Wie viel vom Umsatz bleibt?</b> (FCF-Marge: 10 Mrd. FCF bei 50 Mrd. Umsatz sind 20 %.) <b>3. Wie viel im Verhältnis zum Börsenwert?</b> (FCF-Rendite: 10 Mrd. FCF bei 100 Mrd. Börsenwert sind 10 %.) <b>4. Wie schnell wären die Schulden bezahlt?</b> (Stark ist, wenn der halbe FCF eines Jahres reicht.) <b>5. Wofür wird er genutzt?</b> (Rückkäufe, Schuldenabbau, Dividende. Steigt die Aktienzahl, wird dein Anteil kleiner.) <b>6. Ist er nachhaltig?</b> (Keine Verlustjahre, wenig Löhne in Aktien, und kein starker Kurszerfall, der zeigt, dass die Börse am künftigen FCF zweifelt.)</p>
+    <p>Der Filter «Starker Cashflow» zeigt alle Aktien ab 70 Punkten. Die Sortierung «Free Cashflow» ordnet alle Aktien danach.</p>
     <h3>Gegen den Strom: Angst als Chance</h3>
     <p>Wenn alle verkaufen und die Schlagzeilen nur noch schwarz malen, ist oft schon viel schlechte Nachricht im Kurs. Darum zeigt die App zwei Stimmungs-Anzeiger:</p>
     <p><b>Marktstimmung (Gesamtmarkt).</b> Der <b>Fear &amp; Greed Index</b> von CNN misst von 0 bis 100, wie ängstlich oder gierig die Anleger in den USA sind (aus sieben Werten wie Kursschwung, Absicherungen und Schwankung). Unter 25 heisst «Extreme Angst», über 75 «Extreme Gier». Dazu zeigt die App den S&amp;P 500 (Abstand zum Jahreshoch, Trend über oder unter der EMA 200) und den <b>VIX</b>, das «Angstbarometer» der Börse: über 20 nervös, über 30 Panik. Fällt der Index unter 25, bekommst du eine Push-Nachricht.</p>

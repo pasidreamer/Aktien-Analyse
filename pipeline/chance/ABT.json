@@ -1,0 +1,33 @@
+{
+ "ticker": "ABT",
+ "sorgen": [
+  "Ohne Zukauf wuchs Abbott im 2. Quartal 2026 nur um 4.8 %. Für das Jahresziel von 6.5–7.5 % muss das 2. Halbjahr deutlich anziehen.",
+  "Die Säuglingsnahrung schrumpft (Nahrung im 1. Quartal −6 %), und Klagen zur Frühgeborenen-Nahrung (NEC) sind offen, z. B. ein Urteil über 70 Mio. $ in Illinois, gegen das Abbott Berufung einlegt.",
+  "Der Kauf von Exact Sciences (rund 21 Mrd. $, abgeschlossen am 23.03.2026) erhöhte die Schulden und kostet 2026 rund 0.20 $ Gewinn pro Aktie. Im April wurde deshalb die Gewinnprognose gesenkt.",
+  "Rückruf bei Libre-3-Sensoren: Einige zeigten zu tiefe Zuckerwerte, laut FDA mit 7 Todesfällen und 860 schweren Verletzungen bis Januar 2026. Abbott sagt, die Ursache sei behoben."
+ ],
+ "sorgen_art": "gemischt",
+ "sorgen_art_text": "Die Probleme sind echt (Nahrung, Klagen, teurer Zukauf), aber die wichtigsten Motoren Libre, Herz-Elektrophysiologie und Krebs-Früherkennung wachsen weiter.",
+ "aufloeser": [
+  {"was": "Wachstum ohne Zukauf klar über 4.8 % und Jahresziel bestätigt", "wann": "Zahlen 21.10.2026"},
+  {"was": "Nahrungsgeschäft wieder im Plus", "wann": "Zahlen 21.10.2026 und Ende Januar 2027"},
+  {"was": "Fortschritte bei den NEC-Klagen (Berufung, Vergleiche)", "wann": "2026–2027"},
+  {"was": "Ausblick 2027 mit wieder höherem Wachstum dank neuer Produkte", "wann": "Zahlen 4. Quartal, voraussichtlich Ende Januar 2027"}
+ ],
+ "schub_stufe": "mittel",
+ "schub_treiber": [
+  {"titel": "Libre Duo: Zucker und Ketone in einem Sensor", "text": "Die FDA hat am 25.08.2026 den ersten Sensor zugelassen, der Zucker und Ketone (Warnzeichen für eine gefährliche Entgleisung) laufend misst. US-Start noch 2026, Anbindung an Insulinpumpen 2026 und 2027. Libre wuchs im 2. Quartal ohne Zukauf um 9.5 %.", "wann": "Ende 2026–2027"},
+  {"titel": "Herzrhythmus-Katheter (Volt PFA)", "text": "Das Herzrhythmus-Geschäft (EP) wuchs im 2. Quartal um 13.4 %. Volt ist in den USA eingeführt, TactiFlex Duo und der Vorhofohr-Verschluss Amulet 360 sollen in den nächsten 12 Monaten kommen.", "wann": "2026–2027"},
+  {"titel": "Krebs-Früherkennung (Exact Sciences)", "text": "Die Krebsdiagnostik mit dem Darmkrebs-Test Cologuard wuchs im 2. Quartal um 13.3 %. Für das 2. Halbjahr werden laut einer Analyse rund 15 % erwartet.", "wann": "2026–2028"},
+  {"titel": "Möglicher Hebel: Typ-2-Diabetes ohne Insulin", "text": "Der grösste Hebel für Libre wäre, wenn US-Krankenkassen Sensoren auch für Typ-2-Diabetiker ohne Insulin bezahlen. Ob und wann das kommt, ist offen.", "wann": "offen"}
+ ],
+ "schub_beweis": "Bei den Zahlen am 21.10.: Wachstum ohne Zukauf Richtung 7 % oder mehr, Libre über 9 % und die Nahrung nicht mehr im Minus.",
+ "szenario": "Chancen-Szenario: Wie bei Google 2023 sieht die Börse vor allem die Baustellen (Nahrung, Klagen, Schulden). Wenn Libre Duo, Volt und Cologuard das Wachstum ab 2027 spürbar heben, könnte das bereinigte KGV von rund 19 Richtung eigener Schnitt von rund 24 steigen. Grösstes Risiko: Das 2. Halbjahr bleibt schwach, die Prognose fällt erneut, und neue NEC-Urteile oder ein weiterer Sensor-Rückruf belasten.",
+ "quellen": [
+  {"titel": "Abbott: Q2 2026 earnings call – What drove results", "url": "https://www.abbott.com/en-us/corpnewsroom/strategy-and-strength/abbotts-Q2-2026-earnings-call"},
+  {"titel": "Hudson Labs: Abbott Q3 2026 Earnings Preview (05.10.2026)", "url": "https://www.hudson-labs.com/research/abbott-q3-2026-earnings-preview-abt-revenue-guidance-key-drivers"},
+  {"titel": "TechRepublic: Libre Duo 10 Day – The First Wearable to Track Glucose and Ketones (03.09.2026)", "url": "https://www.techrepublic.com/article/news-libre-duo-10-day-glucose-ketone-sensor/"},
+  {"titel": "FOX 7: FreeStyle Libre 3 sensors recalled after seven deaths, 860 injuries (04.02.2026)", "url": "https://www.fox7austin.com/news/some-freestyle-libre-3-freestyle-libre-3-sensors-recalled"},
+  {"titel": "24/7 Wall St. (Yahoo Finance): Has the Abbott Laboratories Sell-Off Finally Created an Entry Point? (20.04.2026)", "url": "https://finance.yahoo.com/markets/stocks/articles/abbott-laboratories-sell-off-finally-110527157.html"}
+ ]
+}

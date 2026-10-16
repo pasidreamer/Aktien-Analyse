@@ -1,0 +1,28 @@
+{
+ "ticker": "MSFT",
+ "sorgen": [
+  "Microsoft investiert rund 175 Mrd. $ pro Jahr in KI-Rechenzentren, und im Geschäftsjahr 2027 sollen die Investitionen weiter steigen. Das drückt den Free Cashflow (freies Geld nach Investitionen) und die Kapitalrendite.",
+  "Klumpenrisiko OpenAI: Im Januar 2026 hiess es, 45 % des Auftragsbestands hängen an OpenAI. OpenAI schreibt laut Prognosen hohe Verluste und mietet Rechenleistung inzwischen auch bei Amazon und Oracle.",
+  "Copilot (der KI-Assistent in Office) zahlt erst ein kleiner Teil der Kunden: über 30 Mio. bezahlte Plätze bei über 450 Mio. bezahlten Office-Firmenlizenzen.",
+  "Im Juni 2026 lag die Aktie mehr als 33 % unter dem Hoch (Tief um 356 $). Seither hat sie sich auf über 500 $ erholt: Ein grosser Teil der Sorgen ist schon wieder aus dem Kurs."
+ ],
+ "sorgen_art": "stimmung",
+ "sorgen_art_text": "Das Geschäft beschleunigt sich (Azure +43 %, Auftragsbestand +84 %); gestritten wird über die Höhe der Investitionen und die Abhängigkeit von OpenAI, nicht über schwache Nachfrage.",
+ "aufloeser": [
+  {"was": "Azure erreicht das angekündigte Wachstum von rund 45 % und der Auftragsbestand ohne OpenAI wächst weiter (zuletzt +25 %)", "wann": "Zahlen 1. Quartal Geschäftsjahr 2027, voraussichtlich Ende Oktober 2026 (um den 28.10.)"},
+  {"was": "Die Zahl der bezahlten Copilot-Plätze steigt weiter kräftig (von 20 Mio. im April auf über 30 Mio. im Juli)", "wann": "Bei jeden Quartalszahlen, nächste Ende Oktober 2026"},
+  {"was": "OpenAI sichert seine Finanzierung, sodass die grossen Cloud-Verträge auch bezahlt werden können", "wann": "Laufend; laut Analyse wird es vor allem 2028–2029 bei den Vertragsverlängerungen ernst"}
+ ],
+ "schub_stufe": "mittel",
+ "schub_treiber": [
+  {"titel": "Azure und Rekord-Auftragsbestand", "text": "Azure (Cloud) wuchs im Quartal bis Juni um 43 % und übertraf erstmals 100 Mrd. $ Jahresumsatz. Für Juli–September erwartet Microsoft rund 45 %. Der Auftragsbestand liegt bei 678 Mrd. $ (+84 %), also rund zwei Jahresumsätze. Aber: Azure treibt schon das heutige Tempo (+18 %), und ein grosser Teil hängt an OpenAI.", "wann": "2026–2028"},
+  {"titel": "Copilot als KI-Abo in Office", "text": "Über 30 Mio. Firmen-Plätze zahlen schon für Copilot, ein Plus von 50 % in einem Quartal. Bei über 450 Mio. Office-Firmenlizenzen ist das erst ein kleiner Anteil, das Potenzial ist also gross. Ob Firmen breit dafür zahlen, ist aber noch nicht bewiesen.", "wann": "2026–2028"}
+ ],
+ "schub_beweis": "Achte auf das Azure-Wachstum (Ausblick rund 45 %) und auf die bezahlten Copilot-Plätze (zuletzt über 30 Mio.). Steigen beide weiter und wächst der Auftragsbestand auch ohne OpenAI, zieht das Gesamtwachstum über die heutigen 18 %.",
+ "szenario": "Wie Google 2023 wäre es, wenn Copilot in der Breite durchbricht und Azure über 45 % bleibt: Dann würde der Gewinn trotz hoher Investitionen schneller wachsen, als die Börse heute annimmt. Allerdings hat sich der Kurs schon stark erholt und steht nahe am Hoch, die grosse Erholungschance aus dem Juni ist weitgehend vorbei. Grösstes Risiko: OpenAI kann seine Verträge nicht voll bezahlen oder wechselt den Anbieter, während Microsoft die Rechenzentren schon gebaut hat.",
+ "quellen": [
+  {"titel": "Blockspace: Microsoft Azure growth, cloud backlog, earnings 2026 (Zahlen 29.07.2026)", "url": "https://blockspace.media/insight/microsoft-azure-growth-cloud-backlog-earnings-2026/"},
+  {"titel": "Techstock01: Microsoft – Cloud and AI revenue accelerating, Capex will increase in FY27 (30.07.2026)", "url": "https://techstock01.substack.com/p/microsoft-cloud-and-ai-revenue-accelerating"},
+  {"titel": "INDmoney: Why Microsoft stock is falling – AI capex and OpenAI risk (Juni 2026)", "url": "https://indmoney.com/blog/us-stocks/why-microsoft-stock-is-falling-ai-capex-openai-risk-analysis"}
+ ]
+}

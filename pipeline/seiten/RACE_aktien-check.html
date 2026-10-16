@@ -1,0 +1,402 @@
+<title>Ferrari Aktien-Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F3F5F7; --surface:#FFFFFF; --ink:#141B24; --muted:#5A6573; --line:#DDE2E8; --grid:#E9EDF1;
+  --accent:#2F45B5; --accent-soft:#E6E9F8; --chip:#EBEEF2;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+  --good:#1D7A4B; --good-bg:#E3F3EA; --warn:#9A6200; --warn-bg:#FBF0DC; --bad:#B2362A; --bad-bg:#FBE6E3;
+  --zone-sup:rgba(29,122,75,.10); --zone-res:rgba(178,54,42,.09);
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+    --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+    --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+    --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+  --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+  --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;padding-inline:16px;padding-block:24px 56px}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+h1,h2,h3{font-family:var(--display);font-stretch:85%;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:clamp(32px,7vw,48px);font-weight:800;line-height:1}
+h2{font-size:24px;font-weight:700}
+h3{font-size:17px;font-weight:700;font-stretch:95%}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+section{display:flex;flex-direction:column;gap:14px}
+.lead{max-width:68ch;color:var(--muted)}
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;align-items:stretch}
+.hero .id{display:flex;flex-direction:column;gap:10px;justify-content:space-between}
+.price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price b{font-family:var(--display);font-size:34px;font-weight:700}
+.meta{font-size:13px;color:var(--muted)}
+.verdict{font-size:15px;padding:12px 14px;border-radius:10px;background:var(--chip)}
+.scales{display:flex;flex-direction:column;gap:18px}
+.scale-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.scale-h span{font-size:13px;color:var(--muted)}
+.scale-h b{font-family:var(--display);font-size:28px;line-height:1}
+.track{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#C8412F 0%,#E0892F 30%,#E3B63A 50%,#8BBF4B 68%,#2E9A5B 100%);margin-top:8px}
+.pin{position:absolute;top:-5px;width:4px;height:22px;border-radius:2px;background:var(--ink);box-shadow:0 0 0 2px var(--surface);transform:translateX(-2px)}
+.ticks{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);font-family:var(--mono);margin-top:6px}
+.state{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;margin-top:8px}
+.st-good{background:var(--good-bg);color:var(--good)}
+.st-warn{background:var(--warn-bg);color:var(--warn)}
+.st-bad{background:var(--bad-bg);color:var(--bad)}
+/* tables */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;color:var(--muted);font-weight:500;font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:700;border-bottom:none}
+.pts{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{height:6px;border-radius:3px;background:var(--chip);min-width:60px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:3px}
+/* grids */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;border-left:4px solid var(--line)}
+.kpi.g{border-left-color:var(--good)}.kpi.w{border-left-color:var(--warn)}.kpi.b{border-left-color:var(--bad)}
+.kpi span{font-size:12px;color:var(--muted)}
+.kpi b{font-family:var(--mono);font-size:19px;font-weight:500;font-variant-numeric:tabular-nums}
+.kpi em{font-style:normal;font-size:12.5px;color:var(--muted)}
+/* charts */
+.chart{position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:14px;height:3px;border-radius:2px;display:inline-block}
+.swb{width:12px;height:10px;border-radius:2px;display:inline-block}
+.tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12.5px;box-shadow:0 4px 14px rgba(0,0,0,.12);white-space:nowrap;z-index:2}
+.tip b{font-family:var(--mono);font-weight:500}
+.tip .d{font-family:var(--mono);color:var(--muted);font-size:11.5px}
+.note{font-size:13.5px;color:var(--muted)}
+ul.clean{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.pro li::marker{color:var(--good)} .con li::marker{color:var(--bad)}
+.zones{display:flex;flex-direction:column;gap:8px}
+.zone{display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:baseline;padding:10px 12px;border-radius:10px;background:var(--chip);font-size:14px}
+.zone b{font-family:var(--mono);font-weight:500}
+.zone.r{border-left:4px solid var(--bad)} .zone.s{border-left:4px solid var(--good)} .zone.t{border-left:4px solid var(--accent)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+summary{cursor:pointer;font-weight:600}
+details p{margin-top:8px;color:var(--muted);max-width:70ch}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+footer{font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:6px;max-width:80ch}
+footer a{color:var(--accent)}
+@media (max-width:760px){.hero,.two{grid-template-columns:1fr}.zone{grid-template-columns:1fr;gap:2px}}
+</style>
+
+<div class="wrap">
+
+<header class="hero">
+  <div class="card id">
+    <div>
+      <div class="eyebrow">Aktien-Check · 15.10.2026</div>
+      <h1>Ferrari</h1>
+      <p class="meta">Ferrari N.V. · NYSE: RACE (auch Börse Mailand in Euro) · Luxus-Sportwagen, Sponsoring, Formel 1, Lifestyle · Sitz Maranello (Italien), rechtlich eine niederländische Firma</p>
+    </div>
+    <div class="price"><b>398.24 $</b><span class="meta">Schluss 15.10.2026 · 52 Wochen: 312.51 – 437.15 $ · Allzeithoch 519.10 $ im Juli 2025</span></div>
+    <p class="verdict"><b>Kurz gesagt:</b> Ferrari ist eine der profitabelsten Firmen der Welt: 29 % operative Marge, 31 % Rendite auf das eingesetzte Kapital, und die Kunden warten bis 2027 auf ihr Auto. Qualität grün (83), Timing hellgrün (63). Der Kurs fiel vom Hoch 519 $ (Juli 2025) bis 312.51 $ (März 2026), weil das Wachstum langsamer wird und das erste Elektroauto Luce schlecht ankam. Seit März macht die Aktie höhere Tiefs, und die Firma kauft für Milliarden eigene Aktien zurück. Heute liegt der Kurs knapp über der Kaufzone 381 bis 391 $. Teuer bleibt sie trotzdem: KGV 38.5.</p>
+  </div>
+  <div class="card scales">
+    <div>
+      <div class="scale-h"><span>Qualität · Ist die Firma kaufenswert?</span><b id="q-val">83</b></div>
+      <div class="track"><i class="pin" id="q-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-good">● Stark: Fundament intakt</span>
+    </div>
+    <div>
+      <div class="scale-h"><span>Timing · Ist jetzt der Zeitpunkt?</span><b id="t-val">63</b></div>
+      <div class="track"><i class="pin" id="t-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-good">● Einstieg in Zonen möglich</span>
+    </div>
+    <p class="note">Skala: unter 30 rot · 30–45 orange · 45–60 gelb · 60–75 hellgrün · ab 75 grün. Beide Werte setzen sich aus festen Kriterien zusammen, siehe unten.</p>
+  </div>
+</header>
+
+<section>
+  <h2>Was die Firma macht</h2>
+  <p class="lead">Ferrari baut Sportwagen in Maranello bei Modena und verkauft bewusst weniger Autos, als die Kunden wollen: rund 13'600 Autos pro Jahr. Ein Ferrari kostet meist zwischen 250'000 und 600'000 Euro, Sondermodelle wie der F80 rund 3.6 Millionen. Rund 80 % des Umsatzes kommen aus Autos und Ersatzteilen. Dazu kommen Sponsoring, Formel-1-Einnahmen, Markenrechte, Lifestyle (Mode, Museen, Freizeitparks) und Motoren für Maserati. Einen grossen Teil verdient Ferrari mit Sonderwünschen der Kunden (Personalisierung), die rund ein Fünftel des Autopreises ausmachen. Grösster Aktionär ist Exor, die Holding der Familie Agnelli.</p>
+  <p class="lead">Im Oktober 2025 stellte Ferrari den Plan bis 2030 vor: Umsatz rund 5 % und Gewinn pro Aktie rund 6 % Wachstum pro Jahr. Die Börse hatte mehr erwartet, die Aktie fiel an einem Tag um 15 %. Dazu kam, dass Ferrari bis 2030 nur noch 20 % Elektroautos plant statt 40 %. Im Januar 2026 senkten mehrere Banken ihre Ziele (HSBC auf Halten, Jefferies Ziel 310 €), am 20. März erreichte die Aktie mit 312.51 $ das Tief. Am 25. Mai zeigte Ferrari das erste Elektroauto Luce (rund 550'000 €, gestaltet mit Jony Ive). Die Kritik am Aussehen war heftig, die Aktie fiel am Tag danach um 6 %. Die Zahlen blieben aber gut: Am 30. Juli erhöhte Ferrari die Prognose für 2026 (Umsatz rund 7.6 Mrd. €, Gewinn pro Aktie mindestens 9.68 €). Danach stieg die Aktie bis 437.15 $ am 21. August. Seit Ende September fiel sie bis 381.67 $, ohne neue schlechte Nachrichten. UBS senkte das Kursziel von 490 auf 450 $, behielt aber Kaufen.</p>
+</section>
+
+<section>
+  <h2>Fundamental: die Zahlen</h2>
+  <div class="kpis">
+<div class="kpi w"><span>Umsatzwachstum</span><b>+5.7 %</b><em>Letzte 12 Monate. Im 2. Quartal 2026 +8.4 %. 2023 waren es noch +17 %, 2024 +12 %. Ferrari wächst langsamer, weil sie weniger Autos ausliefern und das Wachstum nur noch aus höheren Preisen kommt.</em></div>
+<div class="kpi g"><span>Operative Marge</span><b>29.4 %</b><em>Von 100 € Umsatz bleiben rund 29 € Betriebsgewinn. Für einen Autobauer extrem hoch, normale Autobauer schaffen 5 bis 10 %. Seit 2022 jedes Jahr gestiegen.</em></div>
+<div class="kpi w"><span>Gewinn pro Aktie (EPS)</span><b>9.23 €</b><em>Letzte 12 Monate, +3.7 % zum Vorjahr. Seit 2021 (4.50 €) verdoppelt. Für 2026 erwartet Ferrari mindestens 9.68 € (bereinigt).</em></div>
+<div class="kpi g"><span>ROIC</span><b>31.5 %</b><em>Auf 100 € investiertes Kapital rund 31 € Gewinn. Sehr hoch und seit 2023 stabil über 30 %. Zeigt die Preismacht der Marke.</em></div>
+<div class="kpi g"><span>Free Cashflow</span><b>1.9 Mrd. €</b><em>Letzte 12 Monate, 2021 waren es 0.9 Mrd. €. Ferrari selbst rechnet enger (ohne Kundenfinanzierung) und erwartet für 2026 mindestens 1.55 Mrd. €.</em></div>
+<div class="kpi g"><span>Nettoschulden</span><b>0.2 Mrd. €</b><em>Ohne die Kredite, mit denen Ferrari Kunden das Auto finanziert. Mit diesen Kundenkrediten sind es 1.7 Mrd. €. Bei 2.9 Mrd. € Betriebsgewinn vor Abschreibungen pro Jahr sehr wenig.</em></div>
+<div class="kpi w"><span>KGV</span><b>38.5</b><em>Du zahlst rund 38 Jahresgewinne. Für einen Autobauer sehr teuer, für Ferrari eher günstig: Eigener Schnitt 2021–2025 rund 43.5. Also etwa 11 % unter dem eigenen Schnitt.</em></div>
+<div class="kpi w"><span>Dividende</span><b>1.0 %</b><em>3.615 € pro Aktie, einmal im Jahr (bezahlt am 5. Mai 2026). +21 % zum Vorjahr, Ferrari schüttet rund 35 bis 40 % des Gewinns aus. Die Rendite ist tief, die Dividende wächst aber schnell.</em></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>Umsatz pro Quartal (Mio. €)</h3>
+      <p class="note">Alle 8 Quartale über dem Vorjahr. Das Tempo sank aber von +16 % (2. Quartal 2024) auf +3 bis +8 %.</p>
+      <div class="chart" id="c-rev"></div>
+    </div>
+    <div class="card">
+      <h3>Operative Marge pro Jahr</h3>
+      <p class="note">Seit 2022 jedes Jahr höher, von 24 % auf 29 %. Im 2. Quartal 2026 sogar 31 %.</p>
+      <div class="chart" id="c-margin"></div>
+    </div>
+  </div>
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Jahr</th><th class="num">Umsatz Mio. €</th><th class="num">Wachstum</th><th class="num">Op. Marge</th><th class="num">EPS €</th><th class="num">Free Cashflow</th><th class="num">ROIC</th><th class="num">KGV</th></tr></thead>
+      <tbody id="fin-rows"></tbody>
+    </table>
+  </div>
+  <p class="note"><b>Hinweis:</b> Ferrari berichtet in Euro, die Aktie an der NYSE kostet Dollar. Das KGV ist darum mit dem Kurs in Euro gerechnet (398.24 $ = rund 355 €). Der Free Cashflow von StockAnalysis enthält die Kundenfinanzierung nicht gleich wie Ferrari selbst, darum weicht er von Ferraris «industriellem Free Cashflow» ab.</p>
+</section>
+
+<section>
+  <h2>Qualität: 83 von 100</h2>
+  <div class="card tbl"><table id="q-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Technik: Wochenchart (2 Jahre)</h2>
+  <div class="card">
+    <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span><span><i class="swb" style="background:var(--zone-sup);border:1px solid var(--good)"></i>Unterstützung</span><span><i class="swb" style="background:var(--zone-res);border:1px solid var(--bad)"></i>Widerstand</span></div>
+    <div class="chart" id="c-week"></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>A/D-Linie, Woche</h3>
+      <p class="note">Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Wichtig: Die Wochen-A/D steht heute (82.3) fast so hoch wie beim Jahreshoch im August (82.8), obwohl der Kurs seither 9 % tiefer liegt. Die Verkäufe im September und Oktober liefen mit wenig Druck: Grosse Anleger haben eher gehalten.</p>
+      <div class="chart" id="c-adw"></div>
+    </div>
+    <div class="card">
+      <h3>RSI, Woche</h3>
+      <p class="note">Unter 30 überverkauft, über 70 überkauft. Im Januar und März bei 30 (überverkauft), im August bei 66, heute 53: neutral.</p>
+      <div class="chart" id="c-rsiw"></div>
+    </div>
+  </div>
+
+  <h2>Technik: Tageschart (1 Jahr)</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Kurs, Tag</h3>
+      <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span></div>
+      <div class="chart" id="c-day"></div>
+    </div>
+    <div class="card">
+      <h3>A/D-Linie, Tag</h3>
+      <p class="note">Seit dem Hoch vom 21.8. sinkt die Tages-A/D leicht (von −14.1 auf −15.5). Am 9.9. stand der Kurs bei 402 $ und die A/D bei −15.5. Heute gleiche A/D, Kurs 4 $ tiefer: kein starker Verkaufsdruck, aber auch noch kein klares Kaufsignal.</p>
+      <div class="chart" id="c-add"></div>
+    </div>
+  </div>
+
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Indikator</th><th>Tag</th><th>Woche</th><th>Bedeutung</th></tr></thead>
+      <tbody>
+<tr><td>Kurs vs. EMA 50</td><td class="pts">398.2 &gt; 397.9 (knapp)</td><td class="pts">398.2 &gt; 389.5</td><td>Heute wieder knapp über der mittelfristigen Linie, auf beiden Zeitebenen.</td></tr>
+<tr><td>Kurs vs. EMA 200</td><td class="pts">398.2 &gt; 387.5</td><td class="pts">398.2 &gt; 368.9</td><td>Über der langfristigen Linie, auf beiden Zeitebenen.</td></tr>
+<tr><td>EMA 50 vs. EMA 200</td><td class="pts">50 über 200 (seit 11.8.2026)</td><td class="pts">50 über 200 (seit November 2016)</td><td>Tag und Woche aufwärts.</td></tr>
+<tr><td>RSI (14)</td><td class="pts">50.6</td><td class="pts">53.1</td><td>Neutral, weder überkauft noch überverkauft.</td></tr>
+<tr><td>A/D</td><td class="pts">seit August leicht sinkend</td><td class="pts">fast am Höchststand, Kurs 9 % tiefer</td><td>Woche positiv (Käufer halten), Tag neutral.</td></tr>
+<tr><td>Volumen</td><td colspan="2">Ø 20 Tage 0.45 Mio. vs. Ø 100 Tage 0.50 Mio. Aktien</td><td>Etwas weniger Handel als üblich: Die Korrektur läuft ruhig, ohne Panik.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Struktur und Zonen (Smart Money Concept)</h2>
+  <p class="lead">Vom Allzeithoch 519.10 $ (Juli 2025) fiel Ferrari in drei Stufen: nach dem Investorentag im Oktober 2025 auf 372 $, im Januar 2026 auf 328 $ und am 20. März 2026 auf 312.51 $. Seither macht die Aktie höhere Tiefs (312.51 → 319.72 → 343.38 → 356.32 → 381.67 $). Im August brach sie über die Hochs vom Februar (393.50 $) und April (379.65 $): Im Wochenchart ist das ein Change of Character nach oben. Nach dem Hoch vom 21.8. (437.15 $) folgte eine Korrektur mit tieferen Hochs (437.15 → 419.80 $) und tieferen Tiefen (400.82 → 381.67 $). Das Tief vom 5.10. hielt genau dort, wo die Tages-EMA 200 und die Wochen-EMA 50 liegen. Heute stieg der Kurs um 2.8 % auf 398.24 $. Ein Tagesschluss über 403 $ würde die Reihe tieferer Hochs seit Ende September brechen. Darunter liegt noch eine offene Kurslücke (Fair Value Gap) vom 24./27. Juli zwischen 363 und 372 $.</p>
+  <div class="zones">
+<div class="zone r"><b>430–437 $</b><span>Widerstand: Jahreshoch vom 21.8.2026 (437.15 $).</span></div>
+<div class="zone r"><b>412–420 $</b><span>Widerstand: Hochs vom September (419.80 $ am 22.9.).</span></div>
+<div class="zone t"><b>403 $</b><span><b>Trigger:</b> Tagesschluss über dem Hoch vom 29.9. (402.05 $) und klar über der Tages-EMA 50. Bestätigung über 420 $.</span></div>
+<div class="zone s"><b>381–391 $</b><span><b>Kaufzone 1:</b> Tief vom 5.10. (381.67 $), Tages-EMA 200 (387.50 $) und Wochen-EMA 50 (389.50 $).</span></div>
+<div class="zone s"><b>356–372 $</b><span><b>Kaufzone 2:</b> Kurslücke vom Juli (363–372 $), Wochen-EMA 200 (368.90 $) und Tief vom 24.7. (356.32 $).</span></div>
+<div class="zone r"><b>378 $</b><span>Abbruch: Wochenschluss darunter, dann ist die Kaufzone 2 das nächste Ziel.</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Smart Money, Insider und Saisonalität</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Wer kauft, wer verkauft?</h3>
+      <ul class="clean" style="margin-top:8px">
+<li><b>Ferrari selbst:</b> Rückkaufprogramm über rund 3.5 Mrd. € bis 2030. 2026 bis zum 24.7. für 479 Mio. € 1.6 Mio. eigene Aktien gekauft, im Schnitt zu rund 297 € (rund 345 $). Die Firma hat also kräftig nahe am Tief gekauft. Die dritte Tranche läuft (Meldung vom 13.10.).</li>
+<li><b>Grossaktionär:</b> Exor (Familie Agnelli) hält rund ein Fünftel der Aktien. Im Februar 2025 verkaufte Exor rund 4 %, seither keine Verkäufe bekannt.</li>
+<li><b>Insider:</b> In den letzten drei Monaten keine Käufe oder Verkäufe von Managern gemeldet (MarketBeat).</li>
+<li><b>Analysten:</b> Bei StockAnalysis 12 Analysten mit «Kaufen», Kursziel im Schnitt 453 $ (+14 %). Bei MarketBeat 15× Kaufen, 8× Halten, 0× Verkaufen. Zuletzt leicht gesenkte Ziele: UBS 450 $ (vorher 490 $), Morgan Stanley 456 $ (vorher 460 $), beide weiter positiv.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Saisonalität seit 2015</h3>
+      <p class="note">Durchschnittliche Monatsrendite in %. Seit dem Börsengang 2015 (11 Jahre). Juli (+4.9 %) und Februar (+3.3 %) sind stark, September (−2.3 %, nur 27 % positive Jahre) und Dezember (−1.2 %, 27 %) schwach. November im Schnitt +3.0 % (55 %).</p>
+      <div class="chart" id="c-seas"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Timing: 63 von 100</h2>
+  <div class="card tbl"><table id="t-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Worauf du achten solltest: Unterbewertung und Wachstumsschub</h2>
+  <div class="card"><h3>Was die Börse befürchtet</h3><p class="note" style="margin:4px 0">Vor allem Stimmung: Das Geschäft läuft gut (Prognose 2026 im Juli erhöht, Marge 29 %, Bestellungen bis 2027), gefallen ist vor allem die hohe Bewertung, weil das Wachstum langsamer wird.</p><ul class="clean"><li>Am Investorentag im Oktober 2025 versprach Ferrari bis 2030 nur rund 5 % mehr Umsatz und rund 6 % mehr Gewinn pro Aktie pro Jahr. Die Aktie fiel an einem Tag um 15 % und bis März 2026 vom Hoch 519 $ auf 312.51 $ (−40 %).</li><li>Das erste Elektroauto Luce (rund 550'000 €) kam am 25.05.2026 schlecht an, vor allem das Aussehen. Die Aktie fiel am Tag danach um 6 %.</li><li>Ferrari liefert weniger Autos aus und wächst nur noch über höhere Preise, Sonderwünsche und teure Sondermodelle wie den F80. Citi zweifelt, dass das so weitergeht.</li><li>Mit einem KGV von rund 38 ist die Aktie absolut immer noch teuer. Dazu kommen US-Zölle von 15 % auf Autos aus der EU.</li></ul><h3 style="margin-top:12px">Was die Sorgen beenden könnte</h3><ul class="clean"><li>Zahlen zum 3. Quartal: Bestätigt Ferrari die erhöhte Prognose 2026 (Umsatz rund 7.6 Mrd. €, Gewinn pro Aktie mindestens 9.68 €)? <span class="muted">(Zahlen 03.11.2026)</span></li><li>Erste Fahrberichte und Auslieferungen des Luce. Fahren die Tester das Auto gut und kaufen die Kunden es, verschwindet die Elektro-Sorge <span class="muted">(voraussichtlich Ende 2026 bis 2027 (nicht bestätigt))</span></li><li>Jahreszahlen 2026 mit Ausblick auf 2027 und Dividende. Ein Ausblick über dem Plan von 5 % Wachstum wäre ein klares Signal <span class="muted">(voraussichtlich Februar 2027)</span></li><li>Der laufende Aktienrückkauf (rund 3.5 Mrd. € bis 2030) stützt den Kurs bei jedem Rücksetzer <span class="muted">(laufend)</span></li></ul><h3 style="margin-top:12px">Wachstumsschub: Kein grosser Schub in Sicht</h3><ul class="clean"><li><b>Mehr Geld pro Auto statt mehr Autos:</b> Ferrari verdient immer mehr an Sonderwünschen (rund ein Fünftel des Autopreises) und an Sondermodellen wie dem F80 (rund 3.6 Mio. €). Darum stieg die operative Marge im 2. Quartal 2026 auf 31 %. Das hebt den Gewinn, aber nur in kleinen Schritten. <span class="muted">(2026–2027)</span></li><li><b>Neue Modelle und Luce:</b> Neue Modelle wie der Amalfi und der 849 Testarossa kommen auf den Markt, dazu ab 2026 der Luce. Laut Plan bleibt das Wachstum aber bei rund 5 % pro Jahr. Ein echter Schub wäre es nur, wenn der Luce viel mehr neue Kunden bringt als erwartet. <span class="muted">(2026–2028)</span></li></ul><p style="margin:10px 0 0"><b>Woran du es erkennst:</b> Schau in den Quartalszahlen auf den Umsatz pro ausgeliefertem Auto und die operative Marge (2. Quartal 2026: 31 %). Steigen beide weiter, obwohl weniger Autos ausgeliefert werden, funktioniert das Modell.</p><p style="margin:10px 0 0"><b>Das Chancen-Szenario:</b> Kein Fall wie Google 2023, sondern eine Qualitätsaktie nach einer Bewertungs-Korrektur: Ferrari bleibt profitabel und wächst langsam, der Kurs kann mit dem Gewinn um rund 6 bis 10 % pro Jahr steigen (mit Rückkauf und Dividende). Grösstes Risiko: Das Wachstum sinkt unter den Plan oder der Luce floppt, dann kann das KGV von 38 weiter Richtung 30 fallen.</p><p class="note" style="margin:10px 0 0">Quellen: <a href="https://www.marketscreener.com/news/ferrari-analysts-remain-cautious-but-the-stock-could-regain-momentum-ce7e58dfdc81ff21" target="_blank" rel="noopener">MarketScreener: Ferrari analysts remain cautious (19.01.2026)</a>, <a href="https://finance.yahoo.com/markets/stocks/articles/ferrari-shares-rise-raised-2026-113846722.html" target="_blank" rel="noopener">Investing.com via Yahoo: Ferrari raises 2026 guidance despite Q2 miss (30.07.2026)</a>, <a href="https://electrek.co/2026/05/26/ferrari-race-stock-plunge-luce-ev-mach-e-moment/" target="_blank" rel="noopener">Electrek: Ferrari stock falls on Luce EV backlash (26.05.2026)</a></p></div>
+</section>
+
+<section>
+  <h2>Dividende</h2>
+  <div class="card tbl"><table><tr><td style="white-space:nowrap;color:var(--muted)">Wie oft</td><td>1× pro Jahr (jährlich)</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Ex-Tag im</td><td>April</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Geld auf dem Konto im</td><td>Mai</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Zahltage</td><td>Anfang Mai, rund zwei Wochen nach dem Ex-Tag (2026: Ex-Tag 21. April, Zahltag 5. Mai)</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Letzte Zahlung</td><td>3.615 $ pro Aktie</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Rendite</td><td>1.0 %</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">System</td><td>Niederländisch-italienisches System: eine Dividende pro Jahr in Euro, beschlossen an der Generalversammlung Mitte April und Anfang Mai ausbezahlt. Ferrari schüttet rund 35 bis 40 % des Gewinns aus und hat die Dividende 2026 um 21 % erhöht. Kaufst du an der NYSE, kommt der Betrag in Dollar umgerechnet.</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Form</td><td>Bar in US-Dollar aufs Konto (an der Börse Mailand gekauft: in Euro). Ferrari ist rechtlich eine niederländische Firma: Die Niederlande ziehen 15 % Quellensteuer ab, die du in der Regel über die Steuererklärung anrechnen lassen kannst (Formular DA-1).</td></tr></table><p class="note" style="margin:10px 0 0"><b>Ex-Tag:</b> Du bekommst die Dividende nur, wenn du die Aktie am Abend vor dem Ex-Tag besitzt. <b>Zahltag:</b> An diesem Tag kommt das Geld aufs Konto (in der Währung der Aktie, abzüglich Quellensteuer). Die nächsten genauen Termine zeigt die App unter «Termine».</p></div>
+</section>
+
+<section>
+  <h2>Pro und Contra</h2>
+  <div class="two">
+    <div class="card pro"><h3>Spricht dafür</h3><ul class="clean" style="margin-top:8px">
+<li>Einzigartige Marke mit Preismacht: Die Kunden warten bis 2027 auf ihr Auto.</li>
+<li>Sehr hohe Marge (29 %) und Kapitalrendite (31 %), fast schuldenfrei.</li>
+<li>Prognose 2026 im Juli erhöht, Personalisierung bringt immer mehr Geld pro Auto.</li>
+<li>Die Firma kauft für Milliarden eigene Aktien zurück, 2026 vor allem nahe am Tief.</li>
+<li>KGV 11 % unter dem eigenen Schnitt, Wochentrend und Wochen-A/D positiv.</li>
+    </ul></div>
+    <div class="card con"><h3>Spricht dagegen</h3><ul class="clean" style="margin-top:8px">
+<li>Wachstum wird langsamer: +5.7 % statt +12 bis +17 % wie 2023 und 2024.</li>
+<li>Absolut sehr teuer (KGV 38.5): Enttäuscht ein Quartal, kann der Kurs stark fallen (−15 % an einem Tag im Oktober 2025).</li>
+<li>Das erste Elektroauto Luce kam schlecht an. Ob die Kunden es kaufen, ist offen.</li>
+<li>Wachstum hängt an teuren Sondermodellen wie dem F80. Citi zweifelt, dass das so weitergeht.</li>
+<li>US-Zölle (15 % auf Autos aus der EU) und eine schwache Nachfrage nach Luxus in China.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section>
+  <h2>Was jetzt zu tun ist</h2>
+  <div class="zones">
+<div class="zone t"><b>Beobachten</b><span>Alarm bei 403 $ (Trigger) und 391 $ (oberes Ende Kaufzone 1).</span></div>
+<div class="zone s"><b>Timing grün</b><span>Tagesschluss über 403 $ und danach über 420 $ mit steigender Tages-A/D. Oder ein Rücksetzer in 381–391 $, der hält. Fundamental: Die Zahlen vom 3.11. sollten die Prognose 2026 bestätigen.</span></div>
+<div class="zone r"><b>Abbruch</b><span>Wochenschluss unter 378 $. Dann wäre die Kaufzone 2 (356–372 $) das nächste Ziel.</span></div>
+<div class="zone "><b>Nächste Zahlen</b><span>3. November 2026 (3. Quartal). Jahreszahlen 2026 und Ausblick 2027 voraussichtlich im Februar 2027.</span></div>
+  </div>
+</section>
+
+<footer>
+  <span>Kursdaten und Indikatoren (EMA, RSI 14, A/D) selbst berechnet aus Yahoo-Finance-Tages-, Wochen- und Monatsdaten, Stand 15.10.2026. <a href="https://stockanalysis.com/stocks/race/financials/" target="_blank" rel="noopener">StockAnalysis.com</a> (Stand 15.10.2026), <a href="https://finance.yahoo.com/markets/stocks/articles/ferrari-shares-rise-raised-2026-113846722.html" target="_blank" rel="noopener">Ferrari Q2 2026 (Investing.com)</a>, <a href="https://www.marketscreener.com/news/ferrari-analysts-remain-cautious-but-the-stock-could-regain-momentum-ce7e58dfdc81ff21" target="_blank" rel="noopener">MarketScreener (19.1.2026)</a>, <a href="https://electrek.co/2026/05/26/ferrari-race-stock-plunge-luce-ev-mach-e-moment/" target="_blank" rel="noopener">Electrek zum Luce (26.5.2026)</a>, <a href="https://www.stocktitan.net/sec-filings/RACE/6-k-ferrari-n-v-current-report-foreign-issuer-d9a40ea44aed.html" target="_blank" rel="noopener">Rückkauf-Meldung (27.7.2026)</a>, <a href="https://www.sec.gov/Archives/edgar/data/1648416/000164841626000023/fnv19226prdividendex.htm" target="_blank" rel="noopener">Dividende 2026 (SEC)</a>, <a href="https://www.marketbeat.com/stocks/NYSE/RACE/" target="_blank" rel="noopener">MarketBeat</a>.</span>
+  <span>Persönliche Analyse, keine Anlageberatung. Vergangene Kurse und Saisonalität sagen nichts Sicheres über die Zukunft.</span>
+</footer>
+</div>
+
+<script>
+const Q=[["Umsatztrend", "Alle 8 Quartale über Vorjahr (Q2 2026: +8.4 %)", 15, 15], ["Wachstumstempo", "Letzte 12 Monate +5.7 % (2023: +17 %), klar langsamer", 3, 10], ["Operative Marge", "29.4 % (9 Pkt.), seit 2022 jedes Jahr gestiegen (6 Pkt.)", 15, 15], ["Gewinnwachstum (EPS)", "Seit 2021 verdoppelt, letzte 12 Monate nur +3.7 %", 6, 10], ["Free Cashflow", "Jedes Jahr positiv und steigend (0.9 → 1.9 Mrd. €)", 10, 10], ["ROIC", "31.5 %, seit 2023 stabil über 30 %", 15, 15], ["Schulden", "Nettoschulden/EBITDA unter 1 (industriell 0.2 Mrd. €, mit Kundenkrediten 1.7 Mrd. €)", 9, 10], ["Bewertung vs. eigene Historie", "KGV 38.5 statt Ø 43.5 (2021–2025), rund 11 % günstiger", 10, 15]];
+const T=[["Trend Woche (EMA 50/200)", "Kurs über EMA 50 und 200, EMA 50 über 200", 18, 20], ["Trend Tag (EMA 50/200)", "Kurs knapp über EMA 50 und über EMA 200, EMA 50 über 200 seit 11.8.", 9, 10], ["Struktur (SMC)", "Woche: höhere Tiefs seit März. Tag: Korrektur mit tieferen Hochs seit August, Tief vom 5.10. hält", 11, 20], ["RSI Tag/Woche", "Tag 51, Woche 53: neutral, kein Signal", 7, 15], ["A/D Tag/Woche", "Woche fast am Hoch bei 9 % tieferem Kurs (positiv), Tag neutral", 12, 20], ["Smart Money", "Rückkauf rund 1.3 % des Börsenwerts pro Jahr (unter 2 %), keine Insider-Käufe", 3, 10], ["Saisonalität", "Oktober 67 %, November 55 %, Dezember nur 27 % positive Jahre", 3, 5]];
+const FIN=[["2021", 4271, "+23.4 %", "25.0 %", 4.5, 930, "25.7 %", "50.3"], ["2022", 5095, "+19.3 %", "24.0 %", 5.09, 1056, "26.1 %", "39.1"], ["2023", 5970, "+17.2 %", "27.0 %", 6.9, 1335, "30.2 %", "44.0"], ["2024", 6677, "+11.8 %", "28.2 %", 8.46, 1444, "31.6 %", "48.5"], ["2025", 7146, "+7.0 %", "29.4 %", 8.96, 1864, "30.8 %", "35.4"], ["Letzte 12 Mt.", 7353, "+5.7 %", "29.4 %", 9.23, 1910, "31.5 %", "38.5"]];
+const HALF=[["Q3 24", 1644], ["Q4 24", 1736], ["Q1 25", 1791], ["Q2 25", 1788], ["Q3 25", 1766], ["Q4 25", 1801], ["Q1 26", 1848], ["Q2 26", 1938]];
+const MARGIN=[["2021", 25.0], ["2022", 24.0], ["2023", 27.0], ["2024", 28.2], ["2025", 29.4], ["12 Mt.", 29.4]];
+const SEAS=[2.1, 3.3, 1.6, 2.1, 2.2, 2.7, 4.9, 4.1, -2.3, 0.3, 3.0, -1.2];
+const SEASHIT=[64.0, 64.0, 64.0, 82.0, 55.0, 55.0, 64.0, 55.0, 27.0, 67.0, 55.0, 27.0];
+const MON=["Jan","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"];
+const W=`2024-10-21,484.73,414.35,301.9,63,66.1;2024-10-28,476.76,416.8,303.64,60,65.4;2024-11-04,454.46,418.28,305.14,52,65;2024-11-11,430.99,418.78,306.4,46,63.6;2024-11-18,437.62,419.52,307.7,48,64.7;2024-11-25,434.16,420.09,308.96,47,64.5;2024-12-02,458.44,421.59,310.45,54,66;2024-12-09,454.18,422.87,311.88,52,66.5;2024-12-16,426.93,423.03,313.02,45,65.6;2024-12-23,432.15,423.39,314.21,47,66;2024-12-30,417.42,423.15,315.23,43,65.6;2025-01-06,429.29,423.39,316.37,47,65.6;2025-01-13,435.87,423.88,317.56,49,66.5;2025-01-20,432.37,424.22,318.7,48,66.4;2025-01-27,428.52,424.39,319.79,46,65.4;2025-02-03,446.44,425.25,321.05,52,65.6;2025-02-10,503.84,428.33,322.87,65,67.5;2025-02-17,503.43,431.28,324.67,65,67.5;2025-02-24,464.57,432.58,326.06,54,65.1;2025-03-03,449.56,433.25,327.29,50,63.4;2025-03-10,449.23,433.88,328.5,50,64.8;2025-03-17,436.32,433.97,329.58,47,63.5;2025-03-24,429.71,433.8,330.57,45,65.8;2025-03-31,414.85,433.06,331.41,42,62.5;2025-04-07,428.58,432.89,332.38,46,65.7;2025-04-14,439.97,433.16,333.45,49,66.7;2025-04-21,460.8,434.25,334.72,54,68.3;2025-04-28,462.84,435.37,335.99,55,69.2;2025-05-05,488.28,437.44,337.51,61,70.8;2025-05-12,498.74,439.85,339.11,63,72.1;2025-05-19,476.22,441.27,340.47,56,70.8;2025-05-26,478.76,442.74,341.85,56,70.6;2025-06-02,482.61,444.31,343.25,57,71.4;2025-06-09,463.44,445.06,344.45,51,69.6;2025-06-16,459.05,445.61,345.59,50,68.8;2025-06-23,491.1,447.39,347.03,58,70.4;2025-06-30,490.2,449.07,348.46,58,70.9;2025-07-07,490.66,450.7,349.87,58,70.7;2025-07-14,505.4,452.84,351.42,62,71.8;2025-07-21,517.65,455.39,353.08,64,73;2025-07-28,436.24,454.64,353.9,43,69.1;2025-08-04,443.84,454.21,354.8,45,69.6;2025-08-11,460.55,454.46,355.85,49,70.8;2025-08-18,471.02,455.11,357,51,71.4;2025-08-25,477.21,455.98,358.19,52,72.1;2025-09-01,488.77,457.26,359.49,55,71.8;2025-09-08,478,458.08,360.67,52,71.5;2025-09-15,479.59,458.92,361.85,53,71.8;2025-09-22,475.36,459.56,362.98,51,71.1;2025-09-29,501.15,461.2,364.36,58,72.4;2025-10-06,395.72,458.63,364.67,37,64;2025-10-13,399.08,456.29,365.01,37,71.5;2025-10-20,408.31,454.41,365.44,40,74;2025-10-27,403.95,452.43,365.83,39,75.8;2025-11-03,413.26,450.9,366.3,41,80.4;2025-11-10,417.16,449.57,366.81,42,78.9;2025-11-17,389.19,447.2,367.03,37,77;2025-11-24,391.9,445.04,367.28,38,79.2;2025-12-01,393.21,443,367.53,39,79.5;2025-12-08,367.13,440.03,367.53,34,78.1;2025-12-15,378.29,437.61,367.64,37,80.4;2025-12-22,378.13,435.27,367.74,37,80.8;2025-12-29,371.89,432.79,367.78,36,80.3;2026-01-05,376.19,430.57,367.87,38,81.9;2026-01-12,345.23,427.22,367.64,32,77.6;2026-01-19,338.53,423.74,367.35,31,78.2;2026-01-26,333.17,420.19,367.01,30,76.7;2026-02-02,333.79,416.8,366.68,30,75.6;2026-02-09,379.08,415.32,366.8,46,80.1;2026-02-16,366.95,413.43,366.81,43,79.5;2026-02-23,379.92,412.11,366.94,46,82.1;2026-03-02,350.08,409.68,366.77,40,79.9;2026-03-09,331.86,406.63,366.42,37,77.1;2026-03-16,314.63,403.02,365.91,34,73.8;2026-03-23,317.4,399.66,365.42,35,71.1;2026-03-30,340,397.32,365.17,42,72.5;2026-04-06,351.89,395.54,365.04,45,73.5;2026-04-13,372.85,394.65,365.12,50,75.1;2026-04-20,351.95,392.98,364.98,45,73.2;2026-04-27,341.26,390.95,364.75,43,72.2;2026-05-04,339.69,388.94,364.5,43,74.7;2026-05-11,321.2,386.28,364.07,39,72.1;2026-05-18,348.24,384.79,363.91,47,74.2;2026-05-25,340.23,383.04,363.67,45,74.8;2026-06-01,346.99,381.63,363.51,47,73.3;2026-06-08,354.91,380.58,363.42,49,72.7;2026-06-15,362.13,379.86,363.41,51,72.3;2026-06-22,368.34,379.41,363.46,52,75;2026-06-29,384.97,379.62,363.67,57,77.8;2026-07-06,376.64,379.51,363.8,54,76.6;2026-07-13,376.83,379.4,363.93,54,76.7;2026-07-20,360.14,378.65,363.89,49,75.9;2026-07-27,393.87,379.24,364.19,58,77.6;2026-08-03,412.26,380.54,364.67,62,79.8;2026-08-10,414.85,381.88,365.17,62,80.8;2026-08-17,436.54,384.03,365.88,66,82.8;2026-08-24,420.54,385.46,366.42,61,82.7;2026-08-31,409.95,386.42,366.86,58,81.5;2026-09-07,413.78,387.49,367.32,59,82.5;2026-09-14,406.69,388.25,367.72,56,81.9;2026-09-21,411.33,389.15,368.15,57,81.9;2026-09-28,388.33,389.12,368.35,50,80.1;2026-10-05,389.91,389.15,368.57,51,81.8;2026-10-15,398.24,389.51,368.86,53,82.3`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+const DD=`2025-10-03,501.15,479.55,470.4,3.4;2025-10-06,491.53,480.02,470.61,3.1;2025-10-07,490.86,480.44,470.81,2.9;2025-10-08,479.21,480.39,470.9,2.6;2025-10-09,407.38,477.53,470.26,-0.1;2025-10-10,395.72,474.32,469.52,-2.1;2025-10-13,378.72,470.57,468.62,-4.1;2025-10-14,382.19,467.11,467.76,-3.4;2025-10-15,389.56,464.07,466.98,-2.4;2025-10-16,392.46,461.26,466.24,-3.3;2025-10-17,399.08,458.82,465.57,-2.6;2025-10-20,398.31,456.45,464.9,-2.1;2025-10-21,400.46,454.25,464.26,-1.6;2025-10-22,394.06,451.89,463.56,-2;2025-10-23,402.85,449.97,462.96,-1.7;2025-10-24,408.31,448.33,462.41,-2.2;2025-10-27,407.46,446.73,461.87,-2.5;2025-10-28,402.27,444.99,461.27,-2.6;2025-10-29,391.44,442.89,460.58,-3.1;2025-10-30,396,441.05,459.94,-2.6;2025-10-31,403.95,439.59,459.38,-1.9;2025-11-03,392.03,437.73,458.71,-2.3;2025-11-04,399.39,436.23,458.12,-2.8;2025-11-05,406.67,435.07,457.61,-2.7;2025-11-06,405.62,433.91,457.09,-2.8;2025-11-07,413.26,433.1,456.65,-2.2;2025-11-10,411.4,432.25,456.2,-2.7;2025-11-11,422.46,431.87,455.87,-2.1;2025-11-12,419.52,431.38,455.51,-2.9;2025-11-13,417.81,430.85,455.13,-3.5;2025-11-14,417.16,430.31,454.75,-3.4;2025-11-17,405.38,429.34,454.26,-3.9;2025-11-18,397.83,428.1,453.7,-3.8;2025-11-19,389.83,426.6,453.06,-4.2;2025-11-20,383.15,424.9,452.37,-4.7;2025-11-21,389.19,423.5,451.74,-4.7;2025-11-24,381.58,421.85,451.04,-5.6;2025-11-25,385.14,420.41,450.39,-5.6;2025-11-26,382.8,418.94,449.71,-6;2025-11-28,391.9,417.88,449.14,-5.8;2025-12-01,386.93,416.66,448.52,-6.1;2025-12-02,386.56,415.48,447.9,-6;2025-12-03,393.84,414.63,447.37,-5.8;2025-12-04,393.23,413.79,446.83,-6.1;2025-12-05,393.21,412.99,446.29,-6.4;2025-12-08,382.98,411.81,445.66,-6.6;2025-12-09,375.35,410.38,444.96,-7.2;2025-12-10,364.04,408.56,444.16,-6.2;2025-12-11,367.96,406.97,443.4,-6.5;2025-12-12,367.13,405.41,442.64,-6.7;2025-12-15,368.6,403.97,441.9,-6.8;2025-12-16,370.42,402.65,441.19,-6.4;2025-12-17,365.51,401.19,440.44,-6.6;2025-12-18,372.65,400.07,439.77,-5.9;2025-12-19,378.29,399.22,439.15,-6.1;2025-12-22,375.25,398.28,438.52,-6.6;2025-12-23,375.91,397.4,437.9,-6.9;2025-12-24,376.34,396.58,437.28,-7;2025-12-26,378.13,395.85,436.69,-6.8;2025-12-29,375.75,395.06,436.09,-6.8;2025-12-30,372.48,394.18,435.45,-7.1;2025-12-31,369.56,393.21,434.8,-7.3;2026-01-02,371.89,392.38,434.17,-7;2026-01-05,379.27,391.86,433.63,-6.5;2026-01-06,371.96,391.08,433.01,-6.9;2026-01-07,366.81,390.13,432.35,-7.5;2026-01-08,370.85,389.37,431.74,-7.4;2026-01-09,376.19,388.86,431.19,-7.7;2026-01-12,377.2,388.4,430.65,-7.6;2026-01-13,360.09,387.29,429.95,-8.4;2026-01-14,353.39,385.96,429.19,-9.2;2026-01-15,354.57,384.73,428.45,-9.3;2026-01-16,345.23,383.18,427.62,-10.2;2026-01-20,336.78,381.36,426.71,-11.2;2026-01-21,341.68,379.81,425.87,-9.9;2026-01-22,337.55,378.15,424.99,-10.5;2026-01-23,338.53,376.59,424.13,-9.6;2026-01-26,340.45,375.18,423.3,-9.4;2026-01-27,337.4,373.7,422.44,-9.2;2026-01-28,333.46,372.12,421.56,-9.6;2026-01-29,338.45,370.8,420.73,-9.4;2026-01-30,333.17,369.32,419.86,-9.4;2026-02-02,336.33,368.03,419.03,-9.4;2026-02-03,330.32,366.55,418.14,-9.7;2026-02-04,339.33,365.48,417.36,-10.1;2026-02-05,334.76,364.28,416.54,-10.1;2026-02-06,333.79,363.08,415.71,-9.7;2026-02-09,336.13,362.02,414.92,-9.6;2026-02-10,363.22,362.07,414.41,-10.1;2026-02-11,382.96,362.89,414.1,-8.9;2026-02-12,391.21,364,413.87,-8.4;2026-02-13,379.08,364.59,413.52,-9;2026-02-17,374.99,365,413.14,-9.1;2026-02-18,366.43,365.06,412.67,-9.3;2026-02-19,366.5,365.11,412.21,-8.9;2026-02-20,366.95,365.18,411.76,-8.5;2026-02-23,358.42,364.92,411.23,-8.7;2026-02-24,373.92,365.27,410.86,-8.7;2026-02-25,373.34,365.59,410.49,-9.3;2026-02-26,376.19,366,410.15,-9.5;2026-02-27,379.92,366.55,409.85,-9;2026-03-02,362.75,366.4,409.38,-9.3;2026-03-03,361.13,366.19,408.9,-8.6;2026-03-04,365.09,366.15,408.46,-8.4;2026-03-05,358.03,365.83,407.96,-8.5;2026-03-06,350.08,365.22,407.38,-8.4;2026-03-09,346.58,364.48,406.78,-7.8;2026-03-10,346.56,363.78,406.18,-8.2;2026-03-11,340.61,362.87,405.53,-8.5;2026-03-12,334.55,361.76,404.82,-9;2026-03-13,331.86,360.59,404.1,-9.5;2026-03-16,334.36,359.56,403.4,-8.9;2026-03-17,336.48,358.66,402.74,-9.3;2026-03-18,330.47,357.55,402.02,-9.9;2026-03-19,321.01,356.12,401.21,-9.4;2026-03-20,314.63,354.49,400.35,-9.7;2026-03-23,329.16,353.5,399.64,-10;2026-03-24,322.02,352.26,398.87,-10.3;2026-03-25,322.17,351.08,398.1,-10.2;2026-03-26,323.58,350,397.36,-10.3;2026-03-27,317.4,348.73,396.57,-10.7;2026-03-30,327.2,347.88,395.88,-11.4;2026-03-31,338.45,347.51,395.31,-10.8;2026-04-01,342.43,347.31,394.78,-11.1;2026-04-02,340,347.03,394.23,-11;2026-04-06,338.28,346.68,393.68,-11.2;2026-04-07,334.57,346.21,393.09,-11.1;2026-04-08,351.3,346.41,392.67,-11.9;2026-04-09,352.22,346.64,392.27,-11.7;2026-04-10,351.89,346.84,391.87,-12.1;2026-04-13,355.14,347.17,391.5,-11.7;2026-04-14,358.13,347.6,391.17,-11.9;2026-04-15,357.06,347.97,390.83,-11.7;2026-04-16,356.52,348.3,390.49,-12.1;2026-04-17,372.85,349.27,390.32,-12.9;2026-04-20,372.84,350.19,390.14,-12.3;2026-04-21,358.5,350.52,389.83,-12.8;2026-04-22,358.58,350.83,389.52,-13.3;2026-04-23,354.19,350.96,389.16,-13.4;2026-04-24,351.95,351,388.79,-13.4;2026-04-27,347.81,350.88,388.39,-13.6;2026-04-28,342.71,350.56,387.93,-13.5;2026-04-29,337.54,350.05,387.43,-13.7;2026-04-30,347.3,349.94,387.03,-13.2;2026-05-01,341.26,349.6,386.58,-13.5;2026-05-04,338.91,349.18,386.1,-13.9;2026-05-05,325.44,348.25,385.5,-14.5;2026-05-06,336.25,347.78,385.01,-14.4;2026-05-07,337.46,347.37,384.53,-14.7;2026-05-08,339.69,347.07,384.09,-15.1;2026-05-11,329.26,346.37,383.54,-15.4;2026-05-12,329.26,345.7,383,-15.2;2026-05-13,333.09,345.21,382.51,-14.6;2026-05-14,332.21,344.7,382.01,-14.9;2026-05-15,321.2,343.78,381.4,-15.5;2026-05-18,324.77,343.03,380.84,-15.1;2026-05-19,329.66,342.51,380.33,-15.5;2026-05-20,341.81,342.48,379.94,-14.8;2026-05-21,349.39,342.75,379.64,-14.6;2026-05-22,348.24,342.97,379.33,-14.9;2026-05-26,329.91,342.45,378.84,-15.5;2026-05-27,333.22,342.09,378.38,-14.1;2026-05-28,346.35,342.26,378.06,-13.4;2026-05-29,340.23,342.18,377.69,-14.1;2026-06-01,349.24,342.46,377.4,-13.8;2026-06-02,353.81,342.9,377.17,-13.9;2026-06-03,344.4,342.96,376.84,-14.4;2026-06-04,349.92,343.23,376.58,-14.5;2026-06-05,346.99,343.38,376.28,-14.6;2026-06-08,351.57,343.7,376.04,-14.6;2026-06-09,357.52,344.24,375.85,-14.7;2026-06-10,346.56,344.33,375.56,-15.1;2026-06-11,365.62,345.17,375.46,-14.6;2026-06-12,354.91,345.55,375.26,-14.8;2026-06-15,369.06,346.47,375.19,-15.4;2026-06-16,366.13,347.24,375.1,-15.8;2026-06-17,354.28,347.52,374.9,-16.2;2026-06-18,362.13,348.09,374.77,-15.8;2026-06-22,348.42,348.11,374.51,-16.1;2026-06-23,344.87,347.98,374.21,-16.2;2026-06-24,348.75,348.01,373.96,-16.2;2026-06-25,352.2,348.17,373.74,-16.4;2026-06-26,368.34,348.96,373.69,-15.9;2026-06-29,368.34,349.72,373.64,-16.6;2026-06-30,372.29,350.61,373.62,-16.2;2026-07-01,374.66,351.55,373.63,-16.2;2026-07-02,384.97,352.86,373.75,-15.6;2026-07-06,391.86,354.39,373.93,-15;2026-07-07,386.99,355.67,374.06,-15.4;2026-07-08,375.03,356.43,374.07,-15.5;2026-07-09,374.67,357.14,374.07,-15.4;2026-07-10,376.64,357.91,374.1,-15.6;2026-07-13,372.98,358.5,374.09,-15.9;2026-07-14,369.16,358.92,374.04,-16.1;2026-07-15,375.74,359.58,374.05,-16.1;2026-07-16,382.58,360.48,374.14,-15.7;2026-07-17,376.83,361.12,374.17,-15.9;2026-07-20,371.52,361.53,374.14,-16.1;2026-07-21,369.97,361.86,374.1,-16.1;2026-07-22,371.61,362.24,374.07,-16.3;2026-07-23,359.44,362.13,373.93,-16.5;2026-07-24,360.14,362.05,373.79,-16.4;2026-07-27,380.01,362.76,373.85,-15.8;2026-07-28,390.14,363.83,374.01,-15.4;2026-07-29,385.69,364.69,374.13,-15.5;2026-07-30,397.73,365.99,374.37,-14.9;2026-07-31,393.87,367.08,374.56,-14.8;2026-08-03,401.28,368.42,374.83,-15;2026-08-04,402.79,369.77,375.1,-14.9;2026-08-05,406.8,371.22,375.42,-14.9;2026-08-06,407.28,372.63,375.74,-15.3;2026-08-07,412.26,374.19,376.1,-15.1;2026-08-10,406.77,375.47,376.4,-15;2026-08-11,410.26,376.83,376.74,-15;2026-08-12,407.21,378.02,377.04,-15;2026-08-13,412.29,379.37,377.4,-14.8;2026-08-14,414.85,380.76,377.77,-14.9;2026-08-17,417.1,382.18,378.16,-15.1;2026-08-18,412.44,383.37,378.5,-15.4;2026-08-19,425.18,385.01,378.97,-15;2026-08-20,428.37,386.71,379.46,-14.4;2026-08-21,436.54,388.66,380.02,-14.1;2026-08-24,424.44,390.07,380.47,-14.3;2026-08-25,421.85,391.31,380.88,-14.3;2026-08-26,412.83,392.16,381.2,-14.8;2026-08-27,414.04,393.01,381.52,-14.7;2026-08-28,420.54,394.09,381.91,-14.9;2026-08-31,422.6,395.21,382.32,-14.9;2026-09-01,410.21,395.8,382.59,-15.3;2026-09-02,413.23,396.48,382.9,-15.4;2026-09-03,417.93,397.32,383.25,-15.3;2026-09-04,409.95,397.82,383.51,-15.2;2026-09-08,405.94,398.14,383.74,-15.4;2026-09-09,402.33,398.3,383.92,-15.5;2026-09-10,408.64,398.71,384.17,-15.5;2026-09-11,413.78,399.3,384.46,-15.4;2026-09-14,409.08,399.68,384.71,-15.2;2026-09-15,406.92,399.97,384.93,-15.1;2026-09-16,412.34,400.45,385.2,-15;2026-09-17,414,400.98,385.49,-15;2026-09-18,406.69,401.21,385.7,-15.3;2026-09-21,416.13,401.79,386,-15.3;2026-09-22,413.32,402.24,386.27,-15.5;2026-09-23,413.05,402.67,386.54,-15.7;2026-09-24,411.82,403.03,386.79,-15.9;2026-09-25,411.33,403.35,387.03,-15.4;2026-09-28,398,403.14,387.14,-15.8;2026-09-29,402.05,403.1,387.29,-15.5;2026-09-30,392.85,402.7,387.35,-16.1;2026-10-01,387.3,402.09,387.35,-16.3;2026-10-02,388.33,401.55,387.36,-16.2;2026-10-05,383.4,400.84,387.32,-16.1;2026-10-06,386.5,400.28,387.31,-16.4;2026-10-07,386.39,399.74,387.3,-16.3;2026-10-08,388.28,399.29,387.31,-16;2026-10-09,389.91,398.92,387.34,-15.9;2026-10-12,389.24,398.54,387.35,-16;2026-10-13,391.6,398.27,387.4,-15.9;2026-10-14,387.35,397.84,387.4,-16;2026-10-15,398.24,397.85,387.5,-15.5`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+
+const fmtN=(v,d=2)=>v.toLocaleString("de-CH",{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmtD=s=>{const [y,m,d]=s.split("-");return d+"."+m+"."+y.slice(2)};
+const NS="http://www.w3.org/2000/svg";
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+
+function scoreTable(id,rows){
+  let tot=0,max=0;
+  const html='<thead><tr><th>Kriterium</th><th>Stand</th><th class="num">Punkte</th><th style="width:22%"></th></tr></thead><tbody>'+rows.map(r=>{tot+=r[2];max+=r[3];const p=r[2]/r[3];const c=p>=.75?"var(--good)":p>=.45?"var(--warn)":"var(--bad)";
+    return `<tr><td>${r[0]}</td><td class="muted">${r[1]}</td><td class="num">${r[2]} / ${r[3]}</td><td><div class="bar"><i style="width:${p*100}%;background:${c}"></i></div></td></tr>`}).join("")+`<tr class="total"><td>Total</td><td></td><td class="num">${tot} / ${max}</td><td></td></tr></tbody>`;
+  document.getElementById(id).innerHTML=html;return tot;
+}
+const qs=scoreTable("q-tbl",Q), ts=scoreTable("t-tbl",T);
+document.getElementById("q-val").textContent=qs;document.getElementById("t-val").textContent=ts;
+document.getElementById("q-pin").style.left=qs+"%";document.getElementById("t-pin").style.left=ts+"%";
+
+document.getElementById("fin-rows").innerHTML=FIN.map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1].toLocaleString("de-CH")}</td><td class="num">${r[2]}</td><td class="num">${r[3]}</td><td class="num">${fmtN(r[4])}</td><td class="num">${r[5].toLocaleString("de-CH")}</td><td class="num">${r[6]}</td><td class="num">${r[7]}</td></tr>`).join("");
+
+/* generic line chart */
+function lineChart(host,{dates,series,bands=[],yFmt=v=>fmtN(v),h=300,zero=false,refs=[],pad}){
+  const W_=800,H=h,m={t:12,r:56,b:28,l:8};
+  const all=series.flatMap(s=>s.values).concat(bands.flatMap(b=>[b.from,b.to])).concat(refs.map(r=>r.v));
+  if(zero)all.push(0);
+  let lo=Math.min(...all),hi=Math.max(...all);const sp=(hi-lo)||1;lo-=sp*.06;hi+=sp*.06;
+  if(pad){lo=pad[0];hi=pad[1]}
+  const n=dates.length,x=i=>m.l+i*(W_-m.l-m.r)/(n-1),y=v=>m.t+(hi-v)*(H-m.t-m.b)/(hi-lo);
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  // grid
+  const steps=5;for(let k=0;k<=steps;k++){const v=lo+(hi-lo)*k/steps;el("line",{x1:m.l,x2:W_-m.r,y1:y(v),y2:y(v),stroke:"var(--grid)","stroke-width":1},svg);
+    const t=el("text",{x:W_-m.r+6,y:y(v)+4,"font-size":11,fill:"var(--muted)","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=yFmt(v)}
+  bands.forEach(b=>{el("rect",{x:m.l,width:W_-m.l-m.r,y:y(Math.max(b.from,b.to)),height:Math.abs(y(b.from)-y(b.to)),fill:b.type==="res"?"var(--zone-res)":"var(--zone-sup)"},svg)});
+  refs.forEach(r=>{el("line",{x1:m.l,x2:W_-m.r,y1:y(r.v),y2:y(r.v),stroke:"var(--muted)","stroke-dasharray":"4 4","stroke-width":1},svg);
+    const t=el("text",{x:m.l+4,y:y(r.v)-4,"font-size":11,fill:"var(--muted)"},svg);t.textContent=r.label});
+  if(zero)el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  // x labels
+  const every=Math.ceil(n/6);for(let i=0;i<n;i+=every){const t=el("text",{x:x(i),y:H-8,"font-size":11,fill:"var(--muted)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);const d=dates[i];t.textContent=d.slice(5,7)+"/"+d.slice(2,4)}
+  series.forEach(s=>{const dpath=s.values.map((v,i)=>(i?"L":"M")+x(i).toFixed(1)+","+y(v).toFixed(1)).join("");
+    el("path",{d:dpath,fill:"none",stroke:s.color,"stroke-width":s.w||2,"stroke-linejoin":"round","stroke-linecap":"round"},svg);
+    const lv=s.values[n-1];el("circle",{cx:x(n-1),cy:y(lv),r:3.5,fill:s.color,stroke:"var(--surface)","stroke-width":2},svg)});
+  // hover
+  const cross=el("line",{y1:m.t,y2:H-m.b,stroke:"var(--muted)","stroke-width":1,opacity:0},svg);
+  const ov=el("rect",{x:m.l,y:m.t,width:W_-m.l-m.r,height:H-m.t-m.b,fill:"transparent"},svg);
+  host.appendChild(svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;host.appendChild(tip);
+  function move(ev){const r=svg.getBoundingClientRect();const px=(ev.clientX-r.left)*W_/r.width;let i=Math.round((px-m.l)/((W_-m.l-m.r)/(n-1)));i=Math.max(0,Math.min(n-1,i));
+    cross.setAttribute("x1",x(i));cross.setAttribute("x2",x(i));cross.setAttribute("opacity",1);
+    tip.innerHTML=`<div class="d">${fmtD(dates[i])}</div>`+series.map(s=>`<div><i class="sw" style="background:${s.color}"></i> ${s.name}: <b>${yFmt(s.values[i])}</b></div>`).join("");
+    tip.hidden=false;const hx=x(i)*r.width/W_;tip.style.left=Math.min(Math.max(0,hx+12),r.width-tip.offsetWidth)+"px";tip.style.top="8px"}
+  ov.addEventListener("pointermove",move);ov.addEventListener("pointerleave",()=>{tip.hidden=true;cross.setAttribute("opacity",0)});
+}
+function barChart(host,{labels,values,fmt,h=220,color,neg,tipExtra}){
+  const W_=800,H=h,m={t:18,r:8,b:28,l:8};
+  const hi=Math.max(0,...values),lo=Math.min(0,...values);const lo2=lo<0?lo*1.15:lo,hi2=hi*1.15||1;
+  const y=v=>m.t+(hi2-v)*(H-m.t-m.b)/(hi2-lo2);const n=values.length,bw=(W_-m.l-m.r)/n;
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;
+  values.forEach((v,i)=>{const x0=m.l+i*bw+bw*.18,w=bw*.64,y0=y(Math.max(v,0)),hh=Math.max(1,Math.abs(y(v)-y(0)));
+    const r=el("rect",{x:x0,y:y0,width:w,height:hh,rx:4,fill:v<0?(neg||"var(--s2)"):(color||"var(--s1)")},svg);
+    const t=el("text",{x:x0+w/2,y:v<0?y(v)+13:y0-5,"font-size":11.5,fill:"var(--ink)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=fmt(v);
+    const l=el("text",{x:x0+w/2,y:H-8,"font-size":11.5,fill:"var(--muted)","text-anchor":"middle"},svg);l.textContent=labels[i];
+    const hit=el("rect",{x:m.l+i*bw,y:m.t,width:bw,height:H-m.t-m.b,fill:"transparent"},svg);
+    hit.addEventListener("pointerenter",()=>{tip.innerHTML=`<div class="d">${labels[i]}</div><b>${fmt(v)}</b>${tipExtra?tipExtra(i):""}`;tip.hidden=false;const R=svg.getBoundingClientRect();tip.style.left=Math.min((m.l+i*bw)*R.width/W_,R.width-tip.offsetWidth)+"px";tip.style.top="0px"});
+    hit.addEventListener("pointerleave",()=>tip.hidden=true)});
+  host.appendChild(svg);host.appendChild(tip);
+}
+barChart(document.getElementById("c-rev"),{labels:HALF.map(r=>r[0]),values:HALF.map(r=>r[1]),fmt:v=>fmtN(v,0),h:200});
+barChart(document.getElementById("c-margin"),{labels:MARGIN.map(r=>r[0]),values:MARGIN.map(r=>r[1]),fmt:v=>fmtN(v,1)+" %",h:200});
+barChart(document.getElementById("c-seas"),{labels:MON,values:SEAS,fmt:v=>(v>0?"+":"")+fmtN(v,1),h:220,tipExtra:i=>`<div>${SEASHIT[i]} % der Jahre positiv</div>`});
+const BANDS=[{"from": 430, "to": 437, "type": "res"}, {"from": 412, "to": 420, "type": "res"}, {"from": 381, "to": 391, "type": "sup"}, {"from": 356, "to": 372, "type": "sup"}], REFS=[{"v": 403, "label": "Trigger 403"}];
+const wd=W.map(r=>r[0]);
+lineChart(document.getElementById("c-week"),{dates:wd,series:[{name:"Kurs",values:W.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:W.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:W.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,yFmt:v=>fmtN(v,0),h:320});
+lineChart(document.getElementById("c-adw"),{dates:wd,series:[{name:"A/D Woche",values:W.map(r=>r[5]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,zero:true});
+lineChart(document.getElementById("c-rsiw"),{dates:wd,series:[{name:"RSI Woche",values:W.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,refs:[{v:70,label:"70 überkauft"},{v:30,label:"30 überverkauft"}],pad:[10,90]});
+const dd=DD.map(r=>r[0]);
+lineChart(document.getElementById("c-day"),{dates:dd,series:[{name:"Kurs",values:DD.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:DD.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:DD.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,refs:REFS,yFmt:v=>fmtN(v,0),h:260});
+lineChart(document.getElementById("c-add"),{dates:dd,series:[{name:"A/D Tag",values:DD.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:260,zero:true});
+</script>

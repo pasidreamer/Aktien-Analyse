@@ -1,0 +1,391 @@
+{
+ "ticker": "SYK",
+ "name": "Stryker",
+ "datum": "05.10.2026",
+ "meta": "Stryker Corporation · NYSE: SYK · Medizintechnik (Gelenkersatz, OP-Technik, Gefässmedizin) · USA",
+ "price": "285.22 $",
+ "pricemeta": "Schluss 05.10.2026 · 52 Wochen: 267.00 – 392.50 $ · Allzeithoch 406.20 $",
+ "verdict": "Eine sehr solide Firma, die gerade wegen Lieferproblemen in einem Geschäftsbereich abgestraft wird. Qualität grün, Timing orange. Der Kurs versucht über 267–269 $ einen Doppelboden. Erst ein Tagesschluss über 290.50 $ wäre das erste Zeichen für eine Wende.",
+ "about": "Stryker baut Medizintechnik für Spitäler: künstliche Hüft- und Kniegelenke (inklusive OP-Roboter Mako), Instrumente und Ausstattung für Operationssäle, Wirbelsäulen- und Neurotechnik sowie Kathetersysteme für Blutgefässe. Weil Operationen auch in schwachen Wirtschaftsphasen stattfinden, wächst das Geschäft sehr stetig.",
+ "why": "Am 8. September erklärte Stryker an einer Konferenz, dass das Geschäft mit Gefässmedizin (Peripheral Vascular) nach einem früheren Cyberangriff noch immer Lieferprobleme hat. Das bremst das Wachstum im 2. bis 4. Quartal um je 0.7–0.8 Prozentpunkte. Dazu laufen Hüftoperationen in Europa schwächer (Sparprogramme, Streiks). Die Aktie fiel an diesem Tag um fast 9 %. Seit dem Juli-Hoch (352 $) beträgt das Minus rund 20 %. Wichtig: Das Jahresziel für organisches Wachstum (8.3–9.3 %) hat Stryker bestätigt. Die Börse bestraft also vor allem eine kurzfristige Delle, nicht ein kaputtes Geschäft.",
+ "kpis": [
+  [
+   "g",
+   "Umsatzwachstum",
+   "+8.5 %",
+   "Letzte 12 Monate. Ziel 2026: 8.3–9.3 % organisch. Für einen Medizintechnik-Konzern sehr gut."
+  ],
+  [
+   "g",
+   "Operative Marge",
+   "23.8 %",
+   "Von 100 $ Umsatz bleiben knapp 24 $ Betriebsgewinn. Steigt seit 2022 (19.3 %) jedes Jahr."
+  ],
+  [
+   "g",
+   "Gewinn pro Aktie (EPS)",
+   "+27.8 %",
+   "Letzte 12 Monate, ausgewiesen. Schwankt wegen Sondereffekten, im Schnitt rund +12–16 % pro Jahr."
+  ],
+  [
+   "w",
+   "ROIC",
+   "12.5 %",
+   "Gewinn pro investiertem Dollar. Solide, aber nicht spitze: Übernahmen haben viel Kapital gebunden."
+  ],
+  [
+   "g",
+   "Free Cashflow",
+   "4.70 Mrd. $",
+   "Echtes Geld nach allen Investitionen. Seit 2022 (2.0 Mrd.) jedes Jahr gestiegen."
+  ],
+  [
+   "g",
+   "Nettoschulden / EBITDA",
+   "1.6",
+   "In gut 1.5 Jahren wären die Nettoschulden aus dem Betriebsgewinn getilgt. Gut tragbar."
+  ],
+  [
+   "g",
+   "KGV erwartet",
+   "17.9",
+   "Du zahlst rund 18 erwartete Jahresgewinne. Eigener Schnitt 2021–2025: rund 26. Also gut 30 % günstiger als üblich."
+  ],
+  [
+   "g",
+   "Dividende",
+   "1.2 %",
+   "Klein, aber sicher: nur 36 % des Gewinns werden ausgeschüttet."
+  ]
+ ],
+ "revnote": "Jedes Quartal lag über dem gleichen Quartal des Vorjahres. Das 1. Quartal 2026 war mit +2.6 % schwach.",
+ "marginnote": "Steigt seit 2022 ohne Unterbruch. Stryker verdient an jedem Umsatz-Dollar mehr.",
+ "finnote": "<b>Hinweis zum KGV in der Tabelle:</b> Das ausgewiesene KGV war früher oft über 40, weil Abschreibungen auf Übernahmen den Gewinn drücken. Für den Vergleich nehme ich darum das erwartete KGV (bereinigter Gewinn): heute 17.9, im Schnitt der letzten fünf Jahre rund 26.",
+ "FIN": [
+  [
+   "2022",
+   18449,
+   "+7.8 %",
+   "19.3 %",
+   6.17,
+   2036,
+   "11.8 %",
+   "39.2"
+  ],
+  [
+   "2023",
+   20498,
+   "+11.1 %",
+   "20.1 %",
+   8.25,
+   3136,
+   "12.4 %",
+   "36.0"
+  ],
+  [
+   "2024",
+   22595,
+   "+10.2 %",
+   "21.9 %",
+   7.76,
+   3487,
+   "14.3 %",
+   "45.9"
+  ],
+  [
+   "2025",
+   25116,
+   "+11.2 %",
+   "22.9 %",
+   8.4,
+   4283,
+   "12.8 %",
+   "41.4"
+  ],
+  [
+   "Letzte 12 Mt.",
+   25837,
+   "+8.5 %",
+   "23.8 %",
+   9.65,
+   4702,
+   "12.5 %",
+   "28.5"
+  ]
+ ],
+ "QREV": [
+  [
+   "Q3 24",
+   5.49
+  ],
+  [
+   "Q4 24",
+   6.44
+  ],
+  [
+   "Q1 25",
+   5.87
+  ],
+  [
+   "Q2 25",
+   6.02
+  ],
+  [
+   "Q3 25",
+   6.06
+  ],
+  [
+   "Q4 25",
+   7.17
+  ],
+  [
+   "Q1 26",
+   6.02
+  ],
+  [
+   "Q2 26",
+   6.59
+  ]
+ ],
+ "MARGIN": [
+  [
+   "2022",
+   19.3
+  ],
+  [
+   "2023",
+   20.1
+  ],
+  [
+   "2024",
+   21.9
+  ],
+  [
+   "2025",
+   22.9
+  ],
+  [
+   "12 Mt.",
+   23.8
+  ]
+ ],
+ "Q": [
+  [
+   "Umsatztrend",
+   "4 von 4 Quartalen über Vorjahr, aber Q1 2026 nur +2.6 %",
+   12,
+   15
+  ],
+  [
+   "Wachstumstempo",
+   "Organisch 8.3–9.3 % (Firmenziel 2026)",
+   6,
+   10
+  ],
+  [
+   "Operative Marge",
+   "23.8 % (6 Pkt.), seit 2022 steigend (6 Pkt.)",
+   12,
+   15
+  ],
+  [
+   "Gewinnwachstum (EPS)",
+   "Im Schnitt rund +12–16 % pro Jahr",
+   8,
+   10
+  ],
+  [
+   "Free Cashflow",
+   "Seit 2022 jedes Jahr gestiegen",
+   10,
+   10
+  ],
+  [
+   "ROIC",
+   "12.5 %, seit Jahren stabil",
+   6,
+   15
+  ],
+  [
+   "Schulden",
+   "Nettoschulden/EBITDA 1.6",
+   7,
+   10
+  ],
+  [
+   "Bewertung vs. eigene Historie",
+   "Erw. KGV 17.9 statt Ø rund 26 (−31 %)",
+   14,
+   15
+  ]
+ ],
+ "adwnote": "Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Heute steht der Kurs etwa gleich tief wie im Mai, die A/D-Linie liegt aber höher (90 statt 80): Auf Wochenbasis wurde seit Mai mehr gekauft als verkauft.",
+ "rsiwnote": "Unter 30 überverkauft, über 70 überkauft. Im Mai fiel er auf 29, jetzt 39: schwach, aber nicht mehr im Panikbereich.",
+ "addnote": "Seit dem Kurssturz im September fällt die Tages-A/D weiter, auch als der Kurs schon seitwärts lief. Kurzfristig drücken also noch Verkäufer.",
+ "ind": [
+  [
+   "Kurs vs. EMA 50",
+   "285.2 &lt; 298.8",
+   "285.2 &lt; 327.6",
+   "Unter der mittelfristigen Linie: Verkäufer haben die Oberhand."
+  ],
+  [
+   "Kurs vs. EMA 200",
+   "285.2 &lt; 325.8",
+   "285.2 &lt; 328.1",
+   "Unter der langfristigen Linie: Abwärtstrend."
+  ],
+  [
+   "EMA 50 vs. EMA 200",
+   "50 unter 200 (seit 31.10.2025)",
+   "50 unter 200 (Death Cross diese Woche)",
+   "Beide Zeitebenen zeigen nach unten. Das Wochen-Kreuz ist frisch."
+  ],
+  [
+   "RSI (14)",
+   "47.9",
+   "38.7",
+   "Tag erholt sich aus dem überverkauften Bereich (28 am 11.9.), Woche noch schwach."
+  ],
+  [
+   "A/D",
+   "fällt seit September",
+   "höher als im Mai",
+   "Gemischt: kurzfristig Verkaufsdruck, auf Wochenbasis eher Aufnahme."
+  ],
+  [
+   "Volumen",
+   "Ø 20 Tage 3.2 Mio. vs. Ø 100 Tage 2.7 Mio.",
+   "Erhöhtes Volumen seit dem Kurssturz: Hier wechseln viele Aktien den Besitzer."
+  ]
+ ],
+ "smc": "Seit dem Juli-Hoch (352.50 $) macht Stryker tiefere Hochs und tiefere Tiefs. Am 8. September riss der Kurs mit einer grossen Kurslücke von rund 303 auf 276 $. Danach entstand ein Doppelboden: Tief 267.00 $ am 11.9. und 268.70 $ am 25.9. Das letzte tiefere Hoch liegt bei 290.50 $ (16.9.). Ein Tagesschluss darüber wäre der erste Change of Character, also das erste Zeichen, dass die Käufer zurückkommen.",
+ "zones": [
+  [
+   "r",
+   "299–303 $",
+   "Widerstand: EMA 50 (Tag) und Unterkante der offenen Kurslücke vom 8.9."
+  ],
+  [
+   "t",
+   "290.50 $",
+   "<b>Trigger: Change of Character.</b> Tagesschluss über dem Hoch vom 16.9. Idealerweise mit steigender Tages-A/D."
+  ],
+  [
+   "s",
+   "267–276 $",
+   "Doppelboden vom September. Hier haben die Käufer zweimal gehalten. Mögliche Kaufzone, sobald der Trigger gekommen ist."
+  ],
+  [
+   "r",
+   "265 $",
+   "Abbruch: Ein Wochenschluss darunter macht den Doppelboden ungültig."
+  ]
+ ],
+ "smart": [
+  "<b>Stryker selbst:</b> Kauft praktisch keine Aktien zurück. Das Geld geht in Übernahmen und die Dividende (1.2 %).",
+  "<b>Insider-Käufe:</b> Keine in den letzten 12 Monaten.",
+  "<b>Insider-Verkäufe:</b> Ronda Stryker (Enkelin des Gründers, Verwaltungsrätin) verkaufte über Monate Aktien für rund 720 Mio. $, CEO Kevin Lobo für 21 Mio. $. Das ist vor allem Vermögensstreuung, aber kein Vertrauenssignal.",
+  "<b>Analysten:</b> Durchschnittliches Kursziel 368 $, Einstufung „Buy“. Mehrere Banken senkten im September ihre Ziele, behielten aber die Kaufempfehlung."
+ ],
+ "seasnote": "Durchschnittliche Monatsrendite in %, rund 41 Jahre. Dezember ist mit +5 % und 76 % positiven Jahren der stärkste Monat, September und August die schwächsten.",
+ "T": [
+  [
+   "Trend Woche (EMA 50/200)",
+   "Kurs unter beiden, frisches Death Cross",
+   2,
+   20
+  ],
+  [
+   "Trend Tag (EMA 50/200)",
+   "Kurs unter beiden",
+   1,
+   10
+  ],
+  [
+   "Struktur (SMC)",
+   "Tiefere Hochs und Tiefs, Doppelboden in Bildung",
+   4,
+   20
+  ],
+  [
+   "RSI Tag/Woche",
+   "Tag dreht aus 28–32 nach oben, leichte bullische Divergenz",
+   10,
+   15
+  ],
+  [
+   "A/D Tag/Woche",
+   "Woche höher als im Mai, Tag fällt noch",
+   10,
+   20
+  ],
+  [
+   "Smart Money",
+   "Keine Käufe, grosse Verkäufe der Stryker-Familie, kein Rückkauf",
+   1,
+   10
+  ],
+  [
+   "Saisonalität",
+   "Okt–Dez: Ø 65 % positive Jahre",
+   5,
+   5
+  ]
+ ],
+ "pro": [
+  "Stetiges Wachstum um 8–11 % pro Jahr, Marge steigt seit Jahren.",
+  "Free Cashflow wächst jedes Jahr.",
+  "Erwartetes KGV rund 18 statt üblich rund 26: so günstig war Stryker lange nicht.",
+  "Das Problem (Lieferkette) ist lösbar und betrifft nur einen Teil des Geschäfts. Das Jahresziel steht.",
+  "Saisonal starke Monate November und Dezember."
+ ],
+ "con": [
+  "Klarer Abwärtstrend auf Tag und Woche, Death Cross auf der Woche.",
+  "Tages-A/D zeigt noch keinen Käuferwechsel.",
+  "Grosse Insider-Verkäufe, keine Käufe.",
+  "ROIC nur rund 12 %: Übernahmen machen das Geschäft kapitalintensiv.",
+  "Wenn die Lieferprobleme länger dauern, droht beim nächsten Bericht eine Senkung des Ausblicks."
+ ],
+ "todo": [
+  [
+   "t",
+   "Beobachten",
+   "Alarm bei 290.50 $ (Trigger) und bei 267 $ (Doppelboden)."
+  ],
+  [
+   "s",
+   "Timing grün",
+   "Tagesschluss über 290.50 $ mit steigender Tages-A/D. Danach Rücksetzer Richtung 276–285 $ als Einstiegszone. Erst über 303 $ ist die Kurslücke geschlossen."
+  ],
+  [
+   "r",
+   "Abbruch",
+   "Wochenschluss unter 265 $: Doppelboden gescheitert, neu bewerten."
+  ],
+  [
+   "",
+   "Nächste Zahlen",
+   "29. Oktober 2026 (3. Quartal). Entscheidend: Ist das Jahresziel noch zu halten, und wann sind die Lieferprobleme gelöst?"
+  ]
+ ],
+ "bands": [
+  {
+   "from": 299,
+   "to": 303,
+   "type": "res"
+  },
+  {
+   "from": 267,
+   "to": 276,
+   "type": "sup"
+  }
+ ],
+ "refs": [
+  {
+   "v": 290.5,
+   "label": "Trigger 290.50"
+  }
+ ],
+ "sources": "<a href=\"https://stockanalysis.com/stocks/syk/financials/\" target=\"_blank\" rel=\"noopener\">StockAnalysis.com</a> (Stand 05.10.2026), <a href=\"https://www.tikr.com/blog/stryker-stock-drops-peripheral-vascular-supply-constraints\" target=\"_blank\" rel=\"noopener\">Kurssturz 8.9. (TIKR)</a>, <a href=\"https://finance.yahoo.com/healthcare/articles/stryker-stock-falls-slower-peripheral-120616467.html\" target=\"_blank\" rel=\"noopener\">Yahoo Finance</a>, <a href=\"https://www.marketbeat.com/stocks/NYSE/SYK/insider-trades/\" target=\"_blank\" rel=\"noopener\">Insider (MarketBeat)</a>."
+}

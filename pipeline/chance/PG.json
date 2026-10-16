@@ -1,0 +1,28 @@
+{
+ "ticker": "PG",
+ "sorgen": [
+  "Das Wachstum ist eingeschlafen: Im letzten Quartal (April–Juni 2026) wuchs der Umsatz aus eigener Kraft um 0 %, im ganzen Geschäftsjahr 2026 nur um 1 %, und das allein über höhere Preise. Früher waren es 4–7 %.",
+  "Für das Geschäftsjahr 2027 (Juli 2026 bis Juni 2027) erwartet P&G beim Gewinn pro Aktie nur 0 bis +3 % (6.89–7.11 $). Höhere Kosten für Rohstoffe, Energie und Transport belasten laut Firma mit rund 1 Mrd. $ nach Steuern.",
+  "Zusammen mit höheren Zinsen und Währungen bremsen diese Gegenwinde den Gewinn um 0.56 $ pro Aktie, also rund 8 Prozentpunkte Wachstum.",
+  "Ein neuer Chef (Shailesh Jejurikar) baut um, das Spar- und Umbauprogramm kostet 1 bis 1.6 Mrd. $ und läuft noch bis 2027."
+ ],
+ "sorgen_art": "gemischt",
+ "sorgen_art_text": "Marken, Marge (25 %) und Cashflow sind intakt, aber die Menge wächst nicht mehr und die Kosten steigen; das ist ein echtes, aber eher vorübergehendes Problem und keine strukturelle Schwäche der Marken.",
+ "aufloeser": [
+  {"was": "Der Umsatz aus eigener Kraft wächst wieder über 0 %, idealerweise mit steigender Menge statt nur höheren Preisen", "wann": "Zahlen 1. Quartal GJ 2027 am 22.10.2026"},
+  {"was": "Die Rohstoff- und Energiepreise fallen, sodass der Kostendruck kleiner ausfällt als die befürchteten 1 Mrd. $", "wann": "Zahlen 2. Quartal, voraussichtlich Ende Januar 2027"},
+  {"was": "Das Umbauprogramm ist abgeschlossen, die Einsparungen fliessen ins Ergebnis und P&G nennt für das Geschäftsjahr 2028 wieder höhere Ziele", "wann": "Zahlen 4. Quartal, Ende Juli 2027"}
+ ],
+ "schub_stufe": "schwach",
+ "schub_treiber": [
+  {"titel": "Erholung in China und bei Beauty", "text": "Die Sparte Beauty wuchs im letzten Quartal als einzige klar (+4 %, davon +3 % mehr Menge). In China gewinnt P&G laut Firma wieder Marktanteile, vor allem bei Windeln, Waschmitteln und Damenhygiene. Beides ist positiv, aber zu klein, um den ganzen Konzern mit 87 Mrd. $ Umsatz deutlich zu beschleunigen.", "wann": "2026–2027"},
+  {"titel": "Sparprogramm als Margen-Hebel", "text": "Das 2025 gestartete Programm streicht Kosten bei Marketing, Verwaltung und Produktion. Die Einsparungen sollen aber zuerst die höheren Rohstoffkosten ausgleichen und in Werbung fliessen. Ein echter Gewinnsprung ist deshalb laut heutigem Ausblick nicht zu erwarten.", "wann": "2027–2028"}
+ ],
+ "schub_beweis": "Achte bei den Zahlen am 22.10.2026 auf das organische Wachstum (zuletzt 0 %) und den Anteil der Menge daran (zuletzt 0 %). Steigt die Menge wieder auf +2 % oder mehr, kehrt P&G zu seinem alten Tempo zurück.",
+ "szenario": "Kein Fall wie Google 2023: Bei P&G gibt es keinen versteckten neuen Wachstumsmotor. Die Chance ist ruhiger: Kehrt das Wachstum auf 3–4 % zurück und lässt der Kostendruck nach, kann die Bewertung vom heutigen KGV 21 wieder auf den eigenen Schnitt von gut 23 steigen, dazu kommen 2.9 % Dividende. Grösstes Risiko: Die Kunden greifen dauerhaft zu Eigenmarken und P&G bleibt bei 0–2 % Wachstum hängen.",
+ "quellen": [
+  {"titel": "P&G: Medienmitteilung 4. Quartal und Geschäftsjahr 2026 (SEC 8-K, 29.07.2026)", "url": "https://www.sec.gov/Archives/edgar/data/0000080424/000008042426000093/fy2526q4amj8-kexhibit991.htm"},
+  {"titel": "Nasdaq: PG Q4 Earnings Call Highlights Consumer Growth Reset", "url": "https://www.nasdaq.com/articles/pg-q4-earnings-call-highlights-consumer-growth-reset"},
+  {"titel": "P&G: Webcast zu den Zahlen 1. Quartal GJ 2026/27 am 22. Oktober", "url": "https://us.pg.com/newsroom/news-releases/PG-to-Webcast-Discussion-of-First-Quarter-2627-Earnings-Results-on-October-22/"}
+ ]
+}

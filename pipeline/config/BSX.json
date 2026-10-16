@@ -1,0 +1,409 @@
+{
+ "ticker": "BSX",
+ "name": "Boston Scientific",
+ "datum": "11.10.2026",
+ "meta": "Boston Scientific Corporation · NYSE: BSX · Medizintechnik (Herzrhythmus, Watchman, Gefässe, Urologie) · USA",
+ "price": "42.73 $",
+ "pricemeta": "Schluss 09.10.2026 · 52 Wochen: 41.39 – 105.65 $ · Hoch 109.50 $ (September 2025)",
+ "verdict": "Boston Scientific war 2025 einer der Wachstums-Stars der Medizintechnik und ist 2026 um 60 % gefallen: Die zwei Wachstumstreiber (Watchman und Herz-Ablation) schwächeln, die Prognose wurde dreimal gesenkt, dazu kam ein Hackerangriff. Qualität hellgrün (63), Timing orange (32). Die Qualität profitiert stark von der tiefen Bewertung (bereinigtes KGV 13 statt Ø 30). Der Kurs baut seit Juni einen Boden bei 41–43 $, RSI zeigt eine bullische Divergenz, die A/D aber noch nicht. Erst die Zahlen und den neuen Ausblick am 28. Oktober abwarten.",
+ "about": "Boston Scientific stellt Medizintechnik für minimalinvasive Eingriffe her, also Behandlungen über kleine Schnitte oder Katheter. Die wichtigsten Produkte: Watchman (ein kleiner Schirm, der im Herzen ein Gerinnsel-Risiko bei Vorhofflimmern verschliesst), Farapulse (Katheter, der Herzrhythmus-Störungen mit Stromimpulsen behandelt, «Pulsed Field Ablation»), Stents und Ballone für Gefässe, Schrittmacher, Urologie und Endoskopie. Im Januar 2026 kündigte die Firma den Kauf von Penumbra (Gerinnsel-Entfernung) für 14.5 Mrd. $ an.",
+ "why": "2025 wuchs Boston Scientific organisch um fast 16 %, die Aktie stand Ende Jahr bei 95 $. Am 4. Februar 2026 kam der erste Schock: schwächere Verkäufe bei der Herz-Ablation in den USA und ein vorsichtiger Ausblick, die Aktie fiel an einem Tag um 17.6 %. Danach wurde es Schritt für Schritt schlechter: Ende April und Ende Juli senkte die Firma die Jahresprognose (organisch von 10–11 % auf 5–6 %). Watchman wächst kaum noch (2025 rund +30 %, im 2. Quartal 2026 nur +4 %), bei der Ablation verliert Boston Scientific in den USA Marktanteile an Medtronic, Johnson & Johnson und Abbott. Ende Mai sagte der CEO, Watchman bleibe flach, die Aktie fiel in einer Woche um 15 %. Am 25. August meldete die Firma einen Hackerangriff, der Produktion und Versand weltweit gestört hat. Am 8. September folgte die Warnung, dass die Prognose nicht mehr erreicht wird. Für 2027 erwartet das Management kaum Gewinnwachstum, eine deutliche Besserung erst 2028. Echte Probleme im Geschäft und schlechte Stimmung kommen hier zusammen: Die Börse bewertet die Aktie heute nur noch mit rund 13 bereinigten Jahresgewinnen statt rund 30.",
+ "kpis": [
+  [
+   "w",
+   "Umsatzwachstum",
+   "+7.0 %",
+   "Organisch im 2. Quartal 2026. Das Tempo bricht ein: 15.3 % → 12.7 % → 9.4 % → 7.0 %. Für das 3. Quartal waren vor dem Hackerangriff nur 3 bis 5 % geplant."
+  ],
+  [
+   "w",
+   "Operative Marge",
+   "20.5 %",
+   "Ausgewiesen, letzte 12 Monate: von 100 $ Umsatz bleiben gut 20 $ Betriebsgewinn. Seit 2021 (15.3 %) jedes Jahr gestiegen. Bereinigt (ohne Abschreibungen auf Zukäufe) rund 28 %."
+  ],
+  [
+   "w",
+   "Gewinn pro Aktie (bereinigt)",
+   "3.21 $",
+   "Letzte 12 Monate. 2022: 1.71 $, 2025: 3.06 $. Jetzt nur noch rund +5 %, für 2027 erwartet das Management kaum Wachstum."
+  ],
+  [
+   "w",
+   "ROIC",
+   "11.2 %",
+   "Auf 100 $ investiertes Kapital gut 11 $ Gewinn. Mittel, aber seit 2022 (5 %) klar steigend."
+  ],
+  [
+   "g",
+   "Free Cashflow",
+   "3.6 Mrd. $",
+   "Letzte 12 Monate. Seit 2022 (0.9 Mrd. $) stark gestiegen."
+  ],
+  [
+   "w",
+   "Nettoschulden / EBITDA",
+   "2.1",
+   "Rund 12 Mrd. $ Nettoschulden. Tragbar, wird mit dem Kauf von Penumbra aber höher."
+  ],
+  [
+   "g",
+   "KGV (bereinigt)",
+   "13.3",
+   "Du zahlst gut 13 bereinigte Jahresgewinne. Eigener 5-Jahres-Schnitt rund 30. Also mehr als 50 % günstiger als üblich. Ausgewiesen 17.3."
+  ],
+  [
+   "b",
+   "Prognose 2026",
+   "3× gesenkt",
+   "Organisch von 10–11 % auf 5–6 %, danach wegen des Hackerangriffs ganz zurückgezogen. Neuer Ausblick am 28. Oktober."
+  ]
+ ],
+ "revtitle": "Umsatz pro Quartal (Mrd. $)",
+ "revnote": "Alle 4 letzten Quartale über Vorjahr, aber das Wachstum halbiert sich fast jedes Halbjahr (+20 % → +7.5 %).",
+ "margintitle": "Operative Marge pro Jahr (ausgewiesen)",
+ "marginnote": "Ausgewiesene Marge, seit 2021 jedes Jahr gestiegen. Die Restrukturierung (700–800 Mio. $ Kosten) soll ab 2027 rund 500 Mio. $ pro Jahr sparen.",
+ "finnote": "<b>Hinweis:</b> EPS und KGV bereinigt (ohne Abschreibungen auf Zukäufe und Einmaleffekte), so wie die Firma und die Analysten rechnen. Ausgewiesenes EPS: 2022 0.45 $, 2023 1.07 $, 2024 1.25 $, 2025 1.94 $. Die KGV-Werte 2022–2024 sind mit gerundeten Jahresschlusskursen gerechnet.",
+ "pecol": "KGV bereinigt",
+ "FIN": [
+  [
+   "2022",
+   12682,
+   "+6.7 %",
+   "16.0 %",
+   1.71,
+   938,
+   "5.0 %",
+   "27.1"
+  ],
+  [
+   "2023",
+   14240,
+   "+12.3 %",
+   "17.0 %",
+   2.05,
+   1792,
+   "7.2 %",
+   "28.2"
+  ],
+  [
+   "2024",
+   16747,
+   "+17.6 %",
+   "17.9 %",
+   2.51,
+   2645,
+   "8.0 %",
+   "35.6"
+  ],
+  [
+   "2025",
+   20074,
+   "+19.9 %",
+   "19.8 %",
+   3.06,
+   3658,
+   "10.1 %",
+   "31.2"
+  ],
+  [
+   "Letzte 12 Mt.",
+   20996,
+   "+13.5 %",
+   "20.5 %",
+   3.21,
+   3625,
+   "11.2 %",
+   "13.3"
+  ]
+ ],
+ "QREV": [
+  [
+   "Q3 24",
+   4.21
+  ],
+  [
+   "Q4 24",
+   4.56
+  ],
+  [
+   "Q1 25",
+   4.66
+  ],
+  [
+   "Q2 25",
+   5.06
+  ],
+  [
+   "Q3 25",
+   5.07
+  ],
+  [
+   "Q4 25",
+   5.29
+  ],
+  [
+   "Q1 26",
+   5.2
+  ],
+  [
+   "Q2 26",
+   5.44
+  ]
+ ],
+ "revdec": 2,
+ "MARGIN": [
+  [
+   "2021",
+   15.3
+  ],
+  [
+   "2022",
+   16.0
+  ],
+  [
+   "2023",
+   17.0
+  ],
+  [
+   "2024",
+   17.9
+  ],
+  [
+   "2025",
+   19.8
+  ],
+  [
+   "12 Mt.",
+   20.5
+  ]
+ ],
+ "Q": [
+  [
+   "Umsatztrend",
+   "4 von 4 Quartalen über Vorjahr, aber stark bremsend",
+   10,
+   15
+  ],
+  [
+   "Wachstumstempo",
+   "Organisch 7 % im 2. Quartal, Jahresprognose zuletzt 5–6 % und nicht mehr erreichbar",
+   3,
+   10
+  ],
+  [
+   "Operative Marge",
+   "20.5 % ausgewiesen (6 Pkt.), seit 2021 steigend (6 Pkt.)",
+   12,
+   15
+  ],
+  [
+   "Gewinnwachstum (EPS)",
+   "Bereinigt zuletzt rund +5 %, 2027 kaum Wachstum",
+   5,
+   10
+  ],
+  [
+   "Free Cashflow",
+   "Positiv, seit 2022 stark steigend",
+   7,
+   10
+  ],
+  [
+   "ROIC",
+   "11.2 %, klar steigend",
+   7,
+   15
+  ],
+  [
+   "Schulden",
+   "Nettoschulden/EBITDA 2.1",
+   5,
+   10
+  ],
+  [
+   "Bewertung vs. eigene Historie",
+   "Bereinigtes KGV 13.3 statt Ø rund 30 (über 50 % günstiger)",
+   14,
+   15
+  ]
+ ],
+ "adwnote": "Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Die Wochen-A/D fällt seit Anfang 2026 stark (1'893 → 1'064). Wichtig: Beim Juli-Tief (44 $) stand sie bei 1'167, heute bei ähnlichem Kurs nur bei 1'064. Auf Wochenbasis wird noch verkauft.",
+ "rsiwnote": "Unter 30 überverkauft, über 70 überkauft. Im Juni und Juli bei 23–24 (stark überverkauft), heute 32 bei tieferem Kurs: bullische Divergenz.",
+ "addnote": "Die Tages-A/D lag bei den Tiefs im Juni und Juli (42.2 $) bei −358, heute bei ähnlichem Kurs bei −365: kein Kaufdruck. Seit dem Tief vom 10.9. (−381) zieht sie leicht an. Noch kein klares Bodenzeichen.",
+ "ind": [
+  [
+   "Kurs vs. EMA 50",
+   "42.7 &lt; 45.4",
+   "42.7 &lt; 61.8",
+   "Unter der mittelfristigen Linie."
+  ],
+  [
+   "Kurs vs. EMA 200",
+   "42.7 &lt; 59.0",
+   "42.7 &lt; 69.4",
+   "Weit unter der langfristigen Linie."
+  ],
+  [
+   "EMA 50 vs. EMA 200",
+   "50 unter 200 (seit 8.12.2025)",
+   "50 unter 200 (seit 13.7.2026)",
+   "Klarer Abwärtstrend auf beiden Ebenen."
+  ],
+  [
+   "RSI (14)",
+   "41.1",
+   "32.3",
+   "Bullische Divergenz auf Tag und Woche: tieferer Kurs, höherer RSI."
+  ],
+  [
+   "A/D",
+   "tiefer als bei den Juli-Tiefs",
+   "fällt weiter",
+   "Noch Verkaufsdruck."
+  ],
+  [
+   "Volumen",
+   "Ø 20 Tage 19.6 Mio. vs. Ø 100 Tage 20.7 Mio.",
+   "Normal, kein Ausverkauf mehr."
+  ]
+ ],
+ "smc": "Seit dem Hoch im November 2025 (105.65 $) nur tiefere Hochs (100.9 → 76.87 → 71.94 → 66.88 → 58.51 → 50.14 → 46.37 $) und tiefere Tiefs: ein klarer Abwärtstrend. Seit Ende Juni läuft der Kurs aber seitwärts: Die Tiefs liegen fast gleich (42.25 $ am 30.6., 42.20 $ am 15.7., 42.78 $ am 10.9., 42.72 $ am 21.9.), nur am 8.10. leicht tiefer (41.39 $). Der Ausbruch im August bis 52.99 $ scheiterte. Ein Tagesschluss über 45.75 $ (Hoch vom 23.9.) wäre ein erster Change of Character. Bestätigt wäre die Wende erst über 50 $.",
+ "zones": [
+  [
+   "r",
+   "58.5 $",
+   "Widerstand: Hoch vom Mai."
+  ],
+  [
+   "r",
+   "49.7–53 $",
+   "Widerstand: Hochs von August und September."
+  ],
+  [
+   "t",
+   "45.75 $",
+   "<b>Trigger:</b> Tagesschluss über dem Hoch vom 23.9."
+  ],
+  [
+   "s",
+   "41.4–42.8 $",
+   "<b>Kaufzone 1:</b> Boden seit Juni, fünfmal getestet."
+  ],
+  [
+   "s",
+   "35–38.5 $",
+   "<b>Kaufzone 2:</b> Bewertungszone, bereinigtes KGV 11–12."
+  ],
+  [
+   "r",
+   "40.5 $",
+   "Abbruch: Wochenschluss darunter, dann ist der Boden gebrochen."
+  ]
+ ],
+ "smart": [
+  "<b>Boston Scientific selbst:</b> Im 2. Quartal 2026 eigene Aktien für 2 Mrd. $ zurückgekauft (rund 3 % des Börsenwerts), der erste Rückkauf seit sechs Quartalen.",
+  "<b>Insider-Käufe:</b> CEO Mike Mahoney kaufte am 3.8.2026 186'240 Aktien zu 48.33 $ (rund 9 Mio. $) mit eigenem Geld. Dazu mehrere Verwaltungsräte im Mai und August (zusammen rund 1 Mio. $). Das ist ein starkes Zeichen.",
+  "<b>Insider-Verkäufe:</b> Rund 29 Mio. $, alle nach Optionsausübungen und nahe am Hoch (Ende 2025 bis Februar 2026).",
+  "<b>Fonds und Analysten:</b> Leerverkäufe stark gestiegen (46.5 statt 27.6 Mio. Aktien). 31 Analysten, im Schnitt «Kaufen», Kursziel rund 60 bis 66 $. Ein Teil der Analysten nennt 2026 ein «verlorenes Jahr»."
+ ],
+ "seasnote": "Durchschnittliche Monatsrendite in %. 34 Jahre Daten (seit 1992). Dezember (+3.6 %, 76 %) und Januar (+5.2 %, 62 %) sind stark, September ist der schwächste Monat (−2.7 %). Oktober und November sind eher schwach (44–47 %).",
+ "T": [
+  [
+   "Trend Woche (EMA 50/200)",
+   "Kurs weit unter beiden, EMA 50 unter 200",
+   1,
+   20
+  ],
+  [
+   "Trend Tag (EMA 50/200)",
+   "Kurs unter beiden, EMA 200 weit weg",
+   1,
+   10
+  ],
+  [
+   "Struktur (SMC)",
+   "Tiefere Hochs und Tiefs, seit Juni Boden bei 41–43 $",
+   3,
+   20
+  ],
+  [
+   "RSI Tag/Woche",
+   "Bullische Divergenz auf Tag und Woche",
+   12,
+   15
+  ],
+  [
+   "A/D Tag/Woche",
+   "Beide schwächer als bei den Juli-Tiefs",
+   4,
+   20
+  ],
+  [
+   "Smart Money",
+   "CEO kauft für 9 Mio. $, Rückkauf 2 Mrd. $",
+   10,
+   10
+  ],
+  [
+   "Saisonalität",
+   "Okt und Nov eher schwach, Dez stark",
+   1,
+   5
+  ]
+ ],
+ "pro": [
+  "Sehr günstig bewertet: bereinigtes KGV 13 statt Ø 30.",
+  "Der CEO hat für 9 Mio. $ eigene Aktien gekauft, die Firma kauft zurück.",
+  "Starke Produkte und hohe Marge, Free Cashflow 3.6 Mrd. $.",
+  "Boden bei 41–43 $ seit Juni, RSI mit bullischer Divergenz.",
+  "Sparprogramm (500 Mio. $ pro Jahr) und Penumbra können ab 2027/28 helfen."
+ ],
+ "con": [
+  "Die beiden Wachstumstreiber Watchman und Herz-Ablation schwächeln, Marktanteile gehen verloren.",
+  "Prognose dreimal gesenkt, 2027 kaum Gewinnwachstum.",
+  "Hackerangriff mit Umsatzausfällen, Sammelklage von Aktionären.",
+  "Mehr Schulden durch den Kauf von Penumbra.",
+  "Klarer Abwärtstrend, A/D zeigt noch Verkaufsdruck, viele Leerverkäufer."
+ ],
+ "todo": [
+  [
+   "t",
+   "Beobachten",
+   "Alarm bei 45.75 $ (Trigger) und 41.4 $ (unteres Ende Kaufzone 1)."
+  ],
+  [
+   "s",
+   "Timing grün",
+   "Erst die Zahlen und den neuen Ausblick am 28.10. abwarten. Danach Tagesschluss über 45.75 $ und über 50 $, mit drehender A/D."
+  ],
+  [
+   "r",
+   "Abbruch",
+   "Wochenschluss unter 40.5 $."
+  ],
+  [
+   "",
+   "Nächste Zahlen",
+   "28. Oktober 2026 vor US-Börsenbeginn (3. Quartal). Entscheidend: Schaden durch den Hackerangriff, Watchman, Herz-Ablation und der Ausblick für 2027."
+  ]
+ ],
+ "bands": [
+  {
+   "from": 49.7,
+   "to": 53,
+   "type": "res"
+  },
+  {
+   "from": 41.4,
+   "to": 42.8,
+   "type": "sup"
+  }
+ ],
+ "refs": [
+  {
+   "v": 45.75,
+   "label": "Trigger 45.75"
+  }
+ ],
+ "sources": "<a href=\"https://stockanalysis.com/stocks/bsx/financials/\" target=\"_blank\" rel=\"noopener\">StockAnalysis.com</a> (Stand 11.10.2026), <a href=\"https://news.bostonscientific.com/2026-07-29-Boston-Scientific-announces-results-for-second-quarter-2026\" target=\"_blank\" rel=\"noopener\">Boston Scientific Q2 2026</a>, <a href=\"https://www.massdevice.com/boston-scientific-missed-guidance-cybersecurity-incident/\" target=\"_blank\" rel=\"noopener\">Hackerangriff (MassDevice, 8.9.2026)</a>, <a href=\"https://www.sec.gov/Archives/edgar/data/0000885725/000122520826006950/doc4.xml\" target=\"_blank\" rel=\"noopener\">CEO-Kauf (SEC Form 4)</a>, <a href=\"https://www.marketbeat.com/stocks/NYSE/BSX/insider-trades/\" target=\"_blank\" rel=\"noopener\">Insider (MarketBeat)</a>."
+}

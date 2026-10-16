@@ -1,0 +1,402 @@
+<title>Intuitive Surgical Aktien-Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F3F5F7; --surface:#FFFFFF; --ink:#141B24; --muted:#5A6573; --line:#DDE2E8; --grid:#E9EDF1;
+  --accent:#2F45B5; --accent-soft:#E6E9F8; --chip:#EBEEF2;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+  --good:#1D7A4B; --good-bg:#E3F3EA; --warn:#9A6200; --warn-bg:#FBF0DC; --bad:#B2362A; --bad-bg:#FBE6E3;
+  --zone-sup:rgba(29,122,75,.10); --zone-res:rgba(178,54,42,.09);
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+    --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+    --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+    --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+  --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+  --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;padding-inline:16px;padding-block:24px 56px}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+h1,h2,h3{font-family:var(--display);font-stretch:85%;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:clamp(32px,7vw,48px);font-weight:800;line-height:1}
+h2{font-size:24px;font-weight:700}
+h3{font-size:17px;font-weight:700;font-stretch:95%}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+section{display:flex;flex-direction:column;gap:14px}
+.lead{max-width:68ch;color:var(--muted)}
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;align-items:stretch}
+.hero .id{display:flex;flex-direction:column;gap:10px;justify-content:space-between}
+.price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price b{font-family:var(--display);font-size:34px;font-weight:700}
+.meta{font-size:13px;color:var(--muted)}
+.verdict{font-size:15px;padding:12px 14px;border-radius:10px;background:var(--chip)}
+.scales{display:flex;flex-direction:column;gap:18px}
+.scale-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.scale-h span{font-size:13px;color:var(--muted)}
+.scale-h b{font-family:var(--display);font-size:28px;line-height:1}
+.track{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#C8412F 0%,#E0892F 30%,#E3B63A 50%,#8BBF4B 68%,#2E9A5B 100%);margin-top:8px}
+.pin{position:absolute;top:-5px;width:4px;height:22px;border-radius:2px;background:var(--ink);box-shadow:0 0 0 2px var(--surface);transform:translateX(-2px)}
+.ticks{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);font-family:var(--mono);margin-top:6px}
+.state{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;margin-top:8px}
+.st-good{background:var(--good-bg);color:var(--good)}
+.st-warn{background:var(--warn-bg);color:var(--warn)}
+.st-bad{background:var(--bad-bg);color:var(--bad)}
+/* tables */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;color:var(--muted);font-weight:500;font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:700;border-bottom:none}
+.pts{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{height:6px;border-radius:3px;background:var(--chip);min-width:60px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:3px}
+/* grids */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;border-left:4px solid var(--line)}
+.kpi.g{border-left-color:var(--good)}.kpi.w{border-left-color:var(--warn)}.kpi.b{border-left-color:var(--bad)}
+.kpi span{font-size:12px;color:var(--muted)}
+.kpi b{font-family:var(--mono);font-size:19px;font-weight:500;font-variant-numeric:tabular-nums}
+.kpi em{font-style:normal;font-size:12.5px;color:var(--muted)}
+/* charts */
+.chart{position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:14px;height:3px;border-radius:2px;display:inline-block}
+.swb{width:12px;height:10px;border-radius:2px;display:inline-block}
+.tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12.5px;box-shadow:0 4px 14px rgba(0,0,0,.12);white-space:nowrap;z-index:2}
+.tip b{font-family:var(--mono);font-weight:500}
+.tip .d{font-family:var(--mono);color:var(--muted);font-size:11.5px}
+.note{font-size:13.5px;color:var(--muted)}
+ul.clean{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.pro li::marker{color:var(--good)} .con li::marker{color:var(--bad)}
+.zones{display:flex;flex-direction:column;gap:8px}
+.zone{display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:baseline;padding:10px 12px;border-radius:10px;background:var(--chip);font-size:14px}
+.zone b{font-family:var(--mono);font-weight:500}
+.zone.r{border-left:4px solid var(--bad)} .zone.s{border-left:4px solid var(--good)} .zone.t{border-left:4px solid var(--accent)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+summary{cursor:pointer;font-weight:600}
+details p{margin-top:8px;color:var(--muted);max-width:70ch}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+footer{font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:6px;max-width:80ch}
+footer a{color:var(--accent)}
+@media (max-width:760px){.hero,.two{grid-template-columns:1fr}.zone{grid-template-columns:1fr;gap:2px}}
+</style>
+
+<div class="wrap">
+
+<header class="hero">
+  <div class="card id">
+    <div>
+      <div class="eyebrow">Aktien-Check · 11.10.2026</div>
+      <h1>Intuitive Surgical</h1>
+      <p class="meta">Intuitive Surgical, Inc. · Nasdaq: ISRG · Operationsroboter (da Vinci, Ion) · USA</p>
+    </div>
+    <div class="price"><b>423.96 $</b><span class="meta">Schluss 09.10.2026 · 52 Wochen: 328.57 – 603.88 $ · Hoch 616 $ (Januar 2025)</span></div>
+    <p class="verdict"><b>Kurz gesagt:</b> Intuitive Surgical ist der klare Weltmarktführer bei Operationsrobotern: Umsatz +19 %, Marge 31 %, keine Schulden. Qualität grün (90), Timing gelb (58). Die Aktie fiel von 604 $ bis 329 $ (−46 %), vor allem weil die Börse nicht mehr so viel für das Wachstum bezahlt (KGV von rund 70 auf 49). Seit dem Juli-Tief macht der Tageschart höhere Hochs und höhere Tiefs, der Kurs steht jetzt unter einem Widerstand bei 430–451 $. Erst die Zahlen am 20. Oktober abwarten.</p>
+  </div>
+  <div class="card scales">
+    <div>
+      <div class="scale-h"><span>Qualität · Ist die Firma kaufenswert?</span><b id="q-val">90</b></div>
+      <div class="track"><i class="pin" id="q-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-good">● Stark: Fundament intakt</span>
+    </div>
+    <div>
+      <div class="scale-h"><span>Timing · Ist jetzt der Zeitpunkt?</span><b id="t-val">58</b></div>
+      <div class="track"><i class="pin" id="t-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-warn">▲ Warten auf Bestätigung</span>
+    </div>
+    <p class="note">Skala: unter 30 rot · 30–45 orange · 45–60 gelb · 60–75 hellgrün · ab 75 grün. Beide Werte setzen sich aus festen Kriterien zusammen, siehe unten.</p>
+  </div>
+</header>
+
+<section>
+  <h2>Was die Firma macht</h2>
+  <p class="lead">Intuitive Surgical baut den Operationsroboter da Vinci: Der Chirurg sitzt an einer Konsole und steuert feine Instrumente, die durch kleine Schnitte in den Körper gehen. Dazu kommt Ion für Lungen-Biopsien. Weltweit stehen rund 11'700 da-Vinci-Systeme in Spitälern. Das Geschäftsmodell ist wie bei einem Drucker mit Patronen: Der Roboter wird einmal verkauft oder vermietet, danach bringt jede Operation wiederkehrenden Umsatz mit Instrumenten, Zubehör und Service (rund 85 % des Umsatzes).</p>
+  <p class="lead">Im Januar 2026 stand die Aktie bei 604 $ und damit bei rund 70 Jahresgewinnen. Am 14. Januar kündigte Intuitive für 2026 nur noch 13 bis 15 % mehr Operationen an (2025: rund 18 %), die Aktie fiel an einem Tag fast 6 %. Danach drückten neue Konkurrenten (Medtronic Hugo ist in den USA zugelassen, Johnson & Johnson bringt bald Ottava), Preisdruck in China und Zölle auf die Stimmung. Am 16. Juli kamen gute Zahlen (Gewinn über den Erwartungen), aber in den USA wuchsen die Operationen nur noch um 12 %, so langsam wie seit drei Jahren nicht mehr. Die Aktie fiel am nächsten Tag fast 10 % und erreichte am 23. Juli das Tief von 328.57 $. Seither erholt sie sich: Ende Juli stufte UBS auf «Kaufen» hoch und nannte den Ausverkauf übertrieben, im September stieg der Kurs um über 20 %. Wichtig: Das Geschäft wächst weiter stark (Umsatz +19 %, Marge steigt). Der grösste Teil des Kursrückgangs kommt daher, dass die Börse nicht mehr so viel für das Wachstum bezahlen will.</p>
+</section>
+
+<section>
+  <h2>Fundamental: die Zahlen</h2>
+  <div class="kpis">
+<div class="kpi g"><span>Umsatzwachstum</span><b>+20.7 %</b><em>Letzte 12 Monate. Alle Quartale wachsen um 19 bis 23 %. Sehr stark für eine Firma dieser Grösse.</em></div>
+<div class="kpi g"><span>Operative Marge</span><b>31.3 %</b><em>Von 100 $ Umsatz bleiben 31 $ Betriebsgewinn. Seit 2023 (24.8 %) jedes Jahr gestiegen, im 2. Quartal 2026 33.6 %.</em></div>
+<div class="kpi g"><span>Gewinn pro Aktie (EPS)</span><b>8.72 $</b><em>Letzte 12 Monate. 2022 waren es 3.65 $, also mehr als verdoppelt in drei Jahren.</em></div>
+<div class="kpi g"><span>ROIC</span><b>21.9 %</b><em>Auf 100 $ investiertes Kapital fast 22 $ Gewinn. Sehr gut, obwohl die Firma viel Geld auf dem Konto hat.</em></div>
+<div class="kpi g"><span>Free Cashflow</span><b>3.2 Mrd. $</b><em>Letzte 12 Monate, seit 2023 (0.75 Mrd. $) stark gestiegen, weil die grossen Fabrik-Investitionen fertig sind.</em></div>
+<div class="kpi g"><span>Netto-Cash</span><b>5.2 Mrd. $</b><em>Keine Schulden, dazu rund 8.6 Mrd. $ Geld und Anlagen. Sehr solide.</em></div>
+<div class="kpi g"><span>KGV</span><b>48.6</b><em>Du zahlst rund 49 Jahresgewinne. Das ist absolut gesehen teuer. Der eigene 5-Jahres-Schnitt liegt aber bei rund 72. Erwartet für die nächsten 12 Monate: 37.5.</em></div>
+<div class="kpi w"><span>Operationen da Vinci</span><b>+15 %</b><em>Weltweit im 2. Quartal 2026. In den USA nur +12 %, so wenig wie seit drei Jahren nicht mehr. Prognose 2026: +13.5 bis 15.5 %.</em></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>Umsatz pro Quartal (Mrd. $)</h3>
+      <p class="note">Alle 4 letzten Quartale deutlich über Vorjahr (+19 bis +23 %). Das Tempo bleibt hoch, beschleunigt aber nicht mehr.</p>
+      <div class="chart" id="c-rev"></div>
+    </div>
+    <div class="card">
+      <h3>Operative Marge pro Jahr</h3>
+      <p class="note">2022 und 2023 drückten hohe Investitionen in neue Fabriken die Marge. Seither steigt sie wieder.</p>
+      <div class="chart" id="c-margin"></div>
+    </div>
+  </div>
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Jahr</th><th class="num">Umsatz Mio. $</th><th class="num">Wachstum</th><th class="num">Op. Marge</th><th class="num">EPS $</th><th class="num">Free Cashflow</th><th class="num">ROIC</th><th class="num">KGV</th></tr></thead>
+      <tbody id="fin-rows"></tbody>
+    </table>
+  </div>
+  <p class="note"><b>Hinweis:</b> Intuitive zahlt keine Dividende, kauft aber eigene Aktien zurück (letzte 12 Monate rund 4 Mrd. $). Das KGV war früher extrem hoch (66 bis 80), darum wirkt es heute «günstig», ist aber immer noch hoch.</p>
+</section>
+
+<section>
+  <h2>Qualität: 90 von 100</h2>
+  <div class="card tbl"><table id="q-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Technik: Wochenchart (2 Jahre)</h2>
+  <div class="card">
+    <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span><span><i class="swb" style="background:var(--zone-sup);border:1px solid var(--good)"></i>Unterstützung</span><span><i class="swb" style="background:var(--zone-res);border:1px solid var(--bad)"></i>Widerstand</span></div>
+    <div class="chart" id="c-week"></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>A/D-Linie, Woche</h3>
+      <p class="note">Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Seit dem Juli-Tief (526) steigt die Wochen-A/D mit dem Kurs auf heute 544. Sie liegt aber noch weit unter dem Stand von Anfang 2026 (rund 600): Die grossen Verkäufe vom Frühling sind noch nicht aufgeholt.</p>
+      <div class="chart" id="c-adw"></div>
+    </div>
+    <div class="card">
+      <h3>RSI, Woche</h3>
+      <p class="note">Unter 30 überverkauft, über 70 überkauft. Im Juli bei 27 (überverkauft), heute 53: neutral.</p>
+      <div class="chart" id="c-rsiw"></div>
+    </div>
+  </div>
+
+  <h2>Technik: Tageschart (6 Monate)</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Kurs, Tag</h3>
+      <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span></div>
+      <div class="chart" id="c-day"></div>
+    </div>
+    <div class="card">
+      <h3>A/D-Linie, Tag</h3>
+      <p class="note">Die Tages-A/D steigt seit dem Juli-Tief (−23) mit dem Kurs und bestätigt jedes neue Hoch: am 28.9. (416.51 $) −8, heute (423.96 $) −6. Am Tief vom 10.9. (345.25 $) lag sie mit −22 höher als im Juli: Die Käufer sind zurück.</p>
+      <div class="chart" id="c-add"></div>
+    </div>
+  </div>
+
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Indikator</th><th>Tag</th><th>Woche</th><th>Bedeutung</th></tr></thead>
+      <tbody>
+<tr><td>Kurs vs. EMA 50</td><td class="pts">424.0 &gt; 393.1</td><td class="pts">424.0 &lt; 435.7</td><td>Tag über der mittelfristigen Linie, Woche knapp darunter.</td></tr>
+<tr><td>Kurs vs. EMA 200</td><td class="pts">424.0 &lt; 429.4</td><td class="pts">424.0 &gt; 418.7</td><td>Tag knapp unter, Woche knapp über der langfristigen Linie.</td></tr>
+<tr><td>EMA 50 vs. EMA 200</td><td class="pts">50 unter 200 (seit 25.2.2026)</td><td class="pts">50 über 200 (seit 2017)</td><td>Tag noch abwärts, der grosse Wochentrend ist intakt.</td></tr>
+<tr><td>RSI (14)</td><td class="pts">66.7</td><td class="pts">53.2</td><td>Tag stark, aber noch nicht überkauft.</td></tr>
+<tr><td>A/D</td><td class="pts">steigt mit dem Kurs, bestätigt Hochs</td><td class="pts">steigt seit Juli, aber unter dem Frühling</td><td>Positiv.</td></tr>
+<tr><td>Volumen</td><td colspan="2">Ø 20 Tage 2.2 Mio. vs. Ø 100 Tage 2.8 Mio.</td><td>Der Anstieg kommt mit weniger Handel als der Absturz.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Struktur und Zonen (Smart Money Concept)</h2>
+  <p class="lead">Auf der Woche lief Intuitive seit Januar abwärts: tiefere Hochs (603.88 → 511.88 → 491.15 → 443.84 → 405.34 $) und tiefere Tiefs (465.69 → 447.78 → 396.68 → 328.57 $). Auf dem Tageschart hat sich das gedreht: Nach dem Tief vom 23.7. kam ein höheres Tief am 10.9. (345.25 $), dann brach der Kurs am 28.9. über das August-Hoch (405.34 $): ein Change of Character nach oben. Danach ein weiteres höheres Tief (389.11 $ am 5.10.) und heute ein neues Hoch. Jetzt steht der Kurs vor einem dicken Widerstand bei 430–451 $ (EMA 200 Tag, EMA 50 Woche, Juli-Hoch 443.84 $, Tiefs vom April). Ein Tagesschluss über 444 $ würde auch auf der Woche die Wende bestätigen.</p>
+  <div class="zones">
+<div class="zone r"><b>482–512 $</b><span>Widerstand: Hochs von Februar bis April.</span></div>
+<div class="zone r"><b>430–451 $</b><span>Widerstand: EMA 200 Tag (429 $), EMA 50 Woche (436 $), Juli-Hoch (443.84 $) und Tiefs vom April.</span></div>
+<div class="zone t"><b>444 $</b><span><b>Trigger:</b> Tagesschluss über dem Juli-Hoch und damit über der Tages-EMA 200.</span></div>
+<div class="zone s"><b>389–405 $</b><span><b>Kaufzone 1:</b> Ausbruchs-Niveau (405 $), Tief vom 5.10. (389 $) und EMA 50 Tag (393 $).</span></div>
+<div class="zone s"><b>345–360 $</b><span><b>Kaufzone 2:</b> Tief vom September.</span></div>
+<div class="zone r"><b>385 $</b><span>Abbruch: Wochenschluss darunter, dann ist die Wende auf dem Tageschart gescheitert.</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Smart Money, Insider und Saisonalität</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Wer kauft, wer verkauft?</h3>
+      <ul class="clean" style="margin-top:8px">
+<li><b>Intuitive selbst:</b> Kauft eigene Aktien zurück: rund 4 Mrd. $ in den letzten 12 Monaten (2.6 % des Börsenwerts). Die Aktienzahl sank um 1.1 %.</li>
+<li><b>Insider-Käufe:</b> Keine Käufe am Markt in den letzten 12 Monaten.</li>
+<li><b>Insider-Verkäufe:</b> 74 Verkäufe für rund 85 Mio. $, vor allem Ende 2025 nahe am Hoch. Ein Teil davon über vorab festgelegte Verkaufspläne (10b5-1).</li>
+<li><b>Analysten:</b> 33 Analysten, im Schnitt «Kaufen», Kursziel 478 $. Im Juli wurden die Kursziele gesenkt, UBS stufte Ende Juli auf «Kaufen» hoch (Ziel 500 $).</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Saisonalität seit 2000</h3>
+      <p class="note">Durchschnittliche Monatsrendite in %. 26 Jahre Daten (seit 2000). Der November ist mit +4.1 % und 77 % positiven Jahren der stärkste Monat, der Oktober ist gemischt (54 %), der Dezember schwach (46 %).</p>
+      <div class="chart" id="c-seas"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Timing: 58 von 100</h2>
+  <div class="card tbl"><table id="t-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Worauf du achten solltest: Unterbewertung und Wachstumsschub</h2>
+  <div class="card"><h3>Was die Börse befürchtet</h3><p class="note" style="margin:4px 0">Vor allem Stimmung: Umsatz (+19 %) und Marge steigen weiter; gefallen ist vor allem der Preis, den die Börse für das Wachstum bezahlt (KGV von rund 72 im 5-Jahres-Schnitt auf rund 49), auch wenn die Bremsspuren in den USA echt sind.</p><ul class="clean"><li>Die Zahl der da-Vinci-Operationen in den USA wuchs im 2. Quartal 2026 nur noch um rund 12 %, so langsam wie seit 2021 nicht mehr (erwartet waren 13.2 %).</li><li>Abnehmspritzen (GLP-1) lassen Magenverkleinerungen schrumpfen: Diese da-Vinci-Eingriffe fielen in den USA im hohen einstelligen Prozentbereich. Auslaufende staatliche Zuschüsse zur Krankenversicherung (ACA) kosteten laut Firma zusätzlich etwas Wachstum.</li><li>Neue Konkurrenz (Medtronic Hugo, Johnson &amp; Johnson Ottava), Preisdruck in China und Zölle. Für das 2. Halbjahr 2027 plant Intuitive ein Programm, mit dem Instrumente öfter benutzt werden können. Das wirkt wie eine Preissenkung beim Verbrauchsmaterial.</li><li>Nach den Zahlen im Juli 2026 fiel die Aktie trotz besserer Zahlen als erwartet um rund 12 % auf ein 2-Jahres-Tief, weil die Firma die Prognose nur bestätigte und nicht erhöhte.</li></ul><h3 style="margin-top:12px">Was die Sorgen beenden könnte</h3><ul class="clean"><li>US-Operationen wachsen wieder über 12 %, Jahresprognose (13.5–15.5 % mehr da-Vinci-Operationen) bestätigt oder erhöht <span class="muted">(Zahlen 20.10.2026)</span></li><li>Ausblick 2027 zeigt weiterhin rund 13–15 % Wachstum bei den Operationen <span class="muted">(Zahlen 4. Quartal, voraussichtlich Ende Januar 2027)</span></li><li>Klarheit, wie stark das Instrumenten-Programm die Marge drückt <span class="muted">(2027)</span></li><li>Erste Zahlen zeigen, dass Konkurrenten wie Hugo und Ottava kaum Marktanteile holen <span class="muted">(2026–2027)</span></li></ul><h3 style="margin-top:12px">Wachstumsschub: Wachstumsschub möglich</h3><ul class="clean"><li><b>Upgrade-Welle da Vinci 5:</b> Der neue Roboter da Vinci 5 kann z. B. dem Chirurgen spürbar zurückmelden, wie fest er drückt. Im 2. Quartal 2026 wurden 246 Stück platziert (Vorjahr 180), 2025 total 870. Viele der 11'710 installierten Systeme werden über die Jahre ersetzt, das bringt Umsatz und mehr Operationen pro Roboter. <span class="muted">(2026–2028)</span></li><li><b>Ion für Lungen-Biopsien:</b> Mit Ion nimmt der Arzt Gewebeproben tief in der Lunge. Die Ion-Eingriffe wuchsen im 2. Quartal 2026 um 36 %, installiert sind 1'096 Systeme (+21 %). Noch klein im Verhältnis zu da Vinci, wächst aber mehr als doppelt so schnell. <span class="muted">(2026–2028)</span></li><li><b>Herz-Eingriffe und Ausland:</b> Seit Januar 2026 ist da Vinci 5 in den USA für mehrere Herz-Eingriffe zugelassen, die Einführung läuft laut Firma bewusst langsam. Ausserhalb der USA wuchsen die Operationen im 2. Quartal um rund 20 %. <span class="muted">(2026–2029)</span></li></ul><p style="margin:10px 0 0"><b>Woran du es erkennst:</b> Bei den Zahlen am 20.10.: da-Vinci-Operationen weltweit mindestens rund 15 % und in den USA wieder über 12 %. Dazu die Zahl der platzierten da Vinci 5 (2. Quartal: 246) und ein Ion-Wachstum über 30 %.</p><p style="margin:10px 0 0"><b>Das Chancen-Szenario:</b> Chancen-Szenario: Wie bei Google 2023 unterschätzt die Börse den Vorsprung des Marktführers. Wenn da Vinci 5, Ion und das Ausland die US-Delle ausgleichen und die Operationen stabil um rund 15 % wachsen, kann das KGV wieder steigen, während der Gewinn ohnehin weiter wächst. Grösstes Risiko: Abnehmspritzen, Konkurrenz und Preisnachlässe bremsen das Wachstum dauerhaft unter 12 %; dann ist selbst ein KGV um 49 noch teuer.</p><p class="note" style="margin:10px 0 0">Quellen: <a href="https://investor.intuitivesurgical.com/news-releases/news-release-details/intuitive-announces-second-quarter-earnings-6" target="_blank" rel="noopener">Intuitive: Announces Second Quarter Earnings 2026</a>, <a href="https://www.mddionline.com/surgical/glp-1s-expiring-aca-subsidies-negatively-impact-intuitive-s-da-vinci-procedures" target="_blank" rel="noopener">MD+DI: GLP-1s &amp; Expiring ACA Subsidies Negatively Impact Intuitive's da Vinci Procedures (17.07.2026)</a>, <a href="https://www.boerse-express.com/news/articles/intuitive-surgical-aktie-12-prozent-us-wachstum-bremst-930398" target="_blank" rel="noopener">Börse Express: Intuitive Surgical Aktie: 12 Prozent US-Wachstum bremst (21.07.2026)</a>, <a href="https://www.mddionline.com/robotics/intuitive-s-da-vinci-5-secures-fda-cardiac-clearance" target="_blank" rel="noopener">MD+DI: Intuitive's da Vinci 5 Secures FDA Cardiac Clearance (23.01.2026)</a></p></div>
+</section>
+
+<section>
+  <h2>Dividende</h2>
+  <div class="card tbl"><p style="margin:0">Intuitive Surgical zahlt keine Dividende. Die Firma steckt das Geld ins Wachstum und kauft eigene Aktien zurück (letzte 12 Monate rund 4 Mrd. $).</p></div>
+</section>
+
+<section>
+  <h2>Pro und Contra</h2>
+  <div class="two">
+    <div class="card pro"><h3>Spricht dafür</h3><ul class="clean" style="margin-top:8px">
+<li>Klarer Marktführer mit über 11'700 installierten Robotern und wiederkehrendem Umsatz.</li>
+<li>Umsatz +19 bis 23 % pro Quartal, Marge steigt wieder.</li>
+<li>Keine Schulden, Milliarden auf dem Konto, Aktienrückkäufe.</li>
+<li>Bewertung so tief wie seit Jahren nicht (KGV 49 statt Ø 72).</li>
+<li>Tageschart hat gedreht: höhere Hochs und Tiefs mit steigender A/D.</li>
+    </ul></div>
+    <div class="card con"><h3>Spricht dagegen</h3><ul class="clean" style="margin-top:8px">
+<li>Absolut gesehen immer noch teuer (KGV 49).</li>
+<li>Wachstum der Operationen verlangsamt sich, in den USA nur noch +12 %.</li>
+<li>Neue Konkurrenz: Medtronic Hugo, bald Johnson & Johnson Ottava.</li>
+<li>Preisdruck in China und Zölle.</li>
+<li>Viele Insider-Verkäufe, keine Käufe. Nach Zahlen oft Kurssprünge von 10 %.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section>
+  <h2>Was jetzt zu tun ist</h2>
+  <div class="zones">
+<div class="zone t"><b>Beobachten</b><span>Alarm bei 444 $ (Trigger) und 405 $ (oberes Ende Kaufzone 1).</span></div>
+<div class="zone s"><b>Timing grün</b><span>Erst die Zahlen am 20.10. abwarten. Danach Tagesschluss über 444 $ mit steigender A/D, oder ein Rücksetzer in 389–405 $, der hält.</span></div>
+<div class="zone r"><b>Abbruch</b><span>Wochenschluss unter 385 $.</span></div>
+<div class="zone "><b>Nächste Zahlen</b><span>20. Oktober 2026 nach US-Börsenschluss (3. Quartal). Entscheidend: Wachstum der Operationen in den USA und der Ausblick für 2027.</span></div>
+  </div>
+</section>
+
+<footer>
+  <span>Kursdaten und Indikatoren (EMA, RSI 14, A/D) selbst berechnet aus Yahoo-Finance-Tages-, Wochen- und Monatsdaten, Stand 11.10.2026. <a href="https://stockanalysis.com/stocks/isrg/financials/" target="_blank" rel="noopener">StockAnalysis.com</a> (Stand 11.10.2026), <a href="https://www.sec.gov/Archives/edgar/data/0001035267/000103526726000047/q226ex-991earningsrelease.htm" target="_blank" rel="noopener">Intuitive Q2 2026 (SEC)</a>, <a href="https://www.marketbeat.com/stocks/NASDAQ/ISRG/insider-trades/" target="_blank" rel="noopener">Insider (MarketBeat)</a>.</span>
+  <span>Persönliche Analyse, keine Anlageberatung. Vergangene Kurse und Saisonalität sagen nichts Sicheres über die Zukunft.</span>
+</footer>
+</div>
+
+<script>
+const Q=[["Umsatztrend", "4 von 4 Quartalen über Vorjahr (+19 bis +23 %)", 12, 15], ["Wachstumstempo", "+20.7 % in den letzten 12 Monaten", 10, 10], ["Operative Marge", "31.3 % (9 Pkt.), seit 2023 steigend (5 Pkt.)", 14, 15], ["Gewinnwachstum (EPS)", "2022–2025 rund +29 % pro Jahr", 10, 10], ["Free Cashflow", "Positiv, seit 2023 stark steigend (davor gesunken)", 7, 10], ["ROIC", "21.9 %, stabil", 13, 15], ["Schulden", "Keine Schulden, Netto-Cash 5.2 Mrd. $", 10, 10], ["Bewertung vs. eigene Historie", "KGV 48.6 statt Ø 72.5 (33 % günstiger)", 14, 15]];
+const T=[["Trend Woche (EMA 50/200)", "Kurs knapp unter EMA 50, über EMA 200: Rücksetzer im Aufwärtstrend", 13, 20], ["Trend Tag (EMA 50/200)", "Kurs über EMA 50, knapp unter EMA 200: mögliche Wende", 4, 10], ["Struktur (SMC)", "Tag: Change of Character, höhere Hochs und Tiefs; Kurs am Widerstand", 14, 20], ["RSI Tag/Woche", "67 / 53, kein Signal", 7, 15], ["A/D Tag/Woche", "Beide steigen mit dem Kurs, Woche noch unter dem Frühling", 14, 20], ["Smart Money", "Rückkäufe 2.6 %, aber viele Insider-Verkäufe", 3, 10], ["Saisonalität", "Okt gemischt, Nov stark, Dez schwach", 3, 5]];
+const FIN=[["2022", 6222, "+9.0 %", "25.8 %", 3.65, 958, "18.0 %", "70.9"], ["2023", 7124, "+14.5 %", "24.8 %", 5.03, 750, "21.4 %", "66.1"], ["2024", 8352, "+17.2 %", "28.1 %", 6.42, 1304, "19.6 %", "80.1"], ["2025", 10065, "+20.5 %", "29.3 %", 7.87, 2491, "20.6 %", "70.3"], ["Letzte 12 Mt.", 11034, "+20.7 %", "31.3 %", 8.72, 3223, "21.9 %", "48.6"]];
+const HALF=[["Q3 24", 2.04], ["Q4 24", 2.41], ["Q1 25", 2.25], ["Q2 25", 2.44], ["Q3 25", 2.51], ["Q4 25", 2.87], ["Q1 26", 2.77], ["Q2 26", 2.89]];
+const MARGIN=[["2021", 31.9], ["2022", 25.8], ["2023", 24.8], ["2024", 28.1], ["2025", 29.3], ["12 Mt.", 31.3]];
+const SEAS=[1.2, 0.2, 1.0, 2.1, 0.5, 1.8, 1.3, -0.1, -1.2, 2.5, 4.1, -0.0];
+const SEASHIT=[50.0, 60.0, 64.0, 60.0, 56.0, 60.0, 58.0, 48.0, 48.0, 54.0, 77.0, 46.0];
+const MON=["Jan","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"];
+const W=`2024-10-14,521.15,415.03,316.28,75,590.8;2024-10-21,511.27,418.8,318.22,70,588.2;2024-10-28,506.34,422.23,320.1,68,586.4;2024-11-04,536.45,426.71,322.25,74,592;2024-11-11,527.61,430.67,324.29,70,584.5;2024-11-18,547.87,435.27,326.52,73,588.7;2024-11-25,542,439.45,328.66,71,589.1;2024-12-02,550.41,443.8,330.87,72,591.9;2024-12-09,539.58,447.56,332.94,67,590.2;2024-12-16,524.43,450.57,334.85,61,585.1;2024-12-23,534.88,453.88,336.84,64,586.8;2024-12-30,535.29,457.07,338.82,64,590.1;2025-01-06,547.47,460.62,340.89,67,594.4;2025-01-13,592.64,465.79,343.4,75,603.8;2025-01-20,584.05,470.43,345.79,71,598.5;2025-01-27,571.88,474.41,348.04,66,595.7;2025-02-03,582.98,478.67,350.38,68,597.6;2025-02-10,595.55,483.25,352.82,71,600.9;2025-02-17,591.79,487.51,355.2,69,597.7;2025-02-24,573.15,490.87,357.36,62,595.6;2025-03-03,518.26,491.94,358.97,46,588.1;2025-03-10,484.44,491.65,360.21,40,577.5;2025-03-17,492.49,491.68,361.53,42,582.3;2025-03-24,491.84,491.69,362.83,42,574.4;2025-03-31,451.58,490.11,363.71,35,562.5;2025-04-07,493.6,490.25,365,45,568.9;2025-04-14,482.74,489.96,366.17,43,564.5;2025-04-21,514.59,490.92,367.65,50,577;2025-04-28,529.42,492.43,369.26,53,581.7;2025-05-05,536.51,494.16,370.92,54,582.6;2025-05-12,563.6,496.88,372.84,59,586.9;2025-05-19,539.54,498.56,374.5,54,584.4;2025-05-26,552.34,500.67,376.27,56,584.1;2025-06-02,557.08,502.88,378.07,57,586.3;2025-06-09,512.18,503.24,379.4,47,584;2025-06-16,509.36,503.48,380.7,47,579.4;2025-06-23,533.71,504.67,382.22,52,583.2;2025-06-30,544.47,506.23,383.83,54,585.1;2025-07-07,512.06,506.46,385.11,47,578.4;2025-07-14,518.62,506.93,386.44,49,583.7;2025-07-21,495.86,506.5,387.53,44,576.2;2025-07-28,483.12,505.58,388.48,42,572.2;2025-08-04,470.08,504.19,389.29,40,566.6;2025-08-11,480.26,503.25,390.19,43,571.2;2025-08-18,476.16,502.19,391.05,42,572.6;2025-08-25,473.3,501.06,391.87,41,575.5;2025-09-01,466.86,499.72,392.61,40,585.1;2025-09-08,449.68,497.75,393.18,37,577.2;2025-09-15,438.72,495.44,393.64,35,575.3;2025-09-22,441.12,493.31,394.11,35,573.6;2025-09-29,452.35,491.7,394.69,39,581.6;2025-10-06,429.59,489.27,395.03,35,571.3;2025-10-13,446.13,487.57,395.54,40,578.5;2025-10-20,546.51,489.89,397.05,61,599;2025-10-27,534.28,491.63,398.41,58,595.6;2025-11-03,560,494.31,400.02,62,605.3;2025-11-10,549.51,496.47,401.51,60,595.4;2025-11-17,561.61,499.03,403.1,62,598.4;2025-11-24,573.48,501.95,404.79,63,599.7;2025-12-01,575.34,504.83,406.49,64,604.7;2025-12-08,542.32,506.3,407.84,56,598.8;2025-12-15,572.47,508.89,409.48,60,609.2;2025-12-22,577.81,511.59,411.16,61,608.8;2025-12-29,561.98,513.57,412.66,57,607.1;2026-01-05,586.24,516.42,414.38,61,609.1;2026-01-12,535,517.15,415.58,51,600.3;2026-01-19,523.99,517.42,416.66,49,595.4;2026-01-26,504.22,516.9,417.53,45,587.2;2026-02-02,488.15,515.77,418.24,43,589.7;2026-02-09,485.84,514.6,418.91,42,587.7;2026-02-16,504.05,514.18,419.76,46,593.3;2026-02-23,503.51,513.77,420.59,46,596.2;2026-03-02,490.16,512.84,421.28,44,595.2;2026-03-09,472.16,511.24,421.79,40,592.9;2026-03-16,477.97,509.94,422.35,42,589.3;2026-03-23,452.66,507.69,422.65,37,581.8;2026-03-30,452.07,505.51,422.94,37,577.2;2026-04-06,450.62,503.36,423.22,37,570.9;2026-04-13,469.21,502.02,423.67,43,577.3;2026-04-20,482.22,501.24,424.26,46,586.1;2026-04-27,457.78,499.54,424.59,41,580.8;2026-05-04,450.06,497.6,424.84,40,578.6;2026-05-11,421.12,494.6,424.81,34,568.5;2026-05-18,438.1,492.38,424.94,39,570.2;2026-05-25,424.64,489.73,424.94,37,567.3;2026-06-01,422.06,487.07,424.91,37,576.1;2026-06-08,411.06,484.09,424.77,35,572;2026-06-15,406.78,481.06,424.59,34,567.5;2026-06-22,404.7,478.07,424.39,33,565.4;2026-06-29,426.01,476.02,424.41,41,575.4;2026-07-06,406.78,473.31,424.23,37,566;2026-07-13,345.42,468.29,423.45,28,537.8;2026-07-20,337.5,463.16,422.59,27,526.5;2026-07-27,353.33,458.86,421.91,32,520.2;2026-08-03,378.81,455.72,421.48,39,534.2;2026-08-10,394.51,453.32,421.21,43,537.5;2026-08-17,378.81,450.4,420.79,40,532.5;2026-08-24,372.6,447.35,420.31,39,529.8;2026-08-31,366.7,444.18,419.77,38,523.6;2026-09-07,369.15,441.24,419.27,39,531.4;2026-09-14,393.33,439.36,419.01,46,543.6;2026-09-21,405.18,438.02,418.87,49,552.5;2026-09-28,391.95,436.21,418.61,46,543.5;2026-10-09,423.96,435.73,418.66,53,544.2`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+const DD=`2026-04-07,452.95,488.18,508.69,22.9;2026-04-08,462.28,487.17,508.23,21.4;2026-04-09,454.94,485.9,507.7,21.1;2026-04-10,450.62,484.52,507.13,20.6;2026-04-13,458.96,483.52,506.65,22.2;2026-04-14,467.22,482.88,506.26,22.8;2026-04-15,468.36,482.31,505.88,22.1;2026-04-16,458.08,481.36,505.41,20.9;2026-04-17,469.21,480.88,505.05,21.1;2026-04-20,465.6,480.28,504.65,19.8;2026-04-21,451.29,479.15,504.12,16.4;2026-04-22,483.62,479.32,503.92,18.7;2026-04-23,478.82,479.3,503.67,16.5;2026-04-24,482.22,479.42,503.46,18.9;2026-04-27,470.99,479.09,503.13,17.3;2026-04-28,466.64,478.6,502.77,16.6;2026-04-29,453.83,477.63,502.28,15.8;2026-04-30,457.61,476.84,501.84,17.5;2026-05-01,457.78,476.09,501.4,16.6;2026-05-04,452.35,475.16,500.91,15.8;2026-05-05,451.38,474.23,500.42,16.2;2026-05-06,451.73,473.35,499.93,16.6;2026-05-07,453.49,472.57,499.47,15.5;2026-05-08,450.06,471.69,498.98,15.1;2026-05-11,420.06,469.66,498.2,11.7;2026-05-12,431.87,468.18,497.54,12.9;2026-05-13,432.27,466.77,496.89,12.8;2026-05-14,428.06,465.25,496.2,11.4;2026-05-15,421.12,463.52,495.45,9.2;2026-05-18,439.92,462.6,494.9,11.2;2026-05-19,441.58,461.77,494.37,10.9;2026-05-20,449.03,461.27,493.92,12.5;2026-05-21,439.8,460.43,493.38,12;2026-05-22,438.1,459.56,492.83,11.5;2026-05-26,436.64,458.66,492.27,10.7;2026-05-27,418.55,457.08,491.54,8.7;2026-05-28,423.63,455.77,490.86,10.3;2026-05-29,424.64,454.55,490.2,11.6;2026-06-01,412.26,452.89,489.43,8.7;2026-06-02,402.3,450.91,488.56,7.3;2026-06-03,407.29,449.2,487.75,9.6;2026-06-04,418.82,448.01,487.07,10;2026-06-05,422.06,446.99,486.42,8.8;2026-06-08,418.61,445.88,485.75,7.5;2026-06-09,426.61,445.12,485.16,8.3;2026-06-10,412.02,443.82,484.43,6.3;2026-06-11,412.9,442.61,483.72,6.9;2026-06-12,411.06,441.37,482.99,7.4;2026-06-15,416.55,440.4,482.33,7.3;2026-06-16,417.07,439.48,481.68,7.1;2026-06-17,402.18,438.02,480.89,5.3;2026-06-18,406.78,436.8,480.16,6.8;2026-06-22,402.95,435.47,479.39,6.2;2026-06-23,403.18,434.2,478.63,6.1;2026-06-24,401.83,432.93,477.87,4.4;2026-06-25,399.69,431.63,477.09,1.9;2026-06-26,404.7,430.57,476.37,2;2026-06-29,405.97,429.61,475.67,0;2026-06-30,397.68,428.36,474.89,-2.5;2026-07-01,402.38,427.34,474.17,-3.4;2026-07-02,426.01,427.29,473.69,-0.2;2026-07-06,432.83,427.5,473.28,0.6;2026-07-07,427.3,427.5,472.83,-1.2;2026-07-08,415.1,427.01,472.25,-2.7;2026-07-09,411.55,426.4,471.65,-3.3;2026-07-10,406.78,425.63,471,-4.1;2026-07-13,407.12,424.91,470.37,-5.8;2026-07-14,379.5,423.13,469.46,-10.9;2026-07-15,388.97,421.79,468.66,-9.4;2026-07-16,402.33,421.02,468,-6.8;2026-07-17,345.42,418.06,466.78,-17.5;2026-07-20,353.17,415.51,465.65,-13.5;2026-07-21,350.06,412.95,464.5,-16.6;2026-07-22,340.69,410.11,463.27,-21.1;2026-07-23,332.02,407.05,461.96,-23.2;2026-07-24,337.5,404.32,460.72,-22.9;2026-07-27,356.83,402.46,459.69,-19.3;2026-07-28,361.8,400.87,458.72,-22.6;2026-07-29,353.1,398.99,457.67,-24.7;2026-07-30,352.97,397.19,456.62,-23.3;2026-07-31,353.33,395.47,455.6,-22.2;2026-08-03,375.41,394.68,454.8,-18.9;2026-08-04,368.27,393.65,453.94,-20.3;2026-08-05,375.2,392.92,453.15,-18.3;2026-08-06,373.71,392.17,452.36,-19.4;2026-08-07,378.81,391.65,451.63,-17.6;2026-08-10,393.38,391.71,451.05,-14.5;2026-08-11,401.23,392.09,450.56,-11.2;2026-08-12,401.27,392.45,450.07,-11;2026-08-13,401.27,392.79,449.58,-11.1;2026-08-14,394.51,392.86,449.03,-12.8;2026-08-17,390.33,392.76,448.45,-14.6;2026-08-18,391.18,392.7,447.88,-16.8;2026-08-19,397.72,392.9,447.38,-17.5;2026-08-20,374.48,392.17,446.65,-20.9;2026-08-21,378.81,391.65,445.98,-19.8;2026-08-24,373.57,390.94,445.26,-21.3;2026-08-25,371.84,390.19,444.53,-21.6;2026-08-26,370.42,389.42,443.79,-21;2026-08-27,367.07,388.54,443.03,-22.7;2026-08-28,372.6,387.92,442.33,-21.3;2026-08-31,376.86,387.48,441.67,-19.6;2026-09-01,369.25,386.77,440.95,-20.2;2026-09-02,371.88,386.18,440.27,-21.3;2026-09-03,369.83,385.54,439.57,-21.9;2026-09-04,366.7,384.8,438.84,-21.7;2026-09-08,350.16,383.44,437.96,-23.7;2026-09-09,353.24,382.26,437.12,-24.1;2026-09-10,360.46,381.4,436.35,-21.6;2026-09-11,369.15,380.92,435.68,-21.5;2026-09-14,377.94,380.81,435.11,-19.5;2026-09-15,377.16,380.66,434.53,-18.3;2026-09-16,382.29,380.73,434.01,-18.3;2026-09-17,383.54,380.84,433.51,-18.1;2026-09-18,393.33,381.33,433.11,-14.2;2026-09-21,401.65,382.12,432.8,-12.1;2026-09-22,402.09,382.91,432.49,-11.4;2026-09-23,398.3,383.51,432.15,-12.2;2026-09-24,399.52,384.14,431.83,-12.2;2026-09-25,405.18,384.96,431.56,-10.1;2026-09-28,414.79,386.13,431.4,-8.2;2026-09-29,412.18,387.16,431.2,-7.4;2026-09-30,406.63,387.92,430.96,-8.3;2026-10-01,401.24,388.44,430.66,-9.3;2026-10-02,391.95,388.58,430.28,-11;2026-10-05,406.48,389.28,430.04,-9.6;2026-10-06,404.76,389.89,429.79,-10;2026-10-07,414.52,390.85,429.64,-8.8;2026-10-08,415.41,391.82,429.5,-7;2026-10-09,423.96,393.08,429.44,-6.3`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+
+const fmtN=(v,d=2)=>v.toLocaleString("de-CH",{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmtD=s=>{const [y,m,d]=s.split("-");return d+"."+m+"."+y.slice(2)};
+const NS="http://www.w3.org/2000/svg";
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+
+function scoreTable(id,rows){
+  let tot=0,max=0;
+  const html='<thead><tr><th>Kriterium</th><th>Stand</th><th class="num">Punkte</th><th style="width:22%"></th></tr></thead><tbody>'+rows.map(r=>{tot+=r[2];max+=r[3];const p=r[2]/r[3];const c=p>=.75?"var(--good)":p>=.45?"var(--warn)":"var(--bad)";
+    return `<tr><td>${r[0]}</td><td class="muted">${r[1]}</td><td class="num">${r[2]} / ${r[3]}</td><td><div class="bar"><i style="width:${p*100}%;background:${c}"></i></div></td></tr>`}).join("")+`<tr class="total"><td>Total</td><td></td><td class="num">${tot} / ${max}</td><td></td></tr></tbody>`;
+  document.getElementById(id).innerHTML=html;return tot;
+}
+const qs=scoreTable("q-tbl",Q), ts=scoreTable("t-tbl",T);
+document.getElementById("q-val").textContent=qs;document.getElementById("t-val").textContent=ts;
+document.getElementById("q-pin").style.left=qs+"%";document.getElementById("t-pin").style.left=ts+"%";
+
+document.getElementById("fin-rows").innerHTML=FIN.map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1].toLocaleString("de-CH")}</td><td class="num">${r[2]}</td><td class="num">${r[3]}</td><td class="num">${fmtN(r[4])}</td><td class="num">${r[5].toLocaleString("de-CH")}</td><td class="num">${r[6]}</td><td class="num">${r[7]}</td></tr>`).join("");
+
+/* generic line chart */
+function lineChart(host,{dates,series,bands=[],yFmt=v=>fmtN(v),h=300,zero=false,refs=[],pad}){
+  const W_=800,H=h,m={t:12,r:56,b:28,l:8};
+  const all=series.flatMap(s=>s.values).concat(bands.flatMap(b=>[b.from,b.to])).concat(refs.map(r=>r.v));
+  if(zero)all.push(0);
+  let lo=Math.min(...all),hi=Math.max(...all);const sp=(hi-lo)||1;lo-=sp*.06;hi+=sp*.06;
+  if(pad){lo=pad[0];hi=pad[1]}
+  const n=dates.length,x=i=>m.l+i*(W_-m.l-m.r)/(n-1),y=v=>m.t+(hi-v)*(H-m.t-m.b)/(hi-lo);
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  // grid
+  const steps=5;for(let k=0;k<=steps;k++){const v=lo+(hi-lo)*k/steps;el("line",{x1:m.l,x2:W_-m.r,y1:y(v),y2:y(v),stroke:"var(--grid)","stroke-width":1},svg);
+    const t=el("text",{x:W_-m.r+6,y:y(v)+4,"font-size":11,fill:"var(--muted)","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=yFmt(v)}
+  bands.forEach(b=>{el("rect",{x:m.l,width:W_-m.l-m.r,y:y(Math.max(b.from,b.to)),height:Math.abs(y(b.from)-y(b.to)),fill:b.type==="res"?"var(--zone-res)":"var(--zone-sup)"},svg)});
+  refs.forEach(r=>{el("line",{x1:m.l,x2:W_-m.r,y1:y(r.v),y2:y(r.v),stroke:"var(--muted)","stroke-dasharray":"4 4","stroke-width":1},svg);
+    const t=el("text",{x:m.l+4,y:y(r.v)-4,"font-size":11,fill:"var(--muted)"},svg);t.textContent=r.label});
+  if(zero)el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  // x labels
+  const every=Math.ceil(n/6);for(let i=0;i<n;i+=every){const t=el("text",{x:x(i),y:H-8,"font-size":11,fill:"var(--muted)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);const d=dates[i];t.textContent=d.slice(5,7)+"/"+d.slice(2,4)}
+  series.forEach(s=>{const dpath=s.values.map((v,i)=>(i?"L":"M")+x(i).toFixed(1)+","+y(v).toFixed(1)).join("");
+    el("path",{d:dpath,fill:"none",stroke:s.color,"stroke-width":s.w||2,"stroke-linejoin":"round","stroke-linecap":"round"},svg);
+    const lv=s.values[n-1];el("circle",{cx:x(n-1),cy:y(lv),r:3.5,fill:s.color,stroke:"var(--surface)","stroke-width":2},svg)});
+  // hover
+  const cross=el("line",{y1:m.t,y2:H-m.b,stroke:"var(--muted)","stroke-width":1,opacity:0},svg);
+  const ov=el("rect",{x:m.l,y:m.t,width:W_-m.l-m.r,height:H-m.t-m.b,fill:"transparent"},svg);
+  host.appendChild(svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;host.appendChild(tip);
+  function move(ev){const r=svg.getBoundingClientRect();const px=(ev.clientX-r.left)*W_/r.width;let i=Math.round((px-m.l)/((W_-m.l-m.r)/(n-1)));i=Math.max(0,Math.min(n-1,i));
+    cross.setAttribute("x1",x(i));cross.setAttribute("x2",x(i));cross.setAttribute("opacity",1);
+    tip.innerHTML=`<div class="d">${fmtD(dates[i])}</div>`+series.map(s=>`<div><i class="sw" style="background:${s.color}"></i> ${s.name}: <b>${yFmt(s.values[i])}</b></div>`).join("");
+    tip.hidden=false;const hx=x(i)*r.width/W_;tip.style.left=Math.min(Math.max(0,hx+12),r.width-tip.offsetWidth)+"px";tip.style.top="8px"}
+  ov.addEventListener("pointermove",move);ov.addEventListener("pointerleave",()=>{tip.hidden=true;cross.setAttribute("opacity",0)});
+}
+function barChart(host,{labels,values,fmt,h=220,color,neg,tipExtra}){
+  const W_=800,H=h,m={t:18,r:8,b:28,l:8};
+  const hi=Math.max(0,...values),lo=Math.min(0,...values);const lo2=lo<0?lo*1.15:lo,hi2=hi*1.15||1;
+  const y=v=>m.t+(hi2-v)*(H-m.t-m.b)/(hi2-lo2);const n=values.length,bw=(W_-m.l-m.r)/n;
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;
+  values.forEach((v,i)=>{const x0=m.l+i*bw+bw*.18,w=bw*.64,y0=y(Math.max(v,0)),hh=Math.max(1,Math.abs(y(v)-y(0)));
+    const r=el("rect",{x:x0,y:y0,width:w,height:hh,rx:4,fill:v<0?(neg||"var(--s2)"):(color||"var(--s1)")},svg);
+    const t=el("text",{x:x0+w/2,y:v<0?y(v)+13:y0-5,"font-size":11.5,fill:"var(--ink)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=fmt(v);
+    const l=el("text",{x:x0+w/2,y:H-8,"font-size":11.5,fill:"var(--muted)","text-anchor":"middle"},svg);l.textContent=labels[i];
+    const hit=el("rect",{x:m.l+i*bw,y:m.t,width:bw,height:H-m.t-m.b,fill:"transparent"},svg);
+    hit.addEventListener("pointerenter",()=>{tip.innerHTML=`<div class="d">${labels[i]}</div><b>${fmt(v)}</b>${tipExtra?tipExtra(i):""}`;tip.hidden=false;const R=svg.getBoundingClientRect();tip.style.left=Math.min((m.l+i*bw)*R.width/W_,R.width-tip.offsetWidth)+"px";tip.style.top="0px"});
+    hit.addEventListener("pointerleave",()=>tip.hidden=true)});
+  host.appendChild(svg);host.appendChild(tip);
+}
+barChart(document.getElementById("c-rev"),{labels:HALF.map(r=>r[0]),values:HALF.map(r=>r[1]),fmt:v=>fmtN(v,2),h:200});
+barChart(document.getElementById("c-margin"),{labels:MARGIN.map(r=>r[0]),values:MARGIN.map(r=>r[1]),fmt:v=>fmtN(v,1)+" %",h:200});
+barChart(document.getElementById("c-seas"),{labels:MON,values:SEAS,fmt:v=>(v>0?"+":"")+fmtN(v,1),h:220,tipExtra:i=>`<div>${SEASHIT[i]} % der Jahre positiv</div>`});
+const BANDS=[{"from": 482, "to": 512, "type": "res"}, {"from": 430, "to": 451, "type": "res"}, {"from": 389, "to": 405, "type": "sup"}, {"from": 345, "to": 360, "type": "sup"}], REFS=[{"v": 444, "label": "Trigger 444"}];
+const wd=W.map(r=>r[0]);
+lineChart(document.getElementById("c-week"),{dates:wd,series:[{name:"Kurs",values:W.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:W.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:W.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,yFmt:v=>fmtN(v,0),h:320});
+lineChart(document.getElementById("c-adw"),{dates:wd,series:[{name:"A/D Woche",values:W.map(r=>r[5]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,zero:true});
+lineChart(document.getElementById("c-rsiw"),{dates:wd,series:[{name:"RSI Woche",values:W.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,refs:[{v:70,label:"70 überkauft"},{v:30,label:"30 überverkauft"}],pad:[10,90]});
+const dd=DD.map(r=>r[0]);
+lineChart(document.getElementById("c-day"),{dates:dd,series:[{name:"Kurs",values:DD.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:DD.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:DD.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,refs:REFS,yFmt:v=>fmtN(v,0),h:260});
+lineChart(document.getElementById("c-add"),{dates:dd,series:[{name:"A/D Tag",values:DD.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:260,zero:true});
+</script>

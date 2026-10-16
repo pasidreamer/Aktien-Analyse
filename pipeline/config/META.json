@@ -1,0 +1,95 @@
+{
+"ticker":"META","name":"Meta",
+"meta":"Meta Platforms, Inc. · NASDAQ: META · Facebook, Instagram, WhatsApp, Werbung und KI · USA",
+"price":"733.06 $",
+"pricemeta":"Stand 29.09.2026, 21:20 Uhr (US-Handel lief noch) · Hoch 24.09.2026: 777.59 $ · Tief Juli 2026: 539.03 $",
+"verdict":"Das Werbegeschäft wächst so schnell wie seit Jahren nicht, aber Kosten und KI-Investitionen fressen den Free Cashflow auf. Nach dem Sprung im September ist der Kurs heiss gelaufen, und die A/D-Linie zieht nicht mit. Qualität hellgrün, Timing gelb: auf einen Rücksetzer in die Zone 680–692 $ warten.",
+"about":"Meta verdient fast das ganze Geld mit <b>Werbung</b> auf Facebook, Instagram, WhatsApp und Threads, zusammen über 3 Milliarden Nutzer pro Tag. Daneben investiert Meta Milliarden in <b>KI</b> (Meta AI, neu der persönliche KI-Assistent „Muse“) und in <b>Reality Labs</b> (Brillen und VR), das hohe Verluste schreibt.",
+"why":"Bei den Zahlen am 29. Juli wuchs der Umsatz um 28 %, der Gewinn pro Aktie lag aber mit 6.18 $ klar unter der Erwartung von rund 7.22 $ (Rechtskosten 2.4 Mrd. $, Abfindungen 1.2 Mrd. $). Dazu erhöhte Meta die Untergrenze der Investitionen für 2026 auf 130 Mrd. $, und der Free Cashflow im Quartal schrumpfte auf 0.8 Mrd. $. Die Aktie fiel auf 539 $. Im September drehte die Stimmung: Der neue KI-Assistent Muse wurde schnell zur meistgeladenen KI-App, Wells Fargo hob das Kursziel auf 796 $, und die Aktie sprang am 21.9. um 11 %. Der Anstieg ist also vor allem von Hoffnung auf neue KI-Einnahmen getrieben, die Zahlen müssen das erst noch zeigen.",
+"kpis":[
+ ["g","Umsatzwachstum","+28 %","2. Quartal 2026. Das stärkste Tempo seit Jahren, das Werbegeschäft läuft ausgezeichnet."],
+ ["w","Operative Marge","34.8 %","2. Quartal. Vor einem Jahr waren es 43 %. Von 100 $ Umsatz bleiben immer noch 35 $ Betriebsgewinn, aber die Kosten steigen schneller als der Umsatz."],
+ ["w","Gewinn pro Aktie (EPS)","−13 %","2. Quartal, ausgewiesen. Ohne Rechtskosten und Abfindungen wäre der Betriebsgewinn um rund 9 % gestiegen. Mässig."],
+ ["w","ROIC","25.4 %","Gewinn pro investiertem Dollar. Immer noch stark, aber 2024 waren es 44 %. Der Trend zeigt klar nach unten."],
+ ["b","Free Cashflow","41.0 Mrd. $","Letzte 12 Monate. Im 2. Quartal nur noch 0.8 Mrd. $, vor einem Jahr 8.6 Mrd. Die Investitionen verschlingen fast alles."],
+ ["g","Nettoschulden / EBITDA","0.20","Kaum Nettoschulden. Meta ist allerdings von viel Netto-Cash zu leichten Nettoschulden gewechselt."],
+ ["w","KGV aktuell / erwartet","27.0 / 22.2","Du zahlst rund 22 erwartete Jahresgewinne. Eigener Schnitt 2021–2025: rund 22. Also fair bewertet, nicht günstig."],
+ ["w","Aktienrückkauf","1.1 % pro Jahr","Meta kauft noch eigene Aktien zurück, aber deutlich weniger als früher."]
+],
+"revnote":"Jedes Quartal lag über dem gleichen Quartal des Vorjahres, und das Wachstum hat sich beschleunigt.",
+"marginnote":"Nach dem Rekord 2024 sinkt die Marge wieder: Personal, Rechenzentren und KI kosten mehr, als der Umsatz zulegt.",
+"finnote":"<b>Hinweis zum Gewinn pro Aktie:</b> 2025 enthält eine einmalige Steuerbelastung (3. Quartal 2025: nur 1.05 $ pro Aktie). Darum wirkt das EPS-Wachstum 2025 negativ. Für die Bewertung nehme ich das erwartete KGV (22.2) gegen den eigenen Schnitt 2021–2025 (22.4).",
+"FIN":[["2022",116609,"−1.1 %","28.8 %",8.59,19289,"26.7 %","13.6"],["2023",134902,"+15.7 %","34.7 %",14.87,44068,"32.6 %","23.3"],["2024",164501,"+21.9 %","42.2 %",23.86,54072,"43.9 %","23.7"],["2025",200966,"+22.2 %","41.4 %",23.49,46109,"31.3 %","27.5"],["Letzte 12 Mt.",228247,"+27.7 %","38.1 %",26.54,40976,"25.4 %","27.0"]],
+"QREV":[["Q3 24",40.6],["Q4 24",48.4],["Q1 25",42.3],["Q2 25",47.5],["Q3 25",51.2],["Q4 25",59.9],["Q1 26",56.3],["Q2 26",60.8]],
+"MARGIN":[["2022",28.8],["2023",34.7],["2024",42.2],["2025",41.4],["12 Mt.",38.1]],
+"Q":[
+ ["Umsatztrend","4 von 4 Quartalen über Vorjahr, Tempo beschleunigt (bis +33 %)",15,15],
+ ["Wachstumstempo","+27.7 % in den letzten 12 Monaten",10,10],
+ ["Operative Marge","38 % (9 Pkt.), Trend über 5 Jahre stabil, zuletzt fallend (3 Pkt.)",12,15],
+ ["Gewinnwachstum (EPS)","Bereinigt aktuell nur rund +5–10 %",5,10],
+ ["Free Cashflow","Positiv, aber seit 2024 sinkend (54 → 41 Mrd. $)",3,10],
+ ["ROIC","25.4 %, stark fallend",12,15],
+ ["Schulden","Nettoschulden/EBITDA 0.20",9,10],
+ ["Bewertung vs. eigene Historie","Erw. KGV 22.2 gleich wie Ø 22.4",7,15]
+],
+"adwnote":"Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Seit Oktober 2025 fällt die Linie deutlich. Der Kurs steht heute höher als im April, die A/D-Linie tiefer.",
+"rsiwnote":"Unter 30 überverkauft, über 70 überkauft. Im März fiel er auf 33, heute 61: kräftig, nicht überhitzt.",
+"addnote":"Der Kurs stieg seit August um über 30 %, die A/D-Linie aber kaum. Am Hoch vom 24.9. lag sie tiefer als am April-Hoch. Das heisst: Der Anstieg wird von wenig echter Kaufkraft getragen.",
+"ind":[
+ ["Kurs vs. EMA 50","733.06 &gt; 642.88","733.07 &gt; 634.56","Weit über der mittelfristigen Linie (+14 %): stark, aber gedehnt."],
+ ["Kurs vs. EMA 200","733.06 &gt; 630.54","733.07 &gt; 537.92","Über der langfristigen Linie: Aufwärtstrend."],
+ ["EMA 50 vs. EMA 200","50 über 200 (Golden Cross 24.09.2026)","50 über 200","Der Tageschart hat den Aufwärtstrend eben erst bestätigt."],
+ ["RSI (14)","63.7","61.0","Am 24.9. war der RSI Tag bei 80 (überkauft), jetzt kühlt er ab."],
+ ["A/D","tiefer als am April-Hoch","tiefer als am April-Hoch","Bärische Divergenz auf beiden Zeitebenen: Kurs höher, A/D tiefer. Das deutet auf Verteilung hin."],
+ ["Volumen","Ø 20 Tage 23.7 Mio. vs. Ø 100 Tage 18.8 Mio.","Hohes Volumen durch die News im September. Die grossen Tage waren Kauftage, danach viel Abgabe."]
+],
+"smc":"Von April bis August lief Meta seitwärts zwischen rund 525 und 692 $. Am 21. September brach der Kurs mit einer Kurslücke über das alte Hoch von 691.52 $: ein Break of Structure nach oben. Nach dem Hoch bei 779.82 $ kam der erste Rücksetzer auf 713 $. Der Kurs steht in der teuren Hälfte (Premium) der Bewegung. Die Mitte zwischen dem August-Tief (537 $) und dem Hoch liegt bei rund 658 $. Das alte Hoch bei 680–692 $ sollte jetzt als Boden halten (Retest).",
+"zones":[
+ ["r","778–785 $","Widerstand: Hoch vom 24.9. (779.82 $) und Allzeithoch-Wochenschluss 785.23 $ vom August 2025."],
+ ["s","713–716 $","Erste Unterstützung: Tief vom 28.9."],
+ ["t","680–692 $","<b>Nachkaufzone: Retest des Ausbruchs.</b> Das alte Hoch sollte jetzt als Boden halten. Kauf-Signal, wenn der Kurs hier dreht (Tagesschluss wieder über 700 $ mit steigender A/D)."],
+ ["s","625–643 $","Offene Kurslücke vom 8./9.9. (625–639 $) und EMA 50/200 Tag. Letzte starke Zone vor dem Abbruch."],
+ ["r","625 $","Abbruch: Ein Wochenschluss darunter macht den Ausbruch ungültig."]
+],
+"smart":[
+ "<b>Meta selbst:</b> Kauft rund 1.1 % der Aktien pro Jahr zurück, weniger als früher. Dividende 0.3 %.",
+ "<b>Insider-Käufe:</b> Keine in den letzten 12 Monaten.",
+ "<b>Insider-Verkäufe:</b> Rund 257 Mio. $ in 6 Monaten: Finanzchefin Susan Li im Februar rund 72 Mio. $, Chief Operating Officer Javier Olivan wöchentlich, Mark Zuckerberg am 24.9. für 21 Mio. $, genau am Hoch.",
+ "<b>Grosse Fonds:</b> Rund 68 % der Aktien liegen bei institutionellen Anlegern. Die 13F-Meldungen für Q3 kommen Mitte November."
+],
+"seasfrom":"2012",
+"seasnote":"Durchschnittliche Monatsrendite in %, 14 Jahre seit dem Börsengang. Oktober ist mit −2.5 % und nur 43 % positiven Jahren der schwächste Monat, November wieder stark.",
+"SEAS":[[1,9.1,71],[2,-1.0,36],[3,-0.6,50],[4,4.5,64],[5,3.3,79],[6,2.5,73],[7,4.5,67],[8,1.3,67],[9,0.8,50],[10,-2.5,43],[11,4.3,64],[12,1.4,64]],
+"T":[
+ ["Trend Woche (EMA 50/200)","Kurs über beiden, EMA 50 über EMA 200",18,20],
+ ["Trend Tag (EMA 50/200)","Kurs über beiden, frisches Golden Cross",9,10],
+ ["Struktur (SMC)","Break of Structure nach oben, aber Kurs im Premium",14,20],
+ ["RSI Tag/Woche","64 / 61, Tag kühlt von 80 ab",7,15],
+ ["A/D Tag/Woche","Kurs höher, A/D tiefer: Verteilung",2,20],
+ ["Smart Money","Gehäufte Insider-Verkäufe, kleiner Rückkauf",0,10],
+ ["Saisonalität","Okt–Dez: Ø 57 % positive Jahre, Oktober schwach",3,5]
+],
+"pro":[
+ "Umsatz wächst mit 28 %, das Werbegeschäft ist stärker denn je.",
+ "Muse könnte eine neue Einnahmequelle werden (Abos für KI-Nutzung).",
+ "Erwartetes KGV rund 22, nicht teurer als üblich.",
+ "Kaum Schulden, Ausbruch über das alte Hoch im September."
+],
+"con":[
+ "Investitionen von mindestens 130 Mrd. $ in diesem Jahr: Der Free Cashflow ist im letzten Quartal fast auf null gefallen.",
+ "Marge und ROIC sinken deutlich.",
+ "A/D-Linie auf Tag und Woche zeigt eine bärische Divergenz.",
+ "Viele Insider-Verkäufe, auch von Zuckerberg genau am Hoch.",
+ "Oktober ist saisonal der schwächste Monat, die Zahlen kommen am 28.10.",
+ "Überschneidung mit deinen ETFs: Meta ist dort schon gewichtet."
+],
+"todo":[
+ ["t","Beobachten","Alarm bei 692 $ (Oberkante der Nachkaufzone) und bei 780 $ (neues Hoch)."],
+ ["s","Timing grün","Rücksetzer in 680–692 $, dort ein Tagesschluss wieder über 700 $ und die Tages-A/D macht ein höheres Tief. Oder: neues Hoch über 780 $ mit A/D auf neuem Hoch (dann ist die Divergenz aufgelöst). Dann springt das Timing auf rund 70."],
+ ["r","Abbruch","Wochenschluss unter 625 $: Ausbruch gescheitert, neu bewerten."],
+ ["","Nächste Zahlen","28. Oktober 2026 (3. Quartal). Entscheidend: Ausblick auf die Investitionen 2027 und der Free Cashflow."]
+],
+"bands":[{"from":778,"to":785,"type":"res"},{"from":680,"to":692,"type":"sup"},{"from":625,"to":643,"type":"sup"}],
+"refs":[{"v":692,"label":"Nachkaufzone 680–692"}],
+"sources":"Fundamentaldaten: <a href=\"https://stockanalysis.com/stocks/meta/financials/\" target=\"_blank\" rel=\"noopener\">StockAnalysis.com</a> (Stand 29.09.2026), <a href=\"https://www.indmoney.com/blog/us-stocks/why-meta-stock-fell-q2-earnings-analysis\" target=\"_blank\" rel=\"noopener\">Meta Q2-Zahlen</a>, <a href=\"https://www.fool.com/coverage/stock-market-today/2026/09/21/stock-market-today-sept-21-meta-surges-on-excitement-over-muse-personal-ai-agent/\" target=\"_blank\" rel=\"noopener\">Kurssprung 21.9. (Motley Fool)</a>, <a href=\"https://www.marketbeat.com/stocks/NASDAQ/META/insider-trades/\" target=\"_blank\" rel=\"noopener\">Insider (MarketBeat)</a>."
+}

@@ -1,0 +1,95 @@
+{
+"ticker":"MSFT","name":"Microsoft",
+"meta":"Microsoft Corporation · NASDAQ: MSFT · Cloud (Azure), Office-Software, KI · USA",
+"price":"511.42 $",
+"pricemeta":"Stand 29.09.2026, 21:20 Uhr (US-Handel lief noch) · 2 % unter dem Allzeithoch (Wochenschluss 524.11 $) · Tief März 2026: 356.77 $",
+"verdict":"Eine der stärksten Firmen der Welt, und der Kurs hat den Einbruch vom Frühling fast ganz aufgeholt. Qualität grün, Timing hellgrün. Der Kurs steht aber direkt unter dem Allzeithoch: Ein sauberer Einstieg ist ein Rücksetzer in die Zone 477–491 $ oder ein Wochenschluss über 525 $.",
+"about":"Microsoft verdient an drei Säulen: <b>Azure</b> (Rechenzentren und KI-Rechenleistung zur Miete, der Wachstumsmotor), <b>Microsoft 365</b> (Office, Teams, dazu der KI-Assistent Copilot im Abo) und <b>Windows, LinkedIn und Xbox</b>. Ein grosser Teil des Umsatzes ist wiederkehrend, weil Firmen Abos und Cloud-Verträge über Jahre abschliessen.",
+"why":"Im Januar 2026 fiel die Aktie an einem Tag um 12 %: Anleger störten sich an den riesigen Investitionen in Rechenzentren und daran, dass OpenAI rund 45 % der Cloud-Auftragsbücher ausmacht. Bis Ende März ging es auf 357 $ hinunter (−32 % vom Hoch). Die Jahreszahlen vom 29. Juli drehten das Bild: Azure wuchs um 43 %, der Umsatz lag mit 90 Mrd. $ klar über den Erwartungen, und der Auftragsbestand stieg um 84 % auf 678 Mrd. $. Die Aktie sprang am nächsten Tag um 15 % und bewegt sich seither zwischen 480 und 520 $. Die Sorge vor zu hohen Investitionen ist also nicht verschwunden, aber sie wird gerade von echtem Wachstum überdeckt.",
+"kpis":[
+ ["g","Umsatzwachstum","+17.8 %","Geschäftsjahr bis Juni 2026. Für eine Firma mit 332 Mrd. $ Umsatz sehr stark. Das Tempo hat sich gegenüber dem Vorjahr (+14.9 %) sogar erhöht."],
+ ["g","Operative Marge","46.8 %","Von 100 $ Umsatz bleiben fast 47 $ Betriebsgewinn. Das ist Spitzenklasse und seit 2023 jedes Jahr höher."],
+ ["g","Gewinn pro Aktie (EPS)","+30 %","Bereinigt, letztes Quartal (4.74 $ statt 3.65 $). Wächst schneller als der Umsatz, das ist gut."],
+ ["w","ROIC","26.2 %","Gewinn pro investiertem Dollar. Über 20 % ist stark, aber der Wert sinkt seit Jahren (2022: 62 %), weil die Rechenzentren so viel Kapital binden."],
+ ["w","Free Cashflow","67.0 Mrd. $","Echtes Geld nach allen Investitionen. Hoch, aber seit 2024 (74.1 Mrd.) leicht rückläufig: Die Investitionen wachsen schneller."],
+ ["g","Nettoschulden / EBITDA","0.27","In gut drei Monaten könnte Microsoft alle Nettoschulden aus dem Betriebsgewinn tilgen. Sehr solide."],
+ ["g","KGV aktuell / erwartet","28.4 / 25.8","Du zahlst rund 26 Jahresgewinne (erwartet). Eigener Schnitt 2022–2026: rund 31. Also etwa 17 % günstiger als üblich."],
+ ["w","Investitionen (Capex)","≈ 175 Mrd. $","Geschäftsjahr 2026, vor allem KI-Rechenzentren. Das ist der grösste Streitpunkt: Zahlt sich das aus?"]
+],
+"revnote":"Jedes Quartal lag über dem gleichen Quartal des Vorjahres, zuletzt mit +17.8 %.",
+"marginnote":"Seit 2023 jedes Jahr höher. Trotz Milliarden-Investitionen wird Microsoft profitabler.",
+"finnote":"<b>Hinweis zum Gewinn pro Aktie:</b> Das ausgewiesene EPS für das Geschäftsjahr 2026 (+31.6 %) enthält Sondereffekte aus Beteiligungen. Darum ist das KGV Ende Juni mit 20.7 ungewöhnlich tief. Für den Vergleich nehme ich das erwartete KGV (25.8) gegen den Schnitt der letzten fünf Jahre (rund 31). Geschäftsjahr endet jeweils am 30. Juni.",
+"FIN":[["GJ 2022",198270,"+18.0 %","42.1 %",9.65,65149,"61.9 %","26.4"],["GJ 2023",211915,"+6.9 %","41.8 %",9.68,59475,"45.6 %","35.0"],["GJ 2024",245122,"+15.7 %","44.6 %",11.80,74071,"38.5 %","37.7"],["GJ 2025",281724,"+14.9 %","45.6 %",13.64,71611,"32.5 %","36.3"],["GJ 2026",331839,"+17.8 %","46.8 %",17.95,66987,"29.3 %","20.7"],["Heute",331839,"+17.8 %","46.8 %",17.95,66987,"26.2 %","28.4"]],
+"QREV":[["Q3 24",65.6],["Q4 24",69.6],["Q1 25",70.1],["Q2 25",76.4],["Q3 25",77.7],["Q4 25",81.3],["Q1 26",82.9],["Q2 26",90.0]],
+"MARGIN":[["GJ 22",42.1],["GJ 23",41.8],["GJ 24",44.6],["GJ 25",45.6],["GJ 26",46.8]],
+"Q":[
+ ["Umsatztrend","4 von 4 Quartalen über Vorjahr, Tempo stabil bei 17–18 %",12,15],
+ ["Wachstumstempo","+17.8 % im Geschäftsjahr 2026",10,10],
+ ["Operative Marge","46.8 %, seit 2023 steigend",15,15],
+ ["Gewinnwachstum (EPS)","Bereinigt rund +30 % im letzten Quartal",10,10],
+ ["Free Cashflow","Positiv, aber seit 2024 sinkend (74 → 67 Mrd. $)",3,10],
+ ["ROIC","26.2 %, klar fallender Trend",12,15],
+ ["Schulden","Nettoschulden/EBITDA 0.27",9,10],
+ ["Bewertung vs. eigene Historie","Erw. KGV 25.8 statt Ø rund 31 (−17 %)",10,15]
+],
+"adwnote":"Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Der Kurs ist fast zurück am Hoch von 2025, die A/D-Linie liegt aber noch deutlich darunter.",
+"rsiwnote":"Unter 30 überverkauft, über 70 überkauft. Im März 2026 fiel er auf 25 (Panik), heute 63: kräftig, aber nicht überhitzt.",
+"addnote":"Die Tages-A/D-Linie steht auf dem höchsten Stand der sechs Monate. Der Anstieg seit Juli wird also von Käufern getragen.",
+"ind":[
+ ["Kurs vs. EMA 50","511.42 &gt; 479.47","511.46 &gt; 451.64","Über der mittelfristigen Linie: Käufer haben die Oberhand."],
+ ["Kurs vs. EMA 200","511.42 &gt; 447.73","511.46 &gt; 410.09","Über der langfristigen Linie: langfristiger Aufwärtstrend."],
+ ["EMA 50 vs. EMA 200","50 über 200 (Golden Cross 14.08.2026)","50 über 200","Beide Zeitebenen bestätigen den Aufwärtstrend."],
+ ["RSI (14)","59.6","62.8","Kräftig, aber nicht überkauft. Kein Extrem, kein Signal."],
+ ["A/D","neues 6-Monats-Hoch","unter dem Stand von 2025","Gemischt: kurzfristig starke Käufe, langfristig ist das Geld noch nicht ganz zurück."],
+ ["Volumen","Ø 20 Tage 20.6 Mio. vs. Ø 100 Tage 34.3 Mio.","Der Anstieg läuft mit sinkendem Volumen. Ruhig, aber mit weniger Beteiligung als nach den Zahlen im Juli."]
+],
+"smc":"Seit dem Tief im Juni (349.20 $) macht Microsoft höhere Hochs und höhere Tiefs, also einen sauberen Aufwärtstrend. Die grosse Kurslücke nach den Zahlen Ende Juli (401 → 432 $) ist bis heute offen. Seit August pendelt der Kurs zwischen rund 477 und 520 $, die Tiefs steigen dabei leicht (477 → 487 $). Der Kurs steht jetzt oben in dieser Spanne, direkt unter dem Allzeithoch. Das ist die teure Hälfte (Premium), nicht die günstige (Discount).",
+"zones":[
+ ["r","519–525 $","Widerstand: Allzeithoch (Wochenschluss 524.11 $ im Juli 2025, Tageshoch 519.40 $ am 25.9.). Hier haben Verkäufer schon dreimal gebremst."],
+ ["t","525 $","<b>Trigger: Ausbruch (Break of Structure).</b> Ein Wochenschluss über dem Allzeithoch öffnet den Weg nach oben. Idealerweise mit steigender Wochen-A/D."],
+ ["s","487–491 $","Erste Unterstützung: Tiefs vom 9. und 16. September."],
+ ["s","477–480 $","Wichtige Unterstützung: Tief vom 18. August und EMA 50 (Tag). Die günstigste Zone innerhalb des Aufwärtstrends."],
+ ["s","432–467 $","Offene Kurslücke (Fair Value Gap) von Ende Juli. Tiefe Nachkaufzone, falls der Markt stärker korrigiert."]
+],
+"smart":[
+ "<b>Microsoft selbst:</b> Kauft Aktien zurück, aber wenig (rund 0.2 % pro Jahr). Das Geld fliesst fast ganz in Rechenzentren. Dividende 0.8 %.",
+ "<b>Insider-Käufe:</b> Verwaltungsrat John Stanton kaufte am 18.2.2026 5000 Aktien für 2 Mio. $ zu 397 $. Das war nahe am Tief, liegt aber schon über 6 Monate zurück.",
+ "<b>Insider-Verkäufe:</b> CEO Satya Nadella verkaufte am 1.9. Aktien für 43 Mio. $, Finanzchefin Amy Hood am 14.9. für 21 Mio. $. Solche Verkäufe sind bei Microsoft üblich, zeigen aber keinen zusätzlichen Kaufwillen nahe am Hoch.",
+ "<b>Grosse Fonds:</b> Rund 75 % der Aktien liegen bei institutionellen Anlegern. Die Quartalsmeldungen (13F) für Q3 kommen erst Mitte November."
+],
+"seasfrom":"1986",
+"seasnote":"Durchschnittliche Monatsrendite in %, 40 Jahre. Oktober ist mit +4.9 % und 65 % positiven Jahren einer der stärksten Monate, Februar der schwächste.",
+"SEAS":[[1,5.1,65],[2,-1.0,43],[3,2.9,65],[4,3.5,68],[5,2.9,66],[6,1.9,56],[7,0.3,54],[8,1.6,61],[9,0.6,57],[10,4.9,65],[11,2.4,60],[12,1.5,57]],
+"T":[
+ ["Trend Woche (EMA 50/200)","Kurs über beiden, EMA 50 über EMA 200",19,20],
+ ["Trend Tag (EMA 50/200)","Kurs über beiden, Golden Cross im August",9,10],
+ ["Struktur (SMC)","Höhere Hochs und höhere Tiefs, aber oben in der Spanne",14,20],
+ ["RSI Tag/Woche","60 / 63: kräftig, keine Divergenz",7,15],
+ ["A/D Tag/Woche","Tag neues Hoch, Woche noch unter 2025",11,20],
+ ["Smart Money","Kleiner Rückkauf, keine neuen Insider-Käufe",3,10],
+ ["Saisonalität","Okt–Dez: Ø 61 % positive Jahre",5,5]
+],
+"pro":[
+ "Azure wächst mit 43 % und beschleunigt sogar. Der Auftragsbestand von 678 Mrd. $ sichert Umsatz für Jahre.",
+ "Marge fast 47 %, seit 2023 jedes Jahr höher.",
+ "Erwartetes KGV rund 26, günstiger als der eigene Schnitt der letzten fünf Jahre.",
+ "Kaum Schulden und ein sehr stabiles Abo-Geschäft.",
+ "Sauberer Aufwärtstrend auf Tag und Woche. Oktober und November sind historisch starke Monate."
+],
+"con":[
+ "Rund 175 Mrd. $ Investitionen pro Jahr drücken den Free Cashflow und den ROIC.",
+ "Klumpenrisiko OpenAI: ein grosser Teil der Cloud-Aufträge hängt an einem einzigen Kunden, der selbst Verluste schreibt.",
+ "Kurs direkt unter dem Allzeithoch: wenig Sicherheitsabstand für einen Einstieg jetzt.",
+ "Wochen-A/D bestätigt das Hoch noch nicht.",
+ "Überschneidung mit deinen ETFs: Microsoft ist dort schon stark gewichtet."
+],
+"todo":[
+ ["t","Beobachten","Alarm bei 525 $ (Ausbruch über das Allzeithoch) und bei 491 $ (Beginn der Nachkaufzone)."],
+ ["s","Timing grün","Variante 1: Wochenschluss über 525 $ und die Wochen-A/D steigt über den Stand von 2025. Variante 2 (günstiger): Rücksetzer in 477–491 $, der RSI Tag dreht aus 40–45 nach oben und die Tages-A/D hält sich. Dann springt das Timing auf rund 75."],
+ ["r","Abbruch","Wochenschluss unter 477 $: Die Serie höherer Tiefs ist gebrochen. Dann neu bewerten, nächste Zone ist die Kurslücke 432–467 $."],
+ ["","Nächste Zahlen","28. Oktober 2026 (1. Quartal Geschäftsjahr 2027). Wichtig: Azure-Wachstum (Ziel 45 %) und Ausblick für die Investitionen."]
+],
+"bands":[{"from":519,"to":525,"type":"res"},{"from":477,"to":491,"type":"sup"},{"from":432,"to":467,"type":"sup"}],
+"refs":[{"v":525,"label":"Trigger 525"}],
+"sources":"Fundamentaldaten: <a href=\"https://stockanalysis.com/stocks/msft/financials/\" target=\"_blank\" rel=\"noopener\">StockAnalysis.com</a> (Stand 29.09.2026), <a href=\"https://news.microsoft.com/source/2026/07/29/microsoft-cloud-and-ai-strength-fuels-fourth-quarter-results-4/\" target=\"_blank\" rel=\"noopener\">Microsoft Q4-Zahlen</a>, <a href=\"https://finance.yahoo.com/technology/articles/microsoft-q4-2026-earnings-azure-111058880.html\" target=\"_blank\" rel=\"noopener\">Yahoo Finance zu Q4</a>, <a href=\"https://www.aljazeera.com/economy/2026/1/29/microsoft-stock-plunges-as-wall-street-questions-ai-investments\" target=\"_blank\" rel=\"noopener\">Kurseinbruch Januar</a>, <a href=\"https://www.marketbeat.com/stocks/NASDAQ/MSFT/insider-trades/\" target=\"_blank\" rel=\"noopener\">Insider (MarketBeat)</a>."
+}

@@ -1,0 +1,29 @@
+{
+ "ticker": "RACE",
+ "sorgen": [
+  "Am Investorentag im Oktober 2025 versprach Ferrari bis 2030 nur rund 5 % mehr Umsatz und rund 6 % mehr Gewinn pro Aktie pro Jahr. Die Aktie fiel an einem Tag um 15 % und bis März 2026 vom Hoch 519 $ auf 312.51 $ (−40 %).",
+  "Das erste Elektroauto Luce (rund 550'000 €) kam am 25.05.2026 schlecht an, vor allem das Aussehen. Die Aktie fiel am Tag danach um 6 %.",
+  "Ferrari liefert weniger Autos aus und wächst nur noch über höhere Preise, Sonderwünsche und teure Sondermodelle wie den F80. Citi zweifelt, dass das so weitergeht.",
+  "Mit einem KGV von rund 38 ist die Aktie absolut immer noch teuer. Dazu kommen US-Zölle von 15 % auf Autos aus der EU."
+ ],
+ "sorgen_art": "stimmung",
+ "sorgen_art_text": "Das Geschäft läuft gut (Prognose 2026 im Juli erhöht, Marge 29 %, Bestellungen bis 2027), gefallen ist vor allem die hohe Bewertung, weil das Wachstum langsamer wird.",
+ "aufloeser": [
+  {"was": "Zahlen zum 3. Quartal: Bestätigt Ferrari die erhöhte Prognose 2026 (Umsatz rund 7.6 Mrd. €, Gewinn pro Aktie mindestens 9.68 €)?", "wann": "Zahlen 03.11.2026"},
+  {"was": "Erste Fahrberichte und Auslieferungen des Luce. Fahren die Tester das Auto gut und kaufen die Kunden es, verschwindet die Elektro-Sorge", "wann": "voraussichtlich Ende 2026 bis 2027 (nicht bestätigt)"},
+  {"was": "Jahreszahlen 2026 mit Ausblick auf 2027 und Dividende. Ein Ausblick über dem Plan von 5 % Wachstum wäre ein klares Signal", "wann": "voraussichtlich Februar 2027"},
+  {"was": "Der laufende Aktienrückkauf (rund 3.5 Mrd. € bis 2030) stützt den Kurs bei jedem Rücksetzer", "wann": "laufend"}
+ ],
+ "schub_stufe": "schwach",
+ "schub_treiber": [
+  {"titel": "Mehr Geld pro Auto statt mehr Autos", "text": "Ferrari verdient immer mehr an Sonderwünschen (rund ein Fünftel des Autopreises) und an Sondermodellen wie dem F80 (rund 3.6 Mio. €). Darum stieg die operative Marge im 2. Quartal 2026 auf 31 %. Das hebt den Gewinn, aber nur in kleinen Schritten.", "wann": "2026–2027"},
+  {"titel": "Neue Modelle und Luce", "text": "Neue Modelle wie der Amalfi und der 849 Testarossa kommen auf den Markt, dazu ab 2026 der Luce. Laut Plan bleibt das Wachstum aber bei rund 5 % pro Jahr. Ein echter Schub wäre es nur, wenn der Luce viel mehr neue Kunden bringt als erwartet.", "wann": "2026–2028"}
+ ],
+ "schub_beweis": "Schau in den Quartalszahlen auf den Umsatz pro ausgeliefertem Auto und die operative Marge (2. Quartal 2026: 31 %). Steigen beide weiter, obwohl weniger Autos ausgeliefert werden, funktioniert das Modell.",
+ "szenario": "Kein Fall wie Google 2023, sondern eine Qualitätsaktie nach einer Bewertungs-Korrektur: Ferrari bleibt profitabel und wächst langsam, der Kurs kann mit dem Gewinn um rund 6 bis 10 % pro Jahr steigen (mit Rückkauf und Dividende). Grösstes Risiko: Das Wachstum sinkt unter den Plan oder der Luce floppt, dann kann das KGV von 38 weiter Richtung 30 fallen.",
+ "quellen": [
+  {"titel": "MarketScreener: Ferrari analysts remain cautious (19.01.2026)", "url": "https://www.marketscreener.com/news/ferrari-analysts-remain-cautious-but-the-stock-could-regain-momentum-ce7e58dfdc81ff21"},
+  {"titel": "Investing.com via Yahoo: Ferrari raises 2026 guidance despite Q2 miss (30.07.2026)", "url": "https://finance.yahoo.com/markets/stocks/articles/ferrari-shares-rise-raised-2026-113846722.html"},
+  {"titel": "Electrek: Ferrari stock falls on Luce EV backlash (26.05.2026)", "url": "https://electrek.co/2026/05/26/ferrari-race-stock-plunge-luce-ev-mach-e-moment/"}
+ ]
+}

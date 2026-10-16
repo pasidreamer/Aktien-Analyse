@@ -1,0 +1,388 @@
+{
+ "ticker": "ABF",
+ "name": "Associated British Foods",
+ "datum": "08.10.2026",
+ "meta": "Associated British Foods plc · London: ABF · Primark (Mode) und Lebensmittel (Twinings, Ovaltine, Zucker) · Grossbritannien",
+ "price": "1'831.5 p",
+ "pricemeta": "Kurs 08.10.2026 mittags, in Pence (= 18.32 £) · 52 Wochen: 1'729 – 2'359 p · Allzeithoch 3'387 p (2017)",
+ "verdict": "Mischkonzern aus Primark (Kleider) und Lebensmitteln. Das Geschäft schwächelt (Primark in Europa, Zucker mit Verlust), dafür ist die Bilanz solid und Ende 2027 wird Primark abgespalten. Qualität orange (33), Timing orange (36). Charttechnisch hält seit März eine Bodenzone bei 1'730–1'800 p, die Wochen-A/D steigt. Ein Tagesschluss über 1'900 p wäre ein erstes Signal.",
+ "about": "Associated British Foods (ABF) besteht aus zwei Welten: Primark, eine Billig-Modekette mit rund 450 Läden in Europa und den USA (über die Hälfte des Umsatzes und der grösste Teil des Gewinns), und ein Lebensmittelgeschäft mit Twinings-Tee, Ovaltine, Brot, Zucker (British Sugar), Zutaten und Landwirtschaft. Die Familie Weston kontrolliert rund 56 % der Aktien.",
+ "why": "Primark leidet in Kontinentaleuropa (Umsatz in bestehenden Läden −5 %), und das Zuckergeschäft schreibt wegen tiefer Zuckerpreise Verluste. Im Januar 2026 gab es eine Gewinnwarnung (Aktie −13 %), im April einen Gewinnrückgang von 19 % im Halbjahr. Gleichzeitig wurde entschieden, Primark bis Ende 2027 als eigene Firma an die Börse zu bringen. Am 10. September folgte ein schwaches Update (Aktie −8 %): grösserer Zuckerverlust im nächsten Jahr. Die Jahreszahlen kommen am 3. November.",
+ "kpis": [
+  [
+   "b",
+   "Umsatzwachstum",
+   "−2 %",
+   "1. Halbjahr GJ 2026, ohne Währungen. Primark in bestehenden Läden −2.6 % im Gesamtjahr."
+  ],
+  [
+   "w",
+   "Operative Marge",
+   "≈ 8 %",
+   "Bereinigt. Für einen Mix aus Detailhandel und Lebensmitteln ordentlich, aber seit 2024 (10 %) gesunken."
+  ],
+  [
+   "w",
+   "Gewinn pro Aktie (bereinigt)",
+   "≈ 154 p",
+   "Erwartung GJ 2026, nach 175 p (2025) und 197 p (2024). Sinkend."
+  ],
+  [
+   "w",
+   "Kapitalrendite (ROACE)",
+   "15.5 %",
+   "Firmenangabe GJ 2025, gesunken von 18.1 %. Nach anderer Rechnung (ROIC) nur rund 7 %."
+  ],
+  [
+   "w",
+   "Free Cashflow",
+   "≈ 0.7 Mrd. £",
+   "Positiv, aber stark schwankend."
+  ],
+  [
+   "g",
+   "Nettoschulden / EBITDA",
+   "≈ 1.0–1.4",
+   "Inklusive Mietverträge. Solide."
+  ],
+  [
+   "w",
+   "KGV erwartet",
+   "12.1",
+   "Eigener 5-Jahres-Schnitt: 12.3, also normal bewertet. Über 10 Jahre lag der Schnitt bei 15.4."
+  ],
+  [
+   "g",
+   "Dividende",
+   "3.4 %",
+   "63 p, nur 36 % des Gewinns: sicher. Dazu Rückkäufe."
+  ]
+ ],
+ "revtitle": "Umsatz pro Halbjahr (Mrd. £)",
+ "revunit": "Mio. £",
+ "epsunit": "p",
+ "margintitle": "Bereinigte operative Marge pro Geschäftsjahr",
+ "revnote": "3 von 4 Halbjahren unter Vorjahr.",
+ "marginnote": "Bereinigt. 2024 Spitze (10 %), seither wieder Richtung 8 %.",
+ "finnote": "<b>Hinweis:</b> Geschäftsjahr bis Mitte September. Marge bereinigt, EPS ausgewiesen in Pence (bereinigt GJ 2025: 174.9 p). In der Spalte ROIC steht die Firmenkennzahl ROACE (Rendite auf das durchschnittlich eingesetzte Kapital). GJ 2022 und 2023 profitierten noch von der Erholung nach Corona.",
+ "FIN": [
+  [
+   "GJ 2022",
+   16997,
+   "+22 %",
+   "8.4 %",
+   88.6,
+   -84,
+   "14.0 %",
+   "15.0"
+  ],
+  [
+   "GJ 2023",
+   19750,
+   "+16 %",
+   "7.7 %",
+   134.2,
+   269,
+   "13.6 %",
+   "15.3"
+  ],
+  [
+   "GJ 2024",
+   20073,
+   "+2 %",
+   "10.0 %",
+   193.7,
+   1355,
+   "18.1 %",
+   "11.1"
+  ],
+  [
+   "GJ 2025",
+   19459,
+   "−3 %",
+   "8.9 %",
+   141.6,
+   648,
+   "15.5 %",
+   "13.7"
+  ],
+  [
+   "Letzte 12 Mt.",
+   19420,
+   "−2 %",
+   "8.1 %",
+   133.3,
+   692,
+   "n. a.",
+   "13.7"
+  ]
+ ],
+ "QREV": [
+  [
+   "H2 23",
+   10.19
+  ],
+  [
+   "H1 24",
+   9.73
+  ],
+  [
+   "H2 24",
+   10.34
+  ],
+  [
+   "H1 25",
+   9.51
+  ],
+  [
+   "H2 25",
+   9.95
+  ],
+  [
+   "H1 26",
+   9.47
+  ]
+ ],
+ "revdec": 2,
+ "MARGIN": [
+  [
+   "GJ 22",
+   8.4
+  ],
+  [
+   "GJ 23",
+   7.7
+  ],
+  [
+   "GJ 24",
+   10.0
+  ],
+  [
+   "GJ 25",
+   8.9
+  ],
+  [
+   "12 Mt.",
+   8.1
+  ]
+ ],
+ "Q": [
+  [
+   "Umsatztrend",
+   "1 von 4 Halbjahren über Vorjahr",
+   0,
+   15
+  ],
+  [
+   "Wachstumstempo",
+   "Ohne Währungen rund −2 %",
+   0,
+   10
+  ],
+  [
+   "Operative Marge",
+   "≈ 8 % (3 Pkt.), stabil über 5 Jahre (3 Pkt.)",
+   6,
+   15
+  ],
+  [
+   "Gewinnwachstum (EPS)",
+   "Bereinigt seit 2023 rund +3 % pro Jahr, zuletzt sinkend",
+   2,
+   10
+  ],
+  [
+   "Free Cashflow",
+   "Positiv, stark schwankend",
+   6,
+   10
+  ],
+  [
+   "ROIC",
+   "ROACE 15.5 %, ROIC rund 7 %, sinkend",
+   5,
+   15
+  ],
+  [
+   "Schulden",
+   "Nettoschulden/EBITDA rund 1–1.4",
+   7,
+   10
+  ],
+  [
+   "Bewertung vs. eigene Historie",
+   "Erw. KGV 12.1 statt Ø 12.3",
+   7,
+   15
+  ]
+ ],
+ "adwnote": "Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien (Handel an der Heimatbörse). Bullisch: Im März lag der Kurs bei 1'770 p und die Wochen-A/D bei −11. Heute liegt der Kurs ähnlich (1'832 p), die A/D aber bei +11. Auf Wochenbasis wurde seit März deutlich eingesammelt.",
+ "rsiwnote": "Unter 30 überverkauft, über 70 überkauft. Heute 42: schwach, aber nicht überverkauft.",
+ "addnote": "Seit dem Kurssturz am 10.9. läuft die Tages-A/D leicht abwärts, der Kurs seitwärts. Kurzfristig noch kein Käufersignal.",
+ "ind": [
+  [
+   "Kurs vs. EMA 50",
+   "1'832 &lt; 1'918",
+   "1'832 &lt; 1'969",
+   "Unter der mittelfristigen Linie."
+  ],
+  [
+   "Kurs vs. EMA 200",
+   "1'832 &lt; 1'958",
+   "1'832 &lt; 2'058",
+   "Unter der langfristigen Linie."
+  ],
+  [
+   "EMA 50 vs. EMA 200",
+   "50 unter 200 (seit 21.9.2026)",
+   "50 unter 200 (seit Januar 2026)",
+   "Abwärtstrend."
+  ],
+  [
+   "RSI (14)",
+   "38.8",
+   "41.8",
+   "Schwach."
+  ],
+  [
+   "A/D",
+   "leicht fallend",
+   "klar höher als im März",
+   "Woche bullisch, Tag neutral bis schwach."
+  ],
+  [
+   "Volumen",
+   "Ø 20 Tage 0.74 Mio. vs. Ø 100 Tage 0.94 Mio.",
+   "Ruhig: Der Verkaufsdruck nach dem 10.9. hat nachgelassen."
+  ]
+ ],
+ "smc": "Seit März bildet ABF eine Bodenzone: Tiefs bei 1'729 p (März), 1'751 p (April), 1'757 p (Mai) und 1'777 p (10. September). Die Tiefs steigen leicht, und die Zone deckt sich mit den Tiefs von 2021 und 2023. Im August stieg der Kurs bis 2'136 p, der Kurssturz vom 10.9. führte zurück in die Bodenzone. Auf dem Tageschart gibt es seither ein höheres Tief (1'797 p am 21.9.). Ein Tagesschluss über 1'900 p (Hoch vom 30.9.) wäre der Change of Character.",
+ "zones": [
+  [
+   "r",
+   "1'960–2'010 p",
+   "Widerstand: EMA 200 Tag und Wochen-EMA 50."
+  ],
+  [
+   "t",
+   "1'900 p",
+   "<b>Trigger:</b> Tagesschluss über dem Hoch vom 30.9."
+  ],
+  [
+   "s",
+   "1'730–1'800 p",
+   "<b>Kaufzone:</b> Bodenzone aus vier Tiefs seit März, gleiche Höhe wie die Tiefs 2021 und 2023."
+  ],
+  [
+   "r",
+   "1'700 p",
+   "Abbruch: Wochenschluss darunter."
+  ]
+ ],
+ "smart": [
+  "<b>Familie Weston:</b> Hält rund 56 % und unterstützt die Abspaltung von Primark.",
+  "<b>Insider:</b> Keine freien Käufe, nur Verkäufe zur Bezahlung der Steuern auf Plan-Aktien.",
+  "<b>ABF selbst:</b> Rückkaufprogramm über 250 Mio. £ (rund 1.9 % des Börsenwerts).",
+  "<b>Analysten:</b> Zwischen „Halten“ und „Verkaufen“, durchschnittliches Kursziel rund 1'800–1'840 p."
+ ],
+ "seasnote": "Durchschnittliche Monatsrendite in %. Rund 38 Jahre. November ist mit +4 % und 71 % positiven Jahren der stärkste Monat, Dezember folgt (63 %).",
+ "T": [
+  [
+   "Trend Woche (EMA 50/200)",
+   "Kurs unter beiden",
+   1,
+   20
+  ],
+  [
+   "Trend Tag (EMA 50/200)",
+   "Kurs unter beiden",
+   0,
+   10
+  ],
+  [
+   "Struktur (SMC)",
+   "Bodenzone mit leicht steigenden Tiefs",
+   9,
+   20
+  ],
+  [
+   "RSI Tag/Woche",
+   "39 / 42, kein Signal",
+   7,
+   15
+  ],
+  [
+   "A/D Tag/Woche",
+   "Woche bullische Divergenz, Tag leicht fallend",
+   11,
+   20
+  ],
+  [
+   "Smart Money",
+   "Rückkauf 1.9 %, keine Insider-Käufe",
+   3,
+   10
+  ],
+  [
+   "Saisonalität",
+   "Nov–Dez stark (63–71 %)",
+   5,
+   5
+  ]
+ ],
+ "pro": [
+  "Die Abspaltung von Primark Ende 2027 kann versteckten Wert freilegen.",
+  "Solide Bilanz, Dividende braucht nur 36 % des Gewinns.",
+  "Bodenzone hält seit März, Wochen-A/D steigt.",
+  "November und Dezember saisonal stark.",
+  "Pfund-Aktie: verteilt dein Währungsrisiko weg vom Dollar."
+ ],
+ "con": [
+  "Umsatz und Gewinn sinken.",
+  "Primark schwach in Kontinentaleuropa.",
+  "Zuckergeschäft mit wachsenden Verlusten.",
+  "Mischkonzern: schwer zu bewerten.",
+  "Beim Kauf in London fallen 0.5 % britische Stempelsteuer an."
+ ],
+ "todo": [
+  [
+   "t",
+   "Beobachten",
+   "Alarm bei 1'900 p (Trigger) und 1'800 p (Kaufzone)."
+  ],
+  [
+   "s",
+   "Timing grün",
+   "Tagesschluss über 1'900 p mit steigender Tages-A/D. Am besten erst nach den Jahreszahlen vom 3.11."
+  ],
+  [
+   "r",
+   "Abbruch",
+   "Wochenschluss unter 1'700 p."
+  ],
+  [
+   "",
+   "Nächste Zahlen",
+   "3. November 2026 (Jahreszahlen GJ 2026)."
+  ]
+ ],
+ "bands": [
+  {
+   "from": 1960,
+   "to": 2010,
+   "type": "res"
+  },
+  {
+   "from": 1730,
+   "to": 1800,
+   "type": "sup"
+  }
+ ],
+ "refs": [
+  {
+   "v": 1900,
+   "label": "Trigger 1'900"
+  }
+ ],
+ "sources": "<a href=\"https://stockanalysis.com/quote/lon/ABF/financials/\" target=\"_blank\" rel=\"noopener\">StockAnalysis.com</a> (Stand 08.10.2026), <a href=\"https://www.abf.co.uk/investors\" target=\"_blank\" rel=\"noopener\">ABF Investor Relations</a>, <a href=\"https://www.hl.co.uk/shares/share-research/202609/associated-british-foods-q4-update-weak-performance\" target=\"_blank\" rel=\"noopener\">Update 10.9. (HL)</a>."
+}

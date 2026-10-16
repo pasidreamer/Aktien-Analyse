@@ -1,0 +1,402 @@
+{
+ "ticker": "TSLA",
+ "name": "Tesla",
+ "datum": "09.10.2026",
+ "meta": "Tesla, Inc. · Nasdaq: TSLA · Elektroautos, Energiespeicher, Robotaxi und Roboter (Optimus) · USA",
+ "price": "375.00 $",
+ "pricemeta": "Schluss 08.10.2026 · 52 Wochen: 297.38 – 498.83 $ · Allzeithoch 498.83 $ (Dezember 2025)",
+ "verdict": "Die Börse bezahlt bei Tesla vor allem die Zukunft (Robotaxi, Optimus, mögliche SpaceX-Fusion), nicht die heutigen Zahlen. Die heutigen Zahlen sind schwach: Marge 4 %, Gewinn seit 2023 um drei Viertel gesunken. Qualität orange (34), Timing orange (41). Technisch erholt sich der Kurs seit dem Juli-Tief (297 $) mit höheren Hochs. Ein Tagesschluss über 387 $ wäre das nächste Signal, aber erst nach den Zahlen am 21. Oktober.",
+ "about": "Tesla baut Elektroautos (vor allem Model Y und Model 3, dazu Cybertruck, Model S/X, Semi und das Robotaxi Cybercab). Dazu kommen Energiespeicher für Häuser und Stromnetze (Powerwall, Megapack), Solaranlagen und Dienstleistungen (Ladestationen, Versicherung, Software für autonomes Fahren). Der humanoide Roboter Optimus und das Robotaxi-Netz stehen noch am Anfang. Rund drei Viertel des Umsatzes kommen weiterhin aus dem Autogeschäft.",
+ "why": "Ende 2025 stieg die Aktie auf ein Allzeithoch von 499 $, getragen von der Robotaxi-Fantasie und dem neuen Vergütungspaket für Elon Musk (rund 1 Bio. $, im November 2025 genehmigt). Seither belastete vor allem das Kerngeschäft: In den USA fiel die Steuergutschrift für E-Autos weg, die Einnahmen aus CO2-Zertifikaten brachen ein, und die Marge sank. Am 22. Juli enttäuschten die Zahlen zum 2. Quartal: Rekordumsatz, aber kaum Gewinn (Marge 1.4 %) und erstmals seit 2024 negativer freier Cashflow wegen hoher Ausgaben für KI, Cybercab und Optimus. Die Aktie fiel in einer Woche um rund 20 % auf 297 $. Seither erholt sie sich: Seit Anfang September fahren in Austin Cybercabs ohne Fahrer, und die Auslieferungen im 3. Quartal (486'532 Autos) waren besser als erwartet. Dazu kommen Gerüchte über eine Fusion mit SpaceX.",
+ "kpis": [
+  [
+   "w",
+   "Umsatzwachstum",
+   "+11.8 %",
+   "Letzte 12 Monate. 2025 waren es −2.9 %, das 2. Quartal 2026 war mit +25 % stark (schwaches Vorjahr)."
+  ],
+  [
+   "b",
+   "Operative Marge",
+   "4.1 %",
+   "Von 100 $ Umsatz bleiben gut 4 $ Betriebsgewinn. 2022 waren es noch 16.8 %, im 2. Quartal 2026 nur 1.4 %. Schwach."
+  ],
+  [
+   "b",
+   "Gewinn pro Aktie (EPS)",
+   "1.08 $",
+   "2023 waren es noch 4.30 $. Im 2. Quartal bereinigt 0.33 $ statt der erwarteten 0.53 $."
+  ],
+  [
+   "b",
+   "ROIC",
+   "5.5 %",
+   "Auf jeden investierten Dollar gut 5 Cent Gewinn. 2022 waren es 48 Cent. Stark gefallen."
+  ],
+  [
+   "w",
+   "Free Cashflow",
+   "5.8 Mrd. $",
+   "Letzte 12 Monate positiv, im 2. Quartal aber −1.1 Mrd. $ wegen hoher Investitionen (5.8 Mrd. $ im Quartal)."
+  ],
+  [
+   "g",
+   "Netto-Cash",
+   "27.4 Mrd. $",
+   "Mehr Geld als Schulden (43.5 Mrd. Cash, 16.1 Mrd. Schulden). Sehr solide Bilanz."
+  ],
+  [
+   "b",
+   "KGV erwartet",
+   "≈ 160–200",
+   "Du zahlst 160 bis 200 erwartete Jahresgewinne. Eigener 5-Jahres-Schnitt rund 114. Sehr teuer: Der Preis setzt auf Robotaxi und Roboter."
+  ],
+  [
+   "w",
+   "Auslieferungen Q3",
+   "486'532",
+   "−2 % zum Vorjahr, aber über den Erwartungen (462'000). Energiespeicher 13.7 GWh (+10 %), hier unter den Erwartungen."
+  ]
+ ],
+ "revnote": "3 von 4 Quartalen über Vorjahr. Q3 2025 war durch Vorzieheffekte vor dem Ende der US-Steuergutschrift besonders stark.",
+ "marginnote": "Seit 2022 jedes Jahr gefallen: Preissenkungen, weniger CO2-Zertifikate, hohe Ausgaben für KI und neue Produkte.",
+ "finnote": "<b>Hinweis:</b> Tesla zahlt keine Dividende und kauft keine eigenen Aktien zurück. Das KGV ist auf ausgewiesenem Gewinn gerechnet und darum extrem hoch. Im 2. Quartal 2026 enthielt der Gewinn rund 1 Mrd. $ Buchgewinn aus der Beteiligung an SpaceX/xAI.",
+ "FIN": [
+  [
+   "2022",
+   81462,
+   "+51.4 %",
+   "16.8 %",
+   3.62,
+   7561,
+   "48.1 %",
+   "30.9"
+  ],
+  [
+   "2023",
+   96773,
+   "+18.8 %",
+   "9.2 %",
+   4.3,
+   4357,
+   "24.2 %",
+   "52.7"
+  ],
+  [
+   "2024",
+   97690,
+   "+1.0 %",
+   "7.8 %",
+   2.04,
+   3581,
+   "12.9 %",
+   "181.8"
+  ],
+  [
+   "2025",
+   94827,
+   "−2.9 %",
+   "4.6 %",
+   1.08,
+   6220,
+   "6.1 %",
+   "394.2"
+  ],
+  [
+   "Letzte 12 Mt.",
+   103619,
+   "+11.8 %",
+   "4.1 %",
+   1.08,
+   5762,
+   "5.5 %",
+   "≈ 350"
+  ]
+ ],
+ "QREV": [
+  [
+   "Q3 24",
+   25.18
+  ],
+  [
+   "Q4 24",
+   25.71
+  ],
+  [
+   "Q1 25",
+   19.34
+  ],
+  [
+   "Q2 25",
+   22.5
+  ],
+  [
+   "Q3 25",
+   28.1
+  ],
+  [
+   "Q4 25",
+   24.9
+  ],
+  [
+   "Q1 26",
+   22.39
+  ],
+  [
+   "Q2 26",
+   28.24
+  ]
+ ],
+ "revdec": 1,
+ "MARGIN": [
+  [
+   "2022",
+   16.8
+  ],
+  [
+   "2023",
+   9.2
+  ],
+  [
+   "2024",
+   7.8
+  ],
+  [
+   "2025",
+   4.6
+  ],
+  [
+   "12 Mt.",
+   4.1
+  ]
+ ],
+ "Q": [
+  [
+   "Umsatztrend",
+   "3 von 4 Quartalen über Vorjahr",
+   8,
+   15
+  ],
+  [
+   "Wachstumstempo",
+   "Letzte 12 Monate +11.8 % (2025: −2.9 %)",
+   8,
+   10
+  ],
+  [
+   "Operative Marge",
+   "4.1 % (0 Pkt.), seit 2022 fallend (0 Pkt.)",
+   0,
+   15
+  ],
+  [
+   "Gewinnwachstum (EPS)",
+   "Seit 2023 stark gesunken (4.30 → 1.08 $)",
+   0,
+   10
+  ],
+  [
+   "Free Cashflow",
+   "Positiv, aber schwankend, Q2 negativ",
+   6,
+   10
+  ],
+  [
+   "ROIC",
+   "5.5 %, stark fallend",
+   1,
+   15
+  ],
+  [
+   "Schulden",
+   "Netto-Cash 27.4 Mrd. $",
+   10,
+   10
+  ],
+  [
+   "Bewertung vs. eigene Historie",
+   "Erw. KGV rund 160–200 statt Ø 114 (über 30 % teurer)",
+   1,
+   15
+  ]
+ ],
+ "adwnote": "Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Die Wochen-A/D erreichte im Dezember 2025 ihr Hoch (10'564) und fällt seither. Heute (9'335) liegt sie tiefer als im Juni bei ähnlichem Kurs: Auf Wochenbasis wird eher verkauft.",
+ "rsiwnote": "Unter 30 überverkauft, über 70 überkauft. Im Juli 35, heute 50: neutral.",
+ "addnote": "Seit dem Juli-Tief steigt die Tages-A/D mit dem Kurs. Aber: Am Hoch vom 25.9. (386.83 $) lag sie mit 1'220 deutlich tiefer als am Hoch vom 3.9. (1'343). Höherer Kurs, tiefere A/D: Die letzte Aufwärtsbewegung hatte weniger Käufer.",
+ "ind": [
+  [
+   "Kurs vs. EMA 50",
+   "375.0 &gt; 364.3",
+   "375.0 &lt; 376.5",
+   "Tag über der mittelfristigen Linie, Woche genau darauf."
+  ],
+  [
+   "Kurs vs. EMA 200",
+   "375.0 &lt; 377.9",
+   "375.0 &gt; 312.5",
+   "Tag knapp unter der langfristigen Linie, Woche klar darüber."
+  ],
+  [
+   "EMA 50 vs. EMA 200",
+   "50 unter 200 (seit 23.7.2026)",
+   "50 über 200 (seit 2019)",
+   "Tag abwärts, der grosse Wochentrend ist noch aufwärts."
+  ],
+  [
+   "RSI (14)",
+   "55.8",
+   "50.3",
+   "Neutral."
+  ],
+  [
+   "A/D",
+   "steigt seit Juli, schwächer am Hoch",
+   "fällt seit Dezember",
+   "Gemischt bis leicht negativ."
+  ],
+  [
+   "Volumen",
+   "Ø 20 Tage 35.4 Mio. vs. Ø 100 Tage 40.8 Mio.",
+   "Ruhiger als in den letzten Monaten."
+  ]
+ ],
+ "smc": "Auf der Woche läuft Tesla seit dem Allzeithoch (498.83 $, Dezember 2025) abwärts: tiefere Hochs (453.40 → 432.86 $) und tiefere Tiefs (387.53 → 337.24 → 297.38 $). Auf dem Tageschart gab es seit dem Juli-Tief eine Erholung mit höheren Hochs (366.50 → 384.04 → 386.83 $). Das Tief vom 30.9. (345.88 $) liegt weit über dem Juli-Tief. Ein Tagesschluss über 387 $ wäre ein Break of Structure nach oben und würde den Weg Richtung 405–433 $ öffnen. Wichtig: Am 21.10. kommen die Zahlen, bei Tesla bewegt sich der Kurs danach oft um 10 % oder mehr.",
+ "zones": [
+  [
+   "r",
+   "405–433 $",
+   "Widerstand: Spanne von Juni und Juli vor dem Kurssturz."
+  ],
+  [
+   "t",
+   "387 $",
+   "<b>Trigger:</b> Tagesschluss über dem Hoch vom 25.9., idealerweise mit steigender A/D."
+  ],
+  [
+   "s",
+   "345–355 $",
+   "<b>Kaufzone 1:</b> Tiefs vom September und Oktober."
+  ],
+  [
+   "s",
+   "297–312 $",
+   "<b>Kaufzone 2:</b> Juli-Tief und Wochen-EMA 200."
+  ],
+  [
+   "r",
+   "340 $",
+   "Abbruch: Wochenschluss darunter, dann droht ein Test des Juli-Tiefs."
+  ]
+ ],
+ "smart": [
+  "<b>Tesla selbst:</b> Keine Aktienrückkäufe, keine Dividende. Die Aktienzahl steigt leicht (rund 0.6 % pro Jahr).",
+  "<b>Insider-Käufe:</b> Keine in den letzten 12 Monaten. Elon Musk kaufte im September 2025 für rund 1 Mrd. $ (älter als 12 Monate, nicht nachgeprüft).",
+  "<b>Insider-Verkäufe:</b> Rund 88 Mio. $ von 4 Personen, u. a. Kimbal Musk (25.6 Mio. $), James Murdoch (26.7 Mio. $) und Kathleen Wilson-Thompson (rund 30 Mio. $).",
+  "<b>Analysten:</b> Sehr uneinig: Kursziele von 25 $ bis 840 $. Im Durchschnitt rund 392–412 $, Einstufung zwischen „Halten“ und „Kaufen“."
+ ],
+ "seasnote": "Durchschnittliche Monatsrendite in %. Nur 16 Jahre (seit dem Börsengang 2010). November ist mit +10.6 % und 69 % positiven Jahren der stärkste Monat, Oktober eher schwach (39 %).",
+ "T": [
+  [
+   "Trend Woche (EMA 50/200)",
+   "Kurs auf der EMA 50, klar über EMA 200",
+   13,
+   20
+  ],
+  [
+   "Trend Tag (EMA 50/200)",
+   "Kurs über EMA 50, knapp unter EMA 200",
+   4,
+   10
+  ],
+  [
+   "Struktur (SMC)",
+   "Woche abwärts, Tag Erholung mit höheren Hochs",
+   9,
+   20
+  ],
+  [
+   "RSI Tag/Woche",
+   "56 / 50, neutral",
+   7,
+   15
+  ],
+  [
+   "A/D Tag/Woche",
+   "Tag schwächer am Hoch, Woche fallend",
+   5,
+   20
+  ],
+  [
+   "Smart Money",
+   "Insider-Verkäufe, kein Rückkauf",
+   0,
+   10
+  ],
+  [
+   "Saisonalität",
+   "Okt schwach, Nov stark, Dez gemischt",
+   3,
+   5
+  ]
+ ],
+ "pro": [
+  "Sehr solide Bilanz mit 27 Mrd. $ Netto-Cash.",
+  "Robotaxi läuft in Austin ohne Fahrer, das ist ein echter Fortschritt.",
+  "Energiespeicher wachsen stark und sind profitabel.",
+  "Auslieferungen im 3. Quartal besser als erwartet.",
+  "Grosser Wochentrend seit 2019 noch intakt (über EMA 200)."
+ ],
+ "con": [
+  "Marge und Gewinn seit 2022 stark gesunken.",
+  "Extrem hohe Bewertung: Der Kurs hängt an Zukunftsprojekten.",
+  "Hohe Ausgaben für KI, Cybercab und Optimus drücken den Cashflow.",
+  "Starke Konkurrenz aus China, US-Steuergutschrift weggefallen.",
+  "Viel hängt an Elon Musk (Politik, SpaceX, xAI): hohes Personenrisiko."
+ ],
+ "todo": [
+  [
+   "t",
+   "Beobachten",
+   "Alarm bei 387 $ (Trigger) und 355 $ (Kaufzone 1)."
+  ],
+  [
+   "s",
+   "Timing grün",
+   "Erst die Zahlen am 21.10. abwarten. Danach Tagesschluss über 387 $ mit steigender A/D, oder Rücksetzer in 345–355 $, der hält."
+  ],
+  [
+   "r",
+   "Abbruch",
+   "Wochenschluss unter 340 $."
+  ],
+  [
+   "",
+   "Nächste Zahlen",
+   "21. Oktober 2026 nach US-Börsenschluss (3. Quartal). Entscheidend: Marge, Cashflow und Fortschritt bei Robotaxi."
+  ]
+ ],
+ "bands": [
+  {
+   "from": 405,
+   "to": 433,
+   "type": "res"
+  },
+  {
+   "from": 345,
+   "to": 355,
+   "type": "sup"
+  },
+  {
+   "from": 297,
+   "to": 312,
+   "type": "sup"
+  }
+ ],
+ "refs": [
+  {
+   "v": 387,
+   "label": "Trigger 387"
+  }
+ ],
+ "sources": "<a href=\"https://stockanalysis.com/stocks/tsla/financials/\" target=\"_blank\" rel=\"noopener\">StockAnalysis.com</a> (Stand 09.10.2026), <a href=\"https://www.sec.gov/Archives/edgar/data/0001318605/000162828026064366/exhibit991111111.htm\" target=\"_blank\" rel=\"noopener\">Tesla Q3-Auslieferungen</a>, <a href=\"https://electrek.co/2026/07/22/tesla-tsla-q2-2026-financial-results/\" target=\"_blank\" rel=\"noopener\">Q2-Zahlen (Electrek)</a>, <a href=\"https://www.marketbeat.com/stocks/NASDAQ/TSLA/insider-trades/\" target=\"_blank\" rel=\"noopener\">Insider (MarketBeat)</a>."
+}

@@ -20,7 +20,7 @@ DATA = os.path.join(ROOT, "data")
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36"
 
 TYPES = ["TotalRevenue", "FreeCashFlow", "OperatingCashFlow", "CapitalExpenditure", "StockBasedCompensation",
-         "RepurchaseOfCapitalStock", "CashDividendsPaid", "RepaymentOfDebt", "IssuanceOfDebt", "NetIncome",
+         "RepurchaseOfCapitalStock", "CashDividendsPaid", "RepaymentOfDebt", "IssuanceOfDebt", "NetIncome", "NetIncomeCommonStockholders", "NetIncomeFromContinuingOperations",
          "TotalDebt", "CashCashEquivalentsAndShortTermInvestments", "CashAndCashEquivalents",
          "DilutedAverageShares", "OrdinarySharesNumber", "ShareIssued"]
 
@@ -126,6 +126,9 @@ def analyse(sym, ts, fx):
     rep, _ = series(ts, "RepaymentOfDebt")
     iss, _ = series(ts, "IssuanceOfDebt")
     ni, _ = series(ts, "NetIncome")
+    for alt in ("NetIncomeCommonStockholders", "NetIncomeFromContinuingOperations"):
+        if not any(ni.get(y) for y in years):
+            ni, _ = series(ts, alt)
     debt, _ = series(ts, "TotalDebt")
     cash, _ = series(ts, "CashCashEquivalentsAndShortTermInvestments")
     cash2, _ = series(ts, "CashAndCashEquivalents")
@@ -197,10 +200,11 @@ def analyse(sym, ts, fx):
         verw.append(["Aktienrückkäufe", round(sum_buy / sum_f * 100)])
     if sum_div > 0:
         verw.append(["Dividenden", round(sum_div / sum_f * 100)])
-    if sum_netrep > 0:
-        verw.append(["Schuldenabbau", round(sum_netrep / sum_f * 100)])
-    elif sum_netrep < 0:
-        verw.append(["Neue Schulden", round(sum_netrep / sum_f * 100)])
+    q_rep = round(sum_netrep / sum_f * 100)
+    if q_rep >= 3:
+        verw.append(["Schuldenabbau", q_rep])
+    elif q_rep <= -3:
+        verw.append(["zusätzlich neue Schulden aufgenommen", -q_rep])
     r = lambda v, k=1: None if v is None else round(v, k)
     return {
         "waehrung": cur, "jahre": years,

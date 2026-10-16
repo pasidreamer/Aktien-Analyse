@@ -1,0 +1,28 @@
+{
+ "ticker": "NET",
+ "sorgen": [
+  "Die Aktie ist sehr teuer: Du zahlst rund 49 Jahresumsätze, der eigene Schnitt 2021–2025 liegt bei rund 31. Das durchschnittliche Analysten-Kursziel (339 $) liegt laut TIKR unter dem Kurs (349 $ am 02.10.2026).",
+  "Laut eigenem Ausblick sinkt das Wachstum von 36 % im 2. Quartal auf 31 % im 3. Quartal (ganzes Jahr 2026: 32 %).",
+  "Die Bruttomarge fiel innert eines Jahres um 3.2 Prozentpunkte auf 73.1 %, weil die Netzwerkkosten steigen. Dazu kamen im 2. Quartal 151 Mio. $ Kosten für Umbau und Stellenabbau, ausgewiesen bleibt ein Verlust."
+ ],
+ "sorgen_art": "stimmung",
+ "sorgen_art_text": "Die Aktie ist nicht gefallen, sondern seit Januar rund 78 % gestiegen; die Sorgen betreffen vor allem die hohe Bewertung, das Geschäft selbst beschleunigt sich.",
+ "aufloeser": [
+  {"was": "Das Wachstum liegt klar über dem eigenen Ausblick von 31 % und die Bruttomarge stabilisiert sich", "wann": "Zahlen 3. Quartal, voraussichtlich Ende Oktober 2026 (Datum noch nicht bestätigt)"},
+  {"was": "Der Ausblick für 2027 zeigt weiter rund 30 % Wachstum", "wann": "Zahlen 4. Quartal, voraussichtlich Februar 2027"},
+  {"was": "Der Umsatz wächst in die Bewertung hinein: Bei 30 % Wachstum pro Jahr sinkt das Kurs-Umsatz-Verhältnis von selbst, auch ohne Kursrückgang", "wann": "2027–2028"}
+ ],
+ "schub_stufe": "mittel",
+ "schub_treiber": [
+  {"titel": "KI-Agenten und Entwickler-Plattform Workers", "text": "Im 2. Quartal kam erstmals mehr als die Hälfte des Verkehrs im Cloudflare-Netz nicht von Menschen, sondern von Bots und KI-Agenten. Fast 2 Mio. neue Entwickler kamen in einem Quartal dazu, mehr als im ganzen Jahr 2025 (1.5 Mio.), total über 7.4 Mio. Workers ist laut Finanzchef der am schnellsten wachsende Bereich.", "wann": "2026–2028"},
+  {"titel": "Grosskunden geben mehr aus", "text": "4'698 Kunden zahlen über 100'000 $ pro Jahr (+27 %), so viele neue wie nie in 12 Monaten. Bestehende Kunden geben 20 % mehr aus als vor einem Jahr (Net Retention 120 %, ein Jahr zuvor 114 %). Der Auftragsbestand (RPO) stieg um 38 % auf 2.73 Mrd. $.", "wann": "2026–2027"},
+  {"titel": "Bezahlen für KI-Agenten (neu, unbewiesen)", "text": "Seit dem 3. Quartal bietet Cloudflare Monetization Gateway, Wallets und cloudflare.pay an. Damit können Website-Betreiber KI-Agenten für den Zugriff auf Inhalte bezahlen lassen. Umsätze dazu sind noch nicht bekannt.", "wann": "2027 und später"}
+ ],
+ "schub_beweis": "Achte auf die Net Retention (zuletzt 120 %, steigend) und darauf, ob der Auftragsbestand schneller wächst als der Umsatz (zuletzt +38 % gegenüber +36 %). Liegt das Wachstum im 3. Quartal deutlich über den angekündigten 31 %, ist der Schub intakt.",
+ "szenario": "Wie Google 2023 wäre es, wenn Cloudflare zur Standard-Infrastruktur für KI-Agenten im Internet wird: Dann könnte das Wachstum über Jahre bei 30 % oder mehr bleiben, und die heute hohe Bewertung wäre im Nachhinein günstig gewesen. Anders als bei Google ist aber keine Unterbewertung da, die Hoffnung steckt schon im Kurs. Grösstes Risiko: Das Wachstum fällt Richtung 25 %, dann kann die Aktie bei dieser Bewertung leicht 30–50 % fallen, auch wenn das Geschäft gut läuft.",
+ "quellen": [
+  {"titel": "Cloudflare: Second Quarter 2026 Financial Results (SEC 8-K, 06.08.2026)", "url": "https://www.sec.gov/Archives/edgar/data/0001477333/000147733326000053/q226exhibit991.htm"},
+  {"titel": "MarketBeat: Cloudflare Q2 Earnings Call Highlights (08.08.2026)", "url": "https://www.marketbeat.com/instant-alerts/cloudflare-q2-earnings-call-highlights-2026-08-08/"},
+  {"titel": "TIKR: Cloudflare stock is up 78% since January – is the rally already priced in? (04.10.2026)", "url": "https://www.tikr.com/ja/blog/cloudflare-stock-is-up-78-since-january-is-the-rally-already-priced-in"}
+ ]
+}

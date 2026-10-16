@@ -1,0 +1,401 @@
+{
+ "ticker": "JNJ",
+ "name": "Johnson & Johnson",
+ "datum": "05.10.2026",
+ "meta": "Johnson & Johnson · NYSE: JNJ · Medikamente (Krebs, Immunologie, Neurologie) und Medizintechnik · USA",
+ "price": "252.93 $",
+ "pricemeta": "Schluss 05.10.2026 · Allzeithoch 02.09.2026: 281.10 $ · −10 % in einem Monat",
+ "verdict": "Solider Pharma-Riese nach einer Rally von über 70 % seit Anfang 2025. Jetzt ist er teuer, und der Ausblick wurde gesenkt. Qualität gelb, Timing gelb. Der Tages-RSI ist überverkauft, ein Boden ist aber noch nicht da. Die Zone 241–250 $ ist interessant, wenn sie hält.",
+ "about": "Johnson & Johnson hat zwei Standbeine: Innovative Medizin (rund zwei Drittel, z. B. Darzalex gegen Blutkrebs, Tremfya gegen Schuppenflechte und Darmentzündungen) und Medizintechnik (Herzkatheter, OP-Geräte, Orthopädie). Die Konsumgüter (Kenvue) wurden 2023 abgespalten. Die Firma zahlt seit über 60 Jahren eine steigende Dividende.",
+ "why": "Die Aktie stieg von 142 $ (Januar 2025) auf 281 $ (September 2026), weil J&J den Patentablauf von Stelara besser als befürchtet verkraftete und neue Medikamente stark wuchsen. Seit Anfang September fiel sie um 10 %: J&J senkte den Gewinnausblick 2026 auf 10.96–11.11 $ pro Aktie (vorher 11.60–11.75 $), wegen Kosten für die Übernahmen von Firefly Bio und Sail Biomedicines. Für das 3. Quartal erwarten Analysten rund 11 % weniger Gewinn als im Vorjahr. Dazu laufen 2027 Patente für rund 4–4.5 Mrd. $ Umsatz aus (Xarelto, PAH-Medikamente, Simponi). Die Talk-Klagen sind weiterhin nicht erledigt.",
+ "kpis": [
+  [
+   "g",
+   "Umsatzwachstum",
+   "+8.1 %",
+   "Letzte 12 Monate. Für einen Konzern mit 98 Mrd. $ Umsatz sehr gut."
+  ],
+  [
+   "g",
+   "Operative Marge",
+   "27.7 %",
+   "Von 100 $ Umsatz bleiben knapp 28 $ Betriebsgewinn. Stabil."
+  ],
+  [
+   "b",
+   "Gewinnausblick 2026",
+   "+1–3 %",
+   "Bereinigter Gewinn pro Aktie 10.96–11.11 $. Nach der Senkung wächst der Gewinn 2026 kaum."
+  ],
+  [
+   "w",
+   "ROIC",
+   "19.9 %",
+   "Gut, aber seit 2021 (26 %) fallend."
+  ],
+  [
+   "g",
+   "Free Cashflow",
+   "22.2 Mrd. $",
+   "Sehr hoch und stabil."
+  ],
+  [
+   "g",
+   "Nettoschulden / EBITDA",
+   "0.8",
+   "Gut tragbar."
+  ],
+  [
+   "b",
+   "KGV erwartet",
+   "23.1",
+   "Eigener Schnitt 2021–2025: rund 16.6. Die Aktie ist fast 40 % teurer als üblich."
+  ],
+  [
+   "g",
+   "Dividende",
+   "2.1 %",
+   "Seit über 60 Jahren jedes Jahr erhöht."
+  ]
+ ],
+ "revnote": "Jedes Quartal über Vorjahr, Wachstum 6–10 %.",
+ "marginnote": "Seit Jahren um 25–28 %. 2024 drückten Talk-Rückstellungen.",
+ "finnote": "<b>Hinweis zum Gewinn pro Aktie:</b> Das ausgewiesene EPS springt stark (2023: Gewinn aus der Kenvue-Abspaltung, 2024: Talk-Rückstellungen, Anfang 2025: Auflösung einer Rückstellung). Darum vergleiche ich das erwartete KGV auf bereinigtem Gewinn.",
+ "FIN": [
+  [
+   "2022",
+   79990,
+   "+1.6 %",
+   "27.7 %",
+   6.73,
+   17488,
+   "21.8 %",
+   "25.7"
+  ],
+  [
+   "2023",
+   85159,
+   "+6.5 %",
+   "27.8 %",
+   13.72,
+   18410,
+   "24.4 %",
+   "10.7"
+  ],
+  [
+   "2024",
+   88821,
+   "+4.3 %",
+   "25.5 %",
+   5.79,
+   19842,
+   "23.7 %",
+   "24.8"
+  ],
+  [
+   "2025",
+   94193,
+   "+6.1 %",
+   "28.0 %",
+   11.03,
+   19698,
+   "22.2 %",
+   "18.7"
+  ],
+  [
+   "Letzte 12 Mt.",
+   97929,
+   "+8.1 %",
+   "27.7 %",
+   8.63,
+   22244,
+   "19.9 %",
+   "29.3"
+  ]
+ ],
+ "QREV": [
+  [
+   "Q3 24",
+   22.47
+  ],
+  [
+   "Q4 24",
+   22.52
+  ],
+  [
+   "Q1 25",
+   21.89
+  ],
+  [
+   "Q2 25",
+   23.74
+  ],
+  [
+   "Q3 25",
+   23.99
+  ],
+  [
+   "Q4 25",
+   24.56
+  ],
+  [
+   "Q1 26",
+   24.06
+  ],
+  [
+   "Q2 26",
+   25.31
+  ]
+ ],
+ "MARGIN": [
+  [
+   "2022",
+   27.7
+  ],
+  [
+   "2023",
+   27.8
+  ],
+  [
+   "2024",
+   25.5
+  ],
+  [
+   "2025",
+   28.0
+  ],
+  [
+   "12 Mt.",
+   27.7
+  ]
+ ],
+ "Q": [
+  [
+   "Umsatztrend",
+   "4 von 4 Quartalen über Vorjahr",
+   12,
+   15
+  ],
+  [
+   "Wachstumstempo",
+   "+8.1 %",
+   6,
+   10
+  ],
+  [
+   "Operative Marge",
+   "27.7 % (9 Pkt.), stabil (3 Pkt.)",
+   12,
+   15
+  ],
+  [
+   "Gewinnwachstum (EPS)",
+   "Bereinigt 2026 nur rund +2 %",
+   2,
+   10
+  ],
+  [
+   "Free Cashflow",
+   "Positiv, 2025 leicht gesunken",
+   6,
+   10
+  ],
+  [
+   "ROIC",
+   "19.9 %, fallend (−1)",
+   9,
+   15
+  ],
+  [
+   "Schulden",
+   "Nettoschulden/EBITDA 0.8",
+   9,
+   10
+  ],
+  [
+   "Bewertung vs. eigene Historie",
+   "Erw. KGV 23.1 vs. Ø 16.6 (+39 %)",
+   1,
+   15
+  ]
+ ],
+ "adwnote": "Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Seit 2025 steil gestiegen, seit September fällt sie.",
+ "rsiwnote": "Unter 30 überverkauft, über 70 überkauft. Anfang 2026 über 80 (überhitzt), heute 51: Die Übertreibung ist abgebaut.",
+ "addnote": "Die Tages-A/D fällt seit dem 25.9. steil mit dem Kurs auf den tiefsten Stand seit Juni. Verkäufer dominieren.",
+ "ind": [
+  [
+   "Kurs vs. EMA 50",
+   "252.9 &lt; 263.5",
+   "252.9 &gt; 235.9",
+   "Tag unter, Woche über der mittelfristigen Linie."
+  ],
+  [
+   "Kurs vs. EMA 200",
+   "252.9 &gt; 240.7",
+   "252.9 &gt; 192.1",
+   "Über der langfristigen Linie: Aufwärtstrend intakt."
+  ],
+  [
+   "EMA 50 vs. EMA 200",
+   "50 über 200",
+   "50 über 200",
+   "Langfristig Aufwärtstrend."
+  ],
+  [
+   "RSI (14)",
+   "29.2",
+   "50.9",
+   "Tag überverkauft, aber noch ohne Bodenzeichen."
+  ],
+  [
+   "A/D",
+   "fällt steil",
+   "fällt seit September",
+   "Verkaufsdruck auf beiden Zeitebenen."
+  ],
+  [
+   "Volumen",
+   "Ø 20 Tage 6.9 Mio. vs. Ø 100 Tage 7.6 Mio.",
+   "Normal. Kein Ausverkauf mit Riesenvolumen."
+  ]
+ ],
+ "smc": "Bis zum 2. September machte J&J höhere Hochs und höhere Tiefs (Hoch 281.10 $, Tief 260.70 $ am 15.9.). Mit dem Fall unter 260.70 $ ist der Aufwärtstrend auf dem Tageschart gebrochen (Change of Character nach unten). Das neue Hoch vom 24.9. (275.20 $) lag tiefer. Der Kurs läuft jetzt Richtung der nächsten Zonen: Tiefs vom Juli/August (245.50–250.40 $) und EMA 200 (Tag) bei 240.70 $.",
+ "zones": [
+  [
+   "r",
+   "260–264 $",
+   "Widerstand: altes Tief vom 15.9. und EMA 50 (Tag)."
+  ],
+  [
+   "t",
+   "264 $",
+   "<b>Trigger:</b> Tagesschluss zurück über die EMA 50 (Tag). Dann wäre der Rücksetzer vorbei."
+  ],
+  [
+   "s",
+   "245.5–250.4 $",
+   "Erste Kaufzone: Tiefs vom Juli und August."
+  ],
+  [
+   "s",
+   "240–241 $",
+   "Zweite Kaufzone: EMA 200 (Tag)."
+  ],
+  [
+   "r",
+   "240 $",
+   "Abbruch: Wochenschluss darunter, dann droht ein Rückfall Richtung 227 $ (Juni-Tief)."
+  ]
+ ],
+ "smart": [
+  "<b>J&J selbst:</b> Kein Netto-Rückkauf (Aktienzahl steigt leicht). Dividende 2.1 %, Ausschüttung 62 % des Gewinns.",
+  "<b>Insider-Käufe:</b> Verwaltungsrat Mark Weinberger kaufte 1'000 Aktien für 147'000 $. Kleines, aber echtes Signal.",
+  "<b>Insider-Verkäufe:</b> Rund 33 Mio. $ in 6 Monaten durch mehrere Geschäftsleitungsmitglieder, z. B. 9.2 Mio. $ am 2.9. genau am Hoch.",
+  "<b>Analysten:</b> Durchschnittliches Kursziel 279 $, Einstufung „Buy“."
+ ],
+ "seasnote": "Durchschnittliche Monatsrendite in %, 41 Jahre. Oktober ist mit 71 % positiven Jahren der verlässlichste Monat.",
+ "T": [
+  [
+   "Trend Woche (EMA 50/200)",
+   "Kurs über beiden, EMA 50 über EMA 200",
+   18,
+   20
+  ],
+  [
+   "Trend Tag (EMA 50/200)",
+   "Kurs unter EMA 50, über EMA 200 (Rücksetzer)",
+   6,
+   10
+  ],
+  [
+   "Struktur (SMC)",
+   "Change of Character nach unten",
+   4,
+   20
+  ],
+  [
+   "RSI Tag/Woche",
+   "Tag 29: überverkauft ohne Bodenzeichen",
+   5,
+   15
+  ],
+  [
+   "A/D Tag/Woche",
+   "Beide fallen mit dem Kurs",
+   4,
+   20
+  ],
+  [
+   "Smart Money",
+   "Ein kleiner Kauf, gehäufte Verkäufe, kein Rückkauf",
+   4,
+   10
+  ],
+  [
+   "Saisonalität",
+   "Okt–Dez: Ø 66 % positive Jahre",
+   5,
+   5
+  ]
+ ],
+ "pro": [
+  "Breites, stabiles Geschäft mit starken neuen Medikamenten.",
+  "Hoher Free Cashflow, steigende Dividende seit über 60 Jahren.",
+  "Langfristiger Aufwärtstrend intakt (Woche).",
+  "Tages-RSI überverkauft: Ein Rücksetzer in die Zonen ist bald ausgereizt.",
+  "Oktober saisonal stark."
+ ],
+ "con": [
+  "Teuer: KGV fast 40 % über dem eigenen Schnitt.",
+  "Gewinnausblick 2026 gesenkt, schwaches 3. Quartal erwartet.",
+  "2027 laufen Patente für 4–4.5 Mrd. $ Umsatz aus.",
+  "Talk-Klagen weiter offen.",
+  "Trendbruch auf dem Tageschart, A/D fällt."
+ ],
+ "todo": [
+  [
+   "t",
+   "Beobachten",
+   "Alarm bei 250 $ (erste Zone) und bei 241 $ (EMA 200 Tag)."
+  ],
+  [
+   "s",
+   "Timing grün",
+   "Kurs hält in 241–250 $, Tages-RSI dreht nach oben, und die Tages-A/D macht ein höheres Tief. Danach Tagesschluss über 264 $."
+  ],
+  [
+   "r",
+   "Abbruch",
+   "Wochenschluss unter 240 $."
+  ],
+  [
+   "",
+   "Nächste Zahlen",
+   "13. Oktober 2026 (3. Quartal). Die Erwartung ist schon tief (Gewinn −11 %), eine positive Überraschung ist möglich."
+  ]
+ ],
+ "bands": [
+  {
+   "from": 260,
+   "to": 264,
+   "type": "res"
+  },
+  {
+   "from": 245.5,
+   "to": 250.4,
+   "type": "sup"
+  },
+  {
+   "from": 240,
+   "to": 241.5,
+   "type": "sup"
+  }
+ ],
+ "refs": [
+  {
+   "v": 264,
+   "label": "Trigger 264"
+  }
+ ],
+ "sources": "<a href=\"https://stockanalysis.com/stocks/jnj/financials/\" target=\"_blank\" rel=\"noopener\">StockAnalysis.com</a> (Stand 05.10.2026), <a href=\"https://www.tikr.com/blog/johnson-johnson-stock-fell-nearly-6-in-4-days-before-its-october-13-earnings-heres-why-a-4-billion-2027-patent-cliff-matters-more-than-q3-eps\" target=\"_blank\" rel=\"noopener\">Kursrückgang und Patentablauf (TIKR)</a>, <a href=\"https://www.ad-hoc-news.de/boerse/news/corporate-news/johnson-and-johnson-stock-edges-lower-after-strong-guidance-and/70130284\" target=\"_blank\" rel=\"noopener\">ad-hoc-news</a>, <a href=\"https://www.marketbeat.com/stocks/NYSE/JNJ/insider-trades/\" target=\"_blank\" rel=\"noopener\">Insider (MarketBeat)</a>."
+}

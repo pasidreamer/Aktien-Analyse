@@ -1,0 +1,392 @@
+{
+ "ticker": "PEP",
+ "name": "PepsiCo",
+ "datum": "08.10.2026",
+ "meta": "PepsiCo, Inc. · Nasdaq: PEP · Snacks (Lay's, Doritos, Quaker) und Getränke (Pepsi, Gatorade) · USA",
+ "price": "123.73 $",
+ "pricemeta": "Schluss 07.10.2026 (vorbörslich am 8.10. rund 126.70 $ nach den Quartalszahlen) · 52 Wochen: 123.47 – 171.48 $ · Allzeithoch 196.88 $ (2023)",
+ "verdict": "Günstig wie seit Jahren nicht (erwartetes KGV rund 14.5 statt sonst 20), aber im klaren Abwärtstrend. Heute (8.10.) wurde der Gewinnausblick erneut gesenkt. Qualität gelb (59), Timing rot (17). Eine Bodenbildung ist noch nicht zu sehen. Erstes Zeichen wäre ein Tagesschluss über 131.20 $.",
+ "about": "PepsiCo ist der grösste Snack-Hersteller der Welt (Lay's, Doritos, Cheetos, Quaker) und die Nummer zwei bei Getränken (Pepsi, Gatorade). Rund 55 % des Umsatzes kommen aus Snacks und Lebensmitteln, 45 % aus Getränken. Knapp 60 % stammen aus Nordamerika.",
+ "why": "Seit dem Hoch 2023 (197 $) hat die Aktie fast 40 % verloren. In den USA kaufen die Kunden nach den grossen Preiserhöhungen weniger Snacks, dazu kommt der Trend zu gesünderem Essen. Im September 2025 stieg der aktivistische Investor Elliott ein (rund 4 Mrd. $) und erzwang Preissenkungen, weniger Produkte und Kostensenkungen. Im September 2026 senkten viele Banken ihre Kursziele. Heute, am 8. Oktober, kamen die Zahlen zum 3. Quartal: Umsatz gut (+5.6 %, organisch +3.1 %), aber der Gewinnausblick 2026 wurde gesenkt (bereinigt nur noch +2.5 bis 3.5 %). Vorbörslich steigt die Aktie trotzdem rund 2 %, weil Schlimmeres befürchtet war.",
+ "kpis": [
+  [
+   "w",
+   "Organisches Wachstum",
+   "+3.1 %",
+   "3. Quartal 2026, aber fast nur über Preise (+3 %), Menge nur +0.5 %. Nordamerika flach, Ausland stark (+6 bis +9 %)."
+  ],
+  [
+   "w",
+   "Operative Marge",
+   "16.0 %",
+   "Von 100 $ Umsatz bleiben 16 $ Betriebsgewinn. Ordentlich, seit 2024 aber nicht mehr gestiegen."
+  ],
+  [
+   "b",
+   "Gewinn pro Aktie (bereinigt)",
+   "+2.5 bis 3.5 %",
+   "Neuer Ausblick 2026 (gesenkt am 8.10.). Schwach."
+  ],
+  [
+   "g",
+   "ROIC",
+   "19.4 %",
+   "Auf jeden investierten Dollar gut 19 Cent Gewinn. Gut und stabil."
+  ],
+  [
+   "g",
+   "Free Cashflow",
+   "9.3 Mrd. $",
+   "Letzte 12 Monate. Positiv, seit 2022 grob steigend."
+  ],
+  [
+   "w",
+   "Nettoschulden / EBITDA",
+   "2.3",
+   "Mittel: in gut 2 Jahren aus dem Betriebsgewinn tilgbar."
+  ],
+  [
+   "g",
+   "KGV erwartet",
+   "≈ 14.5",
+   "Eigener Schnitt: 20.4. Rund 29 % günstiger als üblich. So billig war PepsiCo seit über 10 Jahren nicht."
+  ],
+  [
+   "w",
+   "Dividende",
+   "4.8 %",
+   "54 Jahre in Folge erhöht. Aber 78 % des Gewinns werden schon ausgeschüttet: wenig Spielraum."
+  ]
+ ],
+ "revnote": "Alle vier Quartale über Vorjahr, im Ausland stark, in den USA flach. Die Quartale sind unterschiedlich lang (Q1 12 Wochen, Q4 16 Wochen).",
+ "marginnote": "Von 2022 bis 2024 gestiegen, seither flach bei 16 %.",
+ "finnote": "<b>Hinweis:</b> Letzte 12 Monate inklusive 3. Quartal 2026 (selbst gerechnet), Free Cashflow bis Juni 2026. EPS ausgewiesen, 2025 durch Umbaukosten gedrückt.",
+ "FIN": [
+  [
+   "2022",
+   86392,
+   "+8.7 %",
+   "14.3 %",
+   6.42,
+   5604,
+   "19.5 %",
+   "28.3"
+  ],
+  [
+   "2023",
+   91471,
+   "+5.9 %",
+   "15.3 %",
+   6.56,
+   7924,
+   "20.6 %",
+   "26.0"
+  ],
+  [
+   "2024",
+   91854,
+   "+0.4 %",
+   "16.2 %",
+   6.95,
+   7189,
+   "21.4 %",
+   "22.2"
+  ],
+  [
+   "2025",
+   93925,
+   "+2.3 %",
+   "16.0 %",
+   6.0,
+   7672,
+   "20.1 %",
+   "23.9"
+  ],
+  [
+   "Letzte 12 Mt.",
+   98241,
+   "+6.4 %",
+   "16.0 %",
+   7.96,
+   9282,
+   "19.4 %",
+   "15.5"
+  ]
+ ],
+ "QREV": [
+  [
+   "Q4 24",
+   27.78
+  ],
+  [
+   "Q1 25",
+   17.92
+  ],
+  [
+   "Q2 25",
+   22.73
+  ],
+  [
+   "Q3 25",
+   23.94
+  ],
+  [
+   "Q4 25",
+   29.34
+  ],
+  [
+   "Q1 26",
+   19.44
+  ],
+  [
+   "Q2 26",
+   24.18
+  ],
+  [
+   "Q3 26",
+   25.27
+  ]
+ ],
+ "revdec": 2,
+ "MARGIN": [
+  [
+   "2022",
+   14.3
+  ],
+  [
+   "2023",
+   15.3
+  ],
+  [
+   "2024",
+   16.2
+  ],
+  [
+   "2025",
+   16.0
+  ],
+  [
+   "12 Mt.",
+   16.0
+  ]
+ ],
+ "Q": [
+  [
+   "Umsatztrend",
+   "4 von 4 Quartalen über Vorjahr",
+   12,
+   15
+  ],
+  [
+   "Wachstumstempo",
+   "Organisch rund +3 % (Ziel 2026)",
+   3,
+   10
+  ],
+  [
+   "Operative Marge",
+   "16.0 % (6 Pkt.), seit 2024 flach (3 Pkt.)",
+   9,
+   15
+  ],
+  [
+   "Gewinnwachstum (EPS)",
+   "Bereinigt nur +2.5 bis 3.5 % (gesenkt)",
+   2,
+   10
+  ],
+  [
+   "Free Cashflow",
+   "Positiv, schwankend, grob steigend",
+   6,
+   10
+  ],
+  [
+   "ROIC",
+   "19.4 %, stabil",
+   10,
+   15
+  ],
+  [
+   "Schulden",
+   "Nettoschulden/EBITDA 2.3",
+   5,
+   10
+  ],
+  [
+   "Bewertung vs. eigene Historie",
+   "Erw. KGV rund 14.5 statt Ø 20.4 (−29 %)",
+   12,
+   15
+  ]
+ ],
+ "adwnote": "Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Seit April fällt die Wochen-A/D deutlich (810 auf 565), schneller als der Kurs. Grosse Anleger verkaufen.",
+ "rsiwnote": "Unter 30 überverkauft, über 70 überkauft. Heute 28: überverkauft. Das ist oft der Bereich, in dem sich später ein Boden bildet, aber allein noch kein Kaufsignal.",
+ "addnote": "Die Tages-A/D steht auf dem tiefsten Stand der ganzen Periode. Kein Zeichen, dass Käufer zurückkommen.",
+ "ind": [
+  [
+   "Kurs vs. EMA 50",
+   "123.7 &lt; 134.4",
+   "123.7 &lt; 143.4",
+   "Weit unter der mittelfristigen Linie."
+  ],
+  [
+   "Kurs vs. EMA 200",
+   "123.7 &lt; 142.9",
+   "123.7 &lt; 152.5",
+   "Weit unter der langfristigen Linie: klarer Abwärtstrend."
+  ],
+  [
+   "EMA 50 vs. EMA 200",
+   "50 unter 200 (seit 4.6.2026)",
+   "50 unter 200 (seit Februar 2025)",
+   "Beide Zeitebenen abwärts."
+  ],
+  [
+   "RSI (14)",
+   "21.8",
+   "28.3",
+   "Stark überverkauft. Gegenbewegung möglich, aber noch kein Boden."
+  ],
+  [
+   "A/D",
+   "neues Tief",
+   "neues Tief",
+   "Verkäufer dominieren."
+  ],
+  [
+   "Volumen",
+   "Ø 20 Tage 9.7 Mio. vs. Ø 100 Tage 8.6 Mio.",
+   "Erhöhtes Volumen beim Fallen: Verkaufsdruck."
+  ]
+ ],
+ "smc": "Seit Februar (Hoch 171.48 $) macht PepsiCo tiefere Hochs (160.03 → 149.04 → 145.90 → 141.71 $) und tiefere Tiefs (149.03 → 133.73 → jetzt 123.47 $). Das Tief von 2025 (rund 127–129 $) wurde Ende September durchbrochen. Die nächsten Unterstützungen aus der Vergangenheit liegen bei rund 115–120 $ (Kursbereich 2019) und 104–108 $ (Tief 2020). Ein erstes Wende-Zeichen wäre ein Tagesschluss über dem letzten tieferen Hoch bei rund 131.20 $.",
+ "zones": [
+  [
+   "r",
+   "134–137 $",
+   "Widerstand: Tages-EMA 50 und Bruchkante vom September."
+  ],
+  [
+   "t",
+   "131.20 $",
+   "<b>Trigger:</b> Tagesschluss über dem letzten tieferen Hoch (22.9.), mit steigender Tages-A/D."
+  ],
+  [
+   "s",
+   "115–120 $",
+   "Mögliche Unterstützung: Kursbereich von 2019."
+  ],
+  [
+   "s",
+   "104–108 $",
+   "Tief von 2020 (Corona). Dort läge das erwartete KGV bei rund 13."
+  ]
+ ],
+ "smart": [
+  "<b>PepsiCo selbst:</b> Nur rund 1 Mrd. $ Rückkauf pro Jahr (0.3 % des Börsenwerts). Das meiste Geld geht in die Dividende (7.9 Mrd. $).",
+  "<b>Aktivist:</b> Elliott Management hält seit September 2025 rund 4 Mrd. $ und drängt auf Kostensenkungen.",
+  "<b>Insider:</b> Keine Käufe, nur ein kleiner Verkauf (0.4 Mio. $, Juli).",
+  "<b>Analysten:</b> Einstufung „Halten“, durchschnittliches Kursziel rund 150 $. JPMorgan und Deutsche Bank stuften Ende September auf „Halten“ ab, viele Ziele wurden gesenkt."
+ ],
+ "seasnote": "Durchschnittliche Monatsrendite in %. Rund 41 Jahre. Oktober (+2.1 %, 67 % positiv) und November (+1.4 %, 63 %) sind gute Monate.",
+ "T": [
+  [
+   "Trend Woche (EMA 50/200)",
+   "Kurs weit unter beiden, Abstand wächst",
+   0,
+   20
+  ],
+  [
+   "Trend Tag (EMA 50/200)",
+   "Kurs weit unter beiden",
+   0,
+   10
+  ],
+  [
+   "Struktur (SMC)",
+   "Tiefere Hochs und Tiefs, neues Jahrestief",
+   1,
+   20
+  ],
+  [
+   "RSI Tag/Woche",
+   "22 / 28, überverkauft ohne Bodenzeichen",
+   5,
+   15
+  ],
+  [
+   "A/D Tag/Woche",
+   "Beide auf neuem Tief",
+   3,
+   20
+  ],
+  [
+   "Smart Money",
+   "Keine Insider-Käufe, kleiner Rückkauf, Elliott an Bord",
+   3,
+   10
+  ],
+  [
+   "Saisonalität",
+   "Okt–Nov: 63–67 % positive Jahre",
+   5,
+   5
+  ]
+ ],
+ "pro": [
+  "Sehr günstig: erwartetes KGV rund 14.5 statt sonst 20.",
+  "Starke Marken, das Ausland wächst mit 6–9 %.",
+  "Hohe Dividende (4.8 %), 54 Jahre in Folge erhöht.",
+  "Aktivist Elliott treibt Kostensenkungen voran.",
+  "RSI stark überverkauft: Gegenbewegungen werden wahrscheinlicher."
+ ],
+ "con": [
+  "Klarer Abwärtstrend auf allen Zeitebenen, neues Jahrestief.",
+  "Gewinnausblick 2026 heute erneut gesenkt.",
+  "USA: Menge stagniert, Kunden sparen.",
+  "Die Dividende braucht schon 78 % des Gewinns.",
+  "A/D zeigt noch keine Käufer."
+ ],
+ "todo": [
+  [
+   "t",
+   "Beobachten",
+   "Nur beobachten. Alarm bei 131.20 $ (Trigger)."
+  ],
+  [
+   "s",
+   "Timing grün",
+   "Erst Bodenbildung abwarten: höheres Tief auf dem Tageschart, Tagesschluss über 131.20 $ und steigende A/D. Danach Rücksetzer als Einstieg."
+  ],
+  [
+   "r",
+   "Neu bewerten",
+   "Falls der Kurs Richtung 115–120 $ fällt: dort prüfen, ob sich ein Boden bildet."
+  ],
+  [
+   "",
+   "Nächste Zahlen",
+   "Anfang Februar 2027 (4. Quartal). Das 3. Quartal kam heute."
+  ]
+ ],
+ "bands": [
+  {
+   "from": 134,
+   "to": 137,
+   "type": "res"
+  },
+  {
+   "from": 115,
+   "to": 120,
+   "type": "sup"
+  }
+ ],
+ "refs": [
+  {
+   "v": 131.2,
+   "label": "Trigger 131.20"
+  }
+ ],
+ "sources": "<a href=\"https://stockanalysis.com/stocks/pep/financials/\" target=\"_blank\" rel=\"noopener\">StockAnalysis.com</a> (Stand 08.10.2026), <a href=\"https://www.sec.gov/Archives/edgar/data/0000077476/000007747626000050/q320268-kxexhibit991.htm\" target=\"_blank\" rel=\"noopener\">PepsiCo Q3 2026</a>, <a href=\"https://www.marketbeat.com/stocks/NASDAQ/PEP/insider-trades/\" target=\"_blank\" rel=\"noopener\">Insider (MarketBeat)</a>."
+}

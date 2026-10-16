@@ -1,0 +1,96 @@
+{
+"ticker":"GOOGL","name":"Alphabet",
+"meta":"Alphabet Inc. (Google) · NASDAQ: GOOGL · Suche, YouTube, Google Cloud, KI · USA",
+"price":"340.82 $",
+"pricemeta":"Stand 29.09.2026, 21:20 Uhr (US-Handel lief noch) · 15 % unter dem Hoch vom 13.05.2026 (402.62 $) · Tief März 2026: 274.34 $",
+"verdict":"Das stärkste Wachstum der drei (Umsatz +24 %, Cloud +82 %) und über 120 Mrd. $ Netto-Cash. Aber die Rekord-Investitionen haben den Free Cashflow ins Minus gedrückt, und statt Aktien zurückzukaufen gibt Alphabet neue aus. Qualität grün, Timing gelb: Der Kurs läuft seit Mai seitwärts mit tieferen Hochs. Trigger ist ein Tagesschluss über 364 $.",
+"about":"Alphabet ist die Mutter von <b>Google</b>. Das Geld kommt aus Werbung in der Google-Suche und auf <b>YouTube</b>, aus <b>Google Cloud</b> (Rechenleistung und KI-Modelle wie Gemini für Firmen) sowie aus Android, Abos und Geräten. Dazu kommen Zukunftsprojekte wie Waymo (selbstfahrende Taxis) und grosse Beteiligungen an anderen Firmen.",
+"why":"Von April 2025 bis Mai 2026 stieg die Aktie von 145 auf über 400 $, weil Google im KI-Rennen aufholte und die Cloud explodierte. Bei den Zahlen am 22. Juli übertraf der Umsatz mit 119.8 Mrd. $ die Erwartungen klar, Google Cloud wuchs um 82 % und die Suche um 17 %. Trotzdem fiel die Aktie um 7 %: Alphabet erhöhte die Investitionen für 2026 auf 195–205 Mrd. $, der Free Cashflow im Quartal war negativ (−5.9 Mrd. $), und Alphabet holte sich rund 70 Mrd. $ über neue Aktien, Wandelanleihen und Schulden. Seither pendelt der Kurs zwischen 315 und 385 $.",
+"kpis":[
+ ["g","Umsatzwachstum","+24 %","2. Quartal 2026. Das Tempo steigt seit einem Jahr jedes Quartal (12 → 14 → 16 → 18 → 22 → 24 %)."],
+ ["g","Operative Marge","34.0 %","2. Quartal. Von 100 $ Umsatz bleiben 34 $ Betriebsgewinn, seit 2022 klar steigend (damals 26.5 %)."],
+ ["g","Betriebsgewinn","+30 %","2. Quartal. Das ist die ehrliche Gewinnzahl, weil das ausgewiesene EPS (+294 %) durch Buchgewinne auf Beteiligungen aufgebläht ist."],
+ ["w","ROIC","24.9 %","Gewinn pro investiertem Dollar. Immer noch stark, aber 2024 waren es 41 %. Die Rechenzentren binden enorm viel Kapital."],
+ ["b","Free Cashflow","53.3 Mrd. $","Letzte 12 Monate, 27 % weniger als 2025. Im 2. Quartal sogar −5.9 Mrd. $: Die Investitionen übersteigen die Einnahmen."],
+ ["g","Netto-Cash","121.7 Mrd. $","Mehr Bargeld als Schulden. Die beste Bilanz der drei."],
+ ["w","KGV erwartet","25.5","Du zahlst rund 25 erwartete Jahresgewinne. Eigener Schnitt 2021–2025: rund 24. Also fair bis leicht teuer."],
+ ["b","Aktienrückkauf","gestoppt","Statt zurückzukaufen hat Alphabet im Quartal 49.6 Mrd. $ über neue Aktien und Wandelanleihen aufgenommen. Das verwässert die Aktionäre."]
+],
+"revnote":"Jedes Quartal über Vorjahr, und das Wachstum wird von Quartal zu Quartal schneller.",
+"marginnote":"Seit 2022 um rund 7 Prozentpunkte gestiegen. Google verdient mehr an jedem Umsatz-Dollar.",
+"finnote":"<b>Wichtig zum Gewinn pro Aktie:</b> Das EPS der letzten 12 Monate (19.93 $, +112 %) und damit das KGV von 17 sind verzerrt. Alphabet hat im 1. und 2. Quartal 2026 zusammen rund 136 Mrd. $ Buchgewinne auf Beteiligungen verbucht. Das ist kein Geld aus dem Kerngeschäft. Für die Bewertung nehme ich das erwartete KGV (25.5).",
+"FIN":[["2022",282836,"+9.8 %","26.5 %",4.56,60010,"40.2 %","19.1"],["2023",307394,"+8.7 %","27.4 %",5.80,69495,"38.7 %","23.8"],["2024",350018,"+13.9 %","32.1 %",8.04,72764,"40.6 %","23.2"],["2025",402836,"+15.1 %","32.0 %",10.80,73266,"34.9 %","28.6"],["Letzte 12 Mt.",445866,"+20.1 %","33.1 %",19.93,53273,"24.9 %","17.2*"]],
+"QREV":[["Q3 24",88.3],["Q4 24",96.5],["Q1 25",90.2],["Q2 25",96.4],["Q3 25",102.3],["Q4 25",113.8],["Q1 26",109.9],["Q2 26",119.8]],
+"MARGIN":[["2022",26.5],["2023",27.4],["2024",32.1],["2025",32.0],["12 Mt.",33.1]],
+"Q":[
+ ["Umsatztrend","4 von 4 Quartalen über Vorjahr und beschleunigend",15,15],
+ ["Wachstumstempo","+20.1 % in den letzten 12 Monaten",10,10],
+ ["Operative Marge","33 %, seit 2022 steigend",15,15],
+ ["Gewinnwachstum (EPS)","Bereinigt (Betriebsgewinn) rund +30 %",10,10],
+ ["Free Cashflow","Positiv, aber stark sinkend, Q2 negativ",3,10],
+ ["ROIC","24.9 %, stark fallend",12,15],
+ ["Schulden","Netto-Cash 121.7 Mrd. $",10,10],
+ ["Bewertung vs. eigene Historie","Erw. KGV 25.5 vs. Ø rund 24 (+6 %)",7,15]
+],
+"adwnote":"Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Seit dem Hoch im Mai fällt die Linie mit dem Kurs, aber langsam.",
+"rsiwnote":"Unter 30 überverkauft, über 70 überkauft. Im Mai über 75, heute 50: genau neutral.",
+"addnote":"Am Tief vom 9.9. (330.65 $) lag die A/D-Linie höher als am Juni-Tief (337.39 $), obwohl der Kurs tiefer war. Eine kleine positive Divergenz: Käufer nehmen auf.",
+"ind":[
+ ["Kurs vs. EMA 50","340.82 &lt; 345.74","340.82 &gt; 321.60","Tag knapp darunter, Woche klar darüber: kurzfristig schwach, mittelfristig intakt."],
+ ["Kurs vs. EMA 200","340.82 &gt; 328.75","340.82 &gt; 228.75","Über der langfristigen Linie: langfristiger Aufwärtstrend."],
+ ["EMA 50 vs. EMA 200","50 über 200","50 über 200","Beide Zeitebenen im Aufwärtstrend, die Tages-EMA 50 flacht aber ab."],
+ ["RSI (14)","47.3","49.8","Neutral. Keine Divergenz, kein Extrem."],
+ ["A/D","kleine positive Divergenz","fällt seit Mai mit dem Kurs","Gemischt: kurzfristig nehmen Käufer auf, mittelfristig fliesst noch Geld ab."],
+ ["Volumen","Ø 20 Tage 25.6 Mio. vs. Ø 100 Tage 29.7 Mio.","Die Seitwärtsphase läuft mit sinkendem Volumen. Leicht positiv: wenig Verkaufsdruck."]
+],
+"smc":"Nach dem Hoch im Mai (408.61 $ im Tageshoch) läuft Alphabet in einer Spanne von rund 315 bis 385 $. Die Hochs fallen (402 → 375 → 384 → 364 $), die Tiefs steigen aber seit Juli (314.90 → 327.74 $). Das ist ein Dreieck: Der Markt entscheidet sich bald. Der Kurs steht in der günstigen Hälfte (Discount) der Spanne, deren Mitte bei rund 360 $ liegt.",
+"zones":[
+ ["r","380–385 $","Widerstand: Hochs vom 4./5. August. Darüber ist der Weg Richtung Allzeithoch (400–409 $) frei."],
+ ["t","364.17 $","<b>Trigger: Change of Character.</b> Ein Tagesschluss über dem Hoch vom 22.9. bricht die Serie tieferer Hochs."],
+ ["r","345–350 $","Erster Widerstand: EMA 50 (Tag) und Tageshochs der letzten Wochen."],
+ ["s","327–331 $","Unterstützung: Tief vom 9./10.9. und EMA 200 (Tag). Hier steht die günstigste Zone innerhalb der Spanne."],
+ ["s","315–321 $","Starke Unterstützung: Juli-Tief (314.90 $) und EMA 50 (Woche). Ein Wochenschluss darunter wäre der Abbruch."]
+],
+"smart":[
+ "<b>Alphabet selbst:</b> Kein Rückkauf mehr. Im 2. Quartal nahm Alphabet 49.6 Mrd. $ über neue Aktien und Wandelanleihen und 20.3 Mrd. $ Schulden auf. Für Aktionäre ist das eher negativ.",
+ "<b>Insider-Käufe:</b> Keine von der Geschäftsleitung. Einzelne US-Politiker (u. a. Nancy Pelosi, Ro Khanna) meldeten kleinere Käufe, nur als Nebeninfo, weil sie Wochen verspätet gemeldet werden.",
+ "<b>Insider-Verkäufe:</b> CEO Sundar Pichai verkauft monatlich nach Plan (rund 10 Mio. $ pro Verkauf), insgesamt rund 200 Mio. $ Insider-Verkäufe in 12 Monaten. Üblich, kein Warnsignal.",
+ "<b>Grosse Fonds:</b> Rund 66 % bei institutionellen Anlegern. 13F-Meldungen für Q3 kommen Mitte November."
+],
+"seasfrom":"2004",
+"seasnote":"Durchschnittliche Monatsrendite in %, 22 Jahre. Oktober ist mit +8.7 % und 73 % positiven Jahren der stärkste Monat, oft wegen guter Quartalszahlen.",
+"SEAS":[[1,2.3,77],[2,-3.0,36],[3,0.1,55],[4,5.3,64],[5,3.3,64],[6,-0.4,45],[7,5.1,68],[8,-0.1,45],[9,2.7,64],[10,8.7,73],[11,1.1,64],[12,1.8,68]],
+"T":[
+ ["Trend Woche (EMA 50/200)","Kurs über beiden, EMA 50 über EMA 200",18,20],
+ ["Trend Tag (EMA 50/200)","Kurs unter EMA 50, über EMA 200",6,10],
+ ["Struktur (SMC)","Seitwärts mit höheren Tiefs, tiefere Hochs, kein Change of Character",9,20],
+ ["RSI Tag/Woche","47 / 50: neutral",7,15],
+ ["A/D Tag/Woche","Tag leicht positiv, Woche fällt mit dem Kurs",10,20],
+ ["Smart Money","Kein Rückkauf, übliche Plan-Verkäufe",3,10],
+ ["Saisonalität","Okt–Dez: Ø 68 % positive Jahre",5,5]
+],
+"pro":[
+ "Umsatzwachstum beschleunigt sich seit einem Jahr, Google Cloud wächst mit 82 %.",
+ "Die Marge steigt trotz der Investitionen.",
+ "Über 120 Mrd. $ Netto-Cash: die stärkste Bilanz der drei.",
+ "Kurs in der günstigen Hälfte der Spanne, Tiefs steigen, Volumen sinkt.",
+ "Oktober ist saisonal der stärkste Monat."
+],
+"con":[
+ "Investitionen von 195–205 Mrd. $: Der Free Cashflow war im 2. Quartal negativ.",
+ "Neue Aktien und Wandelanleihen statt Rückkäufe verwässern deinen Anteil.",
+ "Der ROIC fällt stark (41 % → 25 %).",
+ "Der ausgewiesene Gewinn ist durch Buchgewinne aufgebläht, das KGV von 17 täuscht.",
+ "Seit Mai tiefere Hochs, kein bestätigter Trendwechsel.",
+ "Überschneidung mit deinen ETFs: Alphabet ist dort schon gewichtet."
+],
+"todo":[
+ ["t","Beobachten","Alarm bei 364.20 $ (Trigger) und bei 331 $ (Oberkante der Unterstützung)."],
+ ["s","Timing grün","Tagesschluss über 364.17 $, Kurs wieder über der EMA 50 (Tag) und die Wochen-A/D dreht nach oben. Dann springt das Timing auf rund 70. Alternative: Rücksetzer in 327–331 $ mit RSI-Wende."],
+ ["r","Abbruch","Wochenschluss unter 314 $: Dreieck nach unten aufgelöst, neu bewerten."],
+ ["","Nächste Zahlen","28. Oktober 2026 (3. Quartal). Entscheidend: Free Cashflow, Investitionen 2027 und ob weiter Aktien ausgegeben werden."]
+],
+"bands":[{"from":380,"to":385,"type":"res"},{"from":327,"to":331,"type":"sup"},{"from":315,"to":321,"type":"sup"}],
+"refs":[{"v":364.17,"label":"Trigger 364.17"}],
+"sources":"Fundamentaldaten: <a href=\"https://stockanalysis.com/stocks/googl/financials/\" target=\"_blank\" rel=\"noopener\">StockAnalysis.com</a> (Stand 29.09.2026), <a href=\"https://finance.yahoo.com/markets/stocks/articles/alphabet-q2-2026-earnings-revenue-203058727.html\" target=\"_blank\" rel=\"noopener\">Alphabet Q2-Zahlen</a>, <a href=\"https://finance.yahoo.com/markets/stocks/articles/alphabet-lifts-capex-205-billion-123356486.html\" target=\"_blank\" rel=\"noopener\">Investitionen und Cashflow</a>, <a href=\"https://www.marketbeat.com/stocks/NASDAQ/GOOGL/insider-trades/\" target=\"_blank\" rel=\"noopener\">Insider (MarketBeat)</a>."
+}

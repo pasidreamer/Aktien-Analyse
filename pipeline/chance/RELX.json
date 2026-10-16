@@ -1,0 +1,27 @@
+{
+ "ticker": "RELX",
+ "sorgen": [
+  "Die Börse fürchtet, dass KI-Sprachmodelle die teuren Datenbanken von RELX (Recht, Wissenschaft, Risikoprüfung) ersetzen und die Preismacht sinkt. Anfang Februar 2026 löste ein neues KI-Werkzeug für Juristen von Anthropic einen Ausverkauf bei RELX, Thomson Reuters und Wolters Kluwer aus.",
+  "Laut interactive investor fiel die Aktie vom Frühling 2025 bis 03.02.2026 um 43 %, von fast 4'200 auf rund 2'360 Pence, also auf das Niveau von Februar 2023. An diesem Tag allein verlor sie 8 %.",
+  "Das Bewertungs-Polster ist weg: Das KGV fiel von rund 30 (eigener Schnitt) auf etwa 19. Die Börse traut RELX also weniger zu, obwohl die Gewinnprognosen nicht gesenkt wurden."
+ ],
+ "sorgen_art": "stimmung",
+ "sorgen_art_text": "Das Geschäft wächst sogar etwas schneller (1. Halbjahr 2026: Umsatz +7 %, Recht +10 %, Marge 35.5 %); bisher zeigt sich die KI-Angst nicht in den Zahlen.",
+ "aufloeser": [
+  {"was": "Das Handels-Update zum 3. Quartal bestätigt Wachstum um +7 % und den Jahresausblick", "wann": "Voraussichtlich Ende Oktober 2026"},
+  {"was": "Die Jahreszahlen 2026 zeigen weiter steigende Marge und Neuverkäufe, besonders bei den KI-Produkten im Rechtsbereich (Lexis+ und Protégé)", "wann": "Jahreszahlen, voraussichtlich Februar 2027"},
+  {"was": "Grosse Kunden (Kanzleien, Banken) bleiben trotz KI-Konkurrenz bei RELX und zahlen mehr für KI-Funktionen; das würde zeigen, dass die eigenen Daten der Burggraben sind", "wann": "2027"}
+ ],
+ "schub_stufe": "mittel",
+ "schub_treiber": [
+  {"titel": "KI-Produkte im Rechtsbereich", "text": "RELX baut KI direkt in seine Rechtsdatenbank ein: Lexis+ mit dem KI-Assistenten Protégé, der selbständig Aufgaben erledigt. Der Rechtsbereich wuchs im 1. Halbjahr 2026 um 10 % (Gewinn +13 %), schneller als früher. Laut Firma kann RELX dank KI teurere Produkte schneller lancieren.", "wann": "2026–2028"},
+  {"titel": "Wissenschaft (Elsevier) beschleunigt", "text": "Der Bereich Wissenschaft, Technik und Medizin wuchs im 1. Halbjahr um 6 % und beschleunigt sich. Neue KI-Werkzeuge wie Scopus AI und der Forschungs-Arbeitsplatz LeapSpace sollen Forschern helfen. Der Effekt auf das Gesamtwachstum ist aber eher klein.", "wann": "2026–2027"}
+ ],
+ "schub_beweis": "Achte bei jeden Zahlen auf das bereinigte Wachstum im Rechtsbereich (zuletzt +10 %) und für die ganze Gruppe (zuletzt +7 %). Steigt das Gruppenwachstum auf 8 % oder mehr, zahlt sich KI für RELX aus statt zu schaden.",
+ "szenario": "Sehr ähnlich wie Google 2023: Die Börse glaubt, KI sei eine Bedrohung, während RELX die KI längst in die eigenen Produkte einbaut und schneller wächst. Wenn sich das über weitere Quartale bestätigt, kann das KGV von rund 19 wieder Richtung 25–30 steigen. Grösstes Risiko: Freie KI-Modelle werden gut genug, dass Kunden bei der nächsten Vertragsverlängerung weniger zahlen wollen; das würde erst mit Verzögerung in den Zahlen sichtbar.",
+ "quellen": [
+  {"titel": "Resultsense: RELX shows AI paying off with 7% first-half growth (23.07.2026)", "url": "https://www.resultsense.com/news/2026-07-23-relx-ai-growth/"},
+  {"titel": "interactive investor: Stockwatch: time to buy Relx shares after fresh plunge? (03.02.2026)", "url": "https://www.ii.co.uk/analysis-commentary/stockwatch-time-relx-shares-after-fresh-plunge-ii538010"},
+  {"titel": "City AM: Relx reassures as AI fears hit data stocks (Februar 2026)", "url": "https://www.cityam.com/relx-reassures-as-ai-fears-hit-data-stocks/"}
+ ]
+}

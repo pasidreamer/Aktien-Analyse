@@ -1,0 +1,106 @@
+import json
+from cfg4 import L, ADW, RSIW, SEAS
+D = "15.10.2026"
+C = {}
+
+C["RACE"] = {
+"ticker": "RACE", "name": "Ferrari", "datum": D, "waehrung": "USD", "land": "Italien",
+"meta": "Ferrari N.V. · NYSE: RACE (auch Börse Mailand in Euro) · Luxus-Sportwagen, Sponsoring, Formel 1, Lifestyle · Sitz Maranello (Italien), rechtlich eine niederländische Firma",
+"price": "398.24 $",
+"pricemeta": "Schluss 15.10.2026 · 52 Wochen: 312.51 – 437.15 $ · Allzeithoch 519.10 $ im Juli 2025",
+"verdict": "Ferrari ist eine der profitabelsten Firmen der Welt: 29 % operative Marge, 31 % Rendite auf das eingesetzte Kapital, und die Kunden warten bis 2027 auf ihr Auto. Qualität grün (83), Timing hellgrün (69). Der Kurs fiel vom Hoch 519 $ (Juli 2025) bis 312.51 $ (März 2026), weil das Wachstum langsamer wird und das erste Elektroauto Luce schlecht ankam. Seit März macht die Aktie höhere Tiefs, und die Firma kauft für Milliarden eigene Aktien zurück. Heute liegt der Kurs knapp über der Kaufzone 381 bis 391 $. Teuer bleibt sie trotzdem: KGV 38.5.",
+"about": "Ferrari baut Sportwagen in Maranello bei Modena und verkauft bewusst weniger Autos, als die Kunden wollen: rund 13'600 Autos pro Jahr. Ein Ferrari kostet meist zwischen 250'000 und 600'000 Euro, Sondermodelle wie der F80 rund 3.6 Millionen. Rund 80 % des Umsatzes kommen aus Autos und Ersatzteilen. Dazu kommen Sponsoring, Formel-1-Einnahmen, Markenrechte, Lifestyle (Mode, Museen, Freizeitparks) und Motoren für Maserati. Einen grossen Teil verdient Ferrari mit Sonderwünschen der Kunden (Personalisierung), die rund ein Fünftel des Autopreises ausmachen. Grösster Aktionär ist Exor, die Holding der Familie Agnelli.",
+"why": "Im Oktober 2025 stellte Ferrari den Plan bis 2030 vor: Umsatz rund 5 % und Gewinn pro Aktie rund 6 % Wachstum pro Jahr. Die Börse hatte mehr erwartet, die Aktie fiel an einem Tag um 15 %. Dazu kam, dass Ferrari bis 2030 nur noch 20 % Elektroautos plant statt 40 %. Im Januar 2026 senkten mehrere Banken ihre Ziele (HSBC auf Halten, Jefferies Ziel 310 €), am 20. März erreichte die Aktie mit 312.51 $ das Tief. Am 25. Mai zeigte Ferrari das erste Elektroauto Luce (rund 550'000 €, gestaltet mit Jony Ive). Die Kritik am Aussehen war heftig, die Aktie fiel am Tag danach um 6 %. Die Zahlen blieben aber gut: Am 30. Juli erhöhte Ferrari die Prognose für 2026 (Umsatz rund 7.6 Mrd. €, Gewinn pro Aktie mindestens 9.68 €). Danach stieg die Aktie bis 437.15 $ am 21. August. Seit Ende September fiel sie bis 381.67 $, ohne neue schlechte Nachrichten. UBS senkte das Kursziel von 490 auf 450 $, behielt aber Kaufen.",
+"kpis": [
+ ["w","Umsatzwachstum","+5.7 %","Letzte 12 Monate. Im 2. Quartal 2026 +8.4 %. 2023 waren es noch +17 %, 2024 +12 %. Ferrari wächst langsamer, weil sie weniger Autos ausliefern und das Wachstum nur noch aus höheren Preisen kommt."],
+ ["g","Operative Marge","29.4 %","Von 100 € Umsatz bleiben rund 29 € Betriebsgewinn. Für einen Autobauer extrem hoch, normale Autobauer schaffen 5 bis 10 %. Seit 2022 jedes Jahr gestiegen."],
+ ["w","Gewinn pro Aktie (EPS)","9.23 €","Letzte 12 Monate, +3.7 % zum Vorjahr. Seit 2021 (4.50 €) verdoppelt. Für 2026 erwartet Ferrari mindestens 9.68 € (bereinigt)."],
+ ["g","ROIC","31.5 %","Auf 100 € investiertes Kapital rund 31 € Gewinn. Sehr hoch und seit 2023 stabil über 30 %. Zeigt die Preismacht der Marke."],
+ ["g","Free Cashflow","1.9 Mrd. €","Letzte 12 Monate, 2021 waren es 0.9 Mrd. €. Ferrari selbst rechnet enger (ohne Kundenfinanzierung) und erwartet für 2026 mindestens 1.55 Mrd. €."],
+ ["g","Nettoschulden","0.2 Mrd. €","Ohne die Kredite, mit denen Ferrari Kunden das Auto finanziert. Mit diesen Kundenkrediten sind es 1.7 Mrd. €. Bei 2.9 Mrd. € Betriebsgewinn vor Abschreibungen pro Jahr sehr wenig."],
+ ["w","KGV","38.5","Du zahlst rund 38 Jahresgewinne. Für einen Autobauer sehr teuer, für Ferrari eher günstig: Eigener Schnitt 2021–2025 rund 43.5. Also etwa 11 % unter dem eigenen Schnitt."],
+ ["w","Dividende","1.0 %","3.615 € pro Aktie, einmal im Jahr (bezahlt am 5. Mai 2026). +21 % zum Vorjahr, Ferrari schüttet rund 35 bis 40 % des Gewinns aus. Die Rendite ist tief, die Dividende wächst aber schnell."]
+],
+"revtitle": "Umsatz pro Quartal (Mio. €)", "revunit": "Mio. €", "epsunit": "€",
+"revnote": "Alle 8 Quartale über dem Vorjahr. Das Tempo sank aber von +16 % (2. Quartal 2024) auf +3 bis +8 %.",
+"marginnote": "Seit 2022 jedes Jahr höher, von 24 % auf 29 %. Im 2. Quartal 2026 sogar 31 %.",
+"finnote": "<b>Hinweis:</b> Ferrari berichtet in Euro, die Aktie an der NYSE kostet Dollar. Das KGV ist darum mit dem Kurs in Euro gerechnet (398.24 $ = rund 355 €). Der Free Cashflow von StockAnalysis enthält die Kundenfinanzierung nicht gleich wie Ferrari selbst, darum weicht er von Ferraris «industriellem Free Cashflow» ab.",
+"FIN": [["2021",4271,"+23.4 %","25.0 %",4.50,930,"25.7 %","50.3"],["2022",5095,"+19.3 %","24.0 %",5.09,1056,"26.1 %","39.1"],["2023",5970,"+17.2 %","27.0 %",6.90,1335,"30.2 %","44.0"],["2024",6677,"+11.8 %","28.2 %",8.46,1444,"31.6 %","48.5"],["2025",7146,"+7.0 %","29.4 %",8.96,1864,"30.8 %","35.4"],["Letzte 12 Mt.",7353,"+5.7 %","29.4 %",9.23,1910,"31.5 %","38.5"]],
+"QREV": [["Q3 24",1644],["Q4 24",1736],["Q1 25",1791],["Q2 25",1788],["Q3 25",1766],["Q4 25",1801],["Q1 26",1848],["Q2 26",1938]],
+"revdec": 0,
+"MARGIN": [["2021",25.0],["2022",24.0],["2023",27.0],["2024",28.2],["2025",29.4],["12 Mt.",29.4]],
+"Q": [
+ ["Umsatztrend","Alle 8 Quartale über Vorjahr (Q2 2026: +8.4 %)",15,15],
+ ["Wachstumstempo","Letzte 12 Monate +5.7 % (2023: +17 %), klar langsamer",4,10],
+ ["Operative Marge","29.4 % (9 Pkt.), seit 2022 jedes Jahr gestiegen (6 Pkt.)",15,15],
+ ["Gewinnwachstum (EPS)","Seit 2021 verdoppelt, letzte 12 Monate nur +3.7 %",6,10],
+ ["Free Cashflow","Jedes Jahr positiv und steigend (0.9 → 1.9 Mrd. €)",10,10],
+ ["ROIC","31.5 %, seit 2023 stabil über 30 %",15,15],
+ ["Schulden","Industriell fast schuldenfrei (0.2 Mrd. €), mit Kundenkrediten 1.7 Mrd. €",8,10],
+ ["Bewertung vs. eigene Historie","KGV 38.5 statt Ø 43.5 (2021–2025), rund 11 % günstiger",10,15]
+],
+"adwnote": ADW + "Wichtig: Die Wochen-A/D steht heute (82.3) fast so hoch wie beim Jahreshoch im August (82.8), obwohl der Kurs seither 9 % tiefer liegt. Die Verkäufe im September und Oktober liefen mit wenig Druck: Grosse Anleger haben eher gehalten.",
+"rsiwnote": RSIW + "Im Januar und März bei 30 (überverkauft), im August bei 66, heute 53: neutral.",
+"addnote": "Seit dem Hoch vom 21.8. sinkt die Tages-A/D leicht (von −14.1 auf −15.5). Am 9.9. stand der Kurs bei 402 $ und die A/D bei −15.5. Heute gleiche A/D, Kurs 4 $ tiefer: kein starker Verkaufsdruck, aber auch noch kein klares Kaufsignal.",
+"ind": [
+ ["Kurs vs. EMA 50","398.2 &gt; 397.9 (knapp)","398.2 &gt; 389.5","Heute wieder knapp über der mittelfristigen Linie, auf beiden Zeitebenen."],
+ ["Kurs vs. EMA 200","398.2 &gt; 387.5","398.2 &gt; 368.9","Über der langfristigen Linie, auf beiden Zeitebenen."],
+ ["EMA 50 vs. EMA 200","50 über 200 (seit 11.8.2026)","50 über 200 (seit November 2016)","Tag und Woche aufwärts."],
+ ["RSI (14)","50.6","53.1","Neutral, weder überkauft noch überverkauft."],
+ ["A/D","seit August leicht sinkend","fast am Höchststand, Kurs 9 % tiefer","Woche positiv (Käufer halten), Tag neutral."],
+ ["Volumen","Ø 20 Tage 0.45 Mio. vs. Ø 100 Tage 0.50 Mio. Aktien","Etwas weniger Handel als üblich: Die Korrektur läuft ruhig, ohne Panik."]
+],
+"smc": "Vom Allzeithoch 519.10 $ (Juli 2025) fiel Ferrari in drei Stufen: nach dem Investorentag im Oktober 2025 auf 372 $, im Januar 2026 auf 328 $ und am 20. März 2026 auf 312.51 $. Seither macht die Aktie höhere Tiefs (312.51 → 319.72 → 343.38 → 356.32 → 381.67 $). Im August brach sie über die Hochs vom Februar (393.50 $) und April (379.65 $): Im Wochenchart ist das ein Change of Character nach oben. Nach dem Hoch vom 21.8. (437.15 $) folgte eine Korrektur mit tieferen Hochs (437.15 → 419.80 $) und tieferen Tiefen (400.82 → 381.67 $). Das Tief vom 5.10. hielt genau dort, wo die Tages-EMA 200 und die Wochen-EMA 50 liegen. Heute stieg der Kurs um 2.8 % auf 398.24 $. Ein Tagesschluss über 403 $ würde die Reihe tieferer Hochs seit Ende September brechen. Darunter liegt noch eine offene Kurslücke (Fair Value Gap) vom 24./27. Juli zwischen 363 und 372 $.",
+"zones": [
+ ["r","430–437 $","Widerstand: Jahreshoch vom 21.8.2026 (437.15 $)."],
+ ["r","412–420 $","Widerstand: Hochs vom September (419.80 $ am 22.9.)."],
+ ["t","403 $","<b>Trigger:</b> Tagesschluss über dem Hoch vom 29.9. (402.05 $) und klar über der Tages-EMA 50. Bestätigung über 420 $."],
+ ["s","381–391 $","<b>Kaufzone 1:</b> Tief vom 5.10. (381.67 $), Tages-EMA 200 (387.50 $) und Wochen-EMA 50 (389.50 $)."],
+ ["s","356–372 $","<b>Kaufzone 2:</b> Kurslücke vom Juli (363–372 $), Wochen-EMA 200 (368.90 $) und Tief vom 24.7. (356.32 $)."],
+ ["r","378 $","Abbruch: Wochenschluss darunter, dann ist die Kaufzone 2 das nächste Ziel."]
+],
+"smart": [
+ "<b>Ferrari selbst:</b> Rückkaufprogramm über rund 3.5 Mrd. € bis 2030. 2026 bis zum 24.7. für 479 Mio. € 1.6 Mio. eigene Aktien gekauft, im Schnitt zu rund 297 € (rund 345 $). Die Firma hat also kräftig nahe am Tief gekauft. Die dritte Tranche läuft (Meldung vom 13.10.).",
+ "<b>Grossaktionär:</b> Exor (Familie Agnelli) hält rund ein Fünftel der Aktien. Im Februar 2025 verkaufte Exor rund 4 %, seither keine Verkäufe bekannt.",
+ "<b>Insider:</b> In den letzten drei Monaten keine Käufe oder Verkäufe von Managern gemeldet (MarketBeat).",
+ "<b>Analysten:</b> Bei StockAnalysis 12 Analysten mit «Kaufen», Kursziel im Schnitt 453 $ (+14 %). Bei MarketBeat 15× Kaufen, 8× Halten, 0× Verkaufen. Zuletzt leicht gesenkte Ziele: UBS 450 $ (vorher 490 $), Morgan Stanley 456 $ (vorher 460 $), beide weiter positiv."
+],
+"seasnote": SEAS + "Seit dem Börsengang 2015 (11 Jahre). Juli (+4.9 %) und Februar (+3.3 %) sind stark, September (−2.3 %, nur 27 % positive Jahre) und Dezember (−1.2 %, 27 %) schwach. November im Schnitt +3.0 % (55 %).",
+"T": [
+ ["Trend Woche (EMA 50/200)","Kurs über EMA 50 und 200, EMA 50 dreht seit Juli wieder nach oben",17,20],
+ ["Trend Tag (EMA 50/200)","Kurs knapp über EMA 50, über EMA 200, EMA 50 über 200 seit 11.8.",7,10],
+ ["Struktur (SMC)","Woche: höhere Tiefs seit März. Tag: Korrektur mit tieferen Hochs seit August",11,20],
+ ["RSI Tag/Woche","Tag 51, Woche 53: neutral",9,15],
+ ["A/D Tag/Woche","Woche fast am Hoch bei 9 % tieferem Kurs, Tag neutral",15,20],
+ ["Smart Money","Grosser Rückkauf nahe am Tief, Analysten positiv, keine Insider-Käufe",7,10],
+ ["Saisonalität","Oktober +0.3 % (67 %), November +3.0 % (55 %), Dezember schwach",3,5]
+],
+"pro": [
+ "Einzigartige Marke mit Preismacht: Die Kunden warten bis 2027 auf ihr Auto.",
+ "Sehr hohe Marge (29 %) und Kapitalrendite (31 %), fast schuldenfrei.",
+ "Prognose 2026 im Juli erhöht, Personalisierung bringt immer mehr Geld pro Auto.",
+ "Die Firma kauft für Milliarden eigene Aktien zurück, 2026 vor allem nahe am Tief.",
+ "KGV 11 % unter dem eigenen Schnitt, Wochentrend und Wochen-A/D positiv."
+],
+"con": [
+ "Wachstum wird langsamer: +5.7 % statt +12 bis +17 % wie 2023 und 2024.",
+ "Absolut sehr teuer (KGV 38.5): Enttäuscht ein Quartal, kann der Kurs stark fallen (−15 % an einem Tag im Oktober 2025).",
+ "Das erste Elektroauto Luce kam schlecht an. Ob die Kunden es kaufen, ist offen.",
+ "Wachstum hängt an teuren Sondermodellen wie dem F80. Citi zweifelt, dass das so weitergeht.",
+ "US-Zölle (15 % auf Autos aus der EU) und eine schwache Nachfrage nach Luxus in China."
+],
+"todo": [
+ ["t","Beobachten","Alarm bei 403 $ (Trigger) und 391 $ (oberes Ende Kaufzone 1)."],
+ ["s","Timing grün","Tagesschluss über 403 $ und danach über 420 $ mit steigender Tages-A/D. Oder ein Rücksetzer in 381–391 $, der hält. Fundamental: Die Zahlen vom 3.11. sollten die Prognose 2026 bestätigen."],
+ ["r","Abbruch","Wochenschluss unter 378 $. Dann wäre die Kaufzone 2 (356–372 $) das nächste Ziel."],
+ ["","Nächste Zahlen","3. November 2026 (3. Quartal). Jahreszahlen 2026 und Ausblick 2027 voraussichtlich im Februar 2027."]
+],
+"bands": [{"from":430,"to":437,"type":"res"},{"from":412,"to":420,"type":"res"},{"from":381,"to":391,"type":"sup"},{"from":356,"to":372,"type":"sup"}],
+"refs": [{"v":403,"label":"Trigger 403"}],
+"sources": L("https://stockanalysis.com/stocks/race/financials/","StockAnalysis.com") + " (Stand 15.10.2026), " + L("https://finance.yahoo.com/markets/stocks/articles/ferrari-shares-rise-raised-2026-113846722.html","Ferrari Q2 2026 (Investing.com)") + ", " + L("https://www.marketscreener.com/news/ferrari-analysts-remain-cautious-but-the-stock-could-regain-momentum-ce7e58dfdc81ff21","MarketScreener (19.1.2026)") + ", " + L("https://electrek.co/2026/05/26/ferrari-race-stock-plunge-luce-ev-mach-e-moment/","Electrek zum Luce (26.5.2026)") + ", " + L("https://www.stocktitan.net/sec-filings/RACE/6-k-ferrari-n-v-current-report-foreign-issuer-d9a40ea44aed.html","Rückkauf-Meldung (27.7.2026)") + ", " + L("https://www.sec.gov/Archives/edgar/data/1648416/000164841626000023/fnv19226prdividendex.htm","Dividende 2026 (SEC)") + ", " + L("https://www.marketbeat.com/stocks/NYSE/RACE/","MarketBeat") + "."
+}
+
+if __name__ == "__main__":
+  for t, c in C.items():
+    json.dump(c, open(f"/home/claude/aktien/{t}.json", "w"), ensure_ascii=False, indent=1)
+  print("ok", list(C), sum(r[2] for r in C["RACE"]["Q"]), sum(r[2] for r in C["RACE"]["T"]))

@@ -1,0 +1,31 @@
+{
+ "ticker": "TSLA",
+ "sorgen": [
+  "Das Autogeschäft verdient kaum noch Geld: Die operative Marge lag im 2. Quartal 2026 bei nur 1.4 % (2022 waren es 16.8 %). Der bereinigte Gewinn pro Aktie war 0.33 $ statt der erwarteten 0.53 $.",
+  "Tesla hat die Investitionen im 2. Quartal verdoppelt (KI-Rechenzentren, Cybercab, Optimus). Dadurch war der Free Cashflow negativ (−1.1 Mrd. $), und laut Tesla bleibt das noch einige Quartale so.",
+  "Starke Konkurrenz aus China und der Wegfall der US-Steuergutschrift für E-Autos drücken Preise und Absatz. Die Marge bei Energiespeichern fiel von 39.5 % auf 20.4 %.",
+  "Die Bewertung (rund 160–200 erwartete Jahresgewinne) hängt fast ganz an Robotaxi und Roboter. Dazu kommt das Personenrisiko Elon Musk (SpaceX, xAI, Politik) und Spekulation über eine Fusion mit SpaceX, für die es aber keinen offiziellen Vorschlag gibt."
+ ],
+ "sorgen_art": "gemischt",
+ "sorgen_art_text": "Das Kerngeschäft mit Autos hat echte Margenprobleme durch Konkurrenz, aber ein Teil des Gewinnrückgangs ist bewusst gewählt (hohe Investitionen in KI, Robotaxi und Roboter), und der Umsatz wuchs zuletzt wieder (+26 % im 2. Quartal).",
+ "aufloeser": [
+  {"was": "Die Marge im Autogeschäft stabilisiert sich und der Gewinn liegt nicht wieder deutlich unter den Erwartungen", "wann": "Zahlen 3. Quartal am 21.10.2026"},
+  {"was": "Robotaxi ohne Fahrer wird auf weitere Städte (laut Tesla Phoenix, Las Vegas) und ganze Bundesstaaten ausgeweitet, mit klaren Zahlen zur Flottengrösse und zu bezahlten Kilometern", "wann": "Ende 2026 bis 2027"},
+  {"was": "Cybercab, Optimus, Semi und Megapack 3 gehen wie angekündigt in die Produktion", "wann": "Laut Tesla alle noch 2026, Hochlauf 2027"},
+  {"was": "Die Investitionen sinken wieder und der Free Cashflow wird positiv", "wann": "Laut Tesla nicht vor 2027"}
+ ],
+ "schub_stufe": "mittel",
+ "schub_treiber": [
+  {"titel": "Robotaxi und Cybercab", "text": "Tesla fährt laut Firma in sieben grossen US-Regionen ohne Sicherheitsfahrer (z. B. Austin, Miami, Orlando, Tampa), bisher rund 2.5 Mio. bezahlte Meilen. Die Produktion des Cybercab (Auto ohne Lenkrad) hat in Texas begonnen. Gelingt die Ausweitung, entsteht ein ganz neues Geschäft mit wiederkehrenden Fahrten-Umsätzen; Umsatzzahlen nennt Tesla aber noch nicht.", "wann": "2026–2028"},
+  {"titel": "Software für autonomes Fahren (FSD) im Abo", "text": "Ende 2. Quartal hatten 1.48 Mio. Kunden ein FSD-Abo, 56 % mehr als vor einem Jahr. Über 55 % der Neuwagen in Nordamerika wurden mit Abo ausgeliefert. Software hat viel höhere Margen als Autos.", "wann": "laufend"},
+  {"titel": "Energiespeicher", "text": "Tesla installierte im 2. Quartal 13.5 GWh Speicher (+41 %). Die neue Megafactory in Texas soll noch 2026 starten. Allerdings ist die Marge zuletzt stark gesunken und im 3. Quartal lag der Wert (13.7 GWh) unter den Erwartungen.", "wann": "2026–2027"},
+  {"titel": "Roboter Optimus", "text": "Erste Produktionsläufe auf einer neuen Linie in Fremont waren laut Tesla für das 3. Quartal 2026 geplant. Das ist noch ganz am Anfang, Umsätze sind nicht absehbar.", "wann": "frühestens 2027–2028"}
+ ],
+ "schub_beweis": "Achte bei jeden Zahlen auf die Zahl der FSD-Abos (zuletzt 1.48 Mio., +56 %), die bezahlten Robotaxi-Meilen (zuletzt rund 2.5 Mio. kumuliert) und die operative Marge (zuletzt 1.4 %). Wachsen die ersten beiden schnell und steigt die Marge wieder, kommt der Schub im Gewinn an.",
+ "szenario": "Ähnlich wie Google 2023 zweifeln viele, ob Tesla mit Robotaxi und KI Geld verdient, während die Basis (Software, Daten aus Millionen Autos, eigene Fabriken) schon steht. Skaliert das Robotaxi-Netz 2027 in ganzen Bundesstaaten, kann der Gewinn sprunghaft steigen. Grösstes Risiko: Der Preis setzt diesen Erfolg schon voraus; verzögert sich Robotaxi oder bleibt es unrentabel, trifft eine sehr hohe Bewertung auf ein schrumpfendes Autogeschäft.",
+ "quellen": [
+  {"titel": "Not a Tesla App: Summary of Tesla's 2026 Q2 Earnings Call (22.07.2026)", "url": "https://notateslaapp.com/news/4481/summary-of-teslas-2026-q2-earnings-call-cybercab-fsd-ai4-and-more"},
+  {"titel": "SEC: Tesla Q2 2026 Update (Exhibit 99.1)", "url": "https://www.sec.gov/Archives/edgar/data/0001318605/000162828026049213/exhibit991.htm"},
+  {"titel": "Basenor: Tesla-SpaceX Merger Talk: SpaceX IPO Comes First (2026)", "url": "https://www.basenor.com/blogs/news/tesla-spacex-merger-talk-spacex-ipo-comes-first"}
+ ]
+}

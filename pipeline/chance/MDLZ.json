@@ -1,0 +1,28 @@
+{
+ "ticker": "MDLZ",
+ "sorgen": [
+  "Der teure Kakao der letzten zwei Jahre wirkt noch nach: Weil Mondelez Kakao lange im Voraus einkauft, landen die hohen Preise erst jetzt in der Rechnung. Der bereinigte Gewinn pro Aktie lag im 1. Halbjahr 2026 ohne Währungseffekte 8.8 % unter dem Vorjahr.",
+  "Europa, der wichtigste Schokolade-Markt, schrumpfte im 2. Quartal 2026 um 3.5 %, auch die verkaufte Menge sank (−2.1 %). Die Preiserhöhungen haben Kunden vertrieben, dazu kam eine Hitzewelle.",
+  "Die Schulden sind mit dem 3.3-Fachen des Betriebsgewinns (vor Abschreibungen) eher hoch, die Rendite auf das eingesetzte Kapital mit rund 8 % tief.",
+  "Neues Risiko: Für die Ernte 2026/27 wird laut Bericht wegen Wetterrisiken mit weniger Kakao aus der Elfenbeinküste (rund 1.8 statt 2.2 Mio. Tonnen) gerechnet. Steigt der Preis wieder, fällt die erhoffte Entlastung kleiner aus."
+ ],
+ "sorgen_art": "gemischt",
+ "sorgen_art_text": "Das Problem ist echt, aber vorübergehend: Es kommt vor allem vom Kakaopreis, nicht von schwachen Marken; ausserhalb Europas wächst Mondelez weiter (Lateinamerika +8.4 %, Asien/Afrika/Nahost +7.1 %).",
+ "aufloeser": [
+  {"was": "Mondelez bestätigt das Jahresziel 2026 (Gewinn pro Aktie 0 bis +5 % ohne Währungen) und zeigt, dass die Kakaokosten ihren Höhepunkt überschritten haben", "wann": "Zahlen 3. Quartal, voraussichtlich Ende Oktober 2026"},
+  {"was": "Der Ausblick für 2027 bestätigt das von der Firma angekündigte 'starke Gewinnwachstum' mit einer konkreten Zahl", "wann": "Zahlen 4. Quartal, voraussichtlich Anfang Februar 2027"},
+  {"was": "Europa wächst wieder bei der verkauften Menge, weil die Preiserhöhungen aus dem Vorjahr wegfallen", "wann": "2. Halbjahr 2026 bis Anfang 2027"}
+ ],
+ "schub_stufe": "mittel",
+ "schub_treiber": [
+  {"titel": "Kakaopreis hat sich mehr als halbiert", "text": "Kakao kostete Ende 2024 zeitweise über 12'000 $ pro Tonne, Anfang Oktober 2026 noch rund 5'100 $. Wegen der Absicherungen kommt die Entlastung mit Verzögerung, vor allem 2027. Die Firma erwartet laut Präsentation vom 28.07.2026 ein 'starkes Gewinnwachstum 2027', nennt aber keine Zahl.", "wann": "2027"},
+  {"titel": "Wachstum in Schwellenländern", "text": "Schwellenländer wuchsen im 2. Quartal 2026 um 4.4 %, Lateinamerika um 8.4 %, die Region Asien/Nahost/Afrika um 7.1 % mit deutlich mehr verkaufter Menge (+5.2 %). Mondelez baut dort das Händlernetz stark aus, zum Beispiel in Indien und Brasilien.", "wann": "Laufend"}
+ ],
+ "schub_beweis": "Achte bei jeden Zahlen auf die bereinigte Bruttomarge (zuletzt 34.0 %) und den bereinigten Gewinn pro Aktie (1. Halbjahr −8.8 % ohne Währungen). Steigt die Bruttomarge klar über 35 % und dreht der Gewinn ins Plus, kommt die Kakao-Entlastung an.",
+ "szenario": "Eher eine Rohstoff-Wende als ein Fall wie Google 2023: Die Börse sieht heute vor allem die schwachen Zahlen von 2025 und 2026. Kommt die Kakao-Entlastung 2027 wie erhofft voll an, kann der Gewinn deutlich schneller wachsen als heute und die Bewertung (erwartetes KGV 18.3) wieder steigen. Grösstes Risiko: Eine schlechte Ernte treibt den Kakaopreis erneut hoch, oder Mondelez muss die Preise senken und gibt die Entlastung an die Kunden weiter.",
+ "quellen": [
+  {"titel": "Mondelez: Präsentation Zahlen 2. Quartal 2026 (28.07.2026)", "url": "https://ir.mondelezinternational.com/static-files/f98c56ea-c47a-4262-90b6-3e883d248641"},
+  {"titel": "Trading Economics: Cocoa Futures at Over 2-Month Low (01.10.2026)", "url": "https://tradingeconomics.com/commodity/cocoa/news/588793"},
+  {"titel": "Beta Finch: Zusammenfassung Mondelez Q2 2026 Call", "url": "https://betafinch.com/episodes/MDLZ_2026_Q2_en"}
+ ]
+}

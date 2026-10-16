@@ -1,0 +1,395 @@
+{
+ "ticker": "COST",
+ "name": "Costco",
+ "datum": "05.10.2026",
+ "meta": "Costco Wholesale Corporation · NASDAQ: COST · Mitglieder-Grossmärkte · USA",
+ "price": "923.52 $",
+ "pricemeta": "Schluss 05.10.2026 · Allzeithoch 19.05.2026: 1'096.50 $ · 52-Wochen-Tief 844.10 $",
+ "verdict": "Eine der besten Handelsfirmen der Welt, aber nie billig. Seit dem Mai-Hoch hat der Kurs 16 % verloren, die Zahlen bleiben stark. Qualität grün, Timing gelb. Es gibt erste Bodenzeichen (bullische Divergenz). Der Trigger ist ein Tagesschluss über 931 $.",
+ "about": "Costco betreibt rund 900 grosse Lagerhallen-Märkte, in denen nur Mitglieder einkaufen dürfen (Jahresgebühr ab 65 $). Die Waren werden fast zum Einkaufspreis verkauft. Der Gewinn kommt zu einem grossen Teil aus den Mitgliedsgebühren, über 90 % der Mitglieder verlängern jedes Jahr. Das macht den Gewinn sehr planbar.",
+ "why": "Im Mai stieg die Aktie auf das Rekordhoch von 1'096.50 $. Danach fiel sie bis Ende September auf 883 $, obwohl das Geschäft gut lief. Hauptgrund ist die sehr hohe Bewertung: Bei einem KGV über 50 genügt schon etwas weniger Begeisterung für einen Rückgang. Die Jahreszahlen vom 24. September waren stark: Umsatz im Quartal 95.7 Mrd. $ (+11 %, Erwartung 94.85 Mrd.), Gewinn pro Aktie 6.75 $ (Erwartung 6.55 $), vergleichbare Umsätze +6.7 %, Online-Umsatz +19.5 %. Im Gewinn steckt ein Einmaleffekt von 0.15 $ pro Aktie aus Zollrückerstattungen.",
+ "kpis": [
+  [
+   "g",
+   "Umsatzwachstum",
+   "+10.1 %",
+   "Geschäftsjahr bis August 2026. Für einen Händler mit 300 Mrd. $ Umsatz sehr stark."
+  ],
+  [
+   "g",
+   "Vergleichbare Umsätze",
+   "+6.7 %",
+   "Gleiche Filialen, ohne Benzinpreise und Währungen. Echtes Wachstum aus bestehenden Märkten."
+  ],
+  [
+   "w",
+   "Operative Marge",
+   "3.85 %",
+   "Klingt winzig, ist für Costco aber gewollt: Tiefe Preise bringen treue Mitglieder. Steigt seit 2022 leicht."
+  ],
+  [
+   "g",
+   "Gewinn pro Aktie (EPS)",
+   "+14 %",
+   "Geschäftsjahr 2026. Seit Jahren zweistellig."
+  ],
+  [
+   "g",
+   "ROIC",
+   "39.3 %",
+   "Gewinn pro investiertem Dollar. Spitzenwert und jedes Jahr höher."
+  ],
+  [
+   "g",
+   "Free Cashflow",
+   "9.39 Mrd. $",
+   "Seit 2022 fast verdreifacht."
+  ],
+  [
+   "g",
+   "Netto-Cash",
+   "12.7 Mrd. $",
+   "Mehr Bargeld als Schulden."
+  ],
+  [
+   "w",
+   "KGV",
+   "44.4",
+   "Du zahlst 44 Jahresgewinne. Im eigenen 5-Jahres-Schnitt (rund 46) normal, absolut aber sehr teuer."
+  ]
+ ],
+ "revnote": "Jedes Quartal über Vorjahr, Tempo zuletzt höher (über 11 %). Das 4. Quartal hat 16 statt 12 Wochen, darum der Sprung.",
+ "marginnote": "Bewusst tief und sehr stabil. Steigt seit 2022 um wenige Zehntelprozente pro Jahr.",
+ "finnote": "<b>Hinweis:</b> Geschäftsjahr endet jeweils Ende August. Costco zahlt alle paar Jahre eine Sonderdividende, das verzerrt den Free Cashflow nicht. Das KGV ist bei Costco seit Jahren hoch, darum ist der Vergleich mit dem eigenen Schnitt wichtig.",
+ "FIN": [
+  [
+   "GJ 2022",
+   226954,
+   "+15.8 %",
+   "3.5 %",
+   13.14,
+   3501,
+   "31.6 %",
+   "40.3"
+  ],
+  [
+   "GJ 2023",
+   242290,
+   "+6.8 %",
+   "3.5 %",
+   14.16,
+   6745,
+   "30.9 %",
+   "38.3"
+  ],
+  [
+   "GJ 2024",
+   254453,
+   "+5.0 %",
+   "3.6 %",
+   16.56,
+   6629,
+   "32.8 %",
+   "53.7"
+  ],
+  [
+   "GJ 2025",
+   275235,
+   "+8.2 %",
+   "3.8 %",
+   18.21,
+   7837,
+   "33.6 %",
+   "51.7"
+  ],
+  [
+   "GJ 2026",
+   303154,
+   "+10.1 %",
+   "3.9 %",
+   20.76,
+   9390,
+   "39.3 %",
+   "44.4"
+  ]
+ ],
+ "QREV": [
+  [
+   "Q1 25",
+   62.2
+  ],
+  [
+   "Q2 25",
+   63.7
+  ],
+  [
+   "Q3 25",
+   63.2
+  ],
+  [
+   "Q4 25",
+   86.2
+  ],
+  [
+   "Q1 26",
+   67.3
+  ],
+  [
+   "Q2 26",
+   69.6
+  ],
+  [
+   "Q3 26",
+   70.5
+  ],
+  [
+   "Q4 26",
+   95.7
+  ]
+ ],
+ "MARGIN": [
+  [
+   "GJ 22",
+   3.5
+  ],
+  [
+   "GJ 23",
+   3.5
+  ],
+  [
+   "GJ 24",
+   3.6
+  ],
+  [
+   "GJ 25",
+   3.8
+  ],
+  [
+   "GJ 26",
+   3.9
+  ]
+ ],
+ "Q": [
+  [
+   "Umsatztrend",
+   "4 von 4 Quartalen über Vorjahr, Tempo steigt",
+   15,
+   15
+  ],
+  [
+   "Wachstumstempo",
+   "+10.1 % im Geschäftsjahr",
+   8,
+   10
+  ],
+  [
+   "Operative Marge",
+   "3.85 %, für Handel milder bewertet (3 Pkt.), steigend (6 Pkt.)",
+   9,
+   15
+  ],
+  [
+   "Gewinnwachstum (EPS)",
+   "Ø 3 Jahre rund +14 %",
+   8,
+   10
+  ],
+  [
+   "Free Cashflow",
+   "Positiv, 2024 leicht gesunken",
+   6,
+   10
+  ],
+  [
+   "ROIC",
+   "39.3 %, steigend",
+   15,
+   15
+  ],
+  [
+   "Schulden",
+   "Netto-Cash 12.7 Mrd. $",
+   10,
+   10
+  ],
+  [
+   "Bewertung vs. eigene Historie",
+   "KGV 44 vs. Ø rund 46 (±10 %)",
+   7,
+   15
+  ]
+ ],
+ "adwnote": "Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Seit dem Mai-Hoch fällt die Linie mit dem Kurs, in den letzten zwei Wochen dreht sie wieder nach oben.",
+ "rsiwnote": "Unter 30 überverkauft, über 70 überkauft. Heute 45: neutral, etwas schwach.",
+ "addnote": "Der Kurs liegt heute unter dem Stand vom 24. August (971 $), die Tages-A/D aber leicht höher. Das ist eine bullische Divergenz: Käufer nehmen auf.",
+ "ind": [
+  [
+   "Kurs vs. EMA 50",
+   "923.5 &lt; 927.7",
+   "923.5 &lt; 949.5",
+   "Knapp unter der mittelfristigen Linie, Tag fast zurückerobert."
+  ],
+  [
+   "Kurs vs. EMA 200",
+   "923.5 &lt; 951.7",
+   "923.5 &gt; 832.8",
+   "Tag unter, Woche klar über der langfristigen Linie: Rücksetzer im langfristigen Aufwärtstrend."
+  ],
+  [
+   "EMA 50 vs. EMA 200",
+   "50 unter 200 (Death Cross 14.7.2026)",
+   "50 über 200 (seit 2021)",
+   "Kurzfristig Abwärtstrend, langfristig intakt."
+  ],
+  [
+   "RSI (14)",
+   "52.8",
+   "44.7",
+   "Tag: Am Tief vom September lag der RSI höher als im Juli, obwohl der Kurs tiefer war. Bullische Divergenz."
+  ],
+  [
+   "A/D",
+   "steigt seit Mitte September",
+   "dreht nach oben",
+   "Erste Zeichen, dass Käufer zurückkommen."
+  ],
+  [
+   "Volumen",
+   "Ø 20 Tage 2.4 Mio. vs. Ø 100 Tage 2.3 Mio.",
+   "Normal."
+  ]
+ ],
+ "smc": "Seit dem Hoch im Mai (1'096.50 $) macht Costco tiefere Hochs (995 → 987.50 → 978.70 → 931.10 $) und tiefere Tiefs (936.50 → 907.20 → 883.10 $). Das ist ein Abwärtstrend auf dem Tageschart. Das letzte tiefere Hoch liegt bei 931.10 $ (28.9.), der Kurs steht nur 0.8 % darunter. Ein Tagesschluss darüber wäre der Change of Character.",
+ "zones": [
+  [
+   "r",
+   "951–965 $",
+   "Widerstand: EMA 200 (Tag) und EMA 50 (Woche)."
+  ],
+  [
+   "t",
+   "931.10 $",
+   "<b>Trigger: Change of Character.</b> Tagesschluss über dem Hoch vom 28.9."
+  ],
+  [
+   "s",
+   "883–895 $",
+   "Kaufzone: Tiefs vom September. Hier entstand die bullische Divergenz."
+  ],
+  [
+   "s",
+   "844 $",
+   "Tiefere Unterstützung: Tief vom Dezember 2025 (52-Wochen-Tief)."
+  ],
+  [
+   "r",
+   "880 $",
+   "Abbruch: Wochenschluss darunter bestätigt den Abwärtstrend."
+  ]
+ ],
+ "smart": [
+  "<b>Costco selbst:</b> Kleiner Aktienrückkauf (0.1 % pro Jahr), Dividende 0.6 %, dazu alle paar Jahre eine Sonderdividende.",
+  "<b>Insider-Käufe:</b> Keine in den letzten 12 Monaten.",
+  "<b>Insider-Verkäufe:</b> Klein, rund 16 Mio. $ in 12 Monaten (zuletzt 2 Mio. $ am 29.9.). Kein Warnsignal.",
+  "<b>Analysten:</b> Durchschnittliches Kursziel 1'058 $, Einstufung „Buy“."
+ ],
+ "seasnote": "Durchschnittliche Monatsrendite in %, 40 Jahre. November ist mit +4.1 % und 75 % positiven Jahren der stärkste Monat.",
+ "T": [
+  [
+   "Trend Woche (EMA 50/200)",
+   "Kurs unter EMA 50, über EMA 200 (Rücksetzer im Aufwärtstrend)",
+   12,
+   20
+  ],
+  [
+   "Trend Tag (EMA 50/200)",
+   "Kurs unter beiden, Death Cross",
+   1,
+   10
+  ],
+  [
+   "Struktur (SMC)",
+   "Tiefere Hochs und Tiefs, Trigger in Reichweite",
+   4,
+   20
+  ],
+  [
+   "RSI Tag/Woche",
+   "Bullische Divergenz auf dem Tag",
+   12,
+   15
+  ],
+  [
+   "A/D Tag/Woche",
+   "Tag bullische Divergenz, Woche fiel mit dem Kurs",
+   10,
+   20
+  ],
+  [
+   "Smart Money",
+   "Kleiner Rückkauf, keine Insider-Käufe",
+   3,
+   10
+  ],
+  [
+   "Saisonalität",
+   "Okt–Dez: Ø 61 % positive Jahre",
+   5,
+   5
+  ]
+ ],
+ "pro": [
+  "Sehr stabiles Geschäft mit Mitgliedsgebühren und über 90 % Verlängerungen.",
+  "Umsatz und Gewinn wachsen zweistellig, ROIC fast 40 %.",
+  "Netto-Cash, keine Schuldensorgen.",
+  "Bullische Divergenz bei RSI und A/D auf dem Tageschart.",
+  "November ist saisonal der stärkste Monat."
+ ],
+ "con": [
+  "KGV 44: Selbst für Costco nicht günstig. Wenig Puffer bei Enttäuschungen.",
+  "Tageschart im Abwärtstrend, Death Cross seit Juli.",
+  "Keine Insider-Käufe, kaum Rückkäufe.",
+  "Teile des Gewinns kamen aus einer einmaligen Zollrückerstattung."
+ ],
+ "todo": [
+  [
+   "t",
+   "Beobachten",
+   "Alarm bei 931.10 $ (Trigger) und bei 895 $ (Kaufzone)."
+  ],
+  [
+   "s",
+   "Timing grün",
+   "Tagesschluss über 931.10 $, danach Rücksetzer, der über 895 $ hält. Oder Rücksetzer in 883–895 $ mit weiter steigender Tages-A/D."
+  ],
+  [
+   "r",
+   "Abbruch",
+   "Wochenschluss unter 880 $."
+  ],
+  [
+   "",
+   "Nächste Zahlen",
+   "Monatsumsätze Anfang November, Quartalszahlen (Q1 GJ 2027) Mitte Dezember 2026."
+  ]
+ ],
+ "bands": [
+  {
+   "from": 951,
+   "to": 965,
+   "type": "res"
+  },
+  {
+   "from": 883,
+   "to": 895,
+   "type": "sup"
+  }
+ ],
+ "refs": [
+  {
+   "v": 931.1,
+   "label": "Trigger 931.10"
+  }
+ ],
+ "sources": "<a href=\"https://stockanalysis.com/stocks/cost/financials/\" target=\"_blank\" rel=\"noopener\">StockAnalysis.com</a> (Stand 05.10.2026), <a href=\"https://www.tradingpedia.com/2026/09/25/costco-caps-fiscal-2026-with-strong-q4-beat-and-sales-growth/\" target=\"_blank\" rel=\"noopener\">Q4-Zahlen (Tradingpedia)</a>, <a href=\"https://investor.costco.com/news/news-details/2026/Costco-Wholesale-Corporation-Reports-Fourth-Quarter-and-Fiscal-Year-2026-Operating-Results/default.aspx\" target=\"_blank\" rel=\"noopener\">Costco Medienmitteilung</a>, <a href=\"https://www.marketbeat.com/stocks/NASDAQ/COST/insider-trades/\" target=\"_blank\" rel=\"noopener\">Insider (MarketBeat)</a>."
+}

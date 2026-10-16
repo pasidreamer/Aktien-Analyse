@@ -1,0 +1,417 @@
+{
+ "ticker": "NET",
+ "name": "Cloudflare",
+ "datum": "05.10.2026",
+ "meta": "Cloudflare, Inc. · NYSE: NET · Internet-Netzwerk für Sicherheit, Tempo und KI-Anwendungen · USA",
+ "price": "359.49 $",
+ "pricemeta": "Schluss 05.10.2026 · Allzeithoch 24.09.2026: 367.40 $ · +80 % seit Januar",
+ "verdict": "Ein echter Gewinner des KI-Booms mit über 30 % Wachstum, aber an der Börse sehr teuer und noch ohne Gewinn. Qualität gelb, Timing gelb. Der Trend ist stark, aber überhitzt (RSI Woche 71). Eine bessere Chance wäre ein Rücksetzer auf 312–333 $.",
+ "about": "Cloudflare betreibt ein weltweites Netzwerk mit Rechenzentren in über 300 Städten. Rund ein Fünftel aller Websites läuft darüber. Cloudflare schützt sie vor Angriffen, macht sie schneller und bietet Entwicklern eine Plattform (Workers), um Programme und KI-Agenten direkt im Netz laufen zu lassen. Mehr als die Hälfte des Verkehrs stammt inzwischen nicht mehr von Menschen, sondern von Bots und KI-Agenten.",
+ "why": "Die Aktie stieg 2026 um rund 80 %. Im 2. Quartal wuchs der Umsatz um 36 % auf 696 Mio. $ (Erwartung 666 Mio.). Cloudflare gewann eine Rekordzahl grosser Kunden (986 neue mit über 100'000 $ Jahresumsatz), und die Kunden gaben 20 % mehr aus als im Vorjahr. Am 9. September stieg die Aktie um 8 %: Cloudflare startete mit OpenAI einen KI-Dienst, der Sicherheitslücken selbständig findet und schliesst. Analysten liegen mit einem Kursziel von 339 $ inzwischen unter dem Kurs.",
+ "kpis": [
+  [
+   "g",
+   "Umsatzwachstum",
+   "+36 %",
+   "2. Quartal. Das Tempo beschleunigt sich seit einem Jahr (von 27 % auf 36 %)."
+  ],
+  [
+   "g",
+   "Bruttomarge",
+   "72.6 %",
+   "Von 100 $ Umsatz bleiben nach den direkten Kosten knapp 73 $. Typisch für Software."
+  ],
+  [
+   "b",
+   "Operative Marge",
+   "−7.8 %",
+   "Ausgewiesen noch ein Verlust, vor allem wegen hoher Aktienvergütungen (508 Mio. $ pro Jahr)."
+  ],
+  [
+   "w",
+   "Free Cashflow",
+   "342 Mio. $",
+   "Positiv und steigend, aber kleiner als die Aktienvergütungen."
+  ],
+  [
+   "g",
+   "Netto-Cash",
+   "633 Mio. $",
+   "Mehr Bargeld als Schulden."
+  ],
+  [
+   "g",
+   "Kunden-Ausgaben",
+   "120 %",
+   "Bestehende Kunden geben 20 % mehr aus als vor einem Jahr (Net Retention)."
+  ],
+  [
+   "b",
+   "Kurs-Umsatz-Verhältnis (KUV)",
+   "49",
+   "Du zahlst 49 Jahresumsätze. Eigener Schnitt 2021–2025: rund 31. Sehr teuer."
+  ],
+  [
+   "w",
+   "Verwässerung",
+   "+2 % pro Jahr",
+   "Die Aktienzahl steigt durch Mitarbeiteraktien."
+  ]
+ ],
+ "revtitle": "Umsatz pro Quartal (Mio. $)",
+ "revdec": 0,
+ "margintitle": "Operative Marge pro Quartal (GAAP)",
+ "revnote": "Jedes Quartal über Vorjahr, Wachstum steigt von 27 % auf 36 %.",
+ "marginnote": "Noch negativ, schwankt um −7 bis −12 %. Bereinigt um Aktienvergütungen ist Cloudflare profitabel.",
+ "finnote": "<b>Hinweis:</b> Cloudflare macht ausgewiesen noch Verlust, darum gibt es kein sinnvolles KGV. Ich vergleiche das Kurs-Umsatz-Verhältnis (KUV, Börsenwert geteilt durch Jahresumsatz) in der letzten Spalte. Werte, die mir nicht vorlagen, sind mit – markiert.",
+ "pecol": "KUV",
+ "FIN": [
+  [
+   "2022",
+   975,
+   "+48.6 %",
+   "–",
+   "–",
+   -20,
+   "–",
+   "15.2"
+  ],
+  [
+   "2023",
+   1297,
+   "+33.0 %",
+   "–",
+   "–",
+   134,
+   "–",
+   "21.6"
+  ],
+  [
+   "2024",
+   1670,
+   "+28.8 %",
+   "–",
+   "–",
+   181,
+   "–",
+   "22.1"
+  ],
+  [
+   "2025",
+   2168,
+   "+29.9 %",
+   "−8.9 %",
+   "–",
+   281,
+   "–",
+   "31.9"
+  ],
+  [
+   "Letzte 12 Mt.",
+   2512,
+   "+33.5 %",
+   "−7.8 %",
+   -0.59,
+   342,
+   "−2.5 %",
+   "49.5"
+  ]
+ ],
+ "QREV": [
+  [
+   "Q3 24",
+   430
+  ],
+  [
+   "Q4 24",
+   460
+  ],
+  [
+   "Q1 25",
+   479
+  ],
+  [
+   "Q2 25",
+   512
+  ],
+  [
+   "Q3 25",
+   562
+  ],
+  [
+   "Q4 25",
+   615
+  ],
+  [
+   "Q1 26",
+   640
+  ],
+  [
+   "Q2 26",
+   696
+  ]
+ ],
+ "MARGIN": [
+  [
+   "Q3 24",
+   -7.2
+  ],
+  [
+   "Q4 24",
+   -7.4
+  ],
+  [
+   "Q1 25",
+   -11.1
+  ],
+  [
+   "Q2 25",
+   -12.4
+  ],
+  [
+   "Q3 25",
+   -6.7
+  ],
+  [
+   "Q4 25",
+   -6.6
+  ],
+  [
+   "Q1 26",
+   -9.7
+  ],
+  [
+   "Q2 26",
+   -7.6
+  ]
+ ],
+ "Q": [
+  [
+   "Umsatztrend",
+   "4 von 4 Quartalen über Vorjahr, Tempo steigt",
+   15,
+   15
+  ],
+  [
+   "Wachstumstempo",
+   "+33.5 % in 12 Monaten",
+   10,
+   10
+  ],
+  [
+   "Operative Marge",
+   "−7.8 % (0 Pkt.), Verlust wird kleiner (6 Pkt.)",
+   6,
+   15
+  ],
+  [
+   "Gewinnwachstum (EPS)",
+   "Ausgewiesen Verlust",
+   0,
+   10
+  ],
+  [
+   "Free Cashflow",
+   "Seit 2022 jedes Jahr gestiegen (aber kleiner als Aktienvergütung)",
+   10,
+   10
+  ],
+  [
+   "ROIC",
+   "−2.5 %, steigend (+1)",
+   3,
+   15
+  ],
+  [
+   "Schulden",
+   "Netto-Cash",
+   10,
+   10
+  ],
+  [
+   "Bewertung vs. eigene Historie",
+   "KUV 49 vs. Ø rund 31 (über 30 % teurer)",
+   1,
+   15
+  ]
+ ],
+ "adwnote": "Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Steigt seit April mit dem Kurs auf neue Hochs. Das bestätigt den Trend.",
+ "rsiwnote": "Unter 30 überverkauft, über 70 überkauft. Heute 71: überkauft. Der Trend ist stark, aber gedehnt.",
+ "addnote": "Die Tages-A/D steht etwa gleich hoch wie am Hoch vom 13.8., der Kurs ist seither aber 8 % gestiegen. Leichte bärische Divergenz: Der letzte Anstieg hatte weniger Kaufkraft.",
+ "ind": [
+  [
+   "Kurs vs. EMA 50",
+   "359.5 &gt; 312.4",
+   "359.5 &gt; 246.0",
+   "Weit über der mittelfristigen Linie (Woche +46 %): stark, aber überdehnt."
+  ],
+  [
+   "Kurs vs. EMA 200",
+   "359.5 &gt; 252.8",
+   "359.5 &gt; 165.9",
+   "Langfristiger Aufwärtstrend."
+  ],
+  [
+   "EMA 50 vs. EMA 200",
+   "50 über 200",
+   "50 über 200 (seit Januar 2025)",
+   "Beide Zeitebenen im Aufwärtstrend."
+  ],
+  [
+   "RSI (14)",
+   "64.1",
+   "70.9",
+   "Woche überkauft."
+  ],
+  [
+   "A/D",
+   "flach seit August",
+   "steigt",
+   "Woche bestätigt, Tag zeigt leichte Ermüdung."
+  ],
+  [
+   "Volumen",
+   "Ø 20 Tage 3.2 Mio. vs. Ø 100 Tage 3.5 Mio.",
+   "Normal."
+  ]
+ ],
+ "smc": "Lehrbuch-Aufwärtstrend: höhere Tiefs (164 → 186 → 212 → 251 → 269 $) und höhere Hochs (259 → 277 → 291 → 332 → 367.40 $). Der Kurs steht am Allzeithoch, also ganz oben im Premium. Das alte Hoch vom August (330–332 $) ist die erste Zone für einen Rücksetzer. Die Mitte der letzten Bewegung (269 → 367 $) liegt bei rund 318 $.",
+ "zones": [
+  [
+   "r",
+   "367.4 $",
+   "Allzeithoch vom 24.9."
+  ],
+  [
+   "s",
+   "344–349 $",
+   "Erste Unterstützung: Tagesschlusskurse von Ende September."
+  ],
+  [
+   "t",
+   "312–333 $",
+   "<b>Kaufzone:</b> Retest des August-Hochs (330–333 $) bis zur EMA 50 (Tag, 312 $), Mitte der Bewegung bei 318 $."
+  ],
+  [
+   "s",
+   "269–285 $",
+   "Tiefere Zone: Tief vom 2.9. Darunter wäre der Trend gebrochen."
+  ],
+  [
+   "r",
+   "269 $",
+   "Abbruch: Wochenschluss darunter."
+  ]
+ ],
+ "smart": [
+  "<b>Cloudflare selbst:</b> Kein Rückkauf, keine Dividende. Die Aktienzahl steigt um rund 2 % pro Jahr.",
+  "<b>Insider-Käufe:</b> Keine in den letzten 12 Monaten.",
+  "<b>Insider-Verkäufe:</b> Rund 526 Mio. $ in 12 Monaten, vor allem Gründer Matthew Prince (über 165 Mio. $) und Michelle Zatlyn (über 75 Mio. $). Laufende Plan-Verkäufe, aber sehr gross.",
+  "<b>Analysten:</b> Durchschnittliches Kursziel 339 $, also unter dem Kurs."
+ ],
+ "seasnote": "Durchschnittliche Monatsrendite in %, nur 7 Jahre seit dem Börsengang. Oktober (+15.5 %) und November waren meist stark, Dezember schwach. Wenige Jahre, darum nur bedingt aussagekräftig.",
+ "T": [
+  [
+   "Trend Woche (EMA 50/200)",
+   "Kurs über beiden, EMA 50 über EMA 200",
+   19,
+   20
+  ],
+  [
+   "Trend Tag (EMA 50/200)",
+   "Kurs über beiden",
+   10,
+   10
+  ],
+  [
+   "Struktur (SMC)",
+   "Höhere Hochs und Tiefs, Kurs am Allzeithoch (Premium)",
+   14,
+   20
+  ],
+  [
+   "RSI Tag/Woche",
+   "Woche 71: überkauft",
+   3,
+   15
+  ],
+  [
+   "A/D Tag/Woche",
+   "Woche steigt, Tag leichte bärische Divergenz",
+   10,
+   20
+  ],
+  [
+   "Smart Money",
+   "Grosse Insider-Verkäufe, kein Rückkauf",
+   0,
+   10
+  ],
+  [
+   "Saisonalität",
+   "Okt–Dez: Ø 57 % positive Jahre (nur 7 Jahre)",
+   3,
+   5
+  ]
+ ],
+ "pro": [
+  "Wachstum über 30 % und beschleunigend, Rekord bei Grosskunden.",
+  "Profitiert direkt von KI-Agenten im Internet.",
+  "Netto-Cash, Free Cashflow steigt.",
+  "Sehr starker Aufwärtstrend auf allen Zeitebenen.",
+  "Partnerschaft mit OpenAI im Sicherheitsbereich."
+ ],
+ "con": [
+  "Sehr teuer: 49 Jahresumsätze, Analysten-Kursziel unter dem Kurs.",
+  "Noch kein ausgewiesener Gewinn, hohe Aktienvergütungen.",
+  "Massive Insider-Verkäufe.",
+  "RSI Woche überkauft, kurzfristig wenig Puffer.",
+  "Hohe Schwankung (Beta 1.65): Rücksetzer von 20–30 % sind bei dieser Aktie normal."
+ ],
+ "todo": [
+  [
+   "t",
+   "Beobachten",
+   "Alarm bei 333 $ (Oberkante Kaufzone) und bei 312 $ (EMA 50 Tag)."
+  ],
+  [
+   "s",
+   "Timing grün",
+   "Rücksetzer in 312–333 $, Kurs hält, RSI Woche kühlt auf 50–60 ab, Tages-A/D dreht nach oben. Dann springt das Timing auf rund 75."
+  ],
+  [
+   "r",
+   "Abbruch",
+   "Wochenschluss unter 269 $."
+  ],
+  [
+   "",
+   "Nächste Zahlen",
+   "29. Oktober 2026 (3. Quartal). Ziel laut Firma: +31 % Umsatz."
+  ]
+ ],
+ "bands": [
+  {
+   "from": 365,
+   "to": 368,
+   "type": "res"
+  },
+  {
+   "from": 312,
+   "to": 333,
+   "type": "sup"
+  },
+  {
+   "from": 269,
+   "to": 285,
+   "type": "sup"
+  }
+ ],
+ "refs": [
+  {
+   "v": 333,
+   "label": "Kaufzone ab 333"
+  }
+ ],
+ "sources": "<a href=\"https://stockanalysis.com/stocks/net/financials/\" target=\"_blank\" rel=\"noopener\">StockAnalysis.com</a> (Stand 05.10.2026), <a href=\"https://www.tikr.com/blog/cloudflare-stock-is-up-78-since-january-is-the-rally-already-priced-in\" target=\"_blank\" rel=\"noopener\">Q2-Zahlen (TIKR)</a>, <a href=\"https://www.investing.com/news/stock-market-news/why-is-cloudflare-stock-surging-today-93CH-4893944\" target=\"_blank\" rel=\"noopener\">Kurssprung 9.9. (Investing.com)</a>, <a href=\"https://www.marketbeat.com/stocks/NYSE/NET/insider-trades/\" target=\"_blank\" rel=\"noopener\">Insider (MarketBeat)</a>."
+}

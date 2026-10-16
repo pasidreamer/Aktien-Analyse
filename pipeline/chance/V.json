@@ -1,0 +1,29 @@
+{
+ "ticker": "V",
+ "sorgen": [
+  "Regulierung: Am 13.01.2026 hat Präsident Trump den Credit Card Competition Act unterstützt. Das Gesetz würde grosse US-Banken zwingen, neben Visa oder Mastercard ein zweites, fremdes Kartennetz anzubieten. Das könnte die Gebühren pro Zahlung drücken.",
+  "Dazu läuft die Klage des US-Justizministeriums wegen zu hoher Gebühren bei Debitkarten, und in Grossbritannien und Europa wächst der Druck (Gerichtsurteil gegen Gebühren, digitaler Euro).",
+  "Neue Konkurrenz: Stablecoins (digitale Dollar auf der Blockchain) und Echtzeitzahlungen könnten Kartennetze irgendwann umgehen. Laut Zacks ist das heute aber noch «weitgehend theoretisch».",
+  "Bis Anfang Juni 2026 lag die Aktie über ein Jahr 13.8 % im Minus, während der S&P 500 um 31 % stieg. Inzwischen hat sie sich erholt und notiert knapp unter dem Hoch."
+ ],
+ "sorgen_art": "stimmung",
+ "sorgen_art_text": "Das Geschäft läuft sehr gut (Umsatz +14 %, Ausblick angehoben); die Sorgen sind politische und theoretische Risiken, die sich bisher nicht in den Zahlen zeigen.",
+ "aufloeser": [
+  {"was": "Starke Zahlen zum 4. Geschäftsquartal und ein solider Ausblick für das Geschäftsjahr 2027 (Analysten erwarten rund +13 % Gewinn pro Aktie)", "wann": "Zahlen voraussichtlich Ende Oktober 2026"},
+  {"was": "Der Credit Card Competition Act bleibt im Kongress stecken oder es gibt einen Kompromiss mit den Händlern statt eines Gesetzes", "wann": "Laufend, bis Ende der Legislatur Anfang 2027"},
+  {"was": "Stablecoins werden für Visa zum Geschäft statt zur Gefahr: Die Stablecoin-Abrechnung lief im Frühling auf 7 Mrd. $ pro Jahr (über 50 % mehr als im Quartal davor)", "wann": "2026–2027"}
+ ],
+ "schub_stufe": "mittel",
+ "schub_treiber": [
+  {"titel": "Zusatzdienste (Value-Added Services)", "text": "Visa verkauft neben dem Netz auch Betrugsschutz, Datenanalyse und Beratung an Banken und Händler. Dieser Bereich wuchs im 3. Geschäftsquartal um 34 % auf 3.8 Mrd. $ und macht schon rund ein Drittel des Umsatzes aus. Wächst er so weiter, zieht er das Gesamtwachstum nach oben.", "wann": "2026–2028"},
+  {"titel": "Zahlungen durch KI-Agenten", "text": "Wenn KI-Assistenten künftig selbst einkaufen, braucht es sichere Bezahlwege. Visa hat dafür Partnerschaften mit OpenAI und Meta angekündigt und eigene Produkte (Visa Intelligent Commerce, Agent Score) gestartet. Umsatzzahlen dazu gibt es noch keine.", "wann": "2027–2029"},
+  {"titel": "Stablecoins über das Visa-Netz", "text": "Visa bietet eine eigene Stablecoin-Plattform an. Kartenzahlungen mit Stablecoin-Bezug wuchsen laut Zacks um fast 200 % in über 160 Programmen. Im Verhältnis zu über 4 Billionen $ Zahlungen pro Quartal ist das aber noch klein.", "wann": "2026–2028"}
+ ],
+ "schub_beweis": "Achte bei jeden Zahlen auf das Wachstum der Zusatzdienste (zuletzt +34 %) und deren Anteil am Umsatz (zuletzt rund ein Drittel). Steigt der Anteil weiter und bleibt das Gesamtwachstum über +13 %, wirkt der Schub.",
+ "szenario": "Ähnlich wie Google 2023 fürchtet die Börse, dass neue Technik (Stablecoins, KI) das alte Geschäft verdrängt. Gelingt es Visa, diese Technik selbst ins Netz einzubauen, und bleibt das Gesetz stecken, kann Visa länger zweistellig wachsen als erwartet. Grösstes Risiko: Ein Gesetz oder ein Urteil senkt die Gebühren dauerhaft, dann sinkt das Wachstum auf einstellig.",
+ "quellen": [
+  {"titel": "MarketBeat: Visa Q3 Earnings Call Highlights (28.07.2026)", "url": "https://www.marketbeat.com/instant-alerts/visa-q3-earnings-call-highlights-2026-07-28/"},
+  {"titel": "Nasdaq/Zacks: Visa Down 14% in a Year: Disruption Thesis Weakens? (03.06.2026)", "url": "https://www.nasdaq.com/articles/visa-down-14-year-disruption-thesis-weakens-buy-now"},
+  {"titel": "PYMNTS: President Trump Endorses Credit Card Competition Act (13.01.2026)", "url": "https://www.pymnts.com/credit-cards/2026/president-donald-trump-endorses-legislation-lower-credit-card-swipe-fees/"}
+ ]
+}

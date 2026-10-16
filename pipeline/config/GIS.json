@@ -1,0 +1,391 @@
+{
+ "ticker": "GIS",
+ "name": "General Mills",
+ "datum": "08.10.2026",
+ "meta": "General Mills, Inc. · NYSE: GIS · Frühstücksflocken (Cheerios), Snacks, Tierfutter (Blue Buffalo) · USA",
+ "price": "31.77 $",
+ "pricemeta": "Schluss 07.10.2026 · 52 Wochen: 31.18 – 51.26 $ · Allzeithoch 90.89 $ (2023)",
+ "verdict": "Die Aktie hat sich seit 2023 mehr als halbiert und steht so tief wie seit über zehn Jahren nicht mehr. Umsatz und Gewinn schrumpfen, die Schulden steigen. Qualität orange (30), Timing rot (21). Sehr billig (KGV rund 10), aber ohne Wende in den Zahlen ist das eine mögliche Value-Falle.",
+ "about": "General Mills stellt Frühstücksflocken (Cheerios, Cerealien zusammen mit Nestlé), Müesliriegel (Nature Valley), Backwaren (Pillsbury), Glacé (Häagen-Dazs) und Tierfutter (Blue Buffalo) her. Rund drei Viertel des Umsatzes kommen aus Nordamerika.",
+ "why": "Seit 2023 verliert General Mills Kunden an Eigenmarken, US-Haushalte mit wenig Geld sparen (gekürzte Lebensmittelhilfe SNAP), und es braucht viele Rabattaktionen. Im Februar 2026 wurde der Ausblick gesenkt (Aktie −7 %), im Juli gab es einen Verlust wegen 1.75 Mrd. $ Abschreibung auf das Tierfutter-Geschäft. Für das laufende Geschäftsjahr 2027 erwartet die Firma nochmals 8–13 % weniger Betriebsgewinn. Ein Sparprogramm (3 Mrd. $ bis 2030) soll helfen. Die Dividende wurde 2026 nicht erhöht.",
+ "kpis": [
+  [
+   "w",
+   "Organisches Wachstum",
+   "0 %",
+   "1. Quartal GJ 2027 (Juni–August). Ziel: −1.5 bis +0.5 %."
+  ],
+  [
+   "w",
+   "Operative Marge",
+   "15.6 %",
+   "Ordentlich, aber seit 2024 (19.0 %) fallend."
+  ],
+  [
+   "b",
+   "Gewinn pro Aktie (bereinigt)",
+   "−13 %",
+   "Ziel GJ 2027: 3.00–3.20 $ nach 3.55 $. Schon im Vorjahr −16 %."
+  ],
+  [
+   "w",
+   "ROCE",
+   "12.3 %",
+   "Rendite auf das eingesetzte Kapital. Mittel und sinkend."
+  ],
+  [
+   "w",
+   "Free Cashflow",
+   "1.5 Mrd. $",
+   "Positiv, aber seit 2024 (2.5 Mrd.) deutlich gesunken."
+  ],
+  [
+   "b",
+   "Nettoschulden / EBITDA",
+   "3.8",
+   "Hoch und steigend (2024: 3.0)."
+  ],
+  [
+   "g",
+   "KGV erwartet",
+   "10.2",
+   "Eigener Schnitt: 15.1. Rund 32 % günstiger. Sehr billig, aber aus gutem Grund."
+  ],
+  [
+   "b",
+   "Dividende",
+   "7.7 %",
+   "Nicht mehr erhöht, braucht rund 85 % des freien Cashflows. Kürzungsrisiko."
+  ]
+ ],
+ "revtitle": "Umsatz pro Quartal (Mrd. $, Quartalsende)",
+ "revnote": "3 von 4 Quartalen unter Vorjahr. Das Quartal bis Mai 2026 hatte eine Woche mehr.",
+ "marginnote": "Seit dem Geschäftsjahr 2024 fallend.",
+ "finnote": "<b>Hinweis:</b> Geschäftsjahr bis Ende Mai. In der Spalte ROIC steht hier die Kapitalrendite ROCE, weil der ROIC durch Abschreibungen verzerrt ist. Ausgewiesener Gewinn GJ 2026 negativ wegen 1.8 Mrd. $ Abschreibungen und dem Verlust beim Verkauf des Brasilien-Geschäfts. Bereinigt: 3.55 $.",
+ "FIN": [
+  [
+   "GJ 2023",
+   20094,
+   "+5.8 %",
+   "15.6 %",
+   4.31,
+   2089,
+   "13.1 %",
+   "19.1"
+  ],
+  [
+   "GJ 2024",
+   19857,
+   "−1.2 %",
+   "19.0 %",
+   4.31,
+   2529,
+   "15.4 %",
+   "15.4"
+  ],
+  [
+   "GJ 2025",
+   19487,
+   "−1.9 %",
+   "17.3 %",
+   4.1,
+   2293,
+   "13.3 %",
+   "12.8"
+  ],
+  [
+   "GJ 2026",
+   18425,
+   "−5.5 %",
+   "15.7 %",
+   -0.16,
+   1626,
+   "12.5 %",
+   "n. a."
+  ],
+  [
+   "Letzte 12 Mt.",
+   18297,
+   "−4.5 %",
+   "15.6 %",
+   -1.67,
+   1546,
+   "12.3 %",
+   "n. a."
+  ]
+ ],
+ "QREV": [
+  [
+   "Nov 24",
+   5.24
+  ],
+  [
+   "Feb 25",
+   4.84
+  ],
+  [
+   "Mai 25",
+   4.56
+  ],
+  [
+   "Aug 25",
+   4.52
+  ],
+  [
+   "Nov 25",
+   4.86
+  ],
+  [
+   "Feb 26",
+   4.44
+  ],
+  [
+   "Mai 26",
+   4.61
+  ],
+  [
+   "Aug 26",
+   4.39
+  ]
+ ],
+ "revdec": 2,
+ "MARGIN": [
+  [
+   "GJ 23",
+   15.6
+  ],
+  [
+   "GJ 24",
+   19.0
+  ],
+  [
+   "GJ 25",
+   17.3
+  ],
+  [
+   "GJ 26",
+   15.7
+  ],
+  [
+   "12 Mt.",
+   15.6
+  ]
+ ],
+ "Q": [
+  [
+   "Umsatztrend",
+   "1 von 4 Quartalen über Vorjahr",
+   0,
+   15
+  ],
+  [
+   "Wachstumstempo",
+   "Organisch 0 % bis leicht negativ",
+   0,
+   10
+  ],
+  [
+   "Operative Marge",
+   "15.6 % (6 Pkt.), fallend (0 Pkt.)",
+   6,
+   15
+  ],
+  [
+   "Gewinnwachstum (EPS)",
+   "Bereinigt −16 % und −13 %",
+   0,
+   10
+  ],
+  [
+   "Free Cashflow",
+   "Positiv, aber sinkend",
+   3,
+   10
+  ],
+  [
+   "ROIC",
+   "ROCE 12.3 %, sinkend",
+   5,
+   15
+  ],
+  [
+   "Schulden",
+   "Nettoschulden/EBITDA 3.8",
+   2,
+   10
+  ],
+  [
+   "Bewertung vs. eigene Historie",
+   "Erw. KGV 10.2 statt Ø 15.1 (−32 %)",
+   14,
+   15
+  ]
+ ],
+ "adwnote": "Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Die Wochen-A/D fällt seit August stark (262 auf 68) und liegt tiefer als beim Juni-Tief. Keine Käufer.",
+ "rsiwnote": "Unter 30 überverkauft, über 70 überkauft. Bullisches Detail: Im Mai/Juni lag der Wochen-RSI bei 22–25, heute bei 36, obwohl der Kurs tiefer steht. Das ist eine bullische Divergenz auf der Woche. Allein reicht das aber nicht.",
+ "addnote": "Tages-A/D auf neuem Tief. Kurzfristig dominieren die Verkäufer klar.",
+ "ind": [
+  [
+   "Kurs vs. EMA 50",
+   "31.8 &lt; 35.8",
+   "31.8 &lt; 40.1",
+   "Weit unter der mittelfristigen Linie."
+  ],
+  [
+   "Kurs vs. EMA 200",
+   "31.8 &lt; 39.2",
+   "31.8 &lt; 53.8",
+   "Weit unter der langfristigen Linie."
+  ],
+  [
+   "EMA 50 vs. EMA 200",
+   "50 unter 200",
+   "50 unter 200 (seit Dezember 2024)",
+   "Klarer Abwärtstrend."
+  ],
+  [
+   "RSI (14)",
+   "28.6",
+   "35.9",
+   "Tag überverkauft. Woche: bullische Divergenz zum Juni-Tief."
+  ],
+  [
+   "A/D",
+   "neues Tief",
+   "tiefer als im Juni",
+   "Keine Käufer sichtbar."
+  ],
+  [
+   "Volumen",
+   "Ø 20 Tage 11.1 Mio. vs. Ø 100 Tage 10.1 Mio.",
+   "Leicht erhöht beim Fallen."
+  ]
+ ],
+ "smc": "Im Sommer versuchte General Mills eine Bodenbildung: Tief 31.75 $ (4.6.), danach Anstieg bis 42.20 $ (1.9.). Seither fiel der Kurs in einem Zug zurück und machte am 1.10. ein tieferes Tief (31.18 $). Damit ist der Boden vom Juni knapp gebrochen. Möglich ist jetzt ein Doppelboden bei 31–31.8 $. Ein erstes Wende-Zeichen wäre ein Tagesschluss über 36.80 $ (Mitte September).",
+ "zones": [
+  [
+   "r",
+   "38–40 $",
+   "Widerstand: EMA 200 Tag und Bruchbereich vom September."
+  ],
+  [
+   "t",
+   "36.80 $",
+   "Trigger: Tagesschluss über dem letzten tieferen Hoch (16.9.)."
+  ],
+  [
+   "s",
+   "31.0–31.8 $",
+   "Möglicher Doppelboden (Juni und Oktober)."
+  ],
+  [
+   "r",
+   "30.90 $",
+   "Abbruch: Wochenschluss darunter = neues Mehrjahrestief."
+  ]
+ ],
+ "smart": [
+  "<b>General Mills selbst:</b> Seit August 2025 keine Rückkäufe mehr.",
+  "<b>Insider:</b> Keine Käufe. Kleine Verkäufe (zusammen rund 0.7 Mio. $), u. a. vom Leiter International.",
+  "<b>Analysten:</b> „Halten“ bis „Reduzieren“, durchschnittliches Kursziel rund 37 $. UBS rät zum Verkauf, RBC zum Kauf."
+ ],
+ "seasnote": "Durchschnittliche Monatsrendite in %. Rund 41 Jahre. Oktober bis Dezember leicht positiv (56–63 % positive Jahre).",
+ "T": [
+  [
+   "Trend Woche (EMA 50/200)",
+   "Kurs weit unter beiden",
+   0,
+   20
+  ],
+  [
+   "Trend Tag (EMA 50/200)",
+   "Kurs unter beiden",
+   0,
+   10
+  ],
+  [
+   "Struktur (SMC)",
+   "Juni-Boden knapp gebrochen, tiefere Tiefs",
+   2,
+   20
+  ],
+  [
+   "RSI Tag/Woche",
+   "Woche: bullische Divergenz, Tag überverkauft",
+   11,
+   15
+  ],
+  [
+   "A/D Tag/Woche",
+   "Beide auf neuem Tief",
+   3,
+   20
+  ],
+  [
+   "Smart Money",
+   "Kein Rückkauf, kleine Insider-Verkäufe",
+   2,
+   10
+  ],
+  [
+   "Saisonalität",
+   "Okt–Dez: 56–63 % positive Jahre",
+   3,
+   5
+  ]
+ ],
+ "pro": [
+  "Sehr tiefe Bewertung (erwartetes KGV rund 10).",
+  "Bekannte Marken, Sparprogramm von 3 Mrd. $ bis 2030.",
+  "Wochen-RSI zeigt eine bullische Divergenz.",
+  "Letztes Quartal etwas besser als erwartet."
+ ],
+ "con": [
+  "Umsatz und Gewinn schrumpfen weiter.",
+  "Schulden hoch und steigend (3.8-fach).",
+  "Dividende eingefroren, Kürzungsrisiko.",
+  "Juni-Boden gebrochen, A/D ohne Käufer.",
+  "Stark abhängig von US-Kunden mit wenig Geld."
+ ],
+ "todo": [
+  [
+   "t",
+   "Beobachten",
+   "Nur beobachten. Alarm bei 36.80 $ (Trigger) und 30.90 $ (Abbruch)."
+  ],
+  [
+   "s",
+   "Timing grün",
+   "Doppelboden bestätigt (Tagesschluss über 36.80 $ mit steigender A/D) und Umsatz wieder stabil."
+  ],
+  [
+   "r",
+   "Abbruch",
+   "Wochenschluss unter 30.90 $."
+  ],
+  [
+   "",
+   "Nächste Zahlen",
+   "Mitte/Ende Dezember 2026 (2. Quartal GJ 2027), Datum noch nicht bestätigt."
+  ]
+ ],
+ "bands": [
+  {
+   "from": 38,
+   "to": 40,
+   "type": "res"
+  },
+  {
+   "from": 31,
+   "to": 31.8,
+   "type": "sup"
+  }
+ ],
+ "refs": [
+  {
+   "v": 36.8,
+   "label": "Trigger 36.80"
+  }
+ ],
+ "sources": "<a href=\"https://stockanalysis.com/stocks/gis/financials/\" target=\"_blank\" rel=\"noopener\">StockAnalysis.com</a> (Stand 08.10.2026), <a href=\"https://www.sec.gov/Archives/edgar/data/0000040704/000162828026063141/a20260923ex99.htm\" target=\"_blank\" rel=\"noopener\">General Mills Q1 GJ 2027</a>, <a href=\"https://www.marketbeat.com/stocks/NYSE/GIS/insider-trades/\" target=\"_blank\" rel=\"noopener\">Insider (MarketBeat)</a>."
+}

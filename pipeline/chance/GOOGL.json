@@ -1,0 +1,28 @@
+{
+ "ticker": "GOOGL",
+ "sorgen": [
+  "Alphabet will 2026 rund 195–205 Mrd. $ in KI-Rechenzentren investieren. Deshalb war der Free Cashflow (freies Geld nach allen Investitionen) im 2. Quartal negativ: −5.9 Mrd. $.",
+  "Im Juni hat Alphabet rund 85 Mrd. $ über neue Aktien und Wandelpapiere aufgenommen, laut Bericht die grösste Kapitalerhöhung der US-Geschichte. Das verwässert deinen Anteil (dein Stück vom Kuchen wird kleiner).",
+  "Die Schulden sind laut Bericht in einem Jahr von rund 16 auf rund 100 Mrd. $ gestiegen. Nach den Zahlen vom 22.07.2026 fiel die Aktie über 7 %.",
+  "Für 2027 kündigt Alphabet noch höhere Investitionen an. Die Börse fragt sich: Verdient sich dieses Geld je zurück?"
+ ],
+ "sorgen_art": "stimmung",
+ "sorgen_art_text": "Das Geschäft wächst sogar schneller als früher (Umsatz +24 %, Cloud +82 %); die Sorge betrifft nur, ob sich die riesigen Investitionen lohnen und wie stark die Aktionäre verwässert werden.",
+ "aufloeser": [
+  {"was": "Cloud wächst weiter stark, der Auftragsbestand steigt über 514 Mrd. $ und der Free Cashflow wird wieder positiv", "wann": "Zahlen 3. Quartal, voraussichtlich Ende Oktober 2026 (um den 28.10.)"},
+  {"was": "Die unterschriebenen Verträge für TPU-Chips (eigene KI-Chips) werden laut Firma grösstenteils 2027 zu Umsatz", "wann": "2027"},
+  {"was": "Der Investitionsplan für 2027 steigt weniger stark als befürchtet oder der Umsatz wächst sichtbar mit", "wann": "Zahlen 4. Quartal, Anfang 2027"}
+ ],
+ "schub_stufe": "stark",
+ "schub_treiber": [
+  {"titel": "Google Cloud mit riesigem Auftragsbestand", "text": "Google Cloud setzte im 2. Quartal 24.8 Mrd. $ um, 82 % mehr als vor einem Jahr. Die Marge stieg von 20.7 % auf 35.6 %. Der Auftragsbestand (schon unterschriebene, aber noch nicht verbuchte Verträge) liegt bei 514 Mrd. $, vor einem Jahr waren es 106 Mrd. $. Laut Firma soll gut die Hälfte davon innerhalb von 24 Monaten zu Umsatz werden.", "wann": "2026–2028"},
+  {"titel": "Verkauf eigener KI-Chips (TPU) an andere Firmen", "text": "Seit dem 2. Quartal verbucht Google erste Umsätze aus dem Verkauf ganzer TPU-Systeme. Laut Bericht laufen die Verkäufe gut, der grösste Teil der Umsätze aus den unterschriebenen Verträgen kommt aber erst 2027. Eine Zahl dazu hat Google noch nicht genannt.", "wann": "2027"}
+ ],
+ "schub_beweis": "Achte bei jeden Zahlen auf drei Werte: Cloud-Wachstum (zuletzt +82 %), Cloud-Auftragsbestand (zuletzt 514 Mrd. $) und Free Cashflow (zuletzt −5.9 Mrd. $). Steigen die ersten beiden weiter und dreht der Free Cashflow ins Plus, kommt der Schub an.",
+ "szenario": "Wie Google 2023, nur eine Stufe weiter: Damals zweifelte die Börse an Googles KI, heute an den Kosten dafür. Werden Cloud-Auftragsbestand und TPU-Verträge 2027 wie geplant zu Umsatz, kann der Gewinn deutlich schneller wachsen als erwartet. Grösstes Risiko: Die KI-Nachfrage kühlt ab, während die Rechenzentren schon gebaut sind; dann bleiben hohe Kosten, mehr Aktien und wenig freies Geld.",
+ "quellen": [
+  {"titel": "Fierce Network: Google Cloud surges, but Alphabet's AI capex problem grows (22.07.2026)", "url": "https://www.fierce-network.com/cloud/google-cloud-surges-alphabets-ai-capex-problem-grows"},
+  {"titel": "Futuriom: Google Raises Capex, Wall Street Sells (23.07.2026)", "url": "https://www.futuriom.com/articles/news/google-raises-capex-wall-street-sells/2026/07"},
+  {"titel": "TIKR: Alphabet Stock Just Raised $84.75 Billion for AI (14.06.2026)", "url": "https://www.tikr.com/blog/alphabet-stock-just-raised-84-75-billion-for-ai-what-berkshires-10-billion-bet-means-for-investors"}
+ ]
+}

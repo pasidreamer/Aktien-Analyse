@@ -1,0 +1,402 @@
+{
+ "ticker": "KO",
+ "name": "Coca-Cola",
+ "datum": "08.10.2026",
+ "meta": "The Coca-Cola Company · NYSE: KO · Getränke (Konzentrat für Abfüller: Coca-Cola, Sprite, Fanta, Powerade) · USA",
+ "price": "85.82 $",
+ "pricemeta": "Schluss 07.10.2026 · 52 Wochen: 65.87 – 92.49 $ · Allzeithoch 92.49 $ (24.08.2026)",
+ "verdict": "Die stärkste Firma der Gruppe, aber kein Schnäppchen. Qualität hellgrün (72), Timing gelb (47). Der grosse Trend zeigt nach oben, doch die Tages-A/D bricht seit August ein: Es wird leise verkauft. Deine Idee, auf eine grössere Korrektur zu warten, passt zu den Zahlen. Kaufzonen: 80–82.5 $ und 76.8–78.5 $.",
+ "about": "Coca-Cola verkauft vor allem Getränke-Konzentrat und Markenrechte an Abfüllfirmen auf der ganzen Welt (Coca-Cola, Sprite, Fanta, Powerade, Smartwater, fairlife-Milch). Die Abfüller tragen die teuren Fabriken und Lastwagen, darum hat Coca-Cola eine sehr hohe Marge. Rund zwei Drittel des Umsatzes kommen aus dem Ausland.",
+ "why": "Coca-Cola ist 2026 die Ausnahme in der Branche: Der Kurs stieg in einem Jahr um rund 30 % bis auf ein Allzeithoch von 92.49 $ (24. August). Gründe: Die Menge wächst wieder (+3 % im 1., +5 % im 2. Quartal), günstige Kleinpackungen ziehen Kunden mit wenig Geld an, die Fussball-WM half, und der Ausblick wurde im Juli angehoben. Seit März ist Henrique Braun neuer Chef. Seit dem Hoch hat der Kurs rund 7 % nachgegeben.",
+ "kpis": [
+  [
+   "g",
+   "Organisches Wachstum",
+   "+6 %",
+   "2. Quartal 2026 (Menge +4, Preis/Mix +2). Firmenziel 2026: rund +5 %. Für einen Getränkeriesen sehr gut."
+  ],
+  [
+   "g",
+   "Operative Marge",
+   "31.9 %",
+   "Von 100 $ Umsatz bleiben fast 32 $ Betriebsgewinn. Steigt seit 2022 jedes Jahr. Spitzenwert."
+  ],
+  [
+   "g",
+   "Gewinn pro Aktie (bereinigt)",
+   "+9 bis 10 %",
+   "Firmenziel 2026, im Juli angehoben. Gut für eine so grosse Firma."
+  ],
+  [
+   "g",
+   "ROIC",
+   "20.1 %",
+   "Auf jeden investierten Dollar rund 20 Cent Gewinn. Sehr gut, steigt langsam."
+  ],
+  [
+   "w",
+   "Free Cashflow",
+   "≈ 12.4 Mrd. $",
+   "Firmenziel 2026. 2024 und 2025 durch Einmalzahlungen (fairlife) gedrückt, darum schwankend."
+  ],
+  [
+   "g",
+   "Nettoschulden / EBITDA",
+   "1.6",
+   "In gut 1.5 Jahren wären die Nettoschulden aus dem Betriebsgewinn bezahlt. Gut tragbar."
+  ],
+  [
+   "w",
+   "KGV erwartet",
+   "25.3",
+   "Du zahlst gut 25 erwartete Jahresgewinne. Eigener Schnitt: 23. Also knapp 10 % teurer als üblich."
+  ],
+  [
+   "g",
+   "Dividende",
+   "2.5 %",
+   "64 Jahre in Folge erhöht. Rund 64 % des Gewinns werden ausgeschüttet."
+  ]
+ ],
+ "revnote": "Alle vier letzten Quartale über Vorjahr, im 1. Quartal 2026 sogar +12 %. Die Fussball-WM half im Sommer.",
+ "marginnote": "Steigt seit 2022 ohne Unterbruch. Das Konzentrat-Geschäft ist sehr profitabel.",
+ "finnote": "<b>Hinweis:</b> Der Free Cashflow 2024 und 2025 war wegen der Schlusszahlungen für die Milchmarke fairlife tief. Der Wert der letzten 12 Monate ist in den Daten unklar, darum zeige ich dort das Firmenziel 2026 (rund 12.4 Mrd. $). KGV = ausgewiesener Gewinn, jeweils Ende Jahr.",
+ "FIN": [
+  [
+   "2022",
+   43004,
+   "+11.3 %",
+   "28.7 %",
+   2.19,
+   9534,
+   "17.9 %",
+   "28.8"
+  ],
+  [
+   "2023",
+   45754,
+   "+6.4 %",
+   "29.0 %",
+   2.47,
+   9747,
+   "19.1 %",
+   "23.8"
+  ],
+  [
+   "2024",
+   47061,
+   "+2.9 %",
+   "30.4 %",
+   2.46,
+   4741,
+   "19.9 %",
+   "25.2"
+  ],
+  [
+   "2025",
+   47941,
+   "+1.9 %",
+   "31.4 %",
+   3.04,
+   5296,
+   "19.8 %",
+   "22.9"
+  ],
+  [
+   "Letzte 12 Mt.",
+   50129,
+   "+6.5 %",
+   "31.9 %",
+   3.33,
+   "≈ 12'400 (Ziel)",
+   "20.1 %",
+   "25.9"
+  ]
+ ],
+ "QREV": [
+  [
+   "Q3 24",
+   11.85
+  ],
+  [
+   "Q4 24",
+   11.54
+  ],
+  [
+   "Q1 25",
+   11.13
+  ],
+  [
+   "Q2 25",
+   12.54
+  ],
+  [
+   "Q3 25",
+   12.46
+  ],
+  [
+   "Q4 25",
+   11.82
+  ],
+  [
+   "Q1 26",
+   12.47
+  ],
+  [
+   "Q2 26",
+   13.38
+  ]
+ ],
+ "revdec": 2,
+ "MARGIN": [
+  [
+   "2022",
+   28.7
+  ],
+  [
+   "2023",
+   29.0
+  ],
+  [
+   "2024",
+   30.4
+  ],
+  [
+   "2025",
+   31.4
+  ],
+  [
+   "12 Mt.",
+   31.9
+  ]
+ ],
+ "Q": [
+  [
+   "Umsatztrend",
+   "4 von 4 Quartalen über Vorjahr, Tempo steigt",
+   15,
+   15
+  ],
+  [
+   "Wachstumstempo",
+   "Organisch rund +5 % (Firmenziel 2026)",
+   3,
+   10
+  ],
+  [
+   "Operative Marge",
+   "31.9 % (9 Pkt.), seit 2022 steigend (6 Pkt.)",
+   15,
+   15
+  ],
+  [
+   "Gewinnwachstum (EPS)",
+   "Bereinigt im Schnitt rund +7 bis 10 % pro Jahr",
+   5,
+   10
+  ],
+  [
+   "Free Cashflow",
+   "Positiv, aber schwankend (Einmalzahlungen)",
+   6,
+   10
+  ],
+  [
+   "ROIC",
+   "20.1 %, langsam steigend",
+   14,
+   15
+  ],
+  [
+   "Schulden",
+   "Nettoschulden/EBITDA 1.6",
+   7,
+   10
+  ],
+  [
+   "Bewertung vs. eigene Historie",
+   "Erw. KGV 25.3 statt Ø 23.0 (+10 %)",
+   7,
+   15
+  ]
+ ],
+ "adwnote": "Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Von Januar bis August stieg die Wochen-A/D mit dem Kurs: echte Nachfrage. Seit dem Hoch im August sinkt sie (2'981 auf 2'744): Es wird Gewinn mitgenommen.",
+ "rsiwnote": "Unter 30 überverkauft, über 70 überkauft. Im August 71 (heiss gelaufen), heute 56: abgekühlt, aber kein Kaufsignal.",
+ "addnote": "Wichtigste Beobachtung: Seit dem Hoch am 24.8. ist der Kurs nur rund 7 % gefallen, die Tages-A/D aber von 118 auf −2 abgestürzt. Der Kurs schliesst fast täglich schwach. Grössere Anleger verkaufen leise (Verteilung).",
+ "ind": [
+  [
+   "Kurs vs. EMA 50",
+   "85.8 &lt; 86.9",
+   "85.8 &gt; 80.2",
+   "Tag: knapp unter der mittelfristigen Linie. Woche: klar darüber."
+  ],
+  [
+   "Kurs vs. EMA 200",
+   "85.8 &gt; 81.2",
+   "85.8 &gt; 69.7",
+   "Über der langfristigen Linie auf beiden Ebenen: Der grosse Aufwärtstrend steht."
+  ],
+  [
+   "EMA 50 vs. EMA 200",
+   "50 über 200 (seit 13.11.2025)",
+   "50 über 200",
+   "Beide Zeitebenen im Aufwärtstrend."
+  ],
+  [
+   "RSI (14)",
+   "40.2",
+   "55.6",
+   "Tag schwach, Woche neutral. Kein Kaufsignal."
+  ],
+  [
+   "A/D",
+   "fällt stark seit 24.8.",
+   "sinkt seit August",
+   "Verteilung: Es wird mehr verkauft, als der Kurs zeigt."
+  ],
+  [
+   "Volumen",
+   "Ø 20 Tage 15.9 Mio. vs. Ø 100 Tage 16.9 Mio.",
+   "Ruhiger Rücksetzer, keine Panik."
+  ]
+ ],
+ "smc": "Auf der Woche ist Coca-Cola seit Anfang 2025 in einem sauberen Aufwärtstrend mit höheren Hochs und höheren Tiefs (Tiefs 65.35 → 74.07 → 76.81 $). Das Allzeithoch liegt bei 92.49 $ (24.8.). Seither macht der Tageschart tiefere Hochs (90.36 → 89.36 $) und tiefere Tiefs (87.12 → 85.65 $): eine Korrektur im Aufwärtstrend. Der Kurs liegt 23 % über der Wochen-EMA 200, das ist weit gelaufen. Gute Zonen liegen tiefer. Bei einem KGV von 23 (eigener Schnitt) wäre Coca-Cola bei rund 76 $ fair bewertet.",
+ "zones": [
+  [
+   "r",
+   "89.4–92.5 $",
+   "Widerstand: tieferes Hoch vom September und Allzeithoch."
+  ],
+  [
+   "s",
+   "80–82.5 $",
+   "<b>Kaufzone 1 (kleine Korrektur):</b> Wochen-EMA 50 und Ausbruchsbereich vom Juli. Rund 5–7 % unter heute."
+  ],
+  [
+   "s",
+   "76.8–78.5 $",
+   "<b>Kaufzone 2 (grössere Korrektur):</b> Tief vom Juni, rund 10 % unter heute. Hier wäre die Bewertung wieder beim eigenen Schnitt."
+  ],
+  [
+   "t",
+   "Trigger",
+   "In einer Zone: Tagesschluss über dem letzten tieferen Hoch (heute 89.36 $, nach einer Korrektur liegt es tiefer), mit steigender Tages-A/D."
+  ],
+  [
+   "r",
+   "74 $",
+   "Abbruch: Wochenschluss unter den Tiefs vom März/April. Dann wäre der Aufwärtstrend gebrochen."
+  ]
+ ],
+ "smart": [
+  "<b>Coca-Cola selbst:</b> Kauft kaum eigene Aktien zurück (netto rund 0.1 % pro Jahr). Das Geld geht in die Dividende.",
+  "<b>Insider-Käufe:</b> Nur einer: Verwaltungsrat Max Levchin für rund 1 Mio. $ im Oktober 2025 (älter als 6 Monate).",
+  "<b>Insider-Verkäufe:</b> Sehr viele: rund 241 Mio. $ von 10 Personen, davon rund 145 Mio. $ vom früheren Chef James Quincey (jetzt Präsident). Das ist Vermögensstreuung nach starkem Anstieg, aber kein Vertrauenssignal.",
+  "<b>Analysten:</b> Durchschnittliches Kursziel rund 95 $, 21 von 23 sagen „Kaufen“. Wells Fargo und JPMorgan haben ihre Ziele leicht gesenkt."
+ ],
+ "seasnote": "Durchschnittliche Monatsrendite in %. Rund 41 Jahre. Oktober bis Dezember sind mit 61–66 % positiven Jahren gut. September ist der schwächste Monat.",
+ "T": [
+  [
+   "Trend Woche (EMA 50/200)",
+   "Kurs über beiden, 50 über 200",
+   18,
+   20
+  ],
+  [
+   "Trend Tag (EMA 50/200)",
+   "Kurs unter EMA 50, über EMA 200 (Rücksetzer)",
+   6,
+   10
+  ],
+  [
+   "Struktur (SMC)",
+   "Woche aufwärts, Tag tiefere Hochs und Tiefs, nicht in einer Zone",
+   8,
+   20
+  ],
+  [
+   "RSI Tag/Woche",
+   "40 / 56, kein Signal",
+   7,
+   15
+  ],
+  [
+   "A/D Tag/Woche",
+   "Beide fallen, Tag deutlich (Verteilung)",
+   3,
+   20
+  ],
+  [
+   "Smart Money",
+   "Grosse Insider-Verkäufe, kaum Rückkauf",
+   0,
+   10
+  ],
+  [
+   "Saisonalität",
+   "Okt–Dez: 61–66 % positive Jahre",
+   5,
+   5
+  ]
+ ],
+ "pro": [
+  "Wächst wieder über die Menge, nicht nur über Preise.",
+  "Spitzenmarge von fast 32 %, steigt seit Jahren.",
+  "Ausblick 2026 im Juli angehoben.",
+  "Hoher ROIC (20 %) und tragbare Schulden.",
+  "64 Jahre Dividendenerhöhung in Folge."
+ ],
+ "con": [
+  "Bewertung über dem eigenen Schnitt: erwartetes KGV 25 statt 23.",
+  "Tages-A/D bricht ein: Grössere Anleger verkaufen leise.",
+  "Viele und grosse Insider-Verkäufe.",
+  "Kurs weit über der Wochen-EMA 200 (+23 %): Rücksetzer-Gefahr.",
+  "Stark international: Ein starker Dollar drückt den Gewinn, ein schwacher hilft."
+ ],
+ "todo": [
+  [
+   "t",
+   "Beobachten",
+   "Alarm bei 82.50 $ (Kaufzone 1) und 78.50 $ (Kaufzone 2). Nicht dem Kurs hinterherlaufen."
+  ],
+  [
+   "s",
+   "Timing grün",
+   "Kurs in einer der Kaufzonen, RSI Tag unter 35, danach Tagesschluss über dem letzten tieferen Hoch mit steigender A/D."
+  ],
+  [
+   "r",
+   "Abbruch",
+   "Wochenschluss unter 74 $: Aufwärtstrend gebrochen, neu bewerten."
+  ],
+  [
+   "",
+   "Nächste Zahlen",
+   "27. Oktober 2026 (3. Quartal). Entscheidend: Hält das Mengenwachstum auch nach der WM?"
+  ]
+ ],
+ "bands": [
+  {
+   "from": 89.4,
+   "to": 92.5,
+   "type": "res"
+  },
+  {
+   "from": 80,
+   "to": 82.5,
+   "type": "sup"
+  },
+  {
+   "from": 76.8,
+   "to": 78.5,
+   "type": "sup"
+  }
+ ],
+ "refs": [
+  {
+   "v": 74,
+   "label": "Abbruch 74"
+  }
+ ],
+ "sources": "<a href=\"https://stockanalysis.com/stocks/ko/financials/\" target=\"_blank\" rel=\"noopener\">StockAnalysis.com</a> (Stand 08.10.2026), <a href=\"https://investors.coca-colacompany.com/news-events/press-releases/detail/1168\" target=\"_blank\" rel=\"noopener\">Coca-Cola Q2 2026</a>, <a href=\"https://www.marketbeat.com/stocks/NYSE/KO/insider-trades/\" target=\"_blank\" rel=\"noopener\">Insider (MarketBeat)</a>."
+}

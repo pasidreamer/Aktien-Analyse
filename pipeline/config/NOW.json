@@ -1,0 +1,401 @@
+{
+ "ticker": "NOW",
+ "name": "ServiceNow",
+ "datum": "05.10.2026",
+ "meta": "ServiceNow, Inc. · NYSE: NOW · Software für Firmenabläufe (IT, Kundendienst, Personal) und KI-Agenten · USA",
+ "price": "136.08 $",
+ "pricemeta": "Schluss 05.10.2026 · Kurse nach dem 5:1-Aktiensplit · Tief April 2026: 81.24 $ · Hoch 2024: 239.60 $",
+ "verdict": "Starke Firma, die die Börse wegen KI-Angst fast halbiert hat. Seit dem Tief im April hat sich der Kurs um zwei Drittel erholt. Qualität grün, Timing gelb. Der Wochen-Trend ist noch nicht bestätigt. Eine gute Zone wäre ein Rücksetzer auf 127–129 $, der Ausbruch ein Wochenschluss über 141 $.",
+ "about": "ServiceNow verkauft eine Software-Plattform im Abo, mit der grosse Firmen ihre Abläufe steuern: IT-Störungen, Kundendienst, Personalwesen, Einkauf, Sicherheit. Neu sind KI-Agenten (Now Assist), die solche Abläufe selbst erledigen. Die Kunden zahlen jedes Jahr, 98 % verlängern ihren Vertrag. Im Juli 2026 kam die Sicherheitsfirma Armis dazu.",
+ "why": "Anfang 2026 brach die ganze Abo-Software-Branche ein: Anleger fürchteten, dass KI-Agenten Software-Lizenzen pro Mitarbeiter überflüssig machen. Dazu kamen verschobene Grossaufträge im Nahen Osten und die teure Armis-Übernahme. Von rund 225 $ (Dezember 2024) fiel die Aktie bis April 2026 auf 83 $. Seither wird klar, dass das Geschäft weiter wächst: Im 2. Quartal stieg der Abo-Umsatz um 24 %, KI-Verträge (Now Assist) überschritten 1 Mrd. $ pro Jahr, und der Ausblick wurde angehoben. Die Aktie stieg bis Ende August auf 149.60 $.",
+ "kpis": [
+  [
+   "g",
+   "Abo-Umsatz",
+   "+24 %",
+   "2. Quartal 2026. Das Wachstum hat sich sogar beschleunigt (vor einem Jahr +22 %)."
+  ],
+  [
+   "g",
+   "Auftragsbestand (cRPO)",
+   "+21.5 %",
+   "Vertraglich gesicherter Umsatz der nächsten 12 Monate: 13.2 Mrd. $. Zeigt, dass das Wachstum weitergeht."
+  ],
+  [
+   "w",
+   "Operative Marge",
+   "12.4 % / 29.5 %",
+   "Ausgewiesen (GAAP) 12.4 %, durch Armis-Kosten und Aktienvergütungen gedrückt. Bereinigt 29.5 %."
+  ],
+  [
+   "g",
+   "Free Cashflow",
+   "4.58 Mrd. $",
+   "Rund 31 % vom Umsatz bleiben als freies Geld. Seit 2022 jedes Jahr gestiegen."
+  ],
+  [
+   "w",
+   "ROIC",
+   "10.3 %",
+   "Ausgewiesen eher tief, weil Aktienvergütungen den Gewinn drücken. Steigt aber seit Jahren."
+  ],
+  [
+   "g",
+   "Nettoschulden / EBITDA",
+   "0.6",
+   "Kaum Schulden, nach der Armis-Übernahme leicht netto verschuldet."
+  ],
+  [
+   "g",
+   "KGV erwartet",
+   "30",
+   "Klingt hoch, ist für ServiceNow aber günstig. Im Juni war die Bewertung (Unternehmenswert zu Betriebsgewinn) so tief wie nie seit dem Börsengang."
+  ],
+  [
+   "g",
+   "KI-Geschäft",
+   "> 1 Mrd. $",
+   "Now Assist (KI-Agenten) hat 1 Mrd. $ Jahresvertragswert überschritten. KI ist hier Kunde, nicht nur Gefahr."
+  ]
+ ],
+ "revnote": "Jedes Quartal über Vorjahr, mit 21–24 % Wachstum sehr gleichmässig.",
+ "marginnote": "Ausgewiesene (GAAP) Marge. Steigt seit 2022, die letzten 12 Monate wegen der Armis-Übernahme tiefer.",
+ "finnote": "<b>Hinweis:</b> Werte nach dem Aktiensplit 5:1 (Ende 2025). Das ausgewiesene KGV war früher oft über 100, weil hohe Aktienvergütungen den Gewinn drücken. Für die Bewertung nehme ich darum das erwartete KGV auf bereinigtem Gewinn (30). Die Kennzahl „ROIC“ für frühere Jahre lag mir nicht vor.",
+ "FIN": [
+  [
+   "2022",
+   7245,
+   "+22.9 %",
+   "5.2 %",
+   0.32,
+   2173,
+   "–",
+   "n. a."
+  ],
+  [
+   "2023",
+   8971,
+   "+23.8 %",
+   "8.9 %",
+   1.68,
+   2704,
+   "–",
+   "–"
+  ],
+  [
+   "2024",
+   10984,
+   "+22.4 %",
+   "12.7 %",
+   1.37,
+   3415,
+   "–",
+   "153"
+  ],
+  [
+   "2025",
+   13278,
+   "+20.9 %",
+   "15.1 %",
+   1.67,
+   4576,
+   "–",
+   "–"
+  ],
+  [
+   "Letzte 12 Mt.",
+   14732,
+   "+22.2 %",
+   "12.4 %",
+   1.6,
+   4580,
+   "10.3 %",
+   "85.0"
+  ]
+ ],
+ "QREV": [
+  [
+   "Q3 24",
+   2.8
+  ],
+  [
+   "Q4 24",
+   2.96
+  ],
+  [
+   "Q1 25",
+   3.09
+  ],
+  [
+   "Q2 25",
+   3.22
+  ],
+  [
+   "Q3 25",
+   3.41
+  ],
+  [
+   "Q4 25",
+   3.57
+  ],
+  [
+   "Q1 26",
+   3.77
+  ],
+  [
+   "Q2 26",
+   3.99
+  ]
+ ],
+ "MARGIN": [
+  [
+   "2022",
+   5.2
+  ],
+  [
+   "2023",
+   8.9
+  ],
+  [
+   "2024",
+   12.7
+  ],
+  [
+   "2025",
+   15.1
+  ],
+  [
+   "12 Mt.",
+   12.4
+  ]
+ ],
+ "Q": [
+  [
+   "Umsatztrend",
+   "4 von 4 Quartalen über Vorjahr, Tempo steigt",
+   15,
+   15
+  ],
+  [
+   "Wachstumstempo",
+   "Rund +22 % pro Jahr",
+   10,
+   10
+  ],
+  [
+   "Operative Marge",
+   "12.4 % GAAP (3 Pkt.), seit 2022 steigend (6 Pkt.)",
+   9,
+   15
+  ],
+  [
+   "Gewinnwachstum (EPS)",
+   "Bereinigt rund +10 %, ausgewiesen flach",
+   5,
+   10
+  ],
+  [
+   "Free Cashflow",
+   "Seit 2022 jedes Jahr gestiegen",
+   10,
+   10
+  ],
+  [
+   "ROIC",
+   "10.3 %",
+   6,
+   15
+  ],
+  [
+   "Schulden",
+   "Nettoschulden/EBITDA 0.6",
+   9,
+   10
+  ],
+  [
+   "Bewertung vs. eigene Historie",
+   "Erw. KGV 30, Bewertung nahe Rekordtief (KGV-Historie nicht vollständig)",
+   13,
+   15
+  ]
+ ],
+ "adwnote": "Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Seit dem April-Tief ist die Wochen-A/D deutlich gestiegen: Grosse Käufer haben eingesammelt.",
+ "rsiwnote": "Unter 30 überverkauft, über 70 überkauft. Im Februar 22 (Panik), heute 58: gesund, nicht überhitzt.",
+ "addnote": "Am Hoch vom 31.8. lag die Tages-A/D tiefer als am Hoch vom 1.6., obwohl der Kurs höher war. Seither fällt sie. Kurzfristig wird eher verkauft.",
+ "ind": [
+  [
+   "Kurs vs. EMA 50",
+   "136.1 &gt; 129.4",
+   "136.1 &gt; 129.2",
+   "Über der mittelfristigen Linie: Käufer haben die Oberhand."
+  ],
+  [
+   "Kurs vs. EMA 200",
+   "136.1 &gt; 126.5",
+   "136.1 &lt; 141.1",
+   "Tag über, Woche noch knapp unter der langfristigen Linie."
+  ],
+  [
+   "EMA 50 vs. EMA 200",
+   "50 über 200 (Golden Cross 17.9.2026)",
+   "50 unter 200 (seit April)",
+   "Der Tag hat gedreht, die Woche noch nicht."
+  ],
+  [
+   "RSI (14)",
+   "52.2",
+   "57.9",
+   "Neutral bis freundlich. Kein Extrem, keine Divergenz."
+  ],
+  [
+   "A/D",
+   "fällt seit Ende August",
+   "steigt seit April",
+   "Gemischt: mittelfristig Aufnahme, kurzfristig Gewinnmitnahmen."
+  ],
+  [
+   "Volumen",
+   "Ø 20 Tage 11.6 Mio. vs. Ø 100 Tage 22.6 Mio.",
+   "Der Rücksetzer läuft mit halbem Volumen. Leicht positiv: Die Verkäufer drängen nicht."
+  ]
+ ],
+ "smc": "Nach dem Tief vom April (81.24 $) entstanden höhere Tiefs (89.39 $ im Juni, 91.53 $ im Juli) und höhere Hochs (139.20 $ im Juni, 149.60 $ im August). Das ist ein Break of Structure nach oben, also ein neuer Aufwärtstrend auf dem Tageschart. Seit August läuft eine Korrektur mit Tief bei 126.80 $ (28.9.). Der Kurs steht in der oberen Hälfte der Bewegung (Premium). Die günstigere Hälfte beginnt unter rund 120 $.",
+ "zones": [
+  [
+   "r",
+   "147.6–149.6 $",
+   "Widerstand: Hochs vom 31.8. und 15.9."
+  ],
+  [
+   "t",
+   "141.10 $",
+   "<b>Trigger Woche:</b> Wochenschluss über der EMA 200 (Woche). Dann wäre der Trend auch langfristig gedreht."
+  ],
+  [
+   "s",
+   "126.8–129.4 $",
+   "Erste Kaufzone: Tief vom 28.9. und EMA 50 (Tag)."
+  ],
+  [
+   "s",
+   "117.6–120 $",
+   "Tiefere Kaufzone: Tief vom 17.8., Beginn der günstigen Hälfte (Discount)."
+  ],
+  [
+   "r",
+   "117 $",
+   "Abbruch: Wochenschluss darunter beendet die Serie höherer Tiefs."
+  ]
+ ],
+ "smart": [
+  "<b>ServiceNow selbst:</b> Kleiner Aktienrückkauf (rund 0.4 % pro Jahr). Keine Dividende.",
+  "<b>Insider-Käufe:</b> Keine in den letzten 12 Monaten.",
+  "<b>Insider-Verkäufe:</b> Klein, rund 9 Mio. $ in 12 Monaten. Kein Warnsignal.",
+  "<b>Analysten:</b> Durchschnittliches Kursziel 145 $, Einstufung „Strong Buy“."
+ ],
+ "seasnote": "Durchschnittliche Monatsrendite in %, 14 Jahre seit dem Börsengang. Oktober ist mit +4.3 % und 71 % positiven Jahren stark, Dezember eher schwach.",
+ "T": [
+  [
+   "Trend Woche (EMA 50/200)",
+   "Kurs über EMA 50, knapp unter EMA 200 (mögliche Wende)",
+   8,
+   20
+  ],
+  [
+   "Trend Tag (EMA 50/200)",
+   "Kurs über beiden, frisches Golden Cross",
+   9,
+   10
+  ],
+  [
+   "Struktur (SMC)",
+   "Höhere Hochs und höhere Tiefs, Kurs im Premium",
+   14,
+   20
+  ],
+  [
+   "RSI Tag/Woche",
+   "52 / 58: neutral",
+   7,
+   15
+  ],
+  [
+   "A/D Tag/Woche",
+   "Woche steigt seit April, Tag fällt seit August",
+   10,
+   20
+  ],
+  [
+   "Smart Money",
+   "Kleiner Rückkauf, keine Insider-Käufe",
+   3,
+   10
+  ],
+  [
+   "Saisonalität",
+   "Okt–Dez: Ø 57 % positive Jahre",
+   3,
+   5
+  ]
+ ],
+ "pro": [
+  "Wachstum über 20 % pro Jahr, Auftragsbestand wächst mit.",
+  "KI-Produkte verkaufen sich: Now Assist über 1 Mrd. $ Jahresvertragswert.",
+  "Hoher, wachsender Free Cashflow und kaum Schulden.",
+  "Bewertung deutlich unter dem eigenen Durchschnitt.",
+  "Neuer Aufwärtstrend auf dem Tageschart, Golden Cross im September."
+ ],
+ "con": [
+  "Die KI-Angst ist nicht ganz unbegründet: Wenn Firmen weniger Mitarbeiter-Lizenzen brauchen, sinkt der Umsatz pro Kunde.",
+  "Abo-Bruttomarge sinkt (80.5 % statt 83 %), weil KI-Rechenleistung teuer ist.",
+  "Ausgewiesener Gewinn klein, hohe Aktienvergütungen.",
+  "Wochen-Trend noch nicht gedreht (Kurs unter EMA 200 Woche).",
+  "Tages-A/D zeigt seit August Gewinnmitnahmen."
+ ],
+ "todo": [
+  [
+   "t",
+   "Beobachten",
+   "Alarm bei 129.40 $ (EMA 50 Tag) und bei 141.10 $ (EMA 200 Woche)."
+  ],
+  [
+   "s",
+   "Timing grün",
+   "Variante 1: Rücksetzer in 126.8–129.4 $, der Kurs hält, und die Tages-A/D steigt wieder. Variante 2: Wochenschluss über 141.10 $. Dann springt das Timing auf rund 70."
+  ],
+  [
+   "r",
+   "Abbruch",
+   "Wochenschluss unter 117 $: Serie höherer Tiefs gebrochen."
+  ],
+  [
+   "",
+   "Nächste Zahlen",
+   "28. Oktober 2026 (3. Quartal). Entscheidend: Abo-Wachstum, cRPO und Bruttomarge nach Armis."
+  ]
+ ],
+ "bands": [
+  {
+   "from": 147.6,
+   "to": 149.6,
+   "type": "res"
+  },
+  {
+   "from": 126.8,
+   "to": 129.4,
+   "type": "sup"
+  },
+  {
+   "from": 117.6,
+   "to": 120,
+   "type": "sup"
+  }
+ ],
+ "refs": [
+  {
+   "v": 141.1,
+   "label": "EMA 200 Woche 141.10"
+  }
+ ],
+ "sources": "<a href=\"https://stockanalysis.com/stocks/now/financials/\" target=\"_blank\" rel=\"noopener\">StockAnalysis.com</a> (Stand 05.10.2026), <a href=\"https://www.investing.com/news/company-news/servicenow-q2-2026-slides-revenue-beats-margins-face-ai-pressure-93CH-4807204\" target=\"_blank\" rel=\"noopener\">Q2-Zahlen (Investing.com)</a>, <a href=\"https://ashtoninvests.substack.com/p/servicenow-q2-2026-earnings-recap\" target=\"_blank\" rel=\"noopener\">Q2-Zusammenfassung</a>, <a href=\"https://www.tikr.com/blog/servicenow-stock-is-down-36-in-2026-is-the-market-making-a-category-error-on-ai\" target=\"_blank\" rel=\"noopener\">Kursrückgang 2026 (TIKR)</a>, <a href=\"https://www.marketbeat.com/stocks/NYSE/NOW/insider-trades/\" target=\"_blank\" rel=\"noopener\">Insider (MarketBeat)</a>."
+}

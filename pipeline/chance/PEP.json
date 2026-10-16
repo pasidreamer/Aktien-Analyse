@@ -1,0 +1,30 @@
+{
+ "ticker": "PEP",
+ "sorgen": [
+  "Am 08.10.2026 hat PepsiCo den Gewinnausblick für 2026 erneut gesenkt: Der Gewinn pro Aktie soll ohne Währungseffekte nur noch um 1–2 % wachsen. Vorher war das untere Ende von 4–6 % versprochen.",
+  "Das Kerngeschäft Snacks in Nordamerika (Lay's, Doritos) schwächelt: Umsatz im 3. Quartal flach, Betriebsgewinn laut Bericht −12 %. Grund: Im Februar wurden die Preise um bis zu 15 % gesenkt, um Kunden zurückzuholen.",
+  "Bei Getränken in Nordamerika sank die verkaufte Menge im 3. Quartal um 2 %. Dazu kommen höhere Kosten für Energie und Rohstoffe.",
+  "Die Dividende braucht schon rund 78 % des Gewinns. Wächst der Gewinn kaum, wird der Spielraum für weitere Erhöhungen klein."
+ ],
+ "sorgen_art": "gemischt",
+ "sorgen_art_text": "Das Problem in Nordamerika ist echt (weniger Menge, tiefere Preise, tiefere Marge), aber das Ausland wächst stark und die Firma hat mit Preissenkungen, Sortimentskürzung und Sparprogramm klare Gegenmittel gestartet.",
+ "aufloeser": [
+  {"was": "Die Snacks in Nordamerika zeigen wieder steigenden Betriebsgewinn, weil die Menge dank tieferer Preise wächst und erste kleine Preiserhöhungen greifen", "wann": "Zahlen 4. Quartal, voraussichtlich Anfang Februar 2027"},
+  {"was": "PepsiCo nennt Details und Höhe der angekündigten zusätzlichen Kostensenkungen und gibt einen Ausblick 2027 mit wieder höherem Gewinnwachstum", "wann": "In den kommenden Monaten, spätestens mit dem Ausblick Anfang 2027"},
+  {"was": "Die Sortimentskürzung (fast 20 % weniger Produktvarianten in den USA) ist abgeschlossen und senkt die Kosten sichtbar", "wann": "Anfang 2027"}
+ ],
+ "schub_stufe": "mittel",
+ "schub_treiber": [
+  {"titel": "Margen-Hebel durch Sparprogramm", "text": "PepsiCo hat 2025 drei Fabriken geschlossen, streicht fast 20 % der Produktvarianten in den USA und hat weitere Kostensenkungen angekündigt. Laut Firma soll die Kernmarge in drei Jahren um mindestens 1 Prozentpunkt steigen. Bei einem Jahresumsatz von deutlich über 90 Mrd. $ wären das grob 1 Mrd. $ mehr Betriebsgewinn pro Jahr, noch ist das aber nur ein Versprechen.", "wann": "2027–2028"},
+  {"titel": "Starkes Auslandsgeschäft", "text": "Ausserhalb Nordamerikas wächst PepsiCo deutlich schneller: im 3. Quartal organisch +9 % in Europa/Nahost/Afrika und +9 % in Asien-Pazifik, mit 11 % mehr verkaufter Snack-Menge in Asien. Der Betriebsgewinn stieg dort je nach Region um 9–19 %. Das Ausland macht aber nur rund 40 % des Umsatzes aus.", "wann": "Laufend"},
+  {"titel": "Neue Produkte mit Protein und Ballaststoffen", "text": "PepsiCo setzt auf gesündere Varianten, zum Beispiel Doritos Protein (Start 2026), und hat 2025 die Marken Siete und poppi gekauft. Diese Produkte sind im Verhältnis zur Grösse der Firma noch klein, Umsatzzahlen nennt PepsiCo nicht separat.", "wann": "2026–2027"}
+ ],
+ "schub_beweis": "Achte bei den nächsten Zahlen auf zwei Werte bei PepsiCo Foods North America: verkaufte Menge (soll steigen) und Betriebsgewinn (zuletzt −12 %). Dreht der Betriebsgewinn dort ins Plus, greift die Wende.",
+ "szenario": "Nicht wie Google 2023 mit einer versteckten neuen Technologie, eher eine klassische Wende-Geschichte: Die Aktie ist mit einem erwarteten KGV von rund 14 so günstig wie seit Jahren nicht. Greifen Preissenkungen und Sparprogramm 2027, kann schon eine Rückkehr zu 6–8 % Gewinnwachstum die Bewertung wieder Richtung 18–20 heben. Grösstes Risiko: Die US-Kunden bleiben sparsam und Abnehmspritzen (GLP-1) dämpfen den Snack-Konsum dauerhaft; dann bleibt PepsiCo eine Dividendenaktie ohne Wachstum.",
+ "quellen": [
+  {"titel": "PepsiCo: Medienmitteilung 3. Quartal 2026 (SEC 8-K, 08.10.2026)", "url": "https://www.sec.gov/Archives/edgar/data/0000077476/000007747626000050/q320268-kxexhibit991.htm"},
+  {"titel": "TIKR: PepsiCo: A Q3 Beat, a Guidance Cut, and the Lowest P/E in Five Years", "url": "https://www.tikr.com/blog/pepsico-a-q3-beat-a-guidance-cut-and-the-lowest-p-e-in-five-years"},
+  {"titel": "investingLive: PepsiCo lowers profit guidance as cost pressure and a cautious US consumer bite", "url": "https://investinglive.com/stocks/pepsico-lowers-profit-guidance-as-cost-pressure-and-a-cautious-us-consumer-bite/"},
+  {"titel": "Nasdaq: PepsiCo Outlines Shareholder Value Key Actions & Preliminary 2026 View (09.12.2025)", "url": "https://www.nasdaq.com/articles/pepsico-outlines-shareholder-value-key-actions-preliminary-2026-view"}
+ ]
+}

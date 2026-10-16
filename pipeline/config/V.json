@@ -1,0 +1,401 @@
+{
+ "ticker": "V",
+ "name": "Visa",
+ "datum": "05.10.2026",
+ "meta": "Visa Inc. · NYSE: V · Weltweites Kartenzahlungs-Netzwerk · USA",
+ "price": "369.71 $",
+ "pricemeta": "Schluss 05.10.2026 · Allzeithoch 26.08.2026: 385.60 $ · 4 % darunter",
+ "verdict": "Eine der profitabelsten Firmen der Welt in einem sauberen Aufwärtstrend. Seit August läuft eine ruhige Seitwärtsphase knapp unter dem Hoch. Qualität grün, Timing hellgrün. Die Zone 357–362 $ ist ein sinnvoller Einstieg, der Ausbruch ein Tagesschluss über 385.60 $.",
+ "about": "Visa betreibt das Netzwerk, über das Kartenzahlungen zwischen Bank des Käufers und Bank des Händlers laufen. Visa gibt selbst keine Kredite und trägt kein Ausfallrisiko. Pro Zahlung verdient Visa eine kleine Gebühr. Über 4 Billionen $ Zahlungen laufen pro Quartal über das Netz. Neu kommen Stablecoins (digitale Dollar) und Zahlungen durch KI-Agenten dazu.",
+ "why": "Die Zahlen vom 28. Juli waren besser als erwartet: Umsatz 11.6 Mrd. $ (+14 %), bereinigter Gewinn pro Aktie 3.32 $ (Erwartung 3.22 $), Ausblick angehoben. Die Aktie stieg bis 26. August auf das Rekordhoch von 385.60 $. Seither läuft sie seitwärts: Die Kosten stiegen um 17 %, Visa baut Stellen ab, und es bleiben regulatorische Risiken (geplantes US-Gesetz für mehr Wettbewerb bei Kreditkarten, Klage des US-Justizministeriums wegen Debitkarten).",
+ "kpis": [
+  [
+   "g",
+   "Umsatzwachstum",
+   "+14 %",
+   "Letzte 12 Monate. Beschleunigt sich gegenüber 2024 und 2025 (rund 10–11 %)."
+  ],
+  [
+   "g",
+   "Operative Marge",
+   "66.9 %",
+   "Von 100 $ Umsatz bleiben 67 $ Betriebsgewinn. Gehört zu den höchsten Margen überhaupt."
+  ],
+  [
+   "g",
+   "Gewinn pro Aktie (EPS)",
+   "+14.7 %",
+   "Letzte 12 Monate. Wächst schneller als der Umsatz, auch dank Rückkäufen."
+  ],
+  [
+   "g",
+   "ROIC",
+   "54.8 %",
+   "Gewinn pro investiertem Dollar. Extrem hoch: Das Netzwerk braucht kaum Kapital."
+  ],
+  [
+   "g",
+   "Free Cashflow",
+   "21.0 Mrd. $",
+   "Rund 47 % vom Umsatz bleiben als freies Geld."
+  ],
+  [
+   "g",
+   "Nettoschulden / EBITDA",
+   "0.3",
+   "Praktisch schuldenfrei gemessen am Betriebsgewinn."
+  ],
+  [
+   "w",
+   "KGV",
+   "30.7",
+   "Du zahlst rund 31 Jahresgewinne. Eigener Schnitt 2021–2025: rund 29. Leicht teurer als üblich."
+  ],
+  [
+   "g",
+   "Aktienrückkauf",
+   "2.9 % pro Jahr",
+   "Allein im letzten Quartal 4.9 Mrd. $. Jedes Jahr gibt es rund 3 % weniger Aktien."
+  ]
+ ],
+ "revnote": "Jedes Quartal über Vorjahr, zuletzt 14–17 % Wachstum.",
+ "marginnote": "Seit Jahren stabil um 67 %.",
+ "finnote": "<b>Hinweis:</b> Geschäftsjahr endet jeweils Ende September. Im ausgewiesenen Gewinn stecken manchmal Rückstellungen für Rechtsfälle, darum schwankt das EPS-Wachstum.",
+ "FIN": [
+  [
+   "GJ 2022",
+   29310,
+   "+21.6 %",
+   "67.2 %",
+   7.0,
+   17879,
+   "40.1 %",
+   "23.3"
+  ],
+  [
+   "GJ 2023",
+   32653,
+   "+11.4 %",
+   "67.2 %",
+   8.28,
+   19696,
+   "44.9 %",
+   "25.6"
+  ],
+  [
+   "GJ 2024",
+   35926,
+   "+10.0 %",
+   "66.8 %",
+   9.73,
+   18693,
+   "46.3 %",
+   "26.9"
+  ],
+  [
+   "GJ 2025",
+   40000,
+   "+11.3 %",
+   "67.0 %",
+   10.2,
+   21577,
+   "49.1 %",
+   "32.0"
+  ],
+  [
+   "Letzte 12 Mt.",
+   44488,
+   "+14.4 %",
+   "66.9 %",
+   11.75,
+   21013,
+   "54.8 %",
+   "30.7"
+  ]
+ ],
+ "QREV": [
+  [
+   "Q3 24",
+   9.62
+  ],
+  [
+   "Q4 24",
+   9.51
+  ],
+  [
+   "Q1 25",
+   9.59
+  ],
+  [
+   "Q2 25",
+   10.17
+  ],
+  [
+   "Q3 25",
+   10.72
+  ],
+  [
+   "Q4 25",
+   10.9
+  ],
+  [
+   "Q1 26",
+   11.23
+  ],
+  [
+   "Q2 26",
+   11.63
+  ]
+ ],
+ "MARGIN": [
+  [
+   "GJ 22",
+   67.2
+  ],
+  [
+   "GJ 23",
+   67.2
+  ],
+  [
+   "GJ 24",
+   66.8
+  ],
+  [
+   "GJ 25",
+   67.0
+  ],
+  [
+   "12 Mt.",
+   66.9
+  ]
+ ],
+ "Q": [
+  [
+   "Umsatztrend",
+   "4 von 4 Quartalen über Vorjahr, Tempo steigt",
+   15,
+   15
+  ],
+  [
+   "Wachstumstempo",
+   "+14 % (Netto-Umsatz)",
+   8,
+   10
+  ],
+  [
+   "Operative Marge",
+   "66.9 % (9 Pkt.), stabil (3 Pkt.)",
+   12,
+   15
+  ],
+  [
+   "Gewinnwachstum (EPS)",
+   "Ø rund +12–15 % pro Jahr",
+   8,
+   10
+  ],
+  [
+   "Free Cashflow",
+   "Positiv, 2024 und zuletzt leicht gesunken",
+   6,
+   10
+  ],
+  [
+   "ROIC",
+   "54.8 %, steigend",
+   15,
+   15
+  ],
+  [
+   "Schulden",
+   "Nettoschulden/EBITDA 0.3",
+   9,
+   10
+  ],
+  [
+   "Bewertung vs. eigene Historie",
+   "KGV 30.7 vs. Ø rund 29 (±10 %)",
+   7,
+   15
+  ]
+ ],
+ "adwnote": "Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Neues Hoch im August zusammen mit dem Kurs, seither leicht gefallen.",
+ "rsiwnote": "Unter 30 überverkauft, über 70 überkauft. Heute 60: gesunder Aufwärtstrend.",
+ "addnote": "Seit dem Hoch Ende August fällt die Tages-A/D mit dem Kurs. Normale Gewinnmitnahmen, keine Panik.",
+ "ind": [
+  [
+   "Kurs vs. EMA 50",
+   "369.7 &gt; 364.7",
+   "369.7 &gt; 344.2",
+   "Über der mittelfristigen Linie."
+  ],
+  [
+   "Kurs vs. EMA 200",
+   "369.7 &gt; 345.9",
+   "369.7 &gt; 304.8",
+   "Über der langfristigen Linie: Aufwärtstrend."
+  ],
+  [
+   "EMA 50 vs. EMA 200",
+   "50 über 200 (Golden Cross 2.7.2026)",
+   "50 über 200 (seit 2023)",
+   "Beide Zeitebenen im Aufwärtstrend."
+  ],
+  [
+   "RSI (14)",
+   "53.0",
+   "59.7",
+   "Neutral bis freundlich."
+  ],
+  [
+   "A/D",
+   "fällt seit Ende August",
+   "leicht unter dem August-Hoch",
+   "Ruhige Gewinnmitnahmen."
+  ],
+  [
+   "Volumen",
+   "Ø 20 Tage 6.1 Mio. vs. Ø 100 Tage 7.5 Mio.",
+   "Die Seitwärtsphase läuft mit sinkendem Volumen. Leicht positiv."
+  ]
+ ],
+ "smc": "Seit dem Tief im März (293.90 $) macht Visa höhere Hochs (342 → 374 → 385.60 $) und höhere Tiefs (309 → 348.50 $). Seit August läuft eine Seitwärtsphase zwischen rund 357 und 385.60 $. Der Kurs steht in deren unterer Hälfte (Discount). Die Tiefs von September (365.50 $ und 359.80 $) liegen etwas tiefer, das ist eine normale Verschnaufpause.",
+ "zones": [
+  [
+   "r",
+   "385.6 $",
+   "Widerstand: Allzeithoch vom 26.8."
+  ],
+  [
+   "t",
+   "385.60 $",
+   "<b>Trigger Ausbruch:</b> Tagesschluss über dem Allzeithoch."
+  ],
+  [
+   "s",
+   "357–362 $",
+   "Kaufzone: Tiefs vom September, Unterkante der Seitwärtsphase."
+  ],
+  [
+   "s",
+   "342–346 $",
+   "Tiefere Zone: EMA 200 (Tag) und Ausbruchsniveau vom Frühling."
+  ],
+  [
+   "r",
+   "342 $",
+   "Abbruch: Wochenschluss darunter beendet den Aufwärtstrend auf dem Tageschart."
+  ]
+ ],
+ "smart": [
+  "<b>Visa selbst:</b> Grosser Aktienrückkauf: 4.9 Mrd. $ im letzten Quartal, noch 28.4 Mrd. $ bewilligt. Dividende 0.7 %.",
+  "<b>Insider-Käufe:</b> Keine. Einzelne US-Politiker meldeten kleine Käufe (Nebeninfo, Wochen verspätet).",
+  "<b>Insider-Verkäufe:</b> Rund 63 Mio. $ in 12 Monaten, vor allem CEO McInerney. Üblich bei Visa.",
+  "<b>Analysten:</b> Durchschnittliches Kursziel 419 $, Einstufung „Strong Buy“ (40 Analysten)."
+ ],
+ "seasnote": "Durchschnittliche Monatsrendite in %, 18 Jahre. Oktober bis Dezember sind mit 67–72 % positiven Jahren verlässlich stark, September der schwächste Monat.",
+ "T": [
+  [
+   "Trend Woche (EMA 50/200)",
+   "Kurs über beiden, EMA 50 über EMA 200",
+   19,
+   20
+  ],
+  [
+   "Trend Tag (EMA 50/200)",
+   "Kurs über beiden",
+   9,
+   10
+  ],
+  [
+   "Struktur (SMC)",
+   "Seitwärtsphase im Aufwärtstrend, Kurs im Discount",
+   10,
+   20
+  ],
+  [
+   "RSI Tag/Woche",
+   "53 / 60: neutral",
+   7,
+   15
+  ],
+  [
+   "A/D Tag/Woche",
+   "Beide fallen leicht mit dem Kurs",
+   5,
+   20
+  ],
+  [
+   "Smart Money",
+   "Grosser Rückkauf (2.9 %), keine Insider-Käufe",
+   6,
+   10
+  ],
+  [
+   "Saisonalität",
+   "Okt–Dez: Ø 70 % positive Jahre",
+   5,
+   5
+  ]
+ ],
+ "pro": [
+  "Monopolartiges Netzwerk mit 67 % Marge und ROIC über 50 %.",
+  "Wachstum beschleunigt sich, Ausblick angehoben.",
+  "Grosse Rückkäufe senken die Aktienzahl jedes Jahr um rund 3 %.",
+  "Sauberer Aufwärtstrend, Kurs in der unteren Hälfte der Seitwärtsphase.",
+  "Oktober bis Dezember saisonal stark."
+ ],
+ "con": [
+  "Regulierung: Ein US-Gesetz für mehr Wettbewerb bei Kreditkarten und die Klage des Justizministeriums könnten Gebühren drücken.",
+  "Neue Konkurrenz durch Stablecoins und Echtzeitzahlungen.",
+  "Kosten steigen schneller als der Umsatz (+17 %).",
+  "KGV leicht über dem eigenen Schnitt.",
+  "A/D-Linien fallen seit August leicht."
+ ],
+ "todo": [
+  [
+   "t",
+   "Beobachten",
+   "Alarm bei 362 $ (Kaufzone) und bei 385.60 $ (Allzeithoch)."
+  ],
+  [
+   "s",
+   "Timing grün",
+   "Rücksetzer in 357–362 $, der hält, und die Tages-A/D dreht nach oben. Oder Tagesschluss über 385.60 $ mit neuem Hoch der A/D."
+  ],
+  [
+   "r",
+   "Abbruch",
+   "Wochenschluss unter 342 $."
+  ],
+  [
+   "",
+   "Nächste Zahlen",
+   "27. Oktober 2026 (4. Quartal Geschäftsjahr 2026) mit Ausblick 2027."
+  ]
+ ],
+ "bands": [
+  {
+   "from": 383,
+   "to": 386,
+   "type": "res"
+  },
+  {
+   "from": 357,
+   "to": 362,
+   "type": "sup"
+  },
+  {
+   "from": 342,
+   "to": 346,
+   "type": "sup"
+  }
+ ],
+ "refs": [
+  {
+   "v": 385.6,
+   "label": "Allzeithoch 385.60"
+  }
+ ],
+ "sources": "<a href=\"https://stockanalysis.com/stocks/v/financials/\" target=\"_blank\" rel=\"noopener\">StockAnalysis.com</a> (Stand 05.10.2026), <a href=\"https://www.investing.com/news/transcripts/earnings-call-transcript-visa-tops-q3-2026-estimates-raises-outlook-93CH-4818303\" target=\"_blank\" rel=\"noopener\">Q3-Zahlen (Investing.com)</a>, <a href=\"https://qz.com/visa-fiscal-q3-2026-earnings-revenue-growth-072826\" target=\"_blank\" rel=\"noopener\">Quartz</a>, <a href=\"https://www.marketbeat.com/stocks/NYSE/V/insider-trades/\" target=\"_blank\" rel=\"noopener\">Insider (MarketBeat)</a>."
+}

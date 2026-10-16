@@ -7,7 +7,7 @@ import os, sys, time, datetime as dt
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from update import fetch, ema, rsi, adline  # noqa: E402
 
-OUT = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "rohdaten")
+OUT = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "pipeline", "raw")
 
 
 def yd(d):

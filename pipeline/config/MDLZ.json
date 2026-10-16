@@ -1,0 +1,395 @@
+{
+ "ticker": "MDLZ",
+ "name": "Mondelez",
+ "datum": "08.10.2026",
+ "meta": "Mondelez International · Nasdaq: MDLZ · Guetzli (Oreo, LU), Schokolade (Milka, Toblerone, Cadbury), Kaugummi · USA",
+ "price": "59.38 $",
+ "pricemeta": "Schluss 07.10.2026 · 52 Wochen: 51.20 – 66.65 $ · Allzeithoch 78.59 $ (2023)",
+ "verdict": "Starke Marken, aber die Zahlen leiden unter dem teuren Kakao der letzten zwei Jahre. Qualität orange (31), Timing orange (38). Interessant: Der Kurs bildet bei 57.5–58.5 $ gerade einen Dreifachboden, und auf der Woche steigen die Tiefs seit Januar. Ein Tagesschluss über 62.20 $ wäre das Signal. Die Entlastung durch den gefallenen Kakaopreis kommt vor allem 2027.",
+ "about": "Mondelez ist einer der grössten Snack-Hersteller der Welt: Guetzli (Oreo, LU, belVita), Schokolade (Milka, Cadbury, Toblerone, Côte d'Or) und Kaugummi. Rund drei Viertel des Umsatzes kommen von ausserhalb der USA, ein grosser Teil aus Europa und Schwellenländern.",
+ "why": "2024 stieg der Kakaopreis auf über 12'000 $ pro Tonne. Mondelez musste die Preise stark erhöhen, die Kunden kauften weniger. Der bereinigte Gewinn pro Aktie fiel 2025 um 15 %. Inzwischen ist Kakao auf rund 4'000 $ gefallen, aber Mondelez hat sich für 2026 noch zu höheren Preisen abgesichert. Die Entlastung kommt darum erst 2027. Im Juli hob Mondelez das Umsatzziel an und erhöhte die Dividende um 4 %. Seit August fällt die Aktie mit dem ganzen Sektor.",
+ "kpis": [
+  [
+   "w",
+   "Organisches Wachstum",
+   "+2.2 %",
+   "2. Quartal 2026 (Preis +1.5, Menge/Mix +0.7). Ziel 2026: mindestens +2 %. Schwach."
+  ],
+  [
+   "w",
+   "Operative Marge",
+   "11.8 %",
+   "Ausgewiesen, durch die Bewertung der Kakao-Absicherungen verzerrt. 2024 waren es 17.7 %."
+  ],
+  [
+   "b",
+   "Gewinn pro Aktie (bereinigt)",
+   "0 bis +5 %",
+   "Ziel 2026 (ohne Währungen), nach −15 % im Jahr 2025."
+  ],
+  [
+   "b",
+   "ROIC",
+   "7.9 %",
+   "Auf jeden investierten Dollar knapp 8 Cent Gewinn. Tief, weil viel Kapital in Übernahmen steckt."
+  ],
+  [
+   "w",
+   "Free Cashflow",
+   "3.1 Mrd. $",
+   "Positiv, aber seit 2023 leicht sinkend."
+  ],
+  [
+   "b",
+   "Nettoschulden / EBITDA",
+   "3.3",
+   "Eher hoch: über 3 Jahre Betriebsgewinn nötig, um die Schulden zu tilgen."
+  ],
+  [
+   "w",
+   "KGV erwartet",
+   "18.3",
+   "Eigener Schnitt: 20.0. Rund 8 % günstiger, also etwa normal bewertet."
+  ],
+  [
+   "g",
+   "Dividende",
+   "3.5 %",
+   "12 Jahre in Folge erhöht, zuletzt +4 % im Juli."
+  ]
+ ],
+ "revnote": "Alle vier Quartale über Vorjahr, aber vor allem durch Preiserhöhungen.",
+ "marginnote": "Ausgewiesen, stark schwankend wegen der Bewertung der Kakao-Absicherungen.",
+ "finnote": "<b>Hinweis:</b> Der ausgewiesene Gewinn schwankt stark, weil Mondelez seine Kakao-Absicherungen laufend zum Marktwert bewertet. Für die Bewertung nehme ich darum das erwartete KGV auf bereinigtem Gewinn (18.3). Bereinigter Gewinn pro Aktie 2025: 2.92 $.",
+ "FIN": [
+  [
+   "2022",
+   31496,
+   "+9.7 %",
+   "15.0 %",
+   1.96,
+   3002,
+   "7.7 %",
+   "33.5"
+  ],
+  [
+   "2023",
+   36016,
+   "+14.4 %",
+   "15.8 %",
+   3.62,
+   3602,
+   "9.1 %",
+   "19.9"
+  ],
+  [
+   "2024",
+   36441,
+   "+1.2 %",
+   "17.7 %",
+   3.42,
+   3523,
+   "10.8 %",
+   "17.3"
+  ],
+  [
+   "2025",
+   38537,
+   "+5.8 %",
+   "9.4 %",
+   1.89,
+   3235,
+   "6.1 %",
+   "28.3"
+  ],
+  [
+   "Letzte 12 Mt.",
+   39675,
+   "+6.9 %",
+   "11.8 %",
+   2.73,
+   3085,
+   "7.9 %",
+   "21.7"
+  ]
+ ],
+ "QREV": [
+  [
+   "Q3 24",
+   9.2
+  ],
+  [
+   "Q4 24",
+   9.6
+  ],
+  [
+   "Q1 25",
+   9.31
+  ],
+  [
+   "Q2 25",
+   8.98
+  ],
+  [
+   "Q3 25",
+   9.74
+  ],
+  [
+   "Q4 25",
+   10.5
+  ],
+  [
+   "Q1 26",
+   10.08
+  ],
+  [
+   "Q2 26",
+   9.36
+  ]
+ ],
+ "revdec": 2,
+ "MARGIN": [
+  [
+   "2022",
+   15.0
+  ],
+  [
+   "2023",
+   15.8
+  ],
+  [
+   "2024",
+   17.7
+  ],
+  [
+   "2025",
+   9.4
+  ],
+  [
+   "12 Mt.",
+   11.8
+  ]
+ ],
+ "Q": [
+  [
+   "Umsatztrend",
+   "4 von 4 Quartalen über Vorjahr, Tempo sinkt",
+   12,
+   15
+  ],
+  [
+   "Wachstumstempo",
+   "Organisch rund +2.5 %",
+   0,
+   10
+  ],
+  [
+   "Operative Marge",
+   "11.8 % (3 Pkt.), fallend (0 Pkt.)",
+   3,
+   15
+  ],
+  [
+   "Gewinnwachstum (EPS)",
+   "Bereinigt 2025 −15 %, 2026 0 bis +5 %",
+   2,
+   10
+  ],
+  [
+   "Free Cashflow",
+   "Positiv, aber sinkend",
+   3,
+   10
+  ],
+  [
+   "ROIC",
+   "7.9 %",
+   2,
+   15
+  ],
+  [
+   "Schulden",
+   "Nettoschulden/EBITDA 3.3",
+   2,
+   10
+  ],
+  [
+   "Bewertung vs. eigene Historie",
+   "Erw. KGV 18.3 statt Ø 20.0 (−8 %)",
+   7,
+   15
+  ]
+ ],
+ "adwnote": "Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Seit Januar steigt die Wochen-A/D (1'054 auf 1'146), obwohl der Kurs seitwärts läuft. Auf Wochenbasis wurde eher eingesammelt.",
+ "rsiwnote": "Unter 30 überverkauft, über 70 überkauft. Heute 46: neutral. Im Januar 2025 war er bei 24 (Panik).",
+ "addnote": "Kurzfristig schwach: Am Tief vom 30.6. (57.84 $) lag die Tages-A/D bei −47, am Tief vom 1.10. (57.76 $) bei −57. Gleicher Kurs, tiefere A/D: Auf Tagesbasis drücken noch die Verkäufer.",
+ "ind": [
+  [
+   "Kurs vs. EMA 50",
+   "59.4 &lt; 61.0",
+   "59.4 &lt; 60.8",
+   "Knapp unter der mittelfristigen Linie."
+  ],
+  [
+   "Kurs vs. EMA 200",
+   "59.4 &lt; 60.7",
+   "59.4 &lt; 62.8",
+   "Knapp unter der langfristigen Linie."
+  ],
+  [
+   "EMA 50 vs. EMA 200",
+   "50 über 200 (seit 28.5.2026)",
+   "50 unter 200 (seit Oktober 2025)",
+   "Tag noch aufwärts, Woche abwärts. Die Linien liegen eng: Eine Entscheidung naht."
+  ],
+  [
+   "RSI (14)",
+   "42.7",
+   "46.1",
+   "Neutral bis schwach."
+  ],
+  [
+   "A/D",
+   "schwach",
+   "steigt seit Januar",
+   "Gemischt: Woche positiv, Tag negativ."
+  ],
+  [
+   "Volumen",
+   "Ø 20 Tage 8.0 Mio. vs. Ø 100 Tage 8.5 Mio.",
+   "Ruhig."
+  ]
+ ],
+ "smc": "Auf der Woche hat Mondelez seit dem Tief im Januar (51.20 $) höhere Tiefs gebildet: 54.31 $ (März), 55.79 $ (April), 57.78 $ (Juni/Juli). Am 1. Oktober hielt der Kurs genau dort wieder (57.76 $): ein Dreifachboden bei 57.5–58.5 $. Auf dem Tageschart gibt es seit dem Juli-Hoch (66.65 $) tiefere Hochs (65.55 → 63.83 → 62.19 $). Ein Tagesschluss über 62.20 $ wäre der Change of Character.",
+ "zones": [
+  [
+   "r",
+   "64.5–66.7 $",
+   "Widerstand: Hochs von Juni bis August."
+  ],
+  [
+   "t",
+   "62.20 $",
+   "<b>Trigger:</b> Tagesschluss über dem letzten tieferen Hoch (24.9.)."
+  ],
+  [
+   "s",
+   "57.5–58.5 $",
+   "<b>Kaufzone:</b> Dreifachboden von Juni, Juli und Oktober."
+  ],
+  [
+   "r",
+   "55.50 $",
+   "Abbruch: Wochenschluss unter dem April-Tief. Dann wäre die Serie höherer Tiefs gebrochen."
+  ]
+ ],
+ "smart": [
+  "<b>Mondelez selbst:</b> Rückkauf von rund 0.9 Mrd. $ in 12 Monaten (rund 2.3 % des Börsenwerts).",
+  "<b>Insider:</b> Keine Käufe, nur kleine Verkäufe (zusammen rund 0.2 Mio. $).",
+  "<b>Analysten:</b> „Moderat kaufen“, durchschnittliches Kursziel rund 67–69 $. Wells Fargo senkte am 5.10. auf 65 $."
+ ],
+ "seasnote": "Durchschnittliche Monatsrendite in %. Rund 25 Jahre. April ist mit +3.7 % (88 % positiv) der stärkste Monat. Oktober ist eher schwach (48 %), November und Dezember leicht positiv.",
+ "T": [
+  [
+   "Trend Woche (EMA 50/200)",
+   "Kurs knapp unter beiden, Linien flach",
+   4,
+   20
+  ],
+  [
+   "Trend Tag (EMA 50/200)",
+   "Kurs knapp unter beiden, 50 noch über 200",
+   4,
+   10
+  ],
+  [
+   "Struktur (SMC)",
+   "Woche: höhere Tiefs, Dreifachboden. Tag: tiefere Hochs",
+   9,
+   20
+  ],
+  [
+   "RSI Tag/Woche",
+   "43 / 46, kein Signal",
+   7,
+   15
+  ],
+  [
+   "A/D Tag/Woche",
+   "Woche steigt, Tag fällt",
+   5,
+   20
+  ],
+  [
+   "Smart Money",
+   "Rückkauf 2.3 %, keine Insider-Käufe",
+   6,
+   10
+  ],
+  [
+   "Saisonalität",
+   "Okt–Dez gemischt (48–60 %)",
+   3,
+   5
+  ]
+ ],
+ "pro": [
+  "Weltbekannte Marken mit Preissetzungsmacht.",
+  "Kakaopreis stark gefallen: Rückenwind für die Marge ab 2027.",
+  "Dreifachboden bei 57.5–58.5 $ und höhere Tiefs auf der Woche.",
+  "Rückkauf 2.3 % und Dividende 3.5 %.",
+  "Stark in Schwellenländern (+7 bis +8 %)."
+ ],
+ "con": [
+  "Hohe Schulden (3.3-fach).",
+  "Tiefer ROIC (8 %).",
+  "Gewinn 2025 eingebrochen, 2026 nur leichte Erholung.",
+  "Europa schwach (−3.5 % im 2. Quartal).",
+  "Tages-A/D zeigt noch Verkaufsdruck."
+ ],
+ "todo": [
+  [
+   "t",
+   "Beobachten",
+   "Alarm bei 58.50 $ (Kaufzone) und 62.20 $ (Trigger)."
+  ],
+  [
+   "s",
+   "Timing grün",
+   "Tagesschluss über 62.20 $ mit steigender Tages-A/D. Danach Rücksetzer Richtung 59–60 $ als Einstieg."
+  ],
+  [
+   "r",
+   "Abbruch",
+   "Wochenschluss unter 55.50 $."
+  ],
+  [
+   "",
+   "Nächste Zahlen",
+   "27. Oktober 2026 (3. Quartal). Entscheidend: Ausblick 2027 und Entlastung durch den Kakaopreis."
+  ]
+ ],
+ "bands": [
+  {
+   "from": 64.5,
+   "to": 66.7,
+   "type": "res"
+  },
+  {
+   "from": 57.5,
+   "to": 58.5,
+   "type": "sup"
+  }
+ ],
+ "refs": [
+  {
+   "v": 62.2,
+   "label": "Trigger 62.20"
+  },
+  {
+   "v": 55.5,
+   "label": "Abbruch 55.50"
+  }
+ ],
+ "sources": "<a href=\"https://stockanalysis.com/stocks/mdlz/financials/\" target=\"_blank\" rel=\"noopener\">StockAnalysis.com</a> (Stand 08.10.2026), <a href=\"https://www.sec.gov/Archives/edgar/data/0001103982/000162828026050157/mdlzearningsreleasecontent.htm\" target=\"_blank\" rel=\"noopener\">Mondelez Q2 2026</a>, <a href=\"https://www.marketbeat.com/stocks/NASDAQ/MDLZ/insider-trades/\" target=\"_blank\" rel=\"noopener\">Insider (MarketBeat)</a>."
+}

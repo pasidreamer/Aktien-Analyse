@@ -1,0 +1,1157 @@
+{
+ "APP": {
+  "symbol": "APP",
+  "name": "AppLovin",
+  "tags": [
+   "Wachstum"
+  ],
+  "land": "USA",
+  "region": "USA",
+  "branche": "Werbetechnologie",
+  "status": "beobachten",
+  "waehrung": "USD",
+  "kurs": 281.97,
+  "datenstand": "2026-10-05",
+  "kauf": [
+   [
+    262,
+    268
+   ],
+   [
+    220,
+    250
+   ]
+  ],
+  "widerstand": [
+   [
+    335,
+    338.3
+   ]
+  ],
+  "trigger": 338.3,
+  "abbruch": null,
+  "pe": 15.7,
+  "pe_avg": 47,
+  "pe_typ": "KGV",
+  "zahlen": "2026-11-04",
+  "artifact": "NhWCvodj6dCuLZLT9Jp2Ty"
+ },
+ "UBER": {
+  "symbol": "UBER",
+  "name": "Uber",
+  "tags": [
+   "Wachstum"
+  ],
+  "land": "USA",
+  "region": "USA",
+  "branche": "Mobilität, Lieferdienst",
+  "status": "kaufliste",
+  "waehrung": "USD",
+  "kurs": 69.48,
+  "datenstand": "2026-10-05",
+  "kauf": [
+   [
+    65.4,
+    68.8
+   ],
+   [
+    60,
+    63
+   ]
+  ],
+  "widerstand": [
+   [
+    75.5,
+    77.8
+   ]
+  ],
+  "trigger": 73.2,
+  "abbruch": 65,
+  "pe": 16.8,
+  "pe_avg": 26,
+  "pe_typ": "KGV",
+  "zahlen": "2026-11-04",
+  "artifact": "Fxm8XPUgRntBWatrgE6AUk"
+ },
+ "RELX": {
+  "symbol": "RELX",
+  "name": "RELX",
+  "tags": [
+   "Qualität",
+   "Dividende"
+  ],
+  "land": "Grossbritannien",
+  "region": "Europa",
+  "branche": "Daten und Analysen",
+  "status": "beobachten",
+  "waehrung": "USD",
+  "kurs": 33.12,
+  "datenstand": "2026-09-29",
+  "kauf": [
+   [
+    32.5,
+    33.0
+   ],
+   [
+    30.3,
+    31.0
+   ]
+  ],
+  "widerstand": [
+   [
+    34.4,
+    34.9
+   ],
+   [
+    36.2,
+    37.0
+   ]
+  ],
+  "trigger": 35.74,
+  "abbruch": 30.3,
+  "pe": 19.4,
+  "pe_avg": 30.5,
+  "pe_typ": "KGV",
+  "zahlen": "2026-11-15",
+  "artifact": "8GWQnQz99HqzYS1ndmQo38"
+ },
+ "GOOGL": {
+  "symbol": "GOOGL",
+  "name": "Alphabet",
+  "tags": [
+   "Wachstum",
+   "Qualität"
+  ],
+  "land": "USA",
+  "region": "USA",
+  "branche": "Internet, KI",
+  "status": "beobachten",
+  "waehrung": "USD",
+  "kurs": 340.82,
+  "datenstand": "2026-09-29",
+  "kauf": [
+   [
+    327,
+    331
+   ],
+   [
+    315,
+    321
+   ]
+  ],
+  "widerstand": [
+   [
+    380,
+    385
+   ]
+  ],
+  "trigger": 364.17,
+  "abbruch": null,
+  "pe": 25.5,
+  "pe_avg": 24,
+  "pe_typ": "KGV",
+  "zahlen": "2026-10-28",
+  "artifact": "NgmAqwM4fRPNhQb19Y1wK4"
+ },
+ "MSFT": {
+  "symbol": "MSFT",
+  "name": "Microsoft",
+  "tags": [
+   "Wachstum",
+   "Qualität"
+  ],
+  "land": "USA",
+  "region": "USA",
+  "branche": "Software, Cloud",
+  "status": "beobachten",
+  "waehrung": "USD",
+  "kurs": 511.42,
+  "datenstand": "2026-09-29",
+  "kauf": [
+   [
+    477,
+    491
+   ],
+   [
+    432,
+    467
+   ]
+  ],
+  "widerstand": [
+   [
+    519,
+    525
+   ]
+  ],
+  "trigger": 525,
+  "abbruch": null,
+  "pe": 25.8,
+  "pe_avg": 31,
+  "pe_typ": "KGV",
+  "zahlen": "2026-10-28",
+  "artifact": "PKXUhEfJRomUhHdPujDZL6"
+ },
+ "V": {
+  "symbol": "V",
+  "name": "Visa",
+  "tags": [
+   "Qualität",
+   "Wachstum"
+  ],
+  "land": "USA",
+  "region": "USA",
+  "branche": "Zahlungsnetzwerk",
+  "status": "kaufliste",
+  "waehrung": "USD",
+  "kurs": 369.71,
+  "datenstand": "2026-10-05",
+  "kauf": [
+   [
+    357,
+    362
+   ],
+   [
+    342,
+    346
+   ]
+  ],
+  "widerstand": [
+   [
+    383,
+    386
+   ]
+  ],
+  "trigger": 385.6,
+  "abbruch": 342,
+  "pe": 30.7,
+  "pe_avg": 29,
+  "pe_typ": "KGV",
+  "zahlen": "2026-10-27",
+  "artifact": "493U8yn5nA5HV4L6xGvdqf"
+ },
+ "COST": {
+  "symbol": "COST",
+  "name": "Costco",
+  "tags": [
+   "Qualität",
+   "Defensiv"
+  ],
+  "land": "USA",
+  "region": "USA",
+  "branche": "Detailhandel",
+  "status": "kaufliste",
+  "waehrung": "USD",
+  "kurs": 923.52,
+  "datenstand": "2026-10-05",
+  "kauf": [
+   [
+    883,
+    895
+   ],
+   [
+    844,
+    860
+   ]
+  ],
+  "widerstand": [
+   [
+    951,
+    965
+   ]
+  ],
+  "trigger": 931.1,
+  "abbruch": 880,
+  "pe": 44,
+  "pe_avg": 46,
+  "pe_typ": "KGV",
+  "zahlen": "2026-12-11",
+  "artifact": "QGT2Ae91pYfmjZpiR6jmj8"
+ },
+ "NOW": {
+  "symbol": "NOW",
+  "name": "ServiceNow",
+  "tags": [
+   "Wachstum"
+  ],
+  "land": "USA",
+  "region": "USA",
+  "branche": "Unternehmenssoftware",
+  "status": "beobachten",
+  "waehrung": "USD",
+  "kurs": 136.08,
+  "datenstand": "2026-10-05",
+  "kauf": [
+   [
+    126.8,
+    129.4
+   ],
+   [
+    117.6,
+    120
+   ]
+  ],
+  "widerstand": [
+   [
+    147.6,
+    149.6
+   ]
+  ],
+  "trigger": 141.1,
+  "abbruch": 117,
+  "pe": null,
+  "pe_avg": null,
+  "pe_typ": "KGV",
+  "zahlen": "2026-10-28",
+  "artifact": "2mX8KpLQm4P3RUyBSU7SWr"
+ },
+ "SYK": {
+  "symbol": "SYK",
+  "name": "Stryker",
+  "tags": [
+   "Qualität"
+  ],
+  "land": "USA",
+  "region": "USA",
+  "branche": "Medizintechnik",
+  "status": "kaufliste",
+  "waehrung": "USD",
+  "kurs": 285.22,
+  "datenstand": "2026-10-05",
+  "kauf": [
+   [
+    276,
+    285
+   ],
+   [
+    267,
+    270
+   ]
+  ],
+  "widerstand": [
+   [
+    299,
+    303
+   ]
+  ],
+  "trigger": 290.5,
+  "abbruch": 265,
+  "pe": 17.9,
+  "pe_avg": 26,
+  "pe_typ": "KGV",
+  "zahlen": "2026-10-29",
+  "artifact": "DMxiLH6JtpQKab9cToy6Jn"
+ },
+ "META": {
+  "symbol": "META",
+  "name": "Meta Platforms",
+  "tags": [
+   "Wachstum"
+  ],
+  "land": "USA",
+  "region": "USA",
+  "branche": "Social Media, KI",
+  "status": "beobachten",
+  "waehrung": "USD",
+  "kurs": 733.06,
+  "datenstand": "2026-09-29",
+  "kauf": [
+   [
+    680,
+    692
+   ],
+   [
+    625,
+    643
+   ]
+  ],
+  "widerstand": [
+   [
+    778,
+    785
+   ]
+  ],
+  "trigger": null,
+  "abbruch": 625,
+  "pe": 22.2,
+  "pe_avg": 22.4,
+  "pe_typ": "KGV",
+  "zahlen": "2026-10-28",
+  "artifact": "3aNjrc9RWCyrC3NFsncZj6"
+ },
+ "KO": {
+  "symbol": "KO",
+  "name": "Coca-Cola",
+  "tags": [
+   "Dividende",
+   "Qualität",
+   "Defensiv"
+  ],
+  "land": "USA",
+  "region": "USA",
+  "branche": "Getränke",
+  "status": "beobachten",
+  "waehrung": "USD",
+  "kurs": 85.82,
+  "datenstand": "2026-10-07",
+  "kauf": [
+   [
+    80,
+    82.5
+   ],
+   [
+    76.8,
+    78.5
+   ]
+  ],
+  "widerstand": [
+   [
+    89.4,
+    92.5
+   ]
+  ],
+  "trigger": null,
+  "abbruch": 74,
+  "pe": 25.3,
+  "pe_avg": 23.0,
+  "pe_typ": "KGV",
+  "zahlen": "2026-10-27",
+  "artifact": "Jgz8EAJbYvvHSAXHufvVHc"
+ },
+ "CL": {
+  "symbol": "CL",
+  "name": "Colgate-Palmolive",
+  "tags": [
+   "Dividende",
+   "Qualität",
+   "Defensiv"
+  ],
+  "land": "USA",
+  "region": "USA",
+  "branche": "Körperpflege, Haushalt",
+  "status": "beobachten",
+  "waehrung": "USD",
+  "kurs": 87.21,
+  "datenstand": "2026-10-07",
+  "kauf": [
+   [
+    81.8,
+    84.3
+   ]
+  ],
+  "widerstand": [
+   [
+    93,
+    96
+   ]
+  ],
+  "trigger": 90.1,
+  "abbruch": 81,
+  "pe": 21.5,
+  "pe_avg": 24.1,
+  "pe_typ": "KGV",
+  "zahlen": "2026-10-30",
+  "artifact": "QTCG6gwSZaUd764HwPNUij"
+ },
+ "PG": {
+  "symbol": "PG",
+  "name": "Procter & Gamble",
+  "tags": [
+   "Dividende",
+   "Qualität",
+   "Defensiv"
+  ],
+  "land": "USA",
+  "region": "USA",
+  "branche": "Körperpflege, Haushalt",
+  "status": "beobachten",
+  "waehrung": "USD",
+  "kurs": 147.82,
+  "datenstand": "2026-10-07",
+  "kauf": [
+   [
+    138,
+    142
+   ]
+  ],
+  "widerstand": [
+   [
+    152.5,
+    154.5
+   ]
+  ],
+  "trigger": 149.5,
+  "abbruch": 137,
+  "pe": 21.2,
+  "pe_avg": 23.4,
+  "pe_typ": "KGV",
+  "zahlen": "2026-10-22",
+  "artifact": "1gSbZZg2bGHBbPFm4WRBh2"
+ },
+ "PEP": {
+  "symbol": "PEP",
+  "name": "PepsiCo",
+  "tags": [
+   "Dividende",
+   "Defensiv"
+  ],
+  "land": "USA",
+  "region": "USA",
+  "branche": "Snacks, Getränke",
+  "status": "beobachten",
+  "waehrung": "USD",
+  "kurs": 123.73,
+  "datenstand": "2026-10-07",
+  "kauf": [
+   [
+    115,
+    120
+   ],
+   [
+    104,
+    108
+   ]
+  ],
+  "widerstand": [
+   [
+    134,
+    137
+   ]
+  ],
+  "trigger": 131.2,
+  "abbruch": null,
+  "pe": 14.5,
+  "pe_avg": 20.4,
+  "pe_typ": "KGV",
+  "zahlen": "2027-02-03",
+  "artifact": "ENzwJM6P1KTcfGdS7ysQ8r"
+ },
+ "JNJ": {
+  "symbol": "JNJ",
+  "name": "Johnson & Johnson",
+  "tags": [
+   "Dividende",
+   "Defensiv"
+  ],
+  "land": "USA",
+  "region": "USA",
+  "branche": "Pharma, Medizintechnik",
+  "status": "beobachten",
+  "waehrung": "USD",
+  "kurs": 252.93,
+  "datenstand": "2026-10-05",
+  "kauf": [
+   [
+    245.5,
+    250.4
+   ],
+   [
+    240,
+    241.5
+   ]
+  ],
+  "widerstand": [
+   [
+    260,
+    264
+   ]
+  ],
+  "trigger": 264,
+  "abbruch": 240,
+  "pe": 23.1,
+  "pe_avg": 16.6,
+  "pe_typ": "KGV",
+  "zahlen": "2026-10-13",
+  "artifact": "SLS16XEoGu8mQv7Wuv7RkY"
+ },
+ "IBM": {
+  "symbol": "IBM",
+  "name": "IBM",
+  "tags": [
+   "Dividende"
+  ],
+  "land": "USA",
+  "region": "USA",
+  "branche": "IT, Software",
+  "status": "beobachten",
+  "waehrung": "USD",
+  "kurs": 221.58,
+  "datenstand": "2026-10-05",
+  "kauf": [
+   [
+    218,
+    221
+   ],
+   [
+    199,
+    206
+   ]
+  ],
+  "widerstand": [
+   [
+    249,
+    252
+   ]
+  ],
+  "trigger": 234.3,
+  "abbruch": 199,
+  "pe": 17.4,
+  "pe_avg": 18,
+  "pe_typ": "KGV",
+  "zahlen": "2026-10-21",
+  "artifact": "3T7NvXoaHS6w3ARERyzC5v"
+ },
+ "NET": {
+  "symbol": "NET",
+  "name": "Cloudflare",
+  "tags": [
+   "Wachstum"
+  ],
+  "land": "USA",
+  "region": "USA",
+  "branche": "Cloud-Sicherheit",
+  "status": "beobachten",
+  "waehrung": "USD",
+  "kurs": 359.49,
+  "datenstand": "2026-10-05",
+  "kauf": [
+   [
+    312,
+    333
+   ],
+   [
+    269,
+    285
+   ]
+  ],
+  "widerstand": [
+   [
+    365,
+    368
+   ]
+  ],
+  "trigger": null,
+  "abbruch": 269,
+  "pe": 49,
+  "pe_avg": 31,
+  "pe_typ": "KUV",
+  "zahlen": "2026-10-29",
+  "artifact": "9HtvnF91tn24BEo6D2UkuX"
+ },
+ "ULVR": {
+  "symbol": "ULVR.L",
+  "name": "Unilever",
+  "tags": [
+   "Dividende",
+   "Defensiv"
+  ],
+  "land": "Grossbritannien",
+  "region": "Europa",
+  "branche": "Körperpflege, Haushalt",
+  "status": "beobachten",
+  "waehrung": "GBp",
+  "kurs": 4614.5,
+  "datenstand": "2026-10-08",
+  "kauf": [
+   [
+    4480,
+    4550
+   ]
+  ],
+  "widerstand": [
+   [
+    4780,
+    4810
+   ]
+  ],
+  "trigger": 4710,
+  "abbruch": 4450,
+  "pe": 16.3,
+  "pe_avg": 17.6,
+  "pe_typ": "KGV",
+  "zahlen": "2026-10-28",
+  "artifact": "S5L8oGHxe6FLVCMncveoRp"
+ },
+ "LOW": {
+  "symbol": "LOW",
+  "name": "Lowe's",
+  "tags": [
+   "Dividende"
+  ],
+  "land": "USA",
+  "region": "USA",
+  "branche": "Baumarkt",
+  "status": "beobachten",
+  "waehrung": "USD",
+  "kurs": 179.5,
+  "datenstand": "2026-10-05",
+  "kauf": [
+   [
+    170,
+    175
+   ]
+  ],
+  "widerstand": [
+   [
+    199,
+    204.4
+   ]
+  ],
+  "trigger": 204.4,
+  "abbruch": null,
+  "pe": 15.3,
+  "pe_avg": 20,
+  "pe_typ": "KGV",
+  "zahlen": "2026-11-18",
+  "artifact": "P1xSNxex4Spr6smS3PCuJ1"
+ },
+ "BN": {
+  "symbol": "BN.PA",
+  "name": "Danone",
+  "tags": [
+   "Dividende",
+   "Defensiv"
+  ],
+  "land": "Frankreich",
+  "region": "Europa",
+  "branche": "Nahrungsmittel",
+  "status": "beobachten",
+  "waehrung": "EUR",
+  "kurs": 59.2,
+  "datenstand": "2026-10-08",
+  "kauf": [
+   [
+    57,
+    58
+   ],
+   [
+    52,
+    54
+   ]
+  ],
+  "widerstand": [
+   [
+    64.5,
+    65.5
+   ]
+  ],
+  "trigger": 62.3,
+  "abbruch": 56.5,
+  "pe": 14.6,
+  "pe_avg": 16.6,
+  "pe_typ": "KGV",
+  "zahlen": "2026-10-28",
+  "artifact": "DUHNGBiMs1UrhQqonjz7ii"
+ },
+ "NESN": {
+  "symbol": "NESN.SW",
+  "name": "Nestlé",
+  "tags": [
+   "Dividende",
+   "Defensiv"
+  ],
+  "land": "Schweiz",
+  "region": "Schweiz",
+  "branche": "Nahrungsmittel",
+  "status": "beobachten",
+  "waehrung": "CHF",
+  "kurs": 75.91,
+  "datenstand": "2026-10-08",
+  "kauf": [
+   [
+    74.4,
+    75
+   ],
+   [
+    70,
+    72.5
+   ]
+  ],
+  "widerstand": [
+   [
+    80.8,
+    81.5
+   ]
+  ],
+  "trigger": 78.55,
+  "abbruch": 69.5,
+  "pe": 16.1,
+  "pe_avg": 20.3,
+  "pe_typ": "KGV",
+  "zahlen": "2026-10-22",
+  "artifact": "7BhiLA7wf1hyY8LYv2aCt7"
+ },
+ "TSLA": {
+  "symbol": "TSLA",
+  "name": "Tesla",
+  "tags": [
+   "Wachstum"
+  ],
+  "land": "USA",
+  "region": "USA",
+  "branche": "Elektroautos, Energie, Robotaxi",
+  "status": "beobachten",
+  "waehrung": "USD",
+  "kurs": 375.0,
+  "datenstand": "2026-10-08",
+  "kauf": [
+   [
+    345,
+    355
+   ],
+   [
+    297,
+    312
+   ]
+  ],
+  "widerstand": [
+   [
+    405,
+    433
+   ]
+  ],
+  "trigger": 387,
+  "abbruch": 340,
+  "pe": 180,
+  "pe_avg": 114,
+  "pe_typ": "KGV",
+  "zahlen": "2026-10-21",
+  "artifact": "SPjCZEFLm9CoSbdbnF12BJ"
+ },
+ "JFN": {
+  "symbol": "JFN.SW",
+  "name": "Jungfraubahn",
+  "tags": [
+   "Dividende"
+  ],
+  "land": "Schweiz",
+  "region": "Schweiz",
+  "branche": "Bergbahnen, Tourismus",
+  "status": "beobachten",
+  "waehrung": "CHF",
+  "kurs": 232.0,
+  "datenstand": "2026-10-09",
+  "kauf": [
+   [
+    220,
+    226
+   ],
+   [
+    200,
+    212
+   ]
+  ],
+  "widerstand": [
+   [
+    238,
+    251
+   ],
+   [
+    262,
+    270
+   ]
+  ],
+  "trigger": 233,
+  "abbruch": 218,
+  "pe": 19.3,
+  "pe_avg": 15.5,
+  "pe_typ": "KGV",
+  "zahlen": "2027-03-31",
+  "artifact": "JoPYtZK8bWZLUEj9GifWkj"
+ },
+ "ISRG": {
+  "symbol": "ISRG",
+  "name": "Intuitive Surgical",
+  "tags": [
+   "Wachstum",
+   "Qualität"
+  ],
+  "land": "USA",
+  "region": "USA",
+  "branche": "Medizintechnik, Operationsroboter",
+  "status": "beobachten",
+  "waehrung": "USD",
+  "kurs": 423.96,
+  "datenstand": "2026-10-09",
+  "kauf": [
+   [
+    389,
+    405
+   ],
+   [
+    345,
+    360
+   ]
+  ],
+  "widerstand": [
+   [
+    430,
+    451
+   ],
+   [
+    482,
+    512
+   ]
+  ],
+  "trigger": 444,
+  "abbruch": 385,
+  "pe": 48.6,
+  "pe_avg": 72.5,
+  "pe_typ": "KGV",
+  "zahlen": "2026-10-20",
+  "artifact": "7gFvbGT7hAMNty1ptLwb4E"
+ },
+ "BSX": {
+  "symbol": "BSX",
+  "name": "Boston Scientific",
+  "tags": [
+   "Wachstum"
+  ],
+  "land": "USA",
+  "region": "USA",
+  "branche": "Medizintechnik",
+  "status": "beobachten",
+  "waehrung": "USD",
+  "kurs": 42.73,
+  "datenstand": "2026-10-09",
+  "kauf": [
+   [
+    41.4,
+    42.8
+   ],
+   [
+    35,
+    38.5
+   ]
+  ],
+  "widerstand": [
+   [
+    49.7,
+    53
+   ]
+  ],
+  "trigger": 45.75,
+  "abbruch": 40.5,
+  "pe": 13.3,
+  "pe_avg": 29.6,
+  "pe_typ": "KGV",
+  "zahlen": "2026-10-28",
+  "artifact": "1CTHUcHYHhvPi6Ys9MBY1a"
+ },
+ "ABT": {
+  "symbol": "ABT",
+  "name": "Abbott",
+  "tags": [
+   "Dividende",
+   "Defensiv"
+  ],
+  "land": "USA",
+  "region": "USA",
+  "branche": "Medizintechnik, Diagnostik",
+  "status": "beobachten",
+  "waehrung": "USD",
+  "kurs": 99.6,
+  "datenstand": "2026-10-09",
+  "kauf": [
+   [
+    95,
+    100
+   ],
+   [
+    87,
+    90
+   ]
+  ],
+  "widerstand": [
+   [
+    104.5,
+    107
+   ],
+   [
+    110,
+    117
+   ]
+  ],
+  "trigger": 101,
+  "abbruch": 94,
+  "pe": 18.9,
+  "pe_avg": 24.2,
+  "pe_typ": "KGV",
+  "zahlen": "2026-10-21",
+  "artifact": "XMM3R11JXWDHckDSvHQwrj"
+ },
+ "ABF": {
+  "symbol": "ABF.L",
+  "name": "Associated British Foods",
+  "tags": [
+   "Dividende"
+  ],
+  "land": "Grossbritannien",
+  "region": "Europa",
+  "branche": "Mode (Primark), Nahrungsmittel",
+  "status": "beobachten",
+  "waehrung": "GBp",
+  "kurs": 1831.5,
+  "datenstand": "2026-10-08",
+  "kauf": [
+   [
+    1730,
+    1800
+   ]
+  ],
+  "widerstand": [
+   [
+    1960,
+    2010
+   ]
+  ],
+  "trigger": 1900,
+  "abbruch": 1700,
+  "pe": 12.1,
+  "pe_avg": 12.3,
+  "pe_typ": "KGV",
+  "zahlen": "2026-11-03",
+  "artifact": "SYT4vDpp9Q49W3UBAbeg4i"
+ },
+ "MDLZ": {
+  "symbol": "MDLZ",
+  "name": "Mondelez",
+  "tags": [
+   "Dividende",
+   "Defensiv"
+  ],
+  "land": "USA",
+  "region": "USA",
+  "branche": "Snacks, Schokolade",
+  "status": "beobachten",
+  "waehrung": "USD",
+  "kurs": 59.38,
+  "datenstand": "2026-10-07",
+  "kauf": [
+   [
+    57.5,
+    58.5
+   ]
+  ],
+  "widerstand": [
+   [
+    64.5,
+    66.7
+   ]
+  ],
+  "trigger": 62.2,
+  "abbruch": 55.5,
+  "pe": 18.3,
+  "pe_avg": 20.0,
+  "pe_typ": "KGV",
+  "zahlen": "2026-10-27",
+  "artifact": "UUFVN3mbqSnWd3233tDPi6"
+ },
+ "GIS": {
+  "symbol": "GIS",
+  "name": "General Mills",
+  "tags": [
+   "Dividende",
+   "Defensiv"
+  ],
+  "land": "USA",
+  "region": "USA",
+  "branche": "Nahrungsmittel",
+  "status": "beobachten",
+  "waehrung": "USD",
+  "kurs": 31.77,
+  "datenstand": "2026-10-07",
+  "kauf": [
+   [
+    31,
+    31.8
+   ]
+  ],
+  "widerstand": [
+   [
+    38,
+    40
+   ]
+  ],
+  "trigger": 36.8,
+  "abbruch": 30.9,
+  "pe": 10.2,
+  "pe_avg": 15.1,
+  "pe_typ": "KGV",
+  "zahlen": "2026-12-17",
+  "artifact": "LvZ4xQVZ61TKsRaZjnYhFp"
+ },
+ "KHC": {
+  "symbol": "KHC",
+  "name": "Kraft Heinz",
+  "tags": [
+   "Dividende"
+  ],
+  "land": "USA",
+  "region": "USA",
+  "branche": "Nahrungsmittel",
+  "status": "beobachten",
+  "waehrung": "USD",
+  "kurs": 21.98,
+  "datenstand": "2026-10-07",
+  "kauf": [
+   [
+    21,
+    22
+   ]
+  ],
+  "widerstand": [
+   [
+    24.2,
+    25.2
+   ]
+  ],
+  "trigger": 25.2,
+  "abbruch": 20.9,
+  "pe": 11.0,
+  "pe_avg": 12.2,
+  "pe_typ": "KGV",
+  "zahlen": "2026-10-28",
+  "artifact": "UhcdpWrRA2qmj59VrY5g2K"
+ },
+ "RACE": {
+  "symbol": "RACE",
+  "name": "Ferrari",
+  "tags": [
+   "Qualität"
+  ],
+  "land": "Italien",
+  "region": "Europa",
+  "branche": "Luxus-Sportwagen",
+  "status": "beobachten",
+  "waehrung": "USD",
+  "kurs": 398.24,
+  "datenstand": "2026-10-15",
+  "kauf": [
+   [
+    381,
+    391
+   ],
+   [
+    356,
+    372
+   ]
+  ],
+  "widerstand": [
+   [
+    412,
+    420
+   ],
+   [
+    430,
+    437
+   ]
+  ],
+  "trigger": 403,
+  "abbruch": 378,
+  "pe": 38.5,
+  "pe_avg": 43.5,
+  "pe_typ": "KGV",
+  "zahlen": "2026-11-03",
+  "artifact": "YCTHn1Zbh5kEESfCvw6hKQ"
+ }
+}

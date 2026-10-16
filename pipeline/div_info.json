@@ -1,0 +1,527 @@
+{
+ "_hinweis": "Feste Dividenden-Angaben pro Aktie. Historie, Rendite und nächster erwarteter Ex-Tag kommen automatisch aus dem täglichen Update (live.json → div).",
+ "KO": {
+  "pro_jahr": 4,
+  "rhythmus": "quartalsweise",
+  "ex_monate": [
+   3,
+   6,
+   9,
+   12
+  ],
+  "zahl_monate": [
+   4,
+   7,
+   10,
+   12
+  ],
+  "zahl_text": "1. April, 1. Juli, 1. Oktober und 15. Dezember",
+  "abstand_tage": 16,
+  "betrag": 0.53,
+  "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Die Erhöhung wird jeweils im Februar angekündigt und gilt ab der April-Zahlung.",
+  "serie": "64 Jahre in Folge erhöht."
+ },
+ "PG": {
+  "pro_jahr": 4,
+  "rhythmus": "quartalsweise",
+  "ex_monate": [
+   1,
+   4,
+   7,
+   10
+  ],
+  "zahl_monate": [
+   2,
+   5,
+   8,
+   11
+  ],
+  "zahl_text": "jeweils um den 15. Februar, Mai, August und November",
+  "abstand_tage": 23,
+  "betrag": 1.0885,
+  "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Die Erhöhung kommt jeweils im April.",
+  "serie": "70 Jahre in Folge erhöht."
+ },
+ "PEP": {
+  "pro_jahr": 4,
+  "rhythmus": "quartalsweise",
+  "ex_monate": [
+   3,
+   6,
+   9,
+   12
+  ],
+  "zahl_monate": [
+   1,
+   3,
+   6,
+   9
+  ],
+  "zahl_text": "Ende März, Ende Juni, Ende September und Anfang Januar",
+  "abstand_tage": 26,
+  "betrag": 1.48,
+  "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Die Erhöhung gilt jeweils ab der Juni-Zahlung.",
+  "serie": "54 Jahre in Folge erhöht."
+ },
+ "CL": {
+  "pro_jahr": 4,
+  "rhythmus": "quartalsweise",
+  "ex_monate": [
+   1,
+   4,
+   7,
+   10
+  ],
+  "zahl_monate": [
+   2,
+   5,
+   8,
+   11
+  ],
+  "zahl_text": "jeweils Mitte Februar, Mai, August und November",
+  "abstand_tage": 24,
+  "betrag": 0.53,
+  "angekuendigt": {
+   "ex": "2026-10-20",
+   "zahltag": "2026-11-13",
+   "betrag": 0.53
+  },
+  "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Die Erhöhung gilt jeweils ab der Mai-Zahlung.",
+  "serie": "63 Jahre in Folge erhöht."
+ },
+ "JNJ": {
+  "pro_jahr": 4,
+  "rhythmus": "quartalsweise",
+  "ex_monate": [
+   2,
+   5,
+   8,
+   11
+  ],
+  "zahl_monate": [
+   3,
+   6,
+   9,
+   12
+  ],
+  "zahl_text": "jeweils um den 9. März, Juni, September und Dezember",
+  "abstand_tage": 14,
+  "betrag": 1.34,
+  "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Die Erhöhung wird im April angekündigt und gilt ab der Juni-Zahlung.",
+  "serie": "64 Jahre in Folge erhöht."
+ },
+ "IBM": {
+  "pro_jahr": 4,
+  "rhythmus": "quartalsweise",
+  "ex_monate": [
+   2,
+   5,
+   8,
+   11
+  ],
+  "zahl_monate": [
+   3,
+   6,
+   9,
+   12
+  ],
+  "zahl_text": "jeweils am 10. März, Juni, September und Dezember",
+  "abstand_tage": 31,
+  "betrag": 1.69,
+  "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Die Erhöhung (zuletzt nur 1 Cent) kommt jeweils im April.",
+  "serie": "30 Jahre in Folge erhöht."
+ },
+ "MDLZ": {
+  "pro_jahr": 4,
+  "rhythmus": "quartalsweise",
+  "ex_monate": [
+   3,
+   6,
+   9,
+   12
+  ],
+  "zahl_monate": [
+   1,
+   4,
+   7,
+   10
+  ],
+  "zahl_text": "jeweils am 14. Januar, April, Juli und Oktober",
+  "abstand_tage": 14,
+  "betrag": 0.52,
+  "angekuendigt": {
+   "ex": "2026-09-30",
+   "zahltag": "2026-10-14",
+   "betrag": 0.52
+  },
+  "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Die Erhöhung kommt jeweils im Sommer und gilt ab der Oktober-Zahlung.",
+  "serie": "12 Jahre in Folge erhöht."
+ },
+ "GIS": {
+  "pro_jahr": 4,
+  "rhythmus": "quartalsweise",
+  "ex_monate": [
+   1,
+   4,
+   7,
+   10
+  ],
+  "zahl_monate": [
+   2,
+   5,
+   8,
+   11
+  ],
+  "zahl_text": "jeweils Anfang Februar, Mai, August und November",
+  "abstand_tage": 21,
+  "betrag": 0.61,
+  "angekuendigt": {
+   "ex": "2026-10-13",
+   "zahltag": "2026-11-02",
+   "betrag": 0.61
+  },
+  "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Seit 2025 nicht mehr erhöht.",
+  "serie": "Zahlt seit über 125 Jahren ohne Unterbruch."
+ },
+ "KHC": {
+  "pro_jahr": 4,
+  "rhythmus": "quartalsweise",
+  "ex_monate": [
+   3,
+   6,
+   9,
+   11
+  ],
+  "zahl_monate": [
+   3,
+   6,
+   9,
+   12
+  ],
+  "zahl_text": "jeweils Ende März, Juni, September und Dezember",
+  "abstand_tage": 21,
+  "betrag": 0.4,
+  "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Seit der Kürzung 2019 unverändert bei 0.40 $."
+ },
+ "MSFT": {
+  "pro_jahr": 4,
+  "rhythmus": "quartalsweise",
+  "ex_monate": [
+   2,
+   5,
+   8,
+   11
+  ],
+  "zahl_monate": [
+   3,
+   6,
+   9,
+   12
+  ],
+  "zahl_text": "jeweils um den 10. März, Juni, September und Dezember",
+  "abstand_tage": 21,
+  "betrag": 0.91,
+  "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Die Erhöhung wird jeweils im September angekündigt und gilt ab der Dezember-Zahlung (2026: von 0.91 auf 0.98 $).",
+  "serie": "Seit 2004 jedes Jahr erhöht.",
+  "angekuendigt": {
+   "ex": "2026-11-19",
+   "zahltag": "2026-12-10",
+   "betrag": 0.98
+  }
+ },
+ "GOOGL": {
+  "pro_jahr": 4,
+  "rhythmus": "quartalsweise",
+  "ex_monate": [
+   3,
+   6,
+   9,
+   12
+  ],
+  "zahl_monate": [
+   3,
+   6,
+   9,
+   12
+  ],
+  "zahl_text": "jeweils Mitte März, Juni, September und Dezember, rund eine Woche nach dem Ex-Tag",
+  "abstand_tage": 8,
+  "betrag": 0.22,
+  "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Erst seit 2024, die Rendite ist klein (Alphabet kauft vor allem eigene Aktien zurück)."
+ },
+ "META": {
+  "pro_jahr": 4,
+  "rhythmus": "quartalsweise",
+  "ex_monate": [
+   3,
+   6,
+   9,
+   12
+  ],
+  "zahl_monate": [
+   3,
+   6,
+   9,
+   12
+  ],
+  "zahl_text": "jeweils Ende März, Juni, September und Dezember",
+  "abstand_tage": 9,
+  "betrag": 0.525,
+  "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Erst seit 2024, die Rendite ist klein."
+ },
+ "V": {
+  "pro_jahr": 4,
+  "rhythmus": "quartalsweise",
+  "ex_monate": [
+   2,
+   5,
+   8,
+   11
+  ],
+  "zahl_monate": [
+   3,
+   6,
+   9,
+   12
+  ],
+  "zahl_text": "jeweils Anfang März, Juni, September und Dezember",
+  "abstand_tage": 21,
+  "betrag": 0.67,
+  "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Die Erhöhung wird jeweils Ende Oktober angekündigt und gilt ab der Dezember-Zahlung."
+ },
+ "COST": {
+  "pro_jahr": 4,
+  "rhythmus": "quartalsweise",
+  "ex_monate": [
+   1,
+   5,
+   7,
+   10
+  ],
+  "zahl_monate": [
+   2,
+   5,
+   8,
+   11
+  ],
+  "zahl_text": "jeweils 2 Wochen nach dem Ex-Tag: Mitte Februar, Mai, August und November",
+  "abstand_tage": 14,
+  "betrag": 1.47,
+  "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr, Erhöhung jeweils im April. Ab und zu eine grosse Sonderdividende (zuletzt 15 $ im Januar 2024)."
+ },
+ "SYK": {
+  "pro_jahr": 4,
+  "rhythmus": "quartalsweise",
+  "ex_monate": [
+   3,
+   6,
+   9,
+   12
+  ],
+  "zahl_monate": [
+   1,
+   4,
+   7,
+   10
+  ],
+  "zahl_text": "jeweils Ende Januar, April, Juli und Oktober",
+  "abstand_tage": 30,
+  "betrag": 0.88,
+  "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Die Erhöhung wird jeweils im Dezember angekündigt.",
+  "angekuendigt": {
+   "ex": "2026-09-30",
+   "zahltag": "2026-10-30",
+   "betrag": 0.88
+  }
+ },
+ "LOW": {
+  "pro_jahr": 4,
+  "rhythmus": "quartalsweise",
+  "ex_monate": [
+   1,
+   4,
+   7,
+   10
+  ],
+  "zahl_monate": [
+   2,
+   5,
+   8,
+   11
+  ],
+  "zahl_text": "jeweils Anfang Februar, Mai, August und November",
+  "abstand_tage": 14,
+  "betrag": 1.25,
+  "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Die Erhöhung kommt jeweils Ende Mai und gilt ab der August-Zahlung.",
+  "serie": "54 Jahre in Folge erhöht.",
+  "angekuendigt": {
+   "ex": "2026-10-21",
+   "zahltag": "2026-11-04",
+   "betrag": 1.25
+  }
+ },
+ "RELX": {
+  "pro_jahr": 2,
+  "rhythmus": "halbjährlich",
+  "ex_monate": [
+   5,
+   8
+  ],
+  "zahl_monate": [
+   6,
+   9
+  ],
+  "zahl_text": "Schlussdividende Ende Juni, Zwischendividende Mitte September",
+  "abstand_tage": 42,
+  "betrag": 0.279,
+  "system": "Britisches System mit Zwischen- und Schlussdividende: Im September kommt eine kleine Zwischendividende (rund 30 %), im Juni nach der Generalversammlung die grössere Schlussdividende (rund 70 %). Du hältst die US-Variante (ADR), darum wird in Dollar ausbezahlt und der Betrag schwankt mit dem Pfund."
+ },
+ "ULVR": {
+  "pro_jahr": 4,
+  "rhythmus": "quartalsweise",
+  "ex_monate": [
+   2,
+   5,
+   8,
+   11
+  ],
+  "zahl_monate": [
+   4,
+   6,
+   9,
+   12
+  ],
+  "zahl_text": "April, Ende Juni, Mitte September und Anfang Dezember (4 bis 6 Wochen nach dem Ex-Tag)",
+  "abstand_tage": 40,
+  "betrag": 39.82,
+  "system": "Quartalsdividende: 4 Zahlungen pro Jahr. Unilever legt die Dividende in Euro fest und zahlt in London in Pence aus, darum schwankt der Betrag leicht mit dem Wechselkurs. Seit der Abspaltung des Glacé-Geschäfts (Dezember 2025) etwas tiefer."
+ },
+ "ABF": {
+  "pro_jahr": 2,
+  "rhythmus": "halbjährlich",
+  "ex_monate": [
+   5,
+   12
+  ],
+  "zahl_monate": [
+   1,
+   7
+  ],
+  "zahl_text": "Zwischendividende Anfang Juli, Schlussdividende Anfang Januar",
+  "abstand_tage": 33,
+  "betrag": 20.7,
+  "system": "Britisches System mit Zwischen- und Schlussdividende: Im Juli kommt die kleinere Zwischendividende, im Januar die grössere Schlussdividende (Geschäftsjahr endet im September). In manchen Jahren gibt es zusätzlich eine Sonderdividende."
+ },
+ "NESN": {
+  "pro_jahr": 1,
+  "rhythmus": "jährlich",
+  "ex_monate": [
+   4
+  ],
+  "zahl_monate": [
+   4
+  ],
+  "zahl_text": "Ende April, wenige Tage nach der Generalversammlung",
+  "abstand_tage": 2,
+  "betrag": 3.1,
+  "system": "Schweizer System: eine Dividende pro Jahr, beschlossen an der Generalversammlung im April und ein paar Tage später ausbezahlt. Auf Schweizer Dividenden werden 35 % Verrechnungssteuer abgezogen, die du als Person mit Wohnsitz in der Schweiz mit der Steuererklärung zurückbekommst.",
+  "serie": "Seit 1959 nie gesenkt, 31 Jahre in Folge erhöht."
+ },
+ "JFN": {
+  "pro_jahr": 1,
+  "rhythmus": "jährlich",
+  "ex_monate": [
+   5
+  ],
+  "zahl_monate": [
+   5
+  ],
+  "zahl_text": "Mitte Mai, wenige Tage nach der Generalversammlung",
+  "abstand_tage": 2,
+  "betrag": 8.5,
+  "system": "Schweizer System: eine Dividende pro Jahr, beschlossen an der Generalversammlung im Mai und ein paar Tage später ausbezahlt. Jungfraubahn zahlt 50 bis 67 % des Gewinns aus, die Höhe schwankt darum mit dem Geschäftsjahr. 35 % Verrechnungssteuer, die du mit der Steuererklärung zurückbekommst."
+ },
+ "BN": {
+  "pro_jahr": 1,
+  "rhythmus": "jährlich",
+  "ex_monate": [
+   5
+  ],
+  "zahl_monate": [
+   5
+  ],
+  "zahl_text": "Anfang Mai, wenige Tage nach der Generalversammlung (Ende April)",
+  "abstand_tage": 2,
+  "betrag": 2.25,
+  "system": "Französisches System: eine Dividende pro Jahr, beschlossen an der Generalversammlung Ende April und Anfang Mai ausbezahlt."
+ },
+ "TSLA": {
+  "zahlt": false,
+  "text": "Tesla hat noch nie eine Dividende bezahlt und steckt den Gewinn in neue Fabriken, KI und Robotaxi."
+ },
+ "APP": {
+  "zahlt": false,
+  "text": "AppLovin zahlt keine Dividende, sondern kauft mit dem Gewinn eigene Aktien zurück."
+ },
+ "UBER": {
+  "zahlt": false,
+  "text": "Uber zahlt keine Dividende, sondern kauft mit dem Gewinn eigene Aktien zurück."
+ },
+ "NOW": {
+  "zahlt": false,
+  "text": "ServiceNow zahlt keine Dividende und investiert den Gewinn ins Wachstum. Dazu kommen Aktienrückkäufe."
+ },
+ "NET": {
+  "zahlt": false,
+  "text": "Cloudflare zahlt keine Dividende. Die Firma steckt alles ins Wachstum."
+ },
+ "ABT": {
+  "pro_jahr": 4,
+  "rhythmus": "quartalsweise",
+  "ex_monate": [
+   1,
+   4,
+   7,
+   10
+  ],
+  "zahl_monate": [
+   2,
+   5,
+   8,
+   11
+  ],
+  "zahl_text": "jeweils Mitte Februar, Mai, August und November",
+  "abstand_tage": 31,
+  "betrag": 0.63,
+  "angekuendigt": {
+   "ex": "2026-10-15",
+   "zahltag": "2026-11-16",
+   "betrag": 0.63
+  },
+  "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr, Ex-Tag jeweils am 15. Januar, April, Juli und Oktober. Die Erhöhung wird im Dezember angekündigt und gilt ab der Februar-Zahlung.",
+  "serie": "54 Jahre in Folge erhöht (Dividenden-König), 411 Quartalsdividenden ohne Unterbruch."
+ },
+ "ISRG": {
+  "zahlt": false,
+  "text": "Intuitive Surgical zahlt keine Dividende. Die Firma steckt das Geld ins Wachstum und kauft eigene Aktien zurück (letzte 12 Monate rund 4 Mrd. $)."
+ },
+ "BSX": {
+  "zahlt": false,
+  "text": "Boston Scientific hat noch nie eine Dividende bezahlt. Das Geld geht in Zukäufe (Penumbra) und Aktienrückkäufe."
+ },
+ "RACE": {
+  "pro_jahr": 1,
+  "rhythmus": "jährlich",
+  "ex_monate": [
+   4
+  ],
+  "zahl_monate": [
+   5
+  ],
+  "zahl_text": "Anfang Mai, rund zwei Wochen nach dem Ex-Tag (2026: Ex-Tag 21. April, Zahltag 5. Mai)",
+  "abstand_tage": 14,
+  "betrag": 3.615,
+  "system": "Niederländisch-italienisches System: eine Dividende pro Jahr in Euro, beschlossen an der Generalversammlung Mitte April und Anfang Mai ausbezahlt. Ferrari schüttet rund 35 bis 40 % des Gewinns aus und hat die Dividende 2026 um 21 % erhöht. Kaufst du an der NYSE, kommt der Betrag in Dollar umgerechnet.",
+  "form": "Bar in US-Dollar aufs Konto (an der Börse Mailand gekauft: in Euro). Ferrari ist rechtlich eine niederländische Firma: Die Niederlande ziehen 15 % Quellensteuer ab, die du in der Regel über die Steuererklärung anrechnen lassen kannst (Formular DA-1)."
+ }
+}

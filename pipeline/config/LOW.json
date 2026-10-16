@@ -1,0 +1,380 @@
+{
+ "ticker": "LOW",
+ "name": "Lowe's",
+ "datum": "05.10.2026",
+ "meta": "Lowe's Companies, Inc. · NYSE: LOW · Baumärkte für Heimwerker und Profis · USA",
+ "price": "179.50 $",
+ "pricemeta": "Schluss 05.10.2026 · neues 52-Wochen-Tief (178.40 $) · Hoch Februar 2026: 293.10 $",
+ "verdict": "Solide Baumarktkette in einer schwachen Branche: Der US-Immobilienmarkt steht still, und Lowe's hat sich mit Zukäufen verschuldet. Der Kurs fällt seit Februar um 39 %. Qualität gelb, Timing rot. Hier ist kein Boden erkennbar. Nur beobachten.",
+ "about": "Lowe's betreibt rund 1'700 Baumärkte in den USA, für Heimwerker und Handwerker (Pros). 2025 kaufte Lowe's den Baustoffhändler Foundation Building Materials (FBM) und den Händler ADG, um mehr an Profis zu verkaufen. Das Geschäft hängt stark an Hausverkäufen und Renovationen.",
+ "why": "Hohe Hypothekarzinsen frieren den US-Häusermarkt ein: Wer nicht umzieht, renoviert weniger. Die vergleichbaren Umsätze in bestehenden Märkten wuchsen im 2. Quartal nur um 0.2 %, für das Jahr erwartet Lowe's sie flach. Der Umsatz steigt nur dank der Zukäufe FBM und ADG, und gerade die leiden unter dem schwachen Neubau. Die Zukäufe wurden mit Schulden bezahlt: Die Nettoschulden betragen jetzt 39 Mrd. $. Die Aktie fiel von 293 $ im Februar auf 179.50 $, ein neues 52-Wochen-Tief.",
+ "kpis": [
+  [
+   "w",
+   "Umsatzwachstum",
+   "+8.3 %",
+   "2. Quartal. Kommt fast nur aus Zukäufen."
+  ],
+  [
+   "b",
+   "Vergleichbare Umsätze",
+   "+0.2 %",
+   "Gleiche Märkte wie im Vorjahr. Praktisch kein echtes Wachstum."
+  ],
+  [
+   "w",
+   "Operative Marge",
+   "11.4 %",
+   "Von 100 $ Umsatz bleiben gut 11 $. Sinkt seit 2023 (13.5 %)."
+  ],
+  [
+   "b",
+   "Gewinn pro Aktie (EPS)",
+   "−2.8 %",
+   "Letzte 12 Monate. Seit drei Jahren leicht rückläufig."
+  ],
+  [
+   "g",
+   "ROIC",
+   "22.4 %",
+   "Immer noch gut, aber stark fallend (2022: 38.5 %)."
+  ],
+  [
+   "g",
+   "Free Cashflow",
+   "7.0 Mrd. $",
+   "Stabil hoch. Deckt Dividende und Zinsen."
+  ],
+  [
+   "b",
+   "Nettoschulden / EBITDA",
+   "3.1",
+   "Über drei Jahre Betriebsgewinn für die Schulden. Hoch."
+  ],
+  [
+   "g",
+   "KGV",
+   "15.3",
+   "Eigener Schnitt rund 20. Rund 23 % günstiger als üblich."
+  ]
+ ],
+ "revnote": "Seit Ende 2025 wieder über Vorjahr, aber nur wegen der Zukäufe. Monatsnamen = Quartalsende.",
+ "marginnote": "Seit dem Hoch von 2023 jedes Jahr tiefer.",
+ "finnote": "<b>Hinweis:</b> Das Geschäftsjahr endet jeweils Ende Januar/Anfang Februar. GJ 2026 = Februar 2025 bis Januar 2026. Dividende 2.8 % (5 $ pro Aktie).",
+ "FIN": [
+  [
+   "GJ 2023",
+   97059,
+   "+0.8 %",
+   "10.5 %",
+   10.17,
+   6760,
+   "29.6 %",
+   "20.4"
+  ],
+  [
+   "GJ 2024",
+   86377,
+   "−11.0 %",
+   "13.5 %",
+   13.2,
+   6176,
+   "35.1 %",
+   "16.4"
+  ],
+  [
+   "GJ 2025",
+   83674,
+   "−3.1 %",
+   "12.5 %",
+   12.23,
+   7698,
+   "31.5 %",
+   "21.2"
+  ],
+  [
+   "GJ 2026",
+   86286,
+   "+3.1 %",
+   "11.8 %",
+   11.85,
+   7651,
+   "26.3 %",
+   "22.6"
+  ],
+  [
+   "Letzte 12 Mt.",
+   90432,
+   "+8.2 %",
+   "11.4 %",
+   11.83,
+   7000,
+   "22.4 %",
+   "15.3"
+  ]
+ ],
+ "QREV": [
+  [
+   "Nov 24",
+   20.17
+  ],
+  [
+   "Jan 25",
+   18.55
+  ],
+  [
+   "Mai 25",
+   20.93
+  ],
+  [
+   "Aug 25",
+   23.96
+  ],
+  [
+   "Okt 25",
+   20.81
+  ],
+  [
+   "Jan 26",
+   20.59
+  ],
+  [
+   "Mai 26",
+   23.08
+  ],
+  [
+   "Jul 26",
+   25.96
+  ]
+ ],
+ "MARGIN": [
+  [
+   "GJ 23",
+   10.5
+  ],
+  [
+   "GJ 24",
+   13.5
+  ],
+  [
+   "GJ 25",
+   12.5
+  ],
+  [
+   "GJ 26",
+   11.8
+  ],
+  [
+   "12 Mt.",
+   11.4
+  ]
+ ],
+ "Q": [
+  [
+   "Umsatztrend",
+   "4 von 4 Quartalen über Vorjahr, aber nur durch Zukäufe",
+   12,
+   15
+  ],
+  [
+   "Wachstumstempo",
+   "Vergleichbare Umsätze +0.2 %",
+   0,
+   10
+  ],
+  [
+   "Operative Marge",
+   "11.4 %, Handel milder (6 Pkt.), fallend (0 Pkt.)",
+   6,
+   15
+  ],
+  [
+   "Gewinnwachstum (EPS)",
+   "Flach bis leicht negativ",
+   2,
+   10
+  ],
+  [
+   "Free Cashflow",
+   "Positiv, schwankend",
+   6,
+   10
+  ],
+  [
+   "ROIC",
+   "22.4 %, fallend (−1)",
+   12,
+   15
+  ],
+  [
+   "Schulden",
+   "Nettoschulden/EBITDA 3.1",
+   2,
+   10
+  ],
+  [
+   "Bewertung vs. eigene Historie",
+   "KGV 15.3 vs. Ø rund 20 (−23 %)",
+   10,
+   15
+  ]
+ ],
+ "adwnote": "Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Fällt seit Februar fast ohne Unterbruch auf den tiefsten Stand der zwei Jahre.",
+ "rsiwnote": "Unter 30 überverkauft, über 70 überkauft. Heute 28: überverkauft, aber ohne Bodenzeichen.",
+ "addnote": "Die Tages-A/D fällt seit August stetig mit dem Kurs. Kein Zeichen von Aufnahme.",
+ "ind": [
+  [
+   "Kurs vs. EMA 50",
+   "179.5 &lt; 200.5",
+   "179.5 &lt; 222.8",
+   "Weit unter der mittelfristigen Linie."
+  ],
+  [
+   "Kurs vs. EMA 200",
+   "179.5 &lt; 222.0",
+   "179.5 &lt; 228.6",
+   "Weit unter der langfristigen Linie."
+  ],
+  [
+   "EMA 50 vs. EMA 200",
+   "50 unter 200 (seit 2.4.)",
+   "50 unter 200 (seit 31.8.)",
+   "Death Cross auf beiden Zeitebenen."
+  ],
+  [
+   "RSI (14)",
+   "24.3",
+   "28.2",
+   "Beide überverkauft, aber ohne Divergenz."
+  ],
+  [
+   "A/D",
+   "fällt",
+   "fällt",
+   "Verkäufer dominieren klar."
+  ],
+  [
+   "Volumen",
+   "Ø 20 Tage 3.3 Mio. vs. Ø 100 Tage 3.1 Mio.",
+   "Leicht erhöht im Abverkauf."
+  ]
+ ],
+ "smc": "Seit Februar tiefere Hochs (293 → 257 → 229 → 226 $) und tiefere Tiefs (224 → 203 → 199 → 178.40 $). Ein klarer Abwärtstrend. Das letzte tiefere Hoch auf dem Tageschart liegt bei rund 204.40 $ (4.9.). Erst ein Tagesschluss darüber wäre ein Change of Character. Unter dem aktuellen Kurs gibt es in den letzten zwei Jahren keine Unterstützung mehr.",
+ "zones": [
+  [
+   "r",
+   "199–204 $",
+   "Widerstand: altes Tief vom Juli (199.40 $) und Hoch vom 4.9."
+  ],
+  [
+   "t",
+   "204.40 $",
+   "<b>Trigger: Change of Character.</b> Tagesschluss über dem letzten tieferen Hoch."
+  ],
+  [
+   "s",
+   "170–175 $",
+   "Nur runde Marken, keine geprüfte Unterstützung in den letzten zwei Jahren."
+  ]
+ ],
+ "smart": [
+  "<b>Lowe's selbst:</b> Rückkäufe wegen der Schulden stark reduziert (0.4 % pro Jahr). Dividende 2.8 %.",
+  "<b>Insider-Käufe:</b> Keine in den letzten 12 Monaten.",
+  "<b>Insider-Verkäufe:</b> Rund 10–12 Mio. $, z. B. CEO Ellison 4.7 Mio. $ im Januar. Klein.",
+  "<b>Analysten:</b> Durchschnittliches Kursziel 251 $, Einstufung „Buy“."
+ ],
+ "seasnote": "Durchschnittliche Monatsrendite in %, 41 Jahre. November und Dezember sind die stärksten Monate.",
+ "T": [
+  [
+   "Trend Woche (EMA 50/200)",
+   "Kurs weit unter beiden, Death Cross",
+   1,
+   20
+  ],
+  [
+   "Trend Tag (EMA 50/200)",
+   "Kurs weit unter beiden, Death Cross",
+   0,
+   10
+  ],
+  [
+   "Struktur (SMC)",
+   "Tiefere Hochs und tiefere Tiefs",
+   1,
+   20
+  ],
+  [
+   "RSI Tag/Woche",
+   "24 / 28: überverkauft ohne Bodenzeichen",
+   5,
+   15
+  ],
+  [
+   "A/D Tag/Woche",
+   "Beide fallen mit dem Kurs",
+   3,
+   20
+  ],
+  [
+   "Smart Money",
+   "Kaum Rückkauf, keine Insider-Käufe",
+   3,
+   10
+  ],
+  [
+   "Saisonalität",
+   "Okt–Dez: Ø 63 % positive Jahre",
+   5,
+   5
+  ]
+ ],
+ "pro": [
+  "Günstig bewertet: KGV 15, Free-Cashflow-Rendite fast 7 %.",
+  "ROIC immer noch über 20 %, stabiler Free Cashflow.",
+  "Wenn die Zinsen fallen und der Häusermarkt dreht, profitiert Lowe's stark.",
+  "Stark überverkauft: Gegenbewegungen sind jederzeit möglich."
+ ],
+ "con": [
+  "Kein echtes Wachstum: vergleichbare Umsätze flach.",
+  "Hohe Schulden nach den Zukäufen.",
+  "Marge und ROIC fallen seit Jahren.",
+  "Klarer Abwärtstrend ohne Bodenzeichen, A/D fällt.",
+  "Abhängig von Zinsen und Häusermarkt, also von Faktoren ausserhalb der Firma."
+ ],
+ "todo": [
+  [
+   "t",
+   "Beobachten",
+   "Alarm bei 204.40 $ (Trigger). Nicht ins fallende Messer greifen."
+  ],
+  [
+   "s",
+   "Timing grün",
+   "Erst ein Boden: höheres Tief mit bullischer Divergenz (RSI/A/D), dann Tagesschluss über 204.40 $."
+  ],
+  [
+   "r",
+   "Abbruch",
+   "Nicht relevant, solange nicht gekauft."
+  ],
+  [
+   "",
+   "Nächste Zahlen",
+   "18. November 2026 (3. Quartal)."
+  ]
+ ],
+ "bands": [
+  {
+   "from": 199,
+   "to": 204.4,
+   "type": "res"
+  }
+ ],
+ "refs": [
+  {
+   "v": 204.4,
+   "label": "Trigger 204.40"
+  }
+ ],
+ "sources": "<a href=\"https://stockanalysis.com/stocks/low/financials/\" target=\"_blank\" rel=\"noopener\">StockAnalysis.com</a> (Stand 05.10.2026), <a href=\"https://www.tikr.com/blog/lowes-stock-just-hit-a-52-week-low-heres-where-the-stock-could-go\" target=\"_blank\" rel=\"noopener\">52-Wochen-Tief (TIKR)</a>, <a href=\"https://www.fool.com/investing/2026/10/02/why-is-lowes-stock-falling-and-is-it-a-buying-oppo/\" target=\"_blank\" rel=\"noopener\">Motley Fool</a>, <a href=\"https://www.marketbeat.com/stocks/NYSE/LOW/insider-trades/\" target=\"_blank\" rel=\"noopener\">Insider (MarketBeat)</a>."
+}

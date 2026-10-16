@@ -1,0 +1,393 @@
+{
+ "ticker": "PG",
+ "name": "Procter & Gamble",
+ "datum": "08.10.2026",
+ "meta": "The Procter & Gamble Company · NYSE: PG · Haushalts- und Körperpflege (Ariel, Pampers, Gillette, Oral-B) · USA",
+ "price": "147.82 $",
+ "pricemeta": "Schluss 07.10.2026 · 52 Wochen: 137.62 – 167.25 $ · Allzeithoch 180.43 $ (2024)",
+ "verdict": "Die Qualität ist hoch, aber das Wachstum ist eingeschlafen (organisch 0 % im letzten Quartal) und der Gewinn wächst kaum. Qualität gelb (59), Timing orange (41). Der Kurs bildet seit Januar eine Bodenzone bei 138–142 $ mit leicht steigenden Tiefs, und auf dem Tageschart wird still gekauft. Erst ein Tagesschluss über 149.50 $ wäre ein erstes Wende-Zeichen.",
+ "about": "Procter & Gamble ist der grösste Hersteller von Haushalts- und Körperpflegeprodukten der Welt: Waschmittel (Ariel, Tide), Windeln (Pampers), Rasierer (Gillette), Zahnpflege (Oral-B), Haarpflege (Pantene, Head & Shoulders). Diese Dinge kauft man auch in einer Rezession, darum gilt P&G als Musterbeispiel einer defensiven Aktie.",
+ "why": "Seit dem Hoch 2024 (180 $) ist die Aktie rund 18 % gefallen. Das Wachstum ist von 4–5 % auf 0–3 % gesunken, weil Kunden nach den grossen Preiserhöhungen weniger kaufen oder zu Eigenmarken wechseln. Dazu kamen Zölle und höhere Ölpreise (Verpackung, Transport): P&G rechnet für das Geschäftsjahr 2027 mit rund 1 Mrd. $ Mehrkosten nach Steuern. Seit 1. Januar ist Shailesh Jejurikar neuer Chef, ein Sparprogramm streicht rund 7'000 Stellen. Im Juli enttäuschte der Ausblick: bereinigter Gewinn pro Aktie 2027 nur 0 bis +3 %.",
+ "kpis": [
+  [
+   "w",
+   "Organisches Wachstum",
+   "0 %",
+   "Letztes Quartal (April–Juni). Ziel 2027: +1 bis +3 %. Für P&G schwach, früher waren es 4–7 %."
+  ],
+  [
+   "g",
+   "Operative Marge",
+   "24.8 %",
+   "Von 100 $ Umsatz bleiben fast 25 $ Betriebsgewinn. Sehr hoch und seit 2022 gestiegen."
+  ],
+  [
+   "b",
+   "Gewinn pro Aktie (EPS)",
+   "0 bis +3 %",
+   "Firmenziel 2027 (bereinigt). Seit 2022 im Schnitt nur rund +3 % pro Jahr. Schwach."
+  ],
+  [
+   "g",
+   "ROIC",
+   "21.6 %",
+   "Auf jeden investierten Dollar fast 22 Cent Gewinn. Sehr gut und stabil."
+  ],
+  [
+   "g",
+   "Free Cashflow",
+   "15.1 Mrd. $",
+   "Riesig und immer positiv, schwankt aber leicht von Jahr zu Jahr."
+  ],
+  [
+   "g",
+   "Nettoschulden / EBITDA",
+   "1.0",
+   "In rund einem Jahr wären die Nettoschulden aus dem Betriebsgewinn bezahlt. Sehr solide."
+  ],
+  [
+   "w",
+   "KGV erwartet",
+   "21.2",
+   "Du zahlst gut 21 erwartete Jahresgewinne. Eigener Schnitt: 23.4. Rund 10 % günstiger als üblich."
+  ],
+  [
+   "g",
+   "Dividende",
+   "2.9 %",
+   "70 Jahre in Folge erhöht, rund 66 % des Gewinns. Dazu rund 5 Mrd. $ Aktienrückkäufe pro Jahr."
+  ]
+ ],
+ "revtitle": "Umsatz pro Quartal (Mrd. $, Quartalsende)",
+ "revnote": "Alle vier Quartale über Vorjahr, aber nur dank Währungen und Preisen. Organisch war das letzte Quartal flach.",
+ "marginnote": "Stieg bis zum Geschäftsjahr 2025 auf 25.6 %, danach wegen Zöllen, Rohstoffen und Umbaukosten leicht zurück.",
+ "finnote": "<b>Hinweis:</b> Das Geschäftsjahr von P&G endet am 30. Juni. „GJ 2026“ = Juli 2025 bis Juni 2026. Bereinigter Gewinn pro Aktie (Core EPS) GJ 2026: 6.89 $.",
+ "FIN": [
+  [
+   "GJ 2022",
+   80187,
+   "+5.3 %",
+   "23.0 %",
+   5.81,
+   13567,
+   "21.5 %",
+   "23.9"
+  ],
+  [
+   "GJ 2023",
+   82006,
+   "+2.3 %",
+   "22.9 %",
+   5.9,
+   13786,
+   "20.4 %",
+   "24.9"
+  ],
+  [
+   "GJ 2024",
+   84039,
+   "+2.5 %",
+   "24.5 %",
+   6.02,
+   16524,
+   "21.9 %",
+   "26.7"
+  ],
+  [
+   "GJ 2025",
+   84284,
+   "+0.3 %",
+   "25.6 %",
+   6.51,
+   14044,
+   "22.4 %",
+   "23.8"
+  ],
+  [
+   "GJ 2026",
+   87032,
+   "+3.3 %",
+   "24.8 %",
+   6.62,
+   15147,
+   "21.6 %",
+   "21.7"
+  ]
+ ],
+ "QREV": [
+  [
+   "Sep 24",
+   21.74
+  ],
+  [
+   "Dez 24",
+   21.88
+  ],
+  [
+   "Mär 25",
+   19.78
+  ],
+  [
+   "Jun 25",
+   20.89
+  ],
+  [
+   "Sep 25",
+   22.39
+  ],
+  [
+   "Dez 25",
+   22.21
+  ],
+  [
+   "Mär 26",
+   21.24
+  ],
+  [
+   "Jun 26",
+   21.2
+  ]
+ ],
+ "revdec": 2,
+ "MARGIN": [
+  [
+   "GJ 22",
+   23.0
+  ],
+  [
+   "GJ 23",
+   22.9
+  ],
+  [
+   "GJ 24",
+   24.5
+  ],
+  [
+   "GJ 25",
+   25.6
+  ],
+  [
+   "GJ 26",
+   24.8
+  ]
+ ],
+ "Q": [
+  [
+   "Umsatztrend",
+   "4 von 4 Quartalen über Vorjahr, aber ohne Tempo",
+   12,
+   15
+  ],
+  [
+   "Wachstumstempo",
+   "Organisch rund +2 %, Ziel 2027 +1 bis +3 %",
+   0,
+   10
+  ],
+  [
+   "Operative Marge",
+   "24.8 % (6 Pkt.), seit 2022 steigend (6 Pkt.)",
+   12,
+   15
+  ],
+  [
+   "Gewinnwachstum (EPS)",
+   "Rund +3 % pro Jahr, Ziel 2027 0 bis +3 %",
+   2,
+   10
+  ],
+  [
+   "Free Cashflow",
+   "Gross, immer positiv, schwankend",
+   6,
+   10
+  ],
+  [
+   "ROIC",
+   "21.6 %, stabil",
+   13,
+   15
+  ],
+  [
+   "Schulden",
+   "Nettoschulden/EBITDA 1.0",
+   7,
+   10
+  ],
+  [
+   "Bewertung vs. eigene Historie",
+   "Erw. KGV 21.2 statt Ø 23.4 (−9 %)",
+   7,
+   15
+  ]
+ ],
+ "adwnote": "Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Im Februar stieg die Wochen-A/D stark (Käufer bei 160 $), seither fiel sie zurück. Seit Juni läuft sie seitwärts um 1'490–1'550: weder klare Käufer noch Verkäufer.",
+ "rsiwnote": "Unter 30 überverkauft, über 70 überkauft. Seit März zwischen 40 und 54: neutral.",
+ "addnote": "Positives Zeichen: Ende Juli lag der Kurs bei 149 $ und die Tages-A/D bei −153. Heute ist der Kurs ähnlich (148 $), die A/D aber bei −105. Seit August wird auf Tagesbasis still gekauft (bullische Divergenz).",
+ "ind": [
+  [
+   "Kurs vs. EMA 50",
+   "147.8 &gt; 146.3",
+   "147.8 &lt; 148.9",
+   "Tag knapp darüber, Woche knapp darunter."
+  ],
+  [
+   "Kurs vs. EMA 200",
+   "147.8 &lt; 148.1",
+   "147.8 &lt; 151.3",
+   "Knapp unter der langfristigen Linie auf beiden Ebenen."
+  ],
+  [
+   "EMA 50 vs. EMA 200",
+   "50 unter 200 (seit 16.3.2026)",
+   "50 unter 200 (seit 4.5.2026)",
+   "Leichter Abwärtstrend, die Linien liegen aber eng beieinander und flachen ab."
+  ],
+  [
+   "RSI (14)",
+   "54.4",
+   "51.6",
+   "Neutral."
+  ],
+  [
+   "A/D",
+   "steigt seit Ende Juli",
+   "seitwärts",
+   "Tag: Käufer nehmen auf. Woche: neutral."
+  ],
+  [
+   "Volumen",
+   "Ø 20 Tage 8.3 Mio. vs. Ø 100 Tage 8.8 Mio.",
+   "Ruhig, kein Ausverkauf."
+  ]
+ ],
+ "smc": "Seit Dezember 2025 läuft P&G seitwärts zwischen rund 138 und 167 $. Die Tiefs steigen leicht: 137.62 $ (Januar), 138.86 $ (Juni), 140.20 $ (Juli), 141.86 $ (September). Die Hochs fallen: 167.25 $ (Februar), 154.32 $ (Juli), 149.48 $ (September). Das ist ein Dreieck, das sich zusammenzieht. Auf dem Tageschart hat sich zuletzt ein höheres Tief gebildet (143.40 $ am 1.10.). Ein Tagesschluss über 149.50 $ wäre der erste Change of Character.",
+ "zones": [
+  [
+   "r",
+   "152.5–154.5 $",
+   "Widerstand: Wochen-EMA 200 und Hochs von April und Juli."
+  ],
+  [
+   "t",
+   "149.50 $",
+   "<b>Trigger: Change of Character.</b> Tagesschluss über dem Hoch vom 28.9., idealerweise mit weiter steigender Tages-A/D."
+  ],
+  [
+   "s",
+   "138–142 $",
+   "<b>Kaufzone:</b> Boden aus vier Tiefs seit Januar. Hier haben Käufer immer wieder gehalten."
+  ],
+  [
+   "r",
+   "137 $",
+   "Abbruch: Ein Wochenschluss darunter wäre ein neues 2-Jahres-Tief."
+  ]
+ ],
+ "smart": [
+  "<b>P&G selbst:</b> Kauft jedes Jahr für rund 5 Mrd. $ eigene Aktien zurück (rund 1.5 % des Börsenwerts).",
+  "<b>Insider-Käufe:</b> Keine in den letzten 12 Monaten.",
+  "<b>Insider-Verkäufe:</b> Rund 57 Mio. $ von 10 Personen, vor allem vom abgetretenen Präsidenten Jon Moeller (28 Mio. $) und Marketingchef Marc Pritchard (15 Mio. $).",
+  "<b>Analysten:</b> Durchschnittliches Kursziel rund 161 $, Einstufung „Moderat kaufen“. Evercore stufte am 6.10. auf „Outperform“ hoch (Ziel 166 $), HSBC und Argus im August auf „Halten“ herunter."
+ ],
+ "seasnote": "Durchschnittliche Monatsrendite in %. Rund 41 Jahre. Oktober ist mit +2.8 % und 65 % positiven Jahren der beste Monat, November und Dezember folgen.",
+ "T": [
+  [
+   "Trend Woche (EMA 50/200)",
+   "Kurs knapp unter beiden, Linien flach",
+   4,
+   20
+  ],
+  [
+   "Trend Tag (EMA 50/200)",
+   "Kurs über EMA 50, knapp unter EMA 200",
+   4,
+   10
+  ],
+  [
+   "Struktur (SMC)",
+   "Seitwärts mit höheren Tiefs (Dreieck)",
+   10,
+   20
+  ],
+  [
+   "RSI Tag/Woche",
+   "54 / 52, neutral",
+   7,
+   15
+  ],
+  [
+   "A/D Tag/Woche",
+   "Tag bullische Divergenz, Woche neutral",
+   11,
+   20
+  ],
+  [
+   "Smart Money",
+   "Rückkauf rund 1.5 %, viele Insider-Verkäufe",
+   0,
+   10
+  ],
+  [
+   "Saisonalität",
+   "Okt–Dez: 65–66 % positive Jahre",
+   5,
+   5
+  ]
+ ],
+ "pro": [
+  "Marktführer mit Marken, die man täglich braucht.",
+  "Hohe Marge (25 %) und hoher ROIC (22 %).",
+  "Wenig Schulden, 70 Jahre Dividendenerhöhung.",
+  "Bewertung rund 10 % unter dem eigenen Schnitt.",
+  "Bodenbildung mit höheren Tiefs und still steigender Tages-A/D."
+ ],
+ "con": [
+  "Wachstum fast null, der Gewinn wächst kaum.",
+  "Rohstoff- und Ölpreise drücken 2027 auf die Marge.",
+  "Neuer Chef, Umbau mit Stellenabbau läuft noch.",
+  "Viele Insider-Verkäufe, keine Käufe.",
+  "Trend auf Woche und Tag noch leicht abwärts."
+ ],
+ "todo": [
+  [
+   "t",
+   "Beobachten",
+   "Alarm bei 149.50 $ (Trigger) und 142 $ (Oberkante Kaufzone)."
+  ],
+  [
+   "s",
+   "Timing grün",
+   "Tagesschluss über 149.50 $, danach Rücksetzer Richtung 143–146 $ als Einstieg. Oder direkt in der Kaufzone 138–142 $ mit Tagesschluss über dem letzten tieferen Hoch."
+  ],
+  [
+   "r",
+   "Abbruch",
+   "Wochenschluss unter 137 $."
+  ],
+  [
+   "",
+   "Nächste Zahlen",
+   "22. Oktober 2026 (1. Quartal GJ 2027). Entscheidend: Kommt das organische Wachstum zurück über +2 %?"
+  ]
+ ],
+ "bands": [
+  {
+   "from": 152.5,
+   "to": 154.5,
+   "type": "res"
+  },
+  {
+   "from": 138,
+   "to": 142,
+   "type": "sup"
+  }
+ ],
+ "refs": [
+  {
+   "v": 149.5,
+   "label": "Trigger 149.50"
+  }
+ ],
+ "sources": "<a href=\"https://stockanalysis.com/stocks/pg/financials/\" target=\"_blank\" rel=\"noopener\">StockAnalysis.com</a> (Stand 08.10.2026), <a href=\"https://www.pginvestor.com/news/news-details/2026/PG-Announces-Fourth-Quarter-and-Fiscal-Year-2026-Results/default.aspx\" target=\"_blank\" rel=\"noopener\">P&G Q4 GJ 2026</a>, <a href=\"https://www.marketbeat.com/stocks/NYSE/PG/insider-trades/\" target=\"_blank\" rel=\"noopener\">Insider (MarketBeat)</a>."
+}

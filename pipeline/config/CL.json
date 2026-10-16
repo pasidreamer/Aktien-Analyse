@@ -1,0 +1,392 @@
+{
+ "ticker": "CL",
+ "name": "Colgate-Palmolive",
+ "datum": "08.10.2026",
+ "meta": "Colgate-Palmolive Company · NYSE: CL · Zahnpflege, Körperpflege, Haushalt, Tiernahrung (Hill's) · USA",
+ "price": "87.21 $",
+ "pricemeta": "Schluss 07.10.2026 · 52 Wochen: 74.55 – 99.33 $ · Allzeithoch 109.30 $ (2024)",
+ "verdict": "Sehr profitable Firma mit dem höchsten ROIC der Gruppe (46 %), aber nur 2–3 % Wachstum. Qualität hellgrün (68), Timing orange (41). Der Kurs ist nahe an die Kaufzone 81.8–84.3 $ gelaufen. Für einen Einstieg fehlt noch die Wende auf dem Tageschart: Tagesschluss über 90.10 $.",
+ "about": "Colgate-Palmolive verkauft Zahnpasta und Zahnbürsten (Colgate, Weltmarktführer mit über 40 % Marktanteil), Seifen und Duschmittel (Palmolive), Reinigungsmittel und Tiernahrung (Hill's). Rund zwei Drittel des Umsatzes kommen aus dem Ausland, vor allem aus Lateinamerika und Asien.",
+ "why": "Anfang 2026 stieg die Aktie stark (bis 99 $), weil das Geschäft besser lief als befürchtet. Danach drückten höhere Öl- und Kunststoffpreise (Verpackung) auf die Marge, und in Nordamerika schrumpft der Umsatz (−3 % im 2. Quartal) wegen Preiskampf und Eigenmarken. Im Januar schrieb Colgate 794 Mio. $ auf die Hautpflegemarke Filorga ab. Das 2. Quartal (Juli) war aber gut: bereinigter Gewinn pro Aktie +8 % und Ausblick angehoben.",
+ "kpis": [
+  [
+   "w",
+   "Organisches Wachstum",
+   "+2.4 %",
+   "2. Quartal 2026 (Menge +0.8, Preis +1.6). Ziel 2026: +1 bis +4 %. Eher schwach."
+  ],
+  [
+   "g",
+   "Operative Marge",
+   "20.6 %",
+   "Von 100 $ Umsatz bleiben knapp 21 $ Betriebsgewinn. Gut, seit Jahren stabil um 20–21 %."
+  ],
+  [
+   "w",
+   "Gewinn pro Aktie (bereinigt)",
+   "+5 bis 8 %",
+   "Ziel 2026: mittlerer einstelliger Zuwachs, im Juli angehoben. Ausgewiesen wegen der Abschreibung tiefer."
+  ],
+  [
+   "g",
+   "ROIC",
+   "45.6 %",
+   "Auf jeden investierten Dollar 46 Cent Gewinn. Ausgezeichnet und steigend."
+  ],
+  [
+   "g",
+   "Free Cashflow",
+   "3.86 Mrd. $",
+   "Seit 2022 (1.86 Mrd.) jedes Jahr gestiegen. Sehr gut."
+  ],
+  [
+   "g",
+   "Nettoschulden / EBITDA",
+   "1.3",
+   "Gut tragbar."
+  ],
+  [
+   "g",
+   "KGV erwartet",
+   "21.5",
+   "Eigener Schnitt: 24.1. Rund 11 % günstiger als üblich."
+  ],
+  [
+   "g",
+   "Dividende",
+   "2.5 %",
+   "63 Jahre in Folge erhöht."
+  ]
+ ],
+ "revnote": "Alle vier Quartale über Vorjahr, zuletzt auch dank Währungen.",
+ "marginnote": "Seit 2022 stabil zwischen 20 und 21 %.",
+ "finnote": "<b>Hinweis:</b> Der ausgewiesene Gewinn 2025 und der letzten 12 Monate ist durch die Abschreibung auf Filorga (794 Mio. $ nach Steuern) gedrückt, darum wirkt das KGV hoch. Bereinigt (Gewinn pro Aktie 2025: 3.69 $) liegt das KGV bei rund 21–22.",
+ "FIN": [
+  [
+   "2022",
+   17967,
+   "+3.1 %",
+   "19.8 %",
+   2.13,
+   1860,
+   "30.8 %",
+   "36.9"
+  ],
+  [
+   "2023",
+   19457,
+   "+8.3 %",
+   "20.2 %",
+   2.77,
+   3040,
+   "31.6 %",
+   "28.5"
+  ],
+  [
+   "2024",
+   20101,
+   "+3.3 %",
+   "21.1 %",
+   3.51,
+   3546,
+   "39.3 %",
+   "25.7"
+  ],
+  [
+   "2025",
+   20382,
+   "+1.4 %",
+   "20.8 %",
+   2.63,
+   3634,
+   "40.9 %",
+   "29.9"
+  ],
+  [
+   "Letzte 12 Mt.",
+   21047,
+   "+5.3 %",
+   "20.6 %",
+   2.53,
+   3858,
+   "45.6 %",
+   "33.3"
+  ]
+ ],
+ "QREV": [
+  [
+   "Q3 24",
+   5.03
+  ],
+  [
+   "Q4 24",
+   4.95
+  ],
+  [
+   "Q1 25",
+   4.91
+  ],
+  [
+   "Q2 25",
+   5.11
+  ],
+  [
+   "Q3 25",
+   5.13
+  ],
+  [
+   "Q4 25",
+   5.23
+  ],
+  [
+   "Q1 26",
+   5.32
+  ],
+  [
+   "Q2 26",
+   5.36
+  ]
+ ],
+ "revdec": 2,
+ "MARGIN": [
+  [
+   "2022",
+   19.8
+  ],
+  [
+   "2023",
+   20.2
+  ],
+  [
+   "2024",
+   21.1
+  ],
+  [
+   "2025",
+   20.8
+  ],
+  [
+   "12 Mt.",
+   20.6
+  ]
+ ],
+ "Q": [
+  [
+   "Umsatztrend",
+   "4 von 4 Quartalen über Vorjahr",
+   12,
+   15
+  ],
+  [
+   "Wachstumstempo",
+   "Organisch rund +2.5 %",
+   0,
+   10
+  ],
+  [
+   "Operative Marge",
+   "20.6 % (6 Pkt.), stabil (3 Pkt.)",
+   9,
+   15
+  ],
+  [
+   "Gewinnwachstum (EPS)",
+   "Bereinigt rund +5 bis 8 % pro Jahr",
+   5,
+   10
+  ],
+  [
+   "Free Cashflow",
+   "Seit 2022 jedes Jahr gestiegen",
+   10,
+   10
+  ],
+  [
+   "ROIC",
+   "45.6 %, steigend",
+   15,
+   15
+  ],
+  [
+   "Schulden",
+   "Nettoschulden/EBITDA 1.3",
+   7,
+   10
+  ],
+  [
+   "Bewertung vs. eigene Historie",
+   "Erw. KGV 21.5 statt Ø 24.1 (−11 %)",
+   10,
+   15
+  ]
+ ],
+ "adwnote": "Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Von Januar bis Juli stieg die Wochen-A/D kräftig (Käufer). Seit Juli fällt sie mit dem Kurs (917 auf 838): Gewinnmitnahmen.",
+ "rsiwnote": "Unter 30 überverkauft, über 70 überkauft. Im Februar 73 (überkauft), heute 47: neutral.",
+ "addnote": "Die Tages-A/D fällt seit August mit dem Kurs. Noch kein Käuferwechsel sichtbar.",
+ "ind": [
+  [
+   "Kurs vs. EMA 50",
+   "87.2 &lt; 88.4",
+   "87.2 &lt; 88.3",
+   "Knapp unter der mittelfristigen Linie."
+  ],
+  [
+   "Kurs vs. EMA 200",
+   "87.2 &lt; 88.4",
+   "87.2 &gt; 85.9",
+   "Tag knapp darunter, Woche darüber: Rücksetzer im langfristigen Aufwärtstrend."
+  ],
+  [
+   "EMA 50 vs. EMA 200",
+   "50 knapp unter 200 (seit 6.10.2026)",
+   "50 über 200 (seit Januar 2024)",
+   "Tag: frisches, aber sehr knappes Death Cross. Woche: Aufwärtstrend intakt."
+  ],
+  [
+   "RSI (14)",
+   "49.6",
+   "46.6",
+   "Neutral, der Tag hat sich vom Tief erholt."
+  ],
+  [
+   "A/D",
+   "fällt seit August",
+   "fällt seit Juli",
+   "Verkäufer noch leicht in der Überzahl."
+  ],
+  [
+   "Volumen",
+   "Ø 20 Tage 5.5 Mio. vs. Ø 100 Tage 5.0 Mio.",
+   "Leicht erhöht."
+  ]
+ ],
+ "smc": "Auf der Woche läuft Colgate seit 2024 in einer grossen Spanne. Nach dem Februar-Hoch (99.33 $) fiel der Kurs auf 81.79 $ (April), stieg wieder auf 96.01 $ (Juli) und fällt seither. Wichtig: Das April-Tief wurde bisher nicht unterschritten, das Oktober-Tief liegt höher (rund 84.30 $). Auf dem Tageschart gibt es seit Juli tiefere Hochs (96.01 → 95.46 → 94.15 → 90.10 $). Ein Tagesschluss über 90.10 $ wäre der Change of Character.",
+ "zones": [
+  [
+   "r",
+   "93–96 $",
+   "Widerstand: Hochs von Juli und August."
+  ],
+  [
+   "t",
+   "90.10 $",
+   "<b>Trigger:</b> Tagesschluss über dem letzten tieferen Hoch (Anfang September)."
+  ],
+  [
+   "s",
+   "81.8–84.3 $",
+   "<b>Kaufzone:</b> Tiefs von April, Juni und Oktober."
+  ],
+  [
+   "r",
+   "81 $",
+   "Abbruch: Wochenschluss unter dem April-Tief."
+  ]
+ ],
+ "smart": [
+  "<b>Colgate selbst:</b> Kauft für rund 1.3 Mrd. $ pro Jahr eigene Aktien zurück (rund 1.8 % des Börsenwerts).",
+  "<b>Insider-Käufe:</b> Keine.",
+  "<b>Insider-Verkäufe:</b> Rund 34 Mio. $, davon CEO Noel Wallace 14.8 Mio. $ (August) und Finanzchef Stanley Sutula 9.2 Mio. $.",
+  "<b>Analysten:</b> Durchschnittliches Kursziel rund 99 $, Einstufung „Moderat kaufen“ (12 Kaufen, 7 Halten)."
+ ],
+ "seasnote": "Durchschnittliche Monatsrendite in %. Rund 41 Jahre. Oktober und Dezember sind mit je +2.5 % die stärksten Monate, 63–65 % positive Jahre.",
+ "T": [
+  [
+   "Trend Woche (EMA 50/200)",
+   "Kurs unter EMA 50, über EMA 200 (Rücksetzer)",
+   12,
+   20
+  ],
+  [
+   "Trend Tag (EMA 50/200)",
+   "Kurs knapp unter beiden, frisches Death Cross",
+   2,
+   10
+  ],
+  [
+   "Struktur (SMC)",
+   "Woche: Tief über dem April-Tief. Tag: tiefere Hochs",
+   8,
+   20
+  ],
+  [
+   "RSI Tag/Woche",
+   "Tag dreht aus dem 30er-Bereich nach oben, Woche neutral",
+   10,
+   15
+  ],
+  [
+   "A/D Tag/Woche",
+   "Beide fallen mit dem Kurs",
+   4,
+   20
+  ],
+  [
+   "Smart Money",
+   "Rückkauf 1.8 %, CEO-Verkauf",
+   0,
+   10
+  ],
+  [
+   "Saisonalität",
+   "Okt–Dez: 63–65 % positive Jahre",
+   5,
+   5
+  ]
+ ],
+ "pro": [
+  "Weltmarktführer bei Zahnpasta, sehr starke Marke.",
+  "ROIC 46 %: eine der profitabelsten Firmen überhaupt.",
+  "Free Cashflow steigt jedes Jahr.",
+  "Bewertung rund 11 % unter dem eigenen Schnitt.",
+  "Kurs nahe an einer klaren Kaufzone."
+ ],
+ "con": [
+  "Organisches Wachstum nur 2–3 %.",
+  "Nordamerika schrumpft (Preiskampf, Eigenmarken).",
+  "Höhere Öl- und Kunststoffpreise drücken die Marge.",
+  "CEO verkaufte im August für 14.8 Mio. $.",
+  "Tages-Trend noch abwärts."
+ ],
+ "todo": [
+  [
+   "t",
+   "Beobachten",
+   "Alarm bei 84.30 $ (Kaufzone) und 90.10 $ (Trigger)."
+  ],
+  [
+   "s",
+   "Timing grün",
+   "Kurs in der Kaufzone 81.8–84.3 $ und danach Tagesschluss über dem letzten tieferen Hoch, oder direkt Tagesschluss über 90.10 $."
+  ],
+  [
+   "r",
+   "Abbruch",
+   "Wochenschluss unter 81 $."
+  ],
+  [
+   "",
+   "Nächste Zahlen",
+   "30. Oktober 2026 (3. Quartal). Entscheidend: Erholt sich Nordamerika und hält die Marge?"
+  ]
+ ],
+ "bands": [
+  {
+   "from": 93,
+   "to": 96,
+   "type": "res"
+  },
+  {
+   "from": 81.8,
+   "to": 84.3,
+   "type": "sup"
+  }
+ ],
+ "refs": [
+  {
+   "v": 90.1,
+   "label": "Trigger 90.10"
+  }
+ ],
+ "sources": "<a href=\"https://stockanalysis.com/stocks/cl/financials/\" target=\"_blank\" rel=\"noopener\">StockAnalysis.com</a> (Stand 08.10.2026), <a href=\"https://investor.colgatepalmolive.com/news-releases/news-release-details/colgate-announces-2nd-quarter-2026-results\" target=\"_blank\" rel=\"noopener\">Colgate Q2 2026</a>, <a href=\"https://www.marketbeat.com/stocks/NYSE/CL/insider-trades/\" target=\"_blank\" rel=\"noopener\">Insider (MarketBeat)</a>."
+}

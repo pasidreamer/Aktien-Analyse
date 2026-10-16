@@ -1,0 +1,28 @@
+{
+ "ticker": "IBM",
+ "sorgen": [
+  "Am 14.07.2026 meldete IBM vorab schwache Zahlen zum 2. Quartal (Umsatz nur +1 %). Die Aktie fiel an einem Tag um 25 % von 290 $ auf 217 $, der grösste Tagesverlust seit mindestens 1968.",
+  "Kunden steckten ihr Budget laut IBM Ende Juni in Server, Speicher und Chips für KI statt in IBM-Software. «Dutzende» Grossaufträge, vor allem Software für Grossrechner, wurden nicht rechtzeitig abgeschlossen.",
+  "Die Umsatzprognose 2026 sank auf 4–5 % (vorher über 5 %), Software auf 6–8 %. Ohne Zukäufe wuchs Software im 2. Quartal gar nicht.",
+  "Nach dem Kauf von Confluent sind die Schulden hoch: Nettoschulden 3.5-mal so hoch wie der Betriebsgewinn vor Abschreibungen (EBITDA)."
+ ],
+ "sorgen_art": "gemischt",
+ "sorgen_art_text": "Ein Teil ist nur Verschiebung (rund ein Drittel der verpassten Aufträge kam in den ersten drei Wochen des 3. Quartals), aber ob KI-Ausgaben IBM-Software dauerhaft verdrängen, ist ungeklärt.",
+ "aufloeser": [
+  {"was": "Restliche verschobene Grossaufträge abgeschlossen, Prognose 4–5 % bestätigt", "wann": "Zahlen 21.10.2026"},
+  {"was": "Software wächst wieder klar, auch ohne Zukäufe", "wann": "Zahlen 4. Quartal, voraussichtlich Januar 2027"},
+  {"was": "Free-Cashflow-Ziel (rund +1 Mrd. $) erreicht und Schulden sinken", "wann": "Jahresende 2026"}
+ ],
+ "schub_stufe": "schwach",
+ "schub_treiber": [
+  {"titel": "Red Hat, Daten-Software und Confluent", "text": "Red Hat wuchs im 2. Quartal um 11 %, die Daten-Software um 18 %. Der wiederkehrende Software-Umsatz liegt bei 24.6 Mrd. $ (+8 %). Das ist solide, hebt das Konzernwachstum aber nicht deutlich über die heutigen 4–5 %.", "wann": "laufend"},
+  {"titel": "Quantencomputer als Fernziel", "text": "IBM will in fünf Jahren über 10 Mrd. $ in Quantencomputer stecken und 2029 ein fehlertolerantes System bauen. Das ist eine grosse Zukunftsoption, bringt in den nächsten 1–3 Jahren aber kaum Umsatz.", "wann": "ab 2029"}
+ ],
+ "schub_beweis": "Bei den Zahlen am 21.10.: Software-Wachstum ohne Zukäufe wieder klar positiv (2. Quartal: 0 %) und Red Hat über 10 %. Wächst der wiederkehrende Software-Umsatz (ARR, 2. Quartal 24.6 Mrd. $) schneller als 8 %, wäre das ein erstes Zeichen.",
+ "szenario": "Chancen-Szenario: Wie Google 2023 könnte IBM zeigen, dass KI das Geschäft am Ende stärkt (KI ist schon rund 50 % der neuen Beratungsaufträge) und Quantencomputer früher Geld bringen als gedacht; dann wäre der Kurs nach dem 25-%-Absturz günstig. Grösstes Risiko: KI-Hardware frisst weiter Software-Budgets, das Wachstum bleibt bei 4–5 % und die hohen Schulden lassen wenig Spielraum.",
+ "quellen": [
+  {"titel": "SEC: IBM Brief an Investoren mit vorläufigen Q2-Zahlen (14.07.2026)", "url": "https://www.sec.gov/Archives/edgar/data/0000051143/000005114326000070/ibm-20260714xex991.htm"},
+  {"titel": "The Motley Fool: IBM stock Q2 preliminary warning, AI capex (19.07.2026)", "url": "https://www.fool.com/investing/2026/07/19/ibm-stock-q2-preliminary-warning-ai-capex/"},
+  {"titel": "MarketBeat: International Business Machines Q2 Earnings Call Highlights (22.07.2026)", "url": "https://www.marketbeat.com/instant-alerts/international-business-machines-q2-earnings-call-highlights-2026-07-22/"}
+ ]
+}

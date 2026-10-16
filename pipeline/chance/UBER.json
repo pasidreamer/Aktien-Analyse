@@ -1,0 +1,32 @@
+{
+ "ticker": "UBER",
+ "sorgen": [
+  "Robotaxis: Die Börse fürchtet, dass Waymo, Tesla und Zoox eigene Apps aufbauen und Uber als Vermittler nicht mehr brauchen. Als Tesla Anfang September 2026 das Cybercab in Austin startete, fiel Uber an einem Tag um 4 %.",
+  "Waymo hat am 24.7.2026 angekündigt, ab Januar 2028 in Austin und Atlanta eine eigene App zu starten. Der Vertrag mit Uber endet dort im Mai 2028.",
+  "Laut Bank of America (22.9.2026) haben Robotaxi-Konkurrenten 18 bis 24 Monate Vorsprung, weil Ubers eigene Robotaxi-Partner erst ab 2028 in grosser Zahl fahren sollen.",
+  "Der Umsatz wächst langsamer (+12 % im 2. Quartal), und Uber will Delivery Hero übernehmen (Angebot 41.50 € pro Aktie, laut Bericht rund 14.8 Mrd. $ für das Eigenkapital). Der Kurs liegt rund 28 % unter dem Rekordhoch von 100 $."
+ ],
+ "sorgen_art": "stimmung",
+ "sorgen_art_text": "Das heutige Geschäft läuft so gut wie nie (Fahrten +18 %, Buchungen +24 %, Free Cashflow erstmals über 10 Mrd. $ in 12 Monaten); gefallen ist der Kurs wegen einer Zukunftsangst, die sich frühestens ab 2028 in den Zahlen zeigen kann.",
+ "aufloeser": [
+  {"was": "Starke Zahlen zum 3. Quartal: Bruttobuchungen am oberen Ende des Ausblicks (58.25–60.25 Mrd. $) und ein Ausblick, der weiter rund 20 % Wachstum zeigt.", "wann": "Zahlen 4.11.2026 (vor Börsenstart)"},
+  {"was": "Klarheit beim Delivery-Hero-Angebot: wie viele Aktionäre annehmen und ob die Wettbewerbsbehörden zustimmen.", "wann": "Annahmefrist bis Anfang November 2026, Abschluss laut Bericht nicht vor dem 2. Halbjahr 2027"},
+  {"was": "Erste Zahlen, dass Robotaxis auf der Uber-App besser ausgelastet sind als in eigenen Apps (der CEO spricht von rund 30 % mehr Auslastung).", "wann": "2027–2028"},
+  {"was": "Weitere Insider-Käufe oder ein grösseres Rückkaufprogramm. Der CEO kaufte am 10.9.2026 für rund 10 Mio. $ zu 70.96 $, der COO für 5.3 Mio. $.", "wann": "laufend"}
+ ],
+ "schub_stufe": "mittel",
+ "schub_treiber": [
+  {"titel": "Marktplatz für Robotaxis", "text": "Uber will die grösste Plattform für autonome Autos werden. Mit Partnern wie Nvidia, Lucid, Rivian, Volkswagen, Zoox und WeRide könnte Uber laut Bericht Zugang zu rund 120'000 Robotaxis bekommen. Wenn Robotaxi-Firmen Ubers über 200 Mio. Kunden brauchen, wird Uber zum Gewinner statt zum Opfer. Bewiesen ist das aber noch nicht.", "wann": "2027–2029"},
+  {"title_hinweis": "", "titel": "Abo Uber One", "text": "Über 50 Mio. Mitglieder (+50 % in einem Jahr), sie stehen für rund die Hälfte aller Buchungen. Abo-Kunden fahren und bestellen öfter und wechseln seltener zur Konkurrenz. Das stützt das Wachstum, ist aber schon im heutigen Tempo enthalten.", "wann": "läuft bereits"},
+  {"titel": "Übernahme Delivery Hero", "text": "Delivery Hero ist ein grosser Essenslieferdienst in Europa, Asien und Nahost. Uber besitzt schon rund 37 %, mit der Zusage von Prosus kommt Uber auf rund 53 %. Das würde Uber Eats stark vergrössern, ist aber ein Zukauf und kein eigenes Wachstum, und es gibt ein Kartellrisiko.", "wann": "Abschluss frühestens 2. Halbjahr 2027"}
+ ],
+ "schub_beweis": "Am 4.11.2026: Wachsen die Bruttobuchungen ohne Währungseffekt weiter um rund 20 % (Ausblick 18–22 %) und die Zahl der Fahrten um über 15 %? Ein Zusatzzeichen wäre, wenn Uber erstmals Zahlen zu Robotaxi-Fahrten auf der eigenen Plattform nennt.",
+ "szenario": "Wie Google 2023: Viele glauben, Robotaxis machen Uber überflüssig. Zeigt sich, dass Robotaxi-Firmen Ubers Kunden brauchen, ist eine Firma mit über 10 Mrd. $ Free Cashflow zu einem erwarteten KGV von rund 17 (früher 24–28) günstig, und die Bewertung könnte sich erholen. Grösstes Risiko: Waymo und Tesla bauen eigene Netze auf, und Uber bleibt nur das Geschäft mit menschlichen Fahrern, das dann langsam schrumpft.",
+ "quellen": [
+  {"titel": "Uber Q2 2026 Ergebnisse (SEC 8-K)", "url": "https://www.sec.gov/Archives/edgar/data/0001543151/000154315126000027/uberq226earningspressrelea.htm"},
+  {"titel": "TIKR: Uber Stock Is Down 28%, and the Robotaxi Clock Is Ticking", "url": "https://www.tikr.com/blog/uber-stock-is-down-28-and-the-robotaxi-clock-is-ticking-its-ceo-just-bought-10-million-of-stock-anyway"},
+  {"titel": "Ground News: Waymo explores ending Uber ties", "url": "https://ground.news/article/waymo-explores-ending-uber-ties-as-robotaxi-rivalry-grows-goog-nasdaq"},
+  {"titel": "SentiSense: Uber opens its €41.50-a-share offer for Delivery Hero", "url": "https://app.sentisense.ai/stories/uber-launches-multibillion-dollar-bid-for-delivery-hero-as-it-leans-on-subscript-08272026"},
+  {"titel": "Wall Street Horizon: Uber Earnings Calendar", "url": "https://www.wallstreethorizon.com/uber-earnings-calendar"}
+ ]
+}

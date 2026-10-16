@@ -1,0 +1,27 @@
+{
+ "ticker": "META",
+ "sorgen": [
+  "Die Kosten steigen viel schneller als der Umsatz: Im 2. Quartal wuchsen die Ausgaben um 55 %, der Umsatz um 28 %. Der Betriebsgewinn fiel um 8 % (inklusive 2.4 Mrd. $ Rechtskosten und 1.2 Mrd. $ Abfindungen).",
+  "Meta investiert 2026 laut Ausblick 130–145 Mrd. $ in KI. Der Free Cashflow (freies Geld nach Investitionen) lag im 2. Quartal nur noch bei 0.8 Mrd. $.",
+  "Der neue KI-Assistent Muse ist erst seit dem 08.09.2026 auf dem Markt. Amazon verlangt bereits, dass Muse nicht mehr in seinem Shop einkaufen darf.",
+  "Nach über 20 % Kursplus seit dem Muse-Start steckt viel Hoffnung im Kurs. Die nächsten Zahlen kommen Ende Oktober 2026."
+ ],
+ "sorgen_art": "stimmung",
+ "sorgen_art_text": "Das Werbegeschäft wächst so schnell wie seit Jahren nicht (+27 %); die Sorgen betreffen die Kosten und ob sich die KI-Milliarden lohnen, und die Aktie ist nicht gefallen, sondern nahe am Jahreshoch.",
+ "aufloeser": [
+  {"was": "Umsatz am oberen Ende des Ausblicks (61–64 Mrd. $) und ein erster Kostenausblick für 2027, der nicht noch einmal stark steigt", "wann": "Zahlen 3. Quartal, voraussichtlich Ende Oktober 2026 (um den 28.10.)"},
+  {"was": "Meta nennt erste Zahlen zu Muse: aktive Nutzer und zahlende Abonnenten", "wann": "Zahlen Ende Oktober 2026 oder Anfang 2027"},
+  {"was": "Der Free Cashflow steigt wieder, weil die Investitionen langsamer wachsen als der Umsatz", "wann": "2027"}
+ ],
+ "schub_stufe": "mittel",
+ "schub_treiber": [
+  {"titel": "Muse: KI-Assistent mit Abo", "text": "Muse erledigt Aufgaben für den Nutzer (E-Mails, Reisen buchen, Einkäufe). Gratis-Version plus Abos für 20 $ und 100 $ pro Monat, bisher nur in den USA und Kanada. In den ersten 12 Tagen gab es laut Apptopia 2.8 Mio. Downloads. Jefferies rechnet mit rund 10.8 Mrd. $ Jahresumsatz, falls Muse bis Ende 2027 1 Mrd. Nutzer erreicht und 3 % zahlen. Das wären nur etwa 4–5 % des heutigen Meta-Umsatzes (rund 240 Mrd. $ pro Jahr, Q2 hochgerechnet).", "wann": "2027–2028"},
+  {"titel": "KI-gesteuerte Werbung", "text": "Die Werbeumsätze wuchsen im 2. Quartal um 27 % auf 59.4 Mrd. $, das stärkste Tempo seit Jahren. Für das 3. Quartal erwartet Meta 61–64 Mrd. $ Umsatz. Das ist aber schon das heutige Tempo, kein zusätzlicher neuer Treiber.", "wann": "laufend"}
+ ],
+ "schub_beweis": "Achte darauf, ob Meta Nutzer- oder Abozahlen zu Muse nennt, und ob das Umsatzwachstum über 20 % bleibt, während das Kostenwachstum (zuletzt +55 %) sinkt. Erst dann steigt der Gewinn wieder schneller als heute.",
+ "szenario": "Wie Google 2023 wäre es, wenn Muse zur meistgenutzten KI-App nach ChatGPT wird, wie J.P. Morgan es für möglich hält: Dann bekäme Meta neben Werbung eine zweite grosse Einnahmequelle, und die hohen KI-Kosten wären gerechtfertigt. Grösstes Risiko: Muse bleibt eine Spielerei oder wird von Händlern wie Amazon ausgesperrt, während die Kosten weiter steigen und der Free Cashflow nahe null bleibt.",
+ "quellen": [
+  {"titel": "Platform Aeronaut: META 2Q26 AI Summary (Quartalszahlen)", "url": "https://transcripts.platformaeronaut.com/summaries/META-2Q26-AI-Summary"},
+  {"titel": "The Star / Reuters: Wall Street expects Meta's AI agent to shape into a new revenue engine (22.09.2026)", "url": "https://www.thestar.com.my/tech/tech-news/2026/09/22/wall-street-expects-meta039s-ai-agent-to-shape-into-a-new-revenue-engine"}
+ ]
+}

@@ -1,0 +1,28 @@
+{
+ "ticker": "KO",
+ "sorgen": [
+  "Die Aktie ist nicht billig: Rund 25 erwartete Jahresgewinne statt dem eigenen Schnitt von 23. Gemessen am Betriebsgewinn ist Coca-Cola laut TIKR deutlich teurer als PepsiCo. Bei Enttäuschungen fehlt das Polster.",
+  "Ein Steuerstreit mit der US-Steuerbehörde IRS um Gewinnverschiebungen ins Ausland könnte laut TIKR für die Jahre 2010–2025 rund 14 Mrd. $ kosten.",
+  "Abnehmspritzen (GLP-1) könnten den Durst auf süsse Getränke senken, und eine Zuckersteuer in Mexiko belastet 2026 laut TIKR das Geschäft in Lateinamerika.",
+  "Grössere Anleger und Insider verkaufen seit August leise; der Kurs liegt weit über seinem langfristigen Durchschnitt."
+ ],
+ "sorgen_art": "stimmung",
+ "sorgen_art_text": "Das Geschäft läuft so gut wie lange nicht (Menge +5 %, Gewinn pro Aktie +16 % im 2. Quartal, Ausblick angehoben); die Sorgen betreffen vor allem den hohen Preis und mögliche, aber noch nicht sichtbare Risiken.",
+ "aufloeser": [
+  {"was": "Die Zahlen zum 3. Quartal bestätigen den erhöhten Ausblick (rund +5 % organisches Wachstum, +9 bis 10 % Gewinn pro Aktie)", "wann": "Zahlen am 27.10.2026, vor Börsenöffnung"},
+  {"was": "Der Verkauf des Abfüllers in Afrika (Coca-Cola Beverages Africa) wird abgeschlossen; das senkt zwar den Umsatz, hebt aber die Marge", "wann": "Laut Firma 2. Halbjahr 2026"},
+  {"was": "Klarheit im Steuerstreit mit der IRS (Gerichtsentscheid oder Einigung)", "wann": "Unklar, kein fester Termin bekannt"}
+ ],
+ "schub_stufe": "schwach",
+ "schub_treiber": [
+  {"titel": "Zuckerfreie Getränke und fairlife-Milch", "text": "Coca-Cola Zero Sugar wuchs im 1. Quartal 2026 weltweit um 13 % in der Menge. Schon 2024 waren rund 30 % der Menge kalorienarm oder -frei. Die Proteinmilch fairlife mit neuer Fabrik in Michigan könnte sogar von Abnehmspritzen profitieren. Das stützt das Wachstum, hebt es aber kaum über das heutige Tempo von rund 5 %.", "wann": "2026–2027"},
+  {"titel": "Schwellenländer", "text": "In Asien-Pazifik wuchs die Menge im 1. Quartal um 5 %. Mehr Menschen mit mittlerem Einkommen kaufen mehr Markengetränke. Das ist ein langsamer, stetiger Treiber, kein Sprung.", "wann": "langfristig"}
+ ],
+ "schub_beweis": "Achte auf das Mengenwachstum (zuletzt +5 %) und das organische Umsatzwachstum (Ziel 2026: rund +5 %). Liegt die Menge über mehrere Quartale bei +4 % oder mehr, ohne dass nur die Preise steigen, wächst Coca-Cola stärker als ein typischer Getränkeriese.",
+ "szenario": "Kein «Google 2023»-Fall: Coca-Cola ist kein verkanntes Wachstumsunternehmen, sondern eine sehr stabile Qualitätsfirma, die um 5 % beim Umsatz und um 9–10 % beim Gewinn wächst. Die Chance liegt eher darin, sie bei einem Rücksetzer günstiger zu kaufen. Grösstes Risiko: Ein teurer Ausgang des Steuerstreits oder ein schwächeres Wachstum lässt die hohe Bewertung schrumpfen, auch wenn das Geschäft solide bleibt.",
+ "quellen": [
+  {"titel": "FoodNavigator: Coca-Cola raises 2026 guidance after Q2 volume, revenue and profit growth (28.07.2026)", "url": "https://www.foodnavigator.com/Article/2026/07/28/coca-cola-raises-2026-guidance-after-q2-volume-revenue-and-profit-growth/"},
+  {"titel": "TIKR: Coca-Cola's New CEO Just Laid Out His Playbook (11.05.2026)", "url": "https://www.tikr.com/blog/coca-cola-new-ceo-just-laid-out-his-playbook-heres-what-it-means-for-ko-investors-in-2026"},
+  {"titel": "Finviz: The Coca-Cola Company Announces Timing of Third Quarter 2026 Earnings Release", "url": "https://finviz.com/news/396637/the-coca-cola-company-announces-timing-of-third-quarter-2026-earnings-release"}
+ ]
+}

@@ -1,0 +1,29 @@
+{
+ "ticker": "BN",
+ "sorgen": [
+  "China verliert an Tempo: Die Region China/Nordasien wuchs im 2. Quartal nur noch 3.6 %, nach 10.3 % im Quartal davor. Die Bank Jefferies sieht die sinkenden Geburtenraten in China als dauerhaftes Risiko für Babynahrung und stufte die Aktie Ende Juli auf «Underperform» (schlechter als der Markt) herab.",
+  "In den USA verliert Danone Marktanteile, vor allem bei griechischem Joghurt, und muss mehr über Aktionen (Rabatte) verkaufen. Laut Danone ist die Wende dort erst am Anfang.",
+  "Am 30.07.2026 fiel die Aktie trotz guter Zahlen um rund 4 %, weil die Menge mit +1.9 % schwächer war als erwartet. Mitte September stand die Aktie bei rund 61 €, seit Jahresbeginn rund 20 % tiefer.",
+  "Dazu kamen 2026 ein Rückruf von Babymilch in Europa und Lieferprobleme wegen des Iran-Kriegs, die das Wachstum im 1. Quartal gebremst haben."
+ ],
+ "sorgen_art": "gemischt",
+ "sorgen_art_text": "Marge und Gewinn steigen weiter (Halbjahr: Reingewinn +13 %, Marge 13.3 %), aber die Probleme in den USA und in China sind echt; ob sie vorübergehend oder dauerhaft sind, ist noch offen.",
+ "aufloeser": [
+  {"was": "China wächst trotz schwerem Vorjahresvergleich (3. Quartal 2025: +9 % in Asien) weiter, und Nordamerika zeigt erste echte Fortschritte bei den Marktanteilen", "wann": "Umsatz 3. Quartal, 28.10.2026"},
+  {"was": "Danone erreicht das Jahresziel (+3 bis +5 % Wachstum, Betriebsgewinn steigt schneller als der Umsatz) und der freie Cashflow erholt sich nach −27 % im 1. Halbjahr", "wann": "Jahreszahlen, voraussichtlich Februar 2027"},
+  {"was": "Die Probleme bei Babymilch in Europa sind laut Firma gelöst; jetzt muss das Vertrauen der Kundschaft zurückkommen", "wann": "2. Halbjahr 2026 bis 2027"}
+ ],
+ "schub_stufe": "mittel",
+ "schub_treiber": [
+  {"titel": "Protein und Darmgesundheit", "text": "Danone setzt auf Produkte mit viel Protein (z. B. Oikos-Joghurt) und auf Darmgesundheit. Dafür kaufte Danone 2025 The Akkermansia Company (Bakterien für die Darmflora) und Kate Farms (pflanzliche medizinische Ernährung, USA). Diese Firmen zählen ab dem 3. Quartal 2026 zum vergleichbaren Wachstum. Der Trend ist echt, aber im Verhältnis zum Konzern noch klein.", "wann": "2026–2028"},
+  {"titel": "Zukauf von Huel (Mahlzeitenersatz)", "text": "Seit September 2026 gehört Huel zu Danone. Kaufpreis laut Berichten rund 1 Mrd. €, Umsatz rund 250 Mio. £ (2025) mit rund 16 % Wachstum pro Jahr. Das ist ein schnell wachsendes Geschäft, macht aber nur rund 1 % des Danone-Umsatzes aus.", "wann": "ab 4. Quartal 2026"}
+ ],
+ "schub_beweis": "Achte auf die Menge (Volumen/Mix, zuletzt +1.7 % im 1. Halbjahr) und auf Nordamerika (zuletzt +2.6 %). Steigen beide klar über 2–3 %, greifen die neuen Produkte wirklich.",
+ "szenario": "Kein Fall wie Google 2023, eher eine Wette auf eine Beruhigung: Wenn China stabil bleibt und die USA wieder Marktanteile gewinnen, kann die Börse Danone wieder zum eigenen Schnitt bewerten (KGV 16.6 statt 14.6), dazu 3.8 % Dividende. Grösstes Risiko: Weniger Geburten in China und der Joghurt-Wettbewerb in den USA bremsen dauerhaft, dann bleibt Danone eine langsam wachsende Firma.",
+ "quellen": [
+  {"titel": "Danone: Q3 2026 Sales Aide-Mémoire (GlobeNewswire, 01.10.2026)", "url": "https://www.globenewswire.com/news-release/2026/10/01/3373181/0/en/danone-q3-2026-sales-aide-mémoire.html"},
+  {"titel": "DairyNews: Danone's Growth Fails to Prevent Stock Decline Amid China Concerns (30.07.2026)", "url": "https://dairynews.today/news/danone_s_growth_fails_to_prevent_stock_decline_amid_china_concerns_6416305.html"},
+  {"titel": "MarketScreener: Deutsche Bank trims Danone price target, maintains Sell rating (07.04.2026)", "url": "https://www.marketscreener.com/news/deutsche-bank-trims-danone-price-target-maintains-sell-rating-ce7e51d3dd89f226"},
+  {"titel": "BeverageDaily: Danone's €1bn Huel deal (23.03.2026)", "url": "https://www.beveragedaily.com/Article/2026/03/23/danones-1bn-huel-deal-why-the-multinational-is-betting-big-on-meal-replacements"}
+ ]
+}

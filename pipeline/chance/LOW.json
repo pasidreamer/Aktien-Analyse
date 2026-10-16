@@ -1,0 +1,31 @@
+{
+ "ticker": "LOW",
+ "sorgen": [
+  "Der US-Häusermarkt steht still: Laut Bank of America werden so wenige Häuser verkauft wie seit Jahrzehnten nicht mehr, weil die Hypothekarzinsen hoch sind. Wer nicht umzieht, renoviert weniger.",
+  "Im 2. Quartal stiegen die vergleichbaren Umsätze nur um 0.2 %. Mit den Zahlen im August 2026 hat Lowe's den Ausblick gesenkt: vergleichbare Umsätze 2026 nur noch flach, Gewinn pro Aktie bereinigt rund 12.25 $ (vorher bis 12.75 $). Der Chef spricht von «Druck bei den Heimwerker-Ausgaben».",
+  "Die Zukäufe FBM und ADG haben die Schulden erhöht (rund 3 Jahre Betriebsgewinn) und drücken die Marge. Die Bruttomarge sank im 1. Quartal um 0.7 Prozentpunkte auf 32.7 %.",
+  "Der Kurs ist seit dem Hoch im Februar (286 $) um rund 39 % gefallen."
+ ],
+ "sorgen_art": "gemischt",
+ "sorgen_art_text": "Die Schwäche kommt vor allem vom Zinsumfeld und dem Häusermarkt, also eher vorübergehend; Marge und Rendite auf das Kapital sinken aber schon seit 2023 und die Schulden sind gestiegen.",
+ "aufloeser": [
+  {"was": "Zahlen zum 3. Quartal zeigen, dass der gesenkte Ausblick hält und die vergleichbaren Umsätze nicht ins Minus drehen", "wann": "Zahlen voraussichtlich Mitte bis Ende November 2026"},
+  {"was": "Sinkende Hypothekarzinsen bringen wieder mehr Hausverkäufe und damit mehr Renovationen", "wann": "2027, abhängig von der US-Notenbank"},
+  {"was": "Das neue Wohnbau-Gesetz (ROAD to Housing Act, seit Juli 2026 in Kraft) soll den Bau neuer Häuser erleichtern. Mehr Neubau hilft dem Geschäft mit Profis und Baustoffen.", "wann": "2027–2028"},
+  {"was": "Die Integration von FBM und ADG zeigt erste Einsparungen; Lowe's will 2026 rund 1 Mrd. $ an Effizienz gewinnen", "wann": "Zahlen 4. Quartal, Ende Februar 2027"}
+ ],
+ "schub_stufe": "mittel",
+ "schub_treiber": [
+  {"titel": "Neuer Markt durch FBM und ADG", "text": "Mit den Zukäufen verkauft Lowe's jetzt auch Gipsplatten, Dämmung, Küchenschränke und Böden direkt an Bauprofis. Laut Firma öffnet das einen Markt von rund 250 Mrd. $, in dem Lowe's vorher keinen Umsatz hatte. Ob das profitabel gelingt, ist noch nicht bewiesen.", "wann": "2026–2028"},
+  {"titel": "Erholung des Häusermarkts", "text": "Die US-Häuser sind im Schnitt alt und brauchen Pflege. Wenn die Zinsen sinken und wieder mehr Häuser verkauft werden, kommen die grossen, margenstarken Renovationsprojekte zurück. Das liegt aber ausserhalb der Kontrolle von Lowe's.", "wann": "2027–2028"},
+  {"titel": "Online-Handel", "text": "Die Online-Umsätze wuchsen im 2. Quartal um 15.7 %. Das ist gut, aber im Verhältnis zum Gesamtgeschäft noch zu klein, um das Wachstum allein zu drehen.", "wann": "laufend"}
+ ],
+ "schub_beweis": "Achte bei jeden Zahlen auf die vergleichbaren Umsätze (zuletzt +0.2 %) und die operative Marge (Ziel 2026: 11.6 % bereinigt). Steigen die vergleichbaren Umsätze über +2 % und die Marge wieder, beginnt die Wende.",
+ "szenario": "Kein Technik-Fall wie Google 2023, sondern eine klassische Zyklus-Wette: Heute ist die Stimmung am Boden, die Aktie mit KGV 15 statt üblich rund 20 günstig. Drehen Zinsen und Häusermarkt und zahlen sich die Zukäufe aus, kann Gewinn und Bewertung gleichzeitig steigen. Grösstes Risiko: Der Häusermarkt bleibt jahrelang blockiert, während die Schulden aus den Zukäufen und sinkende Margen den Gewinn weiter drücken.",
+ "quellen": [
+  {"titel": "Insight DIY: Lowe's reports flat Q2 sales, reduces guidance (August 2026)", "url": "https://www.insightdiy.co.uk/news/lowes-reports-flat-q2-sales-reduces-guidance/16777.htm"},
+  {"titel": "Yahoo Finance: Lowe's Just Got Yanked From the BofA Buy List (05.05.2026)", "url": "https://finance.yahoo.com/markets/stocks/articles/lowe-just-got-yanked-bofa-153726097.html"},
+  {"titel": "TIKR: Lowe's Stock Has Fallen 22% From Its Peak. Could the New Housing Bill Make 2026 the Turning Point? (29.06.2026)", "url": "https://www.tikr.com/blog/lowes-stock-has-fallen-22-from-its-peak-could-the-new-housing-bill-make-2026-the-turning-point"},
+  {"titel": "ABC7: Bipartisan housing bill becomes law without Trump's signature (12.07.2026)", "url": "https://abc7chicago.com/amp/post/president-donald-trump-lets-bipartisan-housing-bill-become-law-signing-protest-gop-voter-id/19489190/"}
+ ]
+}

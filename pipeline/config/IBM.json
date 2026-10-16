@@ -1,0 +1,400 @@
+{
+ "ticker": "IBM",
+ "name": "IBM",
+ "datum": "05.10.2026",
+ "meta": "International Business Machines · NYSE: IBM · Software (Red Hat), Beratung, Grossrechner, Quantencomputer · USA",
+ "price": "221.58 $",
+ "pricemeta": "Schluss 05.10.2026 · Rekordhoch 02.06.2026: 332.50 $ · −33 % seither",
+ "verdict": "Nach einem Kursfeuerwerk im Mai kam im Juli der grösste Tagesverlust der Firmengeschichte. Das Geschäft wächst langsam, die Schulden sind hoch. Qualität gelb, Timing orange. Der Kurs liegt auf der EMA 200 (Woche), aber die A/D-Linie zeigt Abgaben. Abwarten.",
+ "about": "IBM verdient heute vor allem mit Software (Red Hat, Datenbanken, Automatisierung, KI-Plattform watsonx), mit IT-Beratung und mit Grossrechnern (IBM Z) für Banken und Versicherungen. Dazu baut IBM Quantencomputer. Ende 2025 kam der Daten-Streaming-Spezialist Confluent dazu.",
+ "why": "Im Mai stieg die Aktie innerhalb eines Monats um rund 44 % auf ein Rekordhoch. Auslöser waren ein Milliardenprogramm für Quantenchips mit Unterstützung der US-Regierung und optimistische Analysten. Am 14. Juli warnte IBM dann vor schwachen Zahlen: Kunden steckten ihr Budget in knappe KI-Hardware (Server, Speicher) statt in Software. Die Aktie fiel um 25 %, der grösste Tagesverlust ihrer Geschichte. Die Zahlen zeigten: Umsatz 17.2 Mrd. $ (Erwartung 17.86 Mrd.), Software +5 % (Vorquartal +11 %), Grossrechner −7 %, Beratung +1 %.",
+ "kpis": [
+  [
+   "w",
+   "Umsatzwachstum",
+   "+7.9 %",
+   "Letzte 12 Monate, teils durch Übernahmen. Im 2. Quartal nur noch +1 %."
+  ],
+  [
+   "g",
+   "Operative Marge",
+   "18.5 %",
+   "Von 100 $ Umsatz bleiben gut 18 $. Seit 2022 (12.4 %) deutlich gestiegen."
+  ],
+  [
+   "w",
+   "Gewinn pro Aktie",
+   "+5 %",
+   "Bereinigt im 2. Quartal (2.93 $). Ausgewiesen verzerrt durch Sondereffekte."
+  ],
+  [
+   "w",
+   "ROIC",
+   "14 %",
+   "Mittelmässig, aber steigend (2021: 8 %)."
+  ],
+  [
+   "g",
+   "Free Cashflow",
+   "13.8 Mrd. $",
+   "Stabil hoch. Free-Cashflow-Rendite 6.6 %."
+  ],
+  [
+   "b",
+   "Nettoschulden / EBITDA",
+   "3.5",
+   "Hoch, nach der Confluent-Übernahme rund 66 Mrd. $ Schulden."
+  ],
+  [
+   "w",
+   "KGV erwartet",
+   "17.4",
+   "Eigener Schnitt 2021–2025: rund 18. Fair bewertet."
+  ],
+  [
+   "g",
+   "Dividende",
+   "3.0 %",
+   "Hoch und seit Jahrzehnten steigend, aber 60 % des Gewinns."
+  ]
+ ],
+ "revnote": "Jedes Quartal über Vorjahr, das 2. Quartal 2026 aber nur noch +1 %.",
+ "marginnote": "Seit 2022 deutlich gestiegen, weil Software einen grösseren Anteil hat.",
+ "finnote": "<b>Hinweis:</b> Das ausgewiesene EPS schwankt stark (2022 Abspaltung von Kyndryl, 2024 Pensions-Sondereffekte). Darum vergleiche ich das erwartete KGV auf bereinigtem Gewinn. Aktienzahl steigt leicht (Verwässerung 1.3 % pro Jahr).",
+ "FIN": [
+  [
+   "2022",
+   60530,
+   "+5.5 %",
+   "12.4 %",
+   1.79,
+   9089,
+   "11.2 %",
+   "77.7"
+  ],
+  [
+   "2023",
+   61860,
+   "+2.2 %",
+   "15.2 %",
+   8.14,
+   12686,
+   "11.9 %",
+   "19.9"
+  ],
+  [
+   "2024",
+   62753,
+   "+1.4 %",
+   "15.6 %",
+   6.43,
+   12397,
+   "14.0 %",
+   "33.8"
+  ],
+  [
+   "2025",
+   67535,
+   "+7.6 %",
+   "18.7 %",
+   11.16,
+   12102,
+   "16.4 %",
+   "26.1"
+  ],
+  [
+   "Letzte 12 Mt.",
+   69095,
+   "+7.9 %",
+   "18.5 %",
+   11.27,
+   13790,
+   "14.0 %",
+   "19.8"
+  ]
+ ],
+ "QREV": [
+  [
+   "Q3 24",
+   14.97
+  ],
+  [
+   "Q4 24",
+   17.55
+  ],
+  [
+   "Q1 25",
+   14.54
+  ],
+  [
+   "Q2 25",
+   16.98
+  ],
+  [
+   "Q3 25",
+   16.33
+  ],
+  [
+   "Q4 25",
+   19.69
+  ],
+  [
+   "Q1 26",
+   15.92
+  ],
+  [
+   "Q2 26",
+   17.16
+  ]
+ ],
+ "MARGIN": [
+  [
+   "2022",
+   12.4
+  ],
+  [
+   "2023",
+   15.2
+  ],
+  [
+   "2024",
+   15.6
+  ],
+  [
+   "2025",
+   18.7
+  ],
+  [
+   "12 Mt.",
+   18.5
+  ]
+ ],
+ "Q": [
+  [
+   "Umsatztrend",
+   "4 von 4 Quartalen über Vorjahr, Tempo bricht ein",
+   12,
+   15
+  ],
+  [
+   "Wachstumstempo",
+   "+7.9 %, teils durch Übernahmen",
+   6,
+   10
+  ],
+  [
+   "Operative Marge",
+   "18.5 % (6 Pkt.), steigend (6 Pkt.)",
+   12,
+   15
+  ],
+  [
+   "Gewinnwachstum (EPS)",
+   "Bereinigt rund +5 %",
+   5,
+   10
+  ],
+  [
+   "Free Cashflow",
+   "Positiv, schwankend",
+   6,
+   10
+  ],
+  [
+   "ROIC",
+   "14 %, steigend (+1)",
+   7,
+   15
+  ],
+  [
+   "Schulden",
+   "Nettoschulden/EBITDA 3.5",
+   2,
+   10
+  ],
+  [
+   "Bewertung vs. eigene Historie",
+   "Erw. KGV 17.4 vs. Ø rund 18 (±10 %)",
+   7,
+   15
+  ]
+ ],
+ "adwnote": "Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Heute auf dem tiefsten Stand der zwei Jahre, obwohl der Kurs über dem Juli-Tief liegt.",
+ "rsiwnote": "Unter 30 überverkauft, über 70 überkauft. Heute 42: schwach, ohne Signal.",
+ "addnote": "Seit Mitte September fällt die Tages-A/D steil, tiefer als am Crash-Tief im Juli. Der Kurs liegt aber 10 % höher. Das ist eine bärische Divergenz: Es wird verteilt.",
+ "ind": [
+  [
+   "Kurs vs. EMA 50",
+   "221.6 &lt; 234.0",
+   "221.6 &lt; 249.9",
+   "Unter der mittelfristigen Linie."
+  ],
+  [
+   "Kurs vs. EMA 200",
+   "221.6 &lt; 249.8",
+   "221.6 &gt; 220.3",
+   "Woche genau auf der langfristigen Linie: Hier entscheidet sich viel."
+  ],
+  [
+   "EMA 50 vs. EMA 200",
+   "50 unter 200 (seit 16.7.)",
+   "50 über 200",
+   "Tag im Abwärtstrend, Woche noch im Aufwärtstrend."
+  ],
+  [
+   "RSI (14)",
+   "40.6",
+   "42.3",
+   "Schwach, keine Divergenz."
+  ],
+  [
+   "A/D",
+   "bärische Divergenz",
+   "2-Jahres-Tief",
+   "Verkaufsdruck."
+  ],
+  [
+   "Volumen",
+   "Ø 20 Tage 6.1 Mio. vs. Ø 100 Tage 9.1 Mio.",
+   "Ruhiger als im Sommer."
+  ]
+ ],
+ "smc": "Nach dem Crash im Juli (Tief 199.20 $) erholte sich IBM bis 251.80 $ (15.9.). Danach fiel der Kurs auf 218.60 $ (30.9.) und damit unter das August-Tief (227.40 $). Die Struktur ist eine Spanne zwischen 199 und 252 $ ohne klare Richtung. Der Kurs steht im unteren Drittel. Das letzte tiefere Hoch liegt bei 234.30 $ (1.10.).",
+ "zones": [
+  [
+   "r",
+   "249–252 $",
+   "Widerstand: EMA 200 (Tag) und Hoch vom 15.9."
+  ],
+  [
+   "t",
+   "234.30 $",
+   "<b>Trigger: Change of Character.</b> Tagesschluss über dem Hoch vom 1.10."
+  ],
+  [
+   "s",
+   "218–221 $",
+   "Unterstützung: Tief vom 30.9. und EMA 200 (Woche)."
+  ],
+  [
+   "s",
+   "199–206 $",
+   "Crash-Tief vom Juli."
+  ],
+  [
+   "r",
+   "199 $",
+   "Abbruch: Wochenschluss darunter, dann ist der langfristige Trend gebrochen."
+  ]
+ ],
+ "smart": [
+  "<b>IBM selbst:</b> Kein Rückkauf, die Aktienzahl steigt leicht. Dividende 3.0 %.",
+  "<b>Insider-Käufe:</b> Drei Verwaltungsräte kauften im Januar/Februar 2026 für zusammen 417'000 $. Das ist über 6 Monate her.",
+  "<b>Insider-Verkäufe:</b> Software-Chef Rob Thomas verkaufte am 26.8. für 5.8 Mio. $.",
+  "<b>Analysten:</b> Durchschnittliches Kursziel 241 $, Einstufung „Buy“."
+ ],
+ "seasnote": "Durchschnittliche Monatsrendite in %, 56 Jahre. November ist mit 63 % positiven Jahren der beste Monat, Oktober eher schwach.",
+ "T": [
+  [
+   "Trend Woche (EMA 50/200)",
+   "Kurs unter EMA 50, genau auf EMA 200",
+   12,
+   20
+  ],
+  [
+   "Trend Tag (EMA 50/200)",
+   "Kurs unter beiden, Death Cross",
+   1,
+   10
+  ],
+  [
+   "Struktur (SMC)",
+   "Spanne 199–252 $, Kurs im unteren Drittel",
+   8,
+   20
+  ],
+  [
+   "RSI Tag/Woche",
+   "41 / 42: ohne Signal",
+   7,
+   15
+  ],
+  [
+   "A/D Tag/Woche",
+   "Bärische Divergenz, Woche auf 2-Jahres-Tief",
+   1,
+   20
+  ],
+  [
+   "Smart Money",
+   "Kein Rückkauf, Käufe über 6 Monate her",
+   2,
+   10
+  ],
+  [
+   "Saisonalität",
+   "Okt–Dez: Ø 55 % positive Jahre",
+   3,
+   5
+  ]
+ ],
+ "pro": [
+  "Hoher Free Cashflow (6.6 % Rendite) und 3 % Dividende.",
+  "Marge steigt seit Jahren, Red Hat wächst weiter zweistellig.",
+  "Quantencomputer als Zukunftsoption mit staatlicher Unterstützung.",
+  "Bewertung fair, Kurs auf der langfristigen Trendlinie (EMA 200 Woche)."
+ ],
+ "con": [
+  "Wachstum bricht ein: Kunden kaufen KI-Hardware statt Software.",
+  "Hohe Schulden (Nettoschulden 3.5 × EBITDA).",
+  "A/D zeigt Verteilung: Grosse Anleger steigen aus.",
+  "Death Cross auf dem Tageschart.",
+  "Aktienzahl steigt statt sinkt."
+ ],
+ "todo": [
+  [
+   "t",
+   "Beobachten",
+   "Alarm bei 234.30 $ (Trigger) und bei 218 $ (Unterstützung)."
+  ],
+  [
+   "s",
+   "Timing grün",
+   "Kurs hält 218–221 $, Tages-A/D dreht nach oben, danach Tagesschluss über 234.30 $."
+  ],
+  [
+   "r",
+   "Abbruch",
+   "Wochenschluss unter 199 $."
+  ],
+  [
+   "",
+   "Nächste Zahlen",
+   "21. Oktober 2026 nach Börsenschluss (3. Quartal). Entscheidend: Software-Wachstum."
+  ]
+ ],
+ "bands": [
+  {
+   "from": 249,
+   "to": 252,
+   "type": "res"
+  },
+  {
+   "from": 218,
+   "to": 221,
+   "type": "sup"
+  },
+  {
+   "from": 199,
+   "to": 206,
+   "type": "sup"
+  }
+ ],
+ "refs": [
+  {
+   "v": 234.3,
+   "label": "Trigger 234.30"
+  }
+ ],
+ "sources": "<a href=\"https://stockanalysis.com/stocks/ibm/financials/\" target=\"_blank\" rel=\"noopener\">StockAnalysis.com</a> (Stand 05.10.2026), <a href=\"https://www.indmoney.com/blog/us-stocks/why-is-ibm-stock-falling-q2-earnings-analysis\" target=\"_blank\" rel=\"noopener\">Q2-Zahlen (INDmoney)</a>, <a href=\"https://www.fool.com/coverage/stock-market-today/2026/07/14/stock-market-today-july-14-ibm-slides-after-profit-warning-weighs-on-dow/\" target=\"_blank\" rel=\"noopener\">Gewinnwarnung (Motley Fool)</a>, <a href=\"https://247wallst.com/investing/2026/06/04/ibm-set-records-delivered-44-gains-in-a-single-month-as-trump-clip-resurfaces/\" target=\"_blank\" rel=\"noopener\">Rally im Mai (24/7 Wall St.)</a>, <a href=\"https://www.marketbeat.com/stocks/NYSE/IBM/insider-trades/\" target=\"_blank\" rel=\"noopener\">Insider (MarketBeat)</a>."
+}
