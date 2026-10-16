@@ -31,7 +31,7 @@
    "netto_schulden": 1.06,
    "schulden": 3.54,
    "cash": 2.49,
-   "boersenwert_chf": 77.8,
+   "boersenwert_chf": 77.9,
    "k": {
     "wachstum": 112.3,
     "steigende_jahre": 3,
@@ -50,10 +50,6 @@
     [
      "Aktienrückkäufe",
      63
-    ],
-    [
-     "Neue Schulden",
-     -2
     ]
    ],
    "p": {
@@ -97,7 +93,7 @@
    "netto_schulden": 4.45,
    "schulden": 12.08,
    "cash": 7.63,
-   "boersenwert_chf": 121.4,
+   "boersenwert_chf": 121.5,
    "k": {
     "wachstum": 192.5,
     "steigende_jahre": 3,
@@ -116,10 +112,6 @@
     [
      "Aktienrückkäufe",
      38
-    ],
-    [
-     "Neue Schulden",
-     -2
     ]
    ],
    "p": {
@@ -169,7 +161,7 @@
     "steigende_jahre": 3,
     "jahre_n": 3,
     "marge": 23.9,
-    "rendite": 4.43,
+    "rendite": 4.42,
     "schulden_jahre": 3.08,
     "aktien_pa": -1.65,
     "rueckgabe": 97.0,
@@ -188,8 +180,8 @@
      52
     ],
     [
-     "Neue Schulden",
-     -4
+     "zusätzlich neue Schulden aufgenommen",
+     4
     ]
    ],
    "p": {
@@ -233,7 +225,7 @@
    "netto_schulden": -67.55,
    "schulden": 59.29,
    "cash": 126.84,
-   "boersenwert_chf": 3477.9,
+   "boersenwert_chf": 3481.0,
    "k": {
     "wachstum": 6.9,
     "steigende_jahre": 3,
@@ -258,8 +250,8 @@
      6
     ],
     [
-     "Neue Schulden",
-     -11
+     "zusätzlich neue Schulden aufgenommen",
+     11
     ]
    ],
    "p": {
@@ -303,7 +295,7 @@
    "netto_schulden": -19.82,
    "schulden": 56.83,
    "cash": 76.65,
-   "boersenwert_chf": 3301.4,
+   "boersenwert_chf": 3304.4,
    "k": {
     "wachstum": 4.0,
     "steigende_jahre": 1,
@@ -373,7 +365,7 @@
    "netto_schulden": 6.17,
    "schulden": 25.17,
    "cash": 19.0,
-   "boersenwert_chf": 634.1,
+   "boersenwert_chf": 634.6,
    "k": {
     "wachstum": 6.5,
     "steigende_jahre": 2,
@@ -398,8 +390,8 @@
      20
     ],
     [
-     "Neue Schulden",
-     -5
+     "zusätzlich neue Schulden aufgenommen",
+     5
     ]
    ],
    "p": {
@@ -443,7 +435,7 @@
    "netto_schulden": -7.11,
    "schulden": 8.17,
    "cash": 15.28,
-   "boersenwert_chf": 357.1,
+   "boersenwert_chf": 357.5,
    "k": {
     "wachstum": 30.8,
     "steigende_jahre": 2,
@@ -513,7 +505,7 @@
    "netto_schulden": -3.88,
    "schulden": 2.4,
    "cash": 6.28,
-   "boersenwert_chf": 128.2,
+   "boersenwert_chf": 128.3,
    "k": {
     "wachstum": 27.8,
     "steigende_jahre": 3,
@@ -532,10 +524,6 @@
     [
      "Aktienrückkäufe",
      24
-    ],
-    [
-     "Schuldenabbau",
-     1
     ]
    ],
    "p": {
@@ -579,7 +567,7 @@
    "netto_schulden": 11.76,
    "schulden": 15.86,
    "cash": 4.1,
-   "boersenwert_chf": 92.4,
+   "boersenwert_chf": 92.5,
    "k": {
     "wachstum": 28.1,
     "steigende_jahre": 3,
@@ -600,8 +588,8 @@
      36
     ],
     [
-     "Neue Schulden",
-     -20
+     "zusätzlich neue Schulden aufgenommen",
+     20
     ]
    ],
    "p": {
@@ -645,7 +633,7 @@
    "netto_schulden": 2.31,
    "schulden": 83.9,
    "cash": 81.59,
-   "boersenwert_chf": 1535.4,
+   "boersenwert_chf": 1536.8,
    "k": {
     "wachstum": 33.7,
     "steigende_jahre": 2,
@@ -670,8 +658,8 @@
      6
     ],
     [
-     "Neue Schulden",
-     -32
+     "zusätzlich neue Schulden aufgenommen",
+     32
     ]
    ],
    "p": {
@@ -715,7 +703,7 @@
    "netto_schulden": 29.69,
    "schulden": 45.49,
    "cash": 15.81,
-   "boersenwert_chf": 326.0,
+   "boersenwert_chf": 326.3,
    "k": {
     "wachstum": -17.8,
     "steigende_jahre": 2,
@@ -740,8 +728,8 @@
      112
     ],
     [
-     "Neue Schulden",
-     -12
+     "zusätzlich neue Schulden aufgenommen",
+     12
     ]
    ],
    "p": {
@@ -810,8 +798,8 @@
      58
     ],
     [
-     "Neue Schulden",
-     -14
+     "zusätzlich neue Schulden aufgenommen",
+     14
     ]
    ],
    "p": {
@@ -855,7 +843,7 @@
    "netto_schulden": 25.08,
    "schulden": 35.03,
    "cash": 9.94,
-   "boersenwert_chf": 300.7,
+   "boersenwert_chf": 301.0,
    "k": {
     "wachstum": 3.2,
     "steigende_jahre": 2,
@@ -878,10 +866,6 @@
     [
      "Dividenden",
      65
-    ],
-    [
-     "Neue Schulden",
-     -2
     ]
    ],
    "p": {
@@ -925,7 +909,7 @@
    "netto_schulden": 40.37,
    "schulden": 49.9,
    "cash": 9.53,
-   "boersenwert_chf": 144.6,
+   "boersenwert_chf": 144.8,
    "k": {
     "wachstum": 11.0,
     "steigende_jahre": 2,
@@ -950,8 +934,8 @@
      98
     ],
     [
-     "Neue Schulden",
-     -30
+     "zusätzlich neue Schulden aufgenommen",
+     30
     ]
    ],
    "p": {
@@ -995,7 +979,7 @@
    "netto_schulden": 27.83,
    "schulden": 47.93,
    "cash": 20.1,
-   "boersenwert_chf": 502.5,
+   "boersenwert_chf": 502.9,
    "k": {
     "wachstum": 4.0,
     "steigende_jahre": 3,
@@ -1020,8 +1004,8 @@
      66
     ],
     [
-     "Neue Schulden",
-     -34
+     "zusätzlich neue Schulden aufgenommen",
+     34
     ]
    ],
    "p": {
@@ -1065,7 +1049,7 @@
    "netto_schulden": 50.19,
    "schulden": 64.61,
    "cash": 14.42,
-   "boersenwert_chf": 180.7,
+   "boersenwert_chf": 180.9,
    "k": {
     "wachstum": 10.6,
     "steigende_jahre": 1,
@@ -1090,8 +1074,8 @@
      56
     ],
     [
-     "Neue Schulden",
-     -17
+     "zusätzlich neue Schulden aufgenommen",
+     17
     ]
    ],
    "p": {
@@ -1135,7 +1119,7 @@
    "netto_schulden": -0.58,
    "schulden": 3.52,
    "cash": 4.1,
-   "boersenwert_chf": 91.7,
+   "boersenwert_chf": 91.8,
    "k": {
     "wachstum": null,
     "steigende_jahre": 3,
@@ -1156,8 +1140,8 @@
      0
     ],
     [
-     "Neue Schulden",
-     -325
+     "zusätzlich neue Schulden aufgenommen",
+     325
     ]
    ],
    "p": {
@@ -1201,13 +1185,13 @@
    "netto_schulden": 22.59,
    "schulden": 27.6,
    "cash": 5.01,
-   "boersenwert_chf": 116.7,
+   "boersenwert_chf": 116.9,
    "k": {
     "wachstum": 6.6,
     "steigende_jahre": 1,
     "jahre_n": 3,
     "marge": 13.9,
-    "rendite": 5.57,
+    "rendite": 5.56,
     "schulden_jahre": 3.22,
     "aktien_pa": -1.19,
     "rueckgabe": 83.0,
@@ -1224,10 +1208,6 @@
     [
      "Dividenden",
      62
-    ],
-    [
-     "Neue Schulden",
-     -1
     ]
    ],
    "p": {
@@ -1296,8 +1276,8 @@
      36
     ],
     [
-     "Neue Schulden",
-     -53
+     "zusätzlich neue Schulden aufgenommen",
+     53
     ]
    ],
    "p": {
@@ -1347,7 +1327,7 @@
     "steigende_jahre": 2,
     "jahre_n": 3,
     "marge": 8.8,
-    "rendite": 6.21,
+    "rendite": 6.19,
     "schulden_jahre": 3.24,
     "aktien_pa": 0.29,
     "rueckgabe": 56.0,
@@ -1411,7 +1391,7 @@
    "netto_schulden": 51.92,
    "schulden": 57.85,
    "cash": 5.93,
-   "boersenwert_chf": 210.4,
+   "boersenwert_chf": 210.5,
    "k": {
     "wachstum": 18.9,
     "steigende_jahre": 3,
@@ -1436,8 +1416,8 @@
      82
     ],
     [
-     "Neue Schulden",
-     -40
+     "zusätzlich neue Schulden aufgenommen",
+     40
     ]
    ],
    "p": {
@@ -1481,7 +1461,7 @@
    "netto_schulden": -29.34,
    "schulden": 14.72,
    "cash": 44.06,
-   "boersenwert_chf": 1120.1,
+   "boersenwert_chf": 1121.1,
    "k": {
     "wachstum": -6.3,
     "steigende_jahre": 1,
@@ -1498,8 +1478,8 @@
    },
    "verwendung": [
     [
-     "Neue Schulden",
-     -5
+     "zusätzlich neue Schulden aufgenommen",
+     5
     ]
    ],
    "p": {
@@ -1549,7 +1529,7 @@
     "steigende_jahre": 3,
     "jahre_n": 3,
     "marge": 29.5,
-    "rendite": 5.64,
+    "rendite": 5.61,
     "schulden_jahre": 0,
     "aktien_pa": -0.42,
     "rueckgabe": 18.0,
@@ -1605,7 +1585,7 @@
    "netto_schulden": -5.93,
    "schulden": 0.0,
    "cash": 5.93,
-   "boersenwert_chf": 125.2,
+   "boersenwert_chf": 125.3,
    "k": {
     "wachstum": 37.5,
     "steigende_jahre": 2,
@@ -1618,7 +1598,7 @@
     "abbau": 0.0,
     "verlustjahre": 0,
     "sbc": 47.0,
-    "deckung": null
+    "deckung": 0.66
    },
    "verwendung": [
     [
@@ -1632,9 +1612,9 @@
     "rendite": 5,
     "schulden": 20,
     "verwendung": 10,
-    "nachhaltig": 4
+    "nachhaltig": 6
    },
-   "score": 74
+   "score": 76
   },
   "BSX": {
    "waehrung": "USD",
@@ -1667,7 +1647,7 @@
    "netto_schulden": 9.47,
    "schulden": 11.44,
    "cash": 1.97,
-   "boersenwert_chf": 53.9,
+   "boersenwert_chf": 54.0,
    "k": {
     "wachstum": 55.0,
     "steigende_jahre": 3,
@@ -1688,8 +1668,8 @@
      1
     ],
     [
-     "Neue Schulden",
-     -14
+     "zusätzlich neue Schulden aufgenommen",
+     14
     ]
    ],
    "p": {
@@ -1733,7 +1713,7 @@
    "netto_schulden": 4.92,
    "schulden": 13.86,
    "cash": 8.94,
-   "boersenwert_chf": 149.8,
+   "boersenwert_chf": 149.9,
    "k": {
     "wachstum": -1.8,
     "steigende_jahre": 2,
@@ -1822,10 +1802,6 @@
     [
      "Dividenden",
      46
-    ],
-    [
-     "Neue Schulden",
-     0
     ]
    ],
    "p": {
@@ -1892,10 +1868,6 @@
     [
      "Dividenden",
      67
-    ],
-    [
-     "Neue Schulden",
-     -2
     ]
    ],
    "p": {
@@ -1964,8 +1936,8 @@
      62
     ],
     [
-     "Neue Schulden",
-     -27
+     "zusätzlich neue Schulden aufgenommen",
+     27
     ]
    ],
    "p": {
@@ -2104,8 +2076,8 @@
      41
     ],
     [
-     "Neue Schulden",
-     -4
+     "zusätzlich neue Schulden aufgenommen",
+     4
     ]
    ],
    "p": {
@@ -2215,7 +2187,7 @@
    "netto_schulden": 8.1,
    "schulden": 19.0,
    "cash": 10.9,
-   "boersenwert_chf": 454.3,
+   "boersenwert_chf": 454.4,
    "k": {
     "wachstum": 17.6,
     "steigende_jahre": 3,
