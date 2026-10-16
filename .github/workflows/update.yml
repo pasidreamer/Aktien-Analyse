@@ -23,6 +23,8 @@ jobs:
       url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -41,7 +43,7 @@ jobs:
             echo "Keine Änderungen"
           else
             git commit -m "Kurse aktualisiert $(date -u +%Y-%m-%d)"
-            git pull --rebase
+            git pull --rebase -X theirs
             git push
           fi
       - uses: actions/configure-pages@v5

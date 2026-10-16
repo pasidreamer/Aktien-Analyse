@@ -29,6 +29,8 @@ jobs:
       url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -50,7 +52,7 @@ jobs:
             echo "neu=0" >> "$GITHUB_OUTPUT"
           else
             git commit -m "Aktien-Wünsche $(date -u +%Y-%m-%d)"
-            git pull --rebase
+            git pull --rebase -X theirs
             git push
             echo "neu=1" >> "$GITHUB_OUTPUT"
           fi
