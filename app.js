@@ -201,7 +201,7 @@ function view(s) {
     trendT: ref ? t - ref[2] : 0,
     gesamt: Math.round((q + t) / 2),
     bew: bewertungOf(s, kurs), schub: s.chance?.schub_stufe === "stark",
-    fcf: STATE.fcf?.aktien?.[s.ticker] || null
+    fcf: fcfAdj(STATE.fcf?.aktien?.[s.ticker], L)
   };
 }
 
@@ -578,7 +578,15 @@ const FCF_MAX = { wachstum: 20, marge: 20, rendite: 15, schulden: 20, verwendung
 const mrd = (v, w) => v == null ? "–" : `${nf(v, Math.abs(v) >= 10 ? 1 : 2)} Mrd. ${w === "GBp" ? "GBP" : w}`;
 function fcfWarn(v) {
   const pe = v.L?.pessimismus;
-  return pe && pe.abstand_hoch >= 30 && pe.unter_ema200w > 0;
+  return !!(pe && pe.abstand_hoch >= 30 && pe.unter_ema200w > 0);
+}
+// Fällt die Aktie stark (über 30 % unter dem Jahreshoch und unter der Wochen-EMA 200), zweifelt die Börse
+// an der Zukunft des Free Cashflows: 5 Punkte Abzug bei der Nachhaltigkeit.
+function fcfAdj(f, L) {
+  if (!f) return null;
+  if (!fcfWarn({ L })) return f;
+  const abzug = Math.min(5, f.p.nachhaltig);
+  return { ...f, p: { ...f.p, nachhaltig: f.p.nachhaltig - abzug }, score: f.score - abzug, abzug };
 }
 function fcfText(v) {
   const f = v.fcf, k = f.k, w = f.waehrung, j = f.jahre;
@@ -594,7 +602,7 @@ function fcfText(v) {
   rows.push(["schulden", "4. Wie schnell wären die Schulden bezahlt?",
     f.netto_schulden <= 0 ? `Mehr Geld als Schulden (${mrd(-f.netto_schulden, w)} Netto-Cash). Sehr stark.`
       : k.schulden_jahre == null ? `Nettoschulden ${mrd(f.netto_schulden, w)}, aber kein positiver Free Cashflow zum Abzahlen.`
-      : `Nettoschulden ${mrd(f.netto_schulden, w)}. Mit dem Free Cashflow in ${nf(k.schulden_jahre, 1)} Jahren bezahlt. ${k.schulden_jahre <= 0.5 ? "Sehr stark: Der halbe FCF eines Jahres reicht." : k.schulden_jahre <= 2 ? "Gut." : k.schulden_jahre <= 4 ? "Mittel." : "Hoch: Viel Geld geht an die Banken."}`]);
+      : `Nettoschulden ${mrd(f.netto_schulden, w)}. Mit dem Free Cashflow in ${k.schulden_jahre < 0.1 ? "weniger als 6 Wochen" : nf(k.schulden_jahre, 1) + " Jahren"} bezahlt. ${k.schulden_jahre <= 0.5 ? "Sehr stark: Der halbe FCF eines Jahres reicht." : k.schulden_jahre <= 2 ? "Gut." : k.schulden_jahre <= 4 ? "Mittel." : "Hoch: Viel Geld geht an die Banken."}`]);
   const use = (f.verwendung || []).map(([n, x]) => `${n} ${x} %`).join(", ");
   rows.push(["verwendung", "5. Wofür wird das Geld genutzt?",
     `${k.aktien_pa == null ? "" : k.aktien_pa < -0.3 ? `Die Aktienzahl sinkt um ${nf(-k.aktien_pa, 1)} % pro Jahr: Jede deiner Aktien gehört ein grösseres Stück der Firma. ` : k.aktien_pa > 0.3 ? `Achtung: Die Aktienzahl steigt um ${nf(k.aktien_pa, 1)} % pro Jahr (neue Aktien für Mitarbeiter). Dein Anteil wird kleiner. ` : "Die Aktienzahl bleibt etwa gleich. "}${use ? `Vom Free Cashflow ${span} ging: ${use}.` : ""}`]);
@@ -627,7 +635,7 @@ function fcfHtml(v) {
         <span class="fc-now">Letzte 12 Monate: <b>${mrd(f.fcf_ttm, f.waehrung)}</b> bei ${mrd(f.umsatz_ttm, f.waehrung)} Umsatz</span></div>
       ${fcfChart(f)}
       <p class="fc-cap">Free Cashflow pro Geschäftsjahr in Mrd. ${esc(f.waehrung === "GBp" ? "GBP" : f.waehrung)}</p>
-      ${fcfWarn(v) ? `<div class="banner warn"><b>Achtung Nachhaltigkeit:</b> Der Kurs liegt ${nf(v.L.pessimismus.abstand_hoch, 0)} % unter dem Jahreshoch und unter der Wochen-EMA 200, obwohl die Firma Geld verdient. Die Börse zweifelt, ob der Free Cashflow in Zukunft hält. Prüfe unten bei «Was die Börse befürchtet», warum.</div>` : ""}
+      ${fcfWarn(v) ? `<div class="banner warn"><b>Achtung Nachhaltigkeit:</b> Der Kurs liegt ${nf(v.L.pessimismus.abstand_hoch, 0)} % unter dem Jahreshoch und unter der Wochen-EMA 200, obwohl die Firma Geld verdient. Die Börse zweifelt, ob der Free Cashflow in Zukunft hält (${f.abzug || 0} Punkte Abzug bei der Nachhaltigkeit). Warum, steht weiter oben bei «Was die Börse befürchtet».</div>` : ""}
       ${partsHtml(parts)}
       <details class="more"><summary>So rechnet die App</summary><ul class="plain">
         <li><b>Wachstum (20):</b> Durchschnittliches Wachstum pro Jahr und wie oft der FCF gestiegen ist.</li>
@@ -635,7 +643,7 @@ function fcfHtml(v) {
         <li><b>Rendite (15):</b> FCF geteilt durch den Börsenwert. 100 Mrd. Börsenwert und 10 Mrd. FCF sind 10 %. Ab 7 % volle Punkte.</li>
         <li><b>Schulden (20):</b> Nettoschulden (Schulden minus Bargeld) geteilt durch den FCF. Netto-Cash oder unter einem halben Jahr: fast volle Punkte.</li>
         <li><b>Verwendung (15):</b> Sinkende Aktienzahl durch Rückkäufe und wie viel vom FCF an die Aktionäre geht oder Schulden tilgt.</li>
-        <li><b>Nachhaltigkeit (10):</b> Keine negativen Jahre, wenig Aktien-Vergütung, FCF passt zum Gewinn. Fällt die Aktie stark, zeigt die App zusätzlich eine Warnung.</li>
+        <li><b>Nachhaltigkeit (10):</b> Keine negativen Jahre, wenig Aktien-Vergütung, FCF passt zum Gewinn. Liegt die Aktie über 30 % unter dem Jahreshoch und unter der Wochen-EMA 200, zieht die App 5 Punkte ab und zeigt eine Warnung (Beispiel Adobe).</li>
         <li>Daten: Jahreszahlen von Yahoo Finance, Stand ${fmtDate(STATE.fcf?.stand)}. Bei Firmen mit Kundenkrediten (z. B. Ferrari) oder Banken ist der FCF nur eingeschränkt vergleichbar.</li>
       </ul></details>
     </div>`;
