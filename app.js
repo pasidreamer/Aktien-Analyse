@@ -124,8 +124,9 @@ async function getJSON(url) {
   return r.json();
 }
 async function load(force) {
-  const [s, l, v, n, f] = await Promise.allSettled([getJSON("data/stocks.json"), getJSON("data/live.json"), getJSON("data/verlauf.json"), loadNotes(), getJSON("data/fcf.json")]);
+  const [s, l, v, n, f, wu] = await Promise.allSettled([getJSON("data/stocks.json"), getJSON("data/live.json"), getJSON("data/verlauf.json"), loadNotes(), getJSON("data/fcf.json"), getJSON("data/wuensche.json")]);
   STATE.fcf = f.status === "fulfilled" ? f.value : null;
+  STATE.wuensche = wu.status === "fulfilled" ? wu.value.wuensche || [] : [];
   if (s.status !== "fulfilled") throw new Error("stocks.json fehlt");
   STATE.stocks = s.value.aktien;
   STATE.stand = s.value.stand;
@@ -412,6 +413,7 @@ function renderHome() {
     </div>
     <div class="count">${list.length} von ${STATE.stocks.length} Aktien</div>
     <div class="list">${list.map(rowHtml).join("") || `<div class="empty">Keine Aktie passt zu diesen Filtern. Setze einen Filter auf «Alle» zurück.</div>`}</div>
+    <div id="wunsch">${wunschHtml()}</div>
   `;
   bindHome();
 }
@@ -424,6 +426,7 @@ function bindHome() {
   q.oninput = () => { STATE.filter.q = q.value; save(); updateList(); };
   document.getElementById("sort").onchange = e => { STATE.filter.sort = e.target.value; save(); renderKeepScroll(); };
   document.getElementById("reload").onclick = refresh;
+  bindWunsch();
   $view.querySelectorAll(".dot").forEach(g => {
     const go = () => location.hash = "#/aktie/" + encodeURIComponent(g.dataset.t);
     g.onclick = go; g.onkeydown = e => { if (e.key === "Enter") go(); };
@@ -436,6 +439,8 @@ function updateList() {
   const list = filtered();
   $view.querySelector(".list").innerHTML = list.map(rowHtml).join("") || `<div class="empty">Keine Aktie passt zur Suche.</div>`;
   $view.querySelector(".count").textContent = `${list.length} von ${STATE.stocks.length} Aktien`;
+  const wi = document.getElementById("wunsch-in");
+  if (!list.length && STATE.filter.q.trim() && wi && !wi.value) wi.placeholder = `Zum Beispiel «${STATE.filter.q.trim()}»`;
 }
 function renderKeepScroll() { const y = scrollY; renderHome(); scrollTo(0, y); }
 
@@ -517,6 +522,55 @@ function chanceHtml(v) {
     ${c?.quellen?.length ? `<details class="more"><summary>Quellen zu Sorgen und Wachstum</summary><ul class="plain">${c.quellen.map(q => `<li><a href="${esc(q.url)}" target="_blank" rel="noopener">${esc(q.titel)}</a></li>`).join("")}</ul></details>` : ""}`;
 }
 
+
+
+// ---------- Neue Aktie wünschen ----------
+// Der Wunsch geht als Nachricht an ein ntfy-Thema. GitHub holt ihn alle 3 Stunden ab,
+// Claude analysiert offene Wünsche einmal täglich am Abend und meldet sich per Push.
+const WUNSCH_TOPIC = "aa-wunsch-et886oec5xtc";
+const WSTAT = {
+  gesendet: ["Gesendet", "b-trig", "Wird in den nächsten 3 Stunden abgeholt."],
+  offen: ["Wartet", "b-trig", "Claude analysiert sie heute Abend (ab 22:50 Uhr)."],
+  in_arbeit: ["In Arbeit", "b-trig", "Claude analysiert sie gerade."],
+  fertig: ["Fertig", "b-zone", "Die Analyse ist in der App."],
+  schon_da: ["Schon da", "b-zone", "Diese Aktie ist schon in der App."],
+  abgelehnt: ["Nicht möglich", "b-warn", ""]
+};
+function wunschListe() {
+  const remote = (STATE.wuensche || []).slice().reverse();
+  const seen = new Set(remote.map(x => x.text.toLowerCase()));
+  const local = store.get("wuensche_local", []).filter(x => Date.now() - x.ts < 2 * 864e5 && !seen.has(x.text.toLowerCase()))
+    .map(x => ({ text: x.text, status: "gesendet", eingang: new Date(x.ts).toISOString() }));
+  return [...local, ...remote].filter(x => Date.now() - new Date(x.eingang).getTime() < 14 * 864e5).slice(0, 6);
+}
+function wunschHtml(msg) {
+  const li = wunschListe();
+  return `<div class="sec"><h2>Aktie fehlt?</h2><p>Schreib den Namen oder das Kürzel. Claude macht einmal täglich am Abend die ganze Analyse und nimmt die Aktie in die App auf. Du bekommst eine Push-Nachricht.</p></div>
+    <div class="card wunsch"><form id="wunsch-form" class="tokenrow"><input id="wunsch-in" type="text" maxlength="60" autocomplete="off" placeholder="Zum Beispiel «Adobe» oder «ADBE»" aria-label="Aktie wünschen">
+      <button class="btn small primary" type="submit">Analysieren lassen</button></form>
+      ${msg ? `<p class="w-msg">${esc(msg)}</p>` : ""}
+      ${li.length ? `<ul class="w-list">${li.map(x => { const st = WSTAT[x.status] || WSTAT.offen; const t = x.ticker && STATE.stocks.some(s => s.ticker === x.ticker) ? x.ticker : null;
+        return `<li><span class="badge ${st[1]}">${st[0]}</span><span class="w-t">${t ? `<a href="#/aktie/${encodeURIComponent(t)}">${esc(x.text)}</a>` : esc(x.text)}<em>${esc(x.hinweis || st[2])}</em></span></li>`; }).join("")}</ul>` : ""}
+    </div>`;
+}
+function bindWunsch() {
+  const f = document.getElementById("wunsch-form"); if (!f) return;
+  f.onsubmit = async e => {
+    e.preventDefault();
+    const inp = document.getElementById("wunsch-in"), text = inp.value.trim();
+    if (!text) return;
+    const hit = STATE.stocks.find(s => [s.ticker, s.symbol, s.name].some(x => x.toLowerCase() === text.toLowerCase()));
+    if (hit) { document.getElementById("wunsch").innerHTML = wunschHtml(`${hit.name} ist schon in der App.`); bindWunsch(); return; }
+    let msg;
+    try {
+      const r = await fetch(`https://ntfy.sh/${WUNSCH_TOPIC}`, { method: "POST", body: text });
+      if (!r.ok) throw new Error(r.status);
+      store.set("wuensche_local", [...store.get("wuensche_local", []), { text, ts: Date.now() }]);
+      msg = `«${text}» ist gesendet. Die Analyse kommt heute Abend.`;
+    } catch { msg = "Senden hat nicht geklappt. Bist du online? Versuche es nochmals."; }
+    document.getElementById("wunsch").innerHTML = wunschHtml(msg); bindWunsch();
+  };
+}
 
 // ---------- Free Cashflow ----------
 // Geld, das nach allen Kosten und Investitionen übrig bleibt. Sechs Fragen, zusammen 100 Punkte.

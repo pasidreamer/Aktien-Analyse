@@ -333,3 +333,11 @@ details.more{margin-top:8px} details.more summary{cursor:pointer;color:var(--acc
 .fc-chart .fc-v{font:600 11px var(--num);fill:var(--ink)} .fc-chart .fc-y{font:500 10.5px var(--font);fill:var(--muted)}
 .fc-cap{font-size:12.5px;color:var(--muted);margin:2px 0 12px;text-align:center}
 .fc .banner{margin:0 0 12px}
+
+/* Aktie wünschen */
+.wunsch .tokenrow{margin:0}
+.w-msg{font-size:14px;margin:10px 0 0}
+.w-list{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:8px}
+.w-list li{display:flex;gap:10px;align-items:flex-start;font-size:14.5px}
+.w-list .badge{flex:none}
+.w-t{display:flex;flex-direction:column} .w-t em{font-style:normal;font-size:12.5px;color:var(--muted)}

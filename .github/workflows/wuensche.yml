@@ -1,0 +1,65 @@
+name: Aktien-Wünsche einsammeln
+
+# Holt neue Aktien-Wünsche aus der App (ntfy) alle 3 Stunden ab.
+# Mit "melden" schickt der Workflow stattdessen eine Push-Nachricht an Pascal.
+on:
+  schedule:
+    - cron: "23 */3 * * *"
+  workflow_dispatch:
+    inputs:
+      melden:
+        description: "Text für eine Push-Nachricht (leer lassen zum Abholen)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: kurse
+  cancel-in-progress: false
+
+jobs:
+  wuensche:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Melden
+        if: ${{ inputs.melden != '' && inputs.melden != null }}
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          TEXT: ${{ inputs.melden }}
+        run: python scripts/wuensche.py --melden "$TEXT"
+      - name: Wünsche abholen
+        id: hol
+        if: ${{ inputs.melden == '' || inputs.melden == null }}
+        run: |
+          python scripts/wuensche.py
+          git config user.name "aktien-ampel-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/wuensche.json
+          if git diff --cached --quiet; then
+            echo "neu=0" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "Aktien-Wünsche $(date -u +%Y-%m-%d)"
+            git pull --rebase
+            git push
+            echo "neu=1" >> "$GITHUB_OUTPUT"
+          fi
+      - uses: actions/configure-pages@v5
+        if: ${{ steps.hol.outputs.neu == '1' }}
+      - uses: actions/upload-pages-artifact@v3
+        if: ${{ steps.hol.outputs.neu == '1' }}
+        with:
+          path: .
+      - id: deploy
+        if: ${{ steps.hol.outputs.neu == '1' }}
+        uses: actions/deploy-pages@v4
