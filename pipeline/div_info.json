@@ -567,5 +567,9 @@
   "abstand_tage": 24,
   "betrag": 0.42,
   "system": "US-Quartalsdividende seit 2024: 4 gleich hohe Zahlungen pro Jahr. Ex-Tag Anfang März, Juni, September und Dezember, Auszahlung am Monatsende. Die Erhöhung kommt mit den Jahreszahlen im Februar (2026: +9.4 % auf 0.42 $)."
+ },
+ "AMZN": {
+  "zahlt": false,
+  "text": "Amazon zahlt keine Dividende und kauft seit 2022 keine Aktien zurück. Das ganze Geld fliesst in Rechenzentren, KI-Chips und Logistik."
  }
 }

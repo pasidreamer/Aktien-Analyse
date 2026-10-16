@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Amazon Aktien-Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F3F5F7; --surface:#FFFFFF; --ink:#141B24; --muted:#5A6573; --line:#DDE2E8; --grid:#E9EDF1;
+  --accent:#2F45B5; --accent-soft:#E6E9F8; --chip:#EBEEF2;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+  --good:#1D7A4B; --good-bg:#E3F3EA; --warn:#9A6200; --warn-bg:#FBF0DC; --bad:#B2362A; --bad-bg:#FBE6E3;
+  --zone-sup:rgba(29,122,75,.10); --zone-res:rgba(178,54,42,.09);
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+    --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+    --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+    --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+  --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+  --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;padding-inline:16px;padding-block:24px 56px}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+h1,h2,h3{font-family:var(--display);font-stretch:85%;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:clamp(32px,7vw,48px);font-weight:800;line-height:1}
+h2{font-size:24px;font-weight:700}
+h3{font-size:17px;font-weight:700;font-stretch:95%}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+section{display:flex;flex-direction:column;gap:14px}
+.lead{max-width:68ch;color:var(--muted)}
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;align-items:stretch}
+.hero .id{display:flex;flex-direction:column;gap:10px;justify-content:space-between}
+.price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price b{font-family:var(--display);font-size:34px;font-weight:700}
+.meta{font-size:13px;color:var(--muted)}
+.verdict{font-size:15px;padding:12px 14px;border-radius:10px;background:var(--chip)}
+.scales{display:flex;flex-direction:column;gap:18px}
+.scale-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.scale-h span{font-size:13px;color:var(--muted)}
+.scale-h b{font-family:var(--display);font-size:28px;line-height:1}
+.track{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#C8412F 0%,#E0892F 30%,#E3B63A 50%,#8BBF4B 68%,#2E9A5B 100%);margin-top:8px}
+.pin{position:absolute;top:-5px;width:4px;height:22px;border-radius:2px;background:var(--ink);box-shadow:0 0 0 2px var(--surface);transform:translateX(-2px)}
+.ticks{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);font-family:var(--mono);margin-top:6px}
+.state{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;margin-top:8px}
+.st-good{background:var(--good-bg);color:var(--good)}
+.st-warn{background:var(--warn-bg);color:var(--warn)}
+.st-bad{background:var(--bad-bg);color:var(--bad)}
+/* tables */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;color:var(--muted);font-weight:500;font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:700;border-bottom:none}
+.pts{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{height:6px;border-radius:3px;background:var(--chip);min-width:60px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:3px}
+/* grids */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;border-left:4px solid var(--line)}
+.kpi.g{border-left-color:var(--good)}.kpi.w{border-left-color:var(--warn)}.kpi.b{border-left-color:var(--bad)}
+.kpi span{font-size:12px;color:var(--muted)}
+.kpi b{font-family:var(--mono);font-size:19px;font-weight:500;font-variant-numeric:tabular-nums}
+.kpi em{font-style:normal;font-size:12.5px;color:var(--muted)}
+/* charts */
+.chart{position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:14px;height:3px;border-radius:2px;display:inline-block}
+.swb{width:12px;height:10px;border-radius:2px;display:inline-block}
+.tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12.5px;box-shadow:0 4px 14px rgba(0,0,0,.12);white-space:nowrap;z-index:2}
+.tip b{font-family:var(--mono);font-weight:500}
+.tip .d{font-family:var(--mono);color:var(--muted);font-size:11.5px}
+.note{font-size:13.5px;color:var(--muted)}
+ul.clean{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.pro li::marker{color:var(--good)} .con li::marker{color:var(--bad)}
+.zones{display:flex;flex-direction:column;gap:8px}
+.zone{display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:baseline;padding:10px 12px;border-radius:10px;background:var(--chip);font-size:14px}
+.zone b{font-family:var(--mono);font-weight:500}
+.zone.r{border-left:4px solid var(--bad)} .zone.s{border-left:4px solid var(--good)} .zone.t{border-left:4px solid var(--accent)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+summary{cursor:pointer;font-weight:600}
+details p{margin-top:8px;color:var(--muted);max-width:70ch}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+footer{font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:6px;max-width:80ch}
+footer a{color:var(--accent)}
+@media (max-width:760px){.hero,.two{grid-template-columns:1fr}.zone{grid-template-columns:1fr;gap:2px}}
+</style>
+
+<a href="../index.html#/aktie/AMZN" style="display:inline-block;margin:max(12px,env(safe-area-inset-top)) 0 0 16px;background:#1f3a5f;color:#fff;font:600 14px system-ui;padding:8px 12px;border-radius:20px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">Zurück zur App</a>
+<div class="wrap">
+
+<header class="hero">
+  <div class="card id">
+    <div>
+      <div class="eyebrow">Aktien-Check · 16.10.2026</div>
+      <h1>Amazon</h1>
+      <p class="meta">Amazon.com Inc. · NASDAQ: AMZN · Onlinehandel, Cloud (AWS), Werbung, Prime · Seattle, USA</p>
+    </div>
+    <div class="price"><b>253.81 $</b><span class="meta">Stand 16.10.2026 · 52 Wochen: 196.00 – 287.20 $ · Allzeithoch 287.20 $ am 3.8.2026</span></div>
+    <p class="verdict"><b>Kurz gesagt:</b> Amazon wächst so schnell wie lange nicht mehr: Umsatz +20 %, die Cloud AWS +37 %, Rekordmarge 13.7 %. Aber der Free Cashflow ist negativ (−11.6 Mrd. $ in 12 Monaten), weil Amazon 2026 rund 220 Mrd. $ in KI-Rechenzentren steckt und dafür neue Schulden macht. Keine Rückkäufe, keine Dividende. Qualität hellgrün (69), Timing gelb (56). Der Kurs liegt 12 % unter dem Allzeithoch und pendelt seit September zwischen 244 und 264 $. Nach deinem Free-Cashflow-Schema ist Amazon im Moment klar schwach.</p>
+  </div>
+  <div class="card scales">
+    <div>
+      <div class="scale-h"><span>Qualität · Ist die Firma kaufenswert?</span><b id="q-val">69</b></div>
+      <div class="track"><i class="pin" id="q-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-good">● Solide</span>
+    </div>
+    <div>
+      <div class="scale-h"><span>Timing · Ist jetzt der Zeitpunkt?</span><b id="t-val">56</b></div>
+      <div class="track"><i class="pin" id="t-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-warn">▲ Warten auf Bestätigung</span>
+    </div>
+    <p class="note">Skala: unter 30 rot · 30–45 orange · 45–60 gelb · 60–75 hellgrün · ab 75 grün. Beide Werte setzen sich aus festen Kriterien zusammen, siehe unten.</p>
+  </div>
+</header>
+
+<section>
+  <h2>Was die Firma macht</h2>
+  <p class="lead">Amazon hat drei grosse Geschäfte. Der Onlinehandel (mit Prime, Lieferungen, Marktplatz für fremde Händler) bringt den meisten Umsatz, aber wenig Marge. Amazon Web Services (AWS) vermietet Rechenleistung und Speicher an Firmen und KI-Entwickler: Umsatz 42 Mrd. $ im 2. Quartal 2026 bei 39 % Marge, das ist der grösste Gewinnbringer. Die Werbung auf Amazon (fast 20 Mrd. $ pro Quartal, +26 %) ist das dritte Standbein. Dazu kommen eigene KI-Chips (Trainium), Satelliten-Internet (Amazon Leo, früher Kuiper) und eine grosse Beteiligung an der KI-Firma Anthropic.</p>
+  <p class="lead">Im Februar 2026 kündigte Amazon für 2026 Investitionen von 200 Mrd. $ an, die Börse hatte rund 146 Mrd. $ erwartet. Die Aktie fiel an einem Tag um 8 % und im Februar um 12 %, das Tief lag bei 196 $. Danach drehte die Stimmung: AWS wuchs Quartal für Quartal schneller (17 % → 20 % → 24 % → 28 % → 37 %). Nach den Zahlen vom 30. Juli stieg die Aktie in drei Tagen um 26 %, so stark wie seit 2009 nicht mehr, und erreichte am 3. August mit 287.20 $ das Allzeithoch. Am selben Tag verkaufte Jeff Bezos Aktien für rund 346 Mio. $. Amazon erhöhte die Investitionen auf rund 220 Mrd. $ (teurere Speicherchips). Am 31. August verklagten die US-Behörde FTC und 22 Bundesstaaten Amazon wegen angeblich irreführender Werbepreise. Seither pendelt die Aktie zwischen 244 und 264 $.</p>
+</section>
+
+<section>
+  <h2>Fundamental: die Zahlen</h2>
+  <div class="kpis">
+<div class="kpi g"><span>Umsatzwachstum</span><b>+15.8 %</b><em>Letzte 12 Monate. Im 2. Quartal 2026 sogar +19.6 %, AWS +37 %. Das Wachstum beschleunigt sich seit vier Quartalen.</em></div>
+<div class="kpi w"><span>Operative Marge</span><b>12.1 %</b><em>Von 100 $ Umsatz bleiben rund 12 $ Betriebsgewinn. Für einen Händler gut, seit 2022 (2.6 %) stark gestiegen. AWS allein: 39 %.</em></div>
+<div class="kpi w"><span>Gewinn pro Aktie (EPS)</span><b>12.44 $</b><em>Letzte 12 Monate, aber stark aufgebläht: Rund 46 % des Gewinns vor Steuern sind Buchgewinne auf die Anthropic-Beteiligung. Ohne diese erwarten Analysten für 2026 rund 8.31 $.</em></div>
+<div class="kpi w"><span>ROIC</span><b>11.9 %</b><em>Auf 100 $ investiertes Kapital rund 12 $ Gewinn. Mittel. 2024 waren es 19 %. Die neuen Rechenzentren verdienen noch nicht genug.</em></div>
+<div class="kpi r"><span>Free Cashflow</span><b>−11.6 Mrd. $</b><em>Letzte 12 Monate negativ. Amazon verdient 161 Mrd. $ aus dem Geschäft (+33 %), steckt aber 173 Mrd. $ in Investitionen. Für 2026 erwarten Analysten −34 Mrd. $.</em></div>
+<div class="kpi w"><span>Nettoschulden</span><b>128.6 Mrd. $</b><em>Mit Leasing. Ohne Leasing 18.9 Mrd. $. Die Finanzschulden haben sich im 1. Halbjahr 2026 fast verdoppelt (77 → 142 Mrd. $). Im Verhältnis zum operativen Cashflow (0.8 Jahre) noch tragbar.</em></div>
+<div class="kpi w"><span>KGV</span><b>30.7</b><em>Auf den erwarteten Gewinn 2026 ohne Anthropic-Effekt gerechnet. Eigener Schnitt 2021–2025 (ohne Verlustjahr 2022): rund 43. Also rund 29 % günstiger als üblich, absolut aber nicht billig.</em></div>
+<div class="kpi r"><span>Aktionärsrendite</span><b>0 %</b><em>Keine Dividende, keine Rückkäufe seit 2022. Die Aktienzahl steigt um rund 1 % pro Jahr (Aktien für Mitarbeiter): Dein Anteil wird langsam kleiner.</em></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>Umsatz pro Quartal (Mio. $)</h3>
+      <p class="note">Alle 8 Quartale über dem Vorjahr, das Wachstum steigt seit Q1 2025 jedes Quartal (8.6 → 19.6 %). Das 4. Quartal ist wegen Weihnachten immer das grösste.</p>
+      <div class="chart" id="c-rev"></div>
+    </div>
+    <div class="card">
+      <h3>Operative Marge pro Jahr</h3>
+      <p class="note">Von 2.6 % (2022) auf 12.1 % gestiegen. Treiber sind AWS und Werbung, beide mit hohen Margen.</p>
+      <div class="chart" id="c-margin"></div>
+    </div>
+  </div>
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Jahr</th><th class="num">Umsatz Mio. $</th><th class="num">Wachstum</th><th class="num">Op. Marge</th><th class="num">EPS $</th><th class="num">Free Cashflow</th><th class="num">ROIC</th><th class="num">KGV</th></tr></thead>
+      <tbody id="fin-rows"></tbody>
+    </table>
+  </div>
+  <p class="note"><b>Hinweis:</b> Free Cashflow nach StockAnalysis (operativer Cashflow minus Investitionen). Der Gewinn pro Aktie 2025 und 2026 enthält grosse Buchgewinne auf die Anthropic-Beteiligung. KGV 2022 nicht sinnvoll (Verlust). Das KGV-Mittel ist über 2021, 2023, 2024 und 2025 gerechnet.</p>
+</section>
+
+<section>
+  <h2>Qualität: 69 von 100</h2>
+  <div class="card tbl"><table id="q-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Technik: Wochenchart (2 Jahre)</h2>
+  <div class="card">
+    <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span><span><i class="swb" style="background:var(--zone-sup);border:1px solid var(--good)"></i>Unterstützung</span><span><i class="swb" style="background:var(--zone-res);border:1px solid var(--bad)"></i>Widerstand</span></div>
+    <div class="chart" id="c-week"></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>A/D-Linie, Woche</h3>
+      <p class="note">Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Positiv: Beim Allzeithoch Anfang August (Wochenschluss 274.48 $) stand die Wochen-A/D bei 7'732. Heute liegt der Kurs 8 % tiefer, die A/D aber höher bei 7'983. Grosse Anleger haben im Rücksetzer eher gekauft.</p>
+      <div class="chart" id="c-adw"></div>
+    </div>
+    <div class="card">
+      <h3>RSI, Woche</h3>
+      <p class="note">Unter 30 überverkauft, über 70 überkauft. Im Februar und März um 38 bis 45, Anfang Mai 68, heute 51: neutral.</p>
+      <div class="chart" id="c-rsiw"></div>
+    </div>
+  </div>
+
+  <h2>Technik: Tageschart (1 Jahr)</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Kurs, Tag</h3>
+      <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span></div>
+      <div class="chart" id="c-day"></div>
+    </div>
+    <div class="card">
+      <h3>A/D-Linie, Tag</h3>
+      <p class="note">Neutral bis leicht schwach: Seit dem Tief vom 16.9. (A/D 370) bewegt sich die Tages-A/D seitwärts und steht heute bei 363. Beim Hoch vom 12.10. (263.70 $) fiel die A/D sogar, die Käufer drängen also noch nicht.</p>
+      <div class="chart" id="c-add"></div>
+    </div>
+  </div>
+
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Indikator</th><th>Tag</th><th>Woche</th><th>Bedeutung</th></tr></thead>
+      <tbody>
+<tr><td>Kurs vs. EMA 50</td><td class="pts">253.8 ≈ 254.4</td><td class="pts">253.8 &gt; 242.8</td><td>Tag genau auf der mittelfristigen Linie, Woche darüber.</td></tr>
+<tr><td>Kurs vs. EMA 200</td><td class="pts">253.8 &gt; 245.1</td><td class="pts">253.8 &gt; 200.6</td><td>Klar über der langfristigen Linie.</td></tr>
+<tr><td>EMA 50 vs. EMA 200</td><td class="pts">50 über 200 (seit 17.4.2026)</td><td class="pts">50 über 200 (seit Oktober 2023)</td><td>Aufwärtstrend auf beiden Zeitebenen.</td></tr>
+<tr><td>RSI (14)</td><td class="pts">49.0</td><td class="pts">51.4</td><td>Neutral.</td></tr>
+<tr><td>A/D</td><td class="pts">seitwärts, leicht schwächer</td><td class="pts">höher als beim Allzeithoch</td><td>Woche positiv, Tag neutral.</td></tr>
+<tr><td>Volumen</td><td colspan="2">Ø 20 Tage 34 Mio. vs. Ø 100 Tage 44 Mio. Aktien</td><td>Ruhiger Handel, keine Panik.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Struktur und Zonen (Smart Money Concept)</h2>
+  <p class="lead">Im Wochenchart ist Amazon im Aufwärtstrend: Tief 196 $ im Februar, dann höhere Tiefs (199.14 → 225.55 → 226.16 $) und ein neues Allzeithoch bei 287.20 $ am 3.8.2026. Seither korrigiert die Aktie. Im Tageschart gibt es tiefere Hochs (287.20 → 267.56 → 263.70 $), aber seit dem 16.9. auch leicht höhere Tiefs (244.30 → 244.73 → 248.65 $). Das ist eine Seitwärtsspanne zwischen 244 und 264 $, die enger wird. Ein Tagesschluss über 264 $ wäre der Ausbruch nach oben (Change of Character). Unter 244 $ wartet die Unterstützung bei 226 bis 233 $ (Tiefs von Juni und Juli).</p>
+  <div class="zones">
+<div class="zone r"><b>280–287 $</b><span>Widerstand: Allzeithoch vom 3.8.2026.</span></div>
+<div class="zone r"><b>264–268 $</b><span>Widerstand: Hochs vom 28.8. und 12.10.</span></div>
+<div class="zone t"><b>264 $</b><span><b>Trigger:</b> Tagesschluss über dem Hoch vom 12.10. (263.70 $), besser mit steigender Tages-A/D.</span></div>
+<div class="zone s"><b>244–249 $</b><span><b>Kaufzone 1:</b> Tiefs vom 16.9., 28.9. und 15.10. plus Tages-EMA 200 (245 $).</span></div>
+<div class="zone s"><b>226–234 $</b><span><b>Kaufzone 2:</b> Tiefs vom Juni und Juli (225.55 / 226.16 / 233.59 $).</span></div>
+<div class="zone r"><b>240 $</b><span>Abbruch: Wochenschluss unter 240 $. Dann ist die Spanne nach unten gebrochen.</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Smart Money, Insider und Saisonalität</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Wer kauft, wer verkauft?</h3>
+      <ul class="clean" style="margin-top:8px">
+<li><b>Amazon selbst:</b> Keine Rückkäufe seit 2022, keine Dividende. Im Gegenteil: In 12 Monaten nahm Amazon netto 75 Mrd. $ neue Schulden auf.</li>
+<li><b>Insider:</b> Nur Verkäufe, keine Käufe. Jeff Bezos verkaufte am 3.8.2026 genau am Allzeithoch 1.2 Mio. Aktien zu 286 $ (rund 346 Mio. $) nach einem festen Plan und darf bis zu 15 Mio. Aktien verkaufen. CEO Andy Jassy verkaufte in 12 Monaten für rund 35 Mio. $.</li>
+<li><b>Grosse Investoren:</b> Laut MarketBeat in 12 Monaten mehr Käufe (269 Mrd. $) als Verkäufe (64 Mrd. $) durch Fonds und Banken.</li>
+<li><b>Analysten:</b> Fast alle positiv: 58 von 60 Kaufen, Kursziel im Schnitt 331 $ (+30 %), Spanne 230 bis 405 $. Im Oktober leicht gesenkt: Wells Fargo 329 $, Cantor 310 $.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Saisonalität seit 1997</h3>
+      <p class="note">Durchschnittliche Monatsrendite in %. 29 Jahre Daten (seit 1997). März (+4.6 %, 72 %) und November (+3.0 %, 70 %) sind stark, Dezember schwach (−1.9 %, 39 %).</p>
+      <div class="chart" id="c-seas"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Timing: 56 von 100</h2>
+  <div class="card tbl"><table id="t-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Worauf du achten solltest: Unterbewertung und Wachstumsschub</h2>
+  <div class="card"><h3>Was die Börse befürchtet</h3><p class="note" style="margin:4px 0">Echte Probleme, eher lösbar: Das Geschäft wird besser (AWS +37 %, Rekordmarge), aber der negative Free Cashflow und die neuen Schulden sind echt.</p><ul class="clean"><li>Amazon investiert 2026 rund 220 Mrd. $ in KI-Rechenzentren. Der Free Cashflow ist dadurch negativ (−11.6 Mrd. $ in 12 Monaten), Analysten erwarten für 2026 rund −34 Mrd. $. Bezahlt wird teils mit neuen Schulden.</li><li>Die Kapitalrendite (ROIC) fiel von 19 % (2024) auf 12 %. Die Börse fragt, ob sich die Milliarden für KI je lohnen.</li><li>Der Gewinn ist aufgebläht: Rund 46 % des Gewinns vor Steuern sind Buchgewinne auf die Beteiligung an Anthropic.</li><li>Die US-Behörde FTC und 22 Bundesstaaten verklagen Amazon seit dem 31.08.2026 wegen angeblich irreführender Werbepreise. Werbung ist das am schnellsten wachsende Geschäft.</li></ul><h3 style="margin-top:12px">Was die Sorgen beenden könnte</h3><ul class="clean"><li>Zahlen zum 3. Quartal: Hält AWS das Wachstum über 30 %, und was sagt Amazon zu den Investitionen 2027? <span class="muted">(Zahlen 29.10.2026)</span></li><li>Investitionsplan 2027: Bleibt er gleich oder sinkt er, kann der Free Cashflow drehen <span class="muted">(Zahlen Anfang Februar 2027)</span></li><li>Neue Rechenzentren gehen in Betrieb und bringen Umsatz (OpenAI und Anthropic ab 2027) <span class="muted">(2027)</span></li><li>Börsengang von Anthropic würde den Wert der Beteiligung klar sichtbar machen <span class="muted">(offen)</span></li></ul><h3 style="margin-top:12px">Wachstumsschub: Starker Wachstumsschub möglich</h3><ul class="clean"><li><b>AWS und KI-Rechenleistung:</b> AWS wächst seit fünf Quartalen schneller, zuletzt +37 % auf 42.2 Mrd. $ im Quartal. Der Auftragsbestand liegt bei 496 Mrd. $, fast dreimal der Jahresumsatz von AWS. Amazon sagt, dass die Kapazität 2026 nicht für alle Kunden reicht. <span class="muted">(2026–2028)</span></li><li><b>Eigene KI-Chips (Trainium):</b> Umsatz mit eigenen Chips von über 10 Mrd. $ (Ende 2025) auf über 25 Mrd. $ Jahresrate (Mitte 2026). Grosse Kunden sind Anthropic und ab 2027 OpenAI. <span class="muted">(2026–2028)</span></li><li><b>Werbung:</b> Rund 20 Mrd. $ pro Quartal, +26 %. Werbung auf Amazon und Prime Video bringt hohe Margen und hebt den Gewinn im Handel. <span class="muted">(laufend)</span></li></ul><p style="margin:10px 0 0"><b>Woran du es erkennst:</b> Für dein Free-Cashflow-Schema zählt: Steigt der operative Cashflow weiter mit über 25 % und flachen die Investitionen 2027 ab, wird der FCF wieder positiv. Kennzahl: AWS-Wachstum über 30 % und AWS-Marge um 38 bis 40 %.</p><p style="margin:10px 0 0"><b>Das Chancen-Szenario:</b> Wachstumsschub wie bei Google 2023 ist da: AWS beschleunigt stark, und die Rechenzentren sind ausgebucht. Wenn die Investitionen ab 2027 sinken, kann der Free Cashflow schnell auf 50 Mrd. $ und mehr steigen. Grösstes Risiko: Die KI-Nachfrage flacht ab, dann sitzt Amazon auf teuren Rechenzentren und höheren Schulden, und der Free Cashflow bleibt schwach.</p><p class="note" style="margin:10px 0 0">Quellen: <a href="https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Second-Quarter-Results" target="_blank" rel="noopener">Amazon: Ergebnisse Q2 2026</a>, <a href="https://www.tikr.com/blog/amazon-raised-its-2026-capex-guide-to-220-billion-heres-what-drove-the-increase" target="_blank" rel="noopener">TIKR: Amazon erhöht Investitionen auf 220 Mrd. $</a>, <a href="https://thenextweb.com/news/amazon-q1-2026-anthropic-aws-earnings" target="_blank" rel="noopener">The Next Web: Anthropic-Gewinne in den Q1-Zahlen</a>, <a href="https://jamaica-gleaner.com/article/world-news/20260901/federal-trade-commission-and-22-states-sue-amazon-over-inflated" target="_blank" rel="noopener">Gleaner: FTC verklagt Amazon (01.09.2026)</a></p></div>
+</section>
+
+<section>
+  <h2>Dividende</h2>
+  <div class="card tbl"><p style="margin:0">Amazon zahlt keine Dividende und kauft seit 2022 keine Aktien zurück. Das ganze Geld fliesst in Rechenzentren, KI-Chips und Logistik.</p></div>
+</section>
+
+<section>
+  <h2>Pro und Contra</h2>
+  <div class="two">
+    <div class="card pro"><h3>Spricht dafür</h3><ul class="clean" style="margin-top:8px">
+<li>AWS wächst wieder sehr schnell (+37 %) bei 39 % Marge, Auftragsbestand 496 Mrd. $.</li>
+<li>Werbung wächst mit 23 bis 26 % pro Quartal und bringt hohe Margen.</li>
+<li>Eigene KI-Chips (Trainium) mit über 25 Mrd. $ Jahresumsatz, Kunden Anthropic und OpenAI.</li>
+<li>Der operative Cashflow wächst stark (+33 %), das Geschäft selbst ist gesund.</li>
+<li>KGV auf den bereinigten Gewinn 2026 rund 29 % unter dem eigenen Schnitt.</li>
+    </ul></div>
+    <div class="card con"><h3>Spricht dagegen</h3><ul class="clean" style="margin-top:8px">
+<li>Free Cashflow negativ: 220 Mrd. $ Investitionen 2026, bezahlt teils mit neuen Schulden.</li>
+<li>Nichts für die Aktionäre: keine Dividende, keine Rückkäufe, die Aktienzahl steigt.</li>
+<li>Kapitalrendite fällt (19 % → 12 %): Ob sich die KI-Rechenzentren lohnen, ist offen.</li>
+<li>Gewinn aufgebläht durch Buchgewinne auf Anthropic. Fällt deren Bewertung, sinkt der Gewinn stark.</li>
+<li>FTC-Klage gegen das Werbegeschäft, Insider verkaufen laufend.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section>
+  <h2>Was jetzt zu tun ist</h2>
+  <div class="zones">
+<div class="zone t"><b>Beobachten</b><span>Alarm bei 264 $ (Trigger) und 249 $ (oberes Ende Kaufzone 1).</span></div>
+<div class="zone s"><b>Timing grün</b><span>Tagesschluss über 264 $ mit steigender Tages-A/D. Fundamental für dein Free-Cashflow-Schema wichtiger: Im Februar 2027 sollte der Investitionsplan für 2027 nicht weiter steigen, sonst bleibt der FCF negativ.</span></div>
+<div class="zone r"><b>Abbruch</b><span>Wochenschluss unter 240 $. Dann Kaufzone 2 (226–234 $) beobachten.</span></div>
+<div class="zone "><b>Nächste Zahlen</b><span>29. Oktober 2026 nach US-Börsenschluss (3. Quartal, bestätigt). Achten auf: AWS-Wachstum über 30 %, Investitionen und erste Zahl für 2027.</span></div>
+  </div>
+</section>
+
+<footer>
+  <span>Kursdaten und Indikatoren (EMA, RSI 14, A/D) selbst berechnet aus Yahoo-Finance-Tages-, Wochen- und Monatsdaten, Stand 16.10.2026. <a href="https://stockanalysis.com/stocks/amzn/financials/" target="_blank" rel="noopener">StockAnalysis.com</a> (Stand 16.10.2026), <a href="https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Second-Quarter-Results" target="_blank" rel="noopener">Amazon Q2 2026</a>, <a href="https://www.tikr.com/blog/amazon-raised-its-2026-capex-guide-to-220-billion-heres-what-drove-the-increase" target="_blank" rel="noopener">TIKR: Investitionen 220 Mrd. $</a>, <a href="https://finance.yahoo.com/news/amazon-stock-falls-earnings-200-214541347.html" target="_blank" rel="noopener">Yahoo: Februar 2026</a>, <a href="https://news.bgov.com/capital-markets/bezos-cuts-amazon-stake-by-350-million-in-years-first-sale" target="_blank" rel="noopener">Bloomberg Gov: Bezos-Verkauf</a>, <a href="https://www.marketbeat.com/stocks/NASDAQ/AMZN/insider-trades/" target="_blank" rel="noopener">Insider (MarketBeat)</a>, <a href="https://stockanalysis.com/stocks/amzn/forecast/" target="_blank" rel="noopener">Analysten (StockAnalysis)</a>.</span>
+  <span>Persönliche Analyse, keine Anlageberatung. Vergangene Kurse und Saisonalität sagen nichts Sicheres über die Zukunft.</span>
+</footer>
+</div>
+
+<script>
+const Q=[["Umsatztrend", "4 von 4 Quartalen über Vorjahr, Wachstum beschleunigt (13.4 → 19.6 %)", 15, 15], ["Wachstumstempo", "+15.8 % in 12 Monaten, zuletzt fast 20 %", 10, 10], ["Operative Marge", "12.1 % (bei Handel eine Stufe milder: 6 Pkt.), klar steigend (6 Pkt.)", 12, 15], ["Gewinnwachstum (EPS)", "Bereinigt für 2026 rund +16 % erwartet, offizielle Zahl durch Anthropic verzerrt", 8, 10], ["Free Cashflow", "Letzte 12 Monate negativ (−11.6 Mrd. $)", 0, 10], ["ROIC", "11.9 % (6 Pkt.), fallend seit 2024 (−1)", 5, 15], ["Schulden", "Nettoschulden inkl. Leasing / EBITDA 0.76", 9, 10], ["Bewertung vs. eigene Historie", "KGV 30.7 (Gewinn 2026 ohne Anthropic) statt Ø 43, rund 29 % günstiger", 10, 15]];
+const T=[["Trend Woche (EMA 50/200)", "Kurs über beiden, EMA 50 über 200", 19, 20], ["Trend Tag (EMA 50/200)", "Kurs auf EMA 50, über EMA 200, EMA 50 über 200", 7, 10], ["Struktur (SMC)", "Seitwärtsspanne 244–264 $ mit leicht höheren Tiefs", 9, 20], ["RSI Tag/Woche", "Tag 49, Woche 51, kein Signal", 7, 15], ["A/D Tag/Woche", "Woche höher bei tieferem Kurs, Tag neutral", 11, 20], ["Smart Money", "Start 3, kein Rückkauf, gehäufte Insider-Verkäufe −3", 0, 10], ["Saisonalität", "Oktober 55 %, November 70 %, Dezember 39 % positive Jahre", 3, 5]];
+const FIN=[["2021", 469822, "+21.7 %", "5.3 %", 3.24, -14726, "14.7 %", "50.7"], ["2022", 513983, "+9.4 %", "2.6 %", -0.27, -16893, "6.2 %", "–"], ["2023", 574785, "+11.8 %", "6.4 %", 2.9, 32217, "11.4 %", "51.6"], ["2024", 637959, "+11.0 %", "10.8 %", 5.53, 32878, "19.2 %", "38.9"], ["2025", 716924, "+12.4 %", "11.2 %", 7.17, 7695, "15.9 %", "31.8"], ["Letzte 12 Mt.", 775680, "+15.8 %", "12.1 %", 12.44, -11625, "11.9 %", "20.4"]];
+const HALF=[["Q3 24", 158877], ["Q4 24", 187792], ["Q1 25", 155667], ["Q2 25", 167702], ["Q3 25", 180169], ["Q4 25", 213386], ["Q1 26", 181519], ["Q2 26", 200606]];
+const MARGIN=[["2021", 5.3], ["2022", 2.6], ["2023", 6.4], ["2024", 10.8], ["2025", 11.2], ["12 Mt.", 12.1]];
+const SEAS=[3.8, -1.3, 4.6, 4.5, 1.7, 0.2, 2.8, 1.5, 2.5, 2.7, 3.0, -1.9];
+const SEASHIT=[55.0, 46.0, 72.0, 67.0, 62.0, 62.0, 66.0, 50.0, 52.0, 55.0, 70.0, 39.0];
+const MON=["Jan","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"];
+const W=`2024-10-21,187.83,172.55,144.04,56,7691.1;2024-10-28,197.93,173.54,144.58,62,7874.3;2024-11-04,208.18,174.9,145.21,68,8000.1;2024-11-11,202.61,175.99,145.79,63,7842.3;2024-11-18,197.12,176.82,146.3,58,7706.3;2024-11-25,207.89,178.03,146.91,64,7832.5;2024-12-02,227.03,179.96,147.71,71,8035.5;2024-12-09,227.46,181.82,148.5,71,8023.9;2024-12-16,224.92,183.51,149.26,69,7991.4;2024-12-23,223.75,185.09,150,68,7964.7;2024-12-30,224.19,186.62,150.74,68,8041.9;2025-01-06,218.94,187.89,151.42,63,7968.3;2025-01-13,225.94,189.38,152.16,67,8102.1;2025-01-20,234.85,191.16,152.98,71,8192;2025-01-27,237.68,192.99,153.82,72,8282;2025-02-03,229.15,194.41,154.57,64,8074.6;2025-02-10,228.68,195.75,155.31,63,7989.7;2025-02-17,216.58,196.57,155.92,54,7872.5;2025-02-24,212.28,197.18,156.48,51,7878.9;2025-03-03,199.25,197.26,156.91,43,7784.5;2025-03-10,197.95,197.29,157.32,43,7863.7;2025-03-17,196.21,197.25,157.7,42,7948.3;2025-03-24,192.72,197.07,158.05,40,7784.6;2025-03-31,171,196.05,158.18,30,7524;2025-04-07,184.87,195.61,158.45,40,7741.4;2025-04-14,172.61,194.71,158.59,35,7581.4;2025-04-21,188.99,194.48,158.89,45,7810.6;2025-04-28,189.98,194.31,159.2,45,7976.2;2025-05-05,193.06,194.26,159.54,47,8101.4;2025-05-12,205.59,194.7,159.99,53,7957.1;2025-05-19,200.99,194.95,160.4,51,7906.4;2025-05-26,205.01,195.34,160.85,53,7896.1;2025-06-02,213.57,196.06,161.37,57,8070.1;2025-06-09,212.1,196.69,161.88,56,7998;2025-06-16,209.69,197.2,162.35,54,7867.1;2025-06-23,223.3,198.22,162.96,61,8144.3;2025-06-30,223.41,199.21,163.56,61,8271.6;2025-07-07,225.02,200.22,164.17,61,8391.9;2025-07-14,226.13,201.24,164.79,62,8491.2;2025-07-21,231.44,202.42,165.45,64,8512.3;2025-07-28,214.75,202.91,165.94,53,8245.2;2025-08-04,222.69,203.68,166.51,57,8380.1;2025-08-11,231.03,204.75,167.15,61,8502.8;2025-08-18,228.84,205.7,167.76,59,8577.2;2025-08-25,229,206.61,168.37,59,8563.1;2025-09-01,232.33,207.62,169.01,61,8642.2;2025-09-08,228.15,208.43,169.6,58,8502.9;2025-09-15,231.48,209.33,170.21,59,8445.5;2025-09-22,219.78,209.74,170.7,51,8307.5;2025-09-29,219.51,210.12,171.19,51,8255.2;2025-10-06,216.37,210.37,171.64,49,8029.4;2025-10-13,213.04,210.47,172.05,47,7902.3;2025-10-20,224.21,211.01,172.57,54,8065.2;2025-10-27,244.22,212.31,173.28,64,8287.4;2025-11-03,244.41,213.57,173.99,64,8172;2025-11-10,234.69,214.4,174.6,57,8033.2;2025-11-17,220.69,214.65,175.05,49,7904.4;2025-11-24,233.22,215.38,175.63,55,8055;2025-12-01,229.53,215.93,176.17,53,7943.1;2025-12-08,226.19,216.33,176.67,51,7827.9;2025-12-15,227.35,216.76,177.17,52,7972.7;2025-12-22,232.52,217.38,177.72,55,8048.3;2025-12-29,226.5,217.74,178.21,51,7970.1;2026-01-05,247.38,218.9,178.9,61,8179.7;2026-01-12,239.12,219.7,179.49,56,8068.4;2026-01-19,239.16,220.46,180.09,56,8198.6;2026-01-26,239.3,221.2,180.68,56,8088.3;2026-02-02,210.32,220.77,180.97,42,7847.9;2026-02-09,198.79,219.91,181.15,38,7546.5;2026-02-16,210.11,219.52,181.44,43,7737.8;2026-02-23,210,219.15,181.72,43,7888.6;2026-03-02,213.21,218.92,182.04,45,7938;2026-03-09,207.67,218.48,182.29,43,7788.5;2026-03-16,205.37,217.96,182.52,42,7604.9;2026-03-23,199.34,217.23,182.69,39,7392.4;2026-03-30,209.77,216.94,182.96,45,7472.5;2026-04-06,238.38,217.78,183.51,58,7670.3;2026-04-13,250.56,219.07,184.18,62,7783.6;2026-04-20,263.99,220.83,184.97,66,7983.6;2026-04-27,268.26,222.69,185.8,67,8097.4;2026-05-04,272.68,224.65,186.66,68,8055.2;2026-05-11,264.14,226.2,187.43,64,7963.7;2026-05-18,266.32,227.77,188.22,64,8054.6;2026-05-25,270.64,229.45,189.04,66,8115.6;2026-06-01,246.03,230.1,189.61,53,7883.2;2026-06-08,238.55,230.43,190.09,50,7797.2;2026-06-15,244.39,230.98,190.63,52,7844.9;2026-06-22,232.69,231.05,191.05,47,7764.3;2026-06-29,242.67,231.5,191.57,52,7792.6;2026-07-06,245.34,232.05,192.1,53,7812.3;2026-07-13,247.23,232.64,192.65,53,7713.3;2026-07-20,232.11,232.62,193.04,47,7549.2;2026-07-27,271.58,234.15,193.82,61,7879.7;2026-08-03,274.48,235.73,194.63,61,7732.5;2026-08-10,262.65,236.79,195.3,56,7579.6;2026-08-17,258.63,237.64,195.93,55,7462.8;2026-08-24,266.43,238.77,196.63,57,7594.5;2026-08-31,258.51,239.55,197.25,54,7603.8;2026-09-07,256.78,240.22,197.84,53,7685.5;2026-09-14,253.71,240.75,198.4,52,7800.5;2026-09-21,249.67,241.1,198.91,50,7719.2;2026-09-28,251.52,241.51,199.43,51,7813.2;2026-10-05,262.43,242.33,200.06,56,7985.6;2026-10-16,253.74,242.78,200.59,51,7982.7`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+const DD=`2025-10-06,220.9,224.53,214.25,447.2;2025-10-07,221.78,224.43,214.33,452.9;2025-10-08,225.22,224.46,214.43,474.1;2025-10-09,227.74,224.59,214.57,513.8;2025-10-10,216.37,224.26,214.58,445.8;2025-10-13,220.07,224.1,214.64,470.9;2025-10-14,216.39,223.8,214.66,476.8;2025-10-15,215.57,223.47,214.67,483.8;2025-10-16,214.47,223.12,214.66,465.7;2025-10-17,213.04,222.73,214.65,468.8;2025-10-20,216.48,222.48,214.67,502.4;2025-10-21,222.03,222.46,214.74,528.4;2025-10-22,217.95,222.29,214.77,520.4;2025-10-23,221.09,222.24,214.83,547.7;2025-10-24,224.21,222.32,214.93,560.1;2025-10-27,226.97,222.5,215.05,560.1;2025-10-28,229.25,222.76,215.19,567.2;2025-10-29,230.3,223.06,215.34,567.5;2025-10-30,222.86,223.05,215.41,469.2;2025-10-31,244.22,223.88,215.7,315.1;2025-11-03,254,225.06,216.08,256.1;2025-11-04,249.32,226.01,216.41,212.7;2025-11-05,250.2,226.96,216.75,239.9;2025-11-06,243.04,227.59,217.01,203.6;2025-11-07,244.41,228.25,217.28,242.9;2025-11-10,248.4,229.04,217.59,239.7;2025-11-11,249.1,229.83,217.91,251.1;2025-11-12,244.2,230.39,218.17,224.2;2025-11-13,237.58,230.67,218.36,195.1;2025-11-14,234.69,230.83,218.52,180.2;2025-11-17,232.87,230.91,218.67,201.8;2025-11-18,222.55,230.58,218.7,143.2;2025-11-19,222.69,230.27,218.74,178.1;2025-11-20,217.14,229.76,218.73,131.5;2025-11-21,220.69,229.4,218.75,170.4;2025-11-24,226.28,229.28,218.82,202.2;2025-11-25,229.67,229.3,218.93,231.6;2025-11-26,229.16,229.29,219.03,203.2;2025-11-28,233.22,229.45,219.17,222.5;2025-12-01,233.88,229.62,219.32,219;2025-12-02,234.42,229.81,219.47,187.9;2025-12-03,232.38,229.91,219.6,197.8;2025-12-04,229.11,229.88,219.69,183.6;2025-12-05,229.53,229.86,219.79,174.6;2025-12-08,226.89,229.75,219.86,149.1;2025-12-09,227.92,229.68,219.94,165.3;2025-12-10,231.78,229.76,220.06,191.5;2025-12-11,230.28,229.78,220.16,189.5;2025-12-12,226.19,229.64,220.22,169.3;2025-12-15,222.54,229.36,220.24,137.3;2025-12-16,222.56,229.09,220.27,142.4;2025-12-17,221.27,228.79,220.28,104.3;2025-12-18,226.76,228.71,220.34,103;2025-12-19,227.35,228.65,220.41,102.8;2025-12-22,228.43,228.64,220.49,110.6;2025-12-23,232.14,228.78,220.61,134.9;2025-12-24,232.38,228.92,220.72,138.3;2025-12-26,232.52,229.06,220.84,146;2025-12-29,232.07,229.18,220.95,154.3;2025-12-30,232.53,229.31,221.07,172.1;2025-12-31,230.82,229.37,221.17,159.7;2026-01-02,226.5,229.26,221.22,125.4;2026-01-05,233.06,229.41,221.34,161.4;2026-01-06,240.93,229.86,221.53,193.4;2026-01-07,241.56,230.32,221.73,181.1;2026-01-08,246.29,230.95,221.98,218.5;2026-01-09,247.38,231.59,222.23,247.1;2026-01-12,246.47,232.17,222.47,223.5;2026-01-13,242.6,232.58,222.67,209.5;2026-01-14,236.65,232.74,222.81,175.1;2026-01-15,238.18,232.96,222.96,165.3;2026-01-16,239.12,233.2,223.12,198.1;2026-01-20,231,233.11,223.2,177.9;2026-01-21,231.31,233.04,223.28,207.9;2026-01-22,234.34,233.09,223.39,221.6;2026-01-23,239.16,233.33,223.55,240.5;2026-01-26,238.42,233.53,223.7,224.7;2026-01-27,244.68,233.97,223.91,260.4;2026-01-28,243.01,234.32,224.1,238.9;2026-01-29,241.73,234.61,224.27,267;2026-01-30,239.3,234.8,224.42,247.6;2026-02-02,242.96,235.12,224.6,258.3;2026-02-03,238.62,235.25,224.74,235.8;2026-02-04,232.99,235.16,224.83,201.5;2026-02-05,222.69,234.67,224.81,178.7;2026-02-06,210.32,233.72,224.66,321.8;2026-02-09,208.72,232.74,224.5,334.2;2026-02-10,206.96,231.73,224.33,278.8;2026-02-11,204.08,230.64,224.13,247.6;2026-02-12,199.6,229.43,223.88,217.1;2026-02-13,198.79,228.23,223.63,202.4;2026-02-17,201.15,227.16,223.41,257.9;2026-02-18,204.79,226.29,223.22,269.5;2026-02-19,204.86,225.45,223.04,285.5;2026-02-20,210.11,224.84,222.91,332.5;2026-02-23,205.27,224.08,222.74,322.5;2026-02-24,208.56,223.47,222.6,342.8;2026-02-25,210.64,222.97,222.48,354.6;2026-02-26,207.92,222.38,222.33,349.9;2026-02-27,210,221.89,222.21,399.9;2026-03-02,208.39,221.36,222.07,426.3;2026-03-03,208.73,220.87,221.94,463.6;2026-03-04,216.82,220.71,221.89,507.7;2026-03-05,218.94,220.64,221.86,530.4;2026-03-06,213.21,220.35,221.77,493.8;2026-03-09,213.49,220.08,221.69,543.1;2026-03-10,214.33,219.85,221.62,549.5;2026-03-11,212.65,219.57,221.53,531;2026-03-12,209.53,219.18,221.41,521.1;2026-03-13,207.67,218.72,221.27,509.2;2026-03-16,211.74,218.45,221.18,535.8;2026-03-17,215.2,218.32,221.12,567;2026-03-18,209.87,217.99,221.01,541.6;2026-03-19,208.76,217.63,220.88,569.5;2026-03-20,205.37,217.15,220.73,547.3;2026-03-23,210.14,216.87,220.62,520;2026-03-24,207.24,216.5,220.49,500.3;2026-03-25,211.71,216.31,220.4,505.5;2026-03-26,207.54,215.96,220.28,465.6;2026-03-27,199.34,215.31,220.07,412.5;2026-03-30,200.95,214.75,219.88,389.7;2026-03-31,208.27,214.5,219.76,409.9;2026-04-01,210.57,214.34,219.67,404.5;2026-04-02,209.77,214.16,219.57,415;2026-04-06,212.79,214.11,219.5,438;2026-04-07,213.77,214.1,219.45,463.8;2026-04-08,221.25,214.38,219.46,438.4;2026-04-09,233.65,215.13,219.61,502.5;2026-04-10,238.38,216.04,219.79,514.7;2026-04-13,239.89,216.98,219.99,554.7;2026-04-14,249.02,218.23,220.28,583.2;2026-04-15,248.5,219.42,220.56,574.7;2026-04-16,249.7,220.61,220.85,612.3;2026-04-17,250.56,221.78,221.15,568;2026-04-20,248.28,222.82,221.42,576.2;2026-04-21,249.91,223.89,221.7,544.9;2026-04-22,255.36,225.12,222.04,573.5;2026-04-23,255.08,226.29,222.36,561.9;2026-04-24,263.99,227.77,222.78,607.6;2026-04-27,261.12,229.08,223.16,581.1;2026-04-28,259.7,230.28,223.52,597.8;2026-04-29,263.04,231.57,223.92,619.6;2026-04-30,265.06,232.88,224.33,620;2026-05-01,268.26,234.27,224.76,622.3;2026-05-04,272.05,235.75,225.23,616.9;2026-05-05,273.55,237.23,225.72,590.8;2026-05-06,274.99,238.71,226.21,590.6;2026-05-07,271.17,239.98,226.65,562.7;2026-05-08,272.68,241.27,227.11,574.7;2026-05-11,268.99,242.35,227.53,544.1;2026-05-12,265.82,243.27,227.91,554.1;2026-05-13,270.13,244.33,228.33,587.5;2026-05-14,267.22,245.22,228.72,565.1;2026-05-15,264.14,245.97,229.07,600.7;2026-05-18,264.86,246.71,229.42,591.9;2026-05-19,259.34,247.2,229.72,598.9;2026-05-20,265.01,247.9,230.07,627.3;2026-05-21,268.46,248.71,230.46,654.6;2026-05-22,266.32,249.4,230.81,628.3;2026-05-26,265.29,250.02,231.15,624.2;2026-05-27,271.85,250.88,231.56,657.5;2026-05-28,274,251.78,231.98,692.4;2026-05-29,270.64,252.52,232.37,659.1;2026-06-01,261.26,252.87,232.65,615.6;2026-06-02,256.52,253.01,232.89,600.1;2026-06-03,250.02,252.89,233.06,574;2026-06-04,253.79,252.93,233.27,574;2026-06-05,246.03,252.66,233.4,521.1;2026-06-08,245.22,252.37,233.51,508;2026-06-09,244.19,252.04,233.62,497.1;2026-06-10,238,251.49,233.66,464.9;2026-06-11,241.51,251.1,233.74,498.8;2026-06-12,238.55,250.61,233.79,499.6;2026-06-15,246.02,250.43,233.91,492.8;2026-06-16,246,250.26,234.03,467.1;2026-06-17,237.5,249.76,234.07,435.9;2026-06-18,244.39,249.55,234.17,490.7;2026-06-22,232.79,248.89,234.15,430;2026-06-23,234.11,248.31,234.15,421.9;2026-06-24,234.27,247.76,234.16,371.2;2026-06-25,227.01,246.94,234.08,327.1;2026-06-26,232.69,246.39,234.07,498.1;2026-06-29,240.14,246.14,234.13,482.3;2026-06-30,238.34,245.84,234.17,451.6;2026-07-01,241.7,245.67,234.25,470.9;2026-07-02,242.67,245.56,234.33,449.9;2026-07-06,244.16,245.5,234.43,460.8;2026-07-07,245.98,245.52,234.54,462.9;2026-07-08,243.62,245.44,234.63,476.2;2026-07-09,247.04,245.51,234.76,510.5;2026-07-10,245.34,245.5,234.86,487.7;2026-07-13,247.31,245.57,234.99,492.7;2026-07-14,247.49,245.65,235.11,509.3;2026-07-15,254.96,246.01,235.31,534.1;2026-07-16,249.89,246.16,235.45,505.8;2026-07-17,247.23,246.21,235.57,509.9;2026-07-20,249.99,246.35,235.71,503.9;2026-07-21,247.55,246.4,235.83,497.6;2026-07-22,244.85,246.34,235.92,490.8;2026-07-23,233.66,245.84,235.9,467.6;2026-07-24,232.11,245.3,235.86,447.5;2026-07-27,231.39,244.76,235.82,418.2;2026-07-28,230.86,244.21,235.77,422.8;2026-07-29,226.65,243.53,235.68,384.4;2026-07-30,235.5,243.21,235.68,385.8;2026-07-31,271.58,244.32,236.03,476.9;2026-08-03,284.02,245.88,236.51,504.9;2026-08-04,277.42,247.12,236.92,477.7;2026-08-05,272.65,248.12,237.27,447;2026-08-06,272.26,249.06,237.62,432.9;2026-08-07,274.48,250.06,237.99,420.1;2026-08-10,278.09,251.16,238.39,433.5;2026-08-11,272.27,251.99,238.72,409.3;2026-08-12,267.28,252.59,239.01,381.1;2026-08-13,265.13,253.08,239.27,354.5;2026-08-14,262.65,253.46,239.5,330.9;2026-08-17,261.31,253.76,239.72,322.2;2026-08-18,259.45,253.99,239.91,314.7;2026-08-19,265.84,254.45,240.17,345.3;2026-08-20,260.11,254.67,240.37,324.7;2026-08-21,258.63,254.83,240.55,317;2026-08-24,262.07,255.11,240.77,328.7;2026-08-25,261.06,255.35,240.97,318.6;2026-08-26,260.28,255.54,241.16,320.1;2026-08-27,256.26,255.57,241.31,303.4;2026-08-28,266.43,255.99,241.56,341.5;2026-08-31,259.77,256.14,241.74,329.1;2026-09-01,254.92,256.09,241.87,346.2;2026-09-02,254.98,256.05,242,348.9;2026-09-03,258.9,256.16,242.17,366.6;2026-09-04,258.51,256.25,242.33,369.8;2026-09-08,256.97,256.28,242.48,380.7;2026-09-09,252.4,256.13,242.58,376.2;2026-09-10,251.89,255.96,242.67,383.7;2026-09-11,256.78,256,242.81,400.7;2026-09-14,253.54,255.9,242.92,403.3;2026-09-15,248.42,255.61,242.97,381.4;2026-09-16,245.96,255.23,243,370.3;2026-09-17,251.19,255.07,243.08,373.9;2026-09-18,253.71,255.02,243.19,375.5;2026-09-21,258.45,255.15,243.34,403.3;2026-09-22,254.98,255.14,243.46,380.7;2026-09-23,249.27,254.91,243.52,357.9;2026-09-24,249.38,254.7,243.57,376.6;2026-09-25,249.67,254.5,243.63,388.4;2026-09-28,246.15,254.17,243.66,386.3;2026-09-29,246.67,253.88,243.69,380.4;2026-09-30,249.15,253.69,243.74,379;2026-10-01,248.23,253.48,243.79,370.3;2026-10-02,251.52,253.4,243.87,365.2;2026-10-05,251.4,253.32,243.94,348;2026-10-06,256.29,253.44,244.06,377.3;2026-10-07,259.92,253.69,244.22,411.3;2026-10-08,254.06,253.71,244.32,376.2;2026-10-09,262.43,254.05,244.5,407.2;2026-10-12,259.53,254.26,244.65,383.7;2026-10-13,258.58,254.43,244.79,360.2;2026-10-14,254.08,254.42,244.88,339.6;2026-10-15,254.76,254.43,244.98,365.7;2026-10-16,253.81,254.41,245.07,363.3`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+
+const fmtN=(v,d=2)=>v.toLocaleString("de-CH",{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmtD=s=>{const [y,m,d]=s.split("-");return d+"."+m+"."+y.slice(2)};
+const NS="http://www.w3.org/2000/svg";
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+
+function scoreTable(id,rows){
+  let tot=0,max=0;
+  const html='<thead><tr><th>Kriterium</th><th>Stand</th><th class="num">Punkte</th><th style="width:22%"></th></tr></thead><tbody>'+rows.map(r=>{tot+=r[2];max+=r[3];const p=r[2]/r[3];const c=p>=.75?"var(--good)":p>=.45?"var(--warn)":"var(--bad)";
+    return `<tr><td>${r[0]}</td><td class="muted">${r[1]}</td><td class="num">${r[2]} / ${r[3]}</td><td><div class="bar"><i style="width:${p*100}%;background:${c}"></i></div></td></tr>`}).join("")+`<tr class="total"><td>Total</td><td></td><td class="num">${tot} / ${max}</td><td></td></tr></tbody>`;
+  document.getElementById(id).innerHTML=html;return tot;
+}
+const qs=scoreTable("q-tbl",Q), ts=scoreTable("t-tbl",T);
+document.getElementById("q-val").textContent=qs;document.getElementById("t-val").textContent=ts;
+document.getElementById("q-pin").style.left=qs+"%";document.getElementById("t-pin").style.left=ts+"%";
+
+document.getElementById("fin-rows").innerHTML=FIN.map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1].toLocaleString("de-CH")}</td><td class="num">${r[2]}</td><td class="num">${r[3]}</td><td class="num">${fmtN(r[4])}</td><td class="num">${r[5].toLocaleString("de-CH")}</td><td class="num">${r[6]}</td><td class="num">${r[7]}</td></tr>`).join("");
+
+/* generic line chart */
+function lineChart(host,{dates,series,bands=[],yFmt=v=>fmtN(v),h=300,zero=false,refs=[],pad}){
+  const W_=800,H=h,m={t:12,r:56,b:28,l:8};
+  const all=series.flatMap(s=>s.values).concat(bands.flatMap(b=>[b.from,b.to])).concat(refs.map(r=>r.v));
+  if(zero)all.push(0);
+  let lo=Math.min(...all),hi=Math.max(...all);const sp=(hi-lo)||1;lo-=sp*.06;hi+=sp*.06;
+  if(pad){lo=pad[0];hi=pad[1]}
+  const n=dates.length,x=i=>m.l+i*(W_-m.l-m.r)/(n-1),y=v=>m.t+(hi-v)*(H-m.t-m.b)/(hi-lo);
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  // grid
+  const steps=5;for(let k=0;k<=steps;k++){const v=lo+(hi-lo)*k/steps;el("line",{x1:m.l,x2:W_-m.r,y1:y(v),y2:y(v),stroke:"var(--grid)","stroke-width":1},svg);
+    const t=el("text",{x:W_-m.r+6,y:y(v)+4,"font-size":11,fill:"var(--muted)","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=yFmt(v)}
+  bands.forEach(b=>{el("rect",{x:m.l,width:W_-m.l-m.r,y:y(Math.max(b.from,b.to)),height:Math.abs(y(b.from)-y(b.to)),fill:b.type==="res"?"var(--zone-res)":"var(--zone-sup)"},svg)});
+  refs.forEach(r=>{el("line",{x1:m.l,x2:W_-m.r,y1:y(r.v),y2:y(r.v),stroke:"var(--muted)","stroke-dasharray":"4 4","stroke-width":1},svg);
+    const t=el("text",{x:m.l+4,y:y(r.v)-4,"font-size":11,fill:"var(--muted)"},svg);t.textContent=r.label});
+  if(zero)el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  // x labels
+  const every=Math.ceil(n/6);for(let i=0;i<n;i+=every){const t=el("text",{x:x(i),y:H-8,"font-size":11,fill:"var(--muted)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);const d=dates[i];t.textContent=d.slice(5,7)+"/"+d.slice(2,4)}
+  series.forEach(s=>{const dpath=s.values.map((v,i)=>(i?"L":"M")+x(i).toFixed(1)+","+y(v).toFixed(1)).join("");
+    el("path",{d:dpath,fill:"none",stroke:s.color,"stroke-width":s.w||2,"stroke-linejoin":"round","stroke-linecap":"round"},svg);
+    const lv=s.values[n-1];el("circle",{cx:x(n-1),cy:y(lv),r:3.5,fill:s.color,stroke:"var(--surface)","stroke-width":2},svg)});
+  // hover
+  const cross=el("line",{y1:m.t,y2:H-m.b,stroke:"var(--muted)","stroke-width":1,opacity:0},svg);
+  const ov=el("rect",{x:m.l,y:m.t,width:W_-m.l-m.r,height:H-m.t-m.b,fill:"transparent"},svg);
+  host.appendChild(svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;host.appendChild(tip);
+  function move(ev){const r=svg.getBoundingClientRect();const px=(ev.clientX-r.left)*W_/r.width;let i=Math.round((px-m.l)/((W_-m.l-m.r)/(n-1)));i=Math.max(0,Math.min(n-1,i));
+    cross.setAttribute("x1",x(i));cross.setAttribute("x2",x(i));cross.setAttribute("opacity",1);
+    tip.innerHTML=`<div class="d">${fmtD(dates[i])}</div>`+series.map(s=>`<div><i class="sw" style="background:${s.color}"></i> ${s.name}: <b>${yFmt(s.values[i])}</b></div>`).join("");
+    tip.hidden=false;const hx=x(i)*r.width/W_;tip.style.left=Math.min(Math.max(0,hx+12),r.width-tip.offsetWidth)+"px";tip.style.top="8px"}
+  ov.addEventListener("pointermove",move);ov.addEventListener("pointerleave",()=>{tip.hidden=true;cross.setAttribute("opacity",0)});
+}
+function barChart(host,{labels,values,fmt,h=220,color,neg,tipExtra}){
+  const W_=800,H=h,m={t:18,r:8,b:28,l:8};
+  const hi=Math.max(0,...values),lo=Math.min(0,...values);const lo2=lo<0?lo*1.15:lo,hi2=hi*1.15||1;
+  const y=v=>m.t+(hi2-v)*(H-m.t-m.b)/(hi2-lo2);const n=values.length,bw=(W_-m.l-m.r)/n;
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;
+  values.forEach((v,i)=>{const x0=m.l+i*bw+bw*.18,w=bw*.64,y0=y(Math.max(v,0)),hh=Math.max(1,Math.abs(y(v)-y(0)));
+    const r=el("rect",{x:x0,y:y0,width:w,height:hh,rx:4,fill:v<0?(neg||"var(--s2)"):(color||"var(--s1)")},svg);
+    const t=el("text",{x:x0+w/2,y:v<0?y(v)+13:y0-5,"font-size":11.5,fill:"var(--ink)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=fmt(v);
+    const l=el("text",{x:x0+w/2,y:H-8,"font-size":11.5,fill:"var(--muted)","text-anchor":"middle"},svg);l.textContent=labels[i];
+    const hit=el("rect",{x:m.l+i*bw,y:m.t,width:bw,height:H-m.t-m.b,fill:"transparent"},svg);
+    hit.addEventListener("pointerenter",()=>{tip.innerHTML=`<div class="d">${labels[i]}</div><b>${fmt(v)}</b>${tipExtra?tipExtra(i):""}`;tip.hidden=false;const R=svg.getBoundingClientRect();tip.style.left=Math.min((m.l+i*bw)*R.width/W_,R.width-tip.offsetWidth)+"px";tip.style.top="0px"});
+    hit.addEventListener("pointerleave",()=>tip.hidden=true)});
+  host.appendChild(svg);host.appendChild(tip);
+}
+barChart(document.getElementById("c-rev"),{labels:HALF.map(r=>r[0]),values:HALF.map(r=>r[1]),fmt:v=>fmtN(v,0),h:200});
+barChart(document.getElementById("c-margin"),{labels:MARGIN.map(r=>r[0]),values:MARGIN.map(r=>r[1]),fmt:v=>fmtN(v,1)+" %",h:200});
+barChart(document.getElementById("c-seas"),{labels:MON,values:SEAS,fmt:v=>(v>0?"+":"")+fmtN(v,1),h:220,tipExtra:i=>`<div>${SEASHIT[i]} % der Jahre positiv</div>`});
+const BANDS=[{"from": 280, "to": 287, "type": "res"}, {"from": 264, "to": 268, "type": "res"}, {"from": 244, "to": 249, "type": "sup"}, {"from": 226, "to": 234, "type": "sup"}], REFS=[{"v": 264, "label": "Trigger 264"}];
+const wd=W.map(r=>r[0]);
+lineChart(document.getElementById("c-week"),{dates:wd,series:[{name:"Kurs",values:W.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:W.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:W.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,yFmt:v=>fmtN(v,0),h:320});
+lineChart(document.getElementById("c-adw"),{dates:wd,series:[{name:"A/D Woche",values:W.map(r=>r[5]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,zero:true});
+lineChart(document.getElementById("c-rsiw"),{dates:wd,series:[{name:"RSI Woche",values:W.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,refs:[{v:70,label:"70 überkauft"},{v:30,label:"30 überverkauft"}],pad:[10,90]});
+const dd=DD.map(r=>r[0]);
+lineChart(document.getElementById("c-day"),{dates:dd,series:[{name:"Kurs",values:DD.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:DD.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:DD.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,refs:REFS,yFmt:v=>fmtN(v,0),h:260});
+lineChart(document.getElementById("c-add"),{dates:dd,series:[{name:"A/D Tag",values:DD.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:260,zero:true});
+</script>

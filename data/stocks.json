@@ -11780,6 +11780,357 @@
    ],
    "cheatsheet": "analysen/BKNG.html",
    "claude": "https://claude.ai/artifact/6mRA4VugxZDkHLf1Bepsh4"
+  },
+  {
+   "ticker": "AMZN",
+   "symbol": "AMZN",
+   "name": "Amazon",
+   "tags": [
+    "Wachstum"
+   ],
+   "land": "USA",
+   "region": "USA",
+   "branche": "Onlinehandel, Cloud, Werbung",
+   "status": "beobachten",
+   "waehrung": "USD",
+   "analyse": {
+    "datenstand": "2026-10-16",
+    "kurs": 253.81,
+    "q": 69,
+    "t": 56
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "4 von 4 Quartalen über Vorjahr, Wachstum beschleunigt (13.4 → 19.6 %)",
+     "p": 15,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "+15.8 % in 12 Monaten, zuletzt fast 20 %",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "12.1 % (bei Handel eine Stufe milder: 6 Pkt.), klar steigend (6 Pkt.)",
+     "p": 12,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "Bereinigt für 2026 rund +16 % erwartet, offizielle Zahl durch Anthropic verzerrt",
+     "p": 8,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Letzte 12 Monate negativ (−11.6 Mrd. $)",
+     "p": 0,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "11.9 % (6 Pkt.), fallend seit 2024 (−1)",
+     "p": 5,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Nettoschulden inkl. Leasing / EBITDA 0.76",
+     "p": 9,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "KGV 30.7 (Gewinn 2026 ohne Anthropic) statt Ø 43, rund 29 % günstiger",
+     "p": 10,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs über beiden, EMA 50 über 200",
+     "p": 19,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs auf EMA 50, über EMA 200, EMA 50 über 200",
+     "p": 7,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Seitwärtsspanne 244–264 $ mit leicht höheren Tiefs",
+     "p": 9,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "Tag 49, Woche 51, kein Signal",
+     "p": 7,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Woche höher bei tieferem Kurs, Tag neutral",
+     "p": 11,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Start 3, kein Rückkauf, gehäufte Insider-Verkäufe −3",
+     "p": 0,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "Oktober 55 %, November 70 %, Dezember 39 % positive Jahre",
+     "p": 3,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 30.7,
+    "schnitt": 43.3,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      244,
+      249
+     ],
+     [
+      226,
+      234
+     ]
+    ],
+    "widerstand": [
+     [
+      264,
+      268
+     ],
+     [
+      280,
+      287
+     ]
+    ],
+    "trigger": 264,
+    "abbruch": 240
+   },
+   "zahlen": "2026-10-29",
+   "dividende": null,
+   "div_info": {
+    "zahlt": false,
+    "text": "Amazon zahlt keine Dividende und kauft seit 2022 keine Aktien zurück. Das ganze Geld fliesst in Rechenzentren, KI-Chips und Logistik."
+   },
+   "chance": {
+    "ticker": "AMZN",
+    "sorgen": [
+     "Amazon investiert 2026 rund 220 Mrd. $ in KI-Rechenzentren. Der Free Cashflow ist dadurch negativ (−11.6 Mrd. $ in 12 Monaten), Analysten erwarten für 2026 rund −34 Mrd. $. Bezahlt wird teils mit neuen Schulden.",
+     "Die Kapitalrendite (ROIC) fiel von 19 % (2024) auf 12 %. Die Börse fragt, ob sich die Milliarden für KI je lohnen.",
+     "Der Gewinn ist aufgebläht: Rund 46 % des Gewinns vor Steuern sind Buchgewinne auf die Beteiligung an Anthropic.",
+     "Die US-Behörde FTC und 22 Bundesstaaten verklagen Amazon seit dem 31.08.2026 wegen angeblich irreführender Werbepreise. Werbung ist das am schnellsten wachsende Geschäft."
+    ],
+    "sorgen_art": "gemischt",
+    "sorgen_art_text": "Das Geschäft wird besser (AWS +37 %, Rekordmarge), aber der negative Free Cashflow und die neuen Schulden sind echt.",
+    "aufloeser": [
+     {
+      "was": "Zahlen zum 3. Quartal: Hält AWS das Wachstum über 30 %, und was sagt Amazon zu den Investitionen 2027?",
+      "wann": "Zahlen 29.10.2026"
+     },
+     {
+      "was": "Investitionsplan 2027: Bleibt er gleich oder sinkt er, kann der Free Cashflow drehen",
+      "wann": "Zahlen Anfang Februar 2027"
+     },
+     {
+      "was": "Neue Rechenzentren gehen in Betrieb und bringen Umsatz (OpenAI und Anthropic ab 2027)",
+      "wann": "2027"
+     },
+     {
+      "was": "Börsengang von Anthropic würde den Wert der Beteiligung klar sichtbar machen",
+      "wann": "offen"
+     }
+    ],
+    "schub_stufe": "stark",
+    "schub_treiber": [
+     {
+      "titel": "AWS und KI-Rechenleistung",
+      "text": "AWS wächst seit fünf Quartalen schneller, zuletzt +37 % auf 42.2 Mrd. $ im Quartal. Der Auftragsbestand liegt bei 496 Mrd. $, fast dreimal der Jahresumsatz von AWS. Amazon sagt, dass die Kapazität 2026 nicht für alle Kunden reicht.",
+      "wann": "2026–2028"
+     },
+     {
+      "titel": "Eigene KI-Chips (Trainium)",
+      "text": "Umsatz mit eigenen Chips von über 10 Mrd. $ (Ende 2025) auf über 25 Mrd. $ Jahresrate (Mitte 2026). Grosse Kunden sind Anthropic und ab 2027 OpenAI.",
+      "wann": "2026–2028"
+     },
+     {
+      "titel": "Werbung",
+      "text": "Rund 20 Mrd. $ pro Quartal, +26 %. Werbung auf Amazon und Prime Video bringt hohe Margen und hebt den Gewinn im Handel.",
+      "wann": "laufend"
+     }
+    ],
+    "schub_beweis": "Für dein Free-Cashflow-Schema zählt: Steigt der operative Cashflow weiter mit über 25 % und flachen die Investitionen 2027 ab, wird der FCF wieder positiv. Kennzahl: AWS-Wachstum über 30 % und AWS-Marge um 38 bis 40 %.",
+    "szenario": "Wachstumsschub wie bei Google 2023 ist da: AWS beschleunigt stark, und die Rechenzentren sind ausgebucht. Wenn die Investitionen ab 2027 sinken, kann der Free Cashflow schnell auf 50 Mrd. $ und mehr steigen. Grösstes Risiko: Die KI-Nachfrage flacht ab, dann sitzt Amazon auf teuren Rechenzentren und höheren Schulden, und der Free Cashflow bleibt schwach.",
+    "quellen": [
+     {
+      "titel": "Amazon: Ergebnisse Q2 2026",
+      "url": "https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Second-Quarter-Results"
+     },
+     {
+      "titel": "TIKR: Amazon erhöht Investitionen auf 220 Mrd. $",
+      "url": "https://www.tikr.com/blog/amazon-raised-its-2026-capex-guide-to-220-billion-heres-what-drove-the-increase"
+     },
+     {
+      "titel": "The Next Web: Anthropic-Gewinne in den Q1-Zahlen",
+      "url": "https://thenextweb.com/news/amazon-q1-2026-anthropic-aws-earnings"
+     },
+     {
+      "titel": "Gleaner: FTC verklagt Amazon (01.09.2026)",
+      "url": "https://jamaica-gleaner.com/article/world-news/20260901/federal-trade-commission-and-22-states-sue-amazon-over-inflated"
+     }
+    ]
+   },
+   "fazit": "Amazon wächst so schnell wie lange nicht mehr: Umsatz +20 %, die Cloud AWS +37 %, Rekordmarge 13.7 %. Aber der Free Cashflow ist negativ (−11.6 Mrd. $ in 12 Monaten), weil Amazon 2026 rund 220 Mrd. $ in KI-Rechenzentren steckt und dafür neue Schulden macht. Keine Rückkäufe, keine Dividende. Qualität hellgrün (69), Timing gelb (56). Der Kurs liegt 12 % unter dem Allzeithoch und pendelt seit September zwischen 244 und 264 $. Nach deinem Free-Cashflow-Schema ist Amazon im Moment klar schwach.",
+   "about": "Amazon hat drei grosse Geschäfte. Der Onlinehandel (mit Prime, Lieferungen, Marktplatz für fremde Händler) bringt den meisten Umsatz, aber wenig Marge. Amazon Web Services (AWS) vermietet Rechenleistung und Speicher an Firmen und KI-Entwickler: Umsatz 42 Mrd. $ im 2. Quartal 2026 bei 39 % Marge, das ist der grösste Gewinnbringer. Die Werbung auf Amazon (fast 20 Mrd. $ pro Quartal, +26 %) ist das dritte Standbein. Dazu kommen eigene KI-Chips (Trainium), Satelliten-Internet (Amazon Leo, früher Kuiper) und eine grosse Beteiligung an der KI-Firma Anthropic.",
+   "kpis": [
+    {
+     "ampel": "g",
+     "name": "Umsatzwachstum",
+     "wert": "+15.8 %",
+     "text": "Letzte 12 Monate. Im 2. Quartal 2026 sogar +19.6 %, AWS +37 %. Das Wachstum beschleunigt sich seit vier Quartalen."
+    },
+    {
+     "ampel": "w",
+     "name": "Operative Marge",
+     "wert": "12.1 %",
+     "text": "Von 100 $ Umsatz bleiben rund 12 $ Betriebsgewinn. Für einen Händler gut, seit 2022 (2.6 %) stark gestiegen. AWS allein: 39 %."
+    },
+    {
+     "ampel": "w",
+     "name": "Gewinn pro Aktie (EPS)",
+     "wert": "12.44 $",
+     "text": "Letzte 12 Monate, aber stark aufgebläht: Rund 46 % des Gewinns vor Steuern sind Buchgewinne auf die Anthropic-Beteiligung. Ohne diese erwarten Analysten für 2026 rund 8.31 $."
+    },
+    {
+     "ampel": "w",
+     "name": "ROIC",
+     "wert": "11.9 %",
+     "text": "Auf 100 $ investiertes Kapital rund 12 $ Gewinn. Mittel. 2024 waren es 19 %. Die neuen Rechenzentren verdienen noch nicht genug."
+    },
+    {
+     "ampel": "r",
+     "name": "Free Cashflow",
+     "wert": "−11.6 Mrd. $",
+     "text": "Letzte 12 Monate negativ. Amazon verdient 161 Mrd. $ aus dem Geschäft (+33 %), steckt aber 173 Mrd. $ in Investitionen. Für 2026 erwarten Analysten −34 Mrd. $."
+    },
+    {
+     "ampel": "w",
+     "name": "Nettoschulden",
+     "wert": "128.6 Mrd. $",
+     "text": "Mit Leasing. Ohne Leasing 18.9 Mrd. $. Die Finanzschulden haben sich im 1. Halbjahr 2026 fast verdoppelt (77 → 142 Mrd. $). Im Verhältnis zum operativen Cashflow (0.8 Jahre) noch tragbar."
+    },
+    {
+     "ampel": "w",
+     "name": "KGV",
+     "wert": "30.7",
+     "text": "Auf den erwarteten Gewinn 2026 ohne Anthropic-Effekt gerechnet. Eigener Schnitt 2021–2025 (ohne Verlustjahr 2022): rund 43. Also rund 29 % günstiger als üblich, absolut aber nicht billig."
+    },
+    {
+     "ampel": "r",
+     "name": "Aktionärsrendite",
+     "wert": "0 %",
+     "text": "Keine Dividende, keine Rückkäufe seit 2022. Die Aktienzahl steigt um rund 1 % pro Jahr (Aktien für Mitarbeiter): Dein Anteil wird langsam kleiner."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "280–287 $",
+     "text": "Widerstand: Allzeithoch vom 3.8.2026."
+    },
+    {
+     "art": "r",
+     "wert": "264–268 $",
+     "text": "Widerstand: Hochs vom 28.8. und 12.10."
+    },
+    {
+     "art": "t",
+     "wert": "264 $",
+     "text": "Trigger: Tagesschluss über dem Hoch vom 12.10. (263.70 $), besser mit steigender Tages-A/D."
+    },
+    {
+     "art": "s",
+     "wert": "244–249 $",
+     "text": "Kaufzone 1: Tiefs vom 16.9., 28.9. und 15.10. plus Tages-EMA 200 (245 $)."
+    },
+    {
+     "art": "s",
+     "wert": "226–234 $",
+     "text": "Kaufzone 2: Tiefs vom Juni und Juli (225.55 / 226.16 / 233.59 $)."
+    },
+    {
+     "art": "r",
+     "wert": "240 $",
+     "text": "Abbruch: Wochenschluss unter 240 $. Dann ist die Spanne nach unten gebrochen."
+    }
+   ],
+   "pro": [
+    "AWS wächst wieder sehr schnell (+37 %) bei 39 % Marge, Auftragsbestand 496 Mrd. $.",
+    "Werbung wächst mit 23 bis 26 % pro Quartal und bringt hohe Margen.",
+    "Eigene KI-Chips (Trainium) mit über 25 Mrd. $ Jahresumsatz, Kunden Anthropic und OpenAI.",
+    "Der operative Cashflow wächst stark (+33 %), das Geschäft selbst ist gesund.",
+    "KGV auf den bereinigten Gewinn 2026 rund 29 % unter dem eigenen Schnitt."
+   ],
+   "contra": [
+    "Free Cashflow negativ: 220 Mrd. $ Investitionen 2026, bezahlt teils mit neuen Schulden.",
+    "Nichts für die Aktionäre: keine Dividende, keine Rückkäufe, die Aktienzahl steigt.",
+    "Kapitalrendite fällt (19 % → 12 %): Ob sich die KI-Rechenzentren lohnen, ist offen.",
+    "Gewinn aufgebläht durch Buchgewinne auf Anthropic. Fällt deren Bewertung, sinkt der Gewinn stark.",
+    "FTC-Klage gegen das Werbegeschäft, Insider verkaufen laufend."
+   ],
+   "smart_money": [
+    "Amazon selbst: Keine Rückkäufe seit 2022, keine Dividende. Im Gegenteil: In 12 Monaten nahm Amazon netto 75 Mrd. $ neue Schulden auf.",
+    "Insider: Nur Verkäufe, keine Käufe. Jeff Bezos verkaufte am 3.8.2026 genau am Allzeithoch 1.2 Mio. Aktien zu 286 $ (rund 346 Mio. $) nach einem festen Plan und darf bis zu 15 Mio. Aktien verkaufen. CEO Andy Jassy verkaufte in 12 Monaten für rund 35 Mio. $.",
+    "Grosse Investoren: Laut MarketBeat in 12 Monaten mehr Käufe (269 Mrd. $) als Verkäufe (64 Mrd. $) durch Fonds und Banken.",
+    "Analysten: Fast alle positiv: 58 von 60 Kaufen, Kursziel im Schnitt 331 $ (+30 %), Spanne 230 bis 405 $. Im Oktober leicht gesenkt: Wells Fargo 329 $, Cantor 310 $."
+   ],
+   "cheatsheet": "analysen/AMZN.html",
+   "claude": "https://claude.ai/artifact/SNhRb4qaqKLYsNhnVAkrwT"
   }
  ]
 }

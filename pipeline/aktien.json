@@ -1264,5 +1264,46 @@
   "pe_typ": "KGV",
   "zahlen": "2026-11-03",
   "artifact": "6mRA4VugxZDkHLf1Bepsh4"
+ },
+ "AMZN": {
+  "symbol": "AMZN",
+  "name": "Amazon",
+  "tags": [
+   "Wachstum"
+  ],
+  "land": "USA",
+  "region": "USA",
+  "branche": "Onlinehandel, Cloud, Werbung",
+  "status": "beobachten",
+  "waehrung": "USD",
+  "kurs": 253.81,
+  "datenstand": "2026-10-16",
+  "kauf": [
+   [
+    244,
+    249
+   ],
+   [
+    226,
+    234
+   ]
+  ],
+  "widerstand": [
+   [
+    264,
+    268
+   ],
+   [
+    280,
+    287
+   ]
+  ],
+  "trigger": 264,
+  "abbruch": 240,
+  "pe": 30.7,
+  "pe_avg": 43.3,
+  "pe_typ": "KGV",
+  "zahlen": "2026-10-29",
+  "artifact": "SNhRb4qaqKLYsNhnVAkrwT"
  }
 }

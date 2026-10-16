@@ -1,0 +1,102 @@
+import json, os, sys
+P = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); sys.path.insert(0, P)
+from helpers import L, ADW, RSIW, SEAS
+c = {
+"ticker": "AMZN", "name": "Amazon", "datum": "16.10.2026", "waehrung": "USD", "land": "USA",
+"meta": "Amazon.com Inc. · NASDAQ: AMZN · Onlinehandel, Cloud (AWS), Werbung, Prime · Seattle, USA",
+"price": "253.81 $",
+"pricemeta": "Stand 16.10.2026 · 52 Wochen: 196.00 – 287.20 $ · Allzeithoch 287.20 $ am 3.8.2026",
+"verdict": "Amazon wächst so schnell wie lange nicht mehr: Umsatz +20 %, die Cloud AWS +37 %, Rekordmarge 13.7 %. Aber der Free Cashflow ist negativ (−11.6 Mrd. $ in 12 Monaten), weil Amazon 2026 rund 220 Mrd. $ in KI-Rechenzentren steckt und dafür neue Schulden macht. Keine Rückkäufe, keine Dividende. Qualität hellgrün (69), Timing gelb (56). Der Kurs liegt 12 % unter dem Allzeithoch und pendelt seit September zwischen 244 und 264 $. Nach deinem Free-Cashflow-Schema ist Amazon im Moment klar schwach.",
+"about": "Amazon hat drei grosse Geschäfte. Der Onlinehandel (mit Prime, Lieferungen, Marktplatz für fremde Händler) bringt den meisten Umsatz, aber wenig Marge. Amazon Web Services (AWS) vermietet Rechenleistung und Speicher an Firmen und KI-Entwickler: Umsatz 42 Mrd. $ im 2. Quartal 2026 bei 39 % Marge, das ist der grösste Gewinnbringer. Die Werbung auf Amazon (fast 20 Mrd. $ pro Quartal, +26 %) ist das dritte Standbein. Dazu kommen eigene KI-Chips (Trainium), Satelliten-Internet (Amazon Leo, früher Kuiper) und eine grosse Beteiligung an der KI-Firma Anthropic.",
+"why": "Im Februar 2026 kündigte Amazon für 2026 Investitionen von 200 Mrd. $ an, die Börse hatte rund 146 Mrd. $ erwartet. Die Aktie fiel an einem Tag um 8 % und im Februar um 12 %, das Tief lag bei 196 $. Danach drehte die Stimmung: AWS wuchs Quartal für Quartal schneller (17 % → 20 % → 24 % → 28 % → 37 %). Nach den Zahlen vom 30. Juli stieg die Aktie in drei Tagen um 26 %, so stark wie seit 2009 nicht mehr, und erreichte am 3. August mit 287.20 $ das Allzeithoch. Am selben Tag verkaufte Jeff Bezos Aktien für rund 346 Mio. $. Amazon erhöhte die Investitionen auf rund 220 Mrd. $ (teurere Speicherchips). Am 31. August verklagten die US-Behörde FTC und 22 Bundesstaaten Amazon wegen angeblich irreführender Werbepreise. Seither pendelt die Aktie zwischen 244 und 264 $.",
+"kpis": [
+ ["g","Umsatzwachstum","+15.8 %","Letzte 12 Monate. Im 2. Quartal 2026 sogar +19.6 %, AWS +37 %. Das Wachstum beschleunigt sich seit vier Quartalen."],
+ ["w","Operative Marge","12.1 %","Von 100 $ Umsatz bleiben rund 12 $ Betriebsgewinn. Für einen Händler gut, seit 2022 (2.6 %) stark gestiegen. AWS allein: 39 %."],
+ ["w","Gewinn pro Aktie (EPS)","12.44 $","Letzte 12 Monate, aber stark aufgebläht: Rund 46 % des Gewinns vor Steuern sind Buchgewinne auf die Anthropic-Beteiligung. Ohne diese erwarten Analysten für 2026 rund 8.31 $."],
+ ["w","ROIC","11.9 %","Auf 100 $ investiertes Kapital rund 12 $ Gewinn. Mittel. 2024 waren es 19 %. Die neuen Rechenzentren verdienen noch nicht genug."],
+ ["r","Free Cashflow","−11.6 Mrd. $","Letzte 12 Monate negativ. Amazon verdient 161 Mrd. $ aus dem Geschäft (+33 %), steckt aber 173 Mrd. $ in Investitionen. Für 2026 erwarten Analysten −34 Mrd. $."],
+ ["w","Nettoschulden","128.6 Mrd. $","Mit Leasing. Ohne Leasing 18.9 Mrd. $. Die Finanzschulden haben sich im 1. Halbjahr 2026 fast verdoppelt (77 → 142 Mrd. $). Im Verhältnis zum operativen Cashflow (0.8 Jahre) noch tragbar."],
+ ["w","KGV","30.7","Auf den erwarteten Gewinn 2026 ohne Anthropic-Effekt gerechnet. Eigener Schnitt 2021–2025 (ohne Verlustjahr 2022): rund 43. Also rund 29 % günstiger als üblich, absolut aber nicht billig."],
+ ["r","Aktionärsrendite","0 %","Keine Dividende, keine Rückkäufe seit 2022. Die Aktienzahl steigt um rund 1 % pro Jahr (Aktien für Mitarbeiter): Dein Anteil wird langsam kleiner."]
+],
+"revtitle": "Umsatz pro Quartal (Mio. $)", "revunit": "Mio. $", "epsunit": "$",
+"revnote": "Alle 8 Quartale über dem Vorjahr, das Wachstum steigt seit Q1 2025 jedes Quartal (8.6 → 19.6 %). Das 4. Quartal ist wegen Weihnachten immer das grösste.",
+"marginnote": "Von 2.6 % (2022) auf 12.1 % gestiegen. Treiber sind AWS und Werbung, beide mit hohen Margen.",
+"finnote": "<b>Hinweis:</b> Free Cashflow nach StockAnalysis (operativer Cashflow minus Investitionen). Der Gewinn pro Aktie 2025 und 2026 enthält grosse Buchgewinne auf die Anthropic-Beteiligung. KGV 2022 nicht sinnvoll (Verlust). Das KGV-Mittel ist über 2021, 2023, 2024 und 2025 gerechnet.",
+"FIN": [["2021",469822,"+21.7 %","5.3 %",3.24,-14726,"14.7 %","50.7"],["2022",513983,"+9.4 %","2.6 %",-0.27,-16893,"6.2 %","–"],["2023",574785,"+11.8 %","6.4 %",2.90,32217,"11.4 %","51.6"],["2024",637959,"+11.0 %","10.8 %",5.53,32878,"19.2 %","38.9"],["2025",716924,"+12.4 %","11.2 %",7.17,7695,"15.9 %","31.8"],["Letzte 12 Mt.",775680,"+15.8 %","12.1 %",12.44,-11625,"11.9 %","20.4"]],
+"QREV": [["Q3 24",158877],["Q4 24",187792],["Q1 25",155667],["Q2 25",167702],["Q3 25",180169],["Q4 25",213386],["Q1 26",181519],["Q2 26",200606]],
+"revdec": 0,
+"MARGIN": [["2021",5.3],["2022",2.6],["2023",6.4],["2024",10.8],["2025",11.2],["12 Mt.",12.1]],
+"Q": [
+ ["Umsatztrend","4 von 4 Quartalen über Vorjahr, Wachstum beschleunigt (13.4 → 19.6 %)",15,15],
+ ["Wachstumstempo","+15.8 % in 12 Monaten, zuletzt fast 20 %",10,10],
+ ["Operative Marge","12.1 % (bei Handel eine Stufe milder: 6 Pkt.), klar steigend (6 Pkt.)",12,15],
+ ["Gewinnwachstum (EPS)","Bereinigt für 2026 rund +16 % erwartet, offizielle Zahl durch Anthropic verzerrt",8,10],
+ ["Free Cashflow","Letzte 12 Monate negativ (−11.6 Mrd. $)",0,10],
+ ["ROIC","11.9 % (6 Pkt.), fallend seit 2024 (−1)",5,15],
+ ["Schulden","Nettoschulden inkl. Leasing / EBITDA 0.76",9,10],
+ ["Bewertung vs. eigene Historie","KGV 30.7 (Gewinn 2026 ohne Anthropic) statt Ø 43, rund 29 % günstiger",10,15]
+],
+"adwnote": ADW + "Positiv: Beim Allzeithoch Anfang August (Wochenschluss 274.48 $) stand die Wochen-A/D bei 7'732. Heute liegt der Kurs 8 % tiefer, die A/D aber höher bei 7'983. Grosse Anleger haben im Rücksetzer eher gekauft.",
+"rsiwnote": RSIW + "Im Februar und März um 38 bis 45, Anfang Mai 68, heute 51: neutral.",
+"addnote": "Neutral bis leicht schwach: Seit dem Tief vom 16.9. (A/D 370) bewegt sich die Tages-A/D seitwärts und steht heute bei 363. Beim Hoch vom 12.10. (263.70 $) fiel die A/D sogar, die Käufer drängen also noch nicht.",
+"ind": [
+ ["Kurs vs. EMA 50","253.8 ≈ 254.4","253.8 &gt; 242.8","Tag genau auf der mittelfristigen Linie, Woche darüber."],
+ ["Kurs vs. EMA 200","253.8 &gt; 245.1","253.8 &gt; 200.6","Klar über der langfristigen Linie."],
+ ["EMA 50 vs. EMA 200","50 über 200 (seit 17.4.2026)","50 über 200 (seit Oktober 2023)","Aufwärtstrend auf beiden Zeitebenen."],
+ ["RSI (14)","49.0","51.4","Neutral."],
+ ["A/D","seitwärts, leicht schwächer","höher als beim Allzeithoch","Woche positiv, Tag neutral."],
+ ["Volumen","Ø 20 Tage 34 Mio. vs. Ø 100 Tage 44 Mio. Aktien","Ruhiger Handel, keine Panik."]
+],
+"smc": "Im Wochenchart ist Amazon im Aufwärtstrend: Tief 196 $ im Februar, dann höhere Tiefs (199.14 → 225.55 → 226.16 $) und ein neues Allzeithoch bei 287.20 $ am 3.8.2026. Seither korrigiert die Aktie. Im Tageschart gibt es tiefere Hochs (287.20 → 267.56 → 263.70 $), aber seit dem 16.9. auch leicht höhere Tiefs (244.30 → 244.73 → 248.65 $). Das ist eine Seitwärtsspanne zwischen 244 und 264 $, die enger wird. Ein Tagesschluss über 264 $ wäre der Ausbruch nach oben (Change of Character). Unter 244 $ wartet die Unterstützung bei 226 bis 233 $ (Tiefs von Juni und Juli).",
+"zones": [
+ ["r","280–287 $","Widerstand: Allzeithoch vom 3.8.2026."],
+ ["r","264–268 $","Widerstand: Hochs vom 28.8. und 12.10."],
+ ["t","264 $","<b>Trigger:</b> Tagesschluss über dem Hoch vom 12.10. (263.70 $), besser mit steigender Tages-A/D."],
+ ["s","244–249 $","<b>Kaufzone 1:</b> Tiefs vom 16.9., 28.9. und 15.10. plus Tages-EMA 200 (245 $)."],
+ ["s","226–234 $","<b>Kaufzone 2:</b> Tiefs vom Juni und Juli (225.55 / 226.16 / 233.59 $)."],
+ ["r","240 $","Abbruch: Wochenschluss unter 240 $. Dann ist die Spanne nach unten gebrochen."]
+],
+"smart": [
+ "<b>Amazon selbst:</b> Keine Rückkäufe seit 2022, keine Dividende. Im Gegenteil: In 12 Monaten nahm Amazon netto 75 Mrd. $ neue Schulden auf.",
+ "<b>Insider:</b> Nur Verkäufe, keine Käufe. Jeff Bezos verkaufte am 3.8.2026 genau am Allzeithoch 1.2 Mio. Aktien zu 286 $ (rund 346 Mio. $) nach einem festen Plan und darf bis zu 15 Mio. Aktien verkaufen. CEO Andy Jassy verkaufte in 12 Monaten für rund 35 Mio. $.",
+ "<b>Grosse Investoren:</b> Laut MarketBeat in 12 Monaten mehr Käufe (269 Mrd. $) als Verkäufe (64 Mrd. $) durch Fonds und Banken.",
+ "<b>Analysten:</b> Fast alle positiv: 58 von 60 Kaufen, Kursziel im Schnitt 331 $ (+30 %), Spanne 230 bis 405 $. Im Oktober leicht gesenkt: Wells Fargo 329 $, Cantor 310 $."
+],
+"seasnote": SEAS + "29 Jahre Daten (seit 1997). März (+4.6 %, 72 %) und November (+3.0 %, 70 %) sind stark, Dezember schwach (−1.9 %, 39 %).",
+"T": [
+ ["Trend Woche (EMA 50/200)","Kurs über beiden, EMA 50 über 200",19,20],
+ ["Trend Tag (EMA 50/200)","Kurs auf EMA 50, über EMA 200, EMA 50 über 200",7,10],
+ ["Struktur (SMC)","Seitwärtsspanne 244–264 $ mit leicht höheren Tiefs",9,20],
+ ["RSI Tag/Woche","Tag 49, Woche 51, kein Signal",7,15],
+ ["A/D Tag/Woche","Woche höher bei tieferem Kurs, Tag neutral",11,20],
+ ["Smart Money","Start 3, kein Rückkauf, gehäufte Insider-Verkäufe −3",0,10],
+ ["Saisonalität","Oktober 55 %, November 70 %, Dezember 39 % positive Jahre",3,5]
+],
+"pro": [
+ "AWS wächst wieder sehr schnell (+37 %) bei 39 % Marge, Auftragsbestand 496 Mrd. $.",
+ "Werbung wächst mit 23 bis 26 % pro Quartal und bringt hohe Margen.",
+ "Eigene KI-Chips (Trainium) mit über 25 Mrd. $ Jahresumsatz, Kunden Anthropic und OpenAI.",
+ "Der operative Cashflow wächst stark (+33 %), das Geschäft selbst ist gesund.",
+ "KGV auf den bereinigten Gewinn 2026 rund 29 % unter dem eigenen Schnitt."
+],
+"con": [
+ "Free Cashflow negativ: 220 Mrd. $ Investitionen 2026, bezahlt teils mit neuen Schulden.",
+ "Nichts für die Aktionäre: keine Dividende, keine Rückkäufe, die Aktienzahl steigt.",
+ "Kapitalrendite fällt (19 % → 12 %): Ob sich die KI-Rechenzentren lohnen, ist offen.",
+ "Gewinn aufgebläht durch Buchgewinne auf Anthropic. Fällt deren Bewertung, sinkt der Gewinn stark.",
+ "FTC-Klage gegen das Werbegeschäft, Insider verkaufen laufend."
+],
+"todo": [
+ ["t","Beobachten","Alarm bei 264 $ (Trigger) und 249 $ (oberes Ende Kaufzone 1)."],
+ ["s","Timing grün","Tagesschluss über 264 $ mit steigender Tages-A/D. Fundamental für dein Free-Cashflow-Schema wichtiger: Im Februar 2027 sollte der Investitionsplan für 2027 nicht weiter steigen, sonst bleibt der FCF negativ."],
+ ["r","Abbruch","Wochenschluss unter 240 $. Dann Kaufzone 2 (226–234 $) beobachten."],
+ ["","Nächste Zahlen","29. Oktober 2026 nach US-Börsenschluss (3. Quartal, bestätigt). Achten auf: AWS-Wachstum über 30 %, Investitionen und erste Zahl für 2027."]
+],
+"bands": [{"from":280,"to":287,"type":"res"},{"from":264,"to":268,"type":"res"},{"from":244,"to":249,"type":"sup"},{"from":226,"to":234,"type":"sup"}],
+"refs": [{"v":264,"label":"Trigger 264"}],
+"sources": L("https://stockanalysis.com/stocks/amzn/financials/","StockAnalysis.com") + " (Stand 16.10.2026), " + L("https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Second-Quarter-Results","Amazon Q2 2026") + ", " + L("https://www.tikr.com/blog/amazon-raised-its-2026-capex-guide-to-220-billion-heres-what-drove-the-increase","TIKR: Investitionen 220 Mrd. $") + ", " + L("https://finance.yahoo.com/news/amazon-stock-falls-earnings-200-214541347.html","Yahoo: Februar 2026") + ", " + L("https://news.bgov.com/capital-markets/bezos-cuts-amazon-stake-by-350-million-in-years-first-sale","Bloomberg Gov: Bezos-Verkauf") + ", " + L("https://www.marketbeat.com/stocks/NASDAQ/AMZN/insider-trades/","Insider (MarketBeat)") + ", " + L("https://stockanalysis.com/stocks/amzn/forecast/","Analysten (StockAnalysis)") + "."
+}
+if __name__ == "__main__":
+    json.dump(c, open(os.path.join(P, "config", "AMZN.json"), "w"), ensure_ascii=False, indent=1)
+    print("ok", sum(r[2] for r in c["Q"]), sum(r[2] for r in c["T"]))

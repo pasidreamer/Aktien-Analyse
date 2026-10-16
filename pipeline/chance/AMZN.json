@@ -1,0 +1,67 @@
+{
+ "ticker": "AMZN",
+ "sorgen": [
+  "Amazon investiert 2026 rund 220 Mrd. $ in KI-Rechenzentren. Der Free Cashflow ist dadurch negativ (−11.6 Mrd. $ in 12 Monaten), Analysten erwarten für 2026 rund −34 Mrd. $. Bezahlt wird teils mit neuen Schulden.",
+  "Die Kapitalrendite (ROIC) fiel von 19 % (2024) auf 12 %. Die Börse fragt, ob sich die Milliarden für KI je lohnen.",
+  "Der Gewinn ist aufgebläht: Rund 46 % des Gewinns vor Steuern sind Buchgewinne auf die Beteiligung an Anthropic.",
+  "Die US-Behörde FTC und 22 Bundesstaaten verklagen Amazon seit dem 31.08.2026 wegen angeblich irreführender Werbepreise. Werbung ist das am schnellsten wachsende Geschäft."
+ ],
+ "sorgen_art": "gemischt",
+ "sorgen_art_text": "Das Geschäft wird besser (AWS +37 %, Rekordmarge), aber der negative Free Cashflow und die neuen Schulden sind echt.",
+ "aufloeser": [
+  {
+   "was": "Zahlen zum 3. Quartal: Hält AWS das Wachstum über 30 %, und was sagt Amazon zu den Investitionen 2027?",
+   "wann": "Zahlen 29.10.2026"
+  },
+  {
+   "was": "Investitionsplan 2027: Bleibt er gleich oder sinkt er, kann der Free Cashflow drehen",
+   "wann": "Zahlen Anfang Februar 2027"
+  },
+  {
+   "was": "Neue Rechenzentren gehen in Betrieb und bringen Umsatz (OpenAI und Anthropic ab 2027)",
+   "wann": "2027"
+  },
+  {
+   "was": "Börsengang von Anthropic würde den Wert der Beteiligung klar sichtbar machen",
+   "wann": "offen"
+  }
+ ],
+ "schub_stufe": "stark",
+ "schub_treiber": [
+  {
+   "titel": "AWS und KI-Rechenleistung",
+   "text": "AWS wächst seit fünf Quartalen schneller, zuletzt +37 % auf 42.2 Mrd. $ im Quartal. Der Auftragsbestand liegt bei 496 Mrd. $, fast dreimal der Jahresumsatz von AWS. Amazon sagt, dass die Kapazität 2026 nicht für alle Kunden reicht.",
+   "wann": "2026–2028"
+  },
+  {
+   "titel": "Eigene KI-Chips (Trainium)",
+   "text": "Umsatz mit eigenen Chips von über 10 Mrd. $ (Ende 2025) auf über 25 Mrd. $ Jahresrate (Mitte 2026). Grosse Kunden sind Anthropic und ab 2027 OpenAI.",
+   "wann": "2026–2028"
+  },
+  {
+   "titel": "Werbung",
+   "text": "Rund 20 Mrd. $ pro Quartal, +26 %. Werbung auf Amazon und Prime Video bringt hohe Margen und hebt den Gewinn im Handel.",
+   "wann": "laufend"
+  }
+ ],
+ "schub_beweis": "Für dein Free-Cashflow-Schema zählt: Steigt der operative Cashflow weiter mit über 25 % und flachen die Investitionen 2027 ab, wird der FCF wieder positiv. Kennzahl: AWS-Wachstum über 30 % und AWS-Marge um 38 bis 40 %.",
+ "szenario": "Wachstumsschub wie bei Google 2023 ist da: AWS beschleunigt stark, und die Rechenzentren sind ausgebucht. Wenn die Investitionen ab 2027 sinken, kann der Free Cashflow schnell auf 50 Mrd. $ und mehr steigen. Grösstes Risiko: Die KI-Nachfrage flacht ab, dann sitzt Amazon auf teuren Rechenzentren und höheren Schulden, und der Free Cashflow bleibt schwach.",
+ "quellen": [
+  {
+   "titel": "Amazon: Ergebnisse Q2 2026",
+   "url": "https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Second-Quarter-Results"
+  },
+  {
+   "titel": "TIKR: Amazon erhöht Investitionen auf 220 Mrd. $",
+   "url": "https://www.tikr.com/blog/amazon-raised-its-2026-capex-guide-to-220-billion-heres-what-drove-the-increase"
+  },
+  {
+   "titel": "The Next Web: Anthropic-Gewinne in den Q1-Zahlen",
+   "url": "https://thenextweb.com/news/amazon-q1-2026-anthropic-aws-earnings"
+  },
+  {
+   "titel": "Gleaner: FTC verklagt Amazon (01.09.2026)",
+   "url": "https://jamaica-gleaner.com/article/world-news/20260901/federal-trade-commission-and-22-states-sue-amazon-over-inflated"
+  }
+ ]
+}
