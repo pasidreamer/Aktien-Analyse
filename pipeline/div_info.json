@@ -638,5 +638,9 @@
   "betrag": 3.2,
   "system": "Deutsches System: eine Dividende pro Jahr, beschlossen an der Generalversammlung im Juni. Sixt zahlt 35 bis 60 % des Gewinns aus, 2025 rund 53 %. 2024 wurde die Dividende nach dem Gewinneinbruch gekürzt (2.70 €), 2025 wieder erhöht (3.20 €, +18.5 %). Die Vorzugsaktie SIX3 bekommt 2 Cent mehr (3.22 €).",
   "form": "Bar in Euro aufs Konto. Deutschland zieht 26.375 % Quellensteuer ab. 15 % kannst du über die Schweizer Steuererklärung anrechnen lassen (Formular DA-1), die restlichen 11.375 % musst du in Deutschland zurückfordern (Bundeszentralamt für Steuern). Bei 3.20 € Dividende kommen 2.36 € aufs Konto."
+ },
+ "CMG": {
+  "zahlt": false,
+  "text": "Chipotle zahlt keine Dividende und plant auch keine. Das Geld geht in neue Restaurants und Aktienrückkäufe."
  }
 }

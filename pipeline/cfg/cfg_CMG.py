@@ -1,0 +1,101 @@
+import json, os, sys
+P = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); sys.path.insert(0, P)
+from helpers import L, ADW, RSIW, SEAS
+c = {
+"ticker": "CMG", "name": "Chipotle", "datum": "16.10.2026", "waehrung": "USD", "land": "USA",
+"meta": "Chipotle Mexican Grill, Inc. · NYSE: CMG · Schnellrestaurants mit mexikanischem Essen (Burritos, Bowls) · Newport Beach, USA",
+"price": "29.89 $",
+"pricemeta": "Schluss 16.10.2026 · 52 Wochen: 28.04 – 42.74 $ · Allzeithoch 69.26 $ am 18.6.2024 (nach Aktiensplit 50:1)",
+"verdict": "Chipotle ist eine starke Firma: keine Schulden ausser Mieten, 21 % Kapitalrendite, 1.6 Mrd. $ Free Cashflow, und jedes Jahr rund 350 neue Restaurants. Als Wachstumsaktie hat Chipotle aber ein Problem: Die bestehenden Restaurants verkaufen nicht mehr (vergleichbarer Umsatz 2025 −1.7 %, seither etwa 0 %), und die Marge pro Restaurant sinkt seit 8 Quartalen. Das ganze Wachstum (+7 bis 9 %) kommt nur noch von neuen Restaurants, der Gewinn pro Aktie sinkt (−4.5 %). Die Aktie fiel vom Allzeithoch 69.26 $ um 57 % auf 29.89 $ und steht nahe am Jahrestief (28.04 $). Qualität grün (78), Timing rot (28). Nach den Ampeln: auf die Watchlist, auf den Trendwechsel warten.",
+"about": "Chipotle betreibt rund 4'200 eigene Restaurants (fast alle in den USA, dazu Kanada und Europa) und verkauft Burritos, Bowls, Tacos und Salate mit frischen Zutaten. Es gibt keine Franchise-Restaurants, Chipotle besitzt alle selbst (ausser einigen Partnerläden im Nahen Osten, bald auch in Mexiko, Südkorea und Singapur). Rund 80 % der neuen Restaurants haben einen «Chipotlane», einen Abholschalter fürs Auto, der 15 bis 20 % mehr Umsatz bringt. 38 % des Umsatzes kommen über App und Website. Langfristiges Ziel: 7'000 Restaurants in den USA und Kanada.",
+"why": "Im August 2024 verliess Erfolgs-Chef Brian Niccol die Firma und wechselte zu Starbucks, Scott Boatwright übernahm. 2025 kamen weniger Gäste: Der vergleichbare Umsatz (Umsatz in Restaurants, die schon über ein Jahr offen sind) fiel im 2. Quartal 2025 um 4 %, die Aktie stürzte um 14 %. Am 29. Oktober 2025 senkte Chipotle die Jahresprognose zum dritten Mal, der Chef sagte, die Konsumflaute treffe das Geschäft spürbar (vor allem Haushalte unter 100'000 $ Einkommen und 25- bis 35-Jährige). Die Aktie fiel um rund 18 %, so stark wie seit 2012 nicht. Bill Ackmans Fonds Pershing Square verkaufte Ende 2025 alle Aktien. 2026 ging es weiter abwärts: Am 4. Juni lag das Tief bei 28.04 $. Nach guten Zahlen am 29. Juli (+12 %) kamen eine Salmonellen-Meldung im August (−10 %) und neue Kursziel-Senkungen. Am 8. Oktober berichtete die Financial Times über ein Übernahmeinteresse von Starbucks (+6 %), Starbucks dementierte wenige Tage später.",
+"kpis": [
+ ["w","Umsatzwachstum","+7.3 %","Letzte 12 Monate, im 2. Quartal 2026 +9.3 %. Kommt fast nur von neuen Restaurants (rund 7 % pro Jahr). 2021 bis 2024 waren es 14 bis 26 %."],
+ ["r","Vergleichbarer Umsatz","≈ 0 %","Umsatz der Restaurants, die schon über ein Jahr offen sind: 2025 −1.7 %, letzte 12 Monate etwa 0 %, im 2. Quartal 2026 +2.2 %. Für eine Wachstumsaktie zu wenig. 2021 bis 2024: +7 bis +19 %."],
+ ["w","Operative Marge","15.3 %","Von 100 $ Umsatz bleiben rund 15 $ Betriebsgewinn. Für Restaurants gut, aber 2024 waren es 17.3 %. Die Marge pro Restaurant ist 8 Quartale in Folge gesunken (Rindfleisch, Fracht, Löhne)."],
+ ["r","Gewinn pro Aktie (EPS)","1.08 $","Letzte 12 Monate, −4.5 %. Im 2. Quartal 2026 gleich hoch wie 2024 (0.32 $). 2021 bis 2024 noch +25 bis +40 % pro Jahr."],
+ ["g","ROIC","21 %","Auf 100 $ investiertes Kapital rund 21 $ Gewinn. Gut. Neue Restaurants zahlen sich laut Chipotle im 2. Jahr zu rund 60 % zurück."],
+ ["g","Free Cashflow","1.57 Mrd. $","Letzte 12 Monate, 12.6 % vom Umsatz, 4.2 % des Börsenwerts. Nur 6 % davon sind Löhne in Aktien: echt. 2025 aber −4 %."],
+ ["g","KGV","27.7","Du zahlst rund 28 Jahresgewinne. Eigener Schnitt 2021–2025: rund 51. Also fast die Hälfte günstiger als üblich, aber für eine Firma mit sinkendem Gewinn immer noch kein Schnäppchen."],
+ ["w","Aktienrückkäufe","−3.9 %","So viel weniger Aktien gibt es als vor einem Jahr. 2025 kaufte Chipotle für 171 % des Free Cashflows zurück und baute dafür Cash ab (von 2.3 auf 0.8 Mrd. $). Das geht nicht ewig so. Keine Dividende."]
+],
+"revtitle": "Umsatz pro Quartal (Mio. $)", "revunit": "Mio. $", "epsunit": "$",
+"revnote": "Alle 8 Quartale über dem Vorjahr, zuletzt +9.3 %. Wichtig: Das Wachstum kommt von neuen Restaurants, die bestehenden verkaufen etwa gleich viel wie vor einem Jahr.",
+"marginnote": "Marge auf Restaurant-Ebene (vor Verwaltung und Abschreibungen). Höchststand 2024 mit 26.7 %, seither 8 Quartale in Folge tiefer als im Vorjahr.",
+"finnote": "<b>Hinweis:</b> Aktiensplit 50:1 im Juni 2024, alle Werte pro Aktie sind angepasst. Die Grafik zeigt die Marge auf Restaurant-Ebene, die Tabelle die operative Marge des Konzerns. Die Schulden bestehen nur aus Mietverträgen (5.4 Mrd. $), Bankschulden hat Chipotle keine.",
+"FIN": [["2021",7547,"+26.1 %","10.9 %",0.46,840,"14.8 %","75.3"],["2022",8635,"+14.4 %","13.7 %",0.64,844,"18.1 %","42.8"],["2023",9872,"+14.3 %","16.2 %",0.89,1223,"22.0 %","51.1"],["2024",11314,"+14.6 %","17.3 %",1.11,1511,"23.8 %","53.6"],["2025",11926,"+5.4 %","16.9 %",1.14,1448,"22.7 %","31.9"],["Letzte 12 Mt.",12424,"+7.3 %","15.3 %",1.08,1569,"21.0 %","27.7"]],
+"QREV": [["Q3 24",2794],["Q4 24",2845],["Q1 25",2875],["Q2 25",3063],["Q3 25",3003],["Q4 25",2984],["Q1 26",3088],["Q2 26",3349]],
+"revdec": 0,
+"MARGIN": [["2021",22.6],["2022",23.9],["2023",26.2],["2024",26.7],["2025",25.4],["Q2 26",25.2]],
+"Q": [
+ ["Umsatztrend","4 von 4 Quartalen über Vorjahr, aber nur dank neuer Restaurants",12,15],
+ ["Wachstumstempo","+7.3 % in 12 Monaten, vergleichbarer Umsatz etwa 0 %",6,10],
+ ["Operative Marge","15.3 % (6 Pkt.), 5 Jahre gestiegen, seit 2024 sinkend (3 Pkt.)",9,15],
+ ["Gewinnwachstum (EPS)","3 Jahre rund +21 % pro Jahr, aktuell −4.5 %",5,10],
+ ["Free Cashflow","Positiv, in 4 von 5 Jahren gestiegen (2025 −4 %)",10,10],
+ ["ROIC","21 % (13 Pkt.), leicht fallend (−1)",12,15],
+ ["Schulden","Keine Bankschulden, Netto-Cash 775 Mio. $ (nur Mietverträge)",10,10],
+ ["Bewertung vs. eigene Historie","KGV 27.7 statt Ø 51 (2021–2025), rund 46 % günstiger",14,15]
+],
+"adwnote": ADW + "Beim Tief im Juni (Wochenschluss 29.34 $) stand die Wochen-A/D bei 2'294, heute bei 2'341 bei ähnlichem Kurs (29.89 $). Etwa gleich: kein Zeichen, dass grosse Käufer einsteigen.",
+"rsiwnote": RSIW + "Im März und Juni um 34, im August 57, heute 41: schwach.",
+"addnote": "Negativ: Beim Tief vom 4.6. (28.04 $) stand die Tages-A/D bei −334, heute bei −377 bei leicht höherem Kurs. Es wird weiter verkauft.",
+"ind": [
+ ["Kurs vs. EMA 50","29.9 &lt; 33.0","29.9 &lt; 36.0","Unter der mittelfristigen Linie, auf beiden Zeitebenen."],
+ ["Kurs vs. EMA 200","29.9 &lt; 35.1","29.9 &lt; 40.3","Unter der langfristigen Linie, auf beiden Zeitebenen."],
+ ["EMA 50 vs. EMA 200","50 unter 200 (seit Januar 2025)","50 unter 200 (seit 9.2.2026)","Abwärtstrend auf beiden Zeitebenen."],
+ ["RSI (14)","34.3","40.6","Schwach, kein Signal für eine Wende."],
+ ["A/D","tiefer als beim Juni-Tief","etwa gleich wie beim Juni-Tief","Tag negativ, Woche neutral."],
+ ["Volumen","Ø 20 Tage 20.4 Mio. vs. Ø 100 Tage 18.8 Mio. Aktien","Etwas mehr Handel als üblich im Abverkauf."]
+],
+"smc": "Chipotle ist seit dem Allzeithoch im Juni 2024 (69.26 $) in einem langen Abwärtstrend. Seit November 2025 läuft die Aktie in einer Spanne zwischen rund 28 und 41 $: Tiefs 29.75 $ (November 2025), 30.60 $ (März), 28.04 $ (Juni), Hochs 41.42 $ (Januar), 39.09 $ (Juli), 38.92 $ (September). Die Hochs werden tiefer. Seit September fiel der Kurs wieder an den unteren Rand: 31.14 $ (28.9.), 30.21 $ (5.10.), heute 29.89 $. Hält die Zone 28 bis 30 $, wäre das ein doppelter Boden. Bricht sie, gibt es im Chart der letzten zwei Jahre keine Unterstützung mehr. Ein erstes Wendesignal wäre ein Tagesschluss über dem Hoch vom 8.10. (33.40 $).",
+"zones": [
+ ["r","38.90–39.10 $","Widerstand: Hochs vom Juli und September."],
+ ["r","35–36 $","Widerstand: Tages-EMA 200 (35.10 $) und Wochen-EMA 50 (36 $)."],
+ ["t","33.50 $","<b>Trigger:</b> Tagesschluss über dem Hoch vom 8.10. (33.40 $) und der Tages-EMA 50 (33 $)."],
+ ["s","28–30 $","<b>Kaufzone:</b> Tiefs vom November 2025 (29.75 $) und Juni 2026 (28.04 $). Nur mit Wendesignal kaufen."],
+ ["r","27.90 $","Abbruch: Wochenschluss unter dem Juni-Tief. Darunter keine Unterstützung in den letzten zwei Jahren."]
+],
+"smart": [
+ "<b>Chipotle selbst:</b> Grösster Käufer der eigenen Aktie: im 1. Halbjahr 2026 für 1.33 Mrd. $ zu durchschnittlich 34.35 $. Noch 1.68 Mrd. $ erlaubt. Aber das Cash ist auf 0.8 Mrd. $ geschrumpft, künftig wohl nur noch so viel wie der Free Cashflow (rund 1.5 Mrd. $ pro Jahr, rund 4 % des Börsenwerts).",
+ "<b>Insider:</b> Keine Käufe in 12 Monaten, nur Verkäufe und Steuerabzüge (u. a. Präsident Garner rund 7 Mio. $ nach Optionsausübungen). Kein Manager kaufte nahe am 3-Jahres-Tief.",
+ "<b>Grosse Investoren:</b> Pershing Square (Bill Ackman) hat Ende 2025 alle Aktien verkauft, Viking Global ebenfalls. Gekauft haben vor allem schnelle Handelsfonds (Citadel, Renaissance).",
+ "<b>Analysten:</b> MarketBeat: 22× Kaufen, 10× Halten, 0× Verkaufen, Kursziel im Schnitt 43.67 $. Die neuesten Ziele liegen aber nur bei 37 bis 40 $ (Raymond James 37 $ am 16.10., JPMorgan 37 $). Die Ziele werden laufend gesenkt."
+],
+"seasnote": SEAS + "20 Jahre Daten (seit 2006). November (+3.9 %, 65 %) und Januar (+2.8 %, 75 %) sind stark, Oktober schwach (−1.2 %, nur 32 % positive Jahre).",
+"T": [
+ ["Trend Woche (EMA 50/200)","Kurs unter beiden, EMA 50 unter 200",2,20],
+ ["Trend Tag (EMA 50/200)","Kurs unter beiden, EMA 50 unter 200",1,10],
+ ["Struktur (SMC)","Spanne 28–41 $ mit tieferen Hochs, Kurs am unteren Rand",6,20],
+ ["RSI Tag/Woche","Tag 34, Woche 41, keine Divergenz",6,15],
+ ["A/D Tag/Woche","Tag tiefer als beim Juni-Tief, Woche neutral",5,20],
+ ["Smart Money","Start 3, Rückkauf rund 4 % pro Jahr +3, Insider verkaufen, Ackman ausgestiegen −1",5,10],
+ ["Saisonalität","Oktober 32 %, November 65 %, Dezember 60 % positive Jahre",3,5]
+],
+"pro": [
+ "Starke Marke, keine Bankschulden, 1.57 Mrd. $ echter Free Cashflow.",
+ "Neue Restaurants lohnen sich: rund 350 pro Jahr, 60 % Rendite im 2. Jahr, Platz für 7'000 Läden.",
+ "KGV fast halb so hoch wie im eigenen Schnitt, Aktienzahl sinkt um rund 4 % pro Jahr.",
+ "Erste Lichtblicke: Gästezahlen im 1. und 2. Quartal 2026 wieder leicht im Plus, Prognose angehoben.",
+ "Neue Küchengeräte (HEAP) und Treueprogramm sollen 2027 mehr Umsatz pro Restaurant bringen."
+],
+"con": [
+ "Als Wachstumsaktie schwach: Die bestehenden Restaurants wachsen nicht mehr, der Gewinn pro Aktie sinkt.",
+ "Marge pro Restaurant 8 Quartale in Folge gesunken (Rindfleisch, Fracht, Löhne).",
+ "Kernkunden (jüngere und weniger wohlhabende Haushalte) sparen.",
+ "Rückkäufe grösser als der Free Cashflow: Das Cash ist fast aufgebraucht.",
+ "Klarer Abwärtstrend, Ackman ausgestiegen, Lebensmittel-Schlagzeilen (Salmonellen im August)."
+],
+"todo": [
+ ["t","Beobachten","Alarm bei 33.50 $ (Trigger) und 27.90 $ (Abbruch). Für eine Wachstumsaktie zählt jetzt vor allem der vergleichbare Umsatz."],
+ ["s","Timing grün","Tagesschluss über 33.50 $ mit drehender A/D, danach über 36 $. Fundamental: Am 28.10. vergleichbarer Umsatz mindestens +1 % mit mehr Gästen und eine kleinere Margen-Senkung als −2.2 Punkte."],
+ ["r","Abbruch","Wochenschluss unter 27.90 $."],
+ ["","Nächste Zahlen","28. Oktober 2026 nach US-Börsenschluss (3. Quartal, bestätigt). Erwartet: 0.29 $ Gewinn pro Aktie, vergleichbarer Umsatz rund +1 %."]
+],
+"bands": [{"from":38.9,"to":39.1,"type":"res"},{"from":35,"to":36,"type":"res"},{"from":28,"to":30,"type":"sup"}],
+"refs": [{"v":33.5,"label":"Trigger 33.50"}],
+"sources": L("https://stockanalysis.com/stocks/cmg/financials/","StockAnalysis.com") + " (Stand 16.10.2026), " + L("https://newsroom.chipotle.com/2026-07-29-CHIPOTLE-RAISES-FULL-YEAR-COMPARABLE-SALES-GUIDANCE-ON-STRONG-Q2-MOMENTUM","Chipotle Q2 2026") + ", " + L("https://www.marketbeat.com/instant-alerts/chipotle-mexican-grill-q2-earnings-call-highlights-2026-07-29/","MarketBeat: Telefonkonferenz Q2") + ", " + L("https://www.bnnbloomberg.ca/business/2025/10/30/chipotle-shares-drop-as-margins-face-heat-from-tariffs-inflation/","BNN Bloomberg (Oktober 2025)") + ", " + L("https://www.xtb.com/en/market-analysis/is-starbucks-eyeing-chipotle-the-market-reacts-nervously-to-the-ft-s-reports-of-a-takeover","XTB: Starbucks-Gerücht") + ", " + L("https://www.marketbeat.com/stocks/NYSE/CMG/forecast/","Analysten (MarketBeat)") + "."
+}
+if __name__ == "__main__":
+    json.dump(c, open(os.path.join(P, "config", "CMG.json"), "w"), ensure_ascii=False, indent=1)
+    print("ok", sum(r[2] for r in c["Q"]), sum(r[2] for r in c["T"]))

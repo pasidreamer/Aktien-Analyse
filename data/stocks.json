@@ -13542,6 +13542,344 @@
    ],
    "cheatsheet": "analysen/SIX2.html",
    "claude": "https://claude.ai/artifact/TcviWDr8NCfAoLFvEkx1Ga"
+  },
+  {
+   "ticker": "CMG",
+   "symbol": "CMG",
+   "name": "Chipotle",
+   "tags": [
+    "Wachstum"
+   ],
+   "land": "USA",
+   "region": "USA",
+   "branche": "Restaurants (Fast Casual)",
+   "status": "beobachten",
+   "waehrung": "USD",
+   "analyse": {
+    "datenstand": "2026-10-16",
+    "kurs": 29.89,
+    "q": 78,
+    "t": 28
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "4 von 4 Quartalen über Vorjahr, aber nur dank neuer Restaurants",
+     "p": 12,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "+7.3 % in 12 Monaten, vergleichbarer Umsatz etwa 0 %",
+     "p": 6,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "15.3 % (6 Pkt.), 5 Jahre gestiegen, seit 2024 sinkend (3 Pkt.)",
+     "p": 9,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "3 Jahre rund +21 % pro Jahr, aktuell −4.5 %",
+     "p": 5,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Positiv, in 4 von 5 Jahren gestiegen (2025 −4 %)",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "21 % (13 Pkt.), leicht fallend (−1)",
+     "p": 12,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Keine Bankschulden, Netto-Cash 775 Mio. $ (nur Mietverträge)",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "KGV 27.7 statt Ø 51 (2021–2025), rund 46 % günstiger",
+     "p": 14,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs unter beiden, EMA 50 unter 200",
+     "p": 2,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs unter beiden, EMA 50 unter 200",
+     "p": 1,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Spanne 28–41 $ mit tieferen Hochs, Kurs am unteren Rand",
+     "p": 6,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "Tag 34, Woche 41, keine Divergenz",
+     "p": 6,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Tag tiefer als beim Juni-Tief, Woche neutral",
+     "p": 5,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Start 3, Rückkauf rund 4 % pro Jahr +3, Insider verkaufen, Ackman ausgestiegen −1",
+     "p": 5,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "Oktober 32 %, November 65 %, Dezember 60 % positive Jahre",
+     "p": 3,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 27.7,
+    "schnitt": 51,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      28,
+      30
+     ]
+    ],
+    "widerstand": [
+     [
+      35,
+      36
+     ],
+     [
+      38.9,
+      39.1
+     ]
+    ],
+    "trigger": 33.5,
+    "abbruch": 27.9
+   },
+   "zahlen": "2026-10-28",
+   "dividende": null,
+   "div_info": {
+    "zahlt": false,
+    "text": "Chipotle zahlt keine Dividende und plant auch keine. Das Geld geht in neue Restaurants und Aktienrückkäufe."
+   },
+   "chance": {
+    "ticker": "CMG",
+    "sorgen": [
+     "Die bestehenden Restaurants verkaufen nicht mehr: vergleichbarer Umsatz 2025 −1.7 %, Gästezahl −2.9 %. Im 3. Quartal 2026 erwartet Chipotle nur rund +1 %.",
+     "Die Marge pro Restaurant sinkt seit 8 Quartalen (2. Quartal 2026: 25.2 % statt 27.4 %), weil Rindfleisch, Fracht und Löhne teurer werden und Chipotle die Preise bewusst wenig erhöht.",
+     "Die wichtigsten Kunden sparen: Haushalte unter 100'000 $ Einkommen (rund 40 % des Umsatzes) und 25- bis 35-Jährige.",
+     "Der Umsatz pro Restaurant sinkt (2025 −3.4 %), obwohl jedes Jahr rund 9 % mehr Restaurants dazukommen. Das kann heissen: Neue Läden nehmen alten Kunden weg."
+    ],
+    "sorgen_art": "gemischt",
+    "sorgen_art_text": "Das Wachstum der bestehenden Restaurants ist wirklich weg und die Marge sinkt, aber neue Läden verdienen gut und die Firma ist schuldenfrei.",
+    "aufloeser": [
+     {
+      "was": "Zahlen zum 3. Quartal: Mindestens +1 % vergleichbarer Umsatz mit mehr Gästen und eine kleinere Margen-Senkung",
+      "wann": "Zahlen 28.10.2026"
+     },
+     {
+      "was": "Ab dem 4. Quartal 2026 sollen die Preise wieder so stark steigen wie die Kosten, dann könnte die Marge aufhören zu sinken",
+      "wann": "ab 4. Quartal 2026"
+     },
+     {
+      "was": "Ausblick 2027 mit leichterem Vergleich (2025 war schwach) und den neuen Küchengeräten in allen Restaurants",
+      "wann": "Anfang Februar 2027"
+     }
+    ],
+    "schub_stufe": "mittel",
+    "schub_treiber": [
+     {
+      "titel": "Neue Restaurants mit Chipotlane",
+      "text": "350 bis 370 neue Restaurants 2026, rund 80 % mit Abholschalter (15 bis 20 % mehr Umsatz). Das bringt rund 7 % Umsatzwachstum pro Jahr mit hoher Sicherheit. Bis zum Ziel von 7'000 Restaurants dauert es noch rund 8 Jahre.",
+      "wann": "laufend"
+     },
+     {
+      "titel": "Mehr Umsatz pro Restaurant (Küche, Treueprogramm, neue Gerichte)",
+      "text": "Neue Küchengeräte (HEAP) sollen in der Spitzenzeit 2 bis 3 Gerichte mehr pro 15 Minuten schaffen, bis Ende 2026 in rund 2'000 Restaurants. Neue Gerichte wie Honey Chicken und ein einfacheres Treueprogramm sollen mehr Gäste bringen. Noch nicht bewiesen.",
+      "wann": "2026–2027"
+     },
+     {
+      "titel": "Ausland",
+      "text": "Erste Läden in Mexiko (mit Alsea), Südkorea und Singapur, in Europa wächst der vergleichbare Umsatz hoch einstellig. Mit rund 3 % der Restaurants noch klein.",
+      "wann": "ab 2027"
+     }
+    ],
+    "schub_beweis": "Für deine Wachstums-Strategie zählt der vergleichbare Umsatz (Comps) mit steigenden Gästezahlen: 2. Quartal 2026 +2.2 % (Gäste +1.0 %). Liegt er wieder bei +4 % oder mehr und hört die Marge auf zu sinken, ist das Wachstum zurück.",
+    "szenario": "Ein gefallener Wachstums-Star: Kommen die Gäste zurück, wächst der Gewinn pro Aktie mit neuen Läden und Rückkäufen wieder zweistellig, und das KGV von 28 kann gerechtfertigt sein. Grösstes Risiko: Chipotle wird zu einem normalen Restaurantkonzern, der nur noch über neue Läden wächst. Dann ist auch ein KGV von 28 noch zu hoch.",
+    "quellen": [
+     {
+      "titel": "Chipotle: Ergebnisse Q2 2026",
+      "url": "https://newsroom.chipotle.com/2026-07-29-CHIPOTLE-RAISES-FULL-YEAR-COMPARABLE-SALES-GUIDANCE-ON-STRONG-Q2-MOMENTUM"
+     },
+     {
+      "titel": "MarketBeat: Telefonkonferenz Q2 2026",
+      "url": "https://www.marketbeat.com/instant-alerts/chipotle-mexican-grill-q2-earnings-call-highlights-2026-07-29/"
+     },
+     {
+      "titel": "BNN Bloomberg: Chipotle fällt wegen Margen (Oktober 2025)",
+      "url": "https://www.bnnbloomberg.ca/business/2025/10/30/chipotle-shares-drop-as-margins-face-heat-from-tariffs-inflation/"
+     },
+     {
+      "titel": "Motley Fool: Warum Chipotle 2025 einbrach",
+      "url": "https://www.fool.com/investing/2026/01/15/why-chipotle-stock-collapsed-last-year"
+     }
+    ]
+   },
+   "fazit": "Chipotle ist eine starke Firma: keine Schulden ausser Mieten, 21 % Kapitalrendite, 1.6 Mrd. $ Free Cashflow, und jedes Jahr rund 350 neue Restaurants. Als Wachstumsaktie hat Chipotle aber ein Problem: Die bestehenden Restaurants verkaufen nicht mehr (vergleichbarer Umsatz 2025 −1.7 %, seither etwa 0 %), und die Marge pro Restaurant sinkt seit 8 Quartalen. Das ganze Wachstum (+7 bis 9 %) kommt nur noch von neuen Restaurants, der Gewinn pro Aktie sinkt (−4.5 %). Die Aktie fiel vom Allzeithoch 69.26 $ um 57 % auf 29.89 $ und steht nahe am Jahrestief (28.04 $). Qualität grün (78), Timing rot (28). Nach den Ampeln: auf die Watchlist, auf den Trendwechsel warten.",
+   "about": "Chipotle betreibt rund 4'200 eigene Restaurants (fast alle in den USA, dazu Kanada und Europa) und verkauft Burritos, Bowls, Tacos und Salate mit frischen Zutaten. Es gibt keine Franchise-Restaurants, Chipotle besitzt alle selbst (ausser einigen Partnerläden im Nahen Osten, bald auch in Mexiko, Südkorea und Singapur). Rund 80 % der neuen Restaurants haben einen «Chipotlane», einen Abholschalter fürs Auto, der 15 bis 20 % mehr Umsatz bringt. 38 % des Umsatzes kommen über App und Website. Langfristiges Ziel: 7'000 Restaurants in den USA und Kanada.",
+   "kpis": [
+    {
+     "ampel": "w",
+     "name": "Umsatzwachstum",
+     "wert": "+7.3 %",
+     "text": "Letzte 12 Monate, im 2. Quartal 2026 +9.3 %. Kommt fast nur von neuen Restaurants (rund 7 % pro Jahr). 2021 bis 2024 waren es 14 bis 26 %."
+    },
+    {
+     "ampel": "r",
+     "name": "Vergleichbarer Umsatz",
+     "wert": "≈ 0 %",
+     "text": "Umsatz der Restaurants, die schon über ein Jahr offen sind: 2025 −1.7 %, letzte 12 Monate etwa 0 %, im 2. Quartal 2026 +2.2 %. Für eine Wachstumsaktie zu wenig. 2021 bis 2024: +7 bis +19 %."
+    },
+    {
+     "ampel": "w",
+     "name": "Operative Marge",
+     "wert": "15.3 %",
+     "text": "Von 100 $ Umsatz bleiben rund 15 $ Betriebsgewinn. Für Restaurants gut, aber 2024 waren es 17.3 %. Die Marge pro Restaurant ist 8 Quartale in Folge gesunken (Rindfleisch, Fracht, Löhne)."
+    },
+    {
+     "ampel": "r",
+     "name": "Gewinn pro Aktie (EPS)",
+     "wert": "1.08 $",
+     "text": "Letzte 12 Monate, −4.5 %. Im 2. Quartal 2026 gleich hoch wie 2024 (0.32 $). 2021 bis 2024 noch +25 bis +40 % pro Jahr."
+    },
+    {
+     "ampel": "g",
+     "name": "ROIC",
+     "wert": "21 %",
+     "text": "Auf 100 $ investiertes Kapital rund 21 $ Gewinn. Gut. Neue Restaurants zahlen sich laut Chipotle im 2. Jahr zu rund 60 % zurück."
+    },
+    {
+     "ampel": "g",
+     "name": "Free Cashflow",
+     "wert": "1.57 Mrd. $",
+     "text": "Letzte 12 Monate, 12.6 % vom Umsatz, 4.2 % des Börsenwerts. Nur 6 % davon sind Löhne in Aktien: echt. 2025 aber −4 %."
+    },
+    {
+     "ampel": "g",
+     "name": "KGV",
+     "wert": "27.7",
+     "text": "Du zahlst rund 28 Jahresgewinne. Eigener Schnitt 2021–2025: rund 51. Also fast die Hälfte günstiger als üblich, aber für eine Firma mit sinkendem Gewinn immer noch kein Schnäppchen."
+    },
+    {
+     "ampel": "w",
+     "name": "Aktienrückkäufe",
+     "wert": "−3.9 %",
+     "text": "So viel weniger Aktien gibt es als vor einem Jahr. 2025 kaufte Chipotle für 171 % des Free Cashflows zurück und baute dafür Cash ab (von 2.3 auf 0.8 Mrd. $). Das geht nicht ewig so. Keine Dividende."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "38.90–39.10 $",
+     "text": "Widerstand: Hochs vom Juli und September."
+    },
+    {
+     "art": "r",
+     "wert": "35–36 $",
+     "text": "Widerstand: Tages-EMA 200 (35.10 $) und Wochen-EMA 50 (36 $)."
+    },
+    {
+     "art": "t",
+     "wert": "33.50 $",
+     "text": "Trigger: Tagesschluss über dem Hoch vom 8.10. (33.40 $) und der Tages-EMA 50 (33 $)."
+    },
+    {
+     "art": "s",
+     "wert": "28–30 $",
+     "text": "Kaufzone: Tiefs vom November 2025 (29.75 $) und Juni 2026 (28.04 $). Nur mit Wendesignal kaufen."
+    },
+    {
+     "art": "r",
+     "wert": "27.90 $",
+     "text": "Abbruch: Wochenschluss unter dem Juni-Tief. Darunter keine Unterstützung in den letzten zwei Jahren."
+    }
+   ],
+   "pro": [
+    "Starke Marke, keine Bankschulden, 1.57 Mrd. $ echter Free Cashflow.",
+    "Neue Restaurants lohnen sich: rund 350 pro Jahr, 60 % Rendite im 2. Jahr, Platz für 7'000 Läden.",
+    "KGV fast halb so hoch wie im eigenen Schnitt, Aktienzahl sinkt um rund 4 % pro Jahr.",
+    "Erste Lichtblicke: Gästezahlen im 1. und 2. Quartal 2026 wieder leicht im Plus, Prognose angehoben.",
+    "Neue Küchengeräte (HEAP) und Treueprogramm sollen 2027 mehr Umsatz pro Restaurant bringen."
+   ],
+   "contra": [
+    "Als Wachstumsaktie schwach: Die bestehenden Restaurants wachsen nicht mehr, der Gewinn pro Aktie sinkt.",
+    "Marge pro Restaurant 8 Quartale in Folge gesunken (Rindfleisch, Fracht, Löhne).",
+    "Kernkunden (jüngere und weniger wohlhabende Haushalte) sparen.",
+    "Rückkäufe grösser als der Free Cashflow: Das Cash ist fast aufgebraucht.",
+    "Klarer Abwärtstrend, Ackman ausgestiegen, Lebensmittel-Schlagzeilen (Salmonellen im August)."
+   ],
+   "smart_money": [
+    "Chipotle selbst: Grösster Käufer der eigenen Aktie: im 1. Halbjahr 2026 für 1.33 Mrd. $ zu durchschnittlich 34.35 $. Noch 1.68 Mrd. $ erlaubt. Aber das Cash ist auf 0.8 Mrd. $ geschrumpft, künftig wohl nur noch so viel wie der Free Cashflow (rund 1.5 Mrd. $ pro Jahr, rund 4 % des Börsenwerts).",
+    "Insider: Keine Käufe in 12 Monaten, nur Verkäufe und Steuerabzüge (u. a. Präsident Garner rund 7 Mio. $ nach Optionsausübungen). Kein Manager kaufte nahe am 3-Jahres-Tief.",
+    "Grosse Investoren: Pershing Square (Bill Ackman) hat Ende 2025 alle Aktien verkauft, Viking Global ebenfalls. Gekauft haben vor allem schnelle Handelsfonds (Citadel, Renaissance).",
+    "Analysten: MarketBeat: 22× Kaufen, 10× Halten, 0× Verkaufen, Kursziel im Schnitt 43.67 $. Die neuesten Ziele liegen aber nur bei 37 bis 40 $ (Raymond James 37 $ am 16.10., JPMorgan 37 $). Die Ziele werden laufend gesenkt."
+   ],
+   "cheatsheet": "analysen/CMG.html",
+   "claude": "https://claude.ai/artifact/VZxbtdGMzigrSmm1GYaVy4"
   }
  ]
 }

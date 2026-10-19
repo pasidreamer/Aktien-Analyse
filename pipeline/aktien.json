@@ -1467,5 +1467,42 @@
   "pe_typ": "KGV",
   "zahlen": "2026-11-12",
   "artifact": "TcviWDr8NCfAoLFvEkx1Ga"
+ },
+ "CMG": {
+  "symbol": "CMG",
+  "name": "Chipotle",
+  "tags": [
+   "Wachstum"
+  ],
+  "land": "USA",
+  "region": "USA",
+  "branche": "Restaurants (Fast Casual)",
+  "status": "beobachten",
+  "waehrung": "USD",
+  "kurs": 29.89,
+  "datenstand": "2026-10-16",
+  "kauf": [
+   [
+    28,
+    30
+   ]
+  ],
+  "widerstand": [
+   [
+    35,
+    36
+   ],
+   [
+    38.9,
+    39.1
+   ]
+  ],
+  "trigger": 33.5,
+  "abbruch": 27.9,
+  "pe": 27.7,
+  "pe_avg": 51,
+  "pe_typ": "KGV",
+  "zahlen": "2026-10-28",
+  "artifact": "VZxbtdGMzigrSmm1GYaVy4"
  }
 }

@@ -1,0 +1,63 @@
+{
+ "ticker": "CMG",
+ "sorgen": [
+  "Die bestehenden Restaurants verkaufen nicht mehr: vergleichbarer Umsatz 2025 −1.7 %, Gästezahl −2.9 %. Im 3. Quartal 2026 erwartet Chipotle nur rund +1 %.",
+  "Die Marge pro Restaurant sinkt seit 8 Quartalen (2. Quartal 2026: 25.2 % statt 27.4 %), weil Rindfleisch, Fracht und Löhne teurer werden und Chipotle die Preise bewusst wenig erhöht.",
+  "Die wichtigsten Kunden sparen: Haushalte unter 100'000 $ Einkommen (rund 40 % des Umsatzes) und 25- bis 35-Jährige.",
+  "Der Umsatz pro Restaurant sinkt (2025 −3.4 %), obwohl jedes Jahr rund 9 % mehr Restaurants dazukommen. Das kann heissen: Neue Läden nehmen alten Kunden weg."
+ ],
+ "sorgen_art": "gemischt",
+ "sorgen_art_text": "Das Wachstum der bestehenden Restaurants ist wirklich weg und die Marge sinkt, aber neue Läden verdienen gut und die Firma ist schuldenfrei.",
+ "aufloeser": [
+  {
+   "was": "Zahlen zum 3. Quartal: Mindestens +1 % vergleichbarer Umsatz mit mehr Gästen und eine kleinere Margen-Senkung",
+   "wann": "Zahlen 28.10.2026"
+  },
+  {
+   "was": "Ab dem 4. Quartal 2026 sollen die Preise wieder so stark steigen wie die Kosten, dann könnte die Marge aufhören zu sinken",
+   "wann": "ab 4. Quartal 2026"
+  },
+  {
+   "was": "Ausblick 2027 mit leichterem Vergleich (2025 war schwach) und den neuen Küchengeräten in allen Restaurants",
+   "wann": "Anfang Februar 2027"
+  }
+ ],
+ "schub_stufe": "mittel",
+ "schub_treiber": [
+  {
+   "titel": "Neue Restaurants mit Chipotlane",
+   "text": "350 bis 370 neue Restaurants 2026, rund 80 % mit Abholschalter (15 bis 20 % mehr Umsatz). Das bringt rund 7 % Umsatzwachstum pro Jahr mit hoher Sicherheit. Bis zum Ziel von 7'000 Restaurants dauert es noch rund 8 Jahre.",
+   "wann": "laufend"
+  },
+  {
+   "titel": "Mehr Umsatz pro Restaurant (Küche, Treueprogramm, neue Gerichte)",
+   "text": "Neue Küchengeräte (HEAP) sollen in der Spitzenzeit 2 bis 3 Gerichte mehr pro 15 Minuten schaffen, bis Ende 2026 in rund 2'000 Restaurants. Neue Gerichte wie Honey Chicken und ein einfacheres Treueprogramm sollen mehr Gäste bringen. Noch nicht bewiesen.",
+   "wann": "2026–2027"
+  },
+  {
+   "titel": "Ausland",
+   "text": "Erste Läden in Mexiko (mit Alsea), Südkorea und Singapur, in Europa wächst der vergleichbare Umsatz hoch einstellig. Mit rund 3 % der Restaurants noch klein.",
+   "wann": "ab 2027"
+  }
+ ],
+ "schub_beweis": "Für deine Wachstums-Strategie zählt der vergleichbare Umsatz (Comps) mit steigenden Gästezahlen: 2. Quartal 2026 +2.2 % (Gäste +1.0 %). Liegt er wieder bei +4 % oder mehr und hört die Marge auf zu sinken, ist das Wachstum zurück.",
+ "szenario": "Ein gefallener Wachstums-Star: Kommen die Gäste zurück, wächst der Gewinn pro Aktie mit neuen Läden und Rückkäufen wieder zweistellig, und das KGV von 28 kann gerechtfertigt sein. Grösstes Risiko: Chipotle wird zu einem normalen Restaurantkonzern, der nur noch über neue Läden wächst. Dann ist auch ein KGV von 28 noch zu hoch.",
+ "quellen": [
+  {
+   "titel": "Chipotle: Ergebnisse Q2 2026",
+   "url": "https://newsroom.chipotle.com/2026-07-29-CHIPOTLE-RAISES-FULL-YEAR-COMPARABLE-SALES-GUIDANCE-ON-STRONG-Q2-MOMENTUM"
+  },
+  {
+   "titel": "MarketBeat: Telefonkonferenz Q2 2026",
+   "url": "https://www.marketbeat.com/instant-alerts/chipotle-mexican-grill-q2-earnings-call-highlights-2026-07-29/"
+  },
+  {
+   "titel": "BNN Bloomberg: Chipotle fällt wegen Margen (Oktober 2025)",
+   "url": "https://www.bnnbloomberg.ca/business/2025/10/30/chipotle-shares-drop-as-margins-face-heat-from-tariffs-inflation/"
+  },
+  {
+   "titel": "Motley Fool: Warum Chipotle 2025 einbrach",
+   "url": "https://www.fool.com/investing/2026/01/15/why-chipotle-stock-collapsed-last-year"
+  }
+ ]
+}

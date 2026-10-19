@@ -1,0 +1,401 @@
+<title>Chipotle Aktien-Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F3F5F7; --surface:#FFFFFF; --ink:#141B24; --muted:#5A6573; --line:#DDE2E8; --grid:#E9EDF1;
+  --accent:#2F45B5; --accent-soft:#E6E9F8; --chip:#EBEEF2;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+  --good:#1D7A4B; --good-bg:#E3F3EA; --warn:#9A6200; --warn-bg:#FBF0DC; --bad:#B2362A; --bad-bg:#FBE6E3;
+  --zone-sup:rgba(29,122,75,.10); --zone-res:rgba(178,54,42,.09);
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+    --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+    --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+    --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+  --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+  --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;padding-inline:16px;padding-block:24px 56px}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+h1,h2,h3{font-family:var(--display);font-stretch:85%;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:clamp(32px,7vw,48px);font-weight:800;line-height:1}
+h2{font-size:24px;font-weight:700}
+h3{font-size:17px;font-weight:700;font-stretch:95%}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+section{display:flex;flex-direction:column;gap:14px}
+.lead{max-width:68ch;color:var(--muted)}
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;align-items:stretch}
+.hero .id{display:flex;flex-direction:column;gap:10px;justify-content:space-between}
+.price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price b{font-family:var(--display);font-size:34px;font-weight:700}
+.meta{font-size:13px;color:var(--muted)}
+.verdict{font-size:15px;padding:12px 14px;border-radius:10px;background:var(--chip)}
+.scales{display:flex;flex-direction:column;gap:18px}
+.scale-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.scale-h span{font-size:13px;color:var(--muted)}
+.scale-h b{font-family:var(--display);font-size:28px;line-height:1}
+.track{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#C8412F 0%,#E0892F 30%,#E3B63A 50%,#8BBF4B 68%,#2E9A5B 100%);margin-top:8px}
+.pin{position:absolute;top:-5px;width:4px;height:22px;border-radius:2px;background:var(--ink);box-shadow:0 0 0 2px var(--surface);transform:translateX(-2px)}
+.ticks{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);font-family:var(--mono);margin-top:6px}
+.state{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;margin-top:8px}
+.st-good{background:var(--good-bg);color:var(--good)}
+.st-warn{background:var(--warn-bg);color:var(--warn)}
+.st-bad{background:var(--bad-bg);color:var(--bad)}
+/* tables */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;color:var(--muted);font-weight:500;font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:700;border-bottom:none}
+.pts{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{height:6px;border-radius:3px;background:var(--chip);min-width:60px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:3px}
+/* grids */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;border-left:4px solid var(--line)}
+.kpi.g{border-left-color:var(--good)}.kpi.w{border-left-color:var(--warn)}.kpi.b{border-left-color:var(--bad)}
+.kpi span{font-size:12px;color:var(--muted)}
+.kpi b{font-family:var(--mono);font-size:19px;font-weight:500;font-variant-numeric:tabular-nums}
+.kpi em{font-style:normal;font-size:12.5px;color:var(--muted)}
+/* charts */
+.chart{position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:14px;height:3px;border-radius:2px;display:inline-block}
+.swb{width:12px;height:10px;border-radius:2px;display:inline-block}
+.tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12.5px;box-shadow:0 4px 14px rgba(0,0,0,.12);white-space:nowrap;z-index:2}
+.tip b{font-family:var(--mono);font-weight:500}
+.tip .d{font-family:var(--mono);color:var(--muted);font-size:11.5px}
+.note{font-size:13.5px;color:var(--muted)}
+ul.clean{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.pro li::marker{color:var(--good)} .con li::marker{color:var(--bad)}
+.zones{display:flex;flex-direction:column;gap:8px}
+.zone{display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:baseline;padding:10px 12px;border-radius:10px;background:var(--chip);font-size:14px}
+.zone b{font-family:var(--mono);font-weight:500}
+.zone.r{border-left:4px solid var(--bad)} .zone.s{border-left:4px solid var(--good)} .zone.t{border-left:4px solid var(--accent)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+summary{cursor:pointer;font-weight:600}
+details p{margin-top:8px;color:var(--muted);max-width:70ch}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+footer{font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:6px;max-width:80ch}
+footer a{color:var(--accent)}
+@media (max-width:760px){.hero,.two{grid-template-columns:1fr}.zone{grid-template-columns:1fr;gap:2px}}
+</style>
+
+<div class="wrap">
+
+<header class="hero">
+  <div class="card id">
+    <div>
+      <div class="eyebrow">Aktien-Check · 16.10.2026</div>
+      <h1>Chipotle</h1>
+      <p class="meta">Chipotle Mexican Grill, Inc. · NYSE: CMG · Schnellrestaurants mit mexikanischem Essen (Burritos, Bowls) · Newport Beach, USA</p>
+    </div>
+    <div class="price"><b>29.89 $</b><span class="meta">Schluss 16.10.2026 · 52 Wochen: 28.04 – 42.74 $ · Allzeithoch 69.26 $ am 18.6.2024 (nach Aktiensplit 50:1)</span></div>
+    <p class="verdict"><b>Kurz gesagt:</b> Chipotle ist eine starke Firma: keine Schulden ausser Mieten, 21 % Kapitalrendite, 1.6 Mrd. $ Free Cashflow, und jedes Jahr rund 350 neue Restaurants. Als Wachstumsaktie hat Chipotle aber ein Problem: Die bestehenden Restaurants verkaufen nicht mehr (vergleichbarer Umsatz 2025 −1.7 %, seither etwa 0 %), und die Marge pro Restaurant sinkt seit 8 Quartalen. Das ganze Wachstum (+7 bis 9 %) kommt nur noch von neuen Restaurants, der Gewinn pro Aktie sinkt (−4.5 %). Die Aktie fiel vom Allzeithoch 69.26 $ um 57 % auf 29.89 $ und steht nahe am Jahrestief (28.04 $). Qualität grün (78), Timing rot (28). Nach den Ampeln: auf die Watchlist, auf den Trendwechsel warten.</p>
+  </div>
+  <div class="card scales">
+    <div>
+      <div class="scale-h"><span>Qualität · Ist die Firma kaufenswert?</span><b id="q-val">78</b></div>
+      <div class="track"><i class="pin" id="q-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-good">● Stark: Fundament intakt</span>
+    </div>
+    <div>
+      <div class="scale-h"><span>Timing · Ist jetzt der Zeitpunkt?</span><b id="t-val">28</b></div>
+      <div class="track"><i class="pin" id="t-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-bad">▲ Abwarten: Abwärtstrend intakt</span>
+    </div>
+    <p class="note">Skala: unter 30 rot · 30–45 orange · 45–60 gelb · 60–75 hellgrün · ab 75 grün. Beide Werte setzen sich aus festen Kriterien zusammen, siehe unten.</p>
+  </div>
+</header>
+
+<section>
+  <h2>Was die Firma macht</h2>
+  <p class="lead">Chipotle betreibt rund 4'200 eigene Restaurants (fast alle in den USA, dazu Kanada und Europa) und verkauft Burritos, Bowls, Tacos und Salate mit frischen Zutaten. Es gibt keine Franchise-Restaurants, Chipotle besitzt alle selbst (ausser einigen Partnerläden im Nahen Osten, bald auch in Mexiko, Südkorea und Singapur). Rund 80 % der neuen Restaurants haben einen «Chipotlane», einen Abholschalter fürs Auto, der 15 bis 20 % mehr Umsatz bringt. 38 % des Umsatzes kommen über App und Website. Langfristiges Ziel: 7'000 Restaurants in den USA und Kanada.</p>
+  <p class="lead">Im August 2024 verliess Erfolgs-Chef Brian Niccol die Firma und wechselte zu Starbucks, Scott Boatwright übernahm. 2025 kamen weniger Gäste: Der vergleichbare Umsatz (Umsatz in Restaurants, die schon über ein Jahr offen sind) fiel im 2. Quartal 2025 um 4 %, die Aktie stürzte um 14 %. Am 29. Oktober 2025 senkte Chipotle die Jahresprognose zum dritten Mal, der Chef sagte, die Konsumflaute treffe das Geschäft spürbar (vor allem Haushalte unter 100'000 $ Einkommen und 25- bis 35-Jährige). Die Aktie fiel um rund 18 %, so stark wie seit 2012 nicht. Bill Ackmans Fonds Pershing Square verkaufte Ende 2025 alle Aktien. 2026 ging es weiter abwärts: Am 4. Juni lag das Tief bei 28.04 $. Nach guten Zahlen am 29. Juli (+12 %) kamen eine Salmonellen-Meldung im August (−10 %) und neue Kursziel-Senkungen. Am 8. Oktober berichtete die Financial Times über ein Übernahmeinteresse von Starbucks (+6 %), Starbucks dementierte wenige Tage später.</p>
+</section>
+
+<section>
+  <h2>Fundamental: die Zahlen</h2>
+  <div class="kpis">
+<div class="kpi w"><span>Umsatzwachstum</span><b>+7.3 %</b><em>Letzte 12 Monate, im 2. Quartal 2026 +9.3 %. Kommt fast nur von neuen Restaurants (rund 7 % pro Jahr). 2021 bis 2024 waren es 14 bis 26 %.</em></div>
+<div class="kpi r"><span>Vergleichbarer Umsatz</span><b>≈ 0 %</b><em>Umsatz der Restaurants, die schon über ein Jahr offen sind: 2025 −1.7 %, letzte 12 Monate etwa 0 %, im 2. Quartal 2026 +2.2 %. Für eine Wachstumsaktie zu wenig. 2021 bis 2024: +7 bis +19 %.</em></div>
+<div class="kpi w"><span>Operative Marge</span><b>15.3 %</b><em>Von 100 $ Umsatz bleiben rund 15 $ Betriebsgewinn. Für Restaurants gut, aber 2024 waren es 17.3 %. Die Marge pro Restaurant ist 8 Quartale in Folge gesunken (Rindfleisch, Fracht, Löhne).</em></div>
+<div class="kpi r"><span>Gewinn pro Aktie (EPS)</span><b>1.08 $</b><em>Letzte 12 Monate, −4.5 %. Im 2. Quartal 2026 gleich hoch wie 2024 (0.32 $). 2021 bis 2024 noch +25 bis +40 % pro Jahr.</em></div>
+<div class="kpi g"><span>ROIC</span><b>21 %</b><em>Auf 100 $ investiertes Kapital rund 21 $ Gewinn. Gut. Neue Restaurants zahlen sich laut Chipotle im 2. Jahr zu rund 60 % zurück.</em></div>
+<div class="kpi g"><span>Free Cashflow</span><b>1.57 Mrd. $</b><em>Letzte 12 Monate, 12.6 % vom Umsatz, 4.2 % des Börsenwerts. Nur 6 % davon sind Löhne in Aktien: echt. 2025 aber −4 %.</em></div>
+<div class="kpi g"><span>KGV</span><b>27.7</b><em>Du zahlst rund 28 Jahresgewinne. Eigener Schnitt 2021–2025: rund 51. Also fast die Hälfte günstiger als üblich, aber für eine Firma mit sinkendem Gewinn immer noch kein Schnäppchen.</em></div>
+<div class="kpi w"><span>Aktienrückkäufe</span><b>−3.9 %</b><em>So viel weniger Aktien gibt es als vor einem Jahr. 2025 kaufte Chipotle für 171 % des Free Cashflows zurück und baute dafür Cash ab (von 2.3 auf 0.8 Mrd. $). Das geht nicht ewig so. Keine Dividende.</em></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>Umsatz pro Quartal (Mio. $)</h3>
+      <p class="note">Alle 8 Quartale über dem Vorjahr, zuletzt +9.3 %. Wichtig: Das Wachstum kommt von neuen Restaurants, die bestehenden verkaufen etwa gleich viel wie vor einem Jahr.</p>
+      <div class="chart" id="c-rev"></div>
+    </div>
+    <div class="card">
+      <h3>Operative Marge pro Jahr</h3>
+      <p class="note">Marge auf Restaurant-Ebene (vor Verwaltung und Abschreibungen). Höchststand 2024 mit 26.7 %, seither 8 Quartale in Folge tiefer als im Vorjahr.</p>
+      <div class="chart" id="c-margin"></div>
+    </div>
+  </div>
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Jahr</th><th class="num">Umsatz Mio. $</th><th class="num">Wachstum</th><th class="num">Op. Marge</th><th class="num">EPS $</th><th class="num">Free Cashflow</th><th class="num">ROIC</th><th class="num">KGV</th></tr></thead>
+      <tbody id="fin-rows"></tbody>
+    </table>
+  </div>
+  <p class="note"><b>Hinweis:</b> Aktiensplit 50:1 im Juni 2024, alle Werte pro Aktie sind angepasst. Die Grafik zeigt die Marge auf Restaurant-Ebene, die Tabelle die operative Marge des Konzerns. Die Schulden bestehen nur aus Mietverträgen (5.4 Mrd. $), Bankschulden hat Chipotle keine.</p>
+</section>
+
+<section>
+  <h2>Qualität: 78 von 100</h2>
+  <div class="card tbl"><table id="q-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Technik: Wochenchart (2 Jahre)</h2>
+  <div class="card">
+    <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span><span><i class="swb" style="background:var(--zone-sup);border:1px solid var(--good)"></i>Unterstützung</span><span><i class="swb" style="background:var(--zone-res);border:1px solid var(--bad)"></i>Widerstand</span></div>
+    <div class="chart" id="c-week"></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>A/D-Linie, Woche</h3>
+      <p class="note">Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Beim Tief im Juni (Wochenschluss 29.34 $) stand die Wochen-A/D bei 2'294, heute bei 2'341 bei ähnlichem Kurs (29.89 $). Etwa gleich: kein Zeichen, dass grosse Käufer einsteigen.</p>
+      <div class="chart" id="c-adw"></div>
+    </div>
+    <div class="card">
+      <h3>RSI, Woche</h3>
+      <p class="note">Unter 30 überverkauft, über 70 überkauft. Im März und Juni um 34, im August 57, heute 41: schwach.</p>
+      <div class="chart" id="c-rsiw"></div>
+    </div>
+  </div>
+
+  <h2>Technik: Tageschart (1 Jahr)</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Kurs, Tag</h3>
+      <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span></div>
+      <div class="chart" id="c-day"></div>
+    </div>
+    <div class="card">
+      <h3>A/D-Linie, Tag</h3>
+      <p class="note">Negativ: Beim Tief vom 4.6. (28.04 $) stand die Tages-A/D bei −334, heute bei −377 bei leicht höherem Kurs. Es wird weiter verkauft.</p>
+      <div class="chart" id="c-add"></div>
+    </div>
+  </div>
+
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Indikator</th><th>Tag</th><th>Woche</th><th>Bedeutung</th></tr></thead>
+      <tbody>
+<tr><td>Kurs vs. EMA 50</td><td class="pts">29.9 &lt; 33.0</td><td class="pts">29.9 &lt; 36.0</td><td>Unter der mittelfristigen Linie, auf beiden Zeitebenen.</td></tr>
+<tr><td>Kurs vs. EMA 200</td><td class="pts">29.9 &lt; 35.1</td><td class="pts">29.9 &lt; 40.3</td><td>Unter der langfristigen Linie, auf beiden Zeitebenen.</td></tr>
+<tr><td>EMA 50 vs. EMA 200</td><td class="pts">50 unter 200 (seit Januar 2025)</td><td class="pts">50 unter 200 (seit 9.2.2026)</td><td>Abwärtstrend auf beiden Zeitebenen.</td></tr>
+<tr><td>RSI (14)</td><td class="pts">34.3</td><td class="pts">40.6</td><td>Schwach, kein Signal für eine Wende.</td></tr>
+<tr><td>A/D</td><td class="pts">tiefer als beim Juni-Tief</td><td class="pts">etwa gleich wie beim Juni-Tief</td><td>Tag negativ, Woche neutral.</td></tr>
+<tr><td>Volumen</td><td colspan="2">Ø 20 Tage 20.4 Mio. vs. Ø 100 Tage 18.8 Mio. Aktien</td><td>Etwas mehr Handel als üblich im Abverkauf.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Struktur und Zonen (Smart Money Concept)</h2>
+  <p class="lead">Chipotle ist seit dem Allzeithoch im Juni 2024 (69.26 $) in einem langen Abwärtstrend. Seit November 2025 läuft die Aktie in einer Spanne zwischen rund 28 und 41 $: Tiefs 29.75 $ (November 2025), 30.60 $ (März), 28.04 $ (Juni), Hochs 41.42 $ (Januar), 39.09 $ (Juli), 38.92 $ (September). Die Hochs werden tiefer. Seit September fiel der Kurs wieder an den unteren Rand: 31.14 $ (28.9.), 30.21 $ (5.10.), heute 29.89 $. Hält die Zone 28 bis 30 $, wäre das ein doppelter Boden. Bricht sie, gibt es im Chart der letzten zwei Jahre keine Unterstützung mehr. Ein erstes Wendesignal wäre ein Tagesschluss über dem Hoch vom 8.10. (33.40 $).</p>
+  <div class="zones">
+<div class="zone r"><b>38.90–39.10 $</b><span>Widerstand: Hochs vom Juli und September.</span></div>
+<div class="zone r"><b>35–36 $</b><span>Widerstand: Tages-EMA 200 (35.10 $) und Wochen-EMA 50 (36 $).</span></div>
+<div class="zone t"><b>33.50 $</b><span><b>Trigger:</b> Tagesschluss über dem Hoch vom 8.10. (33.40 $) und der Tages-EMA 50 (33 $).</span></div>
+<div class="zone s"><b>28–30 $</b><span><b>Kaufzone:</b> Tiefs vom November 2025 (29.75 $) und Juni 2026 (28.04 $). Nur mit Wendesignal kaufen.</span></div>
+<div class="zone r"><b>27.90 $</b><span>Abbruch: Wochenschluss unter dem Juni-Tief. Darunter keine Unterstützung in den letzten zwei Jahren.</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Smart Money, Insider und Saisonalität</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Wer kauft, wer verkauft?</h3>
+      <ul class="clean" style="margin-top:8px">
+<li><b>Chipotle selbst:</b> Grösster Käufer der eigenen Aktie: im 1. Halbjahr 2026 für 1.33 Mrd. $ zu durchschnittlich 34.35 $. Noch 1.68 Mrd. $ erlaubt. Aber das Cash ist auf 0.8 Mrd. $ geschrumpft, künftig wohl nur noch so viel wie der Free Cashflow (rund 1.5 Mrd. $ pro Jahr, rund 4 % des Börsenwerts).</li>
+<li><b>Insider:</b> Keine Käufe in 12 Monaten, nur Verkäufe und Steuerabzüge (u. a. Präsident Garner rund 7 Mio. $ nach Optionsausübungen). Kein Manager kaufte nahe am 3-Jahres-Tief.</li>
+<li><b>Grosse Investoren:</b> Pershing Square (Bill Ackman) hat Ende 2025 alle Aktien verkauft, Viking Global ebenfalls. Gekauft haben vor allem schnelle Handelsfonds (Citadel, Renaissance).</li>
+<li><b>Analysten:</b> MarketBeat: 22× Kaufen, 10× Halten, 0× Verkaufen, Kursziel im Schnitt 43.67 $. Die neuesten Ziele liegen aber nur bei 37 bis 40 $ (Raymond James 37 $ am 16.10., JPMorgan 37 $). Die Ziele werden laufend gesenkt.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Saisonalität seit 2006</h3>
+      <p class="note">Durchschnittliche Monatsrendite in %. 20 Jahre Daten (seit 2006). November (+3.9 %, 65 %) und Januar (+2.8 %, 75 %) sind stark, Oktober schwach (−1.2 %, nur 32 % positive Jahre).</p>
+      <div class="chart" id="c-seas"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Timing: 28 von 100</h2>
+  <div class="card tbl"><table id="t-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Worauf du achten solltest: Unterbewertung und Wachstumsschub</h2>
+  <div class="card"><h3>Was die Börse befürchtet</h3><p class="note" style="margin:4px 0">Echte Probleme, eher lösbar: Das Wachstum der bestehenden Restaurants ist wirklich weg und die Marge sinkt, aber neue Läden verdienen gut und die Firma ist schuldenfrei.</p><ul class="clean"><li>Die bestehenden Restaurants verkaufen nicht mehr: vergleichbarer Umsatz 2025 −1.7 %, Gästezahl −2.9 %. Im 3. Quartal 2026 erwartet Chipotle nur rund +1 %.</li><li>Die Marge pro Restaurant sinkt seit 8 Quartalen (2. Quartal 2026: 25.2 % statt 27.4 %), weil Rindfleisch, Fracht und Löhne teurer werden und Chipotle die Preise bewusst wenig erhöht.</li><li>Die wichtigsten Kunden sparen: Haushalte unter 100'000 $ Einkommen (rund 40 % des Umsatzes) und 25- bis 35-Jährige.</li><li>Der Umsatz pro Restaurant sinkt (2025 −3.4 %), obwohl jedes Jahr rund 9 % mehr Restaurants dazukommen. Das kann heissen: Neue Läden nehmen alten Kunden weg.</li></ul><h3 style="margin-top:12px">Was die Sorgen beenden könnte</h3><ul class="clean"><li>Zahlen zum 3. Quartal: Mindestens +1 % vergleichbarer Umsatz mit mehr Gästen und eine kleinere Margen-Senkung <span class="muted">(Zahlen 28.10.2026)</span></li><li>Ab dem 4. Quartal 2026 sollen die Preise wieder so stark steigen wie die Kosten, dann könnte die Marge aufhören zu sinken <span class="muted">(ab 4. Quartal 2026)</span></li><li>Ausblick 2027 mit leichterem Vergleich (2025 war schwach) und den neuen Küchengeräten in allen Restaurants <span class="muted">(Anfang Februar 2027)</span></li></ul><h3 style="margin-top:12px">Wachstumsschub: Wachstumsschub möglich</h3><ul class="clean"><li><b>Neue Restaurants mit Chipotlane:</b> 350 bis 370 neue Restaurants 2026, rund 80 % mit Abholschalter (15 bis 20 % mehr Umsatz). Das bringt rund 7 % Umsatzwachstum pro Jahr mit hoher Sicherheit. Bis zum Ziel von 7'000 Restaurants dauert es noch rund 8 Jahre. <span class="muted">(laufend)</span></li><li><b>Mehr Umsatz pro Restaurant (Küche, Treueprogramm, neue Gerichte):</b> Neue Küchengeräte (HEAP) sollen in der Spitzenzeit 2 bis 3 Gerichte mehr pro 15 Minuten schaffen, bis Ende 2026 in rund 2'000 Restaurants. Neue Gerichte wie Honey Chicken und ein einfacheres Treueprogramm sollen mehr Gäste bringen. Noch nicht bewiesen. <span class="muted">(2026–2027)</span></li><li><b>Ausland:</b> Erste Läden in Mexiko (mit Alsea), Südkorea und Singapur, in Europa wächst der vergleichbare Umsatz hoch einstellig. Mit rund 3 % der Restaurants noch klein. <span class="muted">(ab 2027)</span></li></ul><p style="margin:10px 0 0"><b>Woran du es erkennst:</b> Für deine Wachstums-Strategie zählt der vergleichbare Umsatz (Comps) mit steigenden Gästezahlen: 2. Quartal 2026 +2.2 % (Gäste +1.0 %). Liegt er wieder bei +4 % oder mehr und hört die Marge auf zu sinken, ist das Wachstum zurück.</p><p style="margin:10px 0 0"><b>Das Chancen-Szenario:</b> Ein gefallener Wachstums-Star: Kommen die Gäste zurück, wächst der Gewinn pro Aktie mit neuen Läden und Rückkäufen wieder zweistellig, und das KGV von 28 kann gerechtfertigt sein. Grösstes Risiko: Chipotle wird zu einem normalen Restaurantkonzern, der nur noch über neue Läden wächst. Dann ist auch ein KGV von 28 noch zu hoch.</p><p class="note" style="margin:10px 0 0">Quellen: <a href="https://newsroom.chipotle.com/2026-07-29-CHIPOTLE-RAISES-FULL-YEAR-COMPARABLE-SALES-GUIDANCE-ON-STRONG-Q2-MOMENTUM" target="_blank" rel="noopener">Chipotle: Ergebnisse Q2 2026</a>, <a href="https://www.marketbeat.com/instant-alerts/chipotle-mexican-grill-q2-earnings-call-highlights-2026-07-29/" target="_blank" rel="noopener">MarketBeat: Telefonkonferenz Q2 2026</a>, <a href="https://www.bnnbloomberg.ca/business/2025/10/30/chipotle-shares-drop-as-margins-face-heat-from-tariffs-inflation/" target="_blank" rel="noopener">BNN Bloomberg: Chipotle fällt wegen Margen (Oktober 2025)</a>, <a href="https://www.fool.com/investing/2026/01/15/why-chipotle-stock-collapsed-last-year" target="_blank" rel="noopener">Motley Fool: Warum Chipotle 2025 einbrach</a></p></div>
+</section>
+
+<section>
+  <h2>Dividende</h2>
+  <div class="card tbl"><p style="margin:0">Chipotle zahlt keine Dividende und plant auch keine. Das Geld geht in neue Restaurants und Aktienrückkäufe.</p></div>
+</section>
+
+<section>
+  <h2>Pro und Contra</h2>
+  <div class="two">
+    <div class="card pro"><h3>Spricht dafür</h3><ul class="clean" style="margin-top:8px">
+<li>Starke Marke, keine Bankschulden, 1.57 Mrd. $ echter Free Cashflow.</li>
+<li>Neue Restaurants lohnen sich: rund 350 pro Jahr, 60 % Rendite im 2. Jahr, Platz für 7'000 Läden.</li>
+<li>KGV fast halb so hoch wie im eigenen Schnitt, Aktienzahl sinkt um rund 4 % pro Jahr.</li>
+<li>Erste Lichtblicke: Gästezahlen im 1. und 2. Quartal 2026 wieder leicht im Plus, Prognose angehoben.</li>
+<li>Neue Küchengeräte (HEAP) und Treueprogramm sollen 2027 mehr Umsatz pro Restaurant bringen.</li>
+    </ul></div>
+    <div class="card con"><h3>Spricht dagegen</h3><ul class="clean" style="margin-top:8px">
+<li>Als Wachstumsaktie schwach: Die bestehenden Restaurants wachsen nicht mehr, der Gewinn pro Aktie sinkt.</li>
+<li>Marge pro Restaurant 8 Quartale in Folge gesunken (Rindfleisch, Fracht, Löhne).</li>
+<li>Kernkunden (jüngere und weniger wohlhabende Haushalte) sparen.</li>
+<li>Rückkäufe grösser als der Free Cashflow: Das Cash ist fast aufgebraucht.</li>
+<li>Klarer Abwärtstrend, Ackman ausgestiegen, Lebensmittel-Schlagzeilen (Salmonellen im August).</li>
+    </ul></div>
+  </div>
+</section>
+
+<section>
+  <h2>Was jetzt zu tun ist</h2>
+  <div class="zones">
+<div class="zone t"><b>Beobachten</b><span>Alarm bei 33.50 $ (Trigger) und 27.90 $ (Abbruch). Für eine Wachstumsaktie zählt jetzt vor allem der vergleichbare Umsatz.</span></div>
+<div class="zone s"><b>Timing grün</b><span>Tagesschluss über 33.50 $ mit drehender A/D, danach über 36 $. Fundamental: Am 28.10. vergleichbarer Umsatz mindestens +1 % mit mehr Gästen und eine kleinere Margen-Senkung als −2.2 Punkte.</span></div>
+<div class="zone r"><b>Abbruch</b><span>Wochenschluss unter 27.90 $.</span></div>
+<div class="zone "><b>Nächste Zahlen</b><span>28. Oktober 2026 nach US-Börsenschluss (3. Quartal, bestätigt). Erwartet: 0.29 $ Gewinn pro Aktie, vergleichbarer Umsatz rund +1 %.</span></div>
+  </div>
+</section>
+
+<footer>
+  <span>Kursdaten und Indikatoren (EMA, RSI 14, A/D) selbst berechnet aus Yahoo-Finance-Tages-, Wochen- und Monatsdaten, Stand 16.10.2026. <a href="https://stockanalysis.com/stocks/cmg/financials/" target="_blank" rel="noopener">StockAnalysis.com</a> (Stand 16.10.2026), <a href="https://newsroom.chipotle.com/2026-07-29-CHIPOTLE-RAISES-FULL-YEAR-COMPARABLE-SALES-GUIDANCE-ON-STRONG-Q2-MOMENTUM" target="_blank" rel="noopener">Chipotle Q2 2026</a>, <a href="https://www.marketbeat.com/instant-alerts/chipotle-mexican-grill-q2-earnings-call-highlights-2026-07-29/" target="_blank" rel="noopener">MarketBeat: Telefonkonferenz Q2</a>, <a href="https://www.bnnbloomberg.ca/business/2025/10/30/chipotle-shares-drop-as-margins-face-heat-from-tariffs-inflation/" target="_blank" rel="noopener">BNN Bloomberg (Oktober 2025)</a>, <a href="https://www.xtb.com/en/market-analysis/is-starbucks-eyeing-chipotle-the-market-reacts-nervously-to-the-ft-s-reports-of-a-takeover" target="_blank" rel="noopener">XTB: Starbucks-Gerücht</a>, <a href="https://www.marketbeat.com/stocks/NYSE/CMG/forecast/" target="_blank" rel="noopener">Analysten (MarketBeat)</a>.</span>
+  <span>Persönliche Analyse, keine Anlageberatung. Vergangene Kurse und Saisonalität sagen nichts Sicheres über die Zukunft.</span>
+</footer>
+</div>
+
+<script>
+const Q=[["Umsatztrend", "4 von 4 Quartalen über Vorjahr, aber nur dank neuer Restaurants", 12, 15], ["Wachstumstempo", "+7.3 % in 12 Monaten, vergleichbarer Umsatz etwa 0 %", 6, 10], ["Operative Marge", "15.3 % (6 Pkt.), 5 Jahre gestiegen, seit 2024 sinkend (3 Pkt.)", 9, 15], ["Gewinnwachstum (EPS)", "3 Jahre rund +21 % pro Jahr, aktuell −4.5 %", 5, 10], ["Free Cashflow", "Positiv, in 4 von 5 Jahren gestiegen (2025 −4 %)", 10, 10], ["ROIC", "21 % (13 Pkt.), leicht fallend (−1)", 12, 15], ["Schulden", "Keine Bankschulden, Netto-Cash 775 Mio. $ (nur Mietverträge)", 10, 10], ["Bewertung vs. eigene Historie", "KGV 27.7 statt Ø 51 (2021–2025), rund 46 % günstiger", 14, 15]];
+const T=[["Trend Woche (EMA 50/200)", "Kurs unter beiden, EMA 50 unter 200", 2, 20], ["Trend Tag (EMA 50/200)", "Kurs unter beiden, EMA 50 unter 200", 1, 10], ["Struktur (SMC)", "Spanne 28–41 $ mit tieferen Hochs, Kurs am unteren Rand", 6, 20], ["RSI Tag/Woche", "Tag 34, Woche 41, keine Divergenz", 6, 15], ["A/D Tag/Woche", "Tag tiefer als beim Juni-Tief, Woche neutral", 5, 20], ["Smart Money", "Start 3, Rückkauf rund 4 % pro Jahr +3, Insider verkaufen, Ackman ausgestiegen −1", 5, 10], ["Saisonalität", "Oktober 32 %, November 65 %, Dezember 60 % positive Jahre", 3, 5]];
+const FIN=[["2021", 7547, "+26.1 %", "10.9 %", 0.46, 840, "14.8 %", "75.3"], ["2022", 8635, "+14.4 %", "13.7 %", 0.64, 844, "18.1 %", "42.8"], ["2023", 9872, "+14.3 %", "16.2 %", 0.89, 1223, "22.0 %", "51.1"], ["2024", 11314, "+14.6 %", "17.3 %", 1.11, 1511, "23.8 %", "53.6"], ["2025", 11926, "+5.4 %", "16.9 %", 1.14, 1448, "22.7 %", "31.9"], ["Letzte 12 Mt.", 12424, "+7.3 %", "15.3 %", 1.08, 1569, "21.0 %", "27.7"]];
+const HALF=[["Q3 24", 2794], ["Q4 24", 2845], ["Q1 25", 2875], ["Q2 25", 3063], ["Q3 25", 3003], ["Q4 25", 2984], ["Q1 26", 3088], ["Q2 26", 3349]];
+const MARGIN=[["2021", 22.6], ["2022", 23.9], ["2023", 26.2], ["2024", 26.7], ["2025", 25.4], ["Q2 26", 25.2]];
+const SEAS=[2.8, 1.1, 4.5, 5.3, 2.6, 0.9, 1.9, 0.9, -0.5, -1.2, 3.9, 1.0];
+const SEASHIT=[75.0, 52.0, 71.0, 57.0, 48.0, 62.0, 67.0, 52.0, 48.0, 32.0, 65.0, 60.0];
+const MON=["Jan","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"];
+const W=`2024-10-21,59.44,53.93,39.83,57,2801.1;2024-10-28,58.59,54.12,40.02,54,2815.5;2024-11-04,58.81,54.3,40.2,55,2846.7;2024-11-11,58.63,54.47,40.39,54,2805.8;2024-11-18,62.01,54.77,40.6,62,2839.3;2024-11-25,61.52,55.03,40.81,60,2809.5;2024-12-02,65.4,55.44,41.06,67,2846;2024-12-09,64.59,55.8,41.29,65,2828.1;2024-12-16,61.87,56.04,41.49,57,2798.9;2024-12-23,60.78,56.22,41.69,54,2785.2;2024-12-30,59.7,56.36,41.87,51,2774.3;2025-01-06,56.5,56.36,42.01,44,2737.3;2025-01-13,57.52,56.41,42.17,47,2742.8;2025-01-20,56.7,56.42,42.31,45,2748;2025-01-27,58.35,56.5,42.47,49,2760;2025-02-03,57.27,56.53,42.62,47,2752.8;2025-02-10,57.08,56.55,42.76,46,2741.4;2025-02-17,51.51,56.35,42.85,36,2692.3;2025-02-24,53.97,56.26,42.96,42,2743.3;2025-03-03,50.23,56.02,43.03,36,2712.3;2025-03-10,50.03,55.79,43.1,36,2718.2;2025-03-17,48.53,55.5,43.15,34,2698.1;2025-03-24,49.91,55.28,43.22,37,2700.3;2025-03-31,47.29,54.97,43.26,34,2645.4;2025-04-07,49.76,54.76,43.33,40,2690.8;2025-04-14,48.17,54.51,43.38,37,2668.3;2025-04-21,51.78,54.4,43.46,46,2768.7;2025-04-28,51.56,54.29,43.54,45,2797.1;2025-05-05,49.72,54.11,43.6,42,2749.8;2025-05-12,52.32,54.04,43.69,48,2794.9;2025-05-19,50.63,53.9,43.76,45,2768.3;2025-05-26,50.08,53.75,43.82,44,2756;2025-06-02,52.5,53.71,43.91,49,2789.5;2025-06-09,50.24,53.57,43.97,45,2745.4;2025-06-16,52.78,53.54,44.06,50,2783.8;2025-06-23,55.05,53.6,44.17,54,2837.8;2025-06-30,57.07,53.73,44.29,58,2850.7;2025-07-07,56,53.82,44.41,55,2855.6;2025-07-14,53.93,53.83,44.51,51,2848.8;2025-07-21,46.76,53.55,44.53,39,2744.5;2025-07-28,42.52,53.12,44.51,34,2614.1;2025-08-04,41.44,52.66,44.48,33,2531.1;2025-08-11,44.04,52.32,44.47,39,2624.2;2025-08-18,43.64,51.98,44.47,38,2643.7;2025-08-25,42.14,51.6,44.44,36,2600.9;2025-09-01,41.06,51.18,44.41,35,2558.9;2025-09-08,38.63,50.69,44.35,32,2464;2025-09-15,39.32,50.24,44.3,34,2456.7;2025-09-22,40.08,49.85,44.26,36,2519.4;2025-09-29,41.76,49.53,44.23,40,2614.1;2025-10-06,39.82,49.15,44.19,37,2535.9;2025-10-13,41.86,48.86,44.17,42,2557.5;2025-10-20,41.19,48.56,44.14,40,2507.3;2025-10-27,31.69,47.9,44.01,29,2318.9;2025-11-03,30.59,47.22,43.88,28,2236.4;2025-11-10,31.57,46.61,43.76,30,2330.4;2025-11-17,31.63,46.02,43.64,30,2390.4;2025-11-24,34.52,45.57,43.55,37,2467.3;2025-12-01,33.94,45.11,43.45,36,2430;2025-12-08,36.14,44.76,43.38,41,2503.8;2025-12-15,37.64,44.48,43.32,45,2586.7;2025-12-22,37.81,44.22,43.27,45,2604.4;2025-12-29,37.49,43.96,43.21,44,2631.8;2026-01-05,40.11,43.8,43.18,50,2710.3;2026-01-12,39.96,43.65,43.15,50,2724.1;2026-01-19,40.87,43.54,43.12,52,2766.4;2026-01-26,38.87,43.36,43.08,47,2720.9;2026-02-02,39.39,43.21,43.04,49,2767.2;2026-02-09,36.3,42.94,42.98,42,2699.3;2026-02-16,37.54,42.72,42.92,45,2685.3;2026-02-23,37.22,42.51,42.87,45,2683.6;2026-03-02,35.37,42.23,42.79,41,2628.2;2026-03-09,32.52,41.85,42.69,36,2542.1;2026-03-16,33.37,41.51,42.6,38,2523.4;2026-03-23,30.86,41.1,42.48,34,2456.6;2026-03-30,33.16,40.79,42.39,41,2506.5;2026-04-06,34.09,40.52,42.3,43,2513.2;2026-04-13,35.83,40.34,42.24,47,2543.2;2026-04-20,34.21,40.1,42.16,44,2493.8;2026-04-27,32.98,39.82,42.07,42,2421.4;2026-05-04,32.49,39.53,41.97,41,2405.5;2026-05-11,32.65,39.26,41.88,41,2434.1;2026-05-18,32.89,39.01,41.79,42,2424;2026-05-25,31.86,38.73,41.69,39,2352.5;2026-06-01,29.34,38.36,41.57,34,2293.8;2026-06-08,32.23,38.12,41.48,43,2370.5;2026-06-15,32.49,37.9,41.39,44,2366.1;2026-06-22,33.34,37.72,41.31,47,2476.8;2026-06-29,35.39,37.63,41.25,52,2539.2;2026-07-06,35.25,37.54,41.19,52,2586.6;2026-07-13,34.44,37.42,41.12,49,2522.7;2026-07-20,31.79,37.2,41.03,43,2460;2026-07-27,37.22,37.2,40.99,56,2501.4;2026-08-03,32.79,37.02,40.91,46,2374.9;2026-08-10,33.5,36.89,40.84,48,2428.9;2026-08-17,36.9,36.89,40.8,55,2516.4;2026-08-24,38.03,36.93,40.77,57,2565.6;2026-08-31,36.96,36.93,40.73,54,2514.5;2026-09-07,36.2,36.9,40.69,52,2500.1;2026-09-14,33.43,36.77,40.61,47,2444.6;2026-09-21,31.33,36.55,40.52,43,2375.7;2026-09-28,32.36,36.39,40.44,45,2374.9;2026-10-05,31.59,36.2,40.35,44,2355.2;2026-10-16,29.89,35.95,40.25,41,2341.2`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+const DD=`2025-10-06,41.63,42.36,49.13,-39.6;2025-10-07,40.95,42.31,49.05,-47.7;2025-10-08,40.98,42.26,48.97,-37.1;2025-10-09,40.89,42.2,48.89,-51.9;2025-10-10,39.82,42.11,48.8,-67;2025-10-13,40.9,42.06,48.72,-58.1;2025-10-14,42.1,42.06,48.65,-45.8;2025-10-15,41.77,42.05,48.59,-60.2;2025-10-16,41.76,42.04,48.52,-62.4;2025-10-17,41.86,42.03,48.45,-63.2;2025-10-20,41.63,42.02,48.38,-69.2;2025-10-21,42.36,42.03,48.32,-65;2025-10-22,41.61,42.01,48.26,-71.3;2025-10-23,41.8,42.01,48.19,-66.1;2025-10-24,41.19,41.97,48.12,-75.1;2025-10-27,41.06,41.94,48.05,-83.5;2025-10-28,40.26,41.87,47.98,-94.9;2025-10-29,39.76,41.79,47.89,-115.3;2025-10-30,32.53,41.43,47.74,-118.1;2025-10-31,31.69,41.04,47.58,-131.3;2025-11-03,31.51,40.67,47.42,-147.3;2025-11-04,31.74,40.32,47.27,-144.7;2025-11-05,31.97,39.99,47.11,-136.2;2025-11-06,30.56,39.62,46.95,-164.3;2025-11-07,30.59,39.27,46.79,-142.3;2025-11-10,30.48,38.92,46.62,-160.5;2025-11-11,29.81,38.57,46.46,-191.5;2025-11-12,31.32,38.28,46.31,-161.5;2025-11-13,31.38,38.01,46.16,-172.6;2025-11-14,31.57,37.76,46.01,-164.8;2025-11-17,30.53,37.48,45.86,-177.7;2025-11-18,30.76,37.21,45.71,-171.2;2025-11-19,31,36.97,45.56,-165.3;2025-11-20,30.35,36.71,45.41,-185.5;2025-11-21,31.63,36.51,45.27,-175;2025-11-24,31.19,36.3,45.13,-190.2;2025-11-25,33.4,36.19,45.02,-161.9;2025-11-26,34.03,36.1,44.91,-148.6;2025-11-28,34.52,36.04,44.8,-144.7;2025-12-01,34.24,35.97,44.7,-157.8;2025-12-02,34.14,35.9,44.59,-157.4;2025-12-03,33.93,35.82,44.49,-177.9;2025-12-04,34.15,35.76,44.38,-161.3;2025-12-05,33.94,35.68,44.28,-158.9;2025-12-08,33.61,35.6,44.17,-172.8;2025-12-09,33.73,35.53,44.07,-173.9;2025-12-10,33.94,35.47,43.97,-171.5;2025-12-11,34.87,35.44,43.88,-160.7;2025-12-12,36.14,35.47,43.8,-143.7;2025-12-15,35.94,35.49,43.72,-155.6;2025-12-16,35.66,35.5,43.64,-163.1;2025-12-17,37,35.56,43.58,-151.2;2025-12-18,37.63,35.64,43.52,-153.8;2025-12-19,37.64,35.72,43.46,-151.2;2025-12-22,37.92,35.8,43.4,-145.8;2025-12-23,37.79,35.88,43.35,-134.8;2025-12-24,37.9,35.96,43.29,-137.6;2025-12-26,37.81,36.03,43.24,-138.1;2025-12-29,37.14,36.07,43.18,-148.7;2025-12-30,37.04,36.11,43.12,-156.8;2025-12-31,37,36.15,43.06,-159.1;2026-01-02,37.49,36.2,43,-151.1;2026-01-05,38.25,36.28,42.95,-151;2026-01-06,38.62,36.37,42.91,-158.3;2026-01-07,38.87,36.47,42.87,-164.5;2026-01-08,39.18,36.58,42.83,-163.3;2026-01-09,40.11,36.72,42.81,-146.4;2026-01-12,40.34,36.86,42.78,-138.5;2026-01-13,39.41,36.96,42.75,-138.2;2026-01-14,40.59,37.1,42.73,-123.6;2026-01-15,40.36,37.23,42.7,-127.1;2026-01-16,39.96,37.33,42.68,-128.6;2026-01-20,39,37.4,42.64,-148.4;2026-01-21,40.72,37.53,42.62,-137.4;2026-01-22,40.54,37.65,42.6,-147.2;2026-01-23,40.87,37.77,42.58,-148.4;2026-01-26,39.72,37.85,42.55,-159.6;2026-01-27,39.65,37.92,42.53,-156.7;2026-01-28,39.16,37.97,42.49,-165.9;2026-01-29,39.1,38.01,42.46,-164.1;2026-01-30,38.87,38.05,42.42,-160.1;2026-02-02,38.51,38.07,42.38,-159.8;2026-02-03,39.17,38.11,42.35,-121.1;2026-02-04,39.93,38.18,42.33,-86.6;2026-02-05,38.45,38.19,42.29,-104.7;2026-02-06,39.39,38.24,42.26,-106.5;2026-02-09,39.59,38.29,42.23,-94.4;2026-02-10,38.44,38.3,42.2,-107.8;2026-02-11,37.22,38.25,42.15,-121.7;2026-02-12,35.84,38.16,42.08,-143.1;2026-02-13,36.3,38.09,42.03,-155.3;2026-02-17,37.88,38.08,41.99,-140.6;2026-02-18,38.72,38.1,41.95,-139.2;2026-02-19,37.97,38.1,41.91,-140.9;2026-02-20,37.54,38.08,41.87,-146.9;2026-02-23,36.61,38.02,41.82,-150.9;2026-02-24,36.49,37.96,41.76,-150.9;2026-02-25,37.5,37.94,41.72,-140.6;2026-02-26,38.05,37.95,41.69,-138;2026-02-27,37.22,37.92,41.64,-126.8;2026-03-02,36.69,37.87,41.59,-113.9;2026-03-03,36.93,37.83,41.55,-103.8;2026-03-04,36.71,37.79,41.5,-103.7;2026-03-05,37.06,37.76,41.45,-100.8;2026-03-06,35.37,37.67,41.39,-113.6;2026-03-09,35.29,37.57,41.33,-98.2;2026-03-10,34.72,37.46,41.27,-103.2;2026-03-11,33.85,37.32,41.19,-116.2;2026-03-12,32.56,37.13,41.11,-134.7;2026-03-13,32.52,36.95,41.02,-148.1;2026-03-16,34.08,36.84,40.95,-130.4;2026-03-17,34.41,36.74,40.89,-143.8;2026-03-18,32.64,36.58,40.8,-162.3;2026-03-19,32.94,36.44,40.73,-157.6;2026-03-20,33.37,36.32,40.65,-155.3;2026-03-23,33.36,36.2,40.58,-170.7;2026-03-24,32.76,36.07,40.5,-173.5;2026-03-25,32.5,35.93,40.42,-177.9;2026-03-26,32.17,35.78,40.34,-186.9;2026-03-27,30.86,35.59,40.25,-200.2;2026-03-30,31.16,35.41,40.16,-198.9;2026-03-31,32.01,35.28,40.08,-192.2;2026-04-01,32.63,35.18,40,-186.7;2026-04-02,33.16,35.1,39.93,-176.6;2026-04-06,33.5,35.04,39.87,-166.5;2026-04-07,33.06,34.96,39.8,-167.8;2026-04-08,33.79,34.91,39.74,-179;2026-04-09,34.24,34.89,39.69,-175.5;2026-04-10,34.09,34.85,39.63,-179.3;2026-04-13,34.59,34.84,39.58,-171;2026-04-14,34.92,34.85,39.53,-172;2026-04-15,35.25,34.86,39.49,-171.1;2026-04-16,35.08,34.87,39.45,-178.1;2026-04-17,35.83,34.91,39.41,-183.8;2026-04-20,35.83,34.95,39.38,-187.2;2026-04-21,36.05,34.99,39.34,-193.7;2026-04-22,35.11,34.99,39.3,-197.5;2026-04-23,33.9,34.95,39.25,-212.1;2026-04-24,34.21,34.92,39.2,-205.1;2026-04-27,33.64,34.87,39.14,-216.9;2026-04-28,32.87,34.79,39.08,-231;2026-04-29,32.99,34.72,39.02,-214.4;2026-04-30,33.99,34.69,38.97,-226.5;2026-05-01,32.98,34.63,38.91,-244.2;2026-05-04,31.98,34.52,38.84,-259.9;2026-05-05,32.31,34.44,38.78,-244.5;2026-05-06,32.74,34.37,38.72,-259.4;2026-05-07,33.27,34.33,38.66,-243.2;2026-05-08,32.49,34.25,38.6,-249.4;2026-05-11,31.92,34.16,38.53,-253.9;2026-05-12,32.67,34.1,38.47,-250.6;2026-05-13,32.11,34.03,38.41,-258;2026-05-14,32.09,33.95,38.35,-270.2;2026-05-15,32.65,33.9,38.29,-267.4;2026-05-18,33.75,33.89,38.25,-254;2026-05-19,33.04,33.86,38.19,-258.8;2026-05-20,32.96,33.82,38.14,-253.6;2026-05-21,32.8,33.78,38.09,-243.9;2026-05-22,32.89,33.75,38.04,-228.7;2026-05-26,32.31,33.69,37.98,-234.7;2026-05-27,32.69,33.65,37.93,-244.7;2026-05-28,32.42,33.6,37.87,-237.2;2026-05-29,31.86,33.54,37.81,-265.6;2026-06-01,30.55,33.42,37.74,-295.5;2026-06-02,29.26,33.26,37.66,-313.7;2026-06-03,28.74,33.08,37.57,-309.9;2026-06-04,28.18,32.89,37.47,-333.7;2026-06-05,29.34,32.75,37.39,-350.4;2026-06-08,29.27,32.61,37.31,-346.6;2026-06-09,29.88,32.5,37.24,-337.6;2026-06-10,30.42,32.42,37.17,-333.4;2026-06-11,31.25,32.38,37.11,-318.8;2026-06-12,32.23,32.37,37.06,-311.9;2026-06-15,32.73,32.39,37.02,-312.5;2026-06-16,32.61,32.39,36.98,-326;2026-06-17,31.86,32.37,36.93,-333;2026-06-18,32.49,32.38,36.88,-319;2026-06-22,30.54,32.31,36.82,-335.6;2026-06-23,30.95,32.25,36.76,-340.2;2026-06-24,31.69,32.23,36.71,-330.2;2026-06-25,32.28,32.23,36.67,-315.9;2026-06-26,33.34,32.28,36.63,-276.5;2026-06-29,32.97,32.3,36.6,-274.4;2026-06-30,34,32.37,36.57,-258.3;2026-07-01,35,32.47,36.55,-244;2026-07-02,35.39,32.59,36.54,-233.1;2026-07-06,33.98,32.64,36.52,-245.8;2026-07-07,34.35,32.71,36.5,-258.3;2026-07-08,33.43,32.74,36.47,-260.7;2026-07-09,34.6,32.81,36.45,-245.4;2026-07-10,35.25,32.91,36.44,-244.6;2026-07-13,36.63,33.05,36.44,-241.3;2026-07-14,36.43,33.18,36.44,-250.1;2026-07-15,34.63,33.24,36.42,-268.7;2026-07-16,34.2,33.28,36.4,-276.3;2026-07-17,34.44,33.32,36.38,-291.7;2026-07-20,33.13,33.32,36.35,-300.4;2026-07-21,33.32,33.32,36.31,-294.7;2026-07-22,32.2,33.27,36.27,-306.3;2026-07-23,32.01,33.22,36.23,-298.8;2026-07-24,31.79,33.17,36.19,-305;2026-07-27,33.2,33.17,36.16,-297.3;2026-07-28,33.51,33.18,36.13,-300.4;2026-07-29,34.24,33.22,36.11,-292.8;2026-07-30,38.52,33.43,36.14,-271.5;2026-07-31,37.22,33.58,36.15,-285;2026-08-03,37.46,33.73,36.16,-288.1;2026-08-04,33.82,33.74,36.14,-339.1;2026-08-05,34.5,33.77,36.12,-344.6;2026-08-06,33.71,33.76,36.1,-347.6;2026-08-07,32.79,33.72,36.06,-363.4;2026-08-10,32.14,33.66,36.02,-376.7;2026-08-11,32,33.6,35.98,-373.5;2026-08-12,32.64,33.56,35.95,-370.3;2026-08-13,32.61,33.52,35.92,-384.8;2026-08-14,33.5,33.52,35.89,-379.1;2026-08-17,33.76,33.53,35.87,-374.8;2026-08-18,33.36,33.52,35.85,-382.8;2026-08-19,34.66,33.57,35.84,-378.2;2026-08-20,35.29,33.64,35.83,-364.9;2026-08-21,36.9,33.76,35.84,-344.5;2026-08-24,38.02,33.93,35.86,-328.2;2026-08-25,37.43,34.07,35.88,-339.5;2026-08-26,37.34,34.2,35.89,-337;2026-08-27,37.22,34.32,35.91,-330.9;2026-08-28,38.03,34.46,35.93,-326.2;2026-08-31,38.03,34.6,35.95,-317.6;2026-09-01,37.51,34.72,35.96,-325.7;2026-09-02,38.52,34.86,35.99,-321;2026-09-03,37.57,34.97,36.01,-329.2;2026-09-04,36.96,35.05,36.01,-334.9;2026-09-08,36.96,35.12,36.02,-335.8;2026-09-09,36.03,35.16,36.02,-343.6;2026-09-10,36.13,35.2,36.03,-344.2;2026-09-11,36.2,35.24,36.03,-343.4;2026-09-14,37.03,35.31,36.04,-336.7;2026-09-15,34.83,35.29,36.02,-350.4;2026-09-16,33.68,35.22,36,-362.8;2026-09-17,33.51,35.16,35.98,-371;2026-09-18,33.43,35.09,35.95,-359.3;2026-09-21,33.14,35.01,35.92,-361.7;2026-09-22,32.63,34.92,35.89,-372.5;2026-09-23,32.71,34.83,35.86,-364;2026-09-24,32.01,34.72,35.82,-370.8;2026-09-25,31.33,34.59,35.78,-383.3;2026-09-28,31.85,34.48,35.74,-396.6;2026-09-29,31.88,34.38,35.7,-394.8;2026-09-30,31.95,34.28,35.66,-388.9;2026-10-01,32.32,34.21,35.63,-377;2026-10-02,32.36,34.14,35.6,-369.9;2026-10-05,30.85,34.01,35.55,-378;2026-10-06,30.9,33.88,35.5,-383.6;2026-10-07,30.77,33.76,35.45,-381.5;2026-10-08,32.68,33.72,35.43,-344.8;2026-10-09,31.59,33.64,35.39,-355.8;2026-10-12,30.4,33.51,35.34,-360.3;2026-10-13,30.35,33.39,35.29,-365.3;2026-10-14,30.52,33.27,35.24,-349.1;2026-10-15,30.58,33.17,35.2,-362.7;2026-10-16,29.89,33.04,35.14,-376.7`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+
+const fmtN=(v,d=2)=>v.toLocaleString("de-CH",{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmtD=s=>{const [y,m,d]=s.split("-");return d+"."+m+"."+y.slice(2)};
+const NS="http://www.w3.org/2000/svg";
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+
+function scoreTable(id,rows){
+  let tot=0,max=0;
+  const html='<thead><tr><th>Kriterium</th><th>Stand</th><th class="num">Punkte</th><th style="width:22%"></th></tr></thead><tbody>'+rows.map(r=>{tot+=r[2];max+=r[3];const p=r[2]/r[3];const c=p>=.75?"var(--good)":p>=.45?"var(--warn)":"var(--bad)";
+    return `<tr><td>${r[0]}</td><td class="muted">${r[1]}</td><td class="num">${r[2]} / ${r[3]}</td><td><div class="bar"><i style="width:${p*100}%;background:${c}"></i></div></td></tr>`}).join("")+`<tr class="total"><td>Total</td><td></td><td class="num">${tot} / ${max}</td><td></td></tr></tbody>`;
+  document.getElementById(id).innerHTML=html;return tot;
+}
+const qs=scoreTable("q-tbl",Q), ts=scoreTable("t-tbl",T);
+document.getElementById("q-val").textContent=qs;document.getElementById("t-val").textContent=ts;
+document.getElementById("q-pin").style.left=qs+"%";document.getElementById("t-pin").style.left=ts+"%";
+
+document.getElementById("fin-rows").innerHTML=FIN.map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1].toLocaleString("de-CH")}</td><td class="num">${r[2]}</td><td class="num">${r[3]}</td><td class="num">${fmtN(r[4])}</td><td class="num">${r[5].toLocaleString("de-CH")}</td><td class="num">${r[6]}</td><td class="num">${r[7]}</td></tr>`).join("");
+
+/* generic line chart */
+function lineChart(host,{dates,series,bands=[],yFmt=v=>fmtN(v),h=300,zero=false,refs=[],pad}){
+  const W_=800,H=h,m={t:12,r:56,b:28,l:8};
+  const all=series.flatMap(s=>s.values).concat(bands.flatMap(b=>[b.from,b.to])).concat(refs.map(r=>r.v));
+  if(zero)all.push(0);
+  let lo=Math.min(...all),hi=Math.max(...all);const sp=(hi-lo)||1;lo-=sp*.06;hi+=sp*.06;
+  if(pad){lo=pad[0];hi=pad[1]}
+  const n=dates.length,x=i=>m.l+i*(W_-m.l-m.r)/(n-1),y=v=>m.t+(hi-v)*(H-m.t-m.b)/(hi-lo);
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  // grid
+  const steps=5;for(let k=0;k<=steps;k++){const v=lo+(hi-lo)*k/steps;el("line",{x1:m.l,x2:W_-m.r,y1:y(v),y2:y(v),stroke:"var(--grid)","stroke-width":1},svg);
+    const t=el("text",{x:W_-m.r+6,y:y(v)+4,"font-size":11,fill:"var(--muted)","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=yFmt(v)}
+  bands.forEach(b=>{el("rect",{x:m.l,width:W_-m.l-m.r,y:y(Math.max(b.from,b.to)),height:Math.abs(y(b.from)-y(b.to)),fill:b.type==="res"?"var(--zone-res)":"var(--zone-sup)"},svg)});
+  refs.forEach(r=>{el("line",{x1:m.l,x2:W_-m.r,y1:y(r.v),y2:y(r.v),stroke:"var(--muted)","stroke-dasharray":"4 4","stroke-width":1},svg);
+    const t=el("text",{x:m.l+4,y:y(r.v)-4,"font-size":11,fill:"var(--muted)"},svg);t.textContent=r.label});
+  if(zero)el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  // x labels
+  const every=Math.ceil(n/6);for(let i=0;i<n;i+=every){const t=el("text",{x:x(i),y:H-8,"font-size":11,fill:"var(--muted)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);const d=dates[i];t.textContent=d.slice(5,7)+"/"+d.slice(2,4)}
+  series.forEach(s=>{const dpath=s.values.map((v,i)=>(i?"L":"M")+x(i).toFixed(1)+","+y(v).toFixed(1)).join("");
+    el("path",{d:dpath,fill:"none",stroke:s.color,"stroke-width":s.w||2,"stroke-linejoin":"round","stroke-linecap":"round"},svg);
+    const lv=s.values[n-1];el("circle",{cx:x(n-1),cy:y(lv),r:3.5,fill:s.color,stroke:"var(--surface)","stroke-width":2},svg)});
+  // hover
+  const cross=el("line",{y1:m.t,y2:H-m.b,stroke:"var(--muted)","stroke-width":1,opacity:0},svg);
+  const ov=el("rect",{x:m.l,y:m.t,width:W_-m.l-m.r,height:H-m.t-m.b,fill:"transparent"},svg);
+  host.appendChild(svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;host.appendChild(tip);
+  function move(ev){const r=svg.getBoundingClientRect();const px=(ev.clientX-r.left)*W_/r.width;let i=Math.round((px-m.l)/((W_-m.l-m.r)/(n-1)));i=Math.max(0,Math.min(n-1,i));
+    cross.setAttribute("x1",x(i));cross.setAttribute("x2",x(i));cross.setAttribute("opacity",1);
+    tip.innerHTML=`<div class="d">${fmtD(dates[i])}</div>`+series.map(s=>`<div><i class="sw" style="background:${s.color}"></i> ${s.name}: <b>${yFmt(s.values[i])}</b></div>`).join("");
+    tip.hidden=false;const hx=x(i)*r.width/W_;tip.style.left=Math.min(Math.max(0,hx+12),r.width-tip.offsetWidth)+"px";tip.style.top="8px"}
+  ov.addEventListener("pointermove",move);ov.addEventListener("pointerleave",()=>{tip.hidden=true;cross.setAttribute("opacity",0)});
+}
+function barChart(host,{labels,values,fmt,h=220,color,neg,tipExtra}){
+  const W_=800,H=h,m={t:18,r:8,b:28,l:8};
+  const hi=Math.max(0,...values),lo=Math.min(0,...values);const lo2=lo<0?lo*1.15:lo,hi2=hi*1.15||1;
+  const y=v=>m.t+(hi2-v)*(H-m.t-m.b)/(hi2-lo2);const n=values.length,bw=(W_-m.l-m.r)/n;
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;
+  values.forEach((v,i)=>{const x0=m.l+i*bw+bw*.18,w=bw*.64,y0=y(Math.max(v,0)),hh=Math.max(1,Math.abs(y(v)-y(0)));
+    const r=el("rect",{x:x0,y:y0,width:w,height:hh,rx:4,fill:v<0?(neg||"var(--s2)"):(color||"var(--s1)")},svg);
+    const t=el("text",{x:x0+w/2,y:v<0?y(v)+13:y0-5,"font-size":11.5,fill:"var(--ink)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=fmt(v);
+    const l=el("text",{x:x0+w/2,y:H-8,"font-size":11.5,fill:"var(--muted)","text-anchor":"middle"},svg);l.textContent=labels[i];
+    const hit=el("rect",{x:m.l+i*bw,y:m.t,width:bw,height:H-m.t-m.b,fill:"transparent"},svg);
+    hit.addEventListener("pointerenter",()=>{tip.innerHTML=`<div class="d">${labels[i]}</div><b>${fmt(v)}</b>${tipExtra?tipExtra(i):""}`;tip.hidden=false;const R=svg.getBoundingClientRect();tip.style.left=Math.min((m.l+i*bw)*R.width/W_,R.width-tip.offsetWidth)+"px";tip.style.top="0px"});
+    hit.addEventListener("pointerleave",()=>tip.hidden=true)});
+  host.appendChild(svg);host.appendChild(tip);
+}
+barChart(document.getElementById("c-rev"),{labels:HALF.map(r=>r[0]),values:HALF.map(r=>r[1]),fmt:v=>fmtN(v,0),h:200});
+barChart(document.getElementById("c-margin"),{labels:MARGIN.map(r=>r[0]),values:MARGIN.map(r=>r[1]),fmt:v=>fmtN(v,1)+" %",h:200});
+barChart(document.getElementById("c-seas"),{labels:MON,values:SEAS,fmt:v=>(v>0?"+":"")+fmtN(v,1),h:220,tipExtra:i=>`<div>${SEASHIT[i]} % der Jahre positiv</div>`});
+const BANDS=[{"from": 38.9, "to": 39.1, "type": "res"}, {"from": 35, "to": 36, "type": "res"}, {"from": 28, "to": 30, "type": "sup"}], REFS=[{"v": 33.5, "label": "Trigger 33.50"}];
+const wd=W.map(r=>r[0]);
+lineChart(document.getElementById("c-week"),{dates:wd,series:[{name:"Kurs",values:W.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:W.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:W.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,yFmt:v=>fmtN(v,0),h:320});
+lineChart(document.getElementById("c-adw"),{dates:wd,series:[{name:"A/D Woche",values:W.map(r=>r[5]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,zero:true});
+lineChart(document.getElementById("c-rsiw"),{dates:wd,series:[{name:"RSI Woche",values:W.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,refs:[{v:70,label:"70 überkauft"},{v:30,label:"30 überverkauft"}],pad:[10,90]});
+const dd=DD.map(r=>r[0]);
+lineChart(document.getElementById("c-day"),{dates:dd,series:[{name:"Kurs",values:DD.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:DD.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:DD.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,refs:REFS,yFmt:v=>fmtN(v,0),h:260});
+lineChart(document.getElementById("c-add"),{dates:dd,series:[{name:"A/D Tag",values:DD.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:260,zero:true});
+</script>
