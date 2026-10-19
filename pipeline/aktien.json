@@ -1504,5 +1504,42 @@
   "pe_typ": "KGV",
   "zahlen": "2026-10-28",
   "artifact": "VZxbtdGMzigrSmm1GYaVy4"
+ },
+ "NFLX": {
+  "symbol": "NFLX",
+  "name": "Netflix",
+  "tags": [
+   "Wachstum"
+  ],
+  "land": "USA",
+  "region": "USA",
+  "branche": "Streaming und Unterhaltung",
+  "status": "beobachten",
+  "waehrung": "USD",
+  "kurs": 70.53,
+  "datenstand": "2026-10-16",
+  "kauf": [
+   [
+    65,
+    67
+   ]
+  ],
+  "widerstand": [
+   [
+    77,
+    78.5
+   ],
+   [
+    81,
+    83.6
+   ]
+  ],
+  "trigger": 74,
+  "abbruch": 64.9,
+  "pe": 22.2,
+  "pe_avg": 40,
+  "pe_typ": "KGV",
+  "zahlen": "2026-10-20",
+  "artifact": "2v95juDqpWvL43DU1CVs9r"
  }
 }

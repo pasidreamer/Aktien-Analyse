@@ -642,5 +642,9 @@
  "CMG": {
   "zahlt": false,
   "text": "Chipotle zahlt keine Dividende und plant auch keine. Das Geld geht in neue Restaurants und Aktienrückkäufe."
+ },
+ "NFLX": {
+  "zahlt": false,
+  "text": "Netflix hat noch nie eine Dividende bezahlt. Das Geld geht fast ganz in Aktienrückkäufe (2025: 97 % des Free Cashflows)."
  }
 }

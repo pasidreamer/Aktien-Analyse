@@ -1,0 +1,401 @@
+<title>Netflix Aktien-Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F3F5F7; --surface:#FFFFFF; --ink:#141B24; --muted:#5A6573; --line:#DDE2E8; --grid:#E9EDF1;
+  --accent:#2F45B5; --accent-soft:#E6E9F8; --chip:#EBEEF2;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+  --good:#1D7A4B; --good-bg:#E3F3EA; --warn:#9A6200; --warn-bg:#FBF0DC; --bad:#B2362A; --bad-bg:#FBE6E3;
+  --zone-sup:rgba(29,122,75,.10); --zone-res:rgba(178,54,42,.09);
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+    --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+    --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+    --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+  --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+  --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;padding-inline:16px;padding-block:24px 56px}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+h1,h2,h3{font-family:var(--display);font-stretch:85%;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:clamp(32px,7vw,48px);font-weight:800;line-height:1}
+h2{font-size:24px;font-weight:700}
+h3{font-size:17px;font-weight:700;font-stretch:95%}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+section{display:flex;flex-direction:column;gap:14px}
+.lead{max-width:68ch;color:var(--muted)}
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;align-items:stretch}
+.hero .id{display:flex;flex-direction:column;gap:10px;justify-content:space-between}
+.price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price b{font-family:var(--display);font-size:34px;font-weight:700}
+.meta{font-size:13px;color:var(--muted)}
+.verdict{font-size:15px;padding:12px 14px;border-radius:10px;background:var(--chip)}
+.scales{display:flex;flex-direction:column;gap:18px}
+.scale-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.scale-h span{font-size:13px;color:var(--muted)}
+.scale-h b{font-family:var(--display);font-size:28px;line-height:1}
+.track{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#C8412F 0%,#E0892F 30%,#E3B63A 50%,#8BBF4B 68%,#2E9A5B 100%);margin-top:8px}
+.pin{position:absolute;top:-5px;width:4px;height:22px;border-radius:2px;background:var(--ink);box-shadow:0 0 0 2px var(--surface);transform:translateX(-2px)}
+.ticks{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);font-family:var(--mono);margin-top:6px}
+.state{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;margin-top:8px}
+.st-good{background:var(--good-bg);color:var(--good)}
+.st-warn{background:var(--warn-bg);color:var(--warn)}
+.st-bad{background:var(--bad-bg);color:var(--bad)}
+/* tables */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;color:var(--muted);font-weight:500;font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:700;border-bottom:none}
+.pts{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{height:6px;border-radius:3px;background:var(--chip);min-width:60px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:3px}
+/* grids */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;border-left:4px solid var(--line)}
+.kpi.g{border-left-color:var(--good)}.kpi.w{border-left-color:var(--warn)}.kpi.b{border-left-color:var(--bad)}
+.kpi span{font-size:12px;color:var(--muted)}
+.kpi b{font-family:var(--mono);font-size:19px;font-weight:500;font-variant-numeric:tabular-nums}
+.kpi em{font-style:normal;font-size:12.5px;color:var(--muted)}
+/* charts */
+.chart{position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:14px;height:3px;border-radius:2px;display:inline-block}
+.swb{width:12px;height:10px;border-radius:2px;display:inline-block}
+.tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12.5px;box-shadow:0 4px 14px rgba(0,0,0,.12);white-space:nowrap;z-index:2}
+.tip b{font-family:var(--mono);font-weight:500}
+.tip .d{font-family:var(--mono);color:var(--muted);font-size:11.5px}
+.note{font-size:13.5px;color:var(--muted)}
+ul.clean{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.pro li::marker{color:var(--good)} .con li::marker{color:var(--bad)}
+.zones{display:flex;flex-direction:column;gap:8px}
+.zone{display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:baseline;padding:10px 12px;border-radius:10px;background:var(--chip);font-size:14px}
+.zone b{font-family:var(--mono);font-weight:500}
+.zone.r{border-left:4px solid var(--bad)} .zone.s{border-left:4px solid var(--good)} .zone.t{border-left:4px solid var(--accent)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+summary{cursor:pointer;font-weight:600}
+details p{margin-top:8px;color:var(--muted);max-width:70ch}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+footer{font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:6px;max-width:80ch}
+footer a{color:var(--accent)}
+@media (max-width:760px){.hero,.two{grid-template-columns:1fr}.zone{grid-template-columns:1fr;gap:2px}}
+</style>
+
+<div class="wrap">
+
+<header class="hero">
+  <div class="card id">
+    <div>
+      <div class="eyebrow">Aktien-Check · 16.10.2026</div>
+      <h1>Netflix</h1>
+      <p class="meta">Netflix, Inc. · NASDAQ: NFLX · Streaming von Serien, Filmen, Live-Sport und Spielen · Los Gatos, USA</p>
+    </div>
+    <div class="price"><b>70.53 $</b><span class="meta">Schluss 16.10.2026 · 52 Wochen: 65.08 – 124.86 $ · Allzeithoch 134.12 $ am 30.6.2025 (nach Aktiensplit 10:1)</span></div>
+    <p class="verdict"><b>Kurz gesagt:</b> Netflix ist fundamental stark: Umsatz +16 %, operative Marge fast 30 % und steigend, 11 Mrd. $ Free Cashflow, der fast ganz in Aktienrückkäufe geht. Die Aktie hat sich aber seit dem Hoch fast halbiert (−47 %). Der Grund: Das Wachstum wird langsamer (Prognose 3. Quartal +11.7 % statt 17.6 % Ende 2025), die Zuschauer schauen kaum mehr (+2 %), und das gescheiterte Warner-Bros.-Gebot hat Vertrauen gekostet. Das KGV fiel von 36 auf 22 (ohne Einmalzahlung rund 28). Qualität grün (87), Timing orange (42). <b>Wichtig: Morgen, 20.10. nach US-Börsenschluss, kommen die Zahlen.</b> Die Optionen erwarten ±9.5 % Kursbewegung. Nach den Ampeln: Watchlist, Zahlen abwarten.</p>
+  </div>
+  <div class="card scales">
+    <div>
+      <div class="scale-h"><span>Qualität · Ist die Firma kaufenswert?</span><b id="q-val">87</b></div>
+      <div class="track"><i class="pin" id="q-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-good">● Stark: Fundament intakt</span>
+    </div>
+    <div>
+      <div class="scale-h"><span>Timing · Ist jetzt der Zeitpunkt?</span><b id="t-val">42</b></div>
+      <div class="track"><i class="pin" id="t-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-warn">▲ Beobachten: Trigger noch nicht erreicht</span>
+    </div>
+    <p class="note">Skala: unter 30 rot · 30–45 orange · 45–60 gelb · 60–75 hellgrün · ab 75 grün. Beide Werte setzen sich aus festen Kriterien zusammen, siehe unten.</p>
+  </div>
+</header>
+
+<section>
+  <h2>Was die Firma macht</h2>
+  <p class="lead">Netflix ist der grösste Streaming-Dienst der Welt mit über 300 Mio. zahlenden Haushalten in über 190 Ländern. Rund 95 % des Umsatzes sind Abo-Gebühren, der Rest vor allem Werbung im günstigeren Abo mit Werbung (2026 rund 3 Mrd. $, doppelt so viel wie 2025). Dazu kommen Live-Sport (NFL-Spiele an Weihnachten, Baseball, Boxen, Frauen-Fussball-WM 2027) und Spiele. Umsatz nach Region (2. Quartal 2026): USA und Kanada 43 %, Europa/Naher Osten/Afrika 32 %, Lateinamerika 13 %, Asien 12 %. Netflix hat noch nie eine Dividende bezahlt.</p>
+  <p class="lead">Am 30. Juni 2025 erreichte die Aktie ihr Allzeithoch (134.12 $). Im Oktober 2025 verfehlte Netflix die Gewinnerwartung wegen einer Steuernachzahlung in Brasilien (−10 % an einem Tag). Im Dezember 2025 bot Netflix 82.7 Mrd. $ für die Filmstudios und HBO Max von Warner Bros. Discovery, mit rund 50 Mrd. $ neuen Schulden. Anleger fürchteten Schulden und Integration, die Aktie fiel im Dezember um 13 %. Ende Februar 2026 gewann Paramount das Bieterrennen, Netflix bekam 2.8 Mrd. $ Entschädigung (Aktie +9 %). Danach enttäuschten die Ausblicke im April (−9.7 %) und Juli (−7.3 %, Jahrestief 65.08 $). Die Zuschauer schauen nur 2 % mehr als vor einem Jahr, das Umsatzwachstum in den USA fiel in zwei Quartalen von 18 % auf 10 %. Gründer Reed Hastings verliess im Juni den Verwaltungsrat und verkaufte für rund 309 Mio. $ Aktien. Im September stuften Wells Fargo (Kursziel 57 $) und HSBC ab. Letzte Woche: 1'000 Stellen gestrichen (6 %), neuer Content-Chef (Peter Rice ersetzt Bela Bajaria).</p>
+</section>
+
+<section>
+  <h2>Fundamental: die Zahlen</h2>
+  <div class="kpis">
+<div class="kpi g"><span>Umsatzwachstum</span><b>+16 %</b><em>Letzte 12 Monate. Aber langsamer: 17.6 % (Ende 2025), 16.2 %, 13.4 %, Prognose 3. Quartal 11.7 %. Analysten erwarten 2027 nur noch +11 %.</em></div>
+<div class="kpi w"><span>Sehzeit</span><b>+2 %</b><em>So viel mehr Stunden schauten die Leute im 1. Halbjahr 2026 als im Vorjahr. Zu wenig: Das Wachstum kommt nur noch von Preiserhöhungen und Werbung. YouTube hat in den USA fast doppelt so viel TV-Sehzeit wie Netflix.</em></div>
+<div class="kpi g"><span>Operative Marge</span><b>29.7 %</b><em>Von 100 $ Umsatz bleiben rund 30 $ Betriebsgewinn. Sehr gut, und seit 2022 jedes Jahr gestiegen. Prognose 2026: 31.5 %.</em></div>
+<div class="kpi g"><span>Gewinn pro Aktie (EPS)</span><b>3.17 $</b><em>Letzte 12 Monate. Ohne die Warner-Entschädigung rund 2.53 $. 2023 bis 2025 wuchs der Gewinn pro Aktie um 28 % pro Jahr.</em></div>
+<div class="kpi g"><span>ROIC</span><b>32 %</b><em>Auf 100 $ investiertes Kapital rund 32 $ Gewinn. Sehr gut.</em></div>
+<div class="kpi g"><span>Free Cashflow</span><b>11.2 Mrd. $</b><em>Letzte 12 Monate (inkl. 2.8 Mrd. $ Einmalzahlung), 23 % vom Umsatz, 3.8 % des Börsenwerts (ohne Einmalzahlung rund 2.8 %). Nur 4 % davon sind Löhne in Aktien: echt.</em></div>
+<div class="kpi g"><span>KGV</span><b>22.2</b><em>Du zahlst 22 Jahresgewinne, ohne Einmalzahlung rund 28. Eigener Schnitt 2021–2025: rund 40. Also rund 30 % günstiger als üblich und erstmals günstiger als der US-Markt (S&P 500 rund 24).</em></div>
+<div class="kpi g"><span>Aktienrückkäufe</span><b>−1.5 %</b><em>So viel weniger Aktien als vor einem Jahr. 2023 bis 2025 gingen 87 bis 97 % des Free Cashflows in Rückkäufe. Noch 27.1 Mrd. $ erlaubt (9 % des Börsenwerts). Keine Dividende.</em></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>Umsatz pro Quartal (Mio. $)</h3>
+      <p class="note">Alle 8 Quartale über dem Vorjahr, aber das Wachstum sinkt: +17.6 % im 4. Quartal 2025, +13.4 % im 2. Quartal 2026. Prognose 3. Quartal: 12'860 Mio. $ (+11.7 %).</p>
+      <div class="chart" id="c-rev"></div>
+    </div>
+    <div class="card">
+      <h3>Operative Marge pro Jahr</h3>
+      <p class="note">Operative Marge pro Jahr. Seit 2022 jedes Jahr höher. Im 2. Quartal 2026 33.4 %, Prognose für das 3. Quartal 33.2 %.</p>
+      <div class="chart" id="c-margin"></div>
+    </div>
+  </div>
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Jahr</th><th class="num">Umsatz Mio. $</th><th class="num">Wachstum</th><th class="num">Op. Marge</th><th class="num">EPS $</th><th class="num">Free Cashflow</th><th class="num">ROIC</th><th class="num">KGV</th></tr></thead>
+      <tbody id="fin-rows"></tbody>
+    </table>
+  </div>
+  <p class="note"><b>Hinweis:</b> Aktiensplit 10:1 im November 2025, alle Werte pro Aktie sind angepasst. 2026 enthält eine Einmalzahlung von 2.8 Mrd. $ (Entschädigung für das geplatzte Warner-Geschäft), sie bläht Gewinn und Free Cashflow der letzten 12 Monate auf. Ohne sie: Gewinn pro Aktie rund 2.53 $, KGV rund 28.</p>
+</section>
+
+<section>
+  <h2>Qualität: 87 von 100</h2>
+  <div class="card tbl"><table id="q-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Technik: Wochenchart (2 Jahre)</h2>
+  <div class="card">
+    <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span><span><i class="swb" style="background:var(--zone-sup);border:1px solid var(--good)"></i>Unterstützung</span><span><i class="swb" style="background:var(--zone-res);border:1px solid var(--bad)"></i>Widerstand</span></div>
+    <div class="chart" id="c-week"></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>A/D-Linie, Woche</h3>
+      <p class="note">Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Beim Tief im Juli (Wochenschluss 68.95 $) stand die Wochen-A/D bei 8'963, heute bei 8'939 bei leicht höherem Kurs (70.53 $). Etwa gleich: neutral.</p>
+      <div class="chart" id="c-adw"></div>
+    </div>
+    <div class="card">
+      <h3>RSI, Woche</h3>
+      <p class="note">Unter 30 überverkauft, über 70 überkauft. Im Februar bei 24, im Juli bei 31, heute 39 bei ähnlichem Kurs wie im Juli: leicht positive Divergenz.</p>
+      <div class="chart" id="c-rsiw"></div>
+    </div>
+  </div>
+
+  <h2>Technik: Tageschart (1 Jahr)</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Kurs, Tag</h3>
+      <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span></div>
+      <div class="chart" id="c-day"></div>
+    </div>
+    <div class="card">
+      <h3>A/D-Linie, Tag</h3>
+      <p class="note">Positiv: Beim Tief vom 17.7. (65.08 $) stand die Tages-A/D bei 240, beim Tief vom 5.10. (66.54 $) bei 289, heute 333. Bei den Tiefs wurde weniger verkauft.</p>
+      <div class="chart" id="c-add"></div>
+    </div>
+  </div>
+
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Indikator</th><th>Tag</th><th>Woche</th><th>Bedeutung</th></tr></thead>
+      <tbody>
+<tr><td>Kurs vs. EMA 50</td><td class="pts">70.5 &lt; 73.6</td><td class="pts">70.5 &lt; 84.4</td><td>Unter der mittelfristigen Linie, auf beiden Zeitebenen.</td></tr>
+<tr><td>Kurs vs. EMA 200</td><td class="pts">70.5 &lt; 83.1</td><td class="pts">70.5 &lt; 77.2</td><td>Unter der langfristigen Linie, auf beiden Zeitebenen.</td></tr>
+<tr><td>EMA 50 vs. EMA 200</td><td class="pts">50 unter 200 (seit 10.12.2025)</td><td class="pts">50 noch über 200</td><td>Tag im Abwärtstrend. Woche: Die EMA 50 fällt schnell, ein Todeskreuz droht bis Ende Jahr.</td></tr>
+<tr><td>RSI (14)</td><td class="pts">45.5</td><td class="pts">39.1</td><td>Neutral bis schwach. Woche mit leicht positiver Divergenz.</td></tr>
+<tr><td>A/D</td><td class="pts">höher als bei den Tiefs vom Juli und Oktober</td><td class="pts">etwa gleich wie beim Juli-Tief</td><td>Tag positiv, Woche neutral.</td></tr>
+<tr><td>Volumen</td><td colspan="2">Ø 20 Tage 35.2 Mio. vs. Ø 100 Tage 39.4 Mio. Aktien</td><td>Ruhiger Handel vor den Zahlen.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Struktur und Zonen (Smart Money Concept)</h2>
+  <p class="lead">Netflix ist seit dem Allzeithoch (134.12 $, Juni 2025) im Abwärtstrend mit tieferen Hochs: 126.71 $ (September 2025), 124.86 $ (Oktober 2025), 108.95 $ (April 2026), 83.60 $ (September 2026). Die Tiefs: 75.01 $ (Februar), 65.08 $ (17. Juli), 66.54 $ (5. Oktober). Das Oktober-Tief liegt leicht über dem Juli-Tief: Ein möglicher doppelter Boden bei 65 bis 67 $. Bestätigt wäre er erst mit einem Tagesschluss über dem Hoch vom 15.10. (73.07 $) und der Tages-EMA 50 (73.60 $), danach über 78.50 $. Fällt die Aktie nach den Zahlen unter 65 $, ist der Boden gescheitert, die nächste Unterstützung liegt dann erst bei den Tiefs von 2024 (rund 60 $).</p>
+  <div class="zones">
+<div class="zone r"><b>81–83.60 $</b><span>Widerstand: Hochs vom August und September.</span></div>
+<div class="zone r"><b>77–78.50 $</b><span>Widerstand: Wochen-EMA 200 (77.20 $) und Hoch vom 2.7. (78.44 $).</span></div>
+<div class="zone t"><b>74 $</b><span><b>Trigger:</b> Tagesschluss über dem Hoch vom 15.10. (73.07 $) und der Tages-EMA 50 (73.60 $).</span></div>
+<div class="zone s"><b>65–67 $</b><span><b>Kaufzone:</b> Tiefs vom 17.7. (65.08 $) und 5.10. (66.54 $). Nur mit Wendesignal kaufen.</span></div>
+<div class="zone r"><b>64.90 $</b><span>Abbruch: Wochenschluss unter dem Jahrestief.</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Smart Money, Insider und Saisonalität</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Wer kauft, wer verkauft?</h3>
+      <ul class="clean" style="margin-top:8px">
+<li><b>Netflix selbst:</b> Grösster Käufer der eigenen Aktie: im 2. Quartal 2026 Rekord mit 4.7 Mrd. $, in 12 Monaten rund 10 Mrd. $ (3.4 % des Börsenwerts). Noch 27.1 Mrd. $ erlaubt, ohne Ablaufdatum.</li>
+<li><b>Insider:</b> 0 Käufe in 12 Monaten, Verkäufe für 403 Mio. $. Davon Reed Hastings rund 309 Mio. $ (jeden Monat bis Juni). Auch die beiden Chefs Sarandos und Peters verkauften (je rund 15 bis 18 Mio. $). Wohl geplante Verkäufe, aber niemand kaufte bei 65 bis 75 $.</li>
+<li><b>Analysten:</b> MarketBeat: 38× Kaufen, 15× Halten, 2× Verkaufen, Kursziel im Schnitt 93.82 $ (Spanne 57 bis 125 $). Die Ziele werden seit Juli laufend gesenkt (z. B. BMO 135→125 $, Wedbush 105→90 $, Barclays 80→70 $). Wells Fargo und Huber raten zum Verkauf.</li>
+<li><b>Erwartung für die Zahlen:</b> Die Aktie fiel nach den letzten 6 Quartalszahlen jedes Mal. Die Prognose von Netflix (0.82 $ Gewinn pro Aktie) entspricht der Analysten-Erwartung.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Saisonalität seit 2002</h3>
+      <p class="note">Durchschnittliche Monatsrendite in %. 24 Jahre Daten (seit 2002). Oktober bis Dezember leicht positiv (58 bis 62 % positive Jahre), Januar am stärksten (+7.6 %, 67 %).</p>
+      <div class="chart" id="c-seas"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Timing: 42 von 100</h2>
+  <div class="card tbl"><table id="t-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Worauf du achten solltest: Unterbewertung und Wachstumsschub</h2>
+  <div class="card"><h3>Was die Börse befürchtet</h3><p class="note" style="margin:4px 0">Echte Probleme, eher lösbar: Zum grossen Teil Stimmung: Der Gewinn steigt weiter, aber das KGV fiel von 36 auf 22. Darunter liegt eine echte, aber moderate Abschwächung bei Sehzeit und Wachstum.</p><ul class="clean"><li>Das Wachstum wird langsamer: von +17.6 % (Ende 2025) auf eine Prognose von +11.7 % im 3. Quartal. In den USA und Kanada nur noch +10 %.</li><li>Die Zuschauer schauen kaum mehr (+2 % Sehzeit). YouTube hat in den USA fast doppelt so viel TV-Sehzeit. Ohne mehr Sehzeit sind weitere Preiserhöhungen schwierig.</li><li>Inhalte und Live-Sport werden teurer (Abschreibungen auf Inhalte +10 % statt 8 % im Schnitt).</li><li>Vertrauen beschädigt: teures Warner-Gebot (dann gescheitert), Hastings weg, Content-Chefin weg, 1'000 Stellen gestrichen, weniger Zahlen veröffentlicht.</li></ul><h3 style="margin-top:12px">Was die Sorgen beenden könnte</h3><ul class="clean"><li>Zahlen 3. Quartal: Marge 33 % bestätigt, Jahresziel 31.5 % gehalten, Ausblick 4. Quartal und erste Zahlen zum Werbegeschäft <span class="muted">(20.10.2026)</span></li><li>Erster Ausblick für 2027: Wachstum, Marge und Werbeumsatz <span class="muted">(Zahlen Mitte bis Ende Januar 2027)</span></li><li>Werbe-Abo in 15 neuen Ländern und erste Serien unter dem neuen Content-Chef Peter Rice <span class="muted">(2027)</span></li></ul><h3 style="margin-top:12px">Wachstumsschub: Wachstumsschub möglich</h3><ul class="clean"><li><b>Werbung:</b> 2025 rund 1.5 Mrd. $, 2026 rund 3 Mrd. $ (Verdoppelung), 250 Mio. Zuschauer im Werbe-Abo, über 4'000 Werbekunden (+70 %). Ab 2027 auch in der Schweiz, Österreich, den Niederlanden und 12 weiteren Ländern. Aber erst 6 % vom Umsatz. <span class="muted">(2026–2028)</span></li><li><b>Marge und Rückkäufe:</b> Die operative Marge soll von 29.5 % auf 31.5 % steigen, dazu rund 2 % weniger Aktien pro Jahr. Das allein bringt rund 15 % mehr Gewinn pro Aktie, auch bei nur 11 % Umsatzwachstum. <span class="muted">(laufend)</span></li><li><b>Live-Sport und Ausland:</b> NFL bis 2029, Baseball bis 2028, Frauen-Fussball-WM 2027. Lateinamerika (+21 %) und Asien (+16 %) wachsen schneller als die USA. Sport bringt neue Abos, verdient aber direkt wenig. <span class="muted">(2026–2027)</span></li></ul><p style="margin:10px 0 0"><b>Woran du es erkennst:</b> Für deine Wachstums-Strategie zählt jetzt: Bleibt das Umsatzwachstum bei 12 % oder mehr und steigt die Sehzeit wieder über +2 %? Fällt das Wachstum 2027 unter 10 %, ist Netflix eher eine Qualitäts- als eine Wachstumsaktie.</p><p style="margin:10px 0 0"><b>Das Chancen-Szenario:</b> Ein reifer Wachstumswert: Weniger Umsatzwachstum, aber steigende Marge und Rückkäufe ergeben noch rund 15 % mehr Gewinn pro Aktie pro Jahr, bei einem KGV von nur noch 22 bis 28. Grösstes Risiko: Die Sehzeit stagniert länger, Preiserhöhungen funktionieren nicht mehr, und das Wachstum fällt Richtung 8 %.</p><p class="note" style="margin:10px 0 0">Quellen: <a href="https://www.sec.gov/Archives/edgar/data/0001065280/000106528026000211/ex991_q226.htm" target="_blank" rel="noopener">Netflix Aktionärsbrief Q2 2026</a>, <a href="https://www.nasdaq.com/articles/netflix-after-wbd-deal-collapse" target="_blank" rel="noopener">Nasdaq: Netflix nach dem Warner-Deal</a>, <a href="https://247wallst.com/investing/2026/10/16/netflix-is-cutting-about-1000-jobs-and-its-content-chief-is-out-days-before-earnings/" target="_blank" rel="noopener">24/7 Wall St: Stellenabbau vor den Zahlen</a>, <a href="https://au.variety.com/2026/tv/news/netflix-claims-ad-tier-reaches-250-million-viewers-36559/" target="_blank" rel="noopener">Variety: Werbe-Abo mit 250 Mio. Zuschauern</a></p></div>
+</section>
+
+<section>
+  <h2>Dividende</h2>
+  <div class="card tbl"><p style="margin:0">Netflix hat noch nie eine Dividende bezahlt. Das Geld geht fast ganz in Aktienrückkäufe (2025: 97 % des Free Cashflows).</p></div>
+</section>
+
+<section>
+  <h2>Pro und Contra</h2>
+  <div class="two">
+    <div class="card pro"><h3>Spricht dafür</h3><ul class="clean" style="margin-top:8px">
+<li>Weltmarktführer im Streaming mit 30 % Marge, die weiter steigt (Prognose 31.5 %).</li>
+<li>11 Mrd. $ Free Cashflow, fast alles für Rückkäufe, wenig Schulden (0.47 Jahre Free Cashflow).</li>
+<li>Werbung verdoppelt sich 2026 auf rund 3 Mrd. $, ab 2027 in 15 weiteren Ländern (auch Schweiz).</li>
+<li>KGV rund 30 % unter dem eigenen Schnitt, erstmals unter dem US-Markt.</li>
+<li>Preiserhöhungen in den USA im März haben funktioniert.</li>
+    </ul></div>
+    <div class="card con"><h3>Spricht dagegen</h3><ul class="clean" style="margin-top:8px">
+<li>Als Wachstumsaktie ein Warnsignal: Wachstum sinkt von 17.6 % auf 11.7 %, in den USA von 18 % auf 10 %.</li>
+<li>Zuschauer schauen nur 2 % mehr. YouTube nimmt Sehzeit weg, Preiserhöhungen haben Grenzen.</li>
+<li>Inhalte werden teurer (+10 %), Live-Sport kostet 5 % des Budgets, bringt aber nur 1 % der Sehzeit.</li>
+<li>Unruhe in der Führung: Hastings weg, Content-Chefin weg, 1'000 Stellen gestrichen.</li>
+<li>Weniger Transparenz: Keine Abo-Zahlen mehr, Sehzeit-Bericht nur noch jährlich.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section>
+  <h2>Was jetzt zu tun ist</h2>
+  <div class="zones">
+<div class="zone t"><b>Beobachten</b><span>Alarm bei 74 $ (Trigger) und 64.90 $ (Abbruch). Nicht vor den Zahlen kaufen: ±9.5 % Bewegung erwartet.</span></div>
+<div class="zone s"><b>Timing grün</b><span>Tagesschluss über 74 $, danach über 78.50 $. Fundamental: Am 20.10. Marge 33 % bestätigt, Jahresziel 31.5 % gehalten und ein Ausblick für das 4. Quartal über +12 %.</span></div>
+<div class="zone r"><b>Abbruch</b><span>Wochenschluss unter 64.90 $ oder Senkung des Margenziels von 31.5 %.</span></div>
+<div class="zone "><b>Nächste Zahlen</b><span>Dienstag, 20. Oktober 2026 nach US-Börsenschluss (in der Schweiz rund 22 Uhr). Erwartet: Umsatz 12.86 Mrd. $, Gewinn pro Aktie 0.82 $.</span></div>
+  </div>
+</section>
+
+<footer>
+  <span>Kursdaten und Indikatoren (EMA, RSI 14, A/D) selbst berechnet aus Yahoo-Finance-Tages-, Wochen- und Monatsdaten, Stand 16.10.2026. <a href="https://stockanalysis.com/stocks/nflx/financials/" target="_blank" rel="noopener">StockAnalysis.com</a> (Stand 16.10.2026), <a href="https://www.sec.gov/Archives/edgar/data/0001065280/000106528026000211/ex991_q226.htm" target="_blank" rel="noopener">Netflix Aktionärsbrief Q2 2026</a>, <a href="https://www.sec.gov/Archives/edgar/data/1065280/000106528026000137/ex991_q126.htm" target="_blank" rel="noopener">Aktionärsbrief Q1 2026</a>, <a href="https://www.nasdaq.com/articles/netflix-after-wbd-deal-collapse" target="_blank" rel="noopener">Nasdaq: nach dem Warner-Deal</a>, <a href="https://247wallst.com/investing/2026/10/16/netflix-is-cutting-about-1000-jobs-and-its-content-chief-is-out-days-before-earnings/" target="_blank" rel="noopener">24/7 Wall St (16.10.2026)</a>, <a href="https://www.marketbeat.com/stocks/NASDAQ/NFLX/forecast/" target="_blank" rel="noopener">Analysten (MarketBeat)</a>, <a href="https://www.marketbeat.com/stocks/NASDAQ/NFLX/insider-trades/" target="_blank" rel="noopener">Insider (MarketBeat)</a>.</span>
+  <span>Persönliche Analyse, keine Anlageberatung. Vergangene Kurse und Saisonalität sagen nichts Sicheres über die Zukunft.</span>
+</footer>
+</div>
+
+<script>
+const Q=[["Umsatztrend", "4 von 4 Quartalen über Vorjahr, aber Wachstum sinkt", 13, 15], ["Wachstumstempo", "+16 % in 12 Monaten, Prognose 3. Quartal nur +11.7 %", 8, 10], ["Operative Marge", "29.7 % (über 20 %), seit 2022 jedes Jahr gestiegen", 14, 15], ["Gewinnwachstum (EPS)", "3 Jahre +28 % pro Jahr, ohne Einmalzahlung zuletzt flach", 8, 10], ["Free Cashflow", "Positiv, in 3 von 4 Jahren gestiegen (2024 flach)", 9, 10], ["ROIC", "32 % (15 Pkt.), leicht fallend (−1)", 14, 15], ["Schulden", "Netto-Schulden 5.2 Mrd. $ = 0.47 Jahre Free Cashflow", 9, 10], ["Bewertung vs. eigene Historie", "KGV 28 ohne Einmalzahlung statt Ø 40 (2021–2025), rund 30 % günstiger", 12, 15]];
+const T=[["Trend Woche (EMA 50/200)", "Kurs unter beiden, EMA 50 noch über 200", 6, 20], ["Trend Tag (EMA 50/200)", "Kurs unter beiden, EMA 50 unter 200", 1, 10], ["Struktur (SMC)", "Tiefere Hochs, aber Oktober-Tief über Juli-Tief (möglicher Boden)", 7, 20], ["RSI Tag/Woche", "Tag 46, Woche 39, Woche mit leicht positiver Divergenz", 8, 15], ["A/D Tag/Woche", "Tag höher als bei den Tiefs, Woche neutral", 11, 20], ["Smart Money", "Start 3, Rückkauf 3.4 % pro Jahr +3, nur Insider-Verkäufe −1", 5, 10], ["Saisonalität", "Oktober 62 %, November 58 %, Dezember 58 % positive Jahre", 4, 5]];
+const FIN=[["2021", 29698, "+18.8 %", "20.9 %", 1.12, -132, "22.0 %", "52.2"], ["2022", 31616, "+6.5 %", "17.8 %", 0.99, 1619, "16.1 %", "29.2"], ["2023", 33723, "+6.7 %", "20.6 %", 1.2, 6926, "19.5 %", "39.4"], ["2024", 39001, "+15.6 %", "26.7 %", 1.98, 6922, "28.7 %", "43.7"], ["2025", 45183, "+15.9 %", "29.5 %", 2.53, 9461, "34.0 %", "36.2"], ["Letzte 12 Mt.", 48371, "+16.0 %", "29.7 %", 3.17, 11152, "32.4 %", "22.2"]];
+const HALF=[["Q3 24", 9825], ["Q4 24", 10247], ["Q1 25", 10543], ["Q2 25", 11079], ["Q3 25", 11510], ["Q4 25", 12051], ["Q1 26", 12250], ["Q2 26", 12560]];
+const MARGIN=[["2021", 20.9], ["2022", 17.8], ["2023", 20.6], ["2024", 26.7], ["2025", 29.5], ["Q2 26", 33.4]];
+const SEAS=[7.6, 3.9, 2.8, 2.0, 6.0, 1.1, 0.9, 4.0, 1.5, 1.7, 2.7, 1.7];
+const SEASHIT=[67.0, 67.0, 67.0, 52.0, 58.0, 56.0, 46.0, 60.0, 62.0, 62.0, 58.0, 58.0];
+const MON=["Jan","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"];
+const W=`2024-10-21,75.47,61.32,47.07,68,9340.3;2024-10-28,75.61,61.88,47.36,68,9345.2;2024-11-04,79.5,62.57,47.68,73,9454;2024-11-11,82.4,63.35,48.02,76,9490.7;2024-11-18,89.78,64.39,48.44,82,9647.1;2024-11-25,88.68,65.34,48.84,79,9687.4;2024-12-02,93.47,66.44,49.28,82,9817.4;2024-12-09,91.89,67.44,49.71,78,9793.4;2024-12-16,90.9,68.36,50.12,75,9802.9;2024-12-23,90.75,69.24,50.52,75,9765.2;2024-12-30,88.11,69.98,50.9,68,9695.9;2025-01-06,83.77,70.52,51.22,59,9578.2;2025-01-13,85.81,71.12,51.57,62,9666.3;2025-01-20,97.76,72.16,52.03,73,9922.4;2025-01-27,97.68,73.16,52.48,73,9930.5;2025-02-03,101.39,74.27,52.97,75,10043.6;2025-02-10,105.86,75.51,53.49,78,10180.3;2025-02-17,100.32,76.48,53.96,68,10059.9;2025-02-24,98.06,77.33,54.4,64,10028.2;2025-03-03,89.11,77.79,54.74,53,9884.3;2025-03-10,91.8,78.34,55.11,55,10119.5;2025-03-17,96.03,79.03,55.52,59,10334.1;2025-03-24,93.39,79.6,55.9,56,10165.4;2025-03-31,85.59,79.83,56.19,48,9934.7;2025-04-07,91.83,80.3,56.55,54,10077.1;2025-04-14,97.3,80.97,56.95,58,10196.7;2025-04-21,110.15,82.11,57.48,66,10527.9;2025-04-28,115.65,83.43,58.06,69,10704.7;2025-05-05,114.02,84.63,58.62,67,10737.1;2025-05-12,119.15,85.98,59.22,70,10947.6;2025-05-19,118.54,87.26,59.81,69,10910.6;2025-05-26,120.72,88.57,60.42,70,10982.4;2025-06-02,124.15,89.97,61.05,72,11026.9;2025-06-09,121.21,91.19,61.65,68,11038;2025-06-16,123.14,92.44,62.26,70,11044.8;2025-06-23,132.31,94.01,62.96,74,11166.4;2025-06-30,129.72,95.41,63.62,71,11131.1;2025-07-07,124.51,96.55,64.23,65,11039.7;2025-07-14,120.92,97.51,64.79,61,10835.9;2025-07-21,118.05,98.31,65.32,58,10723;2025-07-28,115.86,99,65.82,55,10598.5;2025-08-04,121.16,99.87,66.37,59,10735.2;2025-08-11,123.89,100.81,66.95,61,10826.6;2025-08-18,120.46,101.58,67.48,58,10746.9;2025-08-25,120.82,102.34,68.01,58,10685.9;2025-09-01,124.38,103.2,68.57,61,10731.5;2025-09-08,118.84,103.81,69.07,54,10591.7;2025-09-15,122.7,104.55,69.61,58,10721.9;2025-09-22,121.06,105.2,70.12,56,10721.8;2025-09-29,115.33,105.6,70.57,50,10614.1;2025-10-06,122.01,106.24,71.08,56,10690.3;2025-10-13,119.94,106.78,71.56,54,10671.1;2025-10-20,109.47,106.88,71.94,44,10290.8;2025-10-27,111.89,107.08,72.34,47,10366.4;2025-11-03,110.37,107.21,72.72,45,10368;2025-11-10,111.22,107.37,73.1,46,10225.4;2025-11-17,104.31,107.25,73.41,41,10061.5;2025-11-24,107.58,107.26,73.75,44,10175.1;2025-12-01,100.24,106.98,74.02,39,10006.4;2025-12-08,95.19,106.52,74.23,35,9927.4;2025-12-15,94.39,106.05,74.43,35,9815;2025-12-22,94.47,105.59,74.63,35,9900.7;2025-12-29,90.99,105.02,74.79,33,9797.9;2026-01-05,89.46,104.41,74.93,32,9696.8;2026-01-12,88,103.77,75.06,31,9505.5;2026-01-19,86.12,103.07,75.17,29,9524.6;2026-01-26,83.49,102.31,75.26,28,9421.7;2026-02-02,82.2,101.52,75.33,27,9417.7;2026-02-09,76.87,100.55,75.34,24,9259.6;2026-02-16,78.67,99.69,75.37,27,9374.9;2026-02-23,96.24,99.56,75.58,49,9782.1;2026-03-02,99.02,99.54,75.82,51,9934.1;2026-03-09,95.31,99.37,76.01,48,9853;2026-03-16,91.82,99.07,76.17,45,9738.4;2026-03-23,93.43,98.85,76.34,47,9745.4;2026-03-30,98.66,98.85,76.56,52,9897.2;2026-04-06,103.01,99.01,76.82,55,10047.2;2026-04-13,97.31,98.94,77.03,50,9846;2026-04-20,92.44,98.69,77.18,46,9668.1;2026-04-27,92.06,98.43,77.33,45,9647.5;2026-05-04,87.49,98,77.43,42,9512.1;2026-05-11,87.02,97.57,77.53,41,9489.9;2026-05-18,88.6,97.22,77.64,43,9472.6;2026-05-25,86.02,96.78,77.72,41,9381.7;2026-06-01,82.18,96.2,77.76,38,9260.4;2026-06-08,80.34,95.58,77.79,36,9184;2026-06-15,77.38,94.87,77.79,34,9046;2026-06-22,73.81,94.04,77.75,31,9030.1;2026-06-29,77.65,93.4,77.74,37,9180.5;2026-07-06,73.37,92.61,77.7,34,9044;2026-07-13,68.95,91.69,77.61,31,8962.7;2026-07-20,70.09,90.84,77.54,32,9135.1;2026-07-27,71.71,90.09,77.48,35,9123.8;2026-08-03,74.14,89.46,77.45,38,9164.7;2026-08-10,78.16,89.02,77.46,44,9276.7;2026-08-17,79.59,88.65,77.48,46,9343.6;2026-08-24,81.72,88.38,77.52,48,9417.5;2026-08-31,78.25,87.98,77.53,44,9280.3;2026-09-07,77.4,87.57,77.52,43,9355.1;2026-09-14,71.79,86.95,77.47,38,9198;2026-09-21,71.15,86.33,77.4,37,9060.8;2026-09-28,67.06,85.57,77.3,34,8890.8;2026-10-05,70.3,84.97,77.23,39,8953.4;2026-10-16,70.53,84.41,77.17,39,8939.4`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+const DD=`2025-10-06,116.33,120.61,109.9,796.5;2025-10-07,119.11,120.55,110,801.1;2025-10-08,121.43,120.59,110.11,822.5;2025-10-09,123.11,120.69,110.24,836.6;2025-10-10,122.01,120.74,110.36,796.9;2025-10-13,121.9,120.78,110.47,797;2025-10-14,121.54,120.81,110.58,800.7;2025-10-15,120.33,120.79,110.68,784.2;2025-10-16,118.36,120.7,110.75,766.4;2025-10-17,119.94,120.67,110.85,786.8;2025-10-20,123.86,120.79,110.97,808.7;2025-10-21,124.14,120.92,111.11,817.8;2025-10-22,111.64,120.56,111.11,695.2;2025-10-23,111.36,120.2,111.11,694.3;2025-10-24,109.47,119.78,111.1,635.7;2025-10-27,109.46,119.37,111.08,634.2;2025-10-28,110.25,119.02,111.07,625.9;2025-10-29,110.04,118.66,111.06,615.8;2025-10-30,108.9,118.28,111.04,578.3;2025-10-31,111.89,118.03,111.05,580.1;2025-11-03,110.01,117.72,111.04,571.6;2025-11-04,109.3,117.39,111.02,560;2025-11-05,109.85,117.09,111.01,589.3;2025-11-06,109.7,116.8,111,599.6;2025-11-07,110.37,116.55,110.99,624.3;2025-11-10,112.01,116.37,111,636.3;2025-11-11,113.64,116.26,111.03,658.4;2025-11-12,115.75,116.24,111.07,682.8;2025-11-13,115.42,116.21,111.12,674.3;2025-11-14,111.22,116.01,111.12,640;2025-11-17,110.29,115.79,111.11,630.7;2025-11-18,114.09,115.72,111.14,657.5;2025-11-19,110,115.5,111.13,644.4;2025-11-20,105.67,115.11,111.07,611.1;2025-11-21,104.31,114.69,111.01,585;2025-11-24,106.97,114.39,110.97,619.4;2025-11-25,104.4,114,110.9,600.7;2025-11-26,106.14,113.69,110.85,602.5;2025-11-28,107.58,113.45,110.82,611.1;2025-12-01,109.13,113.28,110.8,632.5;2025-12-02,109.35,113.12,110.79,649.4;2025-12-03,103.96,112.77,110.72,638.6;2025-12-04,103.22,112.39,110.65,660.8;2025-12-05,100.24,111.91,110.54,622;2025-12-08,96.79,111.32,110.41,586.6;2025-12-09,96.71,110.75,110.27,607.7;2025-12-10,92.71,110.04,110.1,545.1;2025-12-11,94.09,109.42,109.94,557.9;2025-12-12,95.19,108.86,109.79,532.1;2025-12-15,93.77,108.27,109.63,498.8;2025-12-16,94.57,107.73,109.48,517.8;2025-12-17,94.79,107.22,109.33,478.9;2025-12-18,94,106.7,109.18,455.4;2025-12-19,94.39,106.22,109.03,447.5;2025-12-22,93.23,105.71,108.88,422;2025-12-23,93.5,105.23,108.72,441.5;2025-12-24,93.64,104.78,108.57,452.9;2025-12-26,94.47,104.37,108.43,468.1;2025-12-29,94.15,103.97,108.29,462.6;2025-12-30,93.78,103.57,108.15,470.9;2025-12-31,93.76,103.19,108,471.1;2026-01-02,90.99,102.71,107.83,434.5;2026-01-05,91.46,102.27,107.67,422.4;2026-01-06,90.65,101.81,107.5,420.6;2026-01-07,90.73,101.38,107.34,404.8;2026-01-08,90.53,100.95,107.17,410.3;2026-01-09,89.46,100.5,106.99,428;2026-01-12,89.41,100.07,106.82,397.5;2026-01-13,90.32,99.68,106.65,406.6;2026-01-14,88.55,99.25,106.47,373.3;2026-01-15,88.05,98.81,106.29,344.6;2026-01-16,88,98.38,106.11,325.4;2026-01-20,87.26,97.95,105.92,234;2026-01-21,85.36,97.45,105.72,321.7;2026-01-22,83.54,96.91,105.49,289.1;2026-01-23,86.12,96.49,105.3,345.9;2026-01-26,85.7,96.06,105.11,323;2026-01-27,85.58,95.65,104.91,359.9;2026-01-28,84.64,95.22,104.71,334;2026-01-29,83.16,94.75,104.5,325.4;2026-01-30,83.49,94.31,104.29,330.5;2026-02-02,82.76,93.85,104.07,290.3;2026-02-03,79.94,93.31,103.83,251.8;2026-02-04,80.16,92.79,103.6,244;2026-02-05,80.87,92.32,103.37,202.3;2026-02-06,82.2,91.93,103.16,233.9;2026-02-09,81.47,91.52,102.95,249.4;2026-02-10,82.21,91.15,102.74,209.9;2026-02-11,79.62,90.7,102.51,173.7;2026-02-12,75.86,90.12,102.24,123.8;2026-02-13,76.87,89.6,101.99,150.2;2026-02-17,77,89.1,101.74,161.8;2026-02-18,77.99,88.67,101.51,182;2026-02-19,77,88.21,101.26,163.6;2026-02-20,78.67,87.84,101.04,191.2;2026-02-23,76.02,87.37,100.79,180.3;2026-02-24,78.04,87.01,100.56,211.6;2026-02-25,82.7,86.84,100.38,265.9;2026-02-26,84.59,86.75,100.23,263.1;2026-02-27,96.24,87.12,100.19,430.7;2026-03-02,97.09,87.51,100.16,456;2026-03-03,97.7,87.91,100.13,486.4;2026-03-04,98.66,88.33,100.12,497.5;2026-03-05,99.17,88.76,100.11,498.8;2026-03-06,99.02,89.16,100.1,511.4;2026-03-09,98.32,89.52,100.08,534.5;2026-03-10,96.94,89.81,100.05,517.7;2026-03-11,94.89,90.01,100,487.8;2026-03-12,94.31,90.18,99.94,473.3;2026-03-13,95.31,90.38,99.89,487.8;2026-03-16,95.2,90.57,99.85,486.6;2026-03-17,94.36,90.72,99.79,468.1;2026-03-18,94.7,90.87,99.74,475.4;2026-03-19,91.74,90.91,99.66,450.7;2026-03-20,91.82,90.94,99.58,506.2;2026-03-23,93.38,91.04,99.52,521.1;2026-03-24,90.92,91.03,99.44,494.1;2026-03-25,92.28,91.08,99.37,512.6;2026-03-26,93.32,91.17,99.31,509.7;2026-03-27,93.43,91.26,99.25,486.8;2026-03-30,92.97,91.33,99.19,475.8;2026-03-31,96.15,91.52,99.15,526.4;2026-04-01,95.55,91.67,99.12,522.7;2026-04-02,98.66,91.95,99.11,558.7;2026-04-06,98.93,92.22,99.11,536.7;2026-04-07,98.82,92.48,99.11,529.2;2026-04-08,99.39,92.75,99.11,539;2026-04-09,102.05,93.12,99.14,567.9;2026-04-10,103.01,93.5,99.18,591.4;2026-04-13,103.16,93.88,99.22,601;2026-04-14,106.28,94.37,99.29,634.9;2026-04-15,107.71,94.89,99.37,669.1;2026-04-16,107.79,95.4,99.46,669.4;2026-04-17,97.31,95.47,99.44,696.4;2026-04-20,94.83,95.45,99.39,673.3;2026-04-21,92.58,95.34,99.32,622.7;2026-04-22,93.24,95.25,99.26,618.4;2026-04-23,92.82,95.16,99.2,603;2026-04-24,92.44,95.05,99.13,598.6;2026-04-27,91.37,94.91,99.05,571.6;2026-04-28,92.27,94.8,98.99,603;2026-04-29,92.12,94.7,98.92,609.8;2026-04-30,93.61,94.66,98.86,636.3;2026-05-01,92.06,94.55,98.8,609.3;2026-05-04,91.02,94.42,98.72,588.1;2026-05-05,87.89,94.16,98.61,545.1;2026-05-06,88.27,93.93,98.51,574.2;2026-05-07,88.25,93.71,98.41,549.3;2026-05-08,87.49,93.46,98.3,537.6;2026-05-11,85.45,93.15,98.17,509.7;2026-05-12,87.66,92.93,98.07,514.1;2026-05-13,87.56,92.72,97.96,517;2026-05-14,86.94,92.5,97.85,496.8;2026-05-15,87.02,92.28,97.74,472.1;2026-05-18,89.65,92.18,97.66,504.4;2026-05-19,89.33,92.07,97.58,485.7;2026-05-20,88.09,91.91,97.49,488.6;2026-05-21,89.3,91.81,97.4,495.7;2026-05-22,88.6,91.68,97.32,483.3;2026-05-26,87.68,91.52,97.22,473.2;2026-05-27,87.35,91.36,97.12,464.9;2026-05-28,86.36,91.16,97.02,467.3;2026-05-29,86.02,90.96,96.91,455.9;2026-06-01,85.85,90.76,96.8,441.3;2026-06-02,83.33,90.47,96.66,399.6;2026-06-03,81.52,90.12,96.51,376.9;2026-06-04,81.56,89.78,96.36,344;2026-06-05,82.18,89.49,96.22,359.1;2026-06-08,82.64,89.22,96.09,375.4;2026-06-09,81.41,88.91,95.94,345.5;2026-06-10,82,88.64,95.8,351.1;2026-06-11,81.27,88.35,95.66,356.9;2026-06-12,80.34,88.04,95.51,349.1;2026-06-15,81.67,87.79,95.37,383.2;2026-06-16,78.72,87.43,95.2,349.3;2026-06-17,76.96,87.02,95.02,310.9;2026-06-18,77.38,86.64,94.84,328.2;2026-06-22,72.88,86.1,94.63,279.3;2026-06-23,72.82,85.58,94.41,243;2026-06-24,71.84,85.04,94.18,206.1;2026-06-25,70.9,84.49,93.95,163.4;2026-06-26,73.81,84.07,93.75,181.5;2026-06-29,73.78,83.67,93.55,140.9;2026-06-30,71.4,83.19,93.33,106;2026-07-01,74.19,82.83,93.14,142.5;2026-07-02,77.65,82.63,92.99,173.1;2026-07-06,76.02,82.37,92.82,141.2;2026-07-07,76.18,82.13,92.65,110.5;2026-07-08,75.59,81.87,92.48,103.6;2026-07-09,75.47,81.62,92.32,136.1;2026-07-10,73.37,81.3,92.13,114.6;2026-07-13,73.83,81,91.94,84.3;2026-07-14,73.53,80.71,91.76,99.2;2026-07-15,73.68,80.44,91.58,85;2026-07-16,74.35,80.2,91.41,133.1;2026-07-17,68.95,79.76,91.19,240.4;2026-07-20,67.6,79.28,90.95,245.1;2026-07-21,68.67,78.86,90.73,297.1;2026-07-22,68.53,78.46,90.51,259.5;2026-07-23,68.89,78.08,90.29,279.5;2026-07-24,70.09,77.77,90.09,300.7;2026-07-27,70.4,77.48,89.9,285.2;2026-07-28,72.39,77.28,89.72,281.3;2026-07-29,73.63,77.14,89.56,320.2;2026-07-30,73.17,76.98,89.4,368.6;2026-07-31,71.71,76.77,89.22,358.9;2026-08-03,73.33,76.64,89.07,369.1;2026-08-04,73.57,76.52,88.91,401.3;2026-08-05,74.2,76.43,88.76,400.5;2026-08-06,73.69,76.32,88.61,387.8;2026-08-07,74.14,76.24,88.47,400;2026-08-10,76.29,76.24,88.35,426.4;2026-08-11,74.79,76.18,88.21,405.7;2026-08-12,74.21,76.1,88.08,409.1;2026-08-13,78.24,76.19,87.98,446.1;2026-08-14,78.16,76.26,87.88,441.4;2026-08-17,76.02,76.26,87.76,421.7;2026-08-18,77.77,76.31,87.66,423;2026-08-19,80.22,76.47,87.59,435.1;2026-08-20,80.14,76.61,87.51,428;2026-08-21,79.59,76.73,87.44,419.4;2026-08-24,80.01,76.86,87.36,424.4;2026-08-25,82.23,77.07,87.31,449.4;2026-08-26,81.46,77.24,87.25,433.1;2026-08-27,79.84,77.34,87.18,422.2;2026-08-28,81.72,77.51,87.12,436;2026-08-31,81.05,77.65,87.06,428;2026-09-01,80.81,77.78,87,427.1;2026-09-02,82.73,77.97,86.96,443.1;2026-09-03,82.67,78.15,86.92,444.4;2026-09-04,78.25,78.16,86.83,404.6;2026-09-08,76.77,78.1,86.73,402.5;2026-09-09,76.03,78.02,86.62,388.3;2026-09-10,76.01,77.94,86.52,399.2;2026-09-11,77.4,77.92,86.43,416.1;2026-09-14,80.32,78.02,86.37,429.9;2026-09-15,77.9,78.01,86.28,414.1;2026-09-16,76.41,77.95,86.18,392.2;2026-09-17,75.31,77.85,86.08,364.3;2026-09-18,71.79,77.61,85.93,419.3;2026-09-21,73.36,77.44,85.81,438.1;2026-09-22,72.16,77.23,85.67,422;2026-09-23,71.36,77,85.53,403.8;2026-09-24,71.72,76.8,85.39,410.3;2026-09-25,71.15,76.58,85.25,396.3;2026-09-28,69.23,76.29,85.09,363.9;2026-09-29,70.3,76.05,84.94,337.9;2026-09-30,69.58,75.8,84.79,307.9;2026-10-01,67.85,75.49,84.62,269;2026-10-02,67.06,75.16,84.45,251.7;2026-10-05,67.5,74.86,84.28,288.6;2026-10-06,68.69,74.61,84.12,319.5;2026-10-07,69.7,74.42,83.98,345.3;2026-10-08,71.57,74.31,83.86,389.1;2026-10-09,70.3,74.15,83.72,363.3;2026-10-12,70.61,74.01,83.59,341.5;2026-10-13,70.46,73.87,83.46,315.8;2026-10-14,70.57,73.74,83.33,326.6;2026-10-15,72.61,73.7,83.23,345.5;2026-10-16,70.53,73.58,83.1,333.1`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+
+const fmtN=(v,d=2)=>v.toLocaleString("de-CH",{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmtD=s=>{const [y,m,d]=s.split("-");return d+"."+m+"."+y.slice(2)};
+const NS="http://www.w3.org/2000/svg";
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+
+function scoreTable(id,rows){
+  let tot=0,max=0;
+  const html='<thead><tr><th>Kriterium</th><th>Stand</th><th class="num">Punkte</th><th style="width:22%"></th></tr></thead><tbody>'+rows.map(r=>{tot+=r[2];max+=r[3];const p=r[2]/r[3];const c=p>=.75?"var(--good)":p>=.45?"var(--warn)":"var(--bad)";
+    return `<tr><td>${r[0]}</td><td class="muted">${r[1]}</td><td class="num">${r[2]} / ${r[3]}</td><td><div class="bar"><i style="width:${p*100}%;background:${c}"></i></div></td></tr>`}).join("")+`<tr class="total"><td>Total</td><td></td><td class="num">${tot} / ${max}</td><td></td></tr></tbody>`;
+  document.getElementById(id).innerHTML=html;return tot;
+}
+const qs=scoreTable("q-tbl",Q), ts=scoreTable("t-tbl",T);
+document.getElementById("q-val").textContent=qs;document.getElementById("t-val").textContent=ts;
+document.getElementById("q-pin").style.left=qs+"%";document.getElementById("t-pin").style.left=ts+"%";
+
+document.getElementById("fin-rows").innerHTML=FIN.map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1].toLocaleString("de-CH")}</td><td class="num">${r[2]}</td><td class="num">${r[3]}</td><td class="num">${fmtN(r[4])}</td><td class="num">${r[5].toLocaleString("de-CH")}</td><td class="num">${r[6]}</td><td class="num">${r[7]}</td></tr>`).join("");
+
+/* generic line chart */
+function lineChart(host,{dates,series,bands=[],yFmt=v=>fmtN(v),h=300,zero=false,refs=[],pad}){
+  const W_=800,H=h,m={t:12,r:56,b:28,l:8};
+  const all=series.flatMap(s=>s.values).concat(bands.flatMap(b=>[b.from,b.to])).concat(refs.map(r=>r.v));
+  if(zero)all.push(0);
+  let lo=Math.min(...all),hi=Math.max(...all);const sp=(hi-lo)||1;lo-=sp*.06;hi+=sp*.06;
+  if(pad){lo=pad[0];hi=pad[1]}
+  const n=dates.length,x=i=>m.l+i*(W_-m.l-m.r)/(n-1),y=v=>m.t+(hi-v)*(H-m.t-m.b)/(hi-lo);
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  // grid
+  const steps=5;for(let k=0;k<=steps;k++){const v=lo+(hi-lo)*k/steps;el("line",{x1:m.l,x2:W_-m.r,y1:y(v),y2:y(v),stroke:"var(--grid)","stroke-width":1},svg);
+    const t=el("text",{x:W_-m.r+6,y:y(v)+4,"font-size":11,fill:"var(--muted)","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=yFmt(v)}
+  bands.forEach(b=>{el("rect",{x:m.l,width:W_-m.l-m.r,y:y(Math.max(b.from,b.to)),height:Math.abs(y(b.from)-y(b.to)),fill:b.type==="res"?"var(--zone-res)":"var(--zone-sup)"},svg)});
+  refs.forEach(r=>{el("line",{x1:m.l,x2:W_-m.r,y1:y(r.v),y2:y(r.v),stroke:"var(--muted)","stroke-dasharray":"4 4","stroke-width":1},svg);
+    const t=el("text",{x:m.l+4,y:y(r.v)-4,"font-size":11,fill:"var(--muted)"},svg);t.textContent=r.label});
+  if(zero)el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  // x labels
+  const every=Math.ceil(n/6);for(let i=0;i<n;i+=every){const t=el("text",{x:x(i),y:H-8,"font-size":11,fill:"var(--muted)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);const d=dates[i];t.textContent=d.slice(5,7)+"/"+d.slice(2,4)}
+  series.forEach(s=>{const dpath=s.values.map((v,i)=>(i?"L":"M")+x(i).toFixed(1)+","+y(v).toFixed(1)).join("");
+    el("path",{d:dpath,fill:"none",stroke:s.color,"stroke-width":s.w||2,"stroke-linejoin":"round","stroke-linecap":"round"},svg);
+    const lv=s.values[n-1];el("circle",{cx:x(n-1),cy:y(lv),r:3.5,fill:s.color,stroke:"var(--surface)","stroke-width":2},svg)});
+  // hover
+  const cross=el("line",{y1:m.t,y2:H-m.b,stroke:"var(--muted)","stroke-width":1,opacity:0},svg);
+  const ov=el("rect",{x:m.l,y:m.t,width:W_-m.l-m.r,height:H-m.t-m.b,fill:"transparent"},svg);
+  host.appendChild(svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;host.appendChild(tip);
+  function move(ev){const r=svg.getBoundingClientRect();const px=(ev.clientX-r.left)*W_/r.width;let i=Math.round((px-m.l)/((W_-m.l-m.r)/(n-1)));i=Math.max(0,Math.min(n-1,i));
+    cross.setAttribute("x1",x(i));cross.setAttribute("x2",x(i));cross.setAttribute("opacity",1);
+    tip.innerHTML=`<div class="d">${fmtD(dates[i])}</div>`+series.map(s=>`<div><i class="sw" style="background:${s.color}"></i> ${s.name}: <b>${yFmt(s.values[i])}</b></div>`).join("");
+    tip.hidden=false;const hx=x(i)*r.width/W_;tip.style.left=Math.min(Math.max(0,hx+12),r.width-tip.offsetWidth)+"px";tip.style.top="8px"}
+  ov.addEventListener("pointermove",move);ov.addEventListener("pointerleave",()=>{tip.hidden=true;cross.setAttribute("opacity",0)});
+}
+function barChart(host,{labels,values,fmt,h=220,color,neg,tipExtra}){
+  const W_=800,H=h,m={t:18,r:8,b:28,l:8};
+  const hi=Math.max(0,...values),lo=Math.min(0,...values);const lo2=lo<0?lo*1.15:lo,hi2=hi*1.15||1;
+  const y=v=>m.t+(hi2-v)*(H-m.t-m.b)/(hi2-lo2);const n=values.length,bw=(W_-m.l-m.r)/n;
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;
+  values.forEach((v,i)=>{const x0=m.l+i*bw+bw*.18,w=bw*.64,y0=y(Math.max(v,0)),hh=Math.max(1,Math.abs(y(v)-y(0)));
+    const r=el("rect",{x:x0,y:y0,width:w,height:hh,rx:4,fill:v<0?(neg||"var(--s2)"):(color||"var(--s1)")},svg);
+    const t=el("text",{x:x0+w/2,y:v<0?y(v)+13:y0-5,"font-size":11.5,fill:"var(--ink)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=fmt(v);
+    const l=el("text",{x:x0+w/2,y:H-8,"font-size":11.5,fill:"var(--muted)","text-anchor":"middle"},svg);l.textContent=labels[i];
+    const hit=el("rect",{x:m.l+i*bw,y:m.t,width:bw,height:H-m.t-m.b,fill:"transparent"},svg);
+    hit.addEventListener("pointerenter",()=>{tip.innerHTML=`<div class="d">${labels[i]}</div><b>${fmt(v)}</b>${tipExtra?tipExtra(i):""}`;tip.hidden=false;const R=svg.getBoundingClientRect();tip.style.left=Math.min((m.l+i*bw)*R.width/W_,R.width-tip.offsetWidth)+"px";tip.style.top="0px"});
+    hit.addEventListener("pointerleave",()=>tip.hidden=true)});
+  host.appendChild(svg);host.appendChild(tip);
+}
+barChart(document.getElementById("c-rev"),{labels:HALF.map(r=>r[0]),values:HALF.map(r=>r[1]),fmt:v=>fmtN(v,0),h:200});
+barChart(document.getElementById("c-margin"),{labels:MARGIN.map(r=>r[0]),values:MARGIN.map(r=>r[1]),fmt:v=>fmtN(v,1)+" %",h:200});
+barChart(document.getElementById("c-seas"),{labels:MON,values:SEAS,fmt:v=>(v>0?"+":"")+fmtN(v,1),h:220,tipExtra:i=>`<div>${SEASHIT[i]} % der Jahre positiv</div>`});
+const BANDS=[{"from": 81, "to": 83.6, "type": "res"}, {"from": 77, "to": 78.5, "type": "res"}, {"from": 65, "to": 67, "type": "sup"}], REFS=[{"v": 74, "label": "Trigger 74"}];
+const wd=W.map(r=>r[0]);
+lineChart(document.getElementById("c-week"),{dates:wd,series:[{name:"Kurs",values:W.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:W.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:W.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,yFmt:v=>fmtN(v,0),h:320});
+lineChart(document.getElementById("c-adw"),{dates:wd,series:[{name:"A/D Woche",values:W.map(r=>r[5]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,zero:true});
+lineChart(document.getElementById("c-rsiw"),{dates:wd,series:[{name:"RSI Woche",values:W.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,refs:[{v:70,label:"70 überkauft"},{v:30,label:"30 überverkauft"}],pad:[10,90]});
+const dd=DD.map(r=>r[0]);
+lineChart(document.getElementById("c-day"),{dates:dd,series:[{name:"Kurs",values:DD.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:DD.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:DD.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,refs:REFS,yFmt:v=>fmtN(v,0),h:260});
+lineChart(document.getElementById("c-add"),{dates:dd,series:[{name:"A/D Tag",values:DD.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:260,zero:true});
+</script>

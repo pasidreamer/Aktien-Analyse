@@ -1,0 +1,63 @@
+{
+ "ticker": "NFLX",
+ "sorgen": [
+  "Das Wachstum wird langsamer: von +17.6 % (Ende 2025) auf eine Prognose von +11.7 % im 3. Quartal. In den USA und Kanada nur noch +10 %.",
+  "Die Zuschauer schauen kaum mehr (+2 % Sehzeit). YouTube hat in den USA fast doppelt so viel TV-Sehzeit. Ohne mehr Sehzeit sind weitere Preiserhöhungen schwierig.",
+  "Inhalte und Live-Sport werden teurer (Abschreibungen auf Inhalte +10 % statt 8 % im Schnitt).",
+  "Vertrauen beschädigt: teures Warner-Gebot (dann gescheitert), Hastings weg, Content-Chefin weg, 1'000 Stellen gestrichen, weniger Zahlen veröffentlicht."
+ ],
+ "sorgen_art": "gemischt",
+ "sorgen_art_text": "Zum grossen Teil Stimmung: Der Gewinn steigt weiter, aber das KGV fiel von 36 auf 22. Darunter liegt eine echte, aber moderate Abschwächung bei Sehzeit und Wachstum.",
+ "aufloeser": [
+  {
+   "was": "Zahlen 3. Quartal: Marge 33 % bestätigt, Jahresziel 31.5 % gehalten, Ausblick 4. Quartal und erste Zahlen zum Werbegeschäft",
+   "wann": "20.10.2026"
+  },
+  {
+   "was": "Erster Ausblick für 2027: Wachstum, Marge und Werbeumsatz",
+   "wann": "Zahlen Mitte bis Ende Januar 2027"
+  },
+  {
+   "was": "Werbe-Abo in 15 neuen Ländern und erste Serien unter dem neuen Content-Chef Peter Rice",
+   "wann": "2027"
+  }
+ ],
+ "schub_stufe": "mittel",
+ "schub_treiber": [
+  {
+   "titel": "Werbung",
+   "text": "2025 rund 1.5 Mrd. $, 2026 rund 3 Mrd. $ (Verdoppelung), 250 Mio. Zuschauer im Werbe-Abo, über 4'000 Werbekunden (+70 %). Ab 2027 auch in der Schweiz, Österreich, den Niederlanden und 12 weiteren Ländern. Aber erst 6 % vom Umsatz.",
+   "wann": "2026–2028"
+  },
+  {
+   "titel": "Marge und Rückkäufe",
+   "text": "Die operative Marge soll von 29.5 % auf 31.5 % steigen, dazu rund 2 % weniger Aktien pro Jahr. Das allein bringt rund 15 % mehr Gewinn pro Aktie, auch bei nur 11 % Umsatzwachstum.",
+   "wann": "laufend"
+  },
+  {
+   "titel": "Live-Sport und Ausland",
+   "text": "NFL bis 2029, Baseball bis 2028, Frauen-Fussball-WM 2027. Lateinamerika (+21 %) und Asien (+16 %) wachsen schneller als die USA. Sport bringt neue Abos, verdient aber direkt wenig.",
+   "wann": "2026–2027"
+  }
+ ],
+ "schub_beweis": "Für deine Wachstums-Strategie zählt jetzt: Bleibt das Umsatzwachstum bei 12 % oder mehr und steigt die Sehzeit wieder über +2 %? Fällt das Wachstum 2027 unter 10 %, ist Netflix eher eine Qualitäts- als eine Wachstumsaktie.",
+ "szenario": "Ein reifer Wachstumswert: Weniger Umsatzwachstum, aber steigende Marge und Rückkäufe ergeben noch rund 15 % mehr Gewinn pro Aktie pro Jahr, bei einem KGV von nur noch 22 bis 28. Grösstes Risiko: Die Sehzeit stagniert länger, Preiserhöhungen funktionieren nicht mehr, und das Wachstum fällt Richtung 8 %.",
+ "quellen": [
+  {
+   "titel": "Netflix Aktionärsbrief Q2 2026",
+   "url": "https://www.sec.gov/Archives/edgar/data/0001065280/000106528026000211/ex991_q226.htm"
+  },
+  {
+   "titel": "Nasdaq: Netflix nach dem Warner-Deal",
+   "url": "https://www.nasdaq.com/articles/netflix-after-wbd-deal-collapse"
+  },
+  {
+   "titel": "24/7 Wall St: Stellenabbau vor den Zahlen",
+   "url": "https://247wallst.com/investing/2026/10/16/netflix-is-cutting-about-1000-jobs-and-its-content-chief-is-out-days-before-earnings/"
+  },
+  {
+   "titel": "Variety: Werbe-Abo mit 250 Mio. Zuschauern",
+   "url": "https://au.variety.com/2026/tv/news/netflix-claims-ad-tier-reaches-250-million-viewers-36559/"
+  }
+ ]
+}

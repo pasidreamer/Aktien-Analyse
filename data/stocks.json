@@ -13880,6 +13880,344 @@
    ],
    "cheatsheet": "analysen/CMG.html",
    "claude": "https://claude.ai/artifact/VZxbtdGMzigrSmm1GYaVy4"
+  },
+  {
+   "ticker": "NFLX",
+   "symbol": "NFLX",
+   "name": "Netflix",
+   "tags": [
+    "Wachstum"
+   ],
+   "land": "USA",
+   "region": "USA",
+   "branche": "Streaming und Unterhaltung",
+   "status": "beobachten",
+   "waehrung": "USD",
+   "analyse": {
+    "datenstand": "2026-10-16",
+    "kurs": 70.53,
+    "q": 87,
+    "t": 42
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "4 von 4 Quartalen über Vorjahr, aber Wachstum sinkt",
+     "p": 13,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "+16 % in 12 Monaten, Prognose 3. Quartal nur +11.7 %",
+     "p": 8,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "29.7 % (über 20 %), seit 2022 jedes Jahr gestiegen",
+     "p": 14,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "3 Jahre +28 % pro Jahr, ohne Einmalzahlung zuletzt flach",
+     "p": 8,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Positiv, in 3 von 4 Jahren gestiegen (2024 flach)",
+     "p": 9,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "32 % (15 Pkt.), leicht fallend (−1)",
+     "p": 14,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Netto-Schulden 5.2 Mrd. $ = 0.47 Jahre Free Cashflow",
+     "p": 9,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "KGV 28 ohne Einmalzahlung statt Ø 40 (2021–2025), rund 30 % günstiger",
+     "p": 12,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs unter beiden, EMA 50 noch über 200",
+     "p": 6,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs unter beiden, EMA 50 unter 200",
+     "p": 1,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Tiefere Hochs, aber Oktober-Tief über Juli-Tief (möglicher Boden)",
+     "p": 7,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "Tag 46, Woche 39, Woche mit leicht positiver Divergenz",
+     "p": 8,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Tag höher als bei den Tiefs, Woche neutral",
+     "p": 11,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Start 3, Rückkauf 3.4 % pro Jahr +3, nur Insider-Verkäufe −1",
+     "p": 5,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "Oktober 62 %, November 58 %, Dezember 58 % positive Jahre",
+     "p": 4,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 22.2,
+    "schnitt": 40,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      65,
+      67
+     ]
+    ],
+    "widerstand": [
+     [
+      77,
+      78.5
+     ],
+     [
+      81,
+      83.6
+     ]
+    ],
+    "trigger": 74,
+    "abbruch": 64.9
+   },
+   "zahlen": "2026-10-20",
+   "dividende": null,
+   "div_info": {
+    "zahlt": false,
+    "text": "Netflix hat noch nie eine Dividende bezahlt. Das Geld geht fast ganz in Aktienrückkäufe (2025: 97 % des Free Cashflows)."
+   },
+   "chance": {
+    "ticker": "NFLX",
+    "sorgen": [
+     "Das Wachstum wird langsamer: von +17.6 % (Ende 2025) auf eine Prognose von +11.7 % im 3. Quartal. In den USA und Kanada nur noch +10 %.",
+     "Die Zuschauer schauen kaum mehr (+2 % Sehzeit). YouTube hat in den USA fast doppelt so viel TV-Sehzeit. Ohne mehr Sehzeit sind weitere Preiserhöhungen schwierig.",
+     "Inhalte und Live-Sport werden teurer (Abschreibungen auf Inhalte +10 % statt 8 % im Schnitt).",
+     "Vertrauen beschädigt: teures Warner-Gebot (dann gescheitert), Hastings weg, Content-Chefin weg, 1'000 Stellen gestrichen, weniger Zahlen veröffentlicht."
+    ],
+    "sorgen_art": "gemischt",
+    "sorgen_art_text": "Zum grossen Teil Stimmung: Der Gewinn steigt weiter, aber das KGV fiel von 36 auf 22. Darunter liegt eine echte, aber moderate Abschwächung bei Sehzeit und Wachstum.",
+    "aufloeser": [
+     {
+      "was": "Zahlen 3. Quartal: Marge 33 % bestätigt, Jahresziel 31.5 % gehalten, Ausblick 4. Quartal und erste Zahlen zum Werbegeschäft",
+      "wann": "20.10.2026"
+     },
+     {
+      "was": "Erster Ausblick für 2027: Wachstum, Marge und Werbeumsatz",
+      "wann": "Zahlen Mitte bis Ende Januar 2027"
+     },
+     {
+      "was": "Werbe-Abo in 15 neuen Ländern und erste Serien unter dem neuen Content-Chef Peter Rice",
+      "wann": "2027"
+     }
+    ],
+    "schub_stufe": "mittel",
+    "schub_treiber": [
+     {
+      "titel": "Werbung",
+      "text": "2025 rund 1.5 Mrd. $, 2026 rund 3 Mrd. $ (Verdoppelung), 250 Mio. Zuschauer im Werbe-Abo, über 4'000 Werbekunden (+70 %). Ab 2027 auch in der Schweiz, Österreich, den Niederlanden und 12 weiteren Ländern. Aber erst 6 % vom Umsatz.",
+      "wann": "2026–2028"
+     },
+     {
+      "titel": "Marge und Rückkäufe",
+      "text": "Die operative Marge soll von 29.5 % auf 31.5 % steigen, dazu rund 2 % weniger Aktien pro Jahr. Das allein bringt rund 15 % mehr Gewinn pro Aktie, auch bei nur 11 % Umsatzwachstum.",
+      "wann": "laufend"
+     },
+     {
+      "titel": "Live-Sport und Ausland",
+      "text": "NFL bis 2029, Baseball bis 2028, Frauen-Fussball-WM 2027. Lateinamerika (+21 %) und Asien (+16 %) wachsen schneller als die USA. Sport bringt neue Abos, verdient aber direkt wenig.",
+      "wann": "2026–2027"
+     }
+    ],
+    "schub_beweis": "Für deine Wachstums-Strategie zählt jetzt: Bleibt das Umsatzwachstum bei 12 % oder mehr und steigt die Sehzeit wieder über +2 %? Fällt das Wachstum 2027 unter 10 %, ist Netflix eher eine Qualitäts- als eine Wachstumsaktie.",
+    "szenario": "Ein reifer Wachstumswert: Weniger Umsatzwachstum, aber steigende Marge und Rückkäufe ergeben noch rund 15 % mehr Gewinn pro Aktie pro Jahr, bei einem KGV von nur noch 22 bis 28. Grösstes Risiko: Die Sehzeit stagniert länger, Preiserhöhungen funktionieren nicht mehr, und das Wachstum fällt Richtung 8 %.",
+    "quellen": [
+     {
+      "titel": "Netflix Aktionärsbrief Q2 2026",
+      "url": "https://www.sec.gov/Archives/edgar/data/0001065280/000106528026000211/ex991_q226.htm"
+     },
+     {
+      "titel": "Nasdaq: Netflix nach dem Warner-Deal",
+      "url": "https://www.nasdaq.com/articles/netflix-after-wbd-deal-collapse"
+     },
+     {
+      "titel": "24/7 Wall St: Stellenabbau vor den Zahlen",
+      "url": "https://247wallst.com/investing/2026/10/16/netflix-is-cutting-about-1000-jobs-and-its-content-chief-is-out-days-before-earnings/"
+     },
+     {
+      "titel": "Variety: Werbe-Abo mit 250 Mio. Zuschauern",
+      "url": "https://au.variety.com/2026/tv/news/netflix-claims-ad-tier-reaches-250-million-viewers-36559/"
+     }
+    ]
+   },
+   "fazit": "Netflix ist fundamental stark: Umsatz +16 %, operative Marge fast 30 % und steigend, 11 Mrd. $ Free Cashflow, der fast ganz in Aktienrückkäufe geht. Die Aktie hat sich aber seit dem Hoch fast halbiert (−47 %). Der Grund: Das Wachstum wird langsamer (Prognose 3. Quartal +11.7 % statt 17.6 % Ende 2025), die Zuschauer schauen kaum mehr (+2 %), und das gescheiterte Warner-Bros.-Gebot hat Vertrauen gekostet. Das KGV fiel von 36 auf 22 (ohne Einmalzahlung rund 28). Qualität grün (87), Timing orange (42). Wichtig: Morgen, 20.10. nach US-Börsenschluss, kommen die Zahlen. Die Optionen erwarten ±9.5 % Kursbewegung. Nach den Ampeln: Watchlist, Zahlen abwarten.",
+   "about": "Netflix ist der grösste Streaming-Dienst der Welt mit über 300 Mio. zahlenden Haushalten in über 190 Ländern. Rund 95 % des Umsatzes sind Abo-Gebühren, der Rest vor allem Werbung im günstigeren Abo mit Werbung (2026 rund 3 Mrd. $, doppelt so viel wie 2025). Dazu kommen Live-Sport (NFL-Spiele an Weihnachten, Baseball, Boxen, Frauen-Fussball-WM 2027) und Spiele. Umsatz nach Region (2. Quartal 2026): USA und Kanada 43 %, Europa/Naher Osten/Afrika 32 %, Lateinamerika 13 %, Asien 12 %. Netflix hat noch nie eine Dividende bezahlt.",
+   "kpis": [
+    {
+     "ampel": "g",
+     "name": "Umsatzwachstum",
+     "wert": "+16 %",
+     "text": "Letzte 12 Monate. Aber langsamer: 17.6 % (Ende 2025), 16.2 %, 13.4 %, Prognose 3. Quartal 11.7 %. Analysten erwarten 2027 nur noch +11 %."
+    },
+    {
+     "ampel": "w",
+     "name": "Sehzeit",
+     "wert": "+2 %",
+     "text": "So viel mehr Stunden schauten die Leute im 1. Halbjahr 2026 als im Vorjahr. Zu wenig: Das Wachstum kommt nur noch von Preiserhöhungen und Werbung. YouTube hat in den USA fast doppelt so viel TV-Sehzeit wie Netflix."
+    },
+    {
+     "ampel": "g",
+     "name": "Operative Marge",
+     "wert": "29.7 %",
+     "text": "Von 100 $ Umsatz bleiben rund 30 $ Betriebsgewinn. Sehr gut, und seit 2022 jedes Jahr gestiegen. Prognose 2026: 31.5 %."
+    },
+    {
+     "ampel": "g",
+     "name": "Gewinn pro Aktie (EPS)",
+     "wert": "3.17 $",
+     "text": "Letzte 12 Monate. Ohne die Warner-Entschädigung rund 2.53 $. 2023 bis 2025 wuchs der Gewinn pro Aktie um 28 % pro Jahr."
+    },
+    {
+     "ampel": "g",
+     "name": "ROIC",
+     "wert": "32 %",
+     "text": "Auf 100 $ investiertes Kapital rund 32 $ Gewinn. Sehr gut."
+    },
+    {
+     "ampel": "g",
+     "name": "Free Cashflow",
+     "wert": "11.2 Mrd. $",
+     "text": "Letzte 12 Monate (inkl. 2.8 Mrd. $ Einmalzahlung), 23 % vom Umsatz, 3.8 % des Börsenwerts (ohne Einmalzahlung rund 2.8 %). Nur 4 % davon sind Löhne in Aktien: echt."
+    },
+    {
+     "ampel": "g",
+     "name": "KGV",
+     "wert": "22.2",
+     "text": "Du zahlst 22 Jahresgewinne, ohne Einmalzahlung rund 28. Eigener Schnitt 2021–2025: rund 40. Also rund 30 % günstiger als üblich und erstmals günstiger als der US-Markt (S&P 500 rund 24)."
+    },
+    {
+     "ampel": "g",
+     "name": "Aktienrückkäufe",
+     "wert": "−1.5 %",
+     "text": "So viel weniger Aktien als vor einem Jahr. 2023 bis 2025 gingen 87 bis 97 % des Free Cashflows in Rückkäufe. Noch 27.1 Mrd. $ erlaubt (9 % des Börsenwerts). Keine Dividende."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "81–83.60 $",
+     "text": "Widerstand: Hochs vom August und September."
+    },
+    {
+     "art": "r",
+     "wert": "77–78.50 $",
+     "text": "Widerstand: Wochen-EMA 200 (77.20 $) und Hoch vom 2.7. (78.44 $)."
+    },
+    {
+     "art": "t",
+     "wert": "74 $",
+     "text": "Trigger: Tagesschluss über dem Hoch vom 15.10. (73.07 $) und der Tages-EMA 50 (73.60 $)."
+    },
+    {
+     "art": "s",
+     "wert": "65–67 $",
+     "text": "Kaufzone: Tiefs vom 17.7. (65.08 $) und 5.10. (66.54 $). Nur mit Wendesignal kaufen."
+    },
+    {
+     "art": "r",
+     "wert": "64.90 $",
+     "text": "Abbruch: Wochenschluss unter dem Jahrestief."
+    }
+   ],
+   "pro": [
+    "Weltmarktführer im Streaming mit 30 % Marge, die weiter steigt (Prognose 31.5 %).",
+    "11 Mrd. $ Free Cashflow, fast alles für Rückkäufe, wenig Schulden (0.47 Jahre Free Cashflow).",
+    "Werbung verdoppelt sich 2026 auf rund 3 Mrd. $, ab 2027 in 15 weiteren Ländern (auch Schweiz).",
+    "KGV rund 30 % unter dem eigenen Schnitt, erstmals unter dem US-Markt.",
+    "Preiserhöhungen in den USA im März haben funktioniert."
+   ],
+   "contra": [
+    "Als Wachstumsaktie ein Warnsignal: Wachstum sinkt von 17.6 % auf 11.7 %, in den USA von 18 % auf 10 %.",
+    "Zuschauer schauen nur 2 % mehr. YouTube nimmt Sehzeit weg, Preiserhöhungen haben Grenzen.",
+    "Inhalte werden teurer (+10 %), Live-Sport kostet 5 % des Budgets, bringt aber nur 1 % der Sehzeit.",
+    "Unruhe in der Führung: Hastings weg, Content-Chefin weg, 1'000 Stellen gestrichen.",
+    "Weniger Transparenz: Keine Abo-Zahlen mehr, Sehzeit-Bericht nur noch jährlich."
+   ],
+   "smart_money": [
+    "Netflix selbst: Grösster Käufer der eigenen Aktie: im 2. Quartal 2026 Rekord mit 4.7 Mrd. $, in 12 Monaten rund 10 Mrd. $ (3.4 % des Börsenwerts). Noch 27.1 Mrd. $ erlaubt, ohne Ablaufdatum.",
+    "Insider: 0 Käufe in 12 Monaten, Verkäufe für 403 Mio. $. Davon Reed Hastings rund 309 Mio. $ (jeden Monat bis Juni). Auch die beiden Chefs Sarandos und Peters verkauften (je rund 15 bis 18 Mio. $). Wohl geplante Verkäufe, aber niemand kaufte bei 65 bis 75 $.",
+    "Analysten: MarketBeat: 38× Kaufen, 15× Halten, 2× Verkaufen, Kursziel im Schnitt 93.82 $ (Spanne 57 bis 125 $). Die Ziele werden seit Juli laufend gesenkt (z. B. BMO 135→125 $, Wedbush 105→90 $, Barclays 80→70 $). Wells Fargo und Huber raten zum Verkauf.",
+    "Erwartung für die Zahlen: Die Aktie fiel nach den letzten 6 Quartalszahlen jedes Mal. Die Prognose von Netflix (0.82 $ Gewinn pro Aktie) entspricht der Analysten-Erwartung."
+   ],
+   "cheatsheet": "analysen/NFLX.html",
+   "claude": "https://claude.ai/artifact/2v95juDqpWvL43DU1CVs9r"
   }
  ]
 }
