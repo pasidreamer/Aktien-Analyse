@@ -4,6 +4,8 @@
 // und zeichnet die Zone, in der der aktuelle Schwung symmetrisch enden würde.
 // Idee: Gesunde Trends laufen symmetrisch. Eine Korrektur, die so tief und so lang ist wie die letzte,
 // endet oft dort (mögliche Kaufzone). Wird sie deutlich grösser, ist das eine Warnung für den Trend.
+// Korrektur-Filter: Aktien überhitzt am Allzeithoch werden rot markiert (nicht hinterherlaufen),
+// schöne Korrekturen wie Google 2022/23 grün (Rücksetzer, RSI abgekühlt, Symmetrie, Wende).
 // Persönliches Werkzeug, keine Anlageberatung.
 indicator("Marktsymmetrie", shorttitle = "Symmetrie", overlay = true, max_labels_count = 500, max_lines_count = 500, max_boxes_count = 50)
 
@@ -14,11 +16,20 @@ bool  usePct = input.bool(true, "In Prozent rechnen (empfohlen für Aktien)", gr
 float tolPct = input.float(15.0, "Toleranz der Symmetrie-Zone (%)", minval = 1, maxval = 50, step = 1, group = G1, tooltip = "Wie weit Preis und Zeit vom letzten gleichen Schwung abweichen dürfen und trotzdem als symmetrisch gelten.")
 int   balN   = input.int(6, "Schwünge für die Bullen/Bären-Bilanz", minval = 2, maxval = 20, group = G1)
 
+G3 = "Korrektur-Filter"
+float ddMin     = input.float(10, "Spannend ab Rücksetzer von (%)", minval = 3, maxval = 40, step = 1, group = G3, tooltip = "Rücksetzer vom 52-Wochen-Hoch, ab dem eine Korrektur interessant wird.")
+float ddMax     = input.float(45, "Normale Korrektur bis (%)", minval = 15, maxval = 80, step = 1, group = G3, tooltip = "Tiefer ist kein normaler Rücksetzer mehr, dann muss die Firma genau geprüft werden. Google fiel 2022 rund 45 %.")
+int   chanceMin = input.int(60, "Korrektur-Chance ab (Punkte)", minval = 30, maxval = 90, group = G3)
+int   heatMax   = input.int(70, "Überhitzt ab (Punkte)", minval = 40, maxval = 95, group = G3)
+bool  showBg    = input.bool(true, "Hintergrund färben (rot = überhitzt, grün = Korrektur-Chance)", group = G3)
+bool  showMark  = input.bool(true, "Markierung bei neuer Korrektur-Chance oder Überhitzung", group = G3)
+
 G2 = "Anzeige"
 bool   showZig  = input.bool(true, "Zickzack-Linien", group = G2)
 bool   showLbl  = input.bool(true, "Beschriftung der Schwünge", group = G2)
 bool   showProj = input.bool(true, "Symmetrie-Zone projizieren", group = G2)
 bool   showTbl  = input.bool(true, "Info-Tabelle", group = G2)
+bool   tblShort = input.bool(false, "Tabelle kompakt (nur Korrektur-Filter)", group = G2)
 string tblPos   = input.string("Oben rechts", "Position der Tabelle", options = ["Oben rechts", "Unten rechts", "Oben links", "Unten links"], group = G2)
 color  colUp    = input.color(#22a06b, "Aufwärts", group = G2, inline = "farben")
 color  colDn    = input.color(#e5484d, "Abwärts", group = G2, inline = "farben")
@@ -47,6 +58,9 @@ f_fmt(float m) =>
 f_score(float priceRatio, float timeRatio) =>
     float dev = (math.abs(math.log(priceRatio)) + math.abs(math.log(timeRatio))) / 2.0
     math.max(0.0, 100.0 * (1.0 - dev / math.log(2.0)))
+
+f_clamp01(float x) =>
+    nz(math.max(0.0, math.min(1.0, x)))
 
 f_pos(string s) =>
     s == "Oben rechts" ? position.top_right : s == "Unten rechts" ? position.bottom_right : s == "Oben links" ? position.top_left : position.bottom_left
@@ -149,13 +163,17 @@ if nS >= 3
         prT := curBars / float(refBars)
 
 // Trend aus den letzten zwei Hochs und Tiefs; ein Bruch des letzten Tiefs/Hochs hebt ihn auf
-int trend = 0
+int   trend = 0
+float h1    = na   // letztes bestätigtes Hoch
+float l1    = na   // letztes bestätigtes Tief
+float h2    = na
+float l2    = na
 if nS >= 4
-    bool  lastHigh = array.get(swD, nS - 1) == 1
-    float h1 = lastHigh ? array.get(swP, nS - 1) : array.get(swP, nS - 2)
-    float l1 = lastHigh ? array.get(swP, nS - 2) : array.get(swP, nS - 1)
-    float h2 = lastHigh ? array.get(swP, nS - 3) : array.get(swP, nS - 4)
-    float l2 = lastHigh ? array.get(swP, nS - 4) : array.get(swP, nS - 3)
+    bool lastHigh = array.get(swD, nS - 1) == 1
+    h1 := lastHigh ? array.get(swP, nS - 1) : array.get(swP, nS - 2)
+    l1 := lastHigh ? array.get(swP, nS - 2) : array.get(swP, nS - 1)
+    h2 := lastHigh ? array.get(swP, nS - 3) : array.get(swP, nS - 4)
+    l2 := lastHigh ? array.get(swP, nS - 4) : array.get(swP, nS - 3)
     trend := h1 > h2 and l1 > l2 ? 1 : h1 < h2 and l1 < l2 ? -1 : 0
     if (trend == 1 and close < l1) or (trend == -1 and close > h1)
         trend := 0
@@ -165,6 +183,82 @@ bool zoneT  = not na(prT) and prT >= 1 - tol and prT <= 1 + tol
 bool inZone = zoneP and zoneT
 bool broken = not na(prP) and prP > 1 + tol
 bool isCorr = (trend == 1 and curDir == -1) or (trend == -1 and curDir == 1)
+
+// ── Korrektur-Filter: überhitzt am Hoch oder schöne Korrektur? ─────────────
+// Am Allzeithoch und überhitzt ist uninteressant. Spannend sind saubere Korrekturen
+// (Beispiel Google 2022/23): deutlicher Rücksetzer, RSI abgekühlt, Korrektur so gross wie die letzte, dann die Wende.
+int   hiBars = timeframe.ismonthly ? 12 : timeframe.isweekly ? 52 : 252
+float ema20  = ta.ema(close, 20)
+float ema50  = ta.ema(close, 50)
+float ema200 = ta.ema(close, 200)
+float rsi    = ta.rsi(close, 14)
+float rsiLow = ta.lowest(rsi, 20)
+float ath    = ta.max(high)
+float hi52   = ta.highest(high, hiBars)
+float ddAth  = (close / ath - 1) * 100    // Abstand zum Allzeithoch (negativ)
+float dd52   = (close / hi52 - 1) * 100   // Abstand zum 52-Wochen-Hoch (negativ)
+float d50    = (close / ema50 - 1) * 100
+float d200   = (close / ema200 - 1) * 100
+
+// Überhitzung 0–100: RSI hoch, weit über EMA 50 und EMA 200, direkt am Allzeithoch (je 25 Punkte)
+float heatRsi = 25 * f_clamp01((rsi - 60) / 18)
+float heat50  = 25 * f_clamp01((d50 - 5) / 10)
+float heat200 = 25 * f_clamp01((d200 - 15) / 25)
+float heatAth = 25 * f_clamp01((ddAth + 10) / 8)
+float heat    = heatRsi + heat50 + heat200 + heatAth
+
+// Korrektur-Chance 0–100 (je 25 Punkte)
+// 1. Tiefe: Rücksetzer vom 52-Wochen-Hoch zwischen ddMin und ddMax
+float depth    = -dd52
+float ptsDepth = depth < ddMin ? 25 * f_clamp01((depth - ddMin / 2) / (ddMin / 2)) : depth <= ddMax ? 25.0 : 25 * f_clamp01(1 - (depth - ddMax) / 20)
+// 2. Abgekühlt: RSI war in den letzten 20 Kerzen tief (voll bei 35 oder weniger)
+float ptsCool  = 25 * f_clamp01((55 - rsiLow) / 20)
+// 3. Reif: die Korrektur ist so gross wie die letzte Korrektur (Symmetrie)
+float ptsSym   = 0.0
+if nS >= 4
+    if curDir == -1 and not na(prP)
+        // Korrektur läuft noch
+        ptsSym := prP >= 1 - tol and prP <= 1 + 2 * tol ? 25.0 : prP > 1 + 2 * tol ? 10.0 : 15 * f_clamp01(prP / (1 - tol))
+    else if curDir == 1
+        // Korrektur ist mit dem letzten Tief beendet: wie gross war sie im Vergleich zur vorherigen?
+        float mC = f_move(array.get(swP, nS - 2), array.get(swP, nS - 1))
+        float mP = f_move(array.get(swP, nS - 4), array.get(swP, nS - 3))
+        if mP != 0
+            float r = mC / mP
+            ptsSym := r >= 1 - tol and r <= 1 + 2 * tol ? 25.0 : r > 1 + 2 * tol ? 10.0 : 15.0
+// 4. Wende: höheres Tief bestätigt und Kurs darüber, Schluss über EMA 20
+bool  higherLow = curDir == 1 and not na(l1) and not na(l2) and l1 > l2 and close > l1
+float ptsTurn   = higherLow ? 15.0 : curDir == 1 and not na(l1) and close > l1 ? 5.0 : 0.0
+if close > ema20
+    ptsTurn += 10.0
+float chance = ptsDepth + ptsCool + ptsSym + ptsTurn
+// Ohne echten Rücksetzer und ohne abgekühlten RSI keine Chance: das bleibt höchstens «beobachten»
+if depth < ddMin or ptsCool < 5
+    chance := math.min(chance, 40.0)
+if heat >= heatMax
+    chance := math.min(chance, 20.0)
+
+string heatTxt = heat >= heatMax ? "überhitzt" : heat >= 45 ? "heiss" : heat >= 20 ? "normal" : "abgekühlt"
+string fazit   = "Nichts Besonderes"
+color  fazCol  = chart.fg_color
+if heat >= heatMax
+    fazit  := "Überhitzt am Hoch – nicht hinterherlaufen"
+    fazCol := colDn
+else if chance >= chanceMin and higherLow
+    fazit  := "Schöne Korrektur, Wende beginnt → Setup prüfen"
+    fazCol := colUp
+else if chance >= chanceMin
+    fazit  := "Schöne Korrektur, Wende offen → Trigger abwarten"
+    fazCol := colZone
+else if depth > ddMax + 10
+    fazit  := "Sehr tiefer Absturz – Firma genau prüfen"
+    fazCol := colDn
+else if chance >= 40
+    fazit  := "Korrektur im Gang → beobachten"
+    fazCol := colZone
+else if heat >= 45
+    fazit  := "Heiss – eher auf Rücksetzer warten"
+    fazCol := colDn
 
 // ── Status in Worten ────────────────────────────────────────────────────────
 string status = "Zu wenige Schwünge – Pivot-Länge verkleinern"
@@ -223,7 +317,7 @@ f_fromLog(float m) =>
 var box   zBox  = na
 var line  zLine = na
 var label zLbl  = na
-var table tb    = table.new(f_pos(tblPos), 2, 11, bgcolor = color.new(chart.bg_color, 5), border_color = color.new(chart.fg_color, 85), border_width = 1, frame_color = color.new(chart.fg_color, 70), frame_width = 1)
+var table tb    = table.new(f_pos(tblPos), 2, 20, bgcolor = color.new(chart.bg_color, 5), border_color = color.new(chart.fg_color, 85), border_width = 1, frame_color = color.new(chart.fg_color, 70), frame_width = 1)
 
 f_row(int r, string k, string v, color vc) =>
     table.cell(tb, 0, r, k, text_color = color.new(chart.fg_color, 30), text_size = size.small, text_halign = text.align_left)
@@ -247,41 +341,99 @@ if barstate.islast
         zLbl  := label.new(x2, tgt, "Symmetrie-Ziel " + str.tostring(tgt, format.mintick), color = color.new(colZone, 80), textcolor = colZone, style = label.style_label_left, size = size.small)
 
     if showTbl
-        table.clear(tb, 0, 0, 1, 10)
-        f_row(0, "Marktsymmetrie", syminfo.ticker + " · " + timeframe.period, chart.fg_color)
-        f_row(1, "Trend (Hochs/Tiefs)", trend == 1 ? "Aufwärts" : trend == -1 ? "Abwärts" : "Kein klarer Trend", trend == 1 ? colUp : trend == -1 ? colDn : chart.fg_color)
-        if not na(curMove)
-            string art = trend == 0 ? "" : isCorr ? " (Korrektur)" : " (Impuls)"
-            f_row(2, "Aktueller Schwung", f_fmt(curMove) + " · " + str.tostring(curBars) + " Kerzen" + art, curDir == 1 ? colUp : colDn)
-            f_row(3, "Letzter gleicher Schwung", f_fmt(refMove) + " · " + str.tostring(refBars) + " Kerzen", curDir == 1 ? colUp : colDn)
-        if not na(prP)
-            f_row(4, "Fortschritt Preis / Zeit", str.tostring(prP * 100, "0") + " % / " + str.tostring(prT * 100, "0") + " %", chart.fg_color)
-            int    left = lastB + refBars - bar_index
-            string when = left > 0 ? "in ~" + str.tostring(left) + " Kerzen" : left == 0 ? "jetzt" : "seit " + str.tostring(-left) + " Kerzen vorbei"
-            f_row(5, "Symmetrie-Ziel", str.tostring(tgt, format.mintick) + " (" + str.tostring(math.min(bandA, bandB), format.mintick) + " – " + str.tostring(math.max(bandA, bandB), format.mintick) + ")", colZone)
-            f_row(6, "Zeitziel", when, colZone)
-        f_row(7, "Status", status, stCol)
-        if nS >= 4
-            float m  = f_move(array.get(swP, nS - 2), array.get(swP, nS - 1))
-            float mr = f_move(array.get(swP, nS - 4), array.get(swP, nS - 3))
-            int   n  = array.get(swB, nS - 1) - array.get(swB, nS - 2)
-            int   nr = array.get(swB, nS - 3) - array.get(swB, nS - 4)
-            if mr != 0 and m != 0 and n > 0 and nr > 0
-                float sc = f_score(math.abs(m / mr), n / float(nr))
-                f_row(8, "Symmetrie letzter Schwung", str.tostring(sc, "0") + " / 100" + (sc >= 70 ? " (symmetrisch)" : sc >= 40 ? " (teilweise)" : " (asymmetrisch)"), sc >= 70 ? colZone : chart.fg_color)
-        [aU, bU, aD, bD] = f_balance()
-        if not na(aU) and not na(aD)
-            f_row(9, "Ø Auf / Ø Ab", f_fmt(f_fromLog(aU)) + " in " + str.tostring(bU, "0") + " K / " + f_fmt(f_fromLog(aD)) + " in " + str.tostring(bD, "0") + " K", chart.fg_color)
-            float force = aU / math.abs(aD)
-            string who  = force >= 1.2 ? "Bullen stärker" : force <= 1 / 1.2 ? "Bären stärker" : "Ausgeglichen"
-            f_row(10, "Kräfteverhältnis", str.tostring(force, "0.00") + " → " + who, force >= 1.2 ? colUp : force <= 1 / 1.2 ? colDn : chart.fg_color)
+        table.clear(tb, 0, 0, 1, 19)
+        int r = 0
+        f_row(r, "Marktsymmetrie", syminfo.ticker + " · " + timeframe.period, chart.fg_color)
+        r += 1
+        // Korrektur-Filter
+        f_row(r, "Fazit", fazit, fazCol)
+        r += 1
+        f_row(r, "Korrektur-Chance", str.tostring(chance, "0") + " / 100", chance >= chanceMin ? colUp : chance >= 40 ? colZone : chart.fg_color)
+        r += 1
+        f_row(r, "  Tiefe · RSI · Symmetrie · Wende", str.tostring(ptsDepth, "0") + " · " + str.tostring(ptsCool, "0") + " · " + str.tostring(ptsSym, "0") + " · " + str.tostring(ptsTurn, "0") + "  (je max. 25)", color.new(chart.fg_color, 30))
+        r += 1
+        f_row(r, "Überhitzung", str.tostring(heat, "0") + " / 100 (" + heatTxt + ")", heat >= heatMax ? colDn : heat >= 45 ? colZone : chart.fg_color)
+        r += 1
+        f_row(r, "Abstand 52W-Hoch / ATH", str.tostring(dd52, "0.0") + " % / " + str.tostring(ddAth, "0.0") + " %", depth >= ddMin and depth <= ddMax ? colUp : chart.fg_color)
+        r += 1
+        f_row(r, "RSI 14 (Tief 20 Kerzen)", str.tostring(rsi, "0") + " (" + str.tostring(rsiLow, "0") + ")", rsi >= 70 ? colDn : rsiLow <= 35 ? colUp : chart.fg_color)
+        r += 1
+        if not na(h1)
+            f_row(r, "Trigger: Schluss über", str.tostring(h1, format.mintick) + " (letztes Hoch)", close > h1 ? colUp : colZone)
+            r += 1
+        if not tblShort
+            // Symmetrie der Schwünge
+            f_row(r, "Trend (Hochs/Tiefs)", trend == 1 ? "Aufwärts" : trend == -1 ? "Abwärts" : "Kein klarer Trend", trend == 1 ? colUp : trend == -1 ? colDn : chart.fg_color)
+            r += 1
+            if not na(curMove)
+                string art = trend == 0 ? "" : isCorr ? " (Korrektur)" : " (Impuls)"
+                f_row(r, "Aktueller Schwung", f_fmt(curMove) + " · " + str.tostring(curBars) + " Kerzen" + art, curDir == 1 ? colUp : colDn)
+                r += 1
+                f_row(r, "Letzter gleicher Schwung", f_fmt(refMove) + " · " + str.tostring(refBars) + " Kerzen", curDir == 1 ? colUp : colDn)
+                r += 1
+            if not na(prP)
+                f_row(r, "Fortschritt Preis / Zeit", str.tostring(prP * 100, "0") + " % / " + str.tostring(prT * 100, "0") + " %", chart.fg_color)
+                r += 1
+                int    left = lastB + refBars - bar_index
+                string when = left > 0 ? "in ~" + str.tostring(left) + " Kerzen" : left == 0 ? "jetzt" : "seit " + str.tostring(-left) + " Kerzen vorbei"
+                f_row(r, "Symmetrie-Ziel", str.tostring(tgt, format.mintick) + " (" + str.tostring(math.min(bandA, bandB), format.mintick) + " – " + str.tostring(math.max(bandA, bandB), format.mintick) + ")", colZone)
+                r += 1
+                f_row(r, "Zeitziel", when, colZone)
+                r += 1
+            f_row(r, "Status", status, stCol)
+            r += 1
+            if nS >= 4
+                float m  = f_move(array.get(swP, nS - 2), array.get(swP, nS - 1))
+                float mr = f_move(array.get(swP, nS - 4), array.get(swP, nS - 3))
+                int   n  = array.get(swB, nS - 1) - array.get(swB, nS - 2)
+                int   nr = array.get(swB, nS - 3) - array.get(swB, nS - 4)
+                if mr != 0 and m != 0 and n > 0 and nr > 0
+                    float sc = f_score(math.abs(m / mr), n / float(nr))
+                    f_row(r, "Symmetrie letzter Schwung", str.tostring(sc, "0") + " / 100" + (sc >= 70 ? " (symmetrisch)" : sc >= 40 ? " (teilweise)" : " (asymmetrisch)"), sc >= 70 ? colZone : chart.fg_color)
+                    r += 1
+            [aU, bU, aD, bD] = f_balance()
+            if not na(aU) and not na(aD)
+                f_row(r, "Ø Auf / Ø Ab", f_fmt(f_fromLog(aU)) + " in " + str.tostring(bU, "0") + " K / " + f_fmt(f_fromLog(aD)) + " in " + str.tostring(bD, "0") + " K", chart.fg_color)
+                r += 1
+                float force = aU / math.abs(aD)
+                string who  = force >= 1.2 ? "Bullen stärker" : force <= 1 / 1.2 ? "Bären stärker" : "Ausgeglichen"
+                f_row(r, "Kräfteverhältnis", str.tostring(force, "0.00") + " → " + who, force >= 1.2 ? colUp : force <= 1 / 1.2 ? colDn : chart.fg_color)
+                r += 1
 
-// Ziel im Datenfenster (nicht im Chart)
+// ── Hintergrund und Markierungen ────────────────────────────────────────────
+bool hot       = heat >= heatMax
+bool good      = chance >= chanceMin
+bool turning   = good and higherLow   // schöne Korrektur und höheres Tief bestätigt
+// Pro Phase nur eine Markierung: nach einem Signal 20 Kerzen Pause
+var int lastChanceBar = na
+var int lastTurnBar   = na
+var int lastHotBar    = na
+bool newChance = good and not good[1] and (na(lastChanceBar) or bar_index - lastChanceBar > 20)
+bool newTurn   = turning and not turning[1] and (na(lastTurnBar) or bar_index - lastTurnBar > 20)
+bool newHot    = hot and not hot[1] and (na(lastHotBar) or bar_index - lastHotBar > 20)
+if good
+    lastChanceBar := bar_index
+if turning
+    lastTurnBar := bar_index
+if hot
+    lastHotBar := bar_index
+bgcolor(showBg and hot ? color.new(colDn, 92) : showBg and good ? color.new(colUp, 92) : na, title = "Hintergrund Korrektur-Filter")
+plotshape(showMark and newChance and not newTurn, "Neue Korrektur-Chance", shape.circle, location.belowbar, colZone, size = size.tiny, text = "Korrektur", textcolor = colZone)
+plotshape(showMark and newTurn, "Wende nach Korrektur", shape.triangleup, location.belowbar, colUp, size = size.small, text = "Wende", textcolor = colUp)
+plotshape(showMark and newHot, "Überhitzt", shape.xcross, location.abovebar, colDn, size = size.tiny, text = "heiss", textcolor = colDn)
+
+// Werte im Datenfenster (nicht im Chart), auch für den Pine Screener nutzbar
+plot(chance, "Korrektur-Chance", color = colUp, display = display.data_window)
+plot(heat, "Überhitzung", color = colDn, display = display.data_window)
+plot(dd52, "Abstand 52W-Hoch (%)", color = chart.fg_color, display = display.data_window)
 plot(tgt, "Symmetrie-Ziel", color = colZone, display = display.data_window)
 plot(nz(prP) * 100, "Fortschritt Preis (%)", color = colZone, display = display.data_window)
 plot(nz(prT) * 100, "Fortschritt Zeit (%)", color = colZone, display = display.data_window)
 
 // ── Alarme ──────────────────────────────────────────────────────────────────
+alertcondition(newChance, "Korrektur-Chance", "{{ticker}}: Schöne Korrektur – deutlicher Rücksetzer und RSI abgekühlt. Auf die Wende (höheres Tief, Trigger) achten.")
+alertcondition(newTurn, "Wende nach Korrektur", "{{ticker}}: Schöne Korrektur und höheres Tief bestätigt – die Wende beginnt. Trigger und Kaufzone prüfen.")
+alertcondition(newHot, "Überhitzt", "{{ticker}}: Überhitzt am Hoch – nicht hinterherlaufen.")
 alertcondition(inZone and not inZone[1], "Symmetrie-Zone erreicht", "{{ticker}}: Preis UND Zeit sind symmetrisch zum letzten gleichen Schwung – möglicher Wendepunkt.")
 alertcondition(zoneP and not zoneP[1], "Preis-Symmetrie erreicht", "{{ticker}}: Der aktuelle Schwung ist so gross wie der letzte gleiche Schwung.")
 alertcondition(broken and not broken[1], "Symmetrie gebrochen", "{{ticker}}: Der aktuelle Schwung ist deutlich grösser als der letzte gleiche Schwung – bei einer Korrektur ist das eine Trend-Warnung.")
