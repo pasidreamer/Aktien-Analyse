@@ -2761,6 +2761,76 @@
     "nachhaltig": 10
    },
    "score": 85
+  },
+  "SONY": {
+   "waehrung": "JPY",
+   "jahre": [
+    "2023",
+    "2024",
+    "2025",
+    "2026"
+   ],
+   "fcf": [
+    -298.94,
+    767.43,
+    1700.69,
+    1487.94
+   ],
+   "umsatz": [
+    10974.37,
+    11260.04,
+    12034.92,
+    12479.62
+   ],
+   "fcf_ttm": 1590.27,
+   "umsatz_ttm": 12695.78,
+   "aktien_mio": [
+    6206.9,
+    6176.7,
+    6075.1,
+    6013.2
+   ],
+   "netto_schulden": -567.38,
+   "schulden": 1669.67,
+   "cash": 2237.05,
+   "boersenwert_chf": 121.2,
+   "k": {
+    "wachstum": null,
+    "steigende_jahre": 2,
+    "jahre_n": 3,
+    "marge": 12.5,
+    "rendite": null,
+    "schulden_jahre": 0,
+    "aktien_pa": -1.05,
+    "rueckgabe": 39.0,
+    "abbau": 0.0,
+    "verlustjahre": 1,
+    "sbc": 0.0,
+    "deckung": 1.31
+   },
+   "verwendung": [
+    [
+     "Aktienrückkäufe",
+     28
+    ],
+    [
+     "Dividenden",
+     11
+    ],
+    [
+     "zusätzlich neue Schulden aufgenommen",
+     3
+    ]
+   ],
+   "p": {
+    "wachstum": 4,
+    "marge": 10,
+    "rendite": 0,
+    "schulden": 20,
+    "verwendung": 9,
+    "nachhaltig": 7
+   },
+   "score": 50
   }
  },
  "stand": "2026-10-19"
