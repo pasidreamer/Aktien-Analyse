@@ -1,0 +1,58 @@
+{
+ "ticker": "HLI",
+ "sorgen": [
+  "Das M&A-Geschäft (zwei Drittel des Umsatzes) brach im Quartal April bis Juni 2026 um 24 % ein. Die Anzahl Deals blieb gleich, aber grosse Deals mit hohen Gebühren wurden aufgeschoben, vor allem bei Software- und Konsumfirmen und in Europa.",
+  "Der M&A-Boom 2026 läuft vor allem bei Megadeals über 10 Mrd. $ (Wert +27 %, Anzahl Deals −1 %). Houlihan Lokey verdient aber vor allem an Deals unter 1 Mrd. $.",
+  "Auch das Sanierungsgeschäft, das sonst gegen den Zyklus hilft, sank: −33 % im Quartal bis März, −8 % im Quartal bis Juni 2026.",
+  "Analysten erwarten für das laufende Geschäftsjahr rund 6 % weniger Gewinn pro Aktie."
+ ],
+ "sorgen_art": "gemischt",
+ "sorgen_art_text": "Umsatz und Gewinn sinken wirklich, aber die Firma meldet Rekord-Auftragsbestand und gleich viele Deals, das Problem liegt beim Zeitpunkt der grossen Gebühren.",
+ "aufloeser": [
+  {
+   "was": "Zahlen zum 2. Quartal: Liegt M&A wieder über 400 Mio. $, und bestätigt sich der Rekord-Auftragsbestand?",
+   "wann": "Zahlen 28.10.2026"
+  },
+  {
+   "was": "Private-Equity-Firmen verkaufen ihre alten Beteiligungen (über die Hälfte gilt als «überaltert») und bringen viele Mittelstands-Deals",
+   "wann": "2027"
+  },
+  {
+   "was": "Mehr Sanierungen bei Firmen mit Privatkrediten und Software-Firmen erreichen die Umsatzzahlen",
+   "wann": "2027"
+  }
+ ],
+ "schub_stufe": "mittel",
+ "schub_treiber": [
+  {
+   "titel": "Erholung bei Mittelstands-Deals",
+   "text": "Laut Finanzchef ist über die Hälfte der Beteiligungen von Private-Equity-Firmen «überaltert» und muss verkauft werden. Houlihan Lokey hat 260 Managing Directors im M&A (+7 %) und ist die Nummer 1 nach Anzahl Deals. Wenn der Mittelstand aufholt, kann der Umsatz schnell steigen (wie 2022: +49 %).",
+   "wann": "2027–2028"
+  },
+  {
+   "titel": "Sanierungswelle bei Privatkrediten",
+   "text": "Laut Houlihan Lokey notierten im 2. Quartal 2026 7 % der Privatkredite unter 90 % ihres Werts, mehr als doppelt so viel wie üblich. Bei kleinen Firmen 12 % statt 1 % im Jahr 2023. Das bringt Sanierungsaufträge, aber mit Verzögerung.",
+   "wann": "2027–2028"
+  }
+ ],
+ "schub_beweis": "Achte auf den Umsatz im Bereich Corporate Finance (M&A): zuletzt 303 Mio. $, ein Jahr davor 398 Mio. $. Steigt er wieder über 400 Mio. $ pro Quartal, ist die Delle vorbei.",
+ "szenario": "Kein Fall wie Google 2023, sondern ein Zyklus-Fall: Die Firma ist gesund (keine Schulden, Nummer 1 im Markt), aber im Tal des Geschäftszyklus. Kommen die Mittelstands-Deals zurück, kann der Gewinn wie 2022 stark steigen (Analysten sehen für das Folgejahr rund 8.80 $ pro Aktie, KGV dann knapp 15). Grösstes Risiko: Das Tal dauert länger, und die Aktie bleibt trotz tiefer Bewertung schwach.",
+ "quellen": [
+  {
+   "titel": "Houlihan Lokey: Ergebnisse Q1 Geschäftsjahr 2027",
+   "url": "https://investors.hl.com/news/press-and-earnings-releases/news-details/2026/Houlihan-Lokey-Reports-First-Quarter-Fiscal-2027-Financial-Results/default.aspx"
+  },
+  {
+   "titel": "MarketBeat: Telefonkonferenz Q1 2027",
+   "url": "https://www.marketbeat.com/instant-alerts/houlihan-lokey-q1-earnings-call-highlights-2026-07-29/"
+  },
+  {
+   "titel": "Mergermarket: M&A in den ersten 9 Monaten 2026",
+   "url": "https://ionanalytics.com/insights/mergermarket/ma-highlights-9m26/"
+  },
+  {
+   "titel": "Houlihan Lokey: Stress bei kleinen Kreditnehmern",
+   "url": "https://hl.com/about-us/newsroom/houlihan-lokey-finds-that-stress-among-the-smallest-private-credit-borrowers-has-climbed-more-than-tenfold-since-2023/"
+  }
+ ]
+}

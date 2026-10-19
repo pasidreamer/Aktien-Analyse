@@ -1,0 +1,401 @@
+<title>Houlihan Lokey Aktien-Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F3F5F7; --surface:#FFFFFF; --ink:#141B24; --muted:#5A6573; --line:#DDE2E8; --grid:#E9EDF1;
+  --accent:#2F45B5; --accent-soft:#E6E9F8; --chip:#EBEEF2;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+  --good:#1D7A4B; --good-bg:#E3F3EA; --warn:#9A6200; --warn-bg:#FBF0DC; --bad:#B2362A; --bad-bg:#FBE6E3;
+  --zone-sup:rgba(29,122,75,.10); --zone-res:rgba(178,54,42,.09);
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+    --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+    --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+    --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+  --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+  --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;padding-inline:16px;padding-block:24px 56px}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+h1,h2,h3{font-family:var(--display);font-stretch:85%;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:clamp(32px,7vw,48px);font-weight:800;line-height:1}
+h2{font-size:24px;font-weight:700}
+h3{font-size:17px;font-weight:700;font-stretch:95%}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+section{display:flex;flex-direction:column;gap:14px}
+.lead{max-width:68ch;color:var(--muted)}
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;align-items:stretch}
+.hero .id{display:flex;flex-direction:column;gap:10px;justify-content:space-between}
+.price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price b{font-family:var(--display);font-size:34px;font-weight:700}
+.meta{font-size:13px;color:var(--muted)}
+.verdict{font-size:15px;padding:12px 14px;border-radius:10px;background:var(--chip)}
+.scales{display:flex;flex-direction:column;gap:18px}
+.scale-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.scale-h span{font-size:13px;color:var(--muted)}
+.scale-h b{font-family:var(--display);font-size:28px;line-height:1}
+.track{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#C8412F 0%,#E0892F 30%,#E3B63A 50%,#8BBF4B 68%,#2E9A5B 100%);margin-top:8px}
+.pin{position:absolute;top:-5px;width:4px;height:22px;border-radius:2px;background:var(--ink);box-shadow:0 0 0 2px var(--surface);transform:translateX(-2px)}
+.ticks{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);font-family:var(--mono);margin-top:6px}
+.state{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;margin-top:8px}
+.st-good{background:var(--good-bg);color:var(--good)}
+.st-warn{background:var(--warn-bg);color:var(--warn)}
+.st-bad{background:var(--bad-bg);color:var(--bad)}
+/* tables */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;color:var(--muted);font-weight:500;font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:700;border-bottom:none}
+.pts{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{height:6px;border-radius:3px;background:var(--chip);min-width:60px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:3px}
+/* grids */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;border-left:4px solid var(--line)}
+.kpi.g{border-left-color:var(--good)}.kpi.w{border-left-color:var(--warn)}.kpi.b{border-left-color:var(--bad)}
+.kpi span{font-size:12px;color:var(--muted)}
+.kpi b{font-family:var(--mono);font-size:19px;font-weight:500;font-variant-numeric:tabular-nums}
+.kpi em{font-style:normal;font-size:12.5px;color:var(--muted)}
+/* charts */
+.chart{position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:14px;height:3px;border-radius:2px;display:inline-block}
+.swb{width:12px;height:10px;border-radius:2px;display:inline-block}
+.tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12.5px;box-shadow:0 4px 14px rgba(0,0,0,.12);white-space:nowrap;z-index:2}
+.tip b{font-family:var(--mono);font-weight:500}
+.tip .d{font-family:var(--mono);color:var(--muted);font-size:11.5px}
+.note{font-size:13.5px;color:var(--muted)}
+ul.clean{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.pro li::marker{color:var(--good)} .con li::marker{color:var(--bad)}
+.zones{display:flex;flex-direction:column;gap:8px}
+.zone{display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:baseline;padding:10px 12px;border-radius:10px;background:var(--chip);font-size:14px}
+.zone b{font-family:var(--mono);font-weight:500}
+.zone.r{border-left:4px solid var(--bad)} .zone.s{border-left:4px solid var(--good)} .zone.t{border-left:4px solid var(--accent)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+summary{cursor:pointer;font-weight:600}
+details p{margin-top:8px;color:var(--muted);max-width:70ch}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+footer{font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:6px;max-width:80ch}
+footer a{color:var(--accent)}
+@media (max-width:760px){.hero,.two{grid-template-columns:1fr}.zone{grid-template-columns:1fr;gap:2px}}
+</style>
+
+<div class="wrap">
+
+<header class="hero">
+  <div class="card id">
+    <div>
+      <div class="eyebrow">Aktien-Check · 16.10.2026</div>
+      <h1>Houlihan Lokey</h1>
+      <p class="meta">Houlihan Lokey, Inc. · NYSE: HLI · Investmentbank für Firmenverkäufe (M&A), Sanierungen und Bewertungen · Los Angeles, USA</p>
+    </div>
+    <div class="price"><b>129.55 $</b><span class="meta">Schluss 16.10.2026 · 52 Wochen: 112.83 – 204.18 $ · Allzeithoch 211.78 $ am 23.9.2025</span></div>
+    <p class="verdict"><b>Kurz gesagt:</b> Houlihan Lokey ist die Nummer 1 der Welt bei Firmenverkäufen (nach Anzahl Deals) und bei Sanierungen. Die Firma hat keine Schulden, 0.8 Mrd. $ Cash und erhöhte die Dividende im Mai um 16.7 %. Aber das Geschäft ist im Moment schwach: Umsatz im letzten Quartal −15.5 %, weil grosse Deals aufgeschoben werden. Die Aktie fiel vom Allzeithoch 211.78 $ um 39 % auf 129.55 $. Qualität orange (43), Timing gelb (49). Seit August pendelt sie zwischen 122 und 141 $, die A/D zeigt dabei eher Käufe. Am 28. Oktober kommen die nächsten Zahlen: Dort entscheidet sich, ob die Delle vorübergehend ist.</p>
+  </div>
+  <div class="card scales">
+    <div>
+      <div class="scale-h"><span>Qualität · Ist die Firma kaufenswert?</span><b id="q-val">43</b></div>
+      <div class="track"><i class="pin" id="q-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-warn">▲ Schwach</span>
+    </div>
+    <div>
+      <div class="scale-h"><span>Timing · Ist jetzt der Zeitpunkt?</span><b id="t-val">49</b></div>
+      <div class="track"><i class="pin" id="t-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-warn">▲ Warten auf Bestätigung</span>
+    </div>
+    <p class="note">Skala: unter 30 rot · 30–45 orange · 45–60 gelb · 60–75 hellgrün · ab 75 grün. Beide Werte setzen sich aus festen Kriterien zusammen, siehe unten.</p>
+  </div>
+</header>
+
+<section>
+  <h2>Was die Firma macht</h2>
+  <p class="lead">Houlihan Lokey ist eine unabhängige Investmentbank: Sie leiht kein Geld aus und handelt nicht mit Wertpapieren, sondern verdient nur Beratungsgebühren. Drei Bereiche: Corporate Finance (rund 67 % des Umsatzes) berät beim Kauf und Verkauf von Firmen, vor allem im Mittelstand unter 1 Mrd. $. Financial Restructuring (rund 20 %) hilft Firmen in finanzieller Not bei der Sanierung. Financial and Valuation Advisory (rund 13 %) macht Bewertungen und Gutachten. Wichtig: Die Sanierung läuft gegenläufig. Wenn die Wirtschaft schwach ist und wenig Firmen verkauft werden, gibt es mehr Sanierungen. Das glättet die Zyklen. Das Geschäftsjahr endet am 31. März.</p>
+  <p class="lead">2025 lief das Geschäft gut, die Aktie stieg bis 211.78 $ (23.9.2025). Ab Oktober 2025 fiel sie: Am 31. Oktober trotz guter Zahlen −8.8 %, weil die Börse langsameres Wachstum erwartete. Ende 2025 liessen die Sanierungen nach. Im Frühling 2026 belasteten der KI-Ausverkauf bei Software-Firmen (ein wichtiger Kundenkreis) und der Krieg mit dem Iran die Firmenverkäufe. Im März fiel die Aktie um 12 %. Am 6. Mai verfehlte Houlihan Lokey die Erwartungen (Umsatz −4.6 %, Sanierungen −33 %). Am 29. Juli folgte ein grosser Fehlschlag: Umsatz 511 Mio. $ statt erwarteter 602 Mio. $ (−15.5 %), M&A −24 %. Die Aktie fiel am 30. Juli um 9.6 % und kurzzeitig bis 112.83 $. Laut Firma ist der Auftragsbestand auf Rekordhöhe, nur die grossen Deals verzögern sich. Am 9. Oktober stufte Citizens JMP die Aktie auf Kaufen hoch (Ziel 175 $).</p>
+</section>
+
+<section>
+  <h2>Fundamental: die Zahlen</h2>
+  <div class="kpis">
+<div class="kpi r"><span>Umsatzwachstum</span><b>+1.7 %</b><em>Letzte 12 Monate. Im letzten Quartal (April bis Juni 2026) −15.5 %, im Quartal davor −4.6 %. Im Geschäftsjahr bis März 2026 waren es noch +9.6 %.</em></div>
+<div class="kpi w"><span>Operative Marge</span><b>23.8 %</b><em>Bereinigt, letzte 12 Monate. Von 100 $ Umsatz bleiben rund 24 $ Betriebsgewinn. Für eine Beratungsbank ordentlich, aber 2022 waren es 30 %. Offiziell (GAAP) 20.4 %.</em></div>
+<div class="kpi w"><span>Gewinn pro Aktie (EPS)</span><b>6.76 $</b><em>Bereinigt, letzte 12 Monate. Im Geschäftsjahr 2026 noch 7.56 $. Für das laufende Jahr erwarten Analysten 7.08 $ (−6 %). Seit 2021 im Schnitt +10 % pro Jahr, aber mit starken Schwankungen.</em></div>
+<div class="kpi w"><span>ROIC</span><b>14.8 %</b><em>Auf 100 $ investiertes Kapital rund 15 $ Gewinn. Mittel und seit 2022 (28 %) gesunken.</em></div>
+<div class="kpi w"><span>Free Cashflow</span><b>485 Mio. $</b><em>Letzte 12 Monate, 19 % vom Umsatz. Schwankt stark mit dem Zyklus (2023 nur 86 Mio. $, 2025 809 Mio. $). 42 % davon sind Löhne in Aktien.</em></div>
+<div class="kpi g"><span>Netto-Cash</span><b>797 Mio. $</b><em>Keine Schulden (die Kreditlinie ist nicht benutzt). Rund 9 % des Börsenwerts liegen als Cash in der Kasse. Sehr stark.</em></div>
+<div class="kpi w"><span>KGV</span><b>21.8</b><em>Du zahlst rund 22 Jahresgewinne. Eigener Schnitt (Geschäftsjahre 2022–2026): rund 24. Also rund 10 % günstiger als üblich, aber auf einem eher tiefen Gewinn.</em></div>
+<div class="kpi g"><span>Dividende</span><b>2.2 %</b><em>0.70 $ pro Quartal, 4× pro Jahr, jeweils am 15. März, Juni, September und Dezember. Im Mai 2026 um 16.7 % erhöht.</em></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>Umsatz pro Quartal (Mio. $)</h3>
+      <p class="note">Nur 2 der letzten 4 Quartale über dem Vorjahr. Nach einem Rekord im Dezember 2025 (717 Mio. $) fiel der Umsatz zweimal in Folge, zuletzt auf 511 Mio. $.</p>
+      <div class="chart" id="c-rev"></div>
+    </div>
+    <div class="card">
+      <h3>Operative Marge pro Jahr</h3>
+      <p class="note">Bereinigte operative Marge pro Geschäftsjahr (bis Ende März). Seit dem Boomjahr 2022 (30 %) um 23 bis 25 %.</p>
+      <div class="chart" id="c-margin"></div>
+    </div>
+  </div>
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Jahr</th><th class="num">Umsatz Mio. $</th><th class="num">Wachstum</th><th class="num">Op. Marge</th><th class="num">EPS $</th><th class="num">Free Cashflow</th><th class="num">ROIC</th><th class="num">KGV</th></tr></thead>
+      <tbody id="fin-rows"></tbody>
+    </table>
+  </div>
+  <p class="note"><b>Hinweis:</b> Geschäftsjahr bis 31. März (2026 = April 2025 bis März 2026). Marge und Gewinn pro Aktie bereinigt (wie die Firma sie meldet), KGV auf den offiziellen Gewinn. Der Free Cashflow ist im ersten Quartal (April bis Juni) immer negativ, weil dann die Boni für das Vorjahr bezahlt werden.</p>
+</section>
+
+<section>
+  <h2>Qualität: 43 von 100</h2>
+  <div class="card tbl"><table id="q-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Technik: Wochenchart (2 Jahre)</h2>
+  <div class="card">
+    <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span><span><i class="swb" style="background:var(--zone-sup);border:1px solid var(--good)"></i>Unterstützung</span><span><i class="swb" style="background:var(--zone-res);border:1px solid var(--bad)"></i>Widerstand</span></div>
+    <div class="chart" id="c-week"></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>A/D-Linie, Woche</h3>
+      <p class="note">Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Positiv: Ende Juni stand die Wochen-A/D bei 36.6 (Kurs 138.55 $), heute bei 40.0 bei tieferem Kurs (129.55 $). Im Juli-Tief fiel sie nur auf 35.9. Grosse Anleger haben im Rücksetzer eher gekauft.</p>
+      <div class="chart" id="c-adw"></div>
+    </div>
+    <div class="card">
+      <h3>RSI, Woche</h3>
+      <p class="note">Unter 30 überverkauft, über 70 überkauft. Im März und Juli um 28 bis 31 (überverkauft), heute 40: schwach, aber nicht mehr überverkauft.</p>
+      <div class="chart" id="c-rsiw"></div>
+    </div>
+  </div>
+
+  <h2>Technik: Tageschart (1 Jahr)</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Kurs, Tag</h3>
+      <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span></div>
+      <div class="chart" id="c-day"></div>
+    </div>
+    <div class="card">
+      <h3>A/D-Linie, Tag</h3>
+      <p class="note">Bullische Divergenz: Am 24.9. lag das Tief bei 125.34 $ und die Tages-A/D bei −8.3. Am 7.10. fiel der Kurs tiefer auf 121.89 $, die A/D lag aber höher bei −7.6, heute bei −6.6. Trotz tieferem Kurs wurde mehr gekauft.</p>
+      <div class="chart" id="c-add"></div>
+    </div>
+  </div>
+
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Indikator</th><th>Tag</th><th>Woche</th><th>Bedeutung</th></tr></thead>
+      <tbody>
+<tr><td>Kurs vs. EMA 50</td><td class="pts">129.6 &lt; 130.8 (knapp)</td><td class="pts">129.6 &lt; 147.8</td><td>Knapp unter der mittelfristigen Linie im Tageschart.</td></tr>
+<tr><td>Kurs vs. EMA 200</td><td class="pts">129.6 &lt; 145.3</td><td class="pts">129.6 &lt; 141.2</td><td>Unter der langfristigen Linie, auf beiden Zeitebenen.</td></tr>
+<tr><td>EMA 50 vs. EMA 200</td><td class="pts">50 unter 200 (seit 8.12.2025)</td><td class="pts">50 über 200 (seit 2016), aber fallend</td><td>Tag abwärts, Woche dreht nach unten.</td></tr>
+<tr><td>RSI (14)</td><td class="pts">50.6</td><td class="pts">39.9</td><td>Neutral, Woche schwach.</td></tr>
+<tr><td>A/D</td><td class="pts">höher bei tieferem Kurs</td><td class="pts">höher als im Juni bei tieferem Kurs</td><td>Auf beiden Zeitebenen positiv.</td></tr>
+<tr><td>Volumen</td><td colspan="2">Ø 20 Tage 0.79 Mio. vs. Ø 100 Tage 0.84 Mio. Aktien</td><td>Ruhiger Handel.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Struktur und Zonen (Smart Money Concept)</h2>
+  <p class="lead">Vom Allzeithoch 211.78 $ (September 2025) fiel Houlihan Lokey in einem Abwärtstrend mit tieferen Hochs (195.06 → 164.24 → 147.01 → 141.08 $) und tieferen Tiefs (159.86 → 134.41 → 130.72 $). Nach den schwachen Zahlen fiel der Kurs am 30. Juli kurzzeitig bis 112.83 $, erholte sich aber schnell. Seither läuft er seitwärts zwischen rund 122 und 141 $. Die Tiefs liegen dabei fast gleich hoch (122.19 → 125.34 → 121.89 → 123.05 $), die Hochs sinken (141.08 → 135.46 → 131.31 $). Das ist ein Dreieck, das bald nach oben oder unten aufgehen muss. Ein Tagesschluss über 131.50 $ wäre ein erster Change of Character nach oben.</p>
+  <div class="zones">
+<div class="zone r"><b>145–148 $</b><span>Widerstand: Tages-EMA 200 (145.30 $) und Wochen-EMA 50 (147.80 $).</span></div>
+<div class="zone r"><b>135–141 $</b><span>Widerstand: Hochs vom September (141.08 und 135.46 $).</span></div>
+<div class="zone t"><b>131.50 $</b><span><b>Trigger:</b> Tagesschluss über dem Hoch vom 13.10. (131.31 $) und der Tages-EMA 50. Bestätigung über 141 $.</span></div>
+<div class="zone s"><b>122–125 $</b><span><b>Kaufzone 1:</b> Tiefs vom August, September und Oktober (121.89 bis 125.34 $).</span></div>
+<div class="zone s"><b>113–118 $</b><span><b>Kaufzone 2:</b> Tief vom 30.7. (112.83 $) nach den schwachen Zahlen.</span></div>
+<div class="zone r"><b>120 $</b><span>Abbruch: Wochenschluss unter 120 $. Dann wäre die Seitwärtsspanne nach unten gebrochen.</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Smart Money, Insider und Saisonalität</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Wer kauft, wer verkauft?</h3>
+      <ul class="clean" style="margin-top:8px">
+<li><b>Houlihan Lokey selbst:</b> Rückkaufprogramm, Ende Juni noch 180 Mio. $ offen (rund 2 % des Börsenwerts). Im April bis Juni kaufte die Firma zu durchschnittlich 143.77 $. Achtung: Die Rückkäufe gleichen vor allem die neuen Aktien für Mitarbeiter aus. Die Aktienzahl stieg seit 2021 sogar leicht (+2.5 %).</li>
+<li><b>Insider:</b> In 12 Monaten keine Käufe, 5 kleine Verkäufe für rund 2.1 Mio. $ (u. a. Präsident Beiser am 21.5. zu 150.26 $). Niemand hat im Kurssturz gekauft.</li>
+<li><b>Analysten:</b> Gespalten. StockAnalysis: 5× Kaufen, 6× Halten, Kursziel im Schnitt 153.50 $ (145 bis 177 $). MarketBeat: 7× Kaufen, 3× Halten, 1× Verkaufen, Schnitt 161 $. Zuletzt: Hochstufung durch Citizens JMP (9.10., Ziel 175 $), Morgan Stanley senkt auf 165 $ (8.10.).</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Saisonalität seit 2015</h3>
+      <p class="note">Durchschnittliche Monatsrendite in %. Seit dem Börsengang 2015 (11 Jahre). November ist der stärkste Monat (+5.8 %, 82 % positive Jahre), März der schwächste (−3.1 %, 27 %). Oktober +3.1 % (62 %).</p>
+      <div class="chart" id="c-seas"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Timing: 49 von 100</h2>
+  <div class="card tbl"><table id="t-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Worauf du achten solltest: Unterbewertung und Wachstumsschub</h2>
+  <div class="card"><h3>Was die Börse befürchtet</h3><p class="note" style="margin:4px 0">Echte Probleme, eher lösbar: Umsatz und Gewinn sinken wirklich, aber die Firma meldet Rekord-Auftragsbestand und gleich viele Deals, das Problem liegt beim Zeitpunkt der grossen Gebühren.</p><ul class="clean"><li>Das M&amp;A-Geschäft (zwei Drittel des Umsatzes) brach im Quartal April bis Juni 2026 um 24 % ein. Die Anzahl Deals blieb gleich, aber grosse Deals mit hohen Gebühren wurden aufgeschoben, vor allem bei Software- und Konsumfirmen und in Europa.</li><li>Der M&amp;A-Boom 2026 läuft vor allem bei Megadeals über 10 Mrd. $ (Wert +27 %, Anzahl Deals −1 %). Houlihan Lokey verdient aber vor allem an Deals unter 1 Mrd. $.</li><li>Auch das Sanierungsgeschäft, das sonst gegen den Zyklus hilft, sank: −33 % im Quartal bis März, −8 % im Quartal bis Juni 2026.</li><li>Analysten erwarten für das laufende Geschäftsjahr rund 6 % weniger Gewinn pro Aktie.</li></ul><h3 style="margin-top:12px">Was die Sorgen beenden könnte</h3><ul class="clean"><li>Zahlen zum 2. Quartal: Liegt M&amp;A wieder über 400 Mio. $, und bestätigt sich der Rekord-Auftragsbestand? <span class="muted">(Zahlen 28.10.2026)</span></li><li>Private-Equity-Firmen verkaufen ihre alten Beteiligungen (über die Hälfte gilt als «überaltert») und bringen viele Mittelstands-Deals <span class="muted">(2027)</span></li><li>Mehr Sanierungen bei Firmen mit Privatkrediten und Software-Firmen erreichen die Umsatzzahlen <span class="muted">(2027)</span></li></ul><h3 style="margin-top:12px">Wachstumsschub: Wachstumsschub möglich</h3><ul class="clean"><li><b>Erholung bei Mittelstands-Deals:</b> Laut Finanzchef ist über die Hälfte der Beteiligungen von Private-Equity-Firmen «überaltert» und muss verkauft werden. Houlihan Lokey hat 260 Managing Directors im M&amp;A (+7 %) und ist die Nummer 1 nach Anzahl Deals. Wenn der Mittelstand aufholt, kann der Umsatz schnell steigen (wie 2022: +49 %). <span class="muted">(2027–2028)</span></li><li><b>Sanierungswelle bei Privatkrediten:</b> Laut Houlihan Lokey notierten im 2. Quartal 2026 7 % der Privatkredite unter 90 % ihres Werts, mehr als doppelt so viel wie üblich. Bei kleinen Firmen 12 % statt 1 % im Jahr 2023. Das bringt Sanierungsaufträge, aber mit Verzögerung. <span class="muted">(2027–2028)</span></li></ul><p style="margin:10px 0 0"><b>Woran du es erkennst:</b> Achte auf den Umsatz im Bereich Corporate Finance (M&amp;A): zuletzt 303 Mio. $, ein Jahr davor 398 Mio. $. Steigt er wieder über 400 Mio. $ pro Quartal, ist die Delle vorbei.</p><p style="margin:10px 0 0"><b>Das Chancen-Szenario:</b> Kein Fall wie Google 2023, sondern ein Zyklus-Fall: Die Firma ist gesund (keine Schulden, Nummer 1 im Markt), aber im Tal des Geschäftszyklus. Kommen die Mittelstands-Deals zurück, kann der Gewinn wie 2022 stark steigen (Analysten sehen für das Folgejahr rund 8.80 $ pro Aktie, KGV dann knapp 15). Grösstes Risiko: Das Tal dauert länger, und die Aktie bleibt trotz tiefer Bewertung schwach.</p><p class="note" style="margin:10px 0 0">Quellen: <a href="https://investors.hl.com/news/press-and-earnings-releases/news-details/2026/Houlihan-Lokey-Reports-First-Quarter-Fiscal-2027-Financial-Results/default.aspx" target="_blank" rel="noopener">Houlihan Lokey: Ergebnisse Q1 Geschäftsjahr 2027</a>, <a href="https://www.marketbeat.com/instant-alerts/houlihan-lokey-q1-earnings-call-highlights-2026-07-29/" target="_blank" rel="noopener">MarketBeat: Telefonkonferenz Q1 2027</a>, <a href="https://ionanalytics.com/insights/mergermarket/ma-highlights-9m26/" target="_blank" rel="noopener">Mergermarket: M&amp;A in den ersten 9 Monaten 2026</a>, <a href="https://hl.com/about-us/newsroom/houlihan-lokey-finds-that-stress-among-the-smallest-private-credit-borrowers-has-climbed-more-than-tenfold-since-2023/" target="_blank" rel="noopener">Houlihan Lokey: Stress bei kleinen Kreditnehmern</a></p></div>
+</section>
+
+<section>
+  <h2>Dividende</h2>
+  <div class="card tbl"><table><tr><td style="white-space:nowrap;color:var(--muted)">Wie oft</td><td>4× pro Jahr (quartalsweise)</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Ex-Tag im</td><td>März, Juni, September, Dezember</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Geld auf dem Konto im</td><td>März, Juni, September, Dezember</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Zahltage</td><td>jeweils am 15. März, Juni, September und Dezember (nächste voraussichtlich 15.12.2026)</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Letzte Zahlung</td><td>0.70 $ pro Aktie</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Rendite</td><td>2.2 %</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">System</td><td>US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Ex-Tag jeweils um den 1. des Monats, Auszahlung am 15. Die Erhöhung kommt einmal im Jahr im Mai mit den Jahreszahlen (2026: +16.7 % auf 0.70 $).</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Form</td><td>Bar in US-Dollar aufs Konto. Die USA ziehen Quellensteuer ab, mit dem Formular W-8BEN bei Saxo in der Regel 15 %.</td></tr></table><p class="note" style="margin:10px 0 0"><b>Ex-Tag:</b> Du bekommst die Dividende nur, wenn du die Aktie am Abend vor dem Ex-Tag besitzt. <b>Zahltag:</b> An diesem Tag kommt das Geld aufs Konto (in der Währung der Aktie, abzüglich Quellensteuer). Die nächsten genauen Termine zeigt die App unter «Termine».</p></div>
+</section>
+
+<section>
+  <h2>Pro und Contra</h2>
+  <div class="two">
+    <div class="card pro"><h3>Spricht dafür</h3><ul class="clean" style="margin-top:8px">
+<li>Nummer 1 der Welt bei Firmenverkäufen (nach Anzahl Deals) und Sanierungen, starke Marke im Mittelstand.</li>
+<li>Keine Schulden, 797 Mio. $ Cash, kaum Investitionen nötig (Kapitalbedarf sehr klein).</li>
+<li>Sanierungsgeschäft wirkt gegen den Zyklus: Viele kleine Firmen mit Privatkrediten sind unter Druck.</li>
+<li>Dividende im Mai um 16.7 % erhöht, laut Firma Auftragsbestand auf Rekordhöhe.</li>
+<li>A/D zeigt Käufe in der Seitwärtsphase, November historisch der stärkste Monat.</li>
+    </ul></div>
+    <div class="card con"><h3>Spricht dagegen</h3><ul class="clean" style="margin-top:8px">
+<li>Umsatz zuletzt −15.5 %, zwei schwache Quartale in Folge, Gewinn 2026/27 sinkt.</li>
+<li>Der M&A-Boom 2026 läuft vor allem bei Megadeals, der Mittelstand hinkt hinterher.</li>
+<li>Free Cashflow schwankt stark, 42 % davon sind Löhne in Aktien. Rückkäufe senken die Aktienzahl nicht.</li>
+<li>Sanierungen sind zuletzt ebenfalls gesunken (−3 % im Jahr, −8 % im letzten Quartal).</li>
+<li>Abwärtstrend auf beiden Zeitebenen, keine Insider-Käufe.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section>
+  <h2>Was jetzt zu tun ist</h2>
+  <div class="zones">
+<div class="zone t"><b>Beobachten</b><span>Alarm bei 131.50 $ (Trigger) und 125 $ (oberes Ende Kaufzone 1).</span></div>
+<div class="zone s"><b>Timing grün</b><span>Tagesschluss über 131.50 $ und danach über 141 $ mit weiter steigender A/D. Fundamental: Am 28.10. muss M&A (Corporate Finance) wieder über 400 Mio. $ pro Quartal liegen.</span></div>
+<div class="zone r"><b>Abbruch</b><span>Wochenschluss unter 120 $. Dann Kaufzone 2 (113–118 $) beobachten.</span></div>
+<div class="zone "><b>Nächste Zahlen</b><span>28. Oktober 2026 nach US-Börsenschluss (2. Quartal des Geschäftsjahrs 2027, bestätigt).</span></div>
+  </div>
+</section>
+
+<footer>
+  <span>Kursdaten und Indikatoren (EMA, RSI 14, A/D) selbst berechnet aus Yahoo-Finance-Tages-, Wochen- und Monatsdaten, Stand 16.10.2026. <a href="https://stockanalysis.com/stocks/hli/financials/" target="_blank" rel="noopener">StockAnalysis.com</a> (Stand 16.10.2026), <a href="https://investors.hl.com/news/press-and-earnings-releases/news-details/2026/Houlihan-Lokey-Reports-First-Quarter-Fiscal-2027-Financial-Results/default.aspx" target="_blank" rel="noopener">Houlihan Lokey Q1 FY2027</a>, <a href="https://www.marketbeat.com/instant-alerts/houlihan-lokey-q1-earnings-call-highlights-2026-07-29/" target="_blank" rel="noopener">MarketBeat: Telefonkonferenz Q1</a>, <a href="https://ionanalytics.com/insights/mergermarket/ma-highlights-9m26/" target="_blank" rel="noopener">Mergermarket: M&A 9 Monate 2026</a>, <a href="https://hl.com/about-us/newsroom/houlihan-lokey-finds-that-stress-among-the-smallest-private-credit-borrowers-has-climbed-more-than-tenfold-since-2023/" target="_blank" rel="noopener">Houlihan Lokey: Stress bei Privatkrediten</a>, <a href="https://www.marketbeat.com/stocks/NYSE/HLI/insider-trades/" target="_blank" rel="noopener">Insider (MarketBeat)</a>, <a href="https://goldesel.de/aktien/news/houlihan-lokey-a-aktie-upgrade-auf-outperform-mit-175-dollar-kursziel" target="_blank" rel="noopener">Goldesel: Hochstufung Citizens</a>.</span>
+  <span>Persönliche Analyse, keine Anlageberatung. Vergangene Kurse und Saisonalität sagen nichts Sicheres über die Zukunft.</span>
+</footer>
+</div>
+
+<script>
+const Q=[["Umsatztrend", "2 von 4 Quartalen über Vorjahr, die letzten zwei klar darunter", 4, 15], ["Wachstumstempo", "+1.7 % in 12 Monaten, zuletzt −15.5 %", 0, 10], ["Operative Marge", "23.8 % bereinigt (6 Pkt.), seit 2022 gesunken (0 Pkt.)", 6, 15], ["Gewinnwachstum (EPS)", "3 Jahre rund +18 % pro Jahr, aktuell −6 % erwartet", 5, 10], ["Free Cashflow", "Immer positiv, schwankt aber stark mit dem Zyklus", 6, 10], ["ROIC", "14.8 % (6 Pkt.), fallend (−1)", 5, 15], ["Schulden", "Keine Schulden, Netto-Cash 797 Mio. $", 10, 10], ["Bewertung vs. eigene Historie", "KGV 21.8 statt Ø 24.1, rund 10 % günstiger", 7, 15]];
+const T=[["Trend Woche (EMA 50/200)", "Kurs unter beiden, EMA 50 noch über 200, aber fallend", 4, 20], ["Trend Tag (EMA 50/200)", "Kurs knapp unter EMA 50, unter EMA 200, EMA 50 unter 200", 3, 10], ["Struktur (SMC)", "Seitwärts 122–141 $ mit gleich hohen Tiefs, aber tieferen Hochs", 8, 20], ["RSI Tag/Woche", "Tag 51, Woche 40, kein klares Signal", 8, 15], ["A/D Tag/Woche", "Auf beiden Zeitebenen höher bei tieferem Kurs", 16, 20], ["Smart Money", "Start 3, Rückkauf rund 2 % +3, kleine Insider-Verkäufe −1", 5, 10], ["Saisonalität", "Oktober 62 %, November 82 % positive Jahre", 5, 5]];
+const FIN=[["2022", 2270, "+48.8 %", "30.0 %", 7.1, 728, "28.0 %", "13.5"], ["2023", 1809, "−20.3 %", "23.4 %", 4.54, 86, "16.5 %", "23.6"], ["2024", 1914, "+5.8 %", "22.1 %", 4.49, 262, "13.5 %", "31.6"], ["2025", 2389, "+24.8 %", "24.7 %", 6.29, 809, "17.2 %", "28.3"], ["2026", 2618, "+9.6 %", "24.6 %", 7.56, 682, "16.8 %", "23.5"], ["Letzte 12 Mt.", 2523, "+1.7 %", "23.8 %", 6.76, 485, "14.8 %", "21.8"]];
+const HALF=[["Sep 24", 575], ["Dez 24", 634], ["Mär 25", 666], ["Jun 25", 605], ["Sep 25", 659], ["Dez 25", 717], ["Mär 26", 636], ["Jun 26", 511]];
+const MARGIN=[["2022", 30.0], ["2023", 23.4], ["2024", 22.1], ["2025", 24.7], ["2026", 24.6], ["12 Mt.", 23.8]];
+const SEAS=[3.4, -0.1, -3.1, 2.4, 1.5, 0.3, 3.2, 1.6, 0.5, 3.1, 5.8, -0.2];
+const SEASHIT=[55.0, 36.0, 27.0, 55.0, 64.0, 45.0, 73.0, 64.0, 67.0, 62.0, 82.0, 55.0];
+const MON=["Jan","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"];
+const W=`2024-10-21,166.01,137.34,103.83,66,37.7;2024-10-28,171.31,138.67,104.5,69,38.3;2024-11-04,185.74,140.52,105.31,75,39.5;2024-11-11,184.12,142.23,106.1,74,38.7;2024-11-18,188.74,144.05,106.92,75,39.5;2024-11-25,189.09,145.82,107.74,75,39.2;2024-12-02,184.3,147.33,108.5,70,38.3;2024-12-09,177.53,148.51,109.19,62,37.1;2024-12-16,173.97,149.51,109.83,59,36.4;2024-12-23,174.29,150.48,110.47,59,36.3;2024-12-30,171.53,151.31,111.08,56,35.7;2025-01-06,168.17,151.97,111.65,53,34.5;2025-01-13,181.2,153.11,112.34,62,36.9;2025-01-20,185.98,154.4,113.07,65,37.2;2025-01-27,181.72,155.47,113.76,61,37.5;2025-02-03,184.87,156.63,114.46,63,38.1;2025-02-10,178.27,157.48,115.1,56,36.9;2025-02-17,171.23,158.01,115.66,51,35.9;2025-02-24,173.35,158.62,116.23,52,37.4;2025-03-03,157.47,158.57,116.64,41,36.1;2025-03-10,158.99,158.59,117.06,43,37.5;2025-03-17,162.64,158.75,117.52,46,38.5;2025-03-24,158.1,158.72,117.92,43,37.1;2025-03-31,146.39,158.24,118.2,36,34.8;2025-04-07,151.2,157.96,118.53,40,35.9;2025-04-14,153.28,157.78,118.88,42,35.3;2025-04-21,159.27,157.84,119.28,47,36;2025-04-28,166.51,158.18,119.75,52,36.9;2025-05-05,174,158.8,120.29,56,38.4;2025-05-12,180.81,159.66,120.89,60,38.8;2025-05-19,172.85,160.18,121.41,54,37.9;2025-05-26,174.68,160.75,121.94,55,37.8;2025-06-02,177.11,161.39,122.49,57,38.9;2025-06-09,171.39,161.78,122.97,52,37.7;2025-06-16,172.98,162.22,123.47,53,37.9;2025-06-23,182.56,163.02,124.06,59,39.1;2025-06-30,185.51,163.9,124.67,61,40.8;2025-07-07,189.59,164.91,125.32,63,41.6;2025-07-14,196.17,166.13,126.02,67,42.3;2025-07-21,195.93,167.3,126.72,66,42.8;2025-07-28,189.79,168.18,127.34,60,42.1;2025-08-04,188.89,169,127.96,60,40.7;2025-08-11,190.73,169.85,128.58,61,39.8;2025-08-18,197.69,170.94,129.27,65,41.6;2025-08-25,199.25,172.05,129.97,66,42;2025-09-01,197.09,173.03,130.63,63,43.2;2025-09-08,205.19,174.29,131.38,68,44.3;2025-09-15,208.73,175.64,132.15,70,46.1;2025-09-22,205.97,176.83,132.88,67,45.9;2025-09-29,201.41,177.8,133.56,62,44.8;2025-10-06,188.06,178.2,134.1,50,43.1;2025-10-13,190.19,178.67,134.66,52,42.4;2025-10-20,199.04,179.47,135.3,58,43.8;2025-10-27,179.08,179.45,135.74,44,39.7;2025-11-03,180.33,179.49,136.18,45,41.1;2025-11-10,179.99,179.51,136.62,45,40.3;2025-11-17,173.61,179.28,136.99,41,39.6;2025-11-24,175.4,179.12,137.37,43,39.7;2025-12-01,179.69,179.15,137.79,46,40.8;2025-12-08,179.47,179.16,138.2,46,41.3;2025-12-15,176.56,179.06,138.59,44,40.9;2025-12-22,178.45,179.03,138.98,46,41.3;2025-12-29,176.34,178.93,139.35,44,41.4;2026-01-05,181.77,179.04,139.78,49,41.9;2026-01-12,189.9,179.46,140.27,55,43;2026-01-19,186.24,179.73,140.73,52,41.8;2026-01-26,168.32,179.28,141.01,40,38.7;2026-02-02,172.96,179.03,141.32,44,41.9;2026-02-09,165.84,178.52,141.57,40,40.3;2026-02-16,167.82,178.1,141.83,41,41.6;2026-02-23,163.77,177.54,142.05,39,40.7;2026-03-02,151.11,176.5,142.14,33,39.1;2026-03-09,139.42,175.05,142.11,28,35.9;2026-03-16,139.51,173.65,142.09,29,35.4;2026-03-23,139,172.29,142.05,28,35.3;2026-03-30,141.32,171.08,142.05,31,35.6;2026-04-06,151.53,170.31,142.14,40,37.8;2026-04-13,162.5,170.01,142.34,48,40.1;2026-04-20,158,169.53,142.5,45,39.1;2026-04-27,153.08,168.89,142.61,42,36.7;2026-05-04,152.87,168.26,142.71,42,38.5;2026-05-11,150.35,167.56,142.78,41,38.1;2026-05-18,151.63,166.93,142.87,42,40;2026-05-25,141.66,165.94,142.86,36,38;2026-06-01,139.25,164.9,142.82,35,38.3;2026-06-08,137.89,163.84,142.77,34,38.1;2026-06-15,140.77,162.93,142.75,37,36.4;2026-06-22,138.55,161.98,142.71,36,36.6;2026-06-29,140.15,161.12,142.69,38,38.7;2026-07-06,135.33,160.11,142.61,35,34.5;2026-07-13,140.01,159.32,142.59,40,36.4;2026-07-20,140.23,158.57,142.56,40,37.8;2026-07-27,125.49,157.27,142.39,31,35.9;2026-08-03,129,156.17,142.26,35,37.5;2026-08-10,128.68,155.09,142.13,35,38.3;2026-08-17,129.05,154.07,142,35,38.5;2026-08-24,133.02,153.24,141.91,40,40.6;2026-08-31,137.11,152.61,141.86,44,42.9;2026-09-07,136.61,151.98,141.81,43,42.2;2026-09-14,130.55,151.14,141.69,39,38.3;2026-09-21,129.07,150.28,141.57,38,37.2;2026-09-28,126.37,149.34,141.42,36,36.2;2026-10-05,130.16,148.59,141.31,40,39.7;2026-10-16,129.55,147.84,141.19,40,40`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+const DD=`2025-10-06,196.93,198.3,184.37,4.1;2025-10-07,194.31,198.15,184.46,3.9;2025-10-08,191.3,197.88,184.53,3.6;2025-10-09,189.8,197.56,184.59,3.4;2025-10-10,188.06,197.19,184.62,3.2;2025-10-13,191.39,196.96,184.69,3.4;2025-10-14,193.59,196.83,184.78,3.5;2025-10-15,192.79,196.67,184.86,3.2;2025-10-16,188.47,196.35,184.89,3;2025-10-17,190.19,196.11,184.94,3.1;2025-10-20,192.65,195.97,185.02,3;2025-10-21,193,195.85,185.1,3;2025-10-22,194.1,195.79,185.19,3.1;2025-10-23,196.88,195.83,185.31,3.4;2025-10-24,199.04,195.95,185.44,3.2;2025-10-27,202.25,196.2,185.61,3.3;2025-10-28,202.09,196.43,185.77,3.2;2025-10-29,198.38,196.51,185.9,2.8;2025-10-30,199.29,196.62,186.03,2.8;2025-10-31,179.08,195.93,185.96,1.5;2025-11-03,178.07,195.23,185.89,1.2;2025-11-04,179.04,194.6,185.82,1.3;2025-11-05,179.4,194,185.75,1.2;2025-11-06,179.76,193.44,185.69,1.2;2025-11-07,180.33,192.93,185.64,1.6;2025-11-10,181.43,192.48,185.6,1.4;2025-11-11,182.25,192.07,185.56,1.5;2025-11-12,184.5,191.78,185.55,1.6;2025-11-13,180.34,191.33,185.5,1.4;2025-11-14,179.99,190.88,185.45,1.6;2025-11-17,173.86,190.22,185.33,1.3;2025-11-18,173.29,189.55,185.21,1.1;2025-11-19,173.24,188.91,185.09,1;2025-11-20,171.06,188.21,184.95,0.8;2025-11-21,173.61,187.64,184.84,1;2025-11-24,172.49,187.05,184.72,0.8;2025-11-25,175.62,186.6,184.63,1;2025-11-26,175.17,186.15,184.53,0.7;2025-11-28,175.4,185.73,184.44,0.6;2025-12-01,173.7,185.26,184.34,0.6;2025-12-02,174.94,184.85,184.24,0.6;2025-12-03,176.72,184.53,184.17,0.6;2025-12-04,179.36,184.33,184.12,0.8;2025-12-05,179.69,184.15,184.08,0.7;2025-12-08,177.11,183.87,184.01,0.6;2025-12-09,177.56,183.62,183.94,0.3;2025-12-10,180.42,183.5,183.91,0.5;2025-12-11,179.87,183.36,183.87,0.6;2025-12-12,179.47,183.2,183.82,0.6;2025-12-15,177.07,182.96,183.76,0.3;2025-12-16,177.47,182.75,183.69,0.2;2025-12-17,174.97,182.44,183.61,-0.1;2025-12-18,176.32,182.2,183.53,-0.2;2025-12-19,176.56,181.98,183.46,0.1;2025-12-22,178.31,181.84,183.41,0.2;2025-12-23,177.98,181.69,183.36,0.1;2025-12-24,177.99,181.54,183.31,0.1;2025-12-26,178.45,181.42,183.26,0.2;2025-12-29,177.48,181.27,183.2,0.2;2025-12-30,175.85,181.05,183.13,-0.1;2025-12-31,174.19,180.78,183.04,-0.4;2026-01-02,176.34,180.61,182.97,0.2;2026-01-05,182.6,180.69,182.97,0.4;2026-01-06,185.03,180.86,182.99,0.8;2026-01-07,183.15,180.95,182.99,0.7;2026-01-08,182.01,180.99,182.98,0.7;2026-01-09,181.77,181.02,182.97,0.6;2026-01-12,183.04,181.1,182.97,0.8;2026-01-13,180.57,181.08,182.94,0.6;2026-01-14,182.6,181.14,182.94,0.8;2026-01-15,189.78,181.48,183.01,1.3;2026-01-16,189.9,181.81,183.08,1.1;2026-01-20,189.46,182.11,183.14,1.1;2026-01-21,191.06,182.46,183.22,0.8;2026-01-22,192.07,182.84,183.31,0.7;2026-01-23,186.24,182.97,183.34,0.4;2026-01-26,182.7,182.96,183.33,0.1;2026-01-27,179.65,182.83,183.29,-0.2;2026-01-28,180.53,182.74,183.27,0.2;2026-01-29,168.81,182.19,183.12,-0.8;2026-01-30,168.32,181.65,182.98,-1;2026-02-02,168.36,181.13,182.83,-0.5;2026-02-03,164.45,180.47,182.65,-0.5;2026-02-04,167.62,179.97,182.5,-0.2;2026-02-05,167.94,179.5,182.35,-0.1;2026-02-06,172.96,179.24,182.26,0.5;2026-02-09,172.83,178.99,182.17,0.2;2026-02-10,172.57,178.74,182.07,0.2;2026-02-11,170.15,178.4,181.95,-0;2026-02-12,165.81,177.91,181.79,-0.6;2026-02-13,165.84,177.43,181.63,-0.5;2026-02-17,165.53,176.97,181.47,-0.6;2026-02-18,166.09,176.54,181.32,-0.7;2026-02-19,166.12,176.13,181.17,-0.3;2026-02-20,167.82,175.81,181.04,0;2026-02-23,163.08,175.31,180.86,-0.4;2026-02-24,165.86,174.94,180.71,-0.1;2026-02-25,165.99,174.59,180.56,0;2026-02-26,169.1,174.37,180.45,0.4;2026-02-27,163.77,173.96,180.28,0.4;2026-03-02,163.64,173.55,180.12,0.6;2026-03-03,162.1,173.1,179.94,0.8;2026-03-04,161.5,172.65,179.75,0.6;2026-03-05,157.3,172.04,179.53,0.4;2026-03-06,151.11,171.22,179.25,0.2;2026-03-09,146.79,170.27,178.92,0.4;2026-03-10,145.61,169.3,178.59,-0.1;2026-03-11,146.37,168.4,178.27,0.3;2026-03-12,139.87,167.28,177.89,-0.3;2026-03-13,139.42,166.19,177.51,-0.7;2026-03-16,139.51,165.14,177.13,-1.3;2026-03-17,140.28,164.17,176.76,-1.7;2026-03-18,138.89,163.18,176.38,-2.1;2026-03-19,138.95,162.23,176.01,-1.7;2026-03-20,139.51,161.33,175.65,-1.3;2026-03-23,140.42,160.51,175.3,-1.7;2026-03-24,139.02,159.67,174.94,-1.4;2026-03-25,141.88,158.97,174.61,-1.1;2026-03-26,141.14,158.27,174.28,-1.5;2026-03-27,139,157.52,173.92,-1.9;2026-03-30,141.05,156.87,173.6,-1.8;2026-03-31,143.62,156.35,173.3,-1.8;2026-04-01,141.03,155.75,172.98,-2.5;2026-04-02,141.32,155.19,172.66,-1.9;2026-04-06,140.76,154.62,172.35,-2;2026-04-07,142.87,154.16,172.05,-1.6;2026-04-08,147.84,153.91,171.81,-1.3;2026-04-09,150.12,153.76,171.6,-1;2026-04-10,151.53,153.68,171.4,-0.6;2026-04-13,156.04,153.77,171.24,0.1;2026-04-14,159.07,153.98,171.12,-0.1;2026-04-15,159.87,154.21,171.01,-0.2;2026-04-16,158.78,154.39,170.89,-0.5;2026-04-17,162.5,154.7,170.8,-0.5;2026-04-20,160.99,154.95,170.71,-0.7;2026-04-21,160.87,155.18,170.61,-0.9;2026-04-22,160.64,155.4,170.51,-1;2026-04-23,158.27,155.51,170.39,-1;2026-04-24,158,155.61,170.27,-1.2;2026-04-27,159.71,155.77,170.16,-1;2026-04-28,159.51,155.92,170.05,-1.1;2026-04-29,156,155.92,169.91,-1.2;2026-04-30,154.75,155.87,169.76,-1.5;2026-05-01,153.08,155.76,169.6,-2.1;2026-05-04,150.45,155.55,169.41,-2.1;2026-05-05,150.17,155.34,169.22,-2.5;2026-05-06,147.23,155.03,169,-3.6;2026-05-07,153.5,154.97,168.84,-2.8;2026-05-08,152.87,154.88,168.68,-2.8;2026-05-11,148.85,154.65,168.49,-3.3;2026-05-12,149.53,154.45,168.3,-2.9;2026-05-13,150.55,154.29,168.12,-2.5;2026-05-14,150.93,154.16,167.95,-3;2026-05-15,150.35,154.01,167.77,-3.4;2026-05-18,152.07,153.94,167.62,-3.4;2026-05-19,146.81,153.66,167.41,-4.6;2026-05-20,149.66,153.5,167.23,-4;2026-05-21,151.55,153.42,167.08,-3.3;2026-05-22,151.63,153.35,166.93,-3.1;2026-05-26,150.8,153.25,166.76,-3.3;2026-05-27,147.19,153.02,166.57,-3.8;2026-05-28,145.77,152.73,166.36,-3.8;2026-05-29,141.66,152.3,166.12,-4.2;2026-06-01,140.36,151.83,165.86,-4.3;2026-06-02,139.43,151.34,165.6,-4;2026-06-03,138.43,150.84,165.33,-3.8;2026-06-04,141.2,150.46,165.09,-3.8;2026-06-05,139.25,150.02,164.83,-4;2026-06-08,137.1,149.51,164.55,-4.7;2026-06-09,141.04,149.18,164.32,-4.2;2026-06-10,135.96,148.66,164.04,-4.9;2026-06-11,135.62,148.15,163.76,-4.7;2026-06-12,137.89,147.75,163.5,-4.8;2026-06-15,139.83,147.44,163.26,-5.4;2026-06-16,143.16,147.27,163.06,-4.9;2026-06-17,141.38,147.04,162.85,-5.4;2026-06-18,140.77,146.79,162.63,-5.8;2026-06-22,140.93,146.56,162.41,-5.9;2026-06-23,140.6,146.33,162.19,-6.2;2026-06-24,138,146,161.95,-6.4;2026-06-25,136.33,145.62,161.7,-6.9;2026-06-26,138.55,145.35,161.47,-5.2;2026-06-29,132.92,144.86,161.18,-5.6;2026-06-30,134.13,144.44,160.91,-5.7;2026-07-01,137.96,144.18,160.69,-5.5;2026-07-02,140.15,144.03,160.48,-5.4;2026-07-06,142.45,143.96,160.3,-5.4;2026-07-07,139.12,143.77,160.09,-5.8;2026-07-08,134.31,143.4,159.84,-6.4;2026-07-09,136.44,143.13,159.6,-6.4;2026-07-10,135.33,142.82,159.36,-6.8;2026-07-13,132.52,142.42,159.09,-7;2026-07-14,136.93,142.2,158.87,-6.1;2026-07-15,142.9,142.23,158.71,-5.1;2026-07-16,143.3,142.27,158.56,-4.4;2026-07-17,140.01,142.18,158.38,-5.1;2026-07-20,139.88,142.09,158.19,-4.8;2026-07-21,139.87,142.01,158.01,-4.9;2026-07-22,139.37,141.9,157.82,-5.2;2026-07-23,137.81,141.74,157.63,-5.4;2026-07-24,140.23,141.68,157.45,-5.2;2026-07-27,141.25,141.67,157.29,-5.6;2026-07-28,145.47,141.82,157.17,-5;2026-07-29,139.08,141.71,156.99,-5.7;2026-07-30,128.34,141.18,156.71,-2.4;2026-07-31,125.49,140.57,156.4,-3;2026-08-03,125.48,139.98,156.09,-2.7;2026-08-04,128.25,139.52,155.81,-2.4;2026-08-05,128.19,139.07,155.54,-2.3;2026-08-06,127.58,138.62,155.26,-3.3;2026-08-07,129,138.25,155,-3.1;2026-08-10,123.39,137.66,154.68,-4.2;2026-08-11,125.45,137.18,154.39,-4.2;2026-08-12,123.42,136.64,154.09,-4.8;2026-08-13,132.21,136.47,153.87,-3.8;2026-08-14,128.68,136.16,153.62,-4.4;2026-08-17,125.22,135.74,153.33,-5;2026-08-18,127.01,135.39,153.07,-4.8;2026-08-19,130.09,135.19,152.84,-4.9;2026-08-20,128.06,134.91,152.6,-5.3;2026-08-21,129.05,134.68,152.36,-5.6;2026-08-24,128.95,134.45,152.13,-5.9;2026-08-25,129.04,134.24,151.9,-5.6;2026-08-26,129.8,134.07,151.68,-5.3;2026-08-27,130.81,133.94,151.47,-5.2;2026-08-28,133.02,133.9,151.29,-4.9;2026-08-31,133.29,133.88,151.11,-4.5;2026-09-01,132.9,133.84,150.93,-4.4;2026-09-02,133.21,133.81,150.75,-4.5;2026-09-03,136.86,133.93,150.61,-4.5;2026-09-04,137.11,134.06,150.48,-3.8;2026-09-08,135.39,134.11,150.33,-4.1;2026-09-09,135.27,134.16,150.18,-3.9;2026-09-10,135.97,134.23,150.04,-4.6;2026-09-11,136.61,134.32,149.9,-5.1;2026-09-14,137.82,134.46,149.78,-5.1;2026-09-15,133.73,134.43,149.62,-5.9;2026-09-16,130.34,134.27,149.43,-6.3;2026-09-17,132.66,134.21,149.27,-6.2;2026-09-18,130.55,134.06,149.08,-8.1;2026-09-21,132.61,134.01,148.92,-8;2026-09-22,130.97,133.89,148.74,-8.1;2026-09-23,129.94,133.73,148.55,-8;2026-09-24,127.49,133.49,148.34,-8.3;2026-09-25,129.07,133.31,148.15,-7.8;2026-09-28,129.54,133.17,147.96,-7.1;2026-09-29,127.46,132.94,147.76,-7.5;2026-09-30,126.34,132.68,147.55,-8.1;2026-10-01,128.38,132.51,147.36,-7.5;2026-10-02,126.37,132.27,147.15,-8;2026-10-05,126.9,132.06,146.95,-7.8;2026-10-06,127.94,131.9,146.76,-8.2;2026-10-07,125.22,131.64,146.54,-7.6;2026-10-08,125.53,131.4,146.33,-7.6;2026-10-09,130.16,131.35,146.17,-7;2026-10-12,130.38,131.31,146.02,-6.6;2026-10-13,129.53,131.24,145.85,-6.9;2026-10-14,124.78,130.99,145.64,-7.4;2026-10-15,128.51,130.89,145.47,-6.9;2026-10-16,129.55,130.84,145.31,-6.6`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+
+const fmtN=(v,d=2)=>v.toLocaleString("de-CH",{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmtD=s=>{const [y,m,d]=s.split("-");return d+"."+m+"."+y.slice(2)};
+const NS="http://www.w3.org/2000/svg";
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+
+function scoreTable(id,rows){
+  let tot=0,max=0;
+  const html='<thead><tr><th>Kriterium</th><th>Stand</th><th class="num">Punkte</th><th style="width:22%"></th></tr></thead><tbody>'+rows.map(r=>{tot+=r[2];max+=r[3];const p=r[2]/r[3];const c=p>=.75?"var(--good)":p>=.45?"var(--warn)":"var(--bad)";
+    return `<tr><td>${r[0]}</td><td class="muted">${r[1]}</td><td class="num">${r[2]} / ${r[3]}</td><td><div class="bar"><i style="width:${p*100}%;background:${c}"></i></div></td></tr>`}).join("")+`<tr class="total"><td>Total</td><td></td><td class="num">${tot} / ${max}</td><td></td></tr></tbody>`;
+  document.getElementById(id).innerHTML=html;return tot;
+}
+const qs=scoreTable("q-tbl",Q), ts=scoreTable("t-tbl",T);
+document.getElementById("q-val").textContent=qs;document.getElementById("t-val").textContent=ts;
+document.getElementById("q-pin").style.left=qs+"%";document.getElementById("t-pin").style.left=ts+"%";
+
+document.getElementById("fin-rows").innerHTML=FIN.map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1].toLocaleString("de-CH")}</td><td class="num">${r[2]}</td><td class="num">${r[3]}</td><td class="num">${fmtN(r[4])}</td><td class="num">${r[5].toLocaleString("de-CH")}</td><td class="num">${r[6]}</td><td class="num">${r[7]}</td></tr>`).join("");
+
+/* generic line chart */
+function lineChart(host,{dates,series,bands=[],yFmt=v=>fmtN(v),h=300,zero=false,refs=[],pad}){
+  const W_=800,H=h,m={t:12,r:56,b:28,l:8};
+  const all=series.flatMap(s=>s.values).concat(bands.flatMap(b=>[b.from,b.to])).concat(refs.map(r=>r.v));
+  if(zero)all.push(0);
+  let lo=Math.min(...all),hi=Math.max(...all);const sp=(hi-lo)||1;lo-=sp*.06;hi+=sp*.06;
+  if(pad){lo=pad[0];hi=pad[1]}
+  const n=dates.length,x=i=>m.l+i*(W_-m.l-m.r)/(n-1),y=v=>m.t+(hi-v)*(H-m.t-m.b)/(hi-lo);
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  // grid
+  const steps=5;for(let k=0;k<=steps;k++){const v=lo+(hi-lo)*k/steps;el("line",{x1:m.l,x2:W_-m.r,y1:y(v),y2:y(v),stroke:"var(--grid)","stroke-width":1},svg);
+    const t=el("text",{x:W_-m.r+6,y:y(v)+4,"font-size":11,fill:"var(--muted)","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=yFmt(v)}
+  bands.forEach(b=>{el("rect",{x:m.l,width:W_-m.l-m.r,y:y(Math.max(b.from,b.to)),height:Math.abs(y(b.from)-y(b.to)),fill:b.type==="res"?"var(--zone-res)":"var(--zone-sup)"},svg)});
+  refs.forEach(r=>{el("line",{x1:m.l,x2:W_-m.r,y1:y(r.v),y2:y(r.v),stroke:"var(--muted)","stroke-dasharray":"4 4","stroke-width":1},svg);
+    const t=el("text",{x:m.l+4,y:y(r.v)-4,"font-size":11,fill:"var(--muted)"},svg);t.textContent=r.label});
+  if(zero)el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  // x labels
+  const every=Math.ceil(n/6);for(let i=0;i<n;i+=every){const t=el("text",{x:x(i),y:H-8,"font-size":11,fill:"var(--muted)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);const d=dates[i];t.textContent=d.slice(5,7)+"/"+d.slice(2,4)}
+  series.forEach(s=>{const dpath=s.values.map((v,i)=>(i?"L":"M")+x(i).toFixed(1)+","+y(v).toFixed(1)).join("");
+    el("path",{d:dpath,fill:"none",stroke:s.color,"stroke-width":s.w||2,"stroke-linejoin":"round","stroke-linecap":"round"},svg);
+    const lv=s.values[n-1];el("circle",{cx:x(n-1),cy:y(lv),r:3.5,fill:s.color,stroke:"var(--surface)","stroke-width":2},svg)});
+  // hover
+  const cross=el("line",{y1:m.t,y2:H-m.b,stroke:"var(--muted)","stroke-width":1,opacity:0},svg);
+  const ov=el("rect",{x:m.l,y:m.t,width:W_-m.l-m.r,height:H-m.t-m.b,fill:"transparent"},svg);
+  host.appendChild(svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;host.appendChild(tip);
+  function move(ev){const r=svg.getBoundingClientRect();const px=(ev.clientX-r.left)*W_/r.width;let i=Math.round((px-m.l)/((W_-m.l-m.r)/(n-1)));i=Math.max(0,Math.min(n-1,i));
+    cross.setAttribute("x1",x(i));cross.setAttribute("x2",x(i));cross.setAttribute("opacity",1);
+    tip.innerHTML=`<div class="d">${fmtD(dates[i])}</div>`+series.map(s=>`<div><i class="sw" style="background:${s.color}"></i> ${s.name}: <b>${yFmt(s.values[i])}</b></div>`).join("");
+    tip.hidden=false;const hx=x(i)*r.width/W_;tip.style.left=Math.min(Math.max(0,hx+12),r.width-tip.offsetWidth)+"px";tip.style.top="8px"}
+  ov.addEventListener("pointermove",move);ov.addEventListener("pointerleave",()=>{tip.hidden=true;cross.setAttribute("opacity",0)});
+}
+function barChart(host,{labels,values,fmt,h=220,color,neg,tipExtra}){
+  const W_=800,H=h,m={t:18,r:8,b:28,l:8};
+  const hi=Math.max(0,...values),lo=Math.min(0,...values);const lo2=lo<0?lo*1.15:lo,hi2=hi*1.15||1;
+  const y=v=>m.t+(hi2-v)*(H-m.t-m.b)/(hi2-lo2);const n=values.length,bw=(W_-m.l-m.r)/n;
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;
+  values.forEach((v,i)=>{const x0=m.l+i*bw+bw*.18,w=bw*.64,y0=y(Math.max(v,0)),hh=Math.max(1,Math.abs(y(v)-y(0)));
+    const r=el("rect",{x:x0,y:y0,width:w,height:hh,rx:4,fill:v<0?(neg||"var(--s2)"):(color||"var(--s1)")},svg);
+    const t=el("text",{x:x0+w/2,y:v<0?y(v)+13:y0-5,"font-size":11.5,fill:"var(--ink)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=fmt(v);
+    const l=el("text",{x:x0+w/2,y:H-8,"font-size":11.5,fill:"var(--muted)","text-anchor":"middle"},svg);l.textContent=labels[i];
+    const hit=el("rect",{x:m.l+i*bw,y:m.t,width:bw,height:H-m.t-m.b,fill:"transparent"},svg);
+    hit.addEventListener("pointerenter",()=>{tip.innerHTML=`<div class="d">${labels[i]}</div><b>${fmt(v)}</b>${tipExtra?tipExtra(i):""}`;tip.hidden=false;const R=svg.getBoundingClientRect();tip.style.left=Math.min((m.l+i*bw)*R.width/W_,R.width-tip.offsetWidth)+"px";tip.style.top="0px"});
+    hit.addEventListener("pointerleave",()=>tip.hidden=true)});
+  host.appendChild(svg);host.appendChild(tip);
+}
+barChart(document.getElementById("c-rev"),{labels:HALF.map(r=>r[0]),values:HALF.map(r=>r[1]),fmt:v=>fmtN(v,0),h:200});
+barChart(document.getElementById("c-margin"),{labels:MARGIN.map(r=>r[0]),values:MARGIN.map(r=>r[1]),fmt:v=>fmtN(v,1)+" %",h:200});
+barChart(document.getElementById("c-seas"),{labels:MON,values:SEAS,fmt:v=>(v>0?"+":"")+fmtN(v,1),h:220,tipExtra:i=>`<div>${SEASHIT[i]} % der Jahre positiv</div>`});
+const BANDS=[{"from": 145, "to": 148, "type": "res"}, {"from": 135, "to": 141, "type": "res"}, {"from": 122, "to": 125, "type": "sup"}, {"from": 113, "to": 118, "type": "sup"}], REFS=[{"v": 131.5, "label": "Trigger 131.50"}];
+const wd=W.map(r=>r[0]);
+lineChart(document.getElementById("c-week"),{dates:wd,series:[{name:"Kurs",values:W.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:W.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:W.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,yFmt:v=>fmtN(v,0),h:320});
+lineChart(document.getElementById("c-adw"),{dates:wd,series:[{name:"A/D Woche",values:W.map(r=>r[5]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,zero:true});
+lineChart(document.getElementById("c-rsiw"),{dates:wd,series:[{name:"RSI Woche",values:W.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,refs:[{v:70,label:"70 überkauft"},{v:30,label:"30 überverkauft"}],pad:[10,90]});
+const dd=DD.map(r=>r[0]);
+lineChart(document.getElementById("c-day"),{dates:dd,series:[{name:"Kurs",values:DD.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:DD.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:DD.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,refs:REFS,yFmt:v=>fmtN(v,0),h:260});
+lineChart(document.getElementById("c-add"),{dates:dd,series:[{name:"A/D Tag",values:DD.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:260,zero:true});
+</script>

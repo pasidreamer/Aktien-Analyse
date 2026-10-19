@@ -1384,5 +1384,46 @@
   "pe_typ": "KGV",
   "zahlen": "2026-11-04",
   "artifact": "5cNkhWogUhD1iPyPsYc6vD"
+ },
+ "HLI": {
+  "symbol": "HLI",
+  "name": "Houlihan Lokey",
+  "tags": [
+   "Dividende"
+  ],
+  "land": "USA",
+  "region": "USA",
+  "branche": "Investmentbank (M&A, Sanierungen)",
+  "status": "beobachten",
+  "waehrung": "USD",
+  "kurs": 129.55,
+  "datenstand": "2026-10-16",
+  "kauf": [
+   [
+    122,
+    125
+   ],
+   [
+    113,
+    118
+   ]
+  ],
+  "widerstand": [
+   [
+    135,
+    141
+   ],
+   [
+    145,
+    148
+   ]
+  ],
+  "trigger": 131.5,
+  "abbruch": 120,
+  "pe": 21.8,
+  "pe_avg": 24.1,
+  "pe_typ": "KGV",
+  "zahlen": "2026-10-28",
+  "artifact": "H3bLrt7DY5TUdXdqZMeRTK"
  }
 }

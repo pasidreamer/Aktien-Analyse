@@ -1,0 +1,101 @@
+import json, os, sys
+P = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); sys.path.insert(0, P)
+from helpers import L, ADW, RSIW, SEAS
+c = {
+"ticker": "HLI", "name": "Houlihan Lokey", "datum": "16.10.2026", "waehrung": "USD", "land": "USA",
+"meta": "Houlihan Lokey, Inc. · NYSE: HLI · Investmentbank für Firmenverkäufe (M&A), Sanierungen und Bewertungen · Los Angeles, USA",
+"price": "129.55 $",
+"pricemeta": "Schluss 16.10.2026 · 52 Wochen: 112.83 – 204.18 $ · Allzeithoch 211.78 $ am 23.9.2025",
+"verdict": "Houlihan Lokey ist die Nummer 1 der Welt bei Firmenverkäufen (nach Anzahl Deals) und bei Sanierungen. Die Firma hat keine Schulden, 0.8 Mrd. $ Cash und erhöhte die Dividende im Mai um 16.7 %. Aber das Geschäft ist im Moment schwach: Umsatz im letzten Quartal −15.5 %, weil grosse Deals aufgeschoben werden. Die Aktie fiel vom Allzeithoch 211.78 $ um 39 % auf 129.55 $. Qualität orange (43), Timing gelb (49). Seit August pendelt sie zwischen 122 und 141 $, die A/D zeigt dabei eher Käufe. Am 28. Oktober kommen die nächsten Zahlen: Dort entscheidet sich, ob die Delle vorübergehend ist.",
+"about": "Houlihan Lokey ist eine unabhängige Investmentbank: Sie leiht kein Geld aus und handelt nicht mit Wertpapieren, sondern verdient nur Beratungsgebühren. Drei Bereiche: Corporate Finance (rund 67 % des Umsatzes) berät beim Kauf und Verkauf von Firmen, vor allem im Mittelstand unter 1 Mrd. $. Financial Restructuring (rund 20 %) hilft Firmen in finanzieller Not bei der Sanierung. Financial and Valuation Advisory (rund 13 %) macht Bewertungen und Gutachten. Wichtig: Die Sanierung läuft gegenläufig. Wenn die Wirtschaft schwach ist und wenig Firmen verkauft werden, gibt es mehr Sanierungen. Das glättet die Zyklen. Das Geschäftsjahr endet am 31. März.",
+"why": "2025 lief das Geschäft gut, die Aktie stieg bis 211.78 $ (23.9.2025). Ab Oktober 2025 fiel sie: Am 31. Oktober trotz guter Zahlen −8.8 %, weil die Börse langsameres Wachstum erwartete. Ende 2025 liessen die Sanierungen nach. Im Frühling 2026 belasteten der KI-Ausverkauf bei Software-Firmen (ein wichtiger Kundenkreis) und der Krieg mit dem Iran die Firmenverkäufe. Im März fiel die Aktie um 12 %. Am 6. Mai verfehlte Houlihan Lokey die Erwartungen (Umsatz −4.6 %, Sanierungen −33 %). Am 29. Juli folgte ein grosser Fehlschlag: Umsatz 511 Mio. $ statt erwarteter 602 Mio. $ (−15.5 %), M&A −24 %. Die Aktie fiel am 30. Juli um 9.6 % und kurzzeitig bis 112.83 $. Laut Firma ist der Auftragsbestand auf Rekordhöhe, nur die grossen Deals verzögern sich. Am 9. Oktober stufte Citizens JMP die Aktie auf Kaufen hoch (Ziel 175 $).",
+"kpis": [
+ ["r","Umsatzwachstum","+1.7 %","Letzte 12 Monate. Im letzten Quartal (April bis Juni 2026) −15.5 %, im Quartal davor −4.6 %. Im Geschäftsjahr bis März 2026 waren es noch +9.6 %."],
+ ["w","Operative Marge","23.8 %","Bereinigt, letzte 12 Monate. Von 100 $ Umsatz bleiben rund 24 $ Betriebsgewinn. Für eine Beratungsbank ordentlich, aber 2022 waren es 30 %. Offiziell (GAAP) 20.4 %."],
+ ["w","Gewinn pro Aktie (EPS)","6.76 $","Bereinigt, letzte 12 Monate. Im Geschäftsjahr 2026 noch 7.56 $. Für das laufende Jahr erwarten Analysten 7.08 $ (−6 %). Seit 2021 im Schnitt +10 % pro Jahr, aber mit starken Schwankungen."],
+ ["w","ROIC","14.8 %","Auf 100 $ investiertes Kapital rund 15 $ Gewinn. Mittel und seit 2022 (28 %) gesunken."],
+ ["w","Free Cashflow","485 Mio. $","Letzte 12 Monate, 19 % vom Umsatz. Schwankt stark mit dem Zyklus (2023 nur 86 Mio. $, 2025 809 Mio. $). 42 % davon sind Löhne in Aktien."],
+ ["g","Netto-Cash","797 Mio. $","Keine Schulden (die Kreditlinie ist nicht benutzt). Rund 9 % des Börsenwerts liegen als Cash in der Kasse. Sehr stark."],
+ ["w","KGV","21.8","Du zahlst rund 22 Jahresgewinne. Eigener Schnitt (Geschäftsjahre 2022–2026): rund 24. Also rund 10 % günstiger als üblich, aber auf einem eher tiefen Gewinn."],
+ ["g","Dividende","2.2 %","0.70 $ pro Quartal, 4× pro Jahr, jeweils am 15. März, Juni, September und Dezember. Im Mai 2026 um 16.7 % erhöht."]
+],
+"revtitle": "Umsatz pro Quartal (Mio. $)", "revunit": "Mio. $", "epsunit": "$",
+"revnote": "Nur 2 der letzten 4 Quartale über dem Vorjahr. Nach einem Rekord im Dezember 2025 (717 Mio. $) fiel der Umsatz zweimal in Folge, zuletzt auf 511 Mio. $.",
+"marginnote": "Bereinigte operative Marge pro Geschäftsjahr (bis Ende März). Seit dem Boomjahr 2022 (30 %) um 23 bis 25 %.",
+"finnote": "<b>Hinweis:</b> Geschäftsjahr bis 31. März (2026 = April 2025 bis März 2026). Marge und Gewinn pro Aktie bereinigt (wie die Firma sie meldet), KGV auf den offiziellen Gewinn. Der Free Cashflow ist im ersten Quartal (April bis Juni) immer negativ, weil dann die Boni für das Vorjahr bezahlt werden.",
+"FIN": [["2022",2270,"+48.8 %","30.0 %",7.10,728,"28.0 %","13.5"],["2023",1809,"−20.3 %","23.4 %",4.54,86,"16.5 %","23.6"],["2024",1914,"+5.8 %","22.1 %",4.49,262,"13.5 %","31.6"],["2025",2389,"+24.8 %","24.7 %",6.29,809,"17.2 %","28.3"],["2026",2618,"+9.6 %","24.6 %",7.56,682,"16.8 %","23.5"],["Letzte 12 Mt.",2523,"+1.7 %","23.8 %",6.76,485,"14.8 %","21.8"]],
+"QREV": [["Sep 24",575],["Dez 24",634],["Mär 25",666],["Jun 25",605],["Sep 25",659],["Dez 25",717],["Mär 26",636],["Jun 26",511]],
+"revdec": 0,
+"MARGIN": [["2022",30.0],["2023",23.4],["2024",22.1],["2025",24.7],["2026",24.6],["12 Mt.",23.8]],
+"Q": [
+ ["Umsatztrend","2 von 4 Quartalen über Vorjahr, die letzten zwei klar darunter",4,15],
+ ["Wachstumstempo","+1.7 % in 12 Monaten, zuletzt −15.5 %",0,10],
+ ["Operative Marge","23.8 % bereinigt (6 Pkt.), seit 2022 gesunken (0 Pkt.)",6,15],
+ ["Gewinnwachstum (EPS)","3 Jahre rund +18 % pro Jahr, aktuell −6 % erwartet",5,10],
+ ["Free Cashflow","Immer positiv, schwankt aber stark mit dem Zyklus",6,10],
+ ["ROIC","14.8 % (6 Pkt.), fallend (−1)",5,15],
+ ["Schulden","Keine Schulden, Netto-Cash 797 Mio. $",10,10],
+ ["Bewertung vs. eigene Historie","KGV 21.8 statt Ø 24.1, rund 10 % günstiger",7,15]
+],
+"adwnote": ADW + "Positiv: Ende Juni stand die Wochen-A/D bei 36.6 (Kurs 138.55 $), heute bei 40.0 bei tieferem Kurs (129.55 $). Im Juli-Tief fiel sie nur auf 35.9. Grosse Anleger haben im Rücksetzer eher gekauft.",
+"rsiwnote": RSIW + "Im März und Juli um 28 bis 31 (überverkauft), heute 40: schwach, aber nicht mehr überverkauft.",
+"addnote": "Bullische Divergenz: Am 24.9. lag das Tief bei 125.34 $ und die Tages-A/D bei −8.3. Am 7.10. fiel der Kurs tiefer auf 121.89 $, die A/D lag aber höher bei −7.6, heute bei −6.6. Trotz tieferem Kurs wurde mehr gekauft.",
+"ind": [
+ ["Kurs vs. EMA 50","129.6 &lt; 130.8 (knapp)","129.6 &lt; 147.8","Knapp unter der mittelfristigen Linie im Tageschart."],
+ ["Kurs vs. EMA 200","129.6 &lt; 145.3","129.6 &lt; 141.2","Unter der langfristigen Linie, auf beiden Zeitebenen."],
+ ["EMA 50 vs. EMA 200","50 unter 200 (seit 8.12.2025)","50 über 200 (seit 2016), aber fallend","Tag abwärts, Woche dreht nach unten."],
+ ["RSI (14)","50.6","39.9","Neutral, Woche schwach."],
+ ["A/D","höher bei tieferem Kurs","höher als im Juni bei tieferem Kurs","Auf beiden Zeitebenen positiv."],
+ ["Volumen","Ø 20 Tage 0.79 Mio. vs. Ø 100 Tage 0.84 Mio. Aktien","Ruhiger Handel."]
+],
+"smc": "Vom Allzeithoch 211.78 $ (September 2025) fiel Houlihan Lokey in einem Abwärtstrend mit tieferen Hochs (195.06 → 164.24 → 147.01 → 141.08 $) und tieferen Tiefs (159.86 → 134.41 → 130.72 $). Nach den schwachen Zahlen fiel der Kurs am 30. Juli kurzzeitig bis 112.83 $, erholte sich aber schnell. Seither läuft er seitwärts zwischen rund 122 und 141 $. Die Tiefs liegen dabei fast gleich hoch (122.19 → 125.34 → 121.89 → 123.05 $), die Hochs sinken (141.08 → 135.46 → 131.31 $). Das ist ein Dreieck, das bald nach oben oder unten aufgehen muss. Ein Tagesschluss über 131.50 $ wäre ein erster Change of Character nach oben.",
+"zones": [
+ ["r","145–148 $","Widerstand: Tages-EMA 200 (145.30 $) und Wochen-EMA 50 (147.80 $)."],
+ ["r","135–141 $","Widerstand: Hochs vom September (141.08 und 135.46 $)."],
+ ["t","131.50 $","<b>Trigger:</b> Tagesschluss über dem Hoch vom 13.10. (131.31 $) und der Tages-EMA 50. Bestätigung über 141 $."],
+ ["s","122–125 $","<b>Kaufzone 1:</b> Tiefs vom August, September und Oktober (121.89 bis 125.34 $)."],
+ ["s","113–118 $","<b>Kaufzone 2:</b> Tief vom 30.7. (112.83 $) nach den schwachen Zahlen."],
+ ["r","120 $","Abbruch: Wochenschluss unter 120 $. Dann wäre die Seitwärtsspanne nach unten gebrochen."]
+],
+"smart": [
+ "<b>Houlihan Lokey selbst:</b> Rückkaufprogramm, Ende Juni noch 180 Mio. $ offen (rund 2 % des Börsenwerts). Im April bis Juni kaufte die Firma zu durchschnittlich 143.77 $. Achtung: Die Rückkäufe gleichen vor allem die neuen Aktien für Mitarbeiter aus. Die Aktienzahl stieg seit 2021 sogar leicht (+2.5 %).",
+ "<b>Insider:</b> In 12 Monaten keine Käufe, 5 kleine Verkäufe für rund 2.1 Mio. $ (u. a. Präsident Beiser am 21.5. zu 150.26 $). Niemand hat im Kurssturz gekauft.",
+ "<b>Analysten:</b> Gespalten. StockAnalysis: 5× Kaufen, 6× Halten, Kursziel im Schnitt 153.50 $ (145 bis 177 $). MarketBeat: 7× Kaufen, 3× Halten, 1× Verkaufen, Schnitt 161 $. Zuletzt: Hochstufung durch Citizens JMP (9.10., Ziel 175 $), Morgan Stanley senkt auf 165 $ (8.10.)."
+],
+"seasnote": SEAS + "Seit dem Börsengang 2015 (11 Jahre). November ist der stärkste Monat (+5.8 %, 82 % positive Jahre), März der schwächste (−3.1 %, 27 %). Oktober +3.1 % (62 %).",
+"T": [
+ ["Trend Woche (EMA 50/200)","Kurs unter beiden, EMA 50 noch über 200, aber fallend",4,20],
+ ["Trend Tag (EMA 50/200)","Kurs knapp unter EMA 50, unter EMA 200, EMA 50 unter 200",3,10],
+ ["Struktur (SMC)","Seitwärts 122–141 $ mit gleich hohen Tiefs, aber tieferen Hochs",8,20],
+ ["RSI Tag/Woche","Tag 51, Woche 40, kein klares Signal",8,15],
+ ["A/D Tag/Woche","Auf beiden Zeitebenen höher bei tieferem Kurs",16,20],
+ ["Smart Money","Start 3, Rückkauf rund 2 % +3, kleine Insider-Verkäufe −1",5,10],
+ ["Saisonalität","Oktober 62 %, November 82 % positive Jahre",5,5]
+],
+"pro": [
+ "Nummer 1 der Welt bei Firmenverkäufen (nach Anzahl Deals) und Sanierungen, starke Marke im Mittelstand.",
+ "Keine Schulden, 797 Mio. $ Cash, kaum Investitionen nötig (Kapitalbedarf sehr klein).",
+ "Sanierungsgeschäft wirkt gegen den Zyklus: Viele kleine Firmen mit Privatkrediten sind unter Druck.",
+ "Dividende im Mai um 16.7 % erhöht, laut Firma Auftragsbestand auf Rekordhöhe.",
+ "A/D zeigt Käufe in der Seitwärtsphase, November historisch der stärkste Monat."
+],
+"con": [
+ "Umsatz zuletzt −15.5 %, zwei schwache Quartale in Folge, Gewinn 2026/27 sinkt.",
+ "Der M&A-Boom 2026 läuft vor allem bei Megadeals, der Mittelstand hinkt hinterher.",
+ "Free Cashflow schwankt stark, 42 % davon sind Löhne in Aktien. Rückkäufe senken die Aktienzahl nicht.",
+ "Sanierungen sind zuletzt ebenfalls gesunken (−3 % im Jahr, −8 % im letzten Quartal).",
+ "Abwärtstrend auf beiden Zeitebenen, keine Insider-Käufe."
+],
+"todo": [
+ ["t","Beobachten","Alarm bei 131.50 $ (Trigger) und 125 $ (oberes Ende Kaufzone 1)."],
+ ["s","Timing grün","Tagesschluss über 131.50 $ und danach über 141 $ mit weiter steigender A/D. Fundamental: Am 28.10. muss M&A (Corporate Finance) wieder über 400 Mio. $ pro Quartal liegen."],
+ ["r","Abbruch","Wochenschluss unter 120 $. Dann Kaufzone 2 (113–118 $) beobachten."],
+ ["","Nächste Zahlen","28. Oktober 2026 nach US-Börsenschluss (2. Quartal des Geschäftsjahrs 2027, bestätigt)."]
+],
+"bands": [{"from":145,"to":148,"type":"res"},{"from":135,"to":141,"type":"res"},{"from":122,"to":125,"type":"sup"},{"from":113,"to":118,"type":"sup"}],
+"refs": [{"v":131.5,"label":"Trigger 131.50"}],
+"sources": L("https://stockanalysis.com/stocks/hli/financials/","StockAnalysis.com") + " (Stand 16.10.2026), " + L("https://investors.hl.com/news/press-and-earnings-releases/news-details/2026/Houlihan-Lokey-Reports-First-Quarter-Fiscal-2027-Financial-Results/default.aspx","Houlihan Lokey Q1 FY2027") + ", " + L("https://www.marketbeat.com/instant-alerts/houlihan-lokey-q1-earnings-call-highlights-2026-07-29/","MarketBeat: Telefonkonferenz Q1") + ", " + L("https://ionanalytics.com/insights/mergermarket/ma-highlights-9m26/","Mergermarket: M&A 9 Monate 2026") + ", " + L("https://hl.com/about-us/newsroom/houlihan-lokey-finds-that-stress-among-the-smallest-private-credit-borrowers-has-climbed-more-than-tenfold-since-2023/","Houlihan Lokey: Stress bei Privatkrediten") + ", " + L("https://www.marketbeat.com/stocks/NYSE/HLI/insider-trades/","Insider (MarketBeat)") + ", " + L("https://goldesel.de/aktien/news/houlihan-lokey-a-aktie-upgrade-auf-outperform-mit-175-dollar-kursziel","Goldesel: Hochstufung Citizens") + "."
+}
+if __name__ == "__main__":
+    json.dump(c, open(os.path.join(P, "config", "HLI.json"), "w"), ensure_ascii=False, indent=1)
+    print("ok", sum(r[2] for r in c["Q"]), sum(r[2] for r in c["T"]))

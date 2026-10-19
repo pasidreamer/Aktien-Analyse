@@ -603,5 +603,25 @@
   "betrag": 1.01,
   "system": "Niederländisches System mit Zwischen- und Schlussdividende: Im September kommt die Zwischendividende (40 % der Vorjahresdividende), im Juni nach der Generalversammlung die Schlussdividende. Für 2025 total 2.52 € (+8 %). Seit über 20 Jahren jedes Jahr erhöht.",
   "form": "Bar in Euro aufs Konto. Die Niederlande ziehen 15 % Quellensteuer ab, die du in der Regel über die Schweizer Steuererklärung anrechnen lassen kannst (Formular DA-1)."
+ },
+ "HLI": {
+  "pro_jahr": 4,
+  "rhythmus": "quartalsweise",
+  "ex_monate": [
+   3,
+   6,
+   9,
+   12
+  ],
+  "zahl_monate": [
+   3,
+   6,
+   9,
+   12
+  ],
+  "zahl_text": "jeweils am 15. März, Juni, September und Dezember (nächste voraussichtlich 15.12.2026)",
+  "abstand_tage": 14,
+  "betrag": 0.7,
+  "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Ex-Tag jeweils um den 1. des Monats, Auszahlung am 15. Die Erhöhung kommt einmal im Jahr im Mai mit den Jahreszahlen (2026: +16.7 % auf 0.70 $)."
  }
 }

@@ -1,5 +1,5 @@
 {
- "stand": "2026-10-16",
+ "stand": "2026-10-19",
  "aktien": [
   {
    "ticker": "APP",
@@ -12835,6 +12835,363 @@
    ],
    "cheatsheet": "analysen/WKL.html",
    "claude": "https://claude.ai/artifact/5cNkhWogUhD1iPyPsYc6vD"
+  },
+  {
+   "ticker": "HLI",
+   "symbol": "HLI",
+   "name": "Houlihan Lokey",
+   "tags": [
+    "Dividende"
+   ],
+   "land": "USA",
+   "region": "USA",
+   "branche": "Investmentbank (M&A, Sanierungen)",
+   "status": "beobachten",
+   "waehrung": "USD",
+   "analyse": {
+    "datenstand": "2026-10-16",
+    "kurs": 129.55,
+    "q": 43,
+    "t": 49
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "2 von 4 Quartalen über Vorjahr, die letzten zwei klar darunter",
+     "p": 4,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "+1.7 % in 12 Monaten, zuletzt −15.5 %",
+     "p": 0,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "23.8 % bereinigt (6 Pkt.), seit 2022 gesunken (0 Pkt.)",
+     "p": 6,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "3 Jahre rund +18 % pro Jahr, aktuell −6 % erwartet",
+     "p": 5,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Immer positiv, schwankt aber stark mit dem Zyklus",
+     "p": 6,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "14.8 % (6 Pkt.), fallend (−1)",
+     "p": 5,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Keine Schulden, Netto-Cash 797 Mio. $",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "KGV 21.8 statt Ø 24.1, rund 10 % günstiger",
+     "p": 7,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs unter beiden, EMA 50 noch über 200, aber fallend",
+     "p": 4,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs knapp unter EMA 50, unter EMA 200, EMA 50 unter 200",
+     "p": 3,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Seitwärts 122–141 $ mit gleich hohen Tiefs, aber tieferen Hochs",
+     "p": 8,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "Tag 51, Woche 40, kein klares Signal",
+     "p": 8,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Auf beiden Zeitebenen höher bei tieferem Kurs",
+     "p": 16,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Start 3, Rückkauf rund 2 % +3, kleine Insider-Verkäufe −1",
+     "p": 5,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "Oktober 62 %, November 82 % positive Jahre",
+     "p": 5,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 21.8,
+    "schnitt": 24.1,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      122,
+      125
+     ],
+     [
+      113,
+      118
+     ]
+    ],
+    "widerstand": [
+     [
+      135,
+      141
+     ],
+     [
+      145,
+      148
+     ]
+    ],
+    "trigger": 131.5,
+    "abbruch": 120
+   },
+   "zahlen": "2026-10-28",
+   "dividende": "2.2 %",
+   "div_info": {
+    "pro_jahr": 4,
+    "rhythmus": "quartalsweise",
+    "ex_monate": [
+     3,
+     6,
+     9,
+     12
+    ],
+    "zahl_monate": [
+     3,
+     6,
+     9,
+     12
+    ],
+    "zahl_text": "jeweils am 15. März, Juni, September und Dezember (nächste voraussichtlich 15.12.2026)",
+    "abstand_tage": 14,
+    "betrag": 0.7,
+    "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Ex-Tag jeweils um den 1. des Monats, Auszahlung am 15. Die Erhöhung kommt einmal im Jahr im Mai mit den Jahreszahlen (2026: +16.7 % auf 0.70 $)."
+   },
+   "chance": {
+    "ticker": "HLI",
+    "sorgen": [
+     "Das M&A-Geschäft (zwei Drittel des Umsatzes) brach im Quartal April bis Juni 2026 um 24 % ein. Die Anzahl Deals blieb gleich, aber grosse Deals mit hohen Gebühren wurden aufgeschoben, vor allem bei Software- und Konsumfirmen und in Europa.",
+     "Der M&A-Boom 2026 läuft vor allem bei Megadeals über 10 Mrd. $ (Wert +27 %, Anzahl Deals −1 %). Houlihan Lokey verdient aber vor allem an Deals unter 1 Mrd. $.",
+     "Auch das Sanierungsgeschäft, das sonst gegen den Zyklus hilft, sank: −33 % im Quartal bis März, −8 % im Quartal bis Juni 2026.",
+     "Analysten erwarten für das laufende Geschäftsjahr rund 6 % weniger Gewinn pro Aktie."
+    ],
+    "sorgen_art": "gemischt",
+    "sorgen_art_text": "Umsatz und Gewinn sinken wirklich, aber die Firma meldet Rekord-Auftragsbestand und gleich viele Deals, das Problem liegt beim Zeitpunkt der grossen Gebühren.",
+    "aufloeser": [
+     {
+      "was": "Zahlen zum 2. Quartal: Liegt M&A wieder über 400 Mio. $, und bestätigt sich der Rekord-Auftragsbestand?",
+      "wann": "Zahlen 28.10.2026"
+     },
+     {
+      "was": "Private-Equity-Firmen verkaufen ihre alten Beteiligungen (über die Hälfte gilt als «überaltert») und bringen viele Mittelstands-Deals",
+      "wann": "2027"
+     },
+     {
+      "was": "Mehr Sanierungen bei Firmen mit Privatkrediten und Software-Firmen erreichen die Umsatzzahlen",
+      "wann": "2027"
+     }
+    ],
+    "schub_stufe": "mittel",
+    "schub_treiber": [
+     {
+      "titel": "Erholung bei Mittelstands-Deals",
+      "text": "Laut Finanzchef ist über die Hälfte der Beteiligungen von Private-Equity-Firmen «überaltert» und muss verkauft werden. Houlihan Lokey hat 260 Managing Directors im M&A (+7 %) und ist die Nummer 1 nach Anzahl Deals. Wenn der Mittelstand aufholt, kann der Umsatz schnell steigen (wie 2022: +49 %).",
+      "wann": "2027–2028"
+     },
+     {
+      "titel": "Sanierungswelle bei Privatkrediten",
+      "text": "Laut Houlihan Lokey notierten im 2. Quartal 2026 7 % der Privatkredite unter 90 % ihres Werts, mehr als doppelt so viel wie üblich. Bei kleinen Firmen 12 % statt 1 % im Jahr 2023. Das bringt Sanierungsaufträge, aber mit Verzögerung.",
+      "wann": "2027–2028"
+     }
+    ],
+    "schub_beweis": "Achte auf den Umsatz im Bereich Corporate Finance (M&A): zuletzt 303 Mio. $, ein Jahr davor 398 Mio. $. Steigt er wieder über 400 Mio. $ pro Quartal, ist die Delle vorbei.",
+    "szenario": "Kein Fall wie Google 2023, sondern ein Zyklus-Fall: Die Firma ist gesund (keine Schulden, Nummer 1 im Markt), aber im Tal des Geschäftszyklus. Kommen die Mittelstands-Deals zurück, kann der Gewinn wie 2022 stark steigen (Analysten sehen für das Folgejahr rund 8.80 $ pro Aktie, KGV dann knapp 15). Grösstes Risiko: Das Tal dauert länger, und die Aktie bleibt trotz tiefer Bewertung schwach.",
+    "quellen": [
+     {
+      "titel": "Houlihan Lokey: Ergebnisse Q1 Geschäftsjahr 2027",
+      "url": "https://investors.hl.com/news/press-and-earnings-releases/news-details/2026/Houlihan-Lokey-Reports-First-Quarter-Fiscal-2027-Financial-Results/default.aspx"
+     },
+     {
+      "titel": "MarketBeat: Telefonkonferenz Q1 2027",
+      "url": "https://www.marketbeat.com/instant-alerts/houlihan-lokey-q1-earnings-call-highlights-2026-07-29/"
+     },
+     {
+      "titel": "Mergermarket: M&A in den ersten 9 Monaten 2026",
+      "url": "https://ionanalytics.com/insights/mergermarket/ma-highlights-9m26/"
+     },
+     {
+      "titel": "Houlihan Lokey: Stress bei kleinen Kreditnehmern",
+      "url": "https://hl.com/about-us/newsroom/houlihan-lokey-finds-that-stress-among-the-smallest-private-credit-borrowers-has-climbed-more-than-tenfold-since-2023/"
+     }
+    ]
+   },
+   "fazit": "Houlihan Lokey ist die Nummer 1 der Welt bei Firmenverkäufen (nach Anzahl Deals) und bei Sanierungen. Die Firma hat keine Schulden, 0.8 Mrd. $ Cash und erhöhte die Dividende im Mai um 16.7 %. Aber das Geschäft ist im Moment schwach: Umsatz im letzten Quartal −15.5 %, weil grosse Deals aufgeschoben werden. Die Aktie fiel vom Allzeithoch 211.78 $ um 39 % auf 129.55 $. Qualität orange (43), Timing gelb (49). Seit August pendelt sie zwischen 122 und 141 $, die A/D zeigt dabei eher Käufe. Am 28. Oktober kommen die nächsten Zahlen: Dort entscheidet sich, ob die Delle vorübergehend ist.",
+   "about": "Houlihan Lokey ist eine unabhängige Investmentbank: Sie leiht kein Geld aus und handelt nicht mit Wertpapieren, sondern verdient nur Beratungsgebühren. Drei Bereiche: Corporate Finance (rund 67 % des Umsatzes) berät beim Kauf und Verkauf von Firmen, vor allem im Mittelstand unter 1 Mrd. $. Financial Restructuring (rund 20 %) hilft Firmen in finanzieller Not bei der Sanierung. Financial and Valuation Advisory (rund 13 %) macht Bewertungen und Gutachten. Wichtig: Die Sanierung läuft gegenläufig. Wenn die Wirtschaft schwach ist und wenig Firmen verkauft werden, gibt es mehr Sanierungen. Das glättet die Zyklen. Das Geschäftsjahr endet am 31. März.",
+   "kpis": [
+    {
+     "ampel": "r",
+     "name": "Umsatzwachstum",
+     "wert": "+1.7 %",
+     "text": "Letzte 12 Monate. Im letzten Quartal (April bis Juni 2026) −15.5 %, im Quartal davor −4.6 %. Im Geschäftsjahr bis März 2026 waren es noch +9.6 %."
+    },
+    {
+     "ampel": "w",
+     "name": "Operative Marge",
+     "wert": "23.8 %",
+     "text": "Bereinigt, letzte 12 Monate. Von 100 $ Umsatz bleiben rund 24 $ Betriebsgewinn. Für eine Beratungsbank ordentlich, aber 2022 waren es 30 %. Offiziell (GAAP) 20.4 %."
+    },
+    {
+     "ampel": "w",
+     "name": "Gewinn pro Aktie (EPS)",
+     "wert": "6.76 $",
+     "text": "Bereinigt, letzte 12 Monate. Im Geschäftsjahr 2026 noch 7.56 $. Für das laufende Jahr erwarten Analysten 7.08 $ (−6 %). Seit 2021 im Schnitt +10 % pro Jahr, aber mit starken Schwankungen."
+    },
+    {
+     "ampel": "w",
+     "name": "ROIC",
+     "wert": "14.8 %",
+     "text": "Auf 100 $ investiertes Kapital rund 15 $ Gewinn. Mittel und seit 2022 (28 %) gesunken."
+    },
+    {
+     "ampel": "w",
+     "name": "Free Cashflow",
+     "wert": "485 Mio. $",
+     "text": "Letzte 12 Monate, 19 % vom Umsatz. Schwankt stark mit dem Zyklus (2023 nur 86 Mio. $, 2025 809 Mio. $). 42 % davon sind Löhne in Aktien."
+    },
+    {
+     "ampel": "g",
+     "name": "Netto-Cash",
+     "wert": "797 Mio. $",
+     "text": "Keine Schulden (die Kreditlinie ist nicht benutzt). Rund 9 % des Börsenwerts liegen als Cash in der Kasse. Sehr stark."
+    },
+    {
+     "ampel": "w",
+     "name": "KGV",
+     "wert": "21.8",
+     "text": "Du zahlst rund 22 Jahresgewinne. Eigener Schnitt (Geschäftsjahre 2022–2026): rund 24. Also rund 10 % günstiger als üblich, aber auf einem eher tiefen Gewinn."
+    },
+    {
+     "ampel": "g",
+     "name": "Dividende",
+     "wert": "2.2 %",
+     "text": "0.70 $ pro Quartal, 4× pro Jahr, jeweils am 15. März, Juni, September und Dezember. Im Mai 2026 um 16.7 % erhöht."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "145–148 $",
+     "text": "Widerstand: Tages-EMA 200 (145.30 $) und Wochen-EMA 50 (147.80 $)."
+    },
+    {
+     "art": "r",
+     "wert": "135–141 $",
+     "text": "Widerstand: Hochs vom September (141.08 und 135.46 $)."
+    },
+    {
+     "art": "t",
+     "wert": "131.50 $",
+     "text": "Trigger: Tagesschluss über dem Hoch vom 13.10. (131.31 $) und der Tages-EMA 50. Bestätigung über 141 $."
+    },
+    {
+     "art": "s",
+     "wert": "122–125 $",
+     "text": "Kaufzone 1: Tiefs vom August, September und Oktober (121.89 bis 125.34 $)."
+    },
+    {
+     "art": "s",
+     "wert": "113–118 $",
+     "text": "Kaufzone 2: Tief vom 30.7. (112.83 $) nach den schwachen Zahlen."
+    },
+    {
+     "art": "r",
+     "wert": "120 $",
+     "text": "Abbruch: Wochenschluss unter 120 $. Dann wäre die Seitwärtsspanne nach unten gebrochen."
+    }
+   ],
+   "pro": [
+    "Nummer 1 der Welt bei Firmenverkäufen (nach Anzahl Deals) und Sanierungen, starke Marke im Mittelstand.",
+    "Keine Schulden, 797 Mio. $ Cash, kaum Investitionen nötig (Kapitalbedarf sehr klein).",
+    "Sanierungsgeschäft wirkt gegen den Zyklus: Viele kleine Firmen mit Privatkrediten sind unter Druck.",
+    "Dividende im Mai um 16.7 % erhöht, laut Firma Auftragsbestand auf Rekordhöhe.",
+    "A/D zeigt Käufe in der Seitwärtsphase, November historisch der stärkste Monat."
+   ],
+   "contra": [
+    "Umsatz zuletzt −15.5 %, zwei schwache Quartale in Folge, Gewinn 2026/27 sinkt.",
+    "Der M&A-Boom 2026 läuft vor allem bei Megadeals, der Mittelstand hinkt hinterher.",
+    "Free Cashflow schwankt stark, 42 % davon sind Löhne in Aktien. Rückkäufe senken die Aktienzahl nicht.",
+    "Sanierungen sind zuletzt ebenfalls gesunken (−3 % im Jahr, −8 % im letzten Quartal).",
+    "Abwärtstrend auf beiden Zeitebenen, keine Insider-Käufe."
+   ],
+   "smart_money": [
+    "Houlihan Lokey selbst: Rückkaufprogramm, Ende Juni noch 180 Mio. $ offen (rund 2 % des Börsenwerts). Im April bis Juni kaufte die Firma zu durchschnittlich 143.77 $. Achtung: Die Rückkäufe gleichen vor allem die neuen Aktien für Mitarbeiter aus. Die Aktienzahl stieg seit 2021 sogar leicht (+2.5 %).",
+    "Insider: In 12 Monaten keine Käufe, 5 kleine Verkäufe für rund 2.1 Mio. $ (u. a. Präsident Beiser am 21.5. zu 150.26 $). Niemand hat im Kurssturz gekauft.",
+    "Analysten: Gespalten. StockAnalysis: 5× Kaufen, 6× Halten, Kursziel im Schnitt 153.50 $ (145 bis 177 $). MarketBeat: 7× Kaufen, 3× Halten, 1× Verkaufen, Schnitt 161 $. Zuletzt: Hochstufung durch Citizens JMP (9.10., Ziel 175 $), Morgan Stanley senkt auf 165 $ (8.10.)."
+   ],
+   "cheatsheet": "analysen/HLI.html",
+   "claude": "https://claude.ai/artifact/H3bLrt7DY5TUdXdqZMeRTK"
   }
  ]
 }
