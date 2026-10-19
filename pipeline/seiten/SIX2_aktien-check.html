@@ -1,0 +1,402 @@
+<title>Sixt Aktien-Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F3F5F7; --surface:#FFFFFF; --ink:#141B24; --muted:#5A6573; --line:#DDE2E8; --grid:#E9EDF1;
+  --accent:#2F45B5; --accent-soft:#E6E9F8; --chip:#EBEEF2;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+  --good:#1D7A4B; --good-bg:#E3F3EA; --warn:#9A6200; --warn-bg:#FBF0DC; --bad:#B2362A; --bad-bg:#FBE6E3;
+  --zone-sup:rgba(29,122,75,.10); --zone-res:rgba(178,54,42,.09);
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+    --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+    --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+    --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+  --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+  --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;padding-inline:16px;padding-block:24px 56px}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+h1,h2,h3{font-family:var(--display);font-stretch:85%;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:clamp(32px,7vw,48px);font-weight:800;line-height:1}
+h2{font-size:24px;font-weight:700}
+h3{font-size:17px;font-weight:700;font-stretch:95%}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+section{display:flex;flex-direction:column;gap:14px}
+.lead{max-width:68ch;color:var(--muted)}
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;align-items:stretch}
+.hero .id{display:flex;flex-direction:column;gap:10px;justify-content:space-between}
+.price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price b{font-family:var(--display);font-size:34px;font-weight:700}
+.meta{font-size:13px;color:var(--muted)}
+.verdict{font-size:15px;padding:12px 14px;border-radius:10px;background:var(--chip)}
+.scales{display:flex;flex-direction:column;gap:18px}
+.scale-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.scale-h span{font-size:13px;color:var(--muted)}
+.scale-h b{font-family:var(--display);font-size:28px;line-height:1}
+.track{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#C8412F 0%,#E0892F 30%,#E3B63A 50%,#8BBF4B 68%,#2E9A5B 100%);margin-top:8px}
+.pin{position:absolute;top:-5px;width:4px;height:22px;border-radius:2px;background:var(--ink);box-shadow:0 0 0 2px var(--surface);transform:translateX(-2px)}
+.ticks{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);font-family:var(--mono);margin-top:6px}
+.state{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;margin-top:8px}
+.st-good{background:var(--good-bg);color:var(--good)}
+.st-warn{background:var(--warn-bg);color:var(--warn)}
+.st-bad{background:var(--bad-bg);color:var(--bad)}
+/* tables */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;color:var(--muted);font-weight:500;font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:700;border-bottom:none}
+.pts{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{height:6px;border-radius:3px;background:var(--chip);min-width:60px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:3px}
+/* grids */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;border-left:4px solid var(--line)}
+.kpi.g{border-left-color:var(--good)}.kpi.w{border-left-color:var(--warn)}.kpi.b{border-left-color:var(--bad)}
+.kpi span{font-size:12px;color:var(--muted)}
+.kpi b{font-family:var(--mono);font-size:19px;font-weight:500;font-variant-numeric:tabular-nums}
+.kpi em{font-style:normal;font-size:12.5px;color:var(--muted)}
+/* charts */
+.chart{position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:14px;height:3px;border-radius:2px;display:inline-block}
+.swb{width:12px;height:10px;border-radius:2px;display:inline-block}
+.tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12.5px;box-shadow:0 4px 14px rgba(0,0,0,.12);white-space:nowrap;z-index:2}
+.tip b{font-family:var(--mono);font-weight:500}
+.tip .d{font-family:var(--mono);color:var(--muted);font-size:11.5px}
+.note{font-size:13.5px;color:var(--muted)}
+ul.clean{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.pro li::marker{color:var(--good)} .con li::marker{color:var(--bad)}
+.zones{display:flex;flex-direction:column;gap:8px}
+.zone{display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:baseline;padding:10px 12px;border-radius:10px;background:var(--chip);font-size:14px}
+.zone b{font-family:var(--mono);font-weight:500}
+.zone.r{border-left:4px solid var(--bad)} .zone.s{border-left:4px solid var(--good)} .zone.t{border-left:4px solid var(--accent)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+summary{cursor:pointer;font-weight:600}
+details p{margin-top:8px;color:var(--muted);max-width:70ch}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+footer{font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:6px;max-width:80ch}
+footer a{color:var(--accent)}
+@media (max-width:760px){.hero,.two{grid-template-columns:1fr}.zone{grid-template-columns:1fr;gap:2px}}
+</style>
+
+<div class="wrap">
+
+<header class="hero">
+  <div class="card id">
+    <div>
+      <div class="eyebrow">Aktien-Check · 16.10.2026</div>
+      <h1>Sixt</h1>
+      <p class="meta">Sixt SE · Xetra: SIX2 (Stammaktie), auch SIX3 (Vorzugsaktie) · Autovermietung, Leasing, Carsharing · Pullach, Deutschland</p>
+    </div>
+    <div class="price"><b>72.25 €</b><span class="meta">Schluss 16.10.2026 · 52 Wochen: 57.70 – 77.80 € · Allzeithoch 170.30 € am 8.11.2021 · Vorzugsaktie SIX3: 57.60 €</span></div>
+    <p class="verdict"><b>Kurz gesagt:</b> Sixt wächst wieder (Umsatz +7 %, ohne Währungseffekte +11 %), und der Gewinn vor Steuern steigt deutlich (12 Monate: 436 Mio. €, +30 % zu 2024). Mit einem KGV von 11 und 4.4 % Dividende ist die Aktie günstig. Nach deiner Cashflow-Strategie fällt Sixt aber durch: Der Free Cashflow ist fast null (36 Mio. € in 12 Monaten), weil der Kauf neuer Mietautos direkt vom Cashflow abgeht. Die Nettoschulden liegen bei 4.5 Mrd. €, gedeckt durch Autos im Wert von 5.9 Mrd. €. Qualität gelb (46), Timing orange (42). Die Familie Sixt kaufte im März für 50 Mio. € Vorzugsaktien.</p>
+  </div>
+  <div class="card scales">
+    <div>
+      <div class="scale-h"><span>Qualität · Ist die Firma kaufenswert?</span><b id="q-val">46</b></div>
+      <div class="track"><i class="pin" id="q-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-warn">▲ Gemischt</span>
+    </div>
+    <div>
+      <div class="scale-h"><span>Timing · Ist jetzt der Zeitpunkt?</span><b id="t-val">42</b></div>
+      <div class="track"><i class="pin" id="t-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-warn">▲ Beobachten: Trigger noch nicht erreicht</span>
+    </div>
+    <p class="note">Skala: unter 30 rot · 30–45 orange · 45–60 gelb · 60–75 hellgrün · ab 75 grün. Beide Werte setzen sich aus festen Kriterien zusammen, siehe unten.</p>
+  </div>
+</header>
+
+<section>
+  <h2>Was die Firma macht</h2>
+  <p class="lead">Sixt vermietet Autos an über 2'300 Standorten in mehr als 100 Ländern, mit Schwerpunkt auf Premiumautos (BMW, Mercedes, Audi). Das Geschäft hat drei Regionen: Deutschland (rund 27 % des Umsatzes), übriges Europa (rund 41 %) und Nordamerika (rund 32 %). Sixt kauft jedes Jahr Autos für über 9 Mrd. € und verkauft sie nach wenigen Monaten wieder. Der Gewinn hängt darum stark davon ab, zu welchem Preis die Gebrauchtwagen verkauft werden. Die Familie Sixt hält 58 % der Stimmrechte, die Söhne Alexander und Konstantin Sixt führen die Firma. Es gibt zwei Aktien: die Stammaktie (SIX2, mit Stimmrecht) und die günstigere Vorzugsaktie (SIX3, ohne Stimmrecht, 2 Cent mehr Dividende).</p>
+  <p class="lead">Die Aktie fiel vom Allzeithoch 170.30 € (November 2021) in mehreren Wellen. 2024 verlor Sixt viel Geld mit Elektroautos, deren Gebrauchtpreise einbrachen. Der Gewinn sank, die Prognose wurde zweimal gesenkt, die Dividende gekürzt. Im Juli 2025 stand die Aktie wieder bei fast 99 €. Danach fiel sie bis auf 57.70 € im März 2026 (−40 %): Die Gewinne in Nordamerika blieben schwach, Sixt verfehlte 2025 das eigene Margenziel knapp (9.4 % statt 10 %), und die Börse sorgte sich um die Ausgabelaune der Kunden. Am 24. März kaufte die Familie Sixt für 50 Mio. € Vorzugsaktien zu 50 €. Seither erholt sich die Aktie: Die Zahlen zum 1. und 2. Quartal 2026 waren besser als erwartet (Gewinn vor Steuern im Halbjahr +39 %). Seit August stehen alle 6 Analysten auf Kaufen. Schwachpunkt: In Nordamerika verdiente Sixt im 2. Quartal fast nichts (0.3 statt 21.9 Mio. €).</p>
+</section>
+
+<section>
+  <h2>Fundamental: die Zahlen</h2>
+  <div class="kpis">
+<div class="kpi g"><span>Umsatzwachstum</span><b>+7.4 %</b><em>Letzte 12 Monate. Ohne Währungseffekte im 1. Halbjahr 2026 +11.3 %. 20 Rekordquartale in Folge beim Umsatz.</em></div>
+<div class="kpi w"><span>EBT-Marge</span><b>9.8 %</b><em>Gewinn vor Steuern pro 100 € Umsatz, die wichtigste Kennzahl von Sixt. 2021 waren es 19.4 %, 2024 nur 8.4 %. Ziel für 2026: rund 10 %. Mittel.</em></div>
+<div class="kpi w"><span>Gewinn pro Aktie (EPS)</span><b>6.47 €</b><em>Letzte 12 Monate. 2024: 5.19 €, 2022: 8.21 €. Analysten erwarten für 2026 rund 7.40 €.</em></div>
+<div class="kpi r"><span>ROIC</span><b>7.5 %</b><em>Auf 100 € investiertes Kapital nur rund 7.50 € Gewinn. Schwach, weil die Autoflotte sehr viel Kapital bindet. 2022 waren es 10.4 %.</em></div>
+<div class="kpi r"><span>Free Cashflow</span><b>36 Mio. €</b><em>Letzte 12 Monate, also fast null. Schwankt zwischen −266 und +990 Mio. €, je nachdem wie viele Autos Sixt kauft. Vor dem Autokauf blieben im 1. Halbjahr 2026 500 Mio. € (+62 %).</em></div>
+<div class="kpi w"><span>Nettoschulden</span><b>4.48 Mrd. €</b><em>Rund 6-mal der Betriebsgewinn vor Abschreibungen. Hoch, aber gedeckt durch Mietautos im Wert von 5.92 Mrd. € (1.3-fach). Kreditrating BBB (solide).</em></div>
+<div class="kpi g"><span>KGV</span><b>11.1</b><em>Du zahlst 11 Jahresgewinne. Eigener Schnitt 2021–2025: rund 13.1. Also rund 15 % günstiger als üblich. Die Vorzugsaktie SIX3 kostet sogar nur rund 9 Jahresgewinne.</em></div>
+<div class="kpi g"><span>Dividende</span><b>4.4 %</b><em>3.20 € pro Stammaktie, einmal im Jahr (bezahlt am 22.6.2026), +18.5 %. Vorzugsaktie: 3.22 €, das sind bei 57.60 € sogar 5.6 %.</em></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>Umsatz pro Quartal (Mio. €)</h3>
+      <p class="note">Alle 8 Quartale über dem Vorjahr, zuletzt mit wieder steigendem Tempo (+4.7 % → +8.2 % → +9.9 %). Der Sommer (3. Quartal) ist immer das stärkste Quartal.</p>
+      <div class="chart" id="c-rev"></div>
+    </div>
+    <div class="card">
+      <h3>Operative Marge pro Jahr</h3>
+      <p class="note">Gewinn vor Steuern pro 100 € Umsatz (EBT-Marge, die Kennzahl von Sixt). Von 19.4 % (2021) auf 8.4 % (2024) gefallen, seither leichte Erholung.</p>
+      <div class="chart" id="c-margin"></div>
+    </div>
+  </div>
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Jahr</th><th class="num">Umsatz Mio. €</th><th class="num">Wachstum</th><th class="num">Op. Marge</th><th class="num">EPS €</th><th class="num">Free Cashflow</th><th class="num">ROIC</th><th class="num">KGV</th></tr></thead>
+      <tbody id="fin-rows"></tbody>
+    </table>
+  </div>
+  <p class="note"><b>Hinweis:</b> Bei Sixt läuft der Kauf der Mietautos über den operativen Cashflow. Darum ist der Free Cashflow in Wachstumsjahren negativ und in Jahren mit kleiner Flotte stark positiv (2024: +990 Mio. €). Er sagt bei Sixt wenig über die Ertragskraft. Operative Marge in der Tabelle nach StockAnalysis, die Grafik zeigt die EBT-Marge laut Sixt.</p>
+</section>
+
+<section>
+  <h2>Qualität: 46 von 100</h2>
+  <div class="card tbl"><table id="q-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Technik: Wochenchart (2 Jahre)</h2>
+  <div class="card">
+    <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span><span><i class="swb" style="background:var(--zone-sup);border:1px solid var(--good)"></i>Unterstützung</span><span><i class="swb" style="background:var(--zone-res);border:1px solid var(--bad)"></i>Widerstand</span></div>
+    <div class="chart" id="c-week"></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>A/D-Linie, Woche</h3>
+      <p class="note">Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Tausend Aktien. Negativ: Im August stand die Wochen-A/D bei rund −127 bis −164 (Kurs um 73 €), heute bei −267 bei 72 €. Bei gleichem Kurs wird mehr verkauft. Achtung: Die Aktie wird wenig gehandelt (rund 35'000 Stück pro Tag), die A/D ist darum weniger zuverlässig.</p>
+      <div class="chart" id="c-adw"></div>
+    </div>
+    <div class="card">
+      <h3>RSI, Woche</h3>
+      <p class="note">Unter 30 überverkauft, über 70 überkauft. Im März bei 31 (fast überverkauft), seither zwischen 43 und 59, heute 53: neutral.</p>
+      <div class="chart" id="c-rsiw"></div>
+    </div>
+  </div>
+
+  <h2>Technik: Tageschart (1 Jahr)</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Kurs, Tag</h3>
+      <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span></div>
+      <div class="chart" id="c-day"></div>
+    </div>
+    <div class="card">
+      <h3>A/D-Linie, Tag</h3>
+      <p class="note">Deutliche Warnung: Die Tages-A/D fällt seit Juli stark (von +130 auf −311), obwohl der Kurs etwa gleich hoch steht. Grosse Anleger verkaufen eher in die Stärke hinein (Verteilung).</p>
+      <div class="chart" id="c-add"></div>
+    </div>
+  </div>
+
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Indikator</th><th>Tag</th><th>Woche</th><th>Bedeutung</th></tr></thead>
+      <tbody>
+<tr><td>Kurs vs. EMA 50</td><td class="pts">72.3 &gt; 70.1</td><td class="pts">72.3 &gt; 71.7</td><td>Knapp über der mittelfristigen Linie, auf beiden Zeitebenen.</td></tr>
+<tr><td>Kurs vs. EMA 200</td><td class="pts">72.3 &gt; 71.0</td><td class="pts">72.3 &lt; 81.1</td><td>Tag knapp darüber, Woche darunter.</td></tr>
+<tr><td>EMA 50 vs. EMA 200</td><td class="pts">50 unter 200 (seit 21.10.2025), fast gleich hoch</td><td class="pts">50 unter 200 (seit Oktober 2023)</td><td>Tag kurz vor einem goldenen Kreuz, Woche noch abwärts.</td></tr>
+<tr><td>RSI (14)</td><td class="pts">63.3</td><td class="pts">53.2</td><td>Tag stark, Woche neutral.</td></tr>
+<tr><td>A/D</td><td class="pts">fällt seit Juli stark</td><td class="pts">fällt seit August</td><td>Auf beiden Zeitebenen negativ.</td></tr>
+<tr><td>Volumen</td><td colspan="2">Ø 20 Tage 39'600 vs. Ø 100 Tage 33'700 Aktien</td><td>Etwas mehr Handel als üblich.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Struktur und Zonen (Smart Money Concept)</h2>
+  <p class="lead">Sixt läuft seit Herbst 2025 in einer breiten Spanne zwischen rund 58 und 78 €. Das Tief lag am 23.3.2026 bei 57.70 €. Seither gibt es höhere Tiefs: 65.85 € (April), 62.65 € (Juli), 66.25 € (September), 68.30 € (Oktober). Die Hochs liegen fast gleich bei 77.60 € (April), 77.20 € (Mai) und 76.80 € (August), seit September aber tiefer (72.25 → 70.85 €). Am 16.10. schloss der Kurs mit 72.25 € über dem Hoch vom 1.10. (70.85 €): ein kleiner Change of Character im Tageschart. Ein echter Ausbruch wäre erst ein Wochenschluss über 78 €. Darüber liegt die Wochen-EMA 200 bei 81 €.</p>
+  <div class="zones">
+<div class="zone r"><b>80–82 €</b><span>Widerstand: Wochen-EMA 200 (81.10 €).</span></div>
+<div class="zone r"><b>76.80–78 €</b><span>Widerstand: Obergrenze der Spanne (Hochs April, Mai, August).</span></div>
+<div class="zone t"><b>74 €</b><span><b>Trigger:</b> Tagesschluss über 74 € (Hochs Juli und August um 73.15 bis 73.75 €), besser mit drehender A/D. Ausbruch erst über 78 €.</span></div>
+<div class="zone s"><b>66–69 €</b><span><b>Kaufzone 1:</b> Tiefs von September und Oktober (66.25 bis 69 €).</span></div>
+<div class="zone s"><b>58–63 €</b><span><b>Kaufzone 2:</b> Tiefs von März und Juli (57.70 / 62.65 €).</span></div>
+<div class="zone r"><b>65.80 €</b><span>Abbruch: Wochenschluss unter dem Tief vom April. Dann ist die Reihe höherer Tiefs gebrochen.</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Smart Money, Insider und Saisonalität</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Wer kauft, wer verkauft?</h3>
+      <ul class="clean" style="margin-top:8px">
+<li><b>Familie Sixt:</b> Erich Sixt Vermögensverwaltung kaufte am 24.3.2026 Vorzugsaktien für 50 Mio. € zu 50 € (1 Mio. Stück), fast am Tief. Ein starkes Signal. Die Familie hält 58.3 % der Stammaktien.</li>
+<li><b>Weitere Insider:</b> Finanzchef Weinberger kaufte am 17.8.2026 symbolisch 40 Vorzugsaktien zu 61 €. Keine Verkäufe gefunden.</li>
+<li><b>Rückkäufe:</b> Keine. Sixt dürfte bis 10 % der Aktien zurückkaufen, nutzt das aber nicht. Die Aktienzahl ist seit Jahren gleich (46.94 Mio.).</li>
+<li><b>Analysten:</b> Alle 6 auf Kaufen (Berenberg stufte am 18.8. hoch). Kursziele 88 bis 125 €, im Schnitt rund 94 bis 100 € (+30 bis +38 %). Zuletzt: UBS 88 € (9.10.), Deutsche Bank 89 € (5.10.).</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Saisonalität seit 1998</h3>
+      <p class="note">Durchschnittliche Monatsrendite in %. 28 Jahre Daten (seit 1998). Mai (+3.7 %, 71 %) und April (+2.6 %, 68 %) sind stark, Juni (−4.2 %, 29 %) und September (−3.4 %, 43 %) schwach. Oktober bis Dezember gemischt (46 bis 54 % positive Jahre).</p>
+      <div class="chart" id="c-seas"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Timing: 42 von 100</h2>
+  <div class="card tbl"><table id="t-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Worauf du achten solltest: Unterbewertung und Wachstumsschub</h2>
+  <div class="card"><h3>Was die Börse befürchtet</h3><p class="note" style="margin:4px 0">Echte Probleme, eher lösbar: Der Konzern verdient wieder deutlich mehr (Gewinn vor Steuern +39 % im 1. Halbjahr), aber Nordamerika und die Kosten sind echte Baustellen.</p><ul class="clean"><li>Nordamerika verdient kaum Geld: Im 2. Quartal 2026 nur 0.3 Mio. € Betriebsgewinn nach Flottenkosten (Vorjahr 21.9 Mio. €), obwohl die Region ein Drittel des Umsatzes bringt.</li><li>Sixt verfehlte die eigenen Ziele: 2024 wurde die Prognose zweimal gesenkt, 2025 lag die Marge bei 9.4 % statt rund 10 %. Für 2026 gilt wieder rund 10 %.</li><li>Die Kosten steigen schneller als der Umsatz: Flottenkosten im 1. Halbjahr 2026 +18.1 % (Gebühren, Steuern, Versicherung, Benzin), Umsatz +9.2 %.</li><li>Hohe Schulden (4.48 Mrd. €) und Zinskosten: 2025 zahlte Sixt 144 Mio. € Zinsen, 2021 erst 35 Mio. €.</li></ul><h3 style="margin-top:12px">Was die Sorgen beenden könnte</h3><ul class="clean"><li>Zahlen zum 3. Quartal (Sommer, wichtigstes Quartal): Hält die Marge um 19.5 % und verdient Nordamerika wieder? <span class="muted">(Zahlen 12.11.2026)</span></li><li>Jahreszahlen 2026: Erreicht Sixt diesmal die rund 10 % EBT-Marge? <span class="muted">(voraussichtlich Anfang März 2027)</span></li><li>Eine Wende in Nordamerika oder genauere Zahlen zu den US-Standorten <span class="muted">(2027)</span></li></ul><h3 style="margin-top:12px">Wachstumsschub: Wachstumsschub möglich</h3><ul class="clean"><li><b>Europa ausserhalb Deutschlands:</b> Umsatz 2025 +12.6 % auf 1.74 Mrd. €, Betriebsgewinn nach Flottenkosten +38 %. Im 1. Halbjahr 2026 nochmals +14 % Umsatz. Das ist der stärkste Treiber. <span class="muted">(laufend)</span></li><li><b>Mehr Premiumautos und bessere Auslastung:</b> Der Anteil Premiumautos an den neuen Autos stieg auf 62 % (Vorjahr 54 %). Die Flotte wächst langsamer als der Umsatz (+9 % gegen +11 %). Das hebt die Marge, wenn die Gebrauchtwagenpreise stabil bleiben. <span class="muted">(2026–2027)</span></li></ul><p style="margin:10px 0 0"><b>Woran du es erkennst:</b> Achte auf die EBT-Marge (Ziel 2026: rund 10 %, 12 Monate: 9.8 %) und den Betriebsgewinn in Nordamerika (Q2 2026: 0.3 Mio. €). Steigt beides, kommt der Schub.</p><p style="margin:10px 0 0"><b>Das Chancen-Szenario:</b> Kein Fall wie Google 2023, sondern eine Familienfirma mit Erholungspotenzial: Erreicht Sixt die 10 % Marge und dreht Nordamerika, kann der Kurs Richtung Analystenziele (rund 94 bis 100 €) steigen, plus 4.4 % Dividende. Grösstes Risiko: Gebrauchtwagenpreise fallen wieder (wie 2024) oder die Kosten laufen davon, dann sinken Gewinn und Dividende.</p><p class="note" style="margin:10px 0 0">Quellen: <a href="https://about.sixt.com/wp-content/uploads/2026/08/Sixt-SE-Interim-Report-as-at-30-June-2026.pdf" target="_blank" rel="noopener">Sixt Halbjahresbericht 2026</a>, <a href="https://about.sixt.com/ir/sixt-achieves-record-year-2025-currency-adjusted-revenue-increased-by-around-9-to-eur-4-3-billion-profit-rises-by-almost-20/" target="_blank" rel="noopener">Sixt: Rekordjahr 2025</a>, <a href="https://www.boerse-express.com/news/articles/sixt-aktie-vertrauensbeweis-der-familie-887329" target="_blank" rel="noopener">Börse Express: Vertrauensbeweis der Familie (April 2026)</a></p></div>
+</section>
+
+<section>
+  <h2>Dividende</h2>
+  <div class="card tbl"><table><tr><td style="white-space:nowrap;color:var(--muted)">Wie oft</td><td>1× pro Jahr (jährlich)</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Ex-Tag im</td><td>Juni</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Geld auf dem Konto im</td><td>Juni</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Zahltage</td><td>Ende Juni, wenige Tage nach der Generalversammlung (2026: Ex-Tag 18. Juni, Zahltag 22. Juni)</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Letzte Zahlung</td><td>3.20 € pro Aktie</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Rendite</td><td>4.4 %</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">System</td><td>Deutsches System: eine Dividende pro Jahr, beschlossen an der Generalversammlung im Juni. Sixt zahlt 35 bis 60 % des Gewinns aus, 2025 rund 53 %. 2024 wurde die Dividende nach dem Gewinneinbruch gekürzt (2.70 €), 2025 wieder erhöht (3.20 €, +18.5 %). Die Vorzugsaktie SIX3 bekommt 2 Cent mehr (3.22 €).</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Form</td><td>Bar in Euro aufs Konto. Deutschland zieht 26.375 % Quellensteuer ab. 15 % kannst du über die Schweizer Steuererklärung anrechnen lassen (Formular DA-1), die restlichen 11.375 % musst du in Deutschland zurückfordern (Bundeszentralamt für Steuern). Bei 3.20 € Dividende kommen 2.36 € aufs Konto.</td></tr></table><p class="note" style="margin:10px 0 0"><b>Ex-Tag:</b> Du bekommst die Dividende nur, wenn du die Aktie am Abend vor dem Ex-Tag besitzt. <b>Zahltag:</b> An diesem Tag kommt das Geld aufs Konto (in der Währung der Aktie, abzüglich Quellensteuer). Die nächsten genauen Termine zeigt die App unter «Termine».</p></div>
+</section>
+
+<section>
+  <h2>Pro und Contra</h2>
+  <div class="two">
+    <div class="card pro"><h3>Spricht dafür</h3><ul class="clean" style="margin-top:8px">
+<li>Wachstum zieht wieder an, besonders in Europa (+14 % im 1. Halbjahr 2026).</li>
+<li>Gewinn vor Steuern steigt deutlich (+39 % im 1. Halbjahr 2026).</li>
+<li>Günstig: KGV 11, Dividende 4.4 % (Vorzugsaktie 5.6 %).</li>
+<li>Die Familie kaufte im März für 50 Mio. € nahe am Tief, alle Analysten auf Kaufen.</li>
+<li>Schulden durch die Autoflotte gedeckt, gutes Kreditrating (BBB).</li>
+    </ul></div>
+    <div class="card con"><h3>Spricht dagegen</h3><ul class="clean" style="margin-top:8px">
+<li>Nach deiner Cashflow-Strategie schwach: Free Cashflow fast null, keine Rückkäufe.</li>
+<li>Hohe Schulden (4.5 Mrd. €) und steigende Zinskosten (144 Mio. € 2025, 2021 nur 35 Mio. €).</li>
+<li>Nordamerika verdient kaum Geld, im 2. Quartal 2026 fast nichts.</li>
+<li>Margenziele 2024 und 2025 verfehlt, Flottenkosten +18 % im 1. Halbjahr 2026.</li>
+<li>A/D fällt deutlich: Grosse Anleger verkaufen in die Erholung.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section>
+  <h2>Was jetzt zu tun ist</h2>
+  <div class="zones">
+<div class="zone t"><b>Beobachten</b><span>Alarm bei 74 € (Trigger) und 69 € (oberes Ende Kaufzone 1). Vorzugsaktie SIX3 prüfen: gleiches Geschäft, rund 20 % günstiger, höhere Rendite.</span></div>
+<div class="zone s"><b>Timing grün</b><span>Tagesschluss über 74 € und Wochenschluss über 78 € mit drehender A/D. Fundamental: Am 12.11. muss die EBT-Marge im 3. Quartal nahe 19.5 % liegen und Nordamerika wieder Geld verdienen.</span></div>
+<div class="zone r"><b>Abbruch</b><span>Wochenschluss unter 65.80 €.</span></div>
+<div class="zone "><b>Nächste Zahlen</b><span>12. November 2026 (3. Quartal, bestätigt). Jahreszahlen voraussichtlich Anfang März 2027.</span></div>
+  </div>
+</section>
+
+<footer>
+  <span>Kursdaten und Indikatoren (EMA, RSI 14, A/D) selbst berechnet aus Yahoo-Finance-Tages-, Wochen- und Monatsdaten, Stand 16.10.2026. <a href="https://stockanalysis.com/quote/etr/SIX2/financials/" target="_blank" rel="noopener">StockAnalysis.com</a> (Stand 16.10.2026), <a href="https://about.sixt.com/wp-content/uploads/2026/08/Sixt-SE-Interim-Report-as-at-30-June-2026.pdf" target="_blank" rel="noopener">Sixt Halbjahresbericht 2026</a>, <a href="https://about.sixt.com/ir/sixt-achieves-record-year-2025-currency-adjusted-revenue-increased-by-around-9-to-eur-4-3-billion-profit-rises-by-almost-20/" target="_blank" rel="noopener">Sixt Jahreszahlen 2025</a>, <a href="https://www.onvista.de/news/2026/03-27-eqs-dd-sixt-se-meldung-und-oeffentliche-bekanntgabe-der-geschaefte-von-personen-die-fuehrungsaufgaben-wahrnehmen-sowie-in-enger-beziehung-zu-ihnen-stehenden-personen-0-37-26495105" target="_blank" rel="noopener">Directors' Dealings Familie Sixt</a>, <a href="https://www.finanzen.net/kursziele/sixt" target="_blank" rel="noopener">Kursziele (finanzen.net)</a>, <a href="https://www.cash.ch/news/top-news/quellensteuer-welche-europaischen-aktienmarkte-fur-schweizer-anleger-attraktiv-sind-704902" target="_blank" rel="noopener">cash.ch: Quellensteuer</a>.</span>
+  <span>Persönliche Analyse, keine Anlageberatung. Vergangene Kurse und Saisonalität sagen nichts Sicheres über die Zukunft.</span>
+</footer>
+</div>
+
+<script>
+const Q=[["Umsatztrend", "4 von 4 Quartalen über Vorjahr, Tempo steigt wieder (4.7 → 9.9 %)", 15, 15], ["Wachstumstempo", "+7.4 % in 12 Monaten, ohne Währungseffekte rund 11 %", 8, 10], ["Operative Marge", "EBT-Marge 9.8 % (3 Pkt.), seit 2021 stark gefallen (0 Pkt.)", 3, 15], ["Gewinnwachstum (EPS)", "3 Jahre rückläufig, aktuell rund +15 % erwartet", 5, 10], ["Free Cashflow", "Schwankt stark, in 3 von 5 Jahren negativ (Autokäufe)", 2, 10], ["ROIC", "7.5 % (2 Pkt.), fallend (−1)", 1, 15], ["Schulden", "Nettoschulden rund 5- bis 6-mal EBITDA, aber durch die Flotte gedeckt (BBB)", 2, 10], ["Bewertung vs. eigene Historie", "KGV 11.1 statt Ø 13.1 (2021–2025), rund 15 % günstiger", 10, 15]];
+const T=[["Trend Woche (EMA 50/200)", "Kurs über EMA 50, unter EMA 200: mögliche Wende", 8, 20], ["Trend Tag (EMA 50/200)", "Kurs über beiden, EMA 50 knapp unter 200", 7, 10], ["Struktur (SMC)", "Spanne 58–78 € mit höheren Tiefs, kleiner CHoCH am 16.10.", 10, 20], ["RSI Tag/Woche", "Tag 63, Woche 53, kein klares Signal", 7, 15], ["A/D Tag/Woche", "Beide fallen bei gleichem Kurs (Verteilung)", 2, 20], ["Smart Money", "Start 3, Familienkauf im März (älter als 6 Monate, +2), kein Rückkauf", 5, 10], ["Saisonalität", "Oktober 52 %, November 46 %, Dezember 54 % positive Jahre", 3, 5]];
+const FIN=[["2021", 2282, "+48.9 %", "20.6 %", 6.66, 44, "10.3 %", "19.7"], ["2022", 3066, "+34.4 %", "19.0 %", 8.21, -266, "10.4 %", "9.1"], ["2023", 3621, "+18.1 %", "16.6 %", 7.13, -151, "9.0 %", "12.5"], ["2024", 4002, "+10.5 %", "12.8 %", 5.19, 990, "7.3 %", "13.7"], ["2025", 4283, "+7.0 %", "14.6 %", 6.08, -174, "8.4 %", "10.6"], ["Letzte 12 Mt.", 4461, "+7.4 %", "14.6 %", 6.47, 36, "7.5 %", "11.1"]];
+const HALF=[["Q3 24", 1242.3], ["Q4 24", 971.9], ["Q1 25", 858.1], ["Q2 25", 1082.5], ["Q3 25", 1324.6], ["Q4 25", 1017.8], ["Q1 26", 928.9], ["Q2 26", 1189.3]];
+const MARGIN=[["2021", 19.4], ["2022", 17.9], ["2023", 12.8], ["2024", 8.4], ["2025", 9.4], ["12 Mt.", 9.8]];
+const SEAS=[0.8, 2.8, 1.6, 2.6, 3.7, -4.2, 0.7, -0.7, -3.4, 1.5, 0.8, 1.4];
+const SEASHIT=[52.0, 61.0, 54.0, 68.0, 71.0, 29.0, 43.0, 43.0, 43.0, 52.0, 46.0, 54.0];
+const MON=["Jan","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"];
+const W=`2024-10-21,74.7,77.41,93.39,57,-1557.4;2024-10-28,72.95,77.23,93.19,53,-1777.9;2024-11-04,74.15,77.11,93,55,-1610.4;2024-11-11,73.7,76.98,92.81,54,-1410.3;2024-11-18,71.05,76.74,92.59,49,-1462.6;2024-11-25,69.7,76.47,92.36,47,-1595.5;2024-12-02,72.3,76.3,92.16,52,-1441.7;2024-12-09,75.35,76.27,92,57,-1368.2;2024-12-16,76.85,76.29,91.85,59,-1227.5;2024-12-23,77.65,76.34,91.7,60,-1200.4;2024-12-30,78.9,76.44,91.58,62,-1142.7;2025-01-06,78.4,76.52,91.45,61,-1343.8;2025-01-13,81.75,76.72,91.35,66,-1219.9;2025-01-20,83.8,77,91.27,68,-1156.7;2025-01-27,78.5,77.06,91.15,56,-1336.4;2025-02-03,79.5,77.16,91.03,58,-1230.2;2025-02-10,78.85,77.22,90.91,57,-1358.7;2025-02-17,78.7,77.28,90.79,56,-1488.6;2025-02-24,85.5,77.6,90.74,66,-1167.3;2025-03-03,88.6,78.03,90.71,69,-1001.5;2025-03-10,80.95,78.15,90.62,55,-1222.3;2025-03-17,82.7,78.33,90.54,57,-1092.5;2025-03-24,80.85,78.43,90.44,54,-1197.5;2025-03-31,69.35,78.07,90.23,40,-1531.7;2025-04-07,73.6,77.9,90.07,46,-1283.3;2025-04-14,77.35,77.87,89.94,50,-1067;2025-04-21,82.95,78.07,89.87,56,-842.4;2025-04-28,86.45,78.4,89.84,59,-705;2025-05-05,84.55,78.64,89.78,57,-843;2025-05-12,81,78.73,89.7,52,-1033.9;2025-05-19,81.05,78.83,89.61,52,-1033.9;2025-05-26,83.6,79.01,89.55,55,-1028.8;2025-06-02,80.25,79.06,89.46,51,-1126.4;2025-06-09,76,78.94,89.32,46,-1247.2;2025-06-16,74.65,78.77,89.18,45,-1333.1;2025-06-23,79.6,78.81,89.08,51,-1143.1;2025-06-30,83.45,78.99,89.03,55,-1056.3;2025-07-07,93.8,79.57,89.07,64,-723.8;2025-07-14,97.5,80.27,89.16,66,-503.2;2025-07-21,97.15,80.93,89.24,66,-250.1;2025-07-28,87.65,81.2,89.22,55,-446;2025-08-04,92.6,81.64,89.26,59,-314.7;2025-08-11,87.65,81.88,89.24,53,-597.8;2025-08-18,88.9,82.15,89.24,55,-471;2025-08-25,84.55,82.25,89.19,50,-642.4;2025-09-01,83.9,82.31,89.14,50,-609.4;2025-09-08,85.8,82.45,89.1,52,-534.9;2025-09-15,86.25,82.6,89.08,52,-445.4;2025-09-22,83.65,82.64,89.02,49,-507.2;2025-09-29,81.55,82.6,88.95,47,-588.7;2025-10-06,76.8,82.37,88.83,42,-739.8;2025-10-13,73.95,82.04,88.68,39,-887;2025-10-20,77.1,81.85,88.56,44,-725.5;2025-10-27,76.2,81.63,88.44,43,-816.8;2025-11-03,74.1,81.33,88.3,40,-931.3;2025-11-10,71.85,80.96,88.13,38,-1129.2;2025-11-17,68.8,80.48,87.94,35,-1318.6;2025-11-24,70.25,80.08,87.77,38,-1280.5;2025-12-01,71.05,79.73,87.6,39,-1153.8;2025-12-08,70.35,79.36,87.43,38,-1156.7;2025-12-15,69.4,78.97,87.25,37,-1257;2025-12-22,69.95,78.61,87.08,38,-1162.1;2025-12-29,70.8,78.31,86.91,40,-1092.8;2026-01-05,72.9,78.1,86.77,44,-960.7;2026-01-12,67.85,77.69,86.59,38,-1318.6;2026-01-19,68.9,77.35,86.41,40,-1163;2026-01-26,66.25,76.91,86.21,36,-1394.1;2026-02-02,67.35,76.54,86.02,39,-1288.6;2026-02-09,65.05,76.09,85.81,36,-1485.6;2026-02-16,65.7,75.68,85.61,37,-1523;2026-02-23,65.8,75.29,85.42,37,-1455.3;2026-03-02,66.5,74.95,85.23,39,-1078.8;2026-03-09,62.85,74.47,85.01,34,-1277.8;2026-03-16,60.1,73.91,84.76,31,-1525.9;2026-03-23,64.2,73.53,84.55,40,-1235.5;2026-03-30,66.5,73.25,84.37,44,-1088.1;2026-04-06,72.1,73.21,84.25,53,-725.8;2026-04-13,76.35,73.33,84.17,59,-363.6;2026-04-20,70.65,73.23,84.04,50,-551.9;2026-04-27,67.95,73.02,83.88,47,-609.8;2026-05-04,70.15,72.91,83.74,50,-472;2026-05-11,71.05,72.83,83.61,51,-508.3;2026-05-18,72.25,72.81,83.5,53,-315.8;2026-05-25,76.5,72.96,83.43,58,-153.7;2026-06-01,71.05,72.88,83.31,50,-277.5;2026-06-08,74.55,72.95,83.22,55,-158.2;2026-06-15,73.15,72.95,83.12,53,-236.8;2026-06-22,66.15,72.69,82.95,44,-390.9;2026-06-29,66.25,72.44,82.79,44,-263.5;2026-07-06,71.4,72.39,82.67,51,-177.1;2026-07-13,70.45,72.32,82.55,50,-97.8;2026-07-20,69.7,72.22,82.42,49,-139.9;2026-07-27,71.45,72.19,82.31,51,-127.3;2026-08-03,71.15,72.15,82.2,51,-127.3;2026-08-10,73.15,72.18,82.11,54,-154.1;2026-08-17,73.2,72.22,82.02,54,-164;2026-08-24,73.35,72.27,81.94,54,-128.9;2026-08-31,72.15,72.26,81.84,52,-145.1;2026-09-07,68.6,72.12,81.71,46,-222.2;2026-09-14,66.85,71.91,81.56,43,-337.1;2026-09-21,69.2,71.81,81.44,47,-301.7;2026-09-28,69.05,71.7,81.31,47,-379.6;2026-10-05,70.2,71.64,81.2,49,-288.6;2026-10-16,72.25,71.66,81.12,53,-266.9`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+const DD=`2025-10-08,79.5,84.75,82.61,402.8;2025-10-09,79.15,84.53,82.58,358.1;2025-10-10,76.8,84.23,82.52,328.4;2025-10-13,77.2,83.95,82.46,351.1;2025-10-14,76.15,83.65,82.4,343.2;2025-10-15,75.45,83.33,82.33,304;2025-10-16,75.15,83,82.26,312;2025-10-17,73.95,82.65,82.18,300.5;2025-10-20,74.05,82.31,82.1,286.2;2025-10-21,74,81.99,82.02,291.6;2025-10-22,74.4,81.69,81.94,321;2025-10-23,75.65,81.45,81.88,325.2;2025-10-24,77.1,81.28,81.83,326.7;2025-10-27,75.7,81.06,81.77,293.1;2025-10-28,77.8,80.93,81.73,330.4;2025-10-29,75.45,80.72,81.67,278.8;2025-10-30,76.9,80.57,81.62,282.2;2025-10-31,76.2,80.4,81.57,273.7;2025-11-03,76.05,80.23,81.51,256;2025-11-04,74.65,80.01,81.44,252.4;2025-11-05,75.1,79.82,81.38,262.4;2025-11-06,74.35,79.6,81.31,235.3;2025-11-07,74.1,79.39,81.24,225.1;2025-11-10,74.25,79.19,81.17,221;2025-11-11,75.05,79.02,81.11,233.5;2025-11-12,76.25,78.91,81.06,252.3;2025-11-13,72.25,78.65,80.97,104.8;2025-11-14,71.85,78.39,80.88,151;2025-11-17,70.7,78.08,80.78,127.3;2025-11-18,68.75,77.72,80.66,90.7;2025-11-19,69.45,77.39,80.55,97.6;2025-11-20,69.2,77.07,80.44,69.6;2025-11-21,68.8,76.75,80.32,69.6;2025-11-24,69.45,76.46,80.21,37.1;2025-11-25,70.4,76.22,80.11,83;2025-11-26,69.85,75.97,80.01,49;2025-11-27,70.5,75.76,79.92,51;2025-11-28,70.25,75.54,79.82,44.8;2025-12-01,70.25,75.34,79.73,83.7;2025-12-02,68.95,75.09,79.62,54.7;2025-12-03,69.25,74.86,79.52,46.3;2025-12-04,70.5,74.69,79.43,45.3;2025-12-05,71.05,74.54,79.34,72;2025-12-08,70,74.37,79.25,49.4;2025-12-09,70.4,74.21,79.16,79.8;2025-12-10,69.4,74.02,79.06,58.4;2025-12-11,70.75,73.89,78.98,85.5;2025-12-12,70.35,73.75,78.9,60.7;2025-12-15,69.9,73.6,78.81,49.1;2025-12-16,69.95,73.46,78.72,38.9;2025-12-17,69.5,73.3,78.63,22.4;2025-12-18,69.9,73.17,78.54,50.2;2025-12-19,69.4,73.02,78.45,4.7;2025-12-22,69.3,72.88,78.36,12.7;2025-12-23,69.95,72.76,78.27,35.6;2025-12-29,70.1,72.66,78.19,35.6;2025-12-30,70.8,72.58,78.12,54.4;2026-01-02,70.8,72.51,78.05,87;2026-01-05,71.2,72.46,77.98,128.4;2026-01-06,71.5,72.43,77.91,145.1;2026-01-07,71.9,72.4,77.85,146.9;2026-01-08,72.45,72.41,77.8,165.2;2026-01-09,72.9,72.43,77.75,184.4;2026-01-12,72.7,72.44,77.7,189.5;2026-01-13,71.85,72.41,77.64,164;2026-01-14,67.65,72.23,77.54,-36.4;2026-01-15,69.2,72.11,77.46,20.2;2026-01-16,67.85,71.94,77.37,-11;2026-01-19,67.2,71.76,77.26,-17.4;2026-01-20,66.45,71.55,77.16,-46.5;2026-01-21,67.1,71.37,77.06,-36.1;2026-01-22,69.5,71.3,76.98,-5.9;2026-01-23,68.9,71.21,76.9,0.4;2026-01-26,68.85,71.11,76.82,2.7;2026-01-27,68.05,70.99,76.73,-27.7;2026-01-28,67.75,70.87,76.64,-44.1;2026-01-29,67.05,70.72,76.55,-75;2026-01-30,66.25,70.54,76.45,-111;2026-02-02,67.6,70.43,76.36,-58.1;2026-02-03,66.25,70.26,76.26,-69.7;2026-02-04,67.65,70.16,76.17,-31.8;2026-02-05,67.75,70.06,76.09,-19.6;2026-02-06,67.35,69.96,76,9.8;2026-02-09,67.6,69.87,75.92,3.6;2026-02-10,67.8,69.78,75.84,5.4;2026-02-11,66.25,69.65,75.74,-30.2;2026-02-12,65.6,69.49,75.64,-62.4;2026-02-13,65.05,69.31,75.53,-109.8;2026-02-16,65.05,69.15,75.43,-149.2;2026-02-17,67.15,69.07,75.35,-99.9;2026-02-18,67,68.99,75.27,-95;2026-02-19,65.9,68.87,75.17,-121.9;2026-02-20,65.7,68.74,75.08,-137.1;2026-02-23,64.85,68.59,74.98,-191.7;2026-02-24,64.45,68.43,74.87,-214.4;2026-02-25,64.75,68.28,74.77,-220.7;2026-02-26,65.75,68.18,74.68,-220.7;2026-02-27,65.8,68.09,74.59,-225.9;2026-03-02,63.3,67.9,74.48,-260.1;2026-03-03,60.7,67.62,74.34,-315.4;2026-03-04,64.45,67.5,74.24,-276.6;2026-03-05,67.25,67.49,74.17,-186.5;2026-03-06,66.5,67.45,74.1,-160.9;2026-03-09,64.6,67.34,74,-182.2;2026-03-10,66.2,67.29,73.93,-171.5;2026-03-11,64.85,67.2,73.84,-206;2026-03-12,64.6,67.09,73.74,-201;2026-03-13,62.85,66.93,73.64,-229.4;2026-03-16,62.2,66.74,73.52,-251.1;2026-03-17,62.1,66.56,73.41,-240.9;2026-03-18,62.2,66.39,73.3,-268.3;2026-03-19,61.35,66.19,73.18,-272.3;2026-03-20,60.1,65.95,73.05,-346.8;2026-03-23,60.9,65.75,72.93,-302.7;2026-03-24,61.65,65.59,72.81,-279.3;2026-03-25,63,65.49,72.72,-210.1;2026-03-26,62.8,65.39,72.62,-199.3;2026-03-27,64.2,65.34,72.53,-149.1;2026-03-30,64.6,65.31,72.46,-136.8;2026-03-31,64.25,65.27,72.37,-159.1;2026-04-01,65.35,65.27,72.3,-160.3;2026-04-02,66.5,65.32,72.25,-117.6;2026-04-07,66.35,65.36,72.19,-171.4;2026-04-08,70.65,65.57,72.17,-108.1;2026-04-09,69.9,65.74,72.15,-66.4;2026-04-10,72.1,65.99,72.15,24.1;2026-04-13,72.15,66.23,72.15,89.9;2026-04-14,73.7,66.52,72.16,101.6;2026-04-15,73.75,66.81,72.18,73.8;2026-04-16,75.15,67.13,72.21,105.3;2026-04-17,76.35,67.49,72.25,155.8;2026-04-20,75.75,67.82,72.29,178.5;2026-04-21,76.75,68.17,72.33,178.5;2026-04-22,76.65,68.5,72.37,189.6;2026-04-23,71.35,68.61,72.36,109.7;2026-04-24,70.65,68.69,72.35,158.1;2026-04-27,70.3,68.76,72.33,127.3;2026-04-28,69.2,68.77,72.29,113.8;2026-04-29,66.55,68.69,72.24,40.5;2026-04-30,67.95,68.66,72.19,88.6;2026-05-04,68.5,68.65,72.16,70.5;2026-05-05,67.65,68.61,72.11,19.8;2026-05-06,69.5,68.65,72.09,24.7;2026-05-07,69.7,68.69,72.06,17.4;2026-05-08,70.15,68.74,72.04,28.6;2026-05-11,69.75,68.78,72.02,54.1;2026-05-12,69,68.79,71.99,38.9;2026-05-13,71.3,68.89,71.98,21.9;2026-05-14,72.15,69.02,71.99,7.5;2026-05-15,71.05,69.1,71.98,29.6;2026-05-18,70.8,69.17,71.97,18.5;2026-05-19,70.8,69.23,71.95,40.9;2026-05-20,71.8,69.33,71.95,96;2026-05-21,71.2,69.4,71.94,72.3;2026-05-22,72.25,69.52,71.95,94.7;2026-05-25,73.35,69.67,71.96,80.6;2026-05-26,73.85,69.83,71.98,98.7;2026-05-27,74,69.99,72,58.9;2026-05-28,74.5,70.17,72.03,74.8;2026-05-29,76.5,70.42,72.07,96.9;2026-06-01,73.8,70.55,72.09,71.4;2026-06-02,73.1,70.65,72.1,64.6;2026-06-03,73.25,70.75,72.11,68.1;2026-06-04,72.7,70.83,72.11,55.4;2026-06-05,71.05,70.84,72.1,55.4;2026-06-08,73.25,70.93,72.12,84.5;2026-06-09,71.95,70.97,72.11,55.2;2026-06-10,73.15,71.06,72.12,65.5;2026-06-11,72.4,71.11,72.13,50.3;2026-06-12,74.55,71.25,72.15,62;2026-06-15,74.9,71.39,72.18,64;2026-06-16,74.35,71.5,72.2,54.1;2026-06-17,75.6,71.67,72.23,89.1;2026-06-18,73.25,71.73,72.24,157.9;2026-06-19,73.15,71.78,72.25,159.7;2026-06-22,71.2,71.76,72.24,140.5;2026-06-23,70.55,71.71,72.23,150.2;2026-06-24,66.85,71.52,72.17,88.5;2026-06-25,67.55,71.37,72.13,92.3;2026-06-26,66.15,71.16,72.07,93;2026-06-29,65,70.92,72,69.4;2026-06-30,63.7,70.64,71.91,35.2;2026-07-01,64.95,70.41,71.84,65.7;2026-07-02,65.3,70.21,71.78,74.3;2026-07-03,66.25,70.06,71.72,82.1;2026-07-06,68.6,70,71.69,110.1;2026-07-07,68.15,69.93,71.66,91.6;2026-07-08,66.9,69.81,71.61,91.6;2026-07-09,67.95,69.74,71.57,111.6;2026-07-10,71.4,69.8,71.57,124;2026-07-13,69.8,69.8,71.55,100.7;2026-07-14,68.85,69.76,71.53,99.4;2026-07-15,70.2,69.78,71.51,119.4;2026-07-16,70.5,69.81,71.5,129.6;2026-07-17,70.45,69.83,71.49,132.7;2026-07-20,70.95,69.88,71.49,129;2026-07-21,70.5,69.9,71.48,133.8;2026-07-22,71.4,69.96,71.48,154.9;2026-07-23,69.05,69.93,71.45,117.8;2026-07-24,69.7,69.92,71.44,129.9;2026-07-27,69.45,69.9,71.42,107.7;2026-07-28,71.75,69.97,71.42,132.4;2026-07-29,71.3,70.02,71.42,100.2;2026-07-30,71.65,70.09,71.42,83.8;2026-07-31,71.45,70.14,71.42,63;2026-08-03,71.1,70.18,71.42,43.3;2026-08-04,70.65,70.2,71.41,53.2;2026-08-05,70.05,70.19,71.4,39.2;2026-08-06,70,70.18,71.38,23.5;2026-08-07,71.15,70.22,71.38,31.4;2026-08-10,70.6,70.24,71.37,27.6;2026-08-11,71.15,70.27,71.37,33.1;2026-08-12,71.95,70.34,71.38,42;2026-08-13,74.15,70.49,71.4,-18.2;2026-08-14,73.15,70.59,71.42,-31.2;2026-08-17,71.4,70.62,71.42,-58;2026-08-18,71.75,70.67,71.42,-113.6;2026-08-19,71.45,70.7,71.42,-130.9;2026-08-20,71.9,70.75,71.43,-131.4;2026-08-21,73.2,70.84,71.45,-125.7;2026-08-24,73,70.93,71.46,-136.2;2026-08-25,72.6,70.99,71.47,-154.4;2026-08-26,72.5,71.05,71.48,-166.4;2026-08-27,72.9,71.12,71.5,-160.3;2026-08-28,73.35,71.21,71.52,-157.5;2026-08-31,73.15,71.29,71.53,-169.2;2026-09-01,72,71.31,71.54,-190.8;2026-09-02,71.75,71.33,71.54,-186.3;2026-09-03,71.25,71.33,71.54,-195.6;2026-09-04,72.15,71.36,71.54,-176.8;2026-09-07,71.85,71.38,71.55,-180.6;2026-09-08,71.15,71.37,71.54,-182.3;2026-09-09,68.25,71.25,71.51,-212.8;2026-09-10,68.3,71.13,71.48,-228;2026-09-11,68.6,71.03,71.45,-218.6;2026-09-14,68.8,70.95,71.42,-218.6;2026-09-15,69,70.87,71.4,-204.8;2026-09-16,67.85,70.75,71.36,-235.2;2026-09-17,68.25,70.65,71.33,-248.9;2026-09-18,66.85,70.5,71.29,-273.1;2026-09-21,69.25,70.46,71.27,-242.3;2026-09-22,68.8,70.39,71.24,-271.8;2026-09-23,68.5,70.32,71.22,-290;2026-09-24,69,70.26,71.19,-290;2026-09-25,69.2,70.22,71.17,-299.7;2026-09-28,69,70.17,71.15,-325.4;2026-09-29,69.55,70.15,71.14,-322.6;2026-09-30,69.2,70.11,71.12,-357.5;2026-10-01,69.75,70.1,71.1,-354.5;2026-10-02,69.05,70.06,71.08,-375.2;2026-10-05,68.6,70,71.06,-394.1;2026-10-06,69.5,69.98,71.04,-388.7;2026-10-07,69.4,69.96,71.03,-393.4;2026-10-08,69,69.92,71.01,-406.1;2026-10-09,70.2,69.93,71,-397.6;2026-10-12,69.6,69.92,70.98,-407.6;2026-10-13,69.95,69.92,70.97,-390.5;2026-10-14,69.75,69.91,70.96,-431.9;2026-10-15,71.25,69.97,70.96,-332.7;2026-10-16,72.25,70.06,70.98,-311`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+
+const fmtN=(v,d=2)=>v.toLocaleString("de-CH",{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmtD=s=>{const [y,m,d]=s.split("-");return d+"."+m+"."+y.slice(2)};
+const NS="http://www.w3.org/2000/svg";
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+
+function scoreTable(id,rows){
+  let tot=0,max=0;
+  const html='<thead><tr><th>Kriterium</th><th>Stand</th><th class="num">Punkte</th><th style="width:22%"></th></tr></thead><tbody>'+rows.map(r=>{tot+=r[2];max+=r[3];const p=r[2]/r[3];const c=p>=.75?"var(--good)":p>=.45?"var(--warn)":"var(--bad)";
+    return `<tr><td>${r[0]}</td><td class="muted">${r[1]}</td><td class="num">${r[2]} / ${r[3]}</td><td><div class="bar"><i style="width:${p*100}%;background:${c}"></i></div></td></tr>`}).join("")+`<tr class="total"><td>Total</td><td></td><td class="num">${tot} / ${max}</td><td></td></tr></tbody>`;
+  document.getElementById(id).innerHTML=html;return tot;
+}
+const qs=scoreTable("q-tbl",Q), ts=scoreTable("t-tbl",T);
+document.getElementById("q-val").textContent=qs;document.getElementById("t-val").textContent=ts;
+document.getElementById("q-pin").style.left=qs+"%";document.getElementById("t-pin").style.left=ts+"%";
+
+document.getElementById("fin-rows").innerHTML=FIN.map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1].toLocaleString("de-CH")}</td><td class="num">${r[2]}</td><td class="num">${r[3]}</td><td class="num">${fmtN(r[4])}</td><td class="num">${r[5].toLocaleString("de-CH")}</td><td class="num">${r[6]}</td><td class="num">${r[7]}</td></tr>`).join("");
+
+/* generic line chart */
+function lineChart(host,{dates,series,bands=[],yFmt=v=>fmtN(v),h=300,zero=false,refs=[],pad}){
+  const W_=800,H=h,m={t:12,r:56,b:28,l:8};
+  const all=series.flatMap(s=>s.values).concat(bands.flatMap(b=>[b.from,b.to])).concat(refs.map(r=>r.v));
+  if(zero)all.push(0);
+  let lo=Math.min(...all),hi=Math.max(...all);const sp=(hi-lo)||1;lo-=sp*.06;hi+=sp*.06;
+  if(pad){lo=pad[0];hi=pad[1]}
+  const n=dates.length,x=i=>m.l+i*(W_-m.l-m.r)/(n-1),y=v=>m.t+(hi-v)*(H-m.t-m.b)/(hi-lo);
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  // grid
+  const steps=5;for(let k=0;k<=steps;k++){const v=lo+(hi-lo)*k/steps;el("line",{x1:m.l,x2:W_-m.r,y1:y(v),y2:y(v),stroke:"var(--grid)","stroke-width":1},svg);
+    const t=el("text",{x:W_-m.r+6,y:y(v)+4,"font-size":11,fill:"var(--muted)","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=yFmt(v)}
+  bands.forEach(b=>{el("rect",{x:m.l,width:W_-m.l-m.r,y:y(Math.max(b.from,b.to)),height:Math.abs(y(b.from)-y(b.to)),fill:b.type==="res"?"var(--zone-res)":"var(--zone-sup)"},svg)});
+  refs.forEach(r=>{el("line",{x1:m.l,x2:W_-m.r,y1:y(r.v),y2:y(r.v),stroke:"var(--muted)","stroke-dasharray":"4 4","stroke-width":1},svg);
+    const t=el("text",{x:m.l+4,y:y(r.v)-4,"font-size":11,fill:"var(--muted)"},svg);t.textContent=r.label});
+  if(zero)el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  // x labels
+  const every=Math.ceil(n/6);for(let i=0;i<n;i+=every){const t=el("text",{x:x(i),y:H-8,"font-size":11,fill:"var(--muted)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);const d=dates[i];t.textContent=d.slice(5,7)+"/"+d.slice(2,4)}
+  series.forEach(s=>{const dpath=s.values.map((v,i)=>(i?"L":"M")+x(i).toFixed(1)+","+y(v).toFixed(1)).join("");
+    el("path",{d:dpath,fill:"none",stroke:s.color,"stroke-width":s.w||2,"stroke-linejoin":"round","stroke-linecap":"round"},svg);
+    const lv=s.values[n-1];el("circle",{cx:x(n-1),cy:y(lv),r:3.5,fill:s.color,stroke:"var(--surface)","stroke-width":2},svg)});
+  // hover
+  const cross=el("line",{y1:m.t,y2:H-m.b,stroke:"var(--muted)","stroke-width":1,opacity:0},svg);
+  const ov=el("rect",{x:m.l,y:m.t,width:W_-m.l-m.r,height:H-m.t-m.b,fill:"transparent"},svg);
+  host.appendChild(svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;host.appendChild(tip);
+  function move(ev){const r=svg.getBoundingClientRect();const px=(ev.clientX-r.left)*W_/r.width;let i=Math.round((px-m.l)/((W_-m.l-m.r)/(n-1)));i=Math.max(0,Math.min(n-1,i));
+    cross.setAttribute("x1",x(i));cross.setAttribute("x2",x(i));cross.setAttribute("opacity",1);
+    tip.innerHTML=`<div class="d">${fmtD(dates[i])}</div>`+series.map(s=>`<div><i class="sw" style="background:${s.color}"></i> ${s.name}: <b>${yFmt(s.values[i])}</b></div>`).join("");
+    tip.hidden=false;const hx=x(i)*r.width/W_;tip.style.left=Math.min(Math.max(0,hx+12),r.width-tip.offsetWidth)+"px";tip.style.top="8px"}
+  ov.addEventListener("pointermove",move);ov.addEventListener("pointerleave",()=>{tip.hidden=true;cross.setAttribute("opacity",0)});
+}
+function barChart(host,{labels,values,fmt,h=220,color,neg,tipExtra}){
+  const W_=800,H=h,m={t:18,r:8,b:28,l:8};
+  const hi=Math.max(0,...values),lo=Math.min(0,...values);const lo2=lo<0?lo*1.15:lo,hi2=hi*1.15||1;
+  const y=v=>m.t+(hi2-v)*(H-m.t-m.b)/(hi2-lo2);const n=values.length,bw=(W_-m.l-m.r)/n;
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;
+  values.forEach((v,i)=>{const x0=m.l+i*bw+bw*.18,w=bw*.64,y0=y(Math.max(v,0)),hh=Math.max(1,Math.abs(y(v)-y(0)));
+    const r=el("rect",{x:x0,y:y0,width:w,height:hh,rx:4,fill:v<0?(neg||"var(--s2)"):(color||"var(--s1)")},svg);
+    const t=el("text",{x:x0+w/2,y:v<0?y(v)+13:y0-5,"font-size":11.5,fill:"var(--ink)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=fmt(v);
+    const l=el("text",{x:x0+w/2,y:H-8,"font-size":11.5,fill:"var(--muted)","text-anchor":"middle"},svg);l.textContent=labels[i];
+    const hit=el("rect",{x:m.l+i*bw,y:m.t,width:bw,height:H-m.t-m.b,fill:"transparent"},svg);
+    hit.addEventListener("pointerenter",()=>{tip.innerHTML=`<div class="d">${labels[i]}</div><b>${fmt(v)}</b>${tipExtra?tipExtra(i):""}`;tip.hidden=false;const R=svg.getBoundingClientRect();tip.style.left=Math.min((m.l+i*bw)*R.width/W_,R.width-tip.offsetWidth)+"px";tip.style.top="0px"});
+    hit.addEventListener("pointerleave",()=>tip.hidden=true)});
+  host.appendChild(svg);host.appendChild(tip);
+}
+barChart(document.getElementById("c-rev"),{labels:HALF.map(r=>r[0]),values:HALF.map(r=>r[1]),fmt:v=>fmtN(v,0),h:200});
+barChart(document.getElementById("c-margin"),{labels:MARGIN.map(r=>r[0]),values:MARGIN.map(r=>r[1]),fmt:v=>fmtN(v,1)+" %",h:200});
+barChart(document.getElementById("c-seas"),{labels:MON,values:SEAS,fmt:v=>(v>0?"+":"")+fmtN(v,1),h:220,tipExtra:i=>`<div>${SEASHIT[i]} % der Jahre positiv</div>`});
+const BANDS=[{"from": 80, "to": 82, "type": "res"}, {"from": 76.8, "to": 78, "type": "res"}, {"from": 66, "to": 69, "type": "sup"}, {"from": 58, "to": 63, "type": "sup"}], REFS=[{"v": 74, "label": "Trigger 74"}];
+const wd=W.map(r=>r[0]);
+lineChart(document.getElementById("c-week"),{dates:wd,series:[{name:"Kurs",values:W.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:W.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:W.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,yFmt:v=>fmtN(v,0),h:320});
+lineChart(document.getElementById("c-adw"),{dates:wd,series:[{name:"A/D Woche",values:W.map(r=>r[5]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,zero:true});
+lineChart(document.getElementById("c-rsiw"),{dates:wd,series:[{name:"RSI Woche",values:W.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,refs:[{v:70,label:"70 überkauft"},{v:30,label:"30 überverkauft"}],pad:[10,90]});
+const dd=DD.map(r=>r[0]);
+lineChart(document.getElementById("c-day"),{dates:dd,series:[{name:"Kurs",values:DD.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:DD.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:DD.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,refs:REFS,yFmt:v=>fmtN(v,0),h:260});
+lineChart(document.getElementById("c-add"),{dates:dd,series:[{name:"A/D Tag",values:DD.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:260,zero:true});
+</script>

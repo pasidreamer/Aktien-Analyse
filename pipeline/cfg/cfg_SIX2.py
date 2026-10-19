@@ -1,0 +1,103 @@
+import json, os, sys
+P = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); sys.path.insert(0, P)
+from helpers import L, ADW, RSIW, SEAS
+ADWT = ADW.replace("Werte in Mio. Aktien.", "Werte in Tausend Aktien.")
+c = {
+"ticker": "SIX2", "name": "Sixt", "datum": "16.10.2026", "waehrung": "EUR", "land": "Deutschland",
+"meta": "Sixt SE · Xetra: SIX2 (Stammaktie), auch SIX3 (Vorzugsaktie) · Autovermietung, Leasing, Carsharing · Pullach, Deutschland",
+"price": "72.25 €",
+"pricemeta": "Schluss 16.10.2026 · 52 Wochen: 57.70 – 77.80 € · Allzeithoch 170.30 € am 8.11.2021 · Vorzugsaktie SIX3: 57.60 €",
+"verdict": "Sixt wächst wieder (Umsatz +7 %, ohne Währungseffekte +11 %), und der Gewinn vor Steuern steigt deutlich (12 Monate: 436 Mio. €, +30 % zu 2024). Mit einem KGV von 11 und 4.4 % Dividende ist die Aktie günstig. Nach deiner Cashflow-Strategie fällt Sixt aber durch: Der Free Cashflow ist fast null (36 Mio. € in 12 Monaten), weil der Kauf neuer Mietautos direkt vom Cashflow abgeht. Die Nettoschulden liegen bei 4.5 Mrd. €, gedeckt durch Autos im Wert von 5.9 Mrd. €. Qualität gelb (46), Timing orange (42). Die Familie Sixt kaufte im März für 50 Mio. € Vorzugsaktien.",
+"about": "Sixt vermietet Autos an über 2'300 Standorten in mehr als 100 Ländern, mit Schwerpunkt auf Premiumautos (BMW, Mercedes, Audi). Das Geschäft hat drei Regionen: Deutschland (rund 27 % des Umsatzes), übriges Europa (rund 41 %) und Nordamerika (rund 32 %). Sixt kauft jedes Jahr Autos für über 9 Mrd. € und verkauft sie nach wenigen Monaten wieder. Der Gewinn hängt darum stark davon ab, zu welchem Preis die Gebrauchtwagen verkauft werden. Die Familie Sixt hält 58 % der Stimmrechte, die Söhne Alexander und Konstantin Sixt führen die Firma. Es gibt zwei Aktien: die Stammaktie (SIX2, mit Stimmrecht) und die günstigere Vorzugsaktie (SIX3, ohne Stimmrecht, 2 Cent mehr Dividende).",
+"why": "Die Aktie fiel vom Allzeithoch 170.30 € (November 2021) in mehreren Wellen. 2024 verlor Sixt viel Geld mit Elektroautos, deren Gebrauchtpreise einbrachen. Der Gewinn sank, die Prognose wurde zweimal gesenkt, die Dividende gekürzt. Im Juli 2025 stand die Aktie wieder bei fast 99 €. Danach fiel sie bis auf 57.70 € im März 2026 (−40 %): Die Gewinne in Nordamerika blieben schwach, Sixt verfehlte 2025 das eigene Margenziel knapp (9.4 % statt 10 %), und die Börse sorgte sich um die Ausgabelaune der Kunden. Am 24. März kaufte die Familie Sixt für 50 Mio. € Vorzugsaktien zu 50 €. Seither erholt sich die Aktie: Die Zahlen zum 1. und 2. Quartal 2026 waren besser als erwartet (Gewinn vor Steuern im Halbjahr +39 %). Seit August stehen alle 6 Analysten auf Kaufen. Schwachpunkt: In Nordamerika verdiente Sixt im 2. Quartal fast nichts (0.3 statt 21.9 Mio. €).",
+"kpis": [
+ ["g","Umsatzwachstum","+7.4 %","Letzte 12 Monate. Ohne Währungseffekte im 1. Halbjahr 2026 +11.3 %. 20 Rekordquartale in Folge beim Umsatz."],
+ ["w","EBT-Marge","9.8 %","Gewinn vor Steuern pro 100 € Umsatz, die wichtigste Kennzahl von Sixt. 2021 waren es 19.4 %, 2024 nur 8.4 %. Ziel für 2026: rund 10 %. Mittel."],
+ ["w","Gewinn pro Aktie (EPS)","6.47 €","Letzte 12 Monate. 2024: 5.19 €, 2022: 8.21 €. Analysten erwarten für 2026 rund 7.40 €."],
+ ["r","ROIC","7.5 %","Auf 100 € investiertes Kapital nur rund 7.50 € Gewinn. Schwach, weil die Autoflotte sehr viel Kapital bindet. 2022 waren es 10.4 %."],
+ ["r","Free Cashflow","36 Mio. €","Letzte 12 Monate, also fast null. Schwankt zwischen −266 und +990 Mio. €, je nachdem wie viele Autos Sixt kauft. Vor dem Autokauf blieben im 1. Halbjahr 2026 500 Mio. € (+62 %)."],
+ ["w","Nettoschulden","4.48 Mrd. €","Rund 6-mal der Betriebsgewinn vor Abschreibungen. Hoch, aber gedeckt durch Mietautos im Wert von 5.92 Mrd. € (1.3-fach). Kreditrating BBB (solide)."],
+ ["g","KGV","11.1","Du zahlst 11 Jahresgewinne. Eigener Schnitt 2021–2025: rund 13.1. Also rund 15 % günstiger als üblich. Die Vorzugsaktie SIX3 kostet sogar nur rund 9 Jahresgewinne."],
+ ["g","Dividende","4.4 %","3.20 € pro Stammaktie, einmal im Jahr (bezahlt am 22.6.2026), +18.5 %. Vorzugsaktie: 3.22 €, das sind bei 57.60 € sogar 5.6 %."]
+],
+"revtitle": "Umsatz pro Quartal (Mio. €)", "revunit": "Mio. €", "epsunit": "€",
+"revnote": "Alle 8 Quartale über dem Vorjahr, zuletzt mit wieder steigendem Tempo (+4.7 % → +8.2 % → +9.9 %). Der Sommer (3. Quartal) ist immer das stärkste Quartal.",
+"marginnote": "Gewinn vor Steuern pro 100 € Umsatz (EBT-Marge, die Kennzahl von Sixt). Von 19.4 % (2021) auf 8.4 % (2024) gefallen, seither leichte Erholung.",
+"finnote": "<b>Hinweis:</b> Bei Sixt läuft der Kauf der Mietautos über den operativen Cashflow. Darum ist der Free Cashflow in Wachstumsjahren negativ und in Jahren mit kleiner Flotte stark positiv (2024: +990 Mio. €). Er sagt bei Sixt wenig über die Ertragskraft. Operative Marge in der Tabelle nach StockAnalysis, die Grafik zeigt die EBT-Marge laut Sixt.",
+"FIN": [["2021",2282,"+48.9 %","20.6 %",6.66,44,"10.3 %","19.7"],["2022",3066,"+34.4 %","19.0 %",8.21,-266,"10.4 %","9.1"],["2023",3621,"+18.1 %","16.6 %",7.13,-151,"9.0 %","12.5"],["2024",4002,"+10.5 %","12.8 %",5.19,990,"7.3 %","13.7"],["2025",4283,"+7.0 %","14.6 %",6.08,-174,"8.4 %","10.6"],["Letzte 12 Mt.",4461,"+7.4 %","14.6 %",6.47,36,"7.5 %","11.1"]],
+"QREV": [["Q3 24",1242.3],["Q4 24",971.9],["Q1 25",858.1],["Q2 25",1082.5],["Q3 25",1324.6],["Q4 25",1017.8],["Q1 26",928.9],["Q2 26",1189.3]],
+"revdec": 0,
+"MARGIN": [["2021",19.4],["2022",17.9],["2023",12.8],["2024",8.4],["2025",9.4],["12 Mt.",9.8]],
+"Q": [
+ ["Umsatztrend","4 von 4 Quartalen über Vorjahr, Tempo steigt wieder (4.7 → 9.9 %)",15,15],
+ ["Wachstumstempo","+7.4 % in 12 Monaten, ohne Währungseffekte rund 11 %",8,10],
+ ["Operative Marge","EBT-Marge 9.8 % (3 Pkt.), seit 2021 stark gefallen (0 Pkt.)",3,15],
+ ["Gewinnwachstum (EPS)","3 Jahre rückläufig, aktuell rund +15 % erwartet",5,10],
+ ["Free Cashflow","Schwankt stark, in 3 von 5 Jahren negativ (Autokäufe)",2,10],
+ ["ROIC","7.5 % (2 Pkt.), fallend (−1)",1,15],
+ ["Schulden","Nettoschulden rund 5- bis 6-mal EBITDA, aber durch die Flotte gedeckt (BBB)",2,10],
+ ["Bewertung vs. eigene Historie","KGV 11.1 statt Ø 13.1 (2021–2025), rund 15 % günstiger",10,15]
+],
+"adwnote": ADWT + "Negativ: Im August stand die Wochen-A/D bei rund −127 bis −164 (Kurs um 73 €), heute bei −267 bei 72 €. Bei gleichem Kurs wird mehr verkauft. Achtung: Die Aktie wird wenig gehandelt (rund 35'000 Stück pro Tag), die A/D ist darum weniger zuverlässig.",
+"rsiwnote": RSIW + "Im März bei 31 (fast überverkauft), seither zwischen 43 und 59, heute 53: neutral.",
+"addnote": "Deutliche Warnung: Die Tages-A/D fällt seit Juli stark (von +130 auf −311), obwohl der Kurs etwa gleich hoch steht. Grosse Anleger verkaufen eher in die Stärke hinein (Verteilung).",
+"ind": [
+ ["Kurs vs. EMA 50","72.3 &gt; 70.1","72.3 &gt; 71.7","Knapp über der mittelfristigen Linie, auf beiden Zeitebenen."],
+ ["Kurs vs. EMA 200","72.3 &gt; 71.0","72.3 &lt; 81.1","Tag knapp darüber, Woche darunter."],
+ ["EMA 50 vs. EMA 200","50 unter 200 (seit 21.10.2025), fast gleich hoch","50 unter 200 (seit Oktober 2023)","Tag kurz vor einem goldenen Kreuz, Woche noch abwärts."],
+ ["RSI (14)","63.3","53.2","Tag stark, Woche neutral."],
+ ["A/D","fällt seit Juli stark","fällt seit August","Auf beiden Zeitebenen negativ."],
+ ["Volumen","Ø 20 Tage 39'600 vs. Ø 100 Tage 33'700 Aktien","Etwas mehr Handel als üblich."]
+],
+"smc": "Sixt läuft seit Herbst 2025 in einer breiten Spanne zwischen rund 58 und 78 €. Das Tief lag am 23.3.2026 bei 57.70 €. Seither gibt es höhere Tiefs: 65.85 € (April), 62.65 € (Juli), 66.25 € (September), 68.30 € (Oktober). Die Hochs liegen fast gleich bei 77.60 € (April), 77.20 € (Mai) und 76.80 € (August), seit September aber tiefer (72.25 → 70.85 €). Am 16.10. schloss der Kurs mit 72.25 € über dem Hoch vom 1.10. (70.85 €): ein kleiner Change of Character im Tageschart. Ein echter Ausbruch wäre erst ein Wochenschluss über 78 €. Darüber liegt die Wochen-EMA 200 bei 81 €.",
+"zones": [
+ ["r","80–82 €","Widerstand: Wochen-EMA 200 (81.10 €)."],
+ ["r","76.80–78 €","Widerstand: Obergrenze der Spanne (Hochs April, Mai, August)."],
+ ["t","74 €","<b>Trigger:</b> Tagesschluss über 74 € (Hochs Juli und August um 73.15 bis 73.75 €), besser mit drehender A/D. Ausbruch erst über 78 €."],
+ ["s","66–69 €","<b>Kaufzone 1:</b> Tiefs von September und Oktober (66.25 bis 69 €)."],
+ ["s","58–63 €","<b>Kaufzone 2:</b> Tiefs von März und Juli (57.70 / 62.65 €)."],
+ ["r","65.80 €","Abbruch: Wochenschluss unter dem Tief vom April. Dann ist die Reihe höherer Tiefs gebrochen."]
+],
+"smart": [
+ "<b>Familie Sixt:</b> Erich Sixt Vermögensverwaltung kaufte am 24.3.2026 Vorzugsaktien für 50 Mio. € zu 50 € (1 Mio. Stück), fast am Tief. Ein starkes Signal. Die Familie hält 58.3 % der Stammaktien.",
+ "<b>Weitere Insider:</b> Finanzchef Weinberger kaufte am 17.8.2026 symbolisch 40 Vorzugsaktien zu 61 €. Keine Verkäufe gefunden.",
+ "<b>Rückkäufe:</b> Keine. Sixt dürfte bis 10 % der Aktien zurückkaufen, nutzt das aber nicht. Die Aktienzahl ist seit Jahren gleich (46.94 Mio.).",
+ "<b>Analysten:</b> Alle 6 auf Kaufen (Berenberg stufte am 18.8. hoch). Kursziele 88 bis 125 €, im Schnitt rund 94 bis 100 € (+30 bis +38 %). Zuletzt: UBS 88 € (9.10.), Deutsche Bank 89 € (5.10.)."
+],
+"seasnote": SEAS + "28 Jahre Daten (seit 1998). Mai (+3.7 %, 71 %) und April (+2.6 %, 68 %) sind stark, Juni (−4.2 %, 29 %) und September (−3.4 %, 43 %) schwach. Oktober bis Dezember gemischt (46 bis 54 % positive Jahre).",
+"T": [
+ ["Trend Woche (EMA 50/200)","Kurs über EMA 50, unter EMA 200: mögliche Wende",8,20],
+ ["Trend Tag (EMA 50/200)","Kurs über beiden, EMA 50 knapp unter 200",7,10],
+ ["Struktur (SMC)","Spanne 58–78 € mit höheren Tiefs, kleiner CHoCH am 16.10.",10,20],
+ ["RSI Tag/Woche","Tag 63, Woche 53, kein klares Signal",7,15],
+ ["A/D Tag/Woche","Beide fallen bei gleichem Kurs (Verteilung)",2,20],
+ ["Smart Money","Start 3, Familienkauf im März (älter als 6 Monate, +2), kein Rückkauf",5,10],
+ ["Saisonalität","Oktober 52 %, November 46 %, Dezember 54 % positive Jahre",3,5]
+],
+"pro": [
+ "Wachstum zieht wieder an, besonders in Europa (+14 % im 1. Halbjahr 2026).",
+ "Gewinn vor Steuern steigt deutlich (+39 % im 1. Halbjahr 2026).",
+ "Günstig: KGV 11, Dividende 4.4 % (Vorzugsaktie 5.6 %).",
+ "Die Familie kaufte im März für 50 Mio. € nahe am Tief, alle Analysten auf Kaufen.",
+ "Schulden durch die Autoflotte gedeckt, gutes Kreditrating (BBB)."
+],
+"con": [
+ "Nach deiner Cashflow-Strategie schwach: Free Cashflow fast null, keine Rückkäufe.",
+ "Hohe Schulden (4.5 Mrd. €) und steigende Zinskosten (144 Mio. € 2025, 2021 nur 35 Mio. €).",
+ "Nordamerika verdient kaum Geld, im 2. Quartal 2026 fast nichts.",
+ "Margenziele 2024 und 2025 verfehlt, Flottenkosten +18 % im 1. Halbjahr 2026.",
+ "A/D fällt deutlich: Grosse Anleger verkaufen in die Erholung."
+],
+"todo": [
+ ["t","Beobachten","Alarm bei 74 € (Trigger) und 69 € (oberes Ende Kaufzone 1). Vorzugsaktie SIX3 prüfen: gleiches Geschäft, rund 20 % günstiger, höhere Rendite."],
+ ["s","Timing grün","Tagesschluss über 74 € und Wochenschluss über 78 € mit drehender A/D. Fundamental: Am 12.11. muss die EBT-Marge im 3. Quartal nahe 19.5 % liegen und Nordamerika wieder Geld verdienen."],
+ ["r","Abbruch","Wochenschluss unter 65.80 €."],
+ ["","Nächste Zahlen","12. November 2026 (3. Quartal, bestätigt). Jahreszahlen voraussichtlich Anfang März 2027."]
+],
+"bands": [{"from":80,"to":82,"type":"res"},{"from":76.8,"to":78,"type":"res"},{"from":66,"to":69,"type":"sup"},{"from":58,"to":63,"type":"sup"}],
+"refs": [{"v":74,"label":"Trigger 74"}],
+"sources": L("https://stockanalysis.com/quote/etr/SIX2/financials/","StockAnalysis.com") + " (Stand 16.10.2026), " + L("https://about.sixt.com/wp-content/uploads/2026/08/Sixt-SE-Interim-Report-as-at-30-June-2026.pdf","Sixt Halbjahresbericht 2026") + ", " + L("https://about.sixt.com/ir/sixt-achieves-record-year-2025-currency-adjusted-revenue-increased-by-around-9-to-eur-4-3-billion-profit-rises-by-almost-20/","Sixt Jahreszahlen 2025") + ", " + L("https://www.onvista.de/news/2026/03-27-eqs-dd-sixt-se-meldung-und-oeffentliche-bekanntgabe-der-geschaefte-von-personen-die-fuehrungsaufgaben-wahrnehmen-sowie-in-enger-beziehung-zu-ihnen-stehenden-personen-0-37-26495105","Directors' Dealings Familie Sixt") + ", " + L("https://www.finanzen.net/kursziele/sixt","Kursziele (finanzen.net)") + ", " + L("https://www.cash.ch/news/top-news/quellensteuer-welche-europaischen-aktienmarkte-fur-schweizer-anleger-attraktiv-sind-704902","cash.ch: Quellensteuer") + "."
+}
+if __name__ == "__main__":
+    json.dump(c, open(os.path.join(P, "config", "SIX2.json"), "w"), ensure_ascii=False, indent=1)
+    print("ok", sum(r[2] for r in c["Q"]), sum(r[2] for r in c["T"]))

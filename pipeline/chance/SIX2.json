@@ -1,0 +1,54 @@
+{
+ "ticker": "SIX2",
+ "sorgen": [
+  "Nordamerika verdient kaum Geld: Im 2. Quartal 2026 nur 0.3 Mio. € Betriebsgewinn nach Flottenkosten (Vorjahr 21.9 Mio. €), obwohl die Region ein Drittel des Umsatzes bringt.",
+  "Sixt verfehlte die eigenen Ziele: 2024 wurde die Prognose zweimal gesenkt, 2025 lag die Marge bei 9.4 % statt rund 10 %. Für 2026 gilt wieder rund 10 %.",
+  "Die Kosten steigen schneller als der Umsatz: Flottenkosten im 1. Halbjahr 2026 +18.1 % (Gebühren, Steuern, Versicherung, Benzin), Umsatz +9.2 %.",
+  "Hohe Schulden (4.48 Mrd. €) und Zinskosten: 2025 zahlte Sixt 144 Mio. € Zinsen, 2021 erst 35 Mio. €."
+ ],
+ "sorgen_art": "gemischt",
+ "sorgen_art_text": "Der Konzern verdient wieder deutlich mehr (Gewinn vor Steuern +39 % im 1. Halbjahr), aber Nordamerika und die Kosten sind echte Baustellen.",
+ "aufloeser": [
+  {
+   "was": "Zahlen zum 3. Quartal (Sommer, wichtigstes Quartal): Hält die Marge um 19.5 % und verdient Nordamerika wieder?",
+   "wann": "Zahlen 12.11.2026"
+  },
+  {
+   "was": "Jahreszahlen 2026: Erreicht Sixt diesmal die rund 10 % EBT-Marge?",
+   "wann": "voraussichtlich Anfang März 2027"
+  },
+  {
+   "was": "Eine Wende in Nordamerika oder genauere Zahlen zu den US-Standorten",
+   "wann": "2027"
+  }
+ ],
+ "schub_stufe": "mittel",
+ "schub_treiber": [
+  {
+   "titel": "Europa ausserhalb Deutschlands",
+   "text": "Umsatz 2025 +12.6 % auf 1.74 Mrd. €, Betriebsgewinn nach Flottenkosten +38 %. Im 1. Halbjahr 2026 nochmals +14 % Umsatz. Das ist der stärkste Treiber.",
+   "wann": "laufend"
+  },
+  {
+   "titel": "Mehr Premiumautos und bessere Auslastung",
+   "text": "Der Anteil Premiumautos an den neuen Autos stieg auf 62 % (Vorjahr 54 %). Die Flotte wächst langsamer als der Umsatz (+9 % gegen +11 %). Das hebt die Marge, wenn die Gebrauchtwagenpreise stabil bleiben.",
+   "wann": "2026–2027"
+  }
+ ],
+ "schub_beweis": "Achte auf die EBT-Marge (Ziel 2026: rund 10 %, 12 Monate: 9.8 %) und den Betriebsgewinn in Nordamerika (Q2 2026: 0.3 Mio. €). Steigt beides, kommt der Schub.",
+ "szenario": "Kein Fall wie Google 2023, sondern eine Familienfirma mit Erholungspotenzial: Erreicht Sixt die 10 % Marge und dreht Nordamerika, kann der Kurs Richtung Analystenziele (rund 94 bis 100 €) steigen, plus 4.4 % Dividende. Grösstes Risiko: Gebrauchtwagenpreise fallen wieder (wie 2024) oder die Kosten laufen davon, dann sinken Gewinn und Dividende.",
+ "quellen": [
+  {
+   "titel": "Sixt Halbjahresbericht 2026",
+   "url": "https://about.sixt.com/wp-content/uploads/2026/08/Sixt-SE-Interim-Report-as-at-30-June-2026.pdf"
+  },
+  {
+   "titel": "Sixt: Rekordjahr 2025",
+   "url": "https://about.sixt.com/ir/sixt-achieves-record-year-2025-currency-adjusted-revenue-increased-by-around-9-to-eur-4-3-billion-profit-rises-by-almost-20/"
+  },
+  {
+   "titel": "Börse Express: Vertrauensbeweis der Familie (April 2026)",
+   "url": "https://www.boerse-express.com/news/articles/sixt-aktie-vertrauensbeweis-der-familie-887329"
+  }
+ ]
+}

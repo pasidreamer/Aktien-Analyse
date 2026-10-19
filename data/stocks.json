@@ -13192,6 +13192,356 @@
    ],
    "cheatsheet": "analysen/HLI.html",
    "claude": "https://claude.ai/artifact/H3bLrt7DY5TUdXdqZMeRTK"
+  },
+  {
+   "ticker": "SIX2",
+   "symbol": "SIX2.DE",
+   "name": "Sixt",
+   "tags": [
+    "Cashflow",
+    "Dividende"
+   ],
+   "land": "Deutschland",
+   "region": "Europa",
+   "branche": "Autovermietung",
+   "status": "beobachten",
+   "waehrung": "EUR",
+   "analyse": {
+    "datenstand": "2026-10-16",
+    "kurs": 72.25,
+    "q": 46,
+    "t": 42
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "4 von 4 Quartalen über Vorjahr, Tempo steigt wieder (4.7 → 9.9 %)",
+     "p": 15,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "+7.4 % in 12 Monaten, ohne Währungseffekte rund 11 %",
+     "p": 8,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "EBT-Marge 9.8 % (3 Pkt.), seit 2021 stark gefallen (0 Pkt.)",
+     "p": 3,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "3 Jahre rückläufig, aktuell rund +15 % erwartet",
+     "p": 5,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Schwankt stark, in 3 von 5 Jahren negativ (Autokäufe)",
+     "p": 2,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "7.5 % (2 Pkt.), fallend (−1)",
+     "p": 1,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Nettoschulden rund 5- bis 6-mal EBITDA, aber durch die Flotte gedeckt (BBB)",
+     "p": 2,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "KGV 11.1 statt Ø 13.1 (2021–2025), rund 15 % günstiger",
+     "p": 10,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs über EMA 50, unter EMA 200: mögliche Wende",
+     "p": 8,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs über beiden, EMA 50 knapp unter 200",
+     "p": 7,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Spanne 58–78 € mit höheren Tiefs, kleiner CHoCH am 16.10.",
+     "p": 10,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "Tag 63, Woche 53, kein klares Signal",
+     "p": 7,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Beide fallen bei gleichem Kurs (Verteilung)",
+     "p": 2,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Start 3, Familienkauf im März (älter als 6 Monate, +2), kein Rückkauf",
+     "p": 5,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "Oktober 52 %, November 46 %, Dezember 54 % positive Jahre",
+     "p": 3,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 11.1,
+    "schnitt": 13.1,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      66,
+      69
+     ],
+     [
+      58,
+      63
+     ]
+    ],
+    "widerstand": [
+     [
+      76.8,
+      78
+     ],
+     [
+      80,
+      82
+     ]
+    ],
+    "trigger": 74,
+    "abbruch": 65.8
+   },
+   "zahlen": "2026-11-12",
+   "dividende": "4.4 %",
+   "div_info": {
+    "pro_jahr": 1,
+    "rhythmus": "jährlich",
+    "ex_monate": [
+     6
+    ],
+    "zahl_monate": [
+     6
+    ],
+    "zahl_text": "Ende Juni, wenige Tage nach der Generalversammlung (2026: Ex-Tag 18. Juni, Zahltag 22. Juni)",
+    "abstand_tage": 4,
+    "betrag": 3.2,
+    "system": "Deutsches System: eine Dividende pro Jahr, beschlossen an der Generalversammlung im Juni. Sixt zahlt 35 bis 60 % des Gewinns aus, 2025 rund 53 %. 2024 wurde die Dividende nach dem Gewinneinbruch gekürzt (2.70 €), 2025 wieder erhöht (3.20 €, +18.5 %). Die Vorzugsaktie SIX3 bekommt 2 Cent mehr (3.22 €).",
+    "form": "Bar in Euro aufs Konto. Deutschland zieht 26.375 % Quellensteuer ab. 15 % kannst du über die Schweizer Steuererklärung anrechnen lassen (Formular DA-1), die restlichen 11.375 % musst du in Deutschland zurückfordern (Bundeszentralamt für Steuern). Bei 3.20 € Dividende kommen 2.36 € aufs Konto."
+   },
+   "chance": {
+    "ticker": "SIX2",
+    "sorgen": [
+     "Nordamerika verdient kaum Geld: Im 2. Quartal 2026 nur 0.3 Mio. € Betriebsgewinn nach Flottenkosten (Vorjahr 21.9 Mio. €), obwohl die Region ein Drittel des Umsatzes bringt.",
+     "Sixt verfehlte die eigenen Ziele: 2024 wurde die Prognose zweimal gesenkt, 2025 lag die Marge bei 9.4 % statt rund 10 %. Für 2026 gilt wieder rund 10 %.",
+     "Die Kosten steigen schneller als der Umsatz: Flottenkosten im 1. Halbjahr 2026 +18.1 % (Gebühren, Steuern, Versicherung, Benzin), Umsatz +9.2 %.",
+     "Hohe Schulden (4.48 Mrd. €) und Zinskosten: 2025 zahlte Sixt 144 Mio. € Zinsen, 2021 erst 35 Mio. €."
+    ],
+    "sorgen_art": "gemischt",
+    "sorgen_art_text": "Der Konzern verdient wieder deutlich mehr (Gewinn vor Steuern +39 % im 1. Halbjahr), aber Nordamerika und die Kosten sind echte Baustellen.",
+    "aufloeser": [
+     {
+      "was": "Zahlen zum 3. Quartal (Sommer, wichtigstes Quartal): Hält die Marge um 19.5 % und verdient Nordamerika wieder?",
+      "wann": "Zahlen 12.11.2026"
+     },
+     {
+      "was": "Jahreszahlen 2026: Erreicht Sixt diesmal die rund 10 % EBT-Marge?",
+      "wann": "voraussichtlich Anfang März 2027"
+     },
+     {
+      "was": "Eine Wende in Nordamerika oder genauere Zahlen zu den US-Standorten",
+      "wann": "2027"
+     }
+    ],
+    "schub_stufe": "mittel",
+    "schub_treiber": [
+     {
+      "titel": "Europa ausserhalb Deutschlands",
+      "text": "Umsatz 2025 +12.6 % auf 1.74 Mrd. €, Betriebsgewinn nach Flottenkosten +38 %. Im 1. Halbjahr 2026 nochmals +14 % Umsatz. Das ist der stärkste Treiber.",
+      "wann": "laufend"
+     },
+     {
+      "titel": "Mehr Premiumautos und bessere Auslastung",
+      "text": "Der Anteil Premiumautos an den neuen Autos stieg auf 62 % (Vorjahr 54 %). Die Flotte wächst langsamer als der Umsatz (+9 % gegen +11 %). Das hebt die Marge, wenn die Gebrauchtwagenpreise stabil bleiben.",
+      "wann": "2026–2027"
+     }
+    ],
+    "schub_beweis": "Achte auf die EBT-Marge (Ziel 2026: rund 10 %, 12 Monate: 9.8 %) und den Betriebsgewinn in Nordamerika (Q2 2026: 0.3 Mio. €). Steigt beides, kommt der Schub.",
+    "szenario": "Kein Fall wie Google 2023, sondern eine Familienfirma mit Erholungspotenzial: Erreicht Sixt die 10 % Marge und dreht Nordamerika, kann der Kurs Richtung Analystenziele (rund 94 bis 100 €) steigen, plus 4.4 % Dividende. Grösstes Risiko: Gebrauchtwagenpreise fallen wieder (wie 2024) oder die Kosten laufen davon, dann sinken Gewinn und Dividende.",
+    "quellen": [
+     {
+      "titel": "Sixt Halbjahresbericht 2026",
+      "url": "https://about.sixt.com/wp-content/uploads/2026/08/Sixt-SE-Interim-Report-as-at-30-June-2026.pdf"
+     },
+     {
+      "titel": "Sixt: Rekordjahr 2025",
+      "url": "https://about.sixt.com/ir/sixt-achieves-record-year-2025-currency-adjusted-revenue-increased-by-around-9-to-eur-4-3-billion-profit-rises-by-almost-20/"
+     },
+     {
+      "titel": "Börse Express: Vertrauensbeweis der Familie (April 2026)",
+      "url": "https://www.boerse-express.com/news/articles/sixt-aktie-vertrauensbeweis-der-familie-887329"
+     }
+    ]
+   },
+   "fazit": "Sixt wächst wieder (Umsatz +7 %, ohne Währungseffekte +11 %), und der Gewinn vor Steuern steigt deutlich (12 Monate: 436 Mio. €, +30 % zu 2024). Mit einem KGV von 11 und 4.4 % Dividende ist die Aktie günstig. Nach deiner Cashflow-Strategie fällt Sixt aber durch: Der Free Cashflow ist fast null (36 Mio. € in 12 Monaten), weil der Kauf neuer Mietautos direkt vom Cashflow abgeht. Die Nettoschulden liegen bei 4.5 Mrd. €, gedeckt durch Autos im Wert von 5.9 Mrd. €. Qualität gelb (46), Timing orange (42). Die Familie Sixt kaufte im März für 50 Mio. € Vorzugsaktien.",
+   "about": "Sixt vermietet Autos an über 2'300 Standorten in mehr als 100 Ländern, mit Schwerpunkt auf Premiumautos (BMW, Mercedes, Audi). Das Geschäft hat drei Regionen: Deutschland (rund 27 % des Umsatzes), übriges Europa (rund 41 %) und Nordamerika (rund 32 %). Sixt kauft jedes Jahr Autos für über 9 Mrd. € und verkauft sie nach wenigen Monaten wieder. Der Gewinn hängt darum stark davon ab, zu welchem Preis die Gebrauchtwagen verkauft werden. Die Familie Sixt hält 58 % der Stimmrechte, die Söhne Alexander und Konstantin Sixt führen die Firma. Es gibt zwei Aktien: die Stammaktie (SIX2, mit Stimmrecht) und die günstigere Vorzugsaktie (SIX3, ohne Stimmrecht, 2 Cent mehr Dividende).",
+   "kpis": [
+    {
+     "ampel": "g",
+     "name": "Umsatzwachstum",
+     "wert": "+7.4 %",
+     "text": "Letzte 12 Monate. Ohne Währungseffekte im 1. Halbjahr 2026 +11.3 %. 20 Rekordquartale in Folge beim Umsatz."
+    },
+    {
+     "ampel": "w",
+     "name": "EBT-Marge",
+     "wert": "9.8 %",
+     "text": "Gewinn vor Steuern pro 100 € Umsatz, die wichtigste Kennzahl von Sixt. 2021 waren es 19.4 %, 2024 nur 8.4 %. Ziel für 2026: rund 10 %. Mittel."
+    },
+    {
+     "ampel": "w",
+     "name": "Gewinn pro Aktie (EPS)",
+     "wert": "6.47 €",
+     "text": "Letzte 12 Monate. 2024: 5.19 €, 2022: 8.21 €. Analysten erwarten für 2026 rund 7.40 €."
+    },
+    {
+     "ampel": "r",
+     "name": "ROIC",
+     "wert": "7.5 %",
+     "text": "Auf 100 € investiertes Kapital nur rund 7.50 € Gewinn. Schwach, weil die Autoflotte sehr viel Kapital bindet. 2022 waren es 10.4 %."
+    },
+    {
+     "ampel": "r",
+     "name": "Free Cashflow",
+     "wert": "36 Mio. €",
+     "text": "Letzte 12 Monate, also fast null. Schwankt zwischen −266 und +990 Mio. €, je nachdem wie viele Autos Sixt kauft. Vor dem Autokauf blieben im 1. Halbjahr 2026 500 Mio. € (+62 %)."
+    },
+    {
+     "ampel": "w",
+     "name": "Nettoschulden",
+     "wert": "4.48 Mrd. €",
+     "text": "Rund 6-mal der Betriebsgewinn vor Abschreibungen. Hoch, aber gedeckt durch Mietautos im Wert von 5.92 Mrd. € (1.3-fach). Kreditrating BBB (solide)."
+    },
+    {
+     "ampel": "g",
+     "name": "KGV",
+     "wert": "11.1",
+     "text": "Du zahlst 11 Jahresgewinne. Eigener Schnitt 2021–2025: rund 13.1. Also rund 15 % günstiger als üblich. Die Vorzugsaktie SIX3 kostet sogar nur rund 9 Jahresgewinne."
+    },
+    {
+     "ampel": "g",
+     "name": "Dividende",
+     "wert": "4.4 %",
+     "text": "3.20 € pro Stammaktie, einmal im Jahr (bezahlt am 22.6.2026), +18.5 %. Vorzugsaktie: 3.22 €, das sind bei 57.60 € sogar 5.6 %."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "80–82 €",
+     "text": "Widerstand: Wochen-EMA 200 (81.10 €)."
+    },
+    {
+     "art": "r",
+     "wert": "76.80–78 €",
+     "text": "Widerstand: Obergrenze der Spanne (Hochs April, Mai, August)."
+    },
+    {
+     "art": "t",
+     "wert": "74 €",
+     "text": "Trigger: Tagesschluss über 74 € (Hochs Juli und August um 73.15 bis 73.75 €), besser mit drehender A/D. Ausbruch erst über 78 €."
+    },
+    {
+     "art": "s",
+     "wert": "66–69 €",
+     "text": "Kaufzone 1: Tiefs von September und Oktober (66.25 bis 69 €)."
+    },
+    {
+     "art": "s",
+     "wert": "58–63 €",
+     "text": "Kaufzone 2: Tiefs von März und Juli (57.70 / 62.65 €)."
+    },
+    {
+     "art": "r",
+     "wert": "65.80 €",
+     "text": "Abbruch: Wochenschluss unter dem Tief vom April. Dann ist die Reihe höherer Tiefs gebrochen."
+    }
+   ],
+   "pro": [
+    "Wachstum zieht wieder an, besonders in Europa (+14 % im 1. Halbjahr 2026).",
+    "Gewinn vor Steuern steigt deutlich (+39 % im 1. Halbjahr 2026).",
+    "Günstig: KGV 11, Dividende 4.4 % (Vorzugsaktie 5.6 %).",
+    "Die Familie kaufte im März für 50 Mio. € nahe am Tief, alle Analysten auf Kaufen.",
+    "Schulden durch die Autoflotte gedeckt, gutes Kreditrating (BBB)."
+   ],
+   "contra": [
+    "Nach deiner Cashflow-Strategie schwach: Free Cashflow fast null, keine Rückkäufe.",
+    "Hohe Schulden (4.5 Mrd. €) und steigende Zinskosten (144 Mio. € 2025, 2021 nur 35 Mio. €).",
+    "Nordamerika verdient kaum Geld, im 2. Quartal 2026 fast nichts.",
+    "Margenziele 2024 und 2025 verfehlt, Flottenkosten +18 % im 1. Halbjahr 2026.",
+    "A/D fällt deutlich: Grosse Anleger verkaufen in die Erholung."
+   ],
+   "smart_money": [
+    "Familie Sixt: Erich Sixt Vermögensverwaltung kaufte am 24.3.2026 Vorzugsaktien für 50 Mio. € zu 50 € (1 Mio. Stück), fast am Tief. Ein starkes Signal. Die Familie hält 58.3 % der Stammaktien.",
+    "Weitere Insider: Finanzchef Weinberger kaufte am 17.8.2026 symbolisch 40 Vorzugsaktien zu 61 €. Keine Verkäufe gefunden.",
+    "Rückkäufe: Keine. Sixt dürfte bis 10 % der Aktien zurückkaufen, nutzt das aber nicht. Die Aktienzahl ist seit Jahren gleich (46.94 Mio.).",
+    "Analysten: Alle 6 auf Kaufen (Berenberg stufte am 18.8. hoch). Kursziele 88 bis 125 €, im Schnitt rund 94 bis 100 € (+30 bis +38 %). Zuletzt: UBS 88 € (9.10.), Deutsche Bank 89 € (5.10.)."
+   ],
+   "cheatsheet": "analysen/SIX2.html",
+   "claude": "https://claude.ai/artifact/TcviWDr8NCfAoLFvEkx1Ga"
   }
  ]
 }

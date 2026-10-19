@@ -1425,5 +1425,47 @@
   "pe_typ": "KGV",
   "zahlen": "2026-10-28",
   "artifact": "H3bLrt7DY5TUdXdqZMeRTK"
+ },
+ "SIX2": {
+  "symbol": "SIX2.DE",
+  "name": "Sixt",
+  "tags": [
+   "Cashflow",
+   "Dividende"
+  ],
+  "land": "Deutschland",
+  "region": "Europa",
+  "branche": "Autovermietung",
+  "status": "beobachten",
+  "waehrung": "EUR",
+  "kurs": 72.25,
+  "datenstand": "2026-10-16",
+  "kauf": [
+   [
+    66,
+    69
+   ],
+   [
+    58,
+    63
+   ]
+  ],
+  "widerstand": [
+   [
+    76.8,
+    78
+   ],
+   [
+    80,
+    82
+   ]
+  ],
+  "trigger": 74,
+  "abbruch": 65.8,
+  "pe": 11.1,
+  "pe_avg": 13.1,
+  "pe_typ": "KGV",
+  "zahlen": "2026-11-12",
+  "artifact": "TcviWDr8NCfAoLFvEkx1Ga"
  }
 }
