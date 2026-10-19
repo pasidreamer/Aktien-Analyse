@@ -14218,6 +14218,367 @@
    ],
    "cheatsheet": "analysen/NFLX.html",
    "claude": "https://claude.ai/artifact/2v95juDqpWvL43DU1CVs9r"
+  },
+  {
+   "ticker": "SONY",
+   "symbol": "SONY",
+   "name": "Sony",
+   "tags": [
+    "Dividende"
+   ],
+   "land": "Japan",
+   "region": "Asien",
+   "branche": "Unterhaltung und Elektronik",
+   "status": "beobachten",
+   "waehrung": "USD",
+   "analyse": {
+    "datenstand": "2026-10-16",
+    "kurs": 24.88,
+    "q": 62,
+    "t": 73
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "4 von 4 Quartalen über Vorjahr",
+     "p": 12,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "+5 % in 12 Monaten",
+     "p": 4,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "12.5 % (6 Pkt.), steigend (3 Pkt.)",
+     "p": 9,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "Über 3 Jahre nur leicht gestiegen, im 1. Quartal +35 %",
+     "p": 6,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Positiv, aber 2025 −12.5 %, 2026 erwartet −33 %",
+     "p": 5,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "15.6 % (10 Pkt.), steigend (+1)",
+     "p": 11,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Netto-Cash 299 Mrd. ¥",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "KGV 21.2 statt Ø 17.5, rund 20 % teurer",
+     "p": 5,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs über beiden, EMA 50 über 200",
+     "p": 18,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs über beiden, Golden Cross am 2.9.2026",
+     "p": 9,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Höhere Tiefs seit Juni, Kurs knapp unter dem letzten Hoch (25.27 $)",
+     "p": 14,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "Tag 65, Woche 61",
+     "p": 12,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Woche neues Hoch, Tag tiefer als beim Juni-Tief",
+     "p": 12,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Start 3, Rückkauf 2.2 % pro Jahr +2, keine verlässlichen Insider-Daten",
+     "p": 5,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "Oktober 53 %, November 55 %, Dezember 58 % positive Jahre",
+     "p": 3,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 21.2,
+    "schnitt": 17.5,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      22.9,
+      23.4
+     ],
+     [
+      19.3,
+      20.6
+     ]
+    ],
+    "widerstand": [
+     [
+      26.1,
+      27
+     ],
+     [
+      29,
+      30.3
+     ]
+    ],
+    "trigger": 25.3,
+    "abbruch": 22.7
+   },
+   "zahlen": "2026-11-05",
+   "dividende": "0.9 %",
+   "div_info": {
+    "pro_jahr": 2,
+    "rhythmus": "halbjährlich",
+    "ex_monate": [
+     3,
+     9
+    ],
+    "zahl_monate": [
+     6,
+     12
+    ],
+    "zahl_text": "Anfang Dezember und Anfang Juni. Der ADR zahlt rund eine Woche nach Japan (zuletzt 12.12.2025 und 8.6.2026). Nächste Zahlung: 17.5 ¥, Ex-Tag war der 29.9.2026, Auszahlung ca. 10. Dezember 2026.",
+    "abstand_tage": 72,
+    "betrag": 0.11,
+    "system": "Japanisches Stichtag-System: zwei Dividenden pro Jahr, für die Aktionäre am 30. September (Zwischendividende) und am 31. März (Jahresdividende). Ausbezahlt wird rund 2 Monate später. Plan 2026/27: 2 × 17.5 ¥ = 35 ¥ (+40 %). Seit 2016 jedes Jahr erhöht, 2014 aber einmal gestrichen. Ausschüttung nur 15 % vom Gewinn.",
+    "form": "Bar in US-Dollar (JPMorgan wechselt die Yen in Dollar, der Betrag schwankt mit dem Kurs, aktuell rund 0.11 $ pro Zahlung). Japan zieht 15.315 % Quellensteuer ab. 10 % kannst du über die Schweizer Steuererklärung anrechnen lassen (Formular DA-1, erst ab CHF 100 ausländischer Steuer pro Jahr), die restlichen 5.315 % müsstest du in Japan zurückfordern. Bei 0.11 $ kommen rund 0.093 $ aufs Konto.",
+    "serie": "Seit 2016 jedes Jahr erhöht (10 Erhöhungen in Folge)."
+   },
+   "chance": {
+    "ticker": "SONY",
+    "sorgen": [
+     "Speicherchips sind wegen der KI-Nachfrage viel teurer geworden. Das drückt die Marge der PlayStation und könnte die PS6 auf 2028 oder 2029 verschieben.",
+     "Die PS5 ist im 6. Jahr, die Konsolen-Verkäufe fallen (−16 % und −46 % in zwei Quartalen).",
+     "Der Free Cashflow sinkt 2026 deutlich (operativer Cashflow −24 %).",
+     "Sorge, dass KI Spiele und Filme billiger und Sonys Inhalte weniger wert macht. Dazu einmalige Belastungen: Bungie, Pixomondo, Erdbeben in Kumamoto (Sensorwerk)."
+    ],
+    "sorgen_art": "stimmung",
+    "sorgen_art_text": "Vor allem Stimmung: Der Betriebsgewinn ist auf Rekord und die Prognose wurde erhöht. Echte Schwachstellen sind die Konsolen-Stückzahlen und der sinkende Cashflow 2026.",
+    "aufloeser": [
+     {
+      "was": "Zahlen 2. Quartal: Speicherkosten unter Kontrolle, Prognose bestätigt, Folgen des Erdbebens klar",
+      "wann": "ca. 5.11.2026"
+     },
+     {
+      "was": "GTA VI erscheint für die PS5 und dürfte Konsolen und Spiele im Weihnachtsgeschäft antreiben",
+      "wann": "19.11.2026"
+     },
+     {
+      "was": "Weihnachtsquartal und neuer Mittelfristplan mit Zielen für Rückkäufe und Dividende",
+      "wann": "Februar und Mai 2027"
+     }
+    ],
+    "schub_stufe": "mittel",
+    "schub_treiber": [
+     {
+      "titel": "Musik",
+      "text": "Betriebsgewinn 2025 447 Mrd. ¥ (+25 %), im 1. Quartal 2026 Rekord (+14 %). Streaming und Musikrechte bringen jedes Jahr wiederkehrende Einnahmen.",
+      "wann": "laufend"
+     },
+     {
+      "titel": "GTA VI und PlayStation",
+      "text": "GTA VI am 19.11.2026 nur für Konsolen. PlayStation-Gewinn soll 2026 auf 660 Mrd. ¥ steigen (+42 %), auch weil Abschreibungen wegfallen. Konsolen selbst verdienen wenig.",
+      "wann": "Weihnachten 2026"
+     },
+     {
+      "titel": "Dividende und Rückkäufe",
+      "text": "Dividende +40 % auf 35 ¥, Rückkauf 500 Mrd. ¥ bis Mai 2027. Ausschüttung nur 15 % vom Gewinn: viel Platz für weitere Erhöhungen.",
+      "wann": "Mai 2027 (neuer Plan)"
+     }
+    ],
+    "schub_beweis": "Für deine Dividenden-Strategie zählt: Erhöht Sony im Mai 2027 wieder kräftig (Ziel wären 45 ¥ oder mehr)? Erst dann wird die Rendite auf deinen Kaufkurs interessant. Bis dahin ist Sony eher ein Qualitätswert mit kleiner Dividende.",
+    "szenario": "Rekordgewinne, Netto-Cash und schnell steigende Dividende: Sony kann über Jahre eine «Dividenden-Wachstumsaktie» werden. Heute bringt sie aber kaum Einkommen (0.9 %). Risiko: Speicherpreise bleiben bis 2027 hoch, die PS6 kommt spät, und der Cashflow sinkt.",
+    "quellen": [
+     {
+      "titel": "Sony Q1 FY2026 Ergebnisse (SEC 6-K)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000313838&type=6-K"
+     },
+     {
+      "titel": "ESTV: Quellensteuer Japan",
+      "url": "https://www.estv.admin.ch/dam/estv/de/dokumente/international/laender/int-laender-japan-de.pdf.download.pdf/int-laender-japan-de.pdf"
+     },
+     {
+      "titel": "Dividenden-Historie (StockAnalysis)",
+      "url": "https://stockanalysis.com/stocks/sony/dividend/"
+     },
+     {
+      "titel": "Analysten-Konsens (MarketScreener)",
+      "url": "https://www.marketscreener.com/quote/stock/SONY-GROUP-CORPORATION-6492482/consensus/"
+     }
+    ]
+   },
+   "fazit": "Sony ist ein solider Konzern mit Rekordgewinnen (Betriebsgewinn 2026 erwartet +19 %), mehr Cash als Schulden und grossen Aktienrückkäufen. Als Dividendenaktie fällt Sony aber durch: Die Rendite liegt nur bei 0.9 % (Plan 35 ¥ pro Aktie). Dafür wächst die Dividende schnell (+40 % in diesem Jahr, rund +18 % pro Jahr seit 5 Jahren) und ist mit nur 15 % vom Gewinn sehr sicher. Sony gibt das meiste Geld über Rückkäufe zurück, nicht über die Dividende. Das KGV von 21 liegt über dem eigenen Schnitt (rund 17.5). Qualität hellgrün (62), Timing hellgrün (73): Die Aktie ist im Aufwärtstrend. Für eine Dividenden-Strategie gibt es bessere Kandidaten, als Qualitäts- und Wachstumswert ist Sony interessant.",
+   "about": "Sony hat fünf Bereiche (Betriebsgewinn Geschäftsjahr 2025, April 2025 bis März 2026): PlayStation (Spiele und Konsolen, 463 Mrd. ¥), Musik (Sony Music, Streaming, Anime-Musik, 447 Mrd. ¥), Bildsensoren (Kamerachips für Smartphones wie das iPhone, 357 Mrd. ¥), Unterhaltungselektronik (Kameras, Fernseher, 159 Mrd. ¥) und Filme (Sony Pictures, Crunchyroll, 105 Mrd. ¥). Im Oktober 2025 hat Sony die Finanzsparte (Versicherung, Bank) abgespalten, Aktionäre bekamen pro Sony-Aktie eine Aktie von Sony Financial. Das Fernsehgeschäft geht in ein Gemeinschaftsunternehmen mit TCL. In den USA handelst du Sony als ADR: 1 ADR entspricht 1 Aktie in Tokio. Das Geschäftsjahr läuft von April bis März.",
+   "kpis": [
+    {
+     "ampel": "w",
+     "name": "Umsatzwachstum",
+     "wert": "+5 %",
+     "text": "Letzte 12 Monate, im 1. Quartal +8 %. Für einen Konzern dieser Grösse ok, aber kein Wachstumstempo. Analysten erwarten für das ganze Geschäftsjahr nur +3.5 %."
+    },
+    {
+     "ampel": "w",
+     "name": "Operative Marge",
+     "wert": "12.5 %",
+     "text": "Von 100 ¥ Umsatz bleiben rund 12.50 ¥ Betriebsgewinn. Mittel, aber steigend: im 1. Quartal 16.8 % (Rekord, auch dank einmaliger Zoll-Rückzahlungen)."
+    },
+    {
+     "ampel": "g",
+     "name": "Gewinn pro Aktie (EPS)",
+     "wert": "186 ¥",
+     "text": "Letzte 12 Monate, ohne die abgespaltene Finanzsparte. Im 1. Quartal +35 %. Für das Geschäftsjahr erwartet Sony rund 207 ¥ (+21 %)."
+    },
+    {
+     "ampel": "w",
+     "name": "ROIC",
+     "wert": "15.6 %",
+     "text": "Auf 100 ¥ investiertes Kapital rund 16 ¥ Gewinn. Gut und steigend. Ein Teil des Anstiegs kommt daher, dass die Bank und Versicherung weg sind."
+    },
+    {
+     "ampel": "w",
+     "name": "Free Cashflow",
+     "wert": "1'590 Mrd. ¥",
+     "text": "Letzte 12 Monate (rund 10 Mrd. $), 12.5 % vom Umsatz, 6.9 % des Börsenwerts. Stark, aber Sony erwartet im laufenden Jahr 24 % weniger operativen Cashflow, Analysten rund 994 Mrd. ¥ Free Cashflow (−33 %)."
+    },
+    {
+     "ampel": "g",
+     "name": "Schulden",
+     "wert": "Netto-Cash",
+     "text": "Sony hat 299 Mrd. ¥ mehr Cash als Schulden. Die Bruttoschulden (1'871 Mrd. ¥) entsprechen 1.2 Jahren Free Cashflow."
+    },
+    {
+     "ampel": "r",
+     "name": "KGV",
+     "wert": "21.2",
+     "text": "Du zahlst 21 Jahresgewinne (ohne die einmalige Buchverlust-Abspaltung). Eigener Schnitt 2021–2025: rund 17.5. Also rund 20 % teurer als üblich. Mit dem erwarteten Gewinn: KGV 19."
+    },
+    {
+     "ampel": "w",
+     "name": "Dividende",
+     "wert": "0.9 %",
+     "text": "35 ¥ geplant (+40 %), zwei Zahlungen pro Jahr (Anfang Dezember und Anfang Juni). Sicher (nur 15 % vom Gewinn), wächst stark, aber die Rendite ist sehr tief."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "29–30.30 $",
+     "text": "Widerstand: Hochs vom Oktober und November 2025."
+    },
+    {
+     "art": "r",
+     "wert": "26.10–27 $",
+     "text": "Widerstand: Hoch vom Januar 2026 (26.15 $) und Wochenhoch vom Mai 2025 (26.95 $)."
+    },
+    {
+     "art": "t",
+     "wert": "25.30 $",
+     "text": "Trigger: Tagesschluss über dem Hoch vom 31.8. (25.27 $)."
+    },
+    {
+     "art": "s",
+     "wert": "22.90–23.40 $",
+     "text": "Kaufzone 1: Tiefs vom September, Wochen-EMA 50 (23.20 $) und Tages-EMA 200 (23.10 $)."
+    },
+    {
+     "art": "s",
+     "wert": "19.30–20.60 $",
+     "text": "Kaufzone 2: Tiefs vom Juni und Juli 2026."
+    },
+    {
+     "art": "r",
+     "wert": "22.70 $",
+     "text": "Abbruch: Wochenschluss unter dem September-Tief. Dann ist der Aufwärtstrend vorerst gebrochen."
+    }
+   ],
+   "pro": [
+    "Rekord-Betriebsgewinne, Prognose für 2026 erhöht (1'720 Mrd. ¥, +19 %).",
+    "Mehr Cash als Schulden, Rückkäufe von 500 Mrd. ¥ laufen.",
+    "Dividende wächst stark: +40 % auf 35 ¥, rund +18 % pro Jahr seit 5 Jahren, nur 15 % vom Gewinn.",
+    "Musik und Bildsensoren auf Rekordniveau, GTA VI erscheint am 19. November für die PS5.",
+    "Klarer Aufwärtstrend seit Juni, Wochen-A/D steigt."
+   ],
+   "contra": [
+    "Für deine Dividenden-Strategie zu wenig: nur 0.9 % Rendite. Selbst bei +20 % pro Jahr wären es in 5 Jahren erst rund 2.2 %.",
+    "Free Cashflow sinkt 2026 deutlich (Prognose operativer Cashflow −24 %).",
+    "Teure Speicherchips belasten PlayStation, die PS6 könnte sich auf 2028/29 verschieben.",
+    "KGV 21 über dem eigenen Schnitt (17.5).",
+    "Japanische Quellensteuer 15.315 %, davon musst du 5.315 % in Japan zurückfordern."
+   ],
+   "smart_money": [
+    "Sony selbst: Rückkaufprogramm über 500 Mrd. ¥ (rund 2.2 % des Börsenwerts) bis Mai 2027. Bis 30.9. sind 53 % erledigt (74.5 Mio. Aktien für 263 Mrd. ¥). Im September kaufte Sony aber langsamer (26 Mrd. ¥ statt rund 56 Mrd. ¥ pro Monat). Seit 2022 gibt es 5.6 % weniger Aktien.",
+    "Insider: Bei japanischen Firmen gibt es kaum verlässliche Insider-Daten. MarketBeat meldet kleine Verkäufe, die Daten sind bei Sony aber teils fehlerhaft.",
+    "Grosse Investoren: Rund 61 % der Aktien liegen bei ausländischen Anlegern, darunter der norwegische Staatsfonds (2 %). Kein aktivistischer Investor bekannt.",
+    "Analysten: MarketScreener: 23 Analysten, im Schnitt «Kaufen», Kursziel 4'845 ¥ (+22 % zum Kurs von 3'959 ¥). Spanne 3'800 bis 6'030 ¥. Bernstein bleibt vorsichtig (22 $), BofA ist positiv (34 $)."
+   ],
+   "cheatsheet": "analysen/SONY.html",
+   "claude": "https://claude.ai/artifact/54U9s1Qxbvvi87ANTfqx6r"
   }
  ]
 }

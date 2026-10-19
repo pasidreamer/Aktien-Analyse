@@ -1,0 +1,102 @@
+import json, os, sys
+P = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); sys.path.insert(0, P)
+from helpers import L, ADW, RSIW, SEAS
+c = {
+"ticker": "SONY", "name": "Sony", "datum": "16.10.2026", "waehrung": "USD", "land": "Japan",
+"meta": "Sony Group Corporation · NYSE: SONY (ADR) · Tokio: 6758 · PlayStation, Musik, Filme, Bildsensoren · Tokio, Japan",
+"price": "24.88 $",
+"pricemeta": "ADR-Schluss 16.10.2026 (Tokio: 3'959 ¥) · 52 Wochen: 19.32 – 30.34 $ · Allzeithoch Tokio 4'776 ¥ am 13.11.2025 (−17 %)",
+"verdict": "Sony ist ein solider Konzern mit Rekordgewinnen (Betriebsgewinn 2026 erwartet +19 %), mehr Cash als Schulden und grossen Aktienrückkäufen. Als <b>Dividendenaktie</b> fällt Sony aber durch: Die Rendite liegt nur bei 0.9 % (Plan 35 ¥ pro Aktie). Dafür wächst die Dividende schnell (+40 % in diesem Jahr, rund +18 % pro Jahr seit 5 Jahren) und ist mit nur 15 % vom Gewinn sehr sicher. Sony gibt das meiste Geld über Rückkäufe zurück, nicht über die Dividende. Das KGV von 21 liegt über dem eigenen Schnitt (rund 17.5). Qualität hellgrün (62), Timing hellgrün (73): Die Aktie ist im Aufwärtstrend. Für eine Dividenden-Strategie gibt es bessere Kandidaten, als Qualitäts- und Wachstumswert ist Sony interessant.",
+"about": "Sony hat fünf Bereiche (Betriebsgewinn Geschäftsjahr 2025, April 2025 bis März 2026): PlayStation (Spiele und Konsolen, 463 Mrd. ¥), Musik (Sony Music, Streaming, Anime-Musik, 447 Mrd. ¥), Bildsensoren (Kamerachips für Smartphones wie das iPhone, 357 Mrd. ¥), Unterhaltungselektronik (Kameras, Fernseher, 159 Mrd. ¥) und Filme (Sony Pictures, Crunchyroll, 105 Mrd. ¥). Im Oktober 2025 hat Sony die Finanzsparte (Versicherung, Bank) abgespalten, Aktionäre bekamen pro Sony-Aktie eine Aktie von Sony Financial. Das Fernsehgeschäft geht in ein Gemeinschaftsunternehmen mit TCL. In den USA handelst du Sony als ADR: 1 ADR entspricht 1 Aktie in Tokio. Das Geschäftsjahr läuft von April bis März.",
+"why": "Im November 2025 erreichte Sony in Tokio ein Allzeithoch (4'776 ¥). Danach fiel der ADR in zwei Monaten um 25 %: Speicherchips wurden wegen der KI-Nachfrage viel teurer, und eine PlayStation 5 braucht Speicher für rund 100 $. Im Februar berichtete Bloomberg, dass Sony die PlayStation 6 auf 2028 oder 2029 verschieben könnte. Im März stufte Bernstein ab (Kursziel 22 $), die PS5 wurde in den USA um 100 $ teurer, und die Konsolen-Verkäufe brachen ein (−46 % im 1. Quartal 2026). Im Mai verfehlte der Jahresgewinn die Erwartungen. Am 25. Juni lag das Tief bei 19.32 $ (Entlassungen bei Bungie, neue Anleihe). Seit den guten Zahlen am 31. Juli (Betriebsgewinn +40 %, Prognose erhöht) erholt sich die Aktie, sie liegt heute 29 % über dem Tief.",
+"kpis": [
+ ["w","Umsatzwachstum","+5 %","Letzte 12 Monate, im 1. Quartal +8 %. Für einen Konzern dieser Grösse ok, aber kein Wachstumstempo. Analysten erwarten für das ganze Geschäftsjahr nur +3.5 %."],
+ ["w","Operative Marge","12.5 %","Von 100 ¥ Umsatz bleiben rund 12.50 ¥ Betriebsgewinn. Mittel, aber steigend: im 1. Quartal 16.8 % (Rekord, auch dank einmaliger Zoll-Rückzahlungen)."],
+ ["g","Gewinn pro Aktie (EPS)","186 ¥","Letzte 12 Monate, ohne die abgespaltene Finanzsparte. Im 1. Quartal +35 %. Für das Geschäftsjahr erwartet Sony rund 207 ¥ (+21 %)."],
+ ["w","ROIC","15.6 %","Auf 100 ¥ investiertes Kapital rund 16 ¥ Gewinn. Gut und steigend. Ein Teil des Anstiegs kommt daher, dass die Bank und Versicherung weg sind."],
+ ["w","Free Cashflow","1'590 Mrd. ¥","Letzte 12 Monate (rund 10 Mrd. $), 12.5 % vom Umsatz, 6.9 % des Börsenwerts. Stark, aber Sony erwartet im laufenden Jahr 24 % weniger operativen Cashflow, Analysten rund 994 Mrd. ¥ Free Cashflow (−33 %)."],
+ ["g","Schulden","Netto-Cash","Sony hat 299 Mrd. ¥ mehr Cash als Schulden. Die Bruttoschulden (1'871 Mrd. ¥) entsprechen 1.2 Jahren Free Cashflow."],
+ ["r","KGV","21.2","Du zahlst 21 Jahresgewinne (ohne die einmalige Buchverlust-Abspaltung). Eigener Schnitt 2021–2025: rund 17.5. Also rund 20 % teurer als üblich. Mit dem erwarteten Gewinn: KGV 19."],
+ ["w","Dividende","0.9 %","35 ¥ geplant (+40 %), zwei Zahlungen pro Jahr (Anfang Dezember und Anfang Juni). Sicher (nur 15 % vom Gewinn), wächst stark, aber die Rendite ist sehr tief."]
+],
+"revtitle": "Umsatz pro Quartal (Mrd. ¥)", "revunit": "Mrd. ¥", "epsunit": "¥",
+"revnote": "Die letzten 4 Quartale lagen alle über dem Vorjahr (+4.6 %, +1 %, +8 %, +8.2 %). Das Quartal Oktober bis Dezember ist wegen Weihnachten (PlayStation) immer das stärkste.",
+"marginnote": "Operative Marge pro Geschäftsjahr (April bis März). Q1 26 = April bis Juni 2026 mit 16.8 % (Rekord, auch dank einmaliger Zoll-Rückzahlungen).",
+"finnote": "<b>Hinweis:</b> Geschäftsjahr April bis März, «2025» heisst April 2025 bis März 2026. Aktiensplit 5:1 im Oktober 2024, alle Werte pro Aktie sind angepasst. 2021 bis 2024 enthalten noch die Finanzsparte, ab 2025 nur noch die weitergeführten Geschäfte. Die Abspaltung brachte einen einmaligen Buchverlust von rund 1'380 Mrd. ¥ (kein Cash-Abfluss), darum zeigen viele Seiten für 2025 einen Verlust und kein KGV. Die Tabelle zeigt den Gewinn ohne diesen Effekt. KGV 2025 geschätzt.",
+"FIN": [["2021",9922,"+10.3 %","11.2 %",141.0,793,"11.2 %","17.6"],["2022",10974,"+10.6 %","11.6 %",162.0,-299,"11.4 %","14.7"],["2023",11260,"+2.6 %","9.0 %",157.1,767,"7.6 %","16.4"],["2024",12035,"+6.9 %","10.6 %",187.9,1701,"10.0 %","19.9"],["2025",12480,"+3.7 %","11.6 %",171.4,1488,"13.4 %","≈19"],["Letzte 12 Mt.",12696,"+5.0 %","12.5 %",186.4,1590,"15.6 %","21.2"]],
+"QREV": [["Q2 24",2971],["Q3 24",3693],["Q4 24",2805],["Q1 25",2622],["Q2 25",3108],["Q3 25",3714],["Q4 25",3036],["Q1 26",2838]],
+"revdec": 0,
+"MARGIN": [["2021",11.2],["2022",11.6],["2023",9.0],["2024",10.6],["2025",11.6],["Q1 26",16.8]],
+"Q": [
+ ["Umsatztrend","4 von 4 Quartalen über Vorjahr",12,15],
+ ["Wachstumstempo","+5 % in 12 Monaten",4,10],
+ ["Operative Marge","12.5 % (6 Pkt.), steigend (3 Pkt.)",9,15],
+ ["Gewinnwachstum (EPS)","Über 3 Jahre nur leicht gestiegen, im 1. Quartal +35 %",6,10],
+ ["Free Cashflow","Positiv, aber 2025 −12.5 %, 2026 erwartet −33 %",5,10],
+ ["ROIC","15.6 % (10 Pkt.), steigend (+1)",11,15],
+ ["Schulden","Netto-Cash 299 Mrd. ¥",10,10],
+ ["Bewertung vs. eigene Historie","KGV 21.2 statt Ø 17.5, rund 20 % teurer",5,15]
+],
+"adwnote": ADW + "Seit dem Tief im Juni (Wochen-A/D 710) ist die Linie auf 814 gestiegen, ein neues Hoch seit Februar. Es wird gekauft.",
+"rsiwnote": RSIW + "Im Juni bei 38, seither über 50, heute 61: Aufwärtstrend, aber noch nicht überkauft.",
+"addnote": "Gemischt: Beim Tief vom 25.6. (19.32 $) stand die Tages-A/D bei −92, heute bei −113, obwohl der Kurs 29 % höher ist. Auf Tagesbasis kaufen die grossen Käufer nicht nach. Die Wochenlinie ist aber klar positiv.",
+"ind": [
+ ["Kurs vs. EMA 50","24.9 &gt; 23.6","24.9 &gt; 23.2","Über der mittelfristigen Linie, auf beiden Zeitebenen."],
+ ["Kurs vs. EMA 200","24.9 &gt; 23.1","24.9 &gt; 21.4","Über der langfristigen Linie, auf beiden Zeitebenen."],
+ ["EMA 50 vs. EMA 200","50 über 200 (seit 2.9.2026)","50 über 200 (seit 2017)","Aufwärtstrend auf beiden Zeitebenen, auf Tagesbasis noch jung."],
+ ["RSI (14)","65.2","61.1","Stark, nahe an überkauft (70) auf Tagesbasis."],
+ ["A/D","tiefer als beim Juni-Tief","neues Hoch seit Februar","Tag negativ, Woche positiv."],
+ ["Volumen","Ø 20 Tage 3.7 Mio. vs. Ø 100 Tage 4.8 Mio. ADR","Der Anstieg kommt mit wenig Volumen."]
+],
+"smc": "Sony fiel vom Hoch im November 2025 (30.34 $) bis zum Tief am 25. Juni 2026 (19.32 $). Seither läuft ein Aufwärtstrend mit höheren Tiefs: 20.58 $ (23.7.), 22.22 $ (4.8.), 22.86 $ (24.9.). Das Hoch vom 31. August (25.27 $) ist das letzte Hoch, der Kurs steht mit 24.88 $ knapp darunter. Ein Tagesschluss über 25.30 $ wäre ein Ausbruch und bestätigt den Trend. Darüber liegt das Hoch vom Januar (26.15 $). Rücksetzer in die Zone 22.90 bis 23.40 $ (Tiefs vom September und EMA 50 Woche) wären eine Kaufgelegenheit im Trend.",
+"zones": [
+ ["r","29–30.30 $","Widerstand: Hochs vom Oktober und November 2025."],
+ ["r","26.10–27 $","Widerstand: Hoch vom Januar 2026 (26.15 $) und Wochenhoch vom Mai 2025 (26.95 $)."],
+ ["t","25.30 $","<b>Trigger:</b> Tagesschluss über dem Hoch vom 31.8. (25.27 $)."],
+ ["s","22.90–23.40 $","<b>Kaufzone 1:</b> Tiefs vom September, Wochen-EMA 50 (23.20 $) und Tages-EMA 200 (23.10 $)."],
+ ["s","19.30–20.60 $","<b>Kaufzone 2:</b> Tiefs vom Juni und Juli 2026."],
+ ["r","22.70 $","Abbruch: Wochenschluss unter dem September-Tief. Dann ist der Aufwärtstrend vorerst gebrochen."]
+],
+"smart": [
+ "<b>Sony selbst:</b> Rückkaufprogramm über 500 Mrd. ¥ (rund 2.2 % des Börsenwerts) bis Mai 2027. Bis 30.9. sind 53 % erledigt (74.5 Mio. Aktien für 263 Mrd. ¥). Im September kaufte Sony aber langsamer (26 Mrd. ¥ statt rund 56 Mrd. ¥ pro Monat). Seit 2022 gibt es 5.6 % weniger Aktien.",
+ "<b>Insider:</b> Bei japanischen Firmen gibt es kaum verlässliche Insider-Daten. MarketBeat meldet kleine Verkäufe, die Daten sind bei Sony aber teils fehlerhaft.",
+ "<b>Grosse Investoren:</b> Rund 61 % der Aktien liegen bei ausländischen Anlegern, darunter der norwegische Staatsfonds (2 %). Kein aktivistischer Investor bekannt.",
+ "<b>Analysten:</b> MarketScreener: 23 Analysten, im Schnitt «Kaufen», Kursziel 4'845 ¥ (+22 % zum Kurs von 3'959 ¥). Spanne 3'800 bis 6'030 ¥. Bernstein bleibt vorsichtig (22 $), BofA ist positiv (34 $)."
+],
+"seasnote": SEAS + "53 Jahre Daten (seit 1973). November (+1.6 %, 55 %) und Dezember (+2.2 %, 58 %) sind leicht positiv, September am schwächsten.",
+"T": [
+ ["Trend Woche (EMA 50/200)","Kurs über beiden, EMA 50 über 200",18,20],
+ ["Trend Tag (EMA 50/200)","Kurs über beiden, Golden Cross am 2.9.2026",9,10],
+ ["Struktur (SMC)","Höhere Tiefs seit Juni, Kurs knapp unter dem letzten Hoch (25.27 $)",14,20],
+ ["RSI Tag/Woche","Tag 65, Woche 61",12,15],
+ ["A/D Tag/Woche","Woche neues Hoch, Tag tiefer als beim Juni-Tief",12,20],
+ ["Smart Money","Start 3, Rückkauf 2.2 % pro Jahr +2, keine verlässlichen Insider-Daten",5,10],
+ ["Saisonalität","Oktober 53 %, November 55 %, Dezember 58 % positive Jahre",3,5]
+],
+"pro": [
+ "Rekord-Betriebsgewinne, Prognose für 2026 erhöht (1'720 Mrd. ¥, +19 %).",
+ "Mehr Cash als Schulden, Rückkäufe von 500 Mrd. ¥ laufen.",
+ "Dividende wächst stark: +40 % auf 35 ¥, rund +18 % pro Jahr seit 5 Jahren, nur 15 % vom Gewinn.",
+ "Musik und Bildsensoren auf Rekordniveau, GTA VI erscheint am 19. November für die PS5.",
+ "Klarer Aufwärtstrend seit Juni, Wochen-A/D steigt."
+],
+"con": [
+ "Für deine Dividenden-Strategie zu wenig: nur 0.9 % Rendite. Selbst bei +20 % pro Jahr wären es in 5 Jahren erst rund 2.2 %.",
+ "Free Cashflow sinkt 2026 deutlich (Prognose operativer Cashflow −24 %).",
+ "Teure Speicherchips belasten PlayStation, die PS6 könnte sich auf 2028/29 verschieben.",
+ "KGV 21 über dem eigenen Schnitt (17.5).",
+ "Japanische Quellensteuer 15.315 %, davon musst du 5.315 % in Japan zurückfordern."
+],
+"todo": [
+ ["t","Beobachten","Alarm bei 25.30 $ (Trigger) und 22.70 $ (Abbruch)."],
+ ["s","Timing grün","Tagesschluss über 25.30 $, mit steigender Tages-A/D. Oder Rücksetzer in die Zone 22.90 bis 23.40 $ mit Wendesignal."],
+ ["r","Abbruch","Wochenschluss unter 22.70 $."],
+ ["","Nächste Zahlen","Voraussichtlich 5. November 2026 vor US-Börsenbeginn (2. Quartal, Juli bis September). Von Sony noch nicht bestätigt, andere Quellen nennen den 4. oder 10. November."]
+],
+"bands": [{"from":29,"to":30.3,"type":"res"},{"from":26.1,"to":27,"type":"res"},{"from":22.9,"to":23.4,"type":"sup"},{"from":19.3,"to":20.6,"type":"sup"}],
+"refs": [{"v":25.3,"label":"Trigger 25.30"}],
+"sources": L("https://stockanalysis.com/stocks/sony/financials/","StockAnalysis.com") + " (Stand 16.10.2026), Sony Quartalsberichte (SEC 6-K, Mai und Juli 2026), " + L("https://www.estv.admin.ch/dam/estv/de/dokumente/international/laender/int-laender-japan-de.pdf.download.pdf/int-laender-japan-de.pdf","ESTV: Quellensteuer Japan") + ", " + L("https://www.marketscreener.com/quote/stock/SONY-GROUP-CORPORATION-6492482/consensus/","Analysten (MarketScreener)") + ", " + L("https://stockanalysis.com/stocks/sony/dividend/","Dividenden-Historie") + "."
+}
+if __name__ == "__main__":
+    json.dump(c, open(os.path.join(P, "config", "SONY.json"), "w"), ensure_ascii=False, indent=1)
+    print("ok", sum(r[2] for r in c["Q"]), sum(r[2] for r in c["T"]))

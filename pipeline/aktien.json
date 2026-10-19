@@ -1541,5 +1541,46 @@
   "pe_typ": "KGV",
   "zahlen": "2026-10-20",
   "artifact": "2v95juDqpWvL43DU1CVs9r"
+ },
+ "SONY": {
+  "symbol": "SONY",
+  "name": "Sony",
+  "tags": [
+   "Dividende"
+  ],
+  "land": "Japan",
+  "region": "Asien",
+  "branche": "Unterhaltung und Elektronik",
+  "status": "beobachten",
+  "waehrung": "USD",
+  "kurs": 24.88,
+  "datenstand": "2026-10-16",
+  "kauf": [
+   [
+    22.9,
+    23.4
+   ],
+   [
+    19.3,
+    20.6
+   ]
+  ],
+  "widerstand": [
+   [
+    26.1,
+    27
+   ],
+   [
+    29,
+    30.3
+   ]
+  ],
+  "trigger": 25.3,
+  "abbruch": 22.7,
+  "pe": 21.2,
+  "pe_avg": 17.5,
+  "pe_typ": "KGV",
+  "zahlen": "2026-11-05",
+  "artifact": "54U9s1Qxbvvi87ANTfqx6r"
  }
 }

@@ -646,5 +646,23 @@
  "NFLX": {
   "zahlt": false,
   "text": "Netflix hat noch nie eine Dividende bezahlt. Das Geld geht fast ganz in Aktienrückkäufe (2025: 97 % des Free Cashflows)."
+ },
+ "SONY": {
+  "pro_jahr": 2,
+  "rhythmus": "halbjährlich",
+  "ex_monate": [
+   3,
+   9
+  ],
+  "zahl_monate": [
+   6,
+   12
+  ],
+  "zahl_text": "Anfang Dezember und Anfang Juni. Der ADR zahlt rund eine Woche nach Japan (zuletzt 12.12.2025 und 8.6.2026). Nächste Zahlung: 17.5 ¥, Ex-Tag war der 29.9.2026, Auszahlung ca. 10. Dezember 2026.",
+  "abstand_tage": 72,
+  "betrag": 0.11,
+  "system": "Japanisches Stichtag-System: zwei Dividenden pro Jahr, für die Aktionäre am 30. September (Zwischendividende) und am 31. März (Jahresdividende). Ausbezahlt wird rund 2 Monate später. Plan 2026/27: 2 × 17.5 ¥ = 35 ¥ (+40 %). Seit 2016 jedes Jahr erhöht, 2014 aber einmal gestrichen. Ausschüttung nur 15 % vom Gewinn.",
+  "form": "Bar in US-Dollar (JPMorgan wechselt die Yen in Dollar, der Betrag schwankt mit dem Kurs, aktuell rund 0.11 $ pro Zahlung). Japan zieht 15.315 % Quellensteuer ab. 10 % kannst du über die Schweizer Steuererklärung anrechnen lassen (Formular DA-1, erst ab CHF 100 ausländischer Steuer pro Jahr), die restlichen 5.315 % müsstest du in Japan zurückfordern. Bei 0.11 $ kommen rund 0.093 $ aufs Konto.",
+  "serie": "Seit 2016 jedes Jahr erhöht (10 Erhöhungen in Folge)."
  }
 }

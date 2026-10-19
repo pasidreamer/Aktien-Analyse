@@ -27,7 +27,7 @@ const money = (v, w) => {
 const pct = (v, d = 1) => v == null ? "–" : `${v > 0 ? "+" : v < 0 ? "−" : ""}${nf(Math.abs(v), d)} %`;
 const fmtDate = iso => { if (!iso || !/^\d{4}-\d{2}-\d{2}/.test(iso)) return iso || "–"; const [y, m, d] = iso.slice(0, 10).split("-"); return `${d}.${m}.${y}`; };
 const daysUntil = iso => { const t = new Date(iso + "T12:00:00"); return Math.round((t - new Date()) / 864e5); };
-const regionCode = { "USA": "US", "Schweiz": "CH", "Grossbritannien": "UK", "Frankreich": "FR", "Deutschland": "DE", "Niederlande": "NL", "Italien": "IT" };
+const regionCode = { "USA": "US", "Schweiz": "CH", "Grossbritannien": "UK", "Frankreich": "FR", "Deutschland": "DE", "Niederlande": "NL", "Italien": "IT", "Japan": "JP" };
 const STATUS = {
   in_zone: ["In Kaufzone", "b-zone"], nahe_zone: ["Nahe Kaufzone", "b-nahe"], trigger: ["Trigger ausgelöst", "b-trig"],
   ueber_trigger: ["Über Trigger", "b-trig"], abbruch: ["Abbruch-Marke gebrochen", "b-abb"], unter_abbruch: ["Unter Abbruch-Marke", "b-warn"]
