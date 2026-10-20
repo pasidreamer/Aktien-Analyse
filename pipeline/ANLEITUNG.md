@@ -72,3 +72,16 @@ Arbeitsordner: das geklonte Repo (z. B. /home/claude/aktien-ampel). Alle Pfade u
 2. In `data/wuensche.json` alle Einträge mit `status: "offen"` nehmen (höchstens 3 pro Tag, älteste zuerst).
 3. Für jeden Wunsch den Ablauf oben durchgehen. Mehrere Symbole kannst du in einem Rohdaten-Lauf holen.
 4. Gibt es keine offenen Wünsche, nichts tun und kurz beenden.
+
+## Branchenvergleich, fairer Wert und Hinweise (Scanner)
+
+- Workflow «Branchenvergleich und fairer Wert» (`.github/workflows/scan.yml`), jeden Samstag 05:15 UTC und auf Knopfdruck
+  (`.../workflows/scan.yml/dispatches -f ref=main -f 'inputs[stufe]=1'`).
+- `scripts/universum.py STUFE` liest die Indexlisten aus Wikipedia (Liste `INDIZES`, Stufe 1 = grosse Firmen, Stufe 2 = mit Mid Caps)
+  und schreibt `data/universum.json` und `data/universum_bericht.json` (Anzahl pro Index, zum Prüfen).
+- `scripts/scan.py --teil i --von 4` holt Kennzahlen in vier parallelen Teilen, `--zusammen` rechnet Branchen-Perzentile,
+  Noten 0 bis 5, fairen Wert und Hinweise und schreibt `data/scan.json` und `data/scan_bericht.json` (Fehler, Aktien ohne Note).
+- Alle Aktien der App sind automatisch dabei (Symbol aus `stocks.json`). In der App: Abschnitt «Branchenvergleich» im Detail
+  und Tab «Entdecken» (`#/entdecken`, Detail ohne App-Analyse unter `#/scan/SYMBOL`).
+- In neuen Aktien-Checks den Branchenvergleich und den fairen Wert aus `data/scan.json` als zusätzliche Quelle nennen
+  (z. B. im Fazit: «Branchennote 3.4 von 5, fairer Wert 12 % über dem Kurs, Unsicherheit mittel»).
