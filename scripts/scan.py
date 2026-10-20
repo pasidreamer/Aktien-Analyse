@@ -51,17 +51,26 @@ def get(url, tries=3):
     raise RuntimeError(str(last)[:120])
 
 
+DEBUG = {"crumb": None, "summary_ok": 0, "summary_fehler": None, "suche_ok": 0}
+
+
 def crumb():
     global CRUMB
     if CRUMB is None:
-        try:
-            get("https://fc.yahoo.com/", 1)
-        except Exception:
-            pass
-        try:
-            CRUMB = get("https://query2.finance.yahoo.com/v1/test/getcrumb").decode().strip()
-        except Exception:
-            CRUMB = ""
+        CRUMB = ""
+        for start in ("https://fc.yahoo.com/", "https://finance.yahoo.com/quote/AAPL/", "https://login.yahoo.com/"):
+            try:
+                get(start, 1)
+            except Exception:
+                pass
+            try:
+                c = get("https://query2.finance.yahoo.com/v1/test/getcrumb", 2).decode().strip()
+                if c and len(c) < 40 and "<" not in c:
+                    CRUMB = c
+                    break
+            except Exception as e:  # noqa
+                DEBUG["crumb"] = str(e)[:100]
+        DEBUG["crumb"] = DEBUG["crumb"] if not CRUMB else "ok"
     return CRUMB
 
 
@@ -95,9 +104,24 @@ def summary(sym):
     url = f"https://query2.finance.yahoo.com/v10/finance/quoteSummary/{urllib.parse.quote(sym)}?modules={MODULES}&crumb={urllib.parse.quote(crumb())}"
     try:
         j = json.loads(get(url, 2))
+        DEBUG["summary_ok"] += 1
         return j["quoteSummary"]["result"][0]
-    except Exception:
+    except Exception as e:  # noqa
+        DEBUG["summary_fehler"] = str(e)[:120]
         return {}
+
+
+def suche(sym):
+    """Sektor und Branche ohne Crumb über die Yahoo-Suche."""
+    try:
+        j = json.loads(get(f"https://query2.finance.yahoo.com/v1/finance/search?q={urllib.parse.quote(sym)}&quotesCount=3&newsCount=0&listsCount=0", 2))
+        for q in j.get("quotes", []):
+            if q.get("symbol", "").upper() == sym.upper():
+                DEBUG["suche_ok"] += 1
+                return q
+    except Exception:
+        pass
+    return {}
 
 
 def raw(d, *path):
@@ -174,6 +198,10 @@ def kennzahlen(sym, extra):
     m = {"symbol": sym, "w": pc, "p": p, "name": raw(qs, "price", "longName") or raw(qs, "price", "shortName") or meta.get("longName") or meta.get("shortName") or extra.get("name"),
          "sektor": raw(qs, "assetProfile", "sector") or None, "branche": raw(qs, "assetProfile", "industry") or None,
          "land_y": raw(qs, "assetProfile", "country")}
+    if not m["sektor"]:
+        sq = suche(sym)
+        m["sektor"], m["branche"] = sq.get("sector") or sq.get("sectorDisp"), sq.get("industry") or sq.get("industryDisp")
+        m["name"] = m["name"] or sq.get("longname") or sq.get("shortname")
     rev, op, gp = ann(ts, "TotalRevenue"), ann(ts, "OperatingIncome"), ann(ts, "GrossProfit")
     ni = ann(ts, "NetIncomeCommonStockholders") or ann(ts, "NetIncome")
     fcf, ebitda, eps = ann(ts, "FreeCashFlow"), ann(ts, "EBITDA"), ann(ts, "DilutedEPS")
@@ -191,7 +219,7 @@ def kennzahlen(sym, extra):
     mcap = raw(qs, "summaryDetail", "marketCap") or raw(qs, "price", "marketCap")
     shares_rep = last(sh_n) or last(sh_avg)
     if not mcap and shares_rep:
-        mcap = p * shares_rep * k
+        mcap = p * shares_rep
     if not mcap:
         raise RuntimeError("kein Börsenwert")
     impl = mcap / p                      # Anzahl Handelseinheiten (ADR berücksichtigt)
@@ -384,8 +412,9 @@ def fairer_wert(m, sek):
         modelle.append(["Eigenes KGV (5 Jahre)", m["eps"] * min(m["kgv_hist"], 60), f"KGV-Schnitt {nf(m['kgv_hist'])}"])
     # 3 Branchen-KGV (erwarteter Gewinn)
     e = m.get("eps_f") if m.get("eps_f") and m["eps_f"] > 0 else m.get("eps")
-    if e and e > 0 and sek.get("kgv_f"):
-        modelle.append(["Branchen-KGV", e * sek["kgv_f"], f"Branche {nf(sek['kgv_f'])}"])
+    skgv = sek.get("kgv_f") if m.get("eps_f") and m["eps_f"] > 0 else sek.get("kgv")
+    if e and e > 0 and skgv:
+        modelle.append(["Branchen-KGV", e * skgv, f"Branche {nf(skgv)}"])
     # 4 Branchen-EV/EBITDA
     if not fin and m.get("ebitda") and m["ebitda"] > 0 and sek.get("ev_ebitda") and m.get("impl"):
         v = (sek["ev_ebitda"] * m["ebitda"] - (m.get("nettoschulden") or 0)) / m["impl"]
@@ -551,15 +580,31 @@ def hole(items):
     aktien, fehler = {}, {}
     for i, x in enumerate(items):
         try:
-            m = kennzahlen(x["symbol"], x)
+            try:
+                m = kennzahlen(x["symbol"], x)
+            except RuntimeError as e:
+                sym = x["symbol"]
+                if "404" not in str(e) or not sym.endswith((".CO", ".ST", ".HE", ".OL")):
+                    raise
+                base, suf = sym.rsplit(".", 1)
+                m = None
+                for kl in ("-B", "-A"):
+                    try:
+                        m = kennzahlen(f"{base}{kl}.{suf}", x)
+                        break
+                    except Exception:
+                        continue
+                if m is None:
+                    raise
+                x = dict(x, symbol=m["symbol"])
             m.update({k: x.get(k) for k in ("app", "region", "land", "indizes", "sektor_quelle")})
-            aktien[x["symbol"]] = m
+            aktien[m["symbol"]] = m
         except Exception as e:  # noqa
             fehler[x["symbol"]] = {"fehler": str(e)[:150]}
         time.sleep(0.35)
         if i % 25 == 0:
             print(i, len(items), len(fehler), flush=True)
-    return {"aktien": aktien, "fehler": fehler}
+    return {"aktien": aktien, "fehler": fehler, "debug": DEBUG}
 
 
 def main():
@@ -580,7 +625,7 @@ def main():
     out, sek, fehler = zusammen(teile)
     res = {"stand": dt.date.today().isoformat(), "anzahl": len(out), "sektoren": sek, "aktien": out}
     json.dump(res, open(os.path.join(DATA, "scan.json"), "w"), ensure_ascii=False, separators=(",", ":"))
-    json.dump({"stand": res["stand"], "anzahl": len(out), "fehler_anzahl": len(fehler), "fehler": fehler,
+    json.dump({"stand": res["stand"], "anzahl": len(out), "fehler_anzahl": len(fehler), "fehler": fehler, "debug": [t.get("debug") for t in teile],
                "ohne_note": [s for s, x in out.items() if x["g"] is None],
                "ohne_fv": [s for s, x in out.items() if not (x["fv"] or {}).get("wert")],
                "sektoren": {k: v["n"] for k, v in sek.items()}}, open(os.path.join(DATA, "scan_bericht.json"), "w"), ensure_ascii=False, indent=1)
