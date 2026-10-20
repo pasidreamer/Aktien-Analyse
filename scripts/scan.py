@@ -398,7 +398,7 @@ def fairer_wert(m, sek):
         return None
     modelle = []
     beta = m.get("beta") or 1.0
-    r = min(0.12, max(0.075, 0.045 + max(0.4, min(2.0, beta)) * 0.05))
+    r = min(0.11, max(0.07, 0.045 + max(0.4, min(2.0, beta)) * 0.045))
     fin = m.get("sektor") in FIN_SEKTOREN
     # 1 DCF mit dem Free Cashflow (10 Jahre, dann ewiges Wachstum 2.5 %)
     if not fin and m.get("fcf") and m["fcf"] > 0 and m.get("impl"):
