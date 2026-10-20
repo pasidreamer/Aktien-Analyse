@@ -341,3 +341,32 @@ details.more{margin-top:8px} details.more summary{cursor:pointer;color:var(--acc
 .w-list li{display:flex;gap:10px;align-items:flex-start;font-size:14.5px}
 .w-list .badge{flex:none}
 .w-t{display:flex;flex-direction:column} .w-t em{font-style:normal;font-size:12.5px;color:var(--muted)}
+
+/* Branchenvergleich, fairer Wert, Hinweise, Entdecken */
+.vg-top{display:flex;gap:12px;align-items:center}
+.vg-top div{display:grid;gap:1px;min-width:0} .vg-top span{font-size:13.5px;color:var(--muted)}
+.vg-l{width:44px;height:44px;font-size:16px;flex:none}
+.fv-top{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:8px}
+.fv-top span{display:block;font-size:12.5px;color:var(--muted)} .fv-top b{font:600 21px/1.2 var(--num);font-variant-numeric:tabular-nums}
+.gruen-t{color:var(--gruen)} .gelb-t{color:var(--ink)} .orange-t{color:var(--orange)}
+.fv-bar{position:relative;height:26px;margin:12px 4px 4px}
+.fv-bar::before{content:"";position:absolute;left:0;right:0;top:12px;height:2px;background:var(--line)}
+.fv-rng{position:absolute;top:6px;height:14px;background:var(--accent-soft);border-radius:7px}
+.fv-bar i{position:absolute;top:2px;width:3px;height:22px;margin-left:-1.5px;border-radius:2px}
+.fv-fv{background:var(--accent)} .fv-px{background:var(--ink)} .fv-an{background:var(--orange)}
+.fv-tab{width:100%;border-collapse:collapse;font-size:14px;margin-top:10px}
+.fv-tab td,.fv-tab th{padding:7px 4px;border-top:1px solid var(--line);vertical-align:top;text-align:left}
+.fv-tab th{font-size:12px;color:var(--muted);font-weight:500}
+.fv-tab td small{display:block;font-size:12px;color:var(--muted)}
+.fv-tab .n{text-align:right;font-family:var(--num);font-variant-numeric:tabular-nums;white-space:nowrap}
+.fv-tab tr.off td{opacity:.55} .fv-tab tr.an td{color:var(--muted)}
+.fv-tab .up{color:var(--up,var(--gruen))} .fv-tab .down{color:var(--down,var(--rot))}
+.hw{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.hw li{display:grid;grid-template-columns:22px 1fr;gap:8px;font-size:14.5px;align-items:start}
+.hw i{display:grid;place-items:center;width:20px;height:20px;border-radius:50%;font:700 13px var(--num);font-style:normal;color:#fff}
+.hw-g i{background:var(--gruen)} .hw-r i{background:var(--rot)}
+.intro{font-size:14.5px;color:var(--muted);margin:0 0 10px}
+.er-l{width:38px;height:38px;font-size:14px;flex:none}
+.er-k{display:flex;gap:3px;margin-top:5px} .er-k i{width:18px;height:5px;border-radius:3px}
+.er-fv{font:600 13px var(--num);color:var(--muted)} .er-fv.up{color:var(--gruen)} .er-fv.down{color:var(--rot)}
+select.chip{appearance:auto;padding:5px 10px;color:var(--ink)}

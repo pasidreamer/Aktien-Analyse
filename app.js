@@ -712,6 +712,8 @@ function renderDetail(ticker) {
     <div class="sec"><h2>Qualität ${v.q} von 100</h2><p>Aus der letzten Analyse. Die Bewertung passt sich dem Kurs an.</p></div>
     <div class="card">${partsHtml(v.qParts)}</div>
 
+    ${scanSlot(s)}
+
     <div class="sec"><h2>Wichtige Kennzahlen</h2></div>
     <div class="kpis">${s.kpis.filter(k => !/^Dividende/.test(k.name)).map(k => `<div class="kpi ${esc(k.ampel)}"><span>${esc(k.name)}</span><b>${esc(k.wert)}</b><em>${esc(k.text)}</em></div>`).join("")}${divKpi(s, v)}</div>
 
@@ -827,6 +829,12 @@ function renderInfo() {
     <p><b>Free Cashflow (FCF)</b> ist das Geld, das nach allen Kosten und Investitionen in der Kasse bleibt. Eine Firma, deren FCF Jahr für Jahr wächst, kann Aktien zurückkaufen (dann gehört jeder Aktie ein grösseres Stück der Firma), Schulden abzahlen oder Dividenden zahlen. Die App prüft sechs Fragen und vergibt bis 100 Punkte:</p>
     <p><b>1. Wächst er?</b> <b>2. Wie viel vom Umsatz bleibt?</b> (FCF-Marge: 10 Mrd. FCF bei 50 Mrd. Umsatz sind 20 %.) <b>3. Wie viel im Verhältnis zum Börsenwert?</b> (FCF-Rendite: 10 Mrd. FCF bei 100 Mrd. Börsenwert sind 10 %.) <b>4. Wie schnell wären die Schulden bezahlt?</b> (Stark ist, wenn der halbe FCF eines Jahres reicht.) <b>5. Wofür wird er genutzt?</b> (Rückkäufe, Schuldenabbau, Dividende. Steigt die Aktienzahl, wird dein Anteil kleiner.) <b>6. Ist er nachhaltig?</b> (Keine Verlustjahre, wenig Löhne in Aktien, und kein starker Kurszerfall, der zeigt, dass die Börse am künftigen FCF zweifelt.)</p>
     <p>Der Filter «Starker Cashflow» zeigt alle Aktien ab 70 Punkten. Die Sortierung «Free Cashflow» ordnet alle Aktien danach.</p>
+    <h3>Branchenvergleich, fairer Wert und Hinweise</h3>
+    <p>Diese drei Teile sind von InvestingPro inspiriert und werden jeden Samstag für über 1'000 Aktien aus grossen Indizes neu gerechnet (USA, Schweiz, Europa, UK, Kanada).</p>
+    <p><b>Branchenvergleich:</b> Jede Firma wird mit ihrer eigenen Branche verglichen, in fünf Bereichen: Bewertung, Wachstum, Profitabilität, Cashflow und Bilanz, Kursmomentum. Je Bereich 0 bis 5 Punkte. Beispiel: Ist die Marge besser als bei 80 % der Branche, gibt das 4 Punkte. Die Gesamtnote ist der Schnitt, ab 2.75 gut, ab 3.5 sehr gut. Das ergänzt deine Qualitäts-Ampel: Die Ampel nutzt feste Grenzen, der Vergleich zeigt, ob die Firma in ihrer Branche vorne ist.</p>
+    <p><b>Fairer Wert:</b> Bis zu sechs Modelle (DCF mit dem Free Cashflow, eigenes KGV, Branchen-KGV, Branchen-EV/EBITDA, Dividendenmodell, Buchwert bei Banken). Der faire Wert ist der Median. Liegen die Modelle weit auseinander, ist die Unsicherheit hoch. Das Analysten-Kursziel steht daneben, zählt aber nicht mit.</p>
+    <p><b>Hinweise:</b> Bis zu acht kurze Sätze, was in den Zahlen auffällt, zum Beispiel «Dividende 12 Jahre in Folge erhöht» oder «Analysten haben die Gewinnschätzung in 90 Tagen gesenkt».</p>
+    <p><b>Entdecken:</b> Im Tab «Entdecken» siehst du alle Aktien der Liste, filterbar nach deinen Strategien. Tippe eine an und fordere die ganze Analyse an.</p>
     <h3>Gegen den Strom: Angst als Chance</h3>
     <p>Wenn alle verkaufen und die Schlagzeilen nur noch schwarz malen, ist oft schon viel schlechte Nachricht im Kurs. Darum zeigt die App zwei Stimmungs-Anzeiger:</p>
     <p><b>Marktstimmung (Gesamtmarkt).</b> Der <b>Fear &amp; Greed Index</b> von CNN misst von 0 bis 100, wie ängstlich oder gierig die Anleger in den USA sind (aus sieben Werten wie Kursschwung, Absicherungen und Schwankung). Unter 25 heisst «Extreme Angst», über 75 «Extreme Gier». Dazu zeigt die App den S&amp;P 500 (Abstand zum Jahreshoch, Trend über oder unter der EMA 200) und den <b>VIX</b>, das «Angstbarometer» der Börse: über 20 nervös, über 30 Panik. Fällt der Index unter 25, bekommst du eine Push-Nachricht.</p>
@@ -863,12 +871,207 @@ function renderInfo() {
   scrollTo(0, 0);
 }
 
+// ---------- Branchenvergleich, fairer Wert, Hinweise (Scanner) ----------
+// Daten: data/scan.json, einmal pro Woche von GitHub gerechnet. Wird erst geladen, wenn man es braucht.
+const SEK_DE = { "Technology": "Technologie", "Healthcare": "Gesundheit", "Financial Services": "Finanzen", "Consumer Cyclical": "Zyklischer Konsum",
+  "Consumer Defensive": "Basiskonsum", "Industrials": "Industrie", "Energy": "Energie", "Basic Materials": "Rohstoffe", "Communication Services": "Kommunikation",
+  "Utilities": "Versorger", "Real Estate": "Immobilien", "Andere": "Andere" };
+const BER = [["bewertung", "Bewertung", "Wie günstig im Vergleich zum Gewinn, Free Cashflow und EBITDA"], ["wachstum", "Wachstum", "Umsatz-, Gewinn- und Cashflow-Wachstum, erwartetes Gewinnwachstum"],
+  ["profit", "Profitabilität", "Bruttomarge, operative Marge, ROIC, Eigenkapitalrendite, Margen-Trend"], ["cashflow", "Cashflow und Bilanz", "FCF-Marge, Cash im Verhältnis zum Gewinn, Schulden, Aktienzahl"],
+  ["momentum", "Kursmomentum", "Kursentwicklung 6 und 12 Monate, Trend, Änderung der Gewinnschätzungen"]];
+const noteName = g => g == null ? "keine Note" : g >= 3.5 ? "sehr gut" : g >= 2.75 ? "gut" : g >= 2 ? "mittel" : g >= 1.25 ? "schwach" : "kritisch";
+const noteAmpel = g => ampel((g ?? 0) * 20);
+let scanPromise = null;
+function ensureScan(force) {
+  if (STATE.scan && !force) return Promise.resolve(STATE.scan);
+  if (!scanPromise || force) scanPromise = getJSON("data/scan.json").then(j => (STATE.scan = j)).catch(() => (STATE.scan = { aktien: {}, sektoren: {}, fehlt: true }));
+  return scanPromise;
+}
+const scanOf = s => STATE.scan?.aktien?.[s.symbol] || null;
+
+function fvHtml(x) {
+  const f = x.fv, w = x.w;
+  if (!f || f.zu_wenig || f.wert == null) return `<div class="card prose"><p>Für einen fairen Wert gibt es zu wenig verlässliche Modelle. Das ist oft bei Firmen mit Verlust, stark schwankendem Cashflow oder wenig Daten der Fall.</p></div>`;
+  const ok = f.modelle.filter(m => m[3]), vals = [...ok.map(m => m[1]), x.p, f.wert, ...(x.an?.ziel ? [x.an.ziel] : [])];
+  const lo = Math.min(...vals) * 0.92, hi = Math.max(...vals) * 1.05, pos = v => ((v - lo) / (hi - lo) * 100).toFixed(1);
+  const col = f.potenzial >= 15 ? "gruen" : f.potenzial > -15 ? "gelb" : "orange";
+  const urteil = f.potenzial >= 30 ? "deutlich unterbewertet" : f.potenzial >= 15 ? "unterbewertet" : f.potenzial > -15 ? "etwa fair bewertet" : f.potenzial > -30 ? "überbewertet" : "deutlich überbewertet";
+  const lo2 = Math.min(...ok.map(m => m[1])), hi2 = Math.max(...ok.map(m => m[1]));
+  return `<div class="card fv">
+    <div class="fv-top"><div><span>Fairer Wert</span><b>${money(f.wert, w)}</b></div><div><span>Kurs</span><b>${money(x.p, w)}</b></div>
+      <div><span>Potenzial</span><b class="${col}-t">${pct(f.potenzial, 0)}</b></div></div>
+    <p class="pill-line"><span class="pill p-${col}">${urteil}</span> Unsicherheit <b>${esc(f.unsicher)}</b> (${ok.length} Modelle${ok.length < f.modelle.length ? `, ${f.modelle.length - ok.length} unplausibel und weggelassen` : ""})</p>
+    <div class="fv-bar" role="img" aria-label="Spanne der Modelle ${money(lo2, w)} bis ${money(hi2, w)}, fairer Wert ${money(f.wert, w)}, Kurs ${money(x.p, w)}">
+      <span class="fv-rng" style="left:${pos(lo2)}%;width:${(pos(hi2) - pos(lo2)).toFixed(1)}%"></span>
+      <i class="fv-fv" style="left:${pos(f.wert)}%"></i><i class="fv-px" style="left:${pos(x.p)}%"></i>${x.an?.ziel ? `<i class="fv-an" style="left:${pos(x.an.ziel)}%"></i>` : ""}</div>
+    <div class="legend"><span><i style="background:var(--accent-soft);height:9px"></i>Spanne der Modelle</span><span><i style="background:var(--accent)"></i>Fairer Wert</span><span><i style="background:var(--ink)"></i>Kurs</span>${x.an?.ziel ? `<span><i style="background:var(--orange)"></i>Analysten-Ziel</span>` : ""}</div>
+    <table class="fv-tab"><tbody>${f.modelle.map(m => `<tr class="${m[3] ? "" : "off"}"><td>${esc(m[0])}<small>${esc(m[2])}${m[3] ? "" : " · unplausibel, nicht gezählt"}</small></td><td class="n">${money(m[1], w)}</td><td class="n">${pct((m[1] / x.p - 1) * 100, 0)}</td></tr>`).join("")}
+      ${x.an?.ziel ? `<tr class="an"><td>Analysten-Kursziel<small>Schnitt von ${x.an.n || "?"} Analysten, nicht im fairen Wert enthalten</small></td><td class="n">${money(x.an.ziel, w)}</td><td class="n">${pct((x.an.ziel / x.p - 1) * 100, 0)}</td></tr>` : ""}</tbody></table>
+    <details class="more"><summary>So rechnet die App den fairen Wert</summary><ul class="plain">
+      <li><b>DCF Free Cashflow:</b> Der Free Cashflow pro Aktie wächst 5 Jahre mit dem erwarteten Tempo, danach langsamer, ab Jahr 10 mit 2.5 % pro Jahr. Alles wird auf heute abgezinst (je schwankungsreicher die Aktie, desto höher der Zins).</li>
+      <li><b>Eigenes KGV:</b> Gewinn pro Aktie mal das mittlere KGV der letzten Jahre.</li>
+      <li><b>Branchen-KGV:</b> Erwarteter Gewinn pro Aktie mal das mittlere KGV der Branche.</li>
+      <li><b>Branchen-EV/EBITDA:</b> Betriebsgewinn vor Abschreibungen mal das Branchen-Multiple, minus Nettoschulden.</li>
+      <li><b>Dividendenmodell:</b> Nur bei Dividendenzahlern: Was sind alle künftigen Dividenden heute wert?</li>
+      <li><b>Kurs/Buchwert:</b> Nur bei Banken, Versicherungen und Immobilien.</li>
+      <li>Der faire Wert ist der <b>Median</b> der plausiblen Modelle. Liegen sie weit auseinander, ist die Unsicherheit hoch. Dann ist die Zahl nur ein grober Anhaltspunkt.</li>
+    </ul></details></div>`;
+}
+function vergleichHtml(x) {
+  const sek = STATE.scan?.sektoren?.[x.sek] || {};
+  const rows = BER.map(([k, name, txt]) => {
+    const n = x.k?.[k], r = x.rg?.[k];
+    return `<div class="part"><span>${name}</span><span class="p">${n == null ? "–" : nf(n, 1) + " / 5"}</span>
+      <div class="bar"><i style="width:${r ?? 0}%;background:${ampelVar(noteAmpel(n))}"></i></div>
+      <div class="t">${r == null ? "Zu wenig Daten." : `Besser als ${nf(r, 0)} % der Branche.`} ${txt}.</div></div>`;
+  }).join("");
+  const d = x.d || {};
+  const vgl = [["KGV", d.kgv, sek.kgv, false], ["Erwartetes KGV", d.kgv_f, sek.kgv_f, false], ["Operative Marge", d.op_marge, sek.op_marge, true, " %"],
+    ["Umsatzwachstum", d.umsatz_wachstum, sek.umsatz_wachstum, true, " %"], ["FCF-Rendite", d.fcf_rendite, sek.fcf_rendite, true, " %"]].filter(r => r[1] != null && r[2] != null);
+  return `<div class="card">
+    <div class="vg-top"><span class="lamp ${noteAmpel(x.g)} vg-l">${x.g == null ? "–" : nf(x.g, 1)}</span>
+      <div><b>Gesamtnote ${x.g == null ? "–" : nf(x.g, 1) + " von 5"} (${noteName(x.g)})</b><span>${x.grang != null ? `Besser als ${x.grang} % von ${x.gn} Firmen der Branche ${esc(SEK_DE[x.sek] || x.sek)}` : `Branche ${esc(SEK_DE[x.sek] || x.sek)}`}</span></div></div>
+    ${partsHtml0(rows)}
+    ${vgl.length ? `<table class="fv-tab vg-tab"><thead><tr><th>Kennzahl</th><th class="n">Firma</th><th class="n">Branche (Mitte)</th></tr></thead><tbody>${vgl.map(([n, a, b, hoch, u = ""]) => {
+      const gut = hoch ? a > b : a < b; return `<tr><td>${n}</td><td class="n ${gut ? "up" : "down"}">${nf(a, 1)}${u}</td><td class="n">${nf(b, 1)}${u}</td></tr>`; }).join("")}</tbody></table>
+      <p class="fc-cap">Grün: besser als die Mitte der Branche. Beim KGV ist tiefer besser (günstiger).</p>` : ""}
+    <details class="more"><summary>So funktioniert der Branchenvergleich</summary><ul class="plain">
+      <li>Die App vergleicht die Firma mit allen Firmen derselben Branche aus den grossen Indizes (aktuell ${STATE.scan?.anzahl || "viele"} Firmen). Eine Marge von 15 % ist bei einem Restaurant stark, bei einer Software-Firma schwach. Darum zählt der Rang in der Branche, keine feste Grenze.</li>
+      <li>Pro Bereich werden mehrere Kennzahlen verglichen. «Besser als 80 %» heisst: nur 20 % der Branche sind besser. Daraus werden 0 bis 5 Punkte (80 % = 4 Punkte).</li>
+      <li>Ab 2.75 gilt die Note als gut, ab 3.5 als sehr gut. Gleiche Idee wie die «Financial Health» bei InvestingPro.</li>
+      <li>Bei Banken und Versicherungen zählen Free Cashflow und EBITDA nicht, weil sie dort wenig aussagen.</li>
+      <li>Daten von Yahoo Finance, Stand ${fmtDate(STATE.scan?.stand)}. Neu gerechnet jeden Samstag.</li></ul></details></div>`;
+}
+const partsHtml0 = rows => `<div class="parts" style="margin-top:12px">${rows}</div>`;
+function hinweisHtml(x) {
+  if (!x.h?.length) return `<div class="card prose"><p>Keine auffälligen Hinweise.</p></div>`;
+  return `<div class="card"><ul class="hw">${x.h.map(([a, t]) => `<li class="hw-${a}"><i aria-hidden="true">${a === "g" ? "+" : "!"}</i><span>${esc(t)}</span></li>`).join("")}</ul>
+    <p class="fc-cap">Automatisch aus den Zahlen erzeugt, ähnlich den «ProTips» bei InvestingPro. Grün spricht für die Aktie, rot ist ein Warnsignal.</p></div>`;
+}
+function scanBlock(x) {
+  return `<div class="sec" id="vergleich"><h2>Branchenvergleich</h2><p>Wie gut ist die Firma im Vergleich mit ihrer eigenen Branche?</p></div>${vergleichHtml(x)}
+    <div class="sec"><h2>Fairer Wert</h2><p>Was die Aktie nach mehreren Bewertungsmodellen wert sein könnte.</p></div>${fvHtml(x)}
+    <div class="sec"><h2>Hinweise</h2><p>Was aus den Zahlen auffällt.</p></div>${hinweisHtml(x)}`;
+}
+function scanSlot(s) {
+  // Platzhalter im Detail, wird gefüllt, sobald scan.json geladen ist
+  setTimeout(() => ensureScan().then(() => {
+    const el = document.getElementById("scanslot"); if (!el) return;
+    const x = scanOf(s);
+    el.innerHTML = x ? scanBlock(x) : `<div class="sec"><h2>Branchenvergleich und fairer Wert</h2></div><div class="empty">${STATE.scan?.fehlt ? "Die Vergleichsdaten werden am Samstag zum ersten Mal gerechnet." : "Für diese Aktie fehlen noch Vergleichsdaten. Sie kommen mit dem nächsten Wochenlauf."}</div>`;
+  }), 0);
+  return `<div id="scanslot"><div class="sec"><h2>Branchenvergleich und fairer Wert</h2></div><div class="empty">Lade Vergleichsdaten …</div></div>`;
+}
+
+// ---------- Entdecken: alle Aktien aus dem Universum ----------
+const LINSEN = [["alle", "Alle"], ["unter", "Unterbewertet"], ["dividende", "Dividende"], ["cashflow", "Cashflow"], ["wachstum", "Wachstum"], ["qualitaet", "Qualität"]];
+const linseOk = (x, l) => {
+  const d = x.d || {}, k = x.k || {}, f = x.fv || {};
+  if (l === "unter") return f.potenzial >= 20 && ["niedrig", "mittel"].includes(f.unsicher) && (x.g ?? 0) >= 2.5;
+  if (l === "dividende") return d.div_rendite >= 2.5 && (d.ausschuettung ?? 999) < 85 && (d.div_serie ?? 0) >= 3;
+  if (l === "cashflow") return d.fcf_rendite >= 5 && (d.netto_cash || (d.schulden_fcf ?? 99) <= 3) && (k.cashflow ?? 0) >= 3;
+  if (l === "wachstum") return (d.umsatz_cagr3 ?? 0) >= 10 && (k.wachstum ?? 0) >= 3.5;
+  if (l === "qualitaet") return (k.profit ?? 0) >= 3.5 && (x.g ?? 0) >= 3;
+  return true;
+};
+const SORTS = [["note", "Gesamtnote"], ["fv", "Fairer Wert (Potenzial)"], ["fcf", "FCF-Rendite"], ["div", "Dividendenrendite"], ["wachs", "Umsatzwachstum 3 Jahre"], ["mom", "Kursmomentum"], ["mc", "Börsenwert"], ["name", "Name"]];
+const sortFn = {
+  note: (a, b) => (b.g ?? -1) - (a.g ?? -1), fv: (a, b) => (b.fv?.potenzial ?? -999) - (a.fv?.potenzial ?? -999),
+  fcf: (a, b) => (b.d?.fcf_rendite ?? -999) - (a.d?.fcf_rendite ?? -999), div: (a, b) => (b.d?.div_rendite ?? -1) - (a.d?.div_rendite ?? -1),
+  wachs: (a, b) => (b.d?.umsatz_cagr3 ?? -999) - (a.d?.umsatz_cagr3 ?? -999), mom: (a, b) => (b.d?.mom_12_1 ?? -999) - (a.d?.mom_12_1 ?? -999),
+  mc: (a, b) => (b.mc ?? 0) - (a.mc ?? 0), name: (a, b) => (a.n || "").localeCompare(b.n || "", "de")
+};
+function entRow(x) {
+  const f = x.fv;
+  const href = x.app ? `#/aktie/${encodeURIComponent(x.app)}` : `#/scan/${encodeURIComponent(x.sym)}`;
+  return `<a class="row er" href="${href}"><span class="lamp ${noteAmpel(x.g)} er-l" title="Gesamtnote">${x.g == null ? "–" : nf(x.g, 1)}</span>
+    <div class="mid"><div class="nm">${esc(x.n || x.sym)}</div><div class="sub">${esc(x.sym)} · ${esc(x.land || x.reg || "")} · ${esc(SEK_DE[x.sek] || x.sek)}${x.app ? " · in der App" : ""}</div>
+      <div class="er-k">${BER.map(([k, n]) => `<i title="${n} ${x.k?.[k] ?? "–"}" style="background:${x.k?.[k] == null ? "var(--surface2)" : ampelVar(noteAmpel(x.k[k]))}"></i>`).join("")}</div></div>
+    <div class="right"><div class="px">${money(x.p, x.w)}</div>${f?.potenzial != null ? `<div class="er-fv ${f.potenzial >= 15 ? "up" : f.potenzial <= -15 ? "down" : ""}">Fair ${pct(f.potenzial, 0)}</div>` : ""}</div></a>`;
+}
+function renderEntdecken() {
+  $view.innerHTML = `<header class="top"><div><h1>Entdecken</h1><div class="stand">Lade die Liste …</div></div></header><div class="empty">Einen Moment.</div>`;
+  ensureScan().then(() => drawEntdecken());
+}
+function drawEntdecken() {
+  const S = STATE.scan, F = STATE.ent || (STATE.ent = store.get("ent", { linse: "alle", reg: "Alle", sek: "Alle", sort: "note", q: "", n: 40 }));
+  if (!S || S.fehlt || !Object.keys(S.aktien || {}).length) {
+    $view.innerHTML = `<header class="top"><div><h1>Entdecken</h1></div></header><div class="empty">Die Liste wird gerade zum ersten Mal gerechnet. Schau in einer Stunde wieder rein.</div>`; return;
+  }
+  const all = Object.values(S.aktien);
+  const regs = ["Alle", ...["USA", "Schweiz", "Europa", "Kanada", "Asien"].filter(r => all.some(x => x.reg === r))];
+  const seks = ["Alle", ...Object.keys(S.sektoren || {}).filter(k => k !== "Andere").sort((a, b) => (SEK_DE[a] || a).localeCompare(SEK_DE[b] || b, "de"))];
+  const q = F.q.trim().toLowerCase();
+  const base = all.filter(x => (F.reg === "Alle" || x.reg === F.reg) && (F.sek === "Alle" || x.sek === F.sek) && (!q || `${x.n} ${x.sym} ${x.br || ""}`.toLowerCase().includes(q)));
+  const list = base.filter(x => linseOk(x, F.linse)).sort(sortFn[F.sort] || sortFn.note);
+  const cnt = Object.fromEntries(LINSEN.map(([k]) => [k, base.filter(x => linseOk(x, k)).length]));
+  const save = () => store.set("ent", F);
+  $view.innerHTML = `<header class="top"><div><h1>Entdecken</h1><div class="stand">${S.anzahl} Aktien aus grossen Indizes · Stand ${fmtDate(S.stand)}</div></div></header>
+    <p class="intro">Alle Aktien mit Branchenvergleich, fairem Wert und Hinweisen. Gefällt dir eine, tippe sie an und lass die ganze Analyse machen.</p>
+    <div class="controls" id="controls">
+      <div class="search"><input id="eq" type="search" placeholder="Name oder Kürzel" value="${esc(F.q)}" aria-label="Suche">
+        <select id="esort" aria-label="Sortierung">${SORTS.map(([k, l]) => `<option value="${k}" ${F.sort === k ? "selected" : ""}>${l}</option>`).join("")}</select></div>
+      <div class="chips" role="group" aria-label="Strategie">${LINSEN.map(([k, l]) => `<button class="chip" data-el="${k}" aria-pressed="${F.linse === k}">${l}<span class="n">${cnt[k]}</span></button>`).join("")}</div>
+      <div class="chips" role="group" aria-label="Region">${regs.map(r => `<button class="chip" data-er="${esc(r)}" aria-pressed="${F.reg === r}">${r === "Alle" ? "Alle Regionen" : r}</button>`).join("")}
+        <select id="esek" class="chip" aria-label="Branche">${seks.map(k => `<option value="${esc(k)}" ${F.sek === k ? "selected" : ""}>${k === "Alle" ? "Alle Branchen" : esc(SEK_DE[k] || k)}</option>`).join("")}</select></div>
+    </div>
+    <div class="count">${list.length} Aktien${F.linse !== "alle" ? ` · Filter «${LINSEN.find(l => l[0] === F.linse)[1]}»` : ""}</div>
+    <div class="list">${list.slice(0, F.n).map(entRow).join("") || `<div class="empty">Keine Aktie passt zu diesen Filtern.</div>`}</div>
+    ${list.length > F.n ? `<button class="btn" id="emore" style="margin-top:12px;width:100%">${Math.min(40, list.length - F.n)} weitere zeigen</button>` : ""}
+    <details class="more"><summary>Was die Filter bedeuten</summary><ul class="plain">
+      <li><b>Unterbewertet:</b> Fairer Wert mindestens 20 % über dem Kurs, Unsicherheit höchstens mittel, Gesamtnote ab 2.5.</li>
+      <li><b>Dividende:</b> Rendite ab 2.5 %, höchstens 85 % des Gewinns ausgeschüttet, mindestens 3 Erhöhungen in Folge.</li>
+      <li><b>Cashflow:</b> FCF-Rendite ab 5 %, Schulden in höchstens 3 Jahren aus dem Free Cashflow bezahlt (oder Netto-Cash), Cashflow-Note ab 3.</li>
+      <li><b>Wachstum:</b> Umsatz wächst seit 3 Jahren um mindestens 10 % pro Jahr, Wachstumsnote ab 3.5.</li>
+      <li><b>Qualität:</b> Profitabilität ab 3.5 und Gesamtnote ab 3.</li>
+      <li>Die fünf Striche zeigen die Noten für Bewertung, Wachstum, Profitabilität, Cashflow und Momentum.</li></ul></details>`;
+  const re = () => { save(); const y = scrollY; drawEntdecken(); scrollTo(0, y); };
+  $view.querySelectorAll("[data-el]").forEach(b => b.onclick = () => { F.linse = b.dataset.el; F.n = 40; re(); });
+  $view.querySelectorAll("[data-er]").forEach(b => b.onclick = () => { F.reg = b.dataset.er; F.n = 40; re(); });
+  document.getElementById("esek").onchange = e => { F.sek = e.target.value; F.n = 40; re(); };
+  document.getElementById("esort").onchange = e => { F.sort = e.target.value; re(); };
+  let t; document.getElementById("eq").oninput = e => { clearTimeout(t); t = setTimeout(() => { F.q = e.target.value; F.n = 40; save(); drawEntdecken(); const i = document.getElementById("eq"); i.focus(); i.setSelectionRange(i.value.length, i.value.length); }, 250); };
+  const m = document.getElementById("emore"); if (m) m.onclick = () => { F.n += 40; re(); };
+}
+function renderScanDetail(sym) {
+  $view.innerHTML = `<a class="back" href="#/entdecken"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>Entdecken</a><div class="empty">Lade …</div>`;
+  ensureScan().then(() => {
+    const x = STATE.scan?.aktien?.[sym];
+    if (!x) { $view.innerHTML = `<a class="back" href="#/entdecken">Zurück</a><div class="empty">Diese Aktie ist nicht in der Liste.</div>`; return; }
+    if (x.app) { location.replace("#/aktie/" + encodeURIComponent(x.app)); return; }
+    const d = x.d || {};
+    const fact = (n, v, u = "") => v == null ? "" : `<dt>${n}</dt><dd>${nf(v, 1)}${u}</dd>`;
+    $view.innerHTML = `<a class="back" href="#/entdecken"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>Entdecken</a>
+      <div class="dhead"><h1>${esc(x.n || x.sym)}</h1><div class="meta">${esc(x.sym)} · ${esc(x.land || x.reg || "")} · ${esc(SEK_DE[x.sek] || x.sek)}${x.br ? " · " + esc(x.br) : ""}</div>
+        <div class="dprice"><span class="px">${money(x.p, x.w)}</span></div><div class="meta">${x.idx?.length ? "Im Index " + esc(x.idx.join(", ")) + " · " : ""}Börsenwert ${nf(x.mc, x.mc >= 10 ? 0 : 1)} Mrd. CHF</div></div>
+      <div class="banner info">Automatische Kurzbewertung. Für Qualitäts- und Timing-Ampel, Zonen, Sorgen und Wachstumsschub braucht es die ganze Analyse.</div>
+      <div class="card wunsch"><form id="wunsch-form" class="tokenrow"><input id="wunsch-in" type="text" value="${esc(x.n || x.sym)} (${esc(x.sym)})" aria-label="Aktie">
+        <button class="btn small primary" type="submit">Ganze Analyse anfordern</button></form><p class="w-msg" id="wmsg" hidden></p></div>
+      ${scanBlock(x)}
+      <div class="sec"><h2>Kennzahlen</h2></div>
+      <div class="card"><dl class="facts">${fact("KGV", d.kgv)}${fact("Erwartetes KGV", d.kgv_f)}${fact("KGV-Schnitt eigene Jahre", d.kgv_hist)}${fact("FCF-Rendite", d.fcf_rendite, " %")}${fact("Dividendenrendite", d.div_rendite, " %")}
+        ${d.div_serie ? `<dt>Dividende erhöht</dt><dd>${d.div_serie} Jahre in Folge</dd>` : ""}${fact("Umsatzwachstum letztes Jahr", d.umsatz_wachstum, " %")}${fact("Umsatzwachstum 3 Jahre (pro Jahr)", d.umsatz_cagr3, " %")}
+        ${fact("Operative Marge", d.op_marge, " %")}${fact("ROIC", d.roic, " %")}${fact("Free-Cashflow-Marge", d.fcf_marge, " %")}${d.netto_cash ? "<dt>Schulden</dt><dd>Mehr Cash als Schulden</dd>" : fact("Schulden in Jahren FCF", d.schulden_fcf)}
+        ${fact("Aktienzahl pro Jahr", d.aktien_pa, " %")}${fact("Kurs 12 Monate", d.mom_12_1, " %")}${fact("Unter dem Jahreshoch", d.unter_hoch, " %")}</dl></div>
+      <p class="fc-cap">Keine Anlageberatung.</p>`;
+    const f = document.getElementById("wunsch-form");
+    f.onsubmit = async e => { e.preventDefault(); const msg = document.getElementById("wmsg"); msg.hidden = false;
+      const text = document.getElementById("wunsch-in").value.trim();
+      try { const r = await fetch(`https://ntfy.sh/${WUNSCH_TOPIC}`, { method: "POST", body: text }); if (!r.ok) throw 0;
+        store.set("wuensche_local", [...store.get("wuensche_local", []), { text, ts: Date.now() }]); msg.textContent = "Gesendet. Claude macht die ganze Analyse heute Abend, du bekommst eine Push-Nachricht."; }
+      catch { msg.textContent = "Senden hat nicht geklappt. Bist du online?"; } };
+    scrollTo(0, 0);
+  });
+}
+
 // ---------- Routing ----------
 function route() {
   const h = location.hash || "#/";
-  const tab = h.startsWith("#/termine") ? "termine" : h.startsWith("#/info") ? "info" : h.startsWith("#/depot") ? "depot" : "home";
+  const tab = h.startsWith("#/termine") ? "termine" : h.startsWith("#/info") ? "info" : h.startsWith("#/depot") ? "depot" : h.startsWith("#/entdecken") || h.startsWith("#/scan/") ? "entdecken" : "home";
   document.querySelectorAll(".tabs a").forEach(a => a.dataset.tab === tab ? a.setAttribute("aria-current", "page") : a.removeAttribute("aria-current"));
   if (h.startsWith("#/aktie/")) renderDetail(decodeURIComponent(h.slice(8)));
+  else if (h.startsWith("#/scan/")) renderScanDetail(decodeURIComponent(h.slice(7)));
+  else if (tab === "entdecken") renderEntdecken();
   else if (tab === "termine") renderTermine();
   else if (tab === "info") renderInfo();
   else if (tab === "depot") window.Depot ? window.Depot.render($view, h.startsWith("#/depot/neu/") ? decodeURIComponent(h.slice(12)) : null) : ($view.innerHTML = '<div class="empty">Das Depot konnte nicht geladen werden.</div>');
@@ -876,13 +1079,13 @@ function route() {
 }
 let lastHash = location.hash;
 addEventListener("hashchange", () => {
-  if (!lastHash.startsWith("#/aktie/") && !lastHash.startsWith("#/termine") && !lastHash.startsWith("#/info") && !lastHash.startsWith("#/depot")) store.set("homeScroll", scrollY);
+  if (!lastHash.startsWith("#/aktie/") && !lastHash.startsWith("#/termine") && !lastHash.startsWith("#/info") && !lastHash.startsWith("#/depot") && !lastHash.startsWith("#/entdecken") && !lastHash.startsWith("#/scan/")) store.set("homeScroll", scrollY);
   lastHash = location.hash; route();
 });
 
 async function refresh() {
   const b = document.getElementById("reload"); b?.classList.add("spin");
-  try { await load(true); } catch (e) { console.warn(e); }
+  try { await load(true); if (STATE.scan) await ensureScan(true); } catch (e) { console.warn(e); }
   b?.classList.remove("spin"); route();
 }
 
