@@ -33,11 +33,11 @@ opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(jar))
 CRUMB = None
 
 
-def get(url, tries=3):
+def get(url, tries=3, accept="application/json,text/html,*/*"):
     last = None
     for i in range(tries):
         try:
-            req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "application/json,text/html"})
+            req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": accept, "Accept-Language": "en-US,en;q=0.9"})
             with opener.open(req, timeout=30) as r:
                 return r.read()
         except urllib.error.HTTPError as e:
@@ -60,11 +60,11 @@ def crumb():
         CRUMB = ""
         for start in ("https://fc.yahoo.com/", "https://finance.yahoo.com/quote/AAPL/", "https://login.yahoo.com/"):
             try:
-                get(start, 1)
+                get(start, 1, "text/html,application/xhtml+xml,*/*")
             except Exception:
                 pass
             try:
-                c = get("https://query2.finance.yahoo.com/v1/test/getcrumb", 2).decode().strip()
+                c = get("https://query2.finance.yahoo.com/v1/test/getcrumb", 2, "*/*").decode().strip()
                 if c and len(c) < 40 and "<" not in c:
                     CRUMB = c
                     break
@@ -282,6 +282,7 @@ def kennzahlen(sym, extra):
     # Profitabilität
     m["bruttomarge"] = gp_t / rev_t * 100 if gp_t and rev_t else None
     m["op_marge"] = op_t / rev_t * 100 if op_t is not None and rev_t else None
+    m["netto_marge"] = ni_t / rev_t * 100 if ni_t is not None and rev_t else None
     om = [(o / r * 100) for (_, o), (_, r) in zip(op[-3:], rev[-3:]) if r] if len(op) >= 3 and len(rev) >= 3 else []
     m["marge_trend"] = om[-1] - om[0] if len(om) == 3 else None
     m["marge_sinkt"] = len(om) == 3 and om[2] < om[1] < om[0]
@@ -341,10 +342,10 @@ def kennzahlen(sym, extra):
 
 # ---------- Vergleich, fairer Wert, Hinweise ----------
 BEREICHE = {
-    "bewertung": [("ertragsrendite", 1), ("ertragsrendite_f", 1), ("fcf_rendite", 1), ("ebitda_rendite", 1)],
+    "bewertung": [("ertragsrendite", 1), ("ertragsrendite_f", 1), ("fcf_rendite", 1), ("ebitda_rendite", 1), ("buchrendite", 1)],
     "wachstum": [("umsatz_wachstum", 1), ("umsatz_cagr3", 1), ("eps_cagr3", 1), ("fcf_cagr3", 1), ("eps_f_wachstum", 1)],
-    "profit": [("bruttomarge", 1), ("op_marge", 1), ("roic", 1), ("roe", 1), ("marge_trend", 1)],
-    "cashflow": [("fcf_marge", 1), ("fcf_deckung_q", 1), ("schulden_fcf_q", -1), ("aktien_pa", -1), ("fcf_neg_jahre", -1)],
+    "profit": [("bruttomarge", 1), ("op_marge", 1), ("netto_marge", 1), ("roic", 1), ("roe", 1), ("marge_trend", 1)],
+    "cashflow": [("fcf_marge", 1), ("fcf_deckung_q", 1), ("schulden_fcf_q", -1), ("aktien_pa", -1), ("fcf_neg_jahre", -1), ("div_deckung", 1)],
     "momentum": [("mom_12_1", 1), ("mom_6", 1), ("ema200w_abstand", 1), ("schaetzung_90t", 1)],
 }
 FIN_SEKTOREN = ("Financial Services", "Real Estate")
@@ -354,6 +355,9 @@ def abgeleitet(m):
     m["ertragsrendite"] = 100 / m["kgv"] if m.get("kgv") else (-5 if m.get("verlust") else None)
     m["ertragsrendite_f"] = 100 / m["kgv_f"] if m.get("kgv_f") else None
     m["ebitda_rendite"] = 100 / m["ev_ebitda"] if m.get("ev_ebitda") and m["ev_ebitda"] > 0 else None
+    m["buchrendite"] = 100 / m["kbv"] if m.get("kbv") and m.get("sektor") in FIN_SEKTOREN else None
+    a = m.get("ausschuettung")
+    m["div_deckung"] = (-abs(a - 50) if a is not None else None) if m.get("sektor") in FIN_SEKTOREN else None
     d = m.get("fcf_deckung")
     m["fcf_deckung_q"] = None if d is None else -abs(min(d, 2.5) - 1.1)
     s = m.get("schulden_fcf")
@@ -530,7 +534,8 @@ def zusammen(teile):
                     if s in pz:
                         teil[s].append(pz[s])
             for s in syms:
-                raenge[s][ber] = round(sum(teil[s]) / len(teil[s]), 1) if len(teil[s]) >= 2 else None
+                mind = 1 if sek in FIN_SEKTOREN else 2
+                raenge[s][ber] = round(sum(teil[s]) / len(teil[s]), 1) if len(teil[s]) >= mind else None
     out = {}
     for s, m in alle.items():
         rg = raenge[s]
