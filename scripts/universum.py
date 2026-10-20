@@ -75,6 +75,8 @@ def clean(sym, suffix, land):
     s = str(sym).strip().upper()
     s = re.sub(r"\[.*?\]", "", s)
     s = re.sub(r"^(NYSE|NASDAQ|TSX|LSE|SIX|XETRA|EURONEXT|BIT|BME|SEHK|HKEX|SGX|ASX|TYO|TSE)\s*:\s*", "", s)
+    if ":" in s:
+        s = s.split(":", 1)[1].strip()
     s = s.split()[0] if s else s
     if not s or s in ("NAN", "—", "-"):
         return None
