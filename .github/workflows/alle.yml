@@ -60,11 +60,13 @@ jobs:
         env:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
         run: python scripts/alle.py --zusammen
+      - name: Strategie-Depots nachführen
+        run: python scripts/strategien.py || echo "Strategien übersprungen"
       - name: Speichern
         run: |
           git config user.name "aktien-ampel-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/alle.json
+          git add data/alle.json; git add data/strategien.json 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "Keine Änderungen"
           else

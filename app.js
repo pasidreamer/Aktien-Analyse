@@ -835,6 +835,7 @@ function renderInfo() {
     <p><b>Fairer Wert:</b> Bis zu sechs Modelle (DCF mit dem Free Cashflow, eigenes KGV, Branchen-KGV, Branchen-EV/EBITDA, Dividendenmodell, Buchwert bei Banken). Der faire Wert ist der Median. Liegen die Modelle weit auseinander, ist die Unsicherheit hoch. Das Analysten-Kursziel steht daneben, zählt aber nicht mit.</p>
     <p><b>Hinweise:</b> Bis zu acht kurze Sätze, was in den Zahlen auffällt, zum Beispiel «Dividende 12 Jahre in Folge erhöht» oder «Analysten haben die Gewinnschätzung in 90 Tagen gesenkt».</p>
     <p><b>Entdecken:</b> Im Tab «Entdecken» siehst du rund 1'500 etablierte Firmen (Börsenwert ab 4 Mrd. CHF), filterbar nach deinen Strategien. Jede hat eine automatische Qualitäts- und Timing-Ampel, jeden Börsentag neu gerechnet. Die Qualität kommt aus dem Branchenvergleich, das Timing nach den gleichen Regeln wie bei deinen Aktien.</p>
+    <p><b>Strategie-Depots:</b> Neun eigene Musterdepots, ähnlich wie ProPicks bei InvestingPro: S&amp;P 500 Plus, US-Technologie Plus, Blue Chips Plus, Dividende, Wachstum, Cashflow, Schweiz Plus, Asien Plus und Unterbewertet mit Wende. Jedes hat 10 bis 25 Aktien mit gleichem Anteil, wird jeden Monat neu zusammengestellt und täglich gegen seinen Index gemessen. Gemessen wird erst ab dem Start, ohne geschönten Rückblick.</p>
     <p><b>Signale:</b> Du musst dir nicht alle ansehen. Die App meldet sich per Push, wenn bei einer guten Firma etwas passiert: Timing springt auf grün, Golden Cross im Wochenchart, viel Angst bei guter Firma (Kontra-Chance) oder unterbewertet und der Kurs dreht. Höchstens 3 Einzelmeldungen pro Tag, der Rest kommt als Sammelmeldung. Interessiert dich eine Aktie, fordere dort die ganze Analyse an.</p>
     <h3>Gegen den Strom: Angst als Chance</h3>
     <p>Wenn alle verkaufen und die Schlagzeilen nur noch schwarz malen, ist oft schon viel schlechte Nachricht im Kurs. Darum zeigt die App zwei Stimmungs-Anzeiger:</p>
@@ -887,7 +888,8 @@ function ensureScan(force) {
   if (STATE.scan && !force) return Promise.resolve(STATE.scan);
   if (!scanPromise || force) scanPromise = Promise.all([
     getJSON("data/scan.json").then(j => (STATE.scan = j)).catch(() => (STATE.scan = { aktien: {}, sektoren: {}, fehlt: true })),
-    getJSON("data/alle.json").then(j => (STATE.alle = j)).catch(() => (STATE.alle = null))
+    getJSON("data/alle.json").then(j => (STATE.alle = j)).catch(() => (STATE.alle = null)),
+    getJSON("data/strategien.json").then(j => (STATE.strat = j)).catch(() => (STATE.strat = null))
   ]).then(() => STATE.scan);
   return scanPromise;
 }
@@ -1024,6 +1026,7 @@ function drawEntdecken() {
   const save = () => store.set("ent", F);
   $view.innerHTML = `<header class="top"><div><h1>Entdecken</h1><div class="stand">${S.anzahl} etablierte Firmen · Stand ${fmtDate(S.stand)}</div></div></header>
     <p class="intro">Grosse, etablierte Firmen aus USA, Europa, Schweiz, Kanada, Asien und Australien: Börsenwert ab 4 Mrd. CHF, Umsatz ab 0.8 Mrd. CHF und mindestens 3 Jahre an der Börse. Kleinfirmen sind bewusst nicht dabei. Gefällt dir eine, tippe sie an und lass die ganze Analyse machen.</p>
+    ${stratCards()}
     <div class="sec"><h2>Neue Signale</h2><p>Aktien, bei denen die Ampeln in den letzten 7 Tagen ein Signal gegeben haben. Dazu kommt jeweils eine Push-Nachricht.</p></div>
     ${woche.length ? `<div class="list">${woche.map(alarmItem).join("")}</div><p class="dp-link"><a href="#/alarme">Alle Signale der letzten 30 Tage</a></p>` : `<div class="empty">${STATE.alle ? "In den letzten 7 Tagen gab es kein neues Signal." : "Die Ampeln für alle Firmen werden heute Abend zum ersten Mal gerechnet. Signale kommen ab dem zweiten Börsentag."}</div>`}
     <div class="sec"><h2>Alle Firmen</h2></div>
@@ -1051,6 +1054,61 @@ function drawEntdecken() {
   document.getElementById("esort").onchange = e => { F.sort = e.target.value; re(); };
   let t; document.getElementById("eq").oninput = e => { clearTimeout(t); t = setTimeout(() => { F.q = e.target.value; F.n = 40; save(); drawEntdecken(); const i = document.getElementById("eq"); i.focus(); i.setSelectionRange(i.value.length, i.value.length); }, 250); };
   const m = document.getElementById("emore"); if (m) m.onclick = () => { F.n += 40; re(); };
+}
+// ---------- Strategie-Depots (wie ProPicks) ----------
+function stratPerf(st) {
+  const h = st.historie || [], l = h[h.length - 1];
+  return l ? { s: l[1] - 100, b: l[2] - 100, tage: h.length } : { s: 0, b: 0, tage: 0 };
+}
+function stratCards() {
+  const S = STATE.strat?.strategien; if (!S) return "";
+  return `<div class="sec"><h2>Strategie-Depots</h2><p>Eigene Musterdepots aus unseren Ampeln, jeden Monat neu zusammengestellt und gegen den passenden Index gemessen.</p></div>
+    <div class="stc">${Object.values(S).map(st => { const p = stratPerf(st), d = p.s - p.b;
+      return `<a class="stcard" href="#/strategie/${st.id}"><b>${esc(st.name)}</b><span>${st.positionen.length} Aktien · gegen ${esc(st.bname)}</span>
+        <div class="stp"><span class="${p.s >= 0 ? "up" : "down"}">${pct(p.s, 1)}</span><em>${esc(st.bname)} ${pct(p.b, 1)}</em></div>
+        <i class="${d >= 0 ? "up" : "down"}">${p.tage > 1 ? (d >= 0 ? "+" : "−") + nf(Math.abs(d), 1) + " Punkte" : "Start " + fmtDate(st.start)}</i></a>`; }).join("")}</div>`;
+}
+function stratChart(st) {
+  const h = st.historie || []; if (h.length < 2) return `<div class="empty">Die Kurve erscheint ab dem zweiten Börsentag.</div>`;
+  const W = 340, H = 170, P = { l: 6, r: 44, t: 8, b: 20 }, n = h.length;
+  const vals = h.flatMap(r => [r[1], r[2]]), lo = Math.min(...vals) * 0.995, hi = Math.max(...vals) * 1.005;
+  const X = i => P.l + i / (n - 1) * (W - P.l - P.r), Y = v => P.t + (1 - (v - lo) / (hi - lo)) * (H - P.t - P.b);
+  const path = k => h.map((r, i) => `${i ? "L" : "M"}${X(i).toFixed(1)} ${Y(r[k]).toFixed(1)}`).join("");
+  return `<div class="card chart"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Wertentwicklung ${esc(st.name)} gegen ${esc(st.bname)}">
+    <line x1="${P.l}" x2="${W - P.r}" y1="${Y(100)}" y2="${Y(100)}" stroke="var(--line)" stroke-dasharray="3 3"/>
+    <path d="${path(2)}" fill="none" stroke="var(--muted)" stroke-width="1.6"/><path d="${path(1)}" fill="none" stroke="var(--accent)" stroke-width="2.2"/>
+    <text class="ax" x="${W - P.r + 3}" y="${Y(h[n - 1][1]) + 3}" fill="var(--accent)">${nf(h[n - 1][1], 1)}</text>
+    <text class="ax" x="${W - P.r + 3}" y="${Y(h[n - 1][2]) + 3}">${nf(h[n - 1][2], 1)}</text>
+    <text class="ax" x="${P.l}" y="${H - 4}">${fmtDate(h[0][0])}</text><text class="ax" x="${W - P.r}" y="${H - 4}" text-anchor="end">${fmtDate(h[n - 1][0])}</text></svg>
+    <div class="legend"><span><i style="background:var(--accent)"></i>${esc(st.name)}</span><span><i style="background:var(--muted)"></i>${esc(st.bname)}</span><span>Start = 100</span></div></div>`;
+}
+function renderStrategie(id) {
+  $view.innerHTML = `<a class="back" href="#/entdecken"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>Entdecken</a><div class="empty">Lade …</div>`;
+  ensureScan().then(() => {
+    const st = STATE.strat?.strategien?.[id];
+    if (!st) { $view.innerHTML = `<a class="back" href="#/entdecken">Zurück</a><div class="empty">Diese Strategie gibt es noch nicht.</div>`; return; }
+    const p = stratPerf(st), d = p.s - p.b;
+    const pos = st.positionen.slice().sort((a, b) => (b.score ?? 0) - (a.score ?? 0));
+    $view.innerHTML = `<a class="back" href="#/entdecken"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>Entdecken</a>
+      <div class="dhead"><h1>${esc(st.name)}</h1><div class="meta">${st.positionen.length} Aktien, gleich gewichtet · gestartet am ${fmtDate(st.start)} · zuletzt neu zusammengestellt am ${fmtDate(st.rebalance)}</div></div>
+      <p class="fazit">${esc(st.text)}</p>
+      <div class="fv-top card" style="margin-top:12px"><div><span>Strategie</span><b class="${p.s >= 0 ? "gruen-t" : "orange-t"}">${pct(p.s, 1)}</b></div><div><span>${esc(st.bname)}</span><b>${pct(p.b, 1)}</b></div>
+        <div><span>Unterschied</span><b class="${d >= 0 ? "gruen-t" : "orange-t"}">${d >= 0 ? "+" : "−"}${nf(Math.abs(d), 1)}</b></div></div>
+      <div class="sec"><h2>Wertentwicklung</h2><p>Seit dem Start, beide auf 100 gesetzt.</p></div>${stratChart(st)}
+      <div class="sec"><h2>Aktien im Depot</h2><p>Jede Aktie hat den gleichen Anteil (${nf(100 / Math.max(1, st.positionen.length), 1)} %). Leistung seit der letzten Zusammenstellung.</p></div>
+      <div class="list">${pos.map(x => { const a = ampOf(x.sym);
+        return `<a class="row" href="${x.app ? "#/aktie/" + encodeURIComponent(x.app) : "#/scan/" + encodeURIComponent(x.sym)}">${a && a.q != null ? signal(a.q, a.t) : ""}
+          <div class="mid"><div class="nm">${esc(x.name || x.sym)}</div><div class="sub">${esc(x.sym)} · ${esc(x.land || "")} · ${esc(SEK_DE[x.sek] || x.sek || "")}${x.app ? " · in der App" : ""}</div></div>
+          <div class="right"><div class="px">${x.kurs != null ? nf(x.kurs, 2) : "–"}</div>${x.perf != null ? `<span class="chg ${x.perf > 0 ? "up" : x.perf < 0 ? "down" : ""}">${pct(x.perf, 1)}</span>` : ""}</div></a>`; }).join("")}</div>
+      ${st.wechsel?.length ? `<div class="sec"><h2>Letzte Wechsel</h2></div><div class="card"><ul class="plain">${st.wechsel.slice(0, 6).map(w => `<li><b>${fmtDate(w.datum)}:</b> ${w.rein.length ? "neu " + w.rein.map(r => esc(r[1] || r[0])).join(", ") : "keine neuen"}${w.raus.length ? "; raus " + w.raus.map(r => esc(r[1] || r[0])).join(", ") : ""}</li>`).join("")}</ul></div>` : ""}
+      <details class="more" open><summary>So funktioniert die Strategie</summary><ul class="plain">
+        <li><b>Auswahl:</b> ${esc(st.text)} ${st.kandidaten ? `Diesen Monat erfüllten ${st.kandidaten} Firmen die Regeln, die besten kamen ins Depot.` : ""}</li>
+        <li><b>Neu zusammengestellt:</b> am ersten Börsentag jedes Monats. Wer noch gut genug ist, bleibt drin. So gibt es weniger Wechsel und weniger Gebühren.</li>
+        <li><b>Gemessen:</b> ab dem Starttag, in der Währung der Börse, ohne Dividenden, Gebühren und Steuern. Der Index wird gleich gemessen.</li>
+        <li><b>Ehrlich:</b> Es gibt keinen Rückblick in die Vergangenheit, weil der mit den heutigen Daten geschönt wäre. Ob die Strategie besser ist als der Index, zeigt sich erst nach Monaten und Jahren. Ein paar Wochen sagen fast nichts.</li>
+        <li>Musterdepot zum Beobachten, keine Anlageberatung.</li></ul></details>`;
+    scrollTo(0, 0);
+  });
 }
 function renderAlarme() {
   $view.innerHTML = `<a class="back" href="#/entdecken"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>Entdecken</a><div class="empty">Lade …</div>`;
@@ -1108,11 +1166,12 @@ function renderScanDetail(sym) {
 // ---------- Routing ----------
 function route() {
   const h = location.hash || "#/";
-  const tab = h.startsWith("#/termine") ? "termine" : h.startsWith("#/info") ? "info" : h.startsWith("#/depot") ? "depot" : h.startsWith("#/entdecken") || h.startsWith("#/scan/") || h.startsWith("#/alarme") ? "entdecken" : "home";
+  const tab = h.startsWith("#/termine") ? "termine" : h.startsWith("#/info") ? "info" : h.startsWith("#/depot") ? "depot" : h.startsWith("#/entdecken") || h.startsWith("#/scan/") || h.startsWith("#/alarme") || h.startsWith("#/strategie/") ? "entdecken" : "home";
   document.querySelectorAll(".tabs a").forEach(a => a.dataset.tab === tab ? a.setAttribute("aria-current", "page") : a.removeAttribute("aria-current"));
   if (h.startsWith("#/aktie/")) renderDetail(decodeURIComponent(h.slice(8)));
   else if (h.startsWith("#/scan/")) renderScanDetail(decodeURIComponent(h.slice(7)));
   else if (h.startsWith("#/alarme")) renderAlarme();
+  else if (h.startsWith("#/strategie/")) renderStrategie(decodeURIComponent(h.slice(12)));
   else if (tab === "entdecken") renderEntdecken();
   else if (tab === "termine") renderTermine();
   else if (tab === "info") renderInfo();
@@ -1121,7 +1180,7 @@ function route() {
 }
 let lastHash = location.hash;
 addEventListener("hashchange", () => {
-  if (!lastHash.startsWith("#/aktie/") && !lastHash.startsWith("#/termine") && !lastHash.startsWith("#/info") && !lastHash.startsWith("#/depot") && !lastHash.startsWith("#/entdecken") && !lastHash.startsWith("#/scan/") && !lastHash.startsWith("#/alarme")) store.set("homeScroll", scrollY);
+  if (!lastHash.startsWith("#/aktie/") && !lastHash.startsWith("#/termine") && !lastHash.startsWith("#/info") && !lastHash.startsWith("#/depot") && !lastHash.startsWith("#/entdecken") && !lastHash.startsWith("#/scan/") && !lastHash.startsWith("#/alarme") && !lastHash.startsWith("#/strategie/")) store.set("homeScroll", scrollY);
   lastHash = location.hash; route();
 });
 
