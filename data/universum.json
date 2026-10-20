@@ -1,7 +1,7 @@
 {
 "stand": "2026-10-20",
 "stufe": 2,
-"anzahl": 2238,
+"anzahl": 2281,
 "aktien": [
 {
 "symbol": "0001.HK",
@@ -3335,6 +3335,16 @@
 ]
 },
 {
+"symbol": "ABI.BR",
+"name": "AB InBev",
+"sektor_quelle": "Consumer Staples",
+"region": "Europa",
+"land": "Belgien",
+"indizes": [
+"BEL 20"
+]
+},
+{
 "symbol": "ABN.AS",
 "name": "ABN AMRO",
 "sektor_quelle": "Financials",
@@ -3412,6 +3422,16 @@
 "land": "USA",
 "indizes": [
 "S&P 400"
+]
+},
+{
+"symbol": "ACKB.BR",
+"name": "Ackermans & van Haaren",
+"sektor_quelle": "Industrials",
+"region": "Europa",
+"land": "Belgien",
+"indizes": [
+"BEL 20"
 ]
 },
 {
@@ -3585,6 +3605,16 @@
 ]
 },
 {
+"symbol": "AED.BR",
+"name": "Aedifica",
+"sektor_quelle": "Real Estate",
+"region": "Europa",
+"land": "Belgien",
+"indizes": [
+"BEL 20"
+]
+},
+{
 "symbol": "AEE",
 "name": "Ameren",
 "sektor_quelle": "Utilities",
@@ -3735,6 +3765,16 @@
 ]
 },
 {
+"symbol": "AGS.BR",
+"name": "Ageas",
+"sektor_quelle": "Financials",
+"region": "Europa",
+"land": "Belgien",
+"indizes": [
+"BEL 20"
+]
+},
+{
 "symbol": "AGT.L",
 "name": "AVI Global Trust",
 "sektor_quelle": "Investment Trusts",
@@ -3873,6 +3913,16 @@
 "land": "USA",
 "indizes": [
 "S&P 500"
+]
+},
+{
+"symbol": "AKRBP.OL",
+"name": "Aker BP",
+"sektor_quelle": "oil: crude producers",
+"region": "Europa",
+"land": "Norwegen",
+"indizes": [
+"OBX"
 ]
 },
 {
@@ -4406,6 +4456,16 @@
 ]
 },
 {
+"symbol": "APAM.BR",
+"name": "Aperam",
+"sektor_quelle": "Basic Materials",
+"region": "Europa",
+"land": "Belgien",
+"indizes": [
+"BEL 20"
+]
+},
+{
 "symbol": "APD",
 "name": "Air Products",
 "sektor_quelle": "Materials",
@@ -4543,6 +4603,16 @@
 "land": "Australien",
 "indizes": [
 "S&P/ASX 200"
+]
+},
+{
+"symbol": "ARGX.BR",
+"name": "arGEN-X [nl]",
+"sektor_quelle": "Health Care",
+"region": "Europa",
+"land": "Belgien",
+"indizes": [
+"BEL 20"
 ]
 },
 {
@@ -4973,6 +5043,16 @@
 "land": "USA",
 "indizes": [
 "S&P 400"
+]
+},
+{
+"symbol": "AZE.BR",
+"name": "Azelis Group",
+"sektor_quelle": "Industrials",
+"region": "Europa",
+"land": "Belgien",
+"indizes": [
+"BEL 20"
 ]
 },
 {
@@ -6153,6 +6233,16 @@
 "land": "USA",
 "indizes": [
 "S&P 400"
+]
+},
+{
+"symbol": "BWLPG.OL",
+"name": "BW LPG",
+"sektor_quelle": "marine transportation",
+"region": "Europa",
+"land": "Norwegen",
+"indizes": [
+"OBX"
 ]
 },
 {
@@ -8206,6 +8296,16 @@
 ]
 },
 {
+"symbol": "DIE.BR",
+"name": "D'Ieteren",
+"sektor_quelle": "Consumer Discretionary",
+"region": "Europa",
+"land": "Belgien",
+"indizes": [
+"BEL 20"
+]
+},
+{
 "symbol": "DINO",
 "name": "HF Sinclair",
 "sektor_quelle": "Energy",
@@ -8273,6 +8373,16 @@
 "land": "USA",
 "indizes": [
 "S&P 500"
+]
+},
+{
+"symbol": "DNB.OL",
+"name": "DNB Bank",
+"sektor_quelle": "banks",
+"region": "Europa",
+"land": "Norwegen",
+"indizes": [
+"OBX"
 ]
 },
 {
@@ -8836,6 +8946,16 @@
 ]
 },
 {
+"symbol": "ELI.BR",
+"name": "Elia Group",
+"sektor_quelle": "Utilities",
+"region": "Europa",
+"land": "Belgien",
+"indizes": [
+"BEL 20"
+]
+},
+{
 "symbol": "ELISA.HE",
 "name": "Elisa",
 "sektor_quelle": "Communication Services",
@@ -9146,6 +9266,16 @@
 ]
 },
 {
+"symbol": "EQNR.OL",
+"name": "Equinor",
+"sektor_quelle": "integrated oil and gas",
+"region": "Europa",
+"land": "Norwegen",
+"indizes": [
+"OBX"
+]
+},
+{
 "symbol": "EQT",
 "name": "EQT Corporation",
 "sektor_quelle": "Energy",
@@ -9273,35 +9403,6 @@
 "land": "USA",
 "indizes": [
 "S&P 500"
-]
-},
-{
-"symbol": "EURONEXT.BR",
-"name": "AB InBev",
-"sektor_quelle": "Consumer Staples",
-"region": "Europa",
-"land": "Belgien",
-"indizes": [
-"BEL 20",
-"BEL 20",
-"BEL 20",
-"BEL 20",
-"BEL 20",
-"BEL 20",
-"BEL 20",
-"BEL 20",
-"BEL 20",
-"BEL 20",
-"BEL 20",
-"BEL 20",
-"BEL 20",
-"BEL 20",
-"BEL 20",
-"BEL 20",
-"BEL 20",
-"BEL 20",
-"BEL 20",
-"BEL 20"
 ]
 },
 {
@@ -10236,6 +10337,16 @@
 ]
 },
 {
+"symbol": "FRO.OL",
+"name": "Frontline",
+"sektor_quelle": "marine transportation",
+"region": "Europa",
+"land": "Norwegen",
+"indizes": [
+"OBX"
+]
+},
+{
 "symbol": "FRT",
 "name": "Federal Realty Investment Trust",
 "sektor_quelle": "Real Estate",
@@ -10469,6 +10580,16 @@
 ]
 },
 {
+"symbol": "GBLB.BR",
+"name": "GBL",
+"sektor_quelle": "Financials",
+"region": "Europa",
+"land": "Belgien",
+"indizes": [
+"BEL 20"
+]
+},
+{
 "symbol": "GCP.L",
 "name": "GCP Infrastructure Investments",
 "sektor_quelle": "General Financial",
@@ -10699,6 +10820,16 @@
 ]
 },
 {
+"symbol": "GJF.OL",
+"name": "Gjensidige Forsikring",
+"sektor_quelle": "full line insurance",
+"region": "Europa",
+"land": "Norwegen",
+"indizes": [
+"OBX"
+]
+},
+{
 "symbol": "GL",
 "name": "Globe Life",
 "sektor_quelle": "Financials",
@@ -10866,6 +10997,16 @@
 "land": "USA",
 "indizes": [
 "S&P 400"
+]
+},
+{
+"symbol": "GOGL.OL",
+"name": "Golden Ocean Group",
+"sektor_quelle": "marine transportation",
+"region": "Europa",
+"land": "Norwegen",
+"indizes": [
+"OBX"
 ]
 },
 {
@@ -11119,6 +11260,16 @@
 ]
 },
 {
+"symbol": "HAFNI.OL",
+"name": "Hafnia Limited",
+"sektor_quelle": "marine transportation",
+"region": "Europa",
+"land": "Norwegen",
+"indizes": [
+"OBX"
+]
+},
+{
 "symbol": "HAG.DE",
 "name": "Hensoldt",
 "sektor_quelle": "Defence",
@@ -11176,6 +11327,16 @@
 "land": "Grossbritannien",
 "indizes": [
 "FTSE 250"
+]
+},
+{
+"symbol": "HAUTO.OL",
+"name": "Höegh Autoliners ASA",
+"sektor_quelle": "marine transportation",
+"region": "Europa",
+"land": "Norwegen",
+"indizes": [
+"OBX"
 ]
 },
 {
@@ -12929,6 +13090,16 @@
 ]
 },
 {
+"symbol": "KBC.BR",
+"name": "KBC",
+"sektor_quelle": "Financials",
+"region": "Europa",
+"land": "Belgien",
+"indizes": [
+"BEL 20"
+]
+},
+{
 "symbol": "KBH",
 "name": "KB Home",
 "sektor_quelle": "Consumer Discretionary",
@@ -13216,6 +13387,16 @@
 "land": "USA",
 "indizes": [
 "S&P 500"
+]
+},
+{
+"symbol": "KOG.OL",
+"name": "Kongsberg Gruppen",
+"sektor_quelle": "diversified industrials",
+"region": "Europa",
+"land": "Norwegen",
+"indizes": [
+"OBX"
 ]
 },
 {
@@ -13666,6 +13847,16 @@
 "land": "USA",
 "indizes": [
 "S&P 400"
+]
+},
+{
+"symbol": "LOTB.BR",
+"name": "Lotus Bakeries",
+"sektor_quelle": "Consumer Staples",
+"region": "Europa",
+"land": "Belgien",
+"indizes": [
+"BEL 20"
 ]
 },
 {
@@ -14120,6 +14311,16 @@
 ]
 },
 {
+"symbol": "MELE.BR",
+"name": "Melexis [nl]",
+"sektor_quelle": "Electronic Equipment",
+"region": "Europa",
+"land": "Belgien",
+"indizes": [
+"BEL 20"
+]
+},
+{
 "symbol": "MET",
 "name": "MetLife",
 "sektor_quelle": "Financials",
@@ -14460,6 +14661,16 @@
 ]
 },
 {
+"symbol": "MONT.BR",
+"name": "Montea",
+"sektor_quelle": "Real Estate",
+"region": "Europa",
+"land": "Belgien",
+"indizes": [
+"BEL 20"
+]
+},
+{
 "symbol": "MONY.L",
 "name": "MONY Group",
 "sektor_quelle": "Media",
@@ -14500,6 +14711,16 @@
 ]
 },
 {
+"symbol": "MOWI.OL",
+"name": "Mowi",
+"sektor_quelle": "farming, fishing, ranching and plantations",
+"region": "Europa",
+"land": "Norwegen",
+"indizes": [
+"OBX"
+]
+},
+{
 "symbol": "MP",
 "name": "MP Materials",
 "sektor_quelle": "Materials",
@@ -14517,6 +14738,16 @@
 "land": "USA",
 "indizes": [
 "S&P 500"
+]
+},
+{
+"symbol": "MPCC.OL",
+"name": "MPC Container Ships",
+"sektor_quelle": "marine transportation",
+"region": "Europa",
+"land": "Norwegen",
+"indizes": [
+"OBX"
 ]
 },
 {
@@ -14991,6 +15222,16 @@
 ]
 },
 {
+"symbol": "NAS.OL",
+"name": "Norwegian Air Shuttle",
+"sektor_quelle": "airlines",
+"region": "Europa",
+"land": "Norwegen",
+"indizes": [
+"OBX"
+]
+},
+{
 "symbol": "NBIX",
 "name": "Neurocrine Biosciences",
 "sektor_quelle": "Health Care",
@@ -15231,6 +15472,16 @@
 ]
 },
 {
+"symbol": "NHY.OL",
+"name": "Norsk Hydro",
+"sektor_quelle": "aluminum",
+"region": "Europa",
+"land": "Norwegen",
+"indizes": [
+"OBX"
+]
+},
+{
 "symbol": "NI",
 "name": "NiSource",
 "sektor_quelle": "Utilities",
@@ -15338,6 +15589,16 @@
 "land": "USA",
 "indizes": [
 "S&P 500"
+]
+},
+{
+"symbol": "NOD.OL",
+"name": "Nordic Semiconductor",
+"sektor_quelle": "semiconductors",
+"region": "Europa",
+"land": "Norwegen",
+"indizes": [
+"OBX"
 ]
 },
 {
@@ -15981,6 +16242,16 @@
 ]
 },
 {
+"symbol": "ORK.OL",
+"name": "Orkla",
+"sektor_quelle": "food products",
+"region": "Europa",
+"land": "Norwegen",
+"indizes": [
+"OBX"
+]
+},
+{
 "symbol": "ORLY",
 "name": "O'Reilly Automotive",
 "sektor_quelle": "Consumer Discretionary",
@@ -16018,40 +16289,6 @@
 "land": "Grossbritannien",
 "indizes": [
 "FTSE 250"
-]
-},
-{
-"symbol": "OSE:.OL",
-"name": "Aker BP",
-"sektor_quelle": "oil: crude producers",
-"region": "Europa",
-"land": "Norwegen",
-"indizes": [
-"OBX",
-"OBX",
-"OBX",
-"OBX",
-"OBX",
-"OBX",
-"OBX",
-"OBX",
-"OBX",
-"OBX",
-"OBX",
-"OBX",
-"OBX",
-"OBX",
-"OBX",
-"OBX",
-"OBX",
-"OBX",
-"OBX",
-"OBX",
-"OBX",
-"OBX",
-"OBX",
-"OBX",
-"OBX"
 ]
 },
 {
@@ -18215,6 +18452,16 @@
 ]
 },
 {
+"symbol": "SALM.OL",
+"name": "SalMar",
+"sektor_quelle": "farming, fishing, ranching and plantations",
+"region": "Europa",
+"land": "Norwegen",
+"indizes": [
+"OBX"
+]
+},
+{
 "symbol": "SAMPO.HE",
 "name": "Sampo A",
 "sektor_quelle": "Financials",
@@ -19076,6 +19323,16 @@
 ]
 },
 {
+"symbol": "SOF.BR",
+"name": "Sofina",
+"sektor_quelle": "Financials",
+"region": "Europa",
+"land": "Belgien",
+"indizes": [
+"BEL 20"
+]
+},
+{
 "symbol": "SOI.L",
 "name": "Schroder Oriental Income Fund",
 "sektor_quelle": "Financial Services",
@@ -19093,6 +19350,16 @@
 "land": "Australien",
 "indizes": [
 "S&P/ASX 200"
+]
+},
+{
+"symbol": "SOLB.BR",
+"name": "Solvay",
+"sektor_quelle": "Basic Materials",
+"region": "Europa",
+"land": "Belgien",
+"indizes": [
+"BEL 20"
 ]
 },
 {
@@ -19366,6 +19633,16 @@
 ]
 },
 {
+"symbol": "STB.OL",
+"name": "Storebrand",
+"sektor_quelle": "life insurance",
+"region": "Europa",
+"land": "Norwegen",
+"indizes": [
+"OBX"
+]
+},
+{
 "symbol": "STE",
 "name": "Steris",
 "sektor_quelle": "Health Care",
@@ -19546,6 +19823,16 @@
 ]
 },
 {
+"symbol": "SUBC.OL",
+"name": "Subsea 7",
+"sektor_quelle": "oil equipment and services",
+"region": "Europa",
+"land": "Norwegen",
+"indizes": [
+"OBX"
+]
+},
+{
 "symbol": "SUI",
 "name": "Sun Communities",
 "sektor_quelle": "Real Estate",
@@ -19673,6 +19960,16 @@
 "land": "Deutschland",
 "indizes": [
 "DAX"
+]
+},
+{
+"symbol": "SYENS.BR",
+"name": "Syensqo",
+"sektor_quelle": "Basic Materials",
+"region": "Europa",
+"land": "Belgien",
+"indizes": [
+"BEL 20"
 ]
 },
 {
@@ -19896,6 +20193,16 @@
 ]
 },
 {
+"symbol": "TEL.OL",
+"name": "Telenor",
+"sektor_quelle": "telecommunications services",
+"region": "Europa",
+"land": "Norwegen",
+"indizes": [
+"OBX"
+]
+},
+{
 "symbol": "TEL2-B.ST",
 "name": "Tele2 B",
 "sektor_quelle": "Communication Services",
@@ -19993,6 +20300,16 @@
 "land": "Grossbritannien",
 "indizes": [
 "FTSE 250"
+]
+},
+{
+"symbol": "TGS.OL",
+"name": "TGS ASA",
+"sektor_quelle": "oil equipment and services",
+"region": "Europa",
+"land": "Norwegen",
+"indizes": [
+"OBX"
 ]
 },
 {
@@ -20253,6 +20570,16 @@
 "land": "USA",
 "indizes": [
 "S&P 400"
+]
+},
+{
+"symbol": "TOM.OL",
+"name": "Tomra Systems",
+"sektor_quelle": "machinery: industrial",
+"region": "Europa",
+"land": "Norwegen",
+"indizes": [
+"OBX"
 ]
 },
 {
@@ -20746,6 +21073,16 @@
 ]
 },
 {
+"symbol": "UCB.BR",
+"name": "UCB",
+"sektor_quelle": "Health Care",
+"region": "Europa",
+"land": "Belgien",
+"indizes": [
+"BEL 20"
+]
+},
+{
 "symbol": "UCG.MI",
 "name": "UniCredit",
 "sektor_quelle": "Banks",
@@ -20883,6 +21220,16 @@
 "land": "Niederlande",
 "indizes": [
 "AEX"
+]
+},
+{
+"symbol": "UMI.BR",
+"name": "Umicore",
+"sektor_quelle": "Basic Materials",
+"region": "Europa",
+"land": "Belgien",
+"indizes": [
+"BEL 20"
 ]
 },
 {
@@ -21103,6 +21450,16 @@
 "land": "Finnland",
 "indizes": [
 "OMX Helsinki 25"
+]
+},
+{
+"symbol": "VAR.OL",
+"name": "Vår Energi ASA",
+"sektor_quelle": "offshore drilling and other services",
+"region": "Europa",
+"land": "Norwegen",
+"indizes": [
+"OBX"
 ]
 },
 {
@@ -21606,6 +21963,16 @@
 ]
 },
 {
+"symbol": "WAWI.OL",
+"name": "Wallenius Wilhelmsen",
+"sektor_quelle": "marine transportation",
+"region": "Europa",
+"land": "Norwegen",
+"indizes": [
+"OBX"
+]
+},
+{
 "symbol": "WBC.AX",
 "name": "Westpac",
 "sektor_quelle": "Financials",
@@ -21663,6 +22030,16 @@
 "land": "USA",
 "indizes": [
 "S&P 500"
+]
+},
+{
+"symbol": "WDP.BR",
+"name": "WDP [nl]",
+"sektor_quelle": "Real Estate",
+"region": "Europa",
+"land": "Belgien",
+"indizes": [
+"BEL 20"
 ]
 },
 {
@@ -22273,6 +22650,16 @@
 "land": "Australien",
 "indizes": [
 "S&P/ASX 200"
+]
+},
+{
+"symbol": "YAR.OL",
+"name": "Yara International",
+"sektor_quelle": "fertilizers",
+"region": "Europa",
+"land": "Norwegen",
+"indizes": [
+"OBX"
 ]
 },
 {

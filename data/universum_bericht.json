@@ -1,6 +1,6 @@
 {
  "stand": "2026-10-20",
- "anzahl": 2238,
+ "anzahl": 2281,
  "indizes": [
   {
    "index": "S&P 500",
@@ -131,12 +131,12 @@
    "index": "BEL 20",
    "anzahl": 20,
    "beispiele": [
-    "EURONEXT.BR",
-    "EURONEXT.BR",
-    "EURONEXT.BR",
-    "EURONEXT.BR",
-    "EURONEXT.BR",
-    "EURONEXT.BR"
+    "ABI.BR",
+    "ACKB.BR",
+    "AED.BR",
+    "AGS.BR",
+    "ARGX.BR",
+    "APAM.BR"
    ]
   },
   {
@@ -203,12 +203,12 @@
    "index": "OBX",
    "anzahl": 25,
    "beispiele": [
-    "OSE:.OL",
-    "OSE:.OL",
-    "OSE:.OL",
-    "OSE:.OL",
-    "OSE:.OL",
-    "OSE:.OL"
+    "AKRBP.OL",
+    "BWLPG.OL",
+    "DNB.OL",
+    "EQNR.OL",
+    "FRO.OL",
+    "GJF.OL"
    ]
   },
   {
