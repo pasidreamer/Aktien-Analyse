@@ -328,6 +328,7 @@ def kennzahlen(sym, extra):
     while (y0 - serie) in jahr and (y0 - serie - 1) in jahr and jahr[y0 - serie] > jahr[y0 - serie - 1] * 1.001:
         serie += 1
     m["div_serie"] = serie
+    m["div_serie_max"] = serie >= len([y for y in jahr if y <= y0]) - 1  # Serie reicht bis zum Anfang der Daten (6 Jahre)
     m["div_cagr5"] = cagr(jahr.get(y0 - 5), jahr.get(y0), 5)
     m["ausschuettung"] = d12 / eps_t * 100 if d12 and eps_t and eps_t > 0 else None
     # Analysten
@@ -451,15 +452,15 @@ def nf(x, d=1):
 def hinweise(m, rang, fv):
     h = []
     add = lambda art, txt, gewicht: h.append([art, txt, gewicht])
-    if m.get("div_serie", 0) >= 5:
-        add("g", f"Dividende {m['div_serie']} Jahre in Folge erhöht.", 3 + m["div_serie"] / 10)
+    if m.get("div_serie", 0) >= 4:
+        add("g", f"Dividende {'seit mindestens ' + str(m['div_serie']) + ' Jahren jedes Jahr' if m.get('div_serie_max') else str(m['div_serie']) + ' Jahre in Folge'} erhöht.", 3 + m["div_serie"] / 10)
     if m.get("aktien_pa") is not None and m["aktien_pa"] <= -1:
         add("g", f"Aktienzahl sinkt um {nf(-m['aktien_pa'])} % pro Jahr (Rückkäufe).", 2.5)
     if m.get("aktien_pa") is not None and m["aktien_pa"] >= 2:
         add("r", f"Aktienzahl steigt um {nf(m['aktien_pa'])} % pro Jahr: Dein Anteil wird kleiner.", 3)
     if m.get("netto_cash") and m.get("sektor") not in FIN_SEKTOREN:
         add("g", "Mehr Bargeld als Schulden.", 2)
-    if m.get("schulden_fcf") is not None and m["schulden_fcf"] > 4:
+    if m.get("schulden_fcf") is not None and m["schulden_fcf"] > 4 and m.get("sektor") not in FIN_SEKTOREN:
         add("r", f"Nettoschulden entsprechen {nf(m['schulden_fcf'])} Jahren Free Cashflow.", 3)
     if m.get("fcf_rendite") is not None and m["fcf_rendite"] >= 5 and m.get("sektor") not in FIN_SEKTOREN:
         add("g", f"Free-Cashflow-Rendite {nf(m['fcf_rendite'])} % (günstig).", 2.5)
@@ -550,11 +551,12 @@ def zusammen(teile):
             "g": gesamt, "k": noten, "rg": rg,
             "fv": fv, "an": {"ziel": r1(m.get("ziel"), 2), "n": m.get("ziel_n"), "e": m.get("empfehlung")},
             "h": hinweise(m, rg, fv),
-            "d": {x: r1(m.get(x)) for x in ("kgv", "kgv_f", "kgv_hist", "ev_ebitda", "kbv", "fcf_rendite", "div_rendite", "div_serie", "ausschuettung",
+            "d": {x: r1(m.get(x)) for x in ("kgv", "kgv_f", "kgv_hist", "ev_ebitda", "kbv", "fcf_rendite", "div_rendite", "div_serie", "div_serie_max", "ausschuettung",
                                             "umsatz_wachstum", "umsatz_cagr3", "eps_cagr3", "fcf_cagr3", "eps_f_wachstum", "bruttomarge", "op_marge",
                                             "roic", "roe", "fcf_marge", "schulden_fcf", "aktien_pa", "mom_12_1", "mom_6", "unter_hoch", "schaetzung_90t", "beta")},
         }
         out[s]["d"]["netto_cash"] = bool(m.get("netto_cash"))
+        out[s]["d"]["div_serie_max"] = bool(m.get("div_serie_max"))
     # Gesamt-Rang innerhalb der Branche
     for sek, syms in gruppen.items():
         pz = perzentile({s: out[s]["g"] for s in syms})

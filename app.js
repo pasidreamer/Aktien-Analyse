@@ -1050,7 +1050,7 @@ function renderScanDetail(sym) {
       ${scanBlock(x)}
       <div class="sec"><h2>Kennzahlen</h2></div>
       <div class="card"><dl class="facts">${fact("KGV", d.kgv)}${fact("Erwartetes KGV", d.kgv_f)}${fact("KGV-Schnitt eigene Jahre", d.kgv_hist)}${fact("FCF-Rendite", d.fcf_rendite, " %")}${fact("Dividendenrendite", d.div_rendite, " %")}
-        ${d.div_serie ? `<dt>Dividende erhöht</dt><dd>${d.div_serie} Jahre in Folge</dd>` : ""}${fact("Umsatzwachstum letztes Jahr", d.umsatz_wachstum, " %")}${fact("Umsatzwachstum 3 Jahre (pro Jahr)", d.umsatz_cagr3, " %")}
+        ${d.div_serie ? `<dt>Dividende erhöht</dt><dd>${d.div_serie_max ? "seit mindestens " + d.div_serie + " Jahren jedes Jahr" : d.div_serie + " Jahre in Folge"}</dd>` : ""}${fact("Umsatzwachstum letztes Jahr", d.umsatz_wachstum, " %")}${fact("Umsatzwachstum 3 Jahre (pro Jahr)", d.umsatz_cagr3, " %")}
         ${fact("Operative Marge", d.op_marge, " %")}${fact("ROIC", d.roic, " %")}${fact("Free-Cashflow-Marge", d.fcf_marge, " %")}${d.netto_cash ? "<dt>Schulden</dt><dd>Mehr Cash als Schulden</dd>" : fact("Schulden in Jahren FCF", d.schulden_fcf)}
         ${fact("Aktienzahl pro Jahr", d.aktien_pa, " %")}${fact("Kurs 12 Monate", d.mom_12_1, " %")}${fact("Unter dem Jahreshoch", d.unter_hoch, " %")}</dl></div>
       <p class="fc-cap">Keine Anlageberatung.</p>`;
