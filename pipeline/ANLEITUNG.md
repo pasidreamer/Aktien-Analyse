@@ -85,3 +85,12 @@ Arbeitsordner: das geklonte Repo (z. B. /home/claude/aktien-ampel). Alle Pfade u
   und Tab «Entdecken» (`#/entdecken`, Detail ohne App-Analyse unter `#/scan/SYMBOL`).
 - In neuen Aktien-Checks den Branchenvergleich und den fairen Wert aus `data/scan.json` als zusätzliche Quelle nennen
   (z. B. im Fazit: «Branchennote 3.4 von 5, fairer Wert 12 % über dem Kurs, Unsicherheit mittel»).
+
+## Ampeln und Signale für alle Firmen (Entdecken)
+
+- Workflow «Ampeln und Alarme für alle Firmen» (`.github/workflows/alle.yml`), Mo bis Fr 23:10 UTC und auf Knopfdruck.
+- `scripts/alle.py`: Qualität = Schnitt der Branchennoten (ohne Momentum) mal 20, Timing = Regeln aus `update.py`
+  plus Näherungen für Struktur und Smart Money. Ergebnis `data/alle.json` mit `aktien` und `alarme` (30 Tage).
+- Signale (nur Aktien ohne ganze Analyse, nur gute Qualität): Timing springt auf 60+, Golden Cross Woche,
+  Pessimismus 60+ (Kontra), unterbewertet und Tagesschluss über EMA 50. Push über NTFY_TOPIC, höchstens 3 einzeln plus Sammelmeldung.
+- In der App: `#/entdecken` (Neue Signale oben), `#/alarme`, Detail `#/scan/SYMBOL` mit Ampeln und Timing-Teilen.
