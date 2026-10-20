@@ -834,7 +834,8 @@ function renderInfo() {
     <p><b>Branchenvergleich:</b> Jede Firma wird mit ihrer eigenen Branche verglichen, in fünf Bereichen: Bewertung, Wachstum, Profitabilität, Cashflow und Bilanz, Kursmomentum. Je Bereich 0 bis 5 Punkte. Beispiel: Ist die Marge besser als bei 80 % der Branche, gibt das 4 Punkte. Die Gesamtnote ist der Schnitt, ab 2.75 gut, ab 3.5 sehr gut. Das ergänzt deine Qualitäts-Ampel: Die Ampel nutzt feste Grenzen, der Vergleich zeigt, ob die Firma in ihrer Branche vorne ist.</p>
     <p><b>Fairer Wert:</b> Bis zu sechs Modelle (DCF mit dem Free Cashflow, eigenes KGV, Branchen-KGV, Branchen-EV/EBITDA, Dividendenmodell, Buchwert bei Banken). Der faire Wert ist der Median. Liegen die Modelle weit auseinander, ist die Unsicherheit hoch. Das Analysten-Kursziel steht daneben, zählt aber nicht mit.</p>
     <p><b>Hinweise:</b> Bis zu acht kurze Sätze, was in den Zahlen auffällt, zum Beispiel «Dividende 12 Jahre in Folge erhöht» oder «Analysten haben die Gewinnschätzung in 90 Tagen gesenkt».</p>
-    <p><b>Entdecken:</b> Im Tab «Entdecken» siehst du alle Aktien der Liste, filterbar nach deinen Strategien. Tippe eine an und fordere die ganze Analyse an.</p>
+    <p><b>Entdecken:</b> Im Tab «Entdecken» siehst du rund 1'500 etablierte Firmen (Börsenwert ab 4 Mrd. CHF), filterbar nach deinen Strategien. Jede hat eine automatische Qualitäts- und Timing-Ampel, jeden Börsentag neu gerechnet. Die Qualität kommt aus dem Branchenvergleich, das Timing nach den gleichen Regeln wie bei deinen Aktien.</p>
+    <p><b>Signale:</b> Du musst dir nicht alle ansehen. Die App meldet sich per Push, wenn bei einer guten Firma etwas passiert: Timing springt auf grün, Golden Cross im Wochenchart, viel Angst bei guter Firma (Kontra-Chance) oder unterbewertet und der Kurs dreht. Höchstens 3 Einzelmeldungen pro Tag, der Rest kommt als Sammelmeldung. Interessiert dich eine Aktie, fordere dort die ganze Analyse an.</p>
     <h3>Gegen den Strom: Angst als Chance</h3>
     <p>Wenn alle verkaufen und die Schlagzeilen nur noch schwarz malen, ist oft schon viel schlechte Nachricht im Kurs. Darum zeigt die App zwei Stimmungs-Anzeiger:</p>
     <p><b>Marktstimmung (Gesamtmarkt).</b> Der <b>Fear &amp; Greed Index</b> von CNN misst von 0 bis 100, wie ängstlich oder gierig die Anleger in den USA sind (aus sieben Werten wie Kursschwung, Absicherungen und Schwankung). Unter 25 heisst «Extreme Angst», über 75 «Extreme Gier». Dazu zeigt die App den S&amp;P 500 (Abstand zum Jahreshoch, Trend über oder unter der EMA 200) und den <b>VIX</b>, das «Angstbarometer» der Börse: über 20 nervös, über 30 Panik. Fällt der Index unter 25, bekommst du eine Push-Nachricht.</p>
@@ -884,10 +885,20 @@ const noteAmpel = g => ampel((g ?? 0) * 20);
 let scanPromise = null;
 function ensureScan(force) {
   if (STATE.scan && !force) return Promise.resolve(STATE.scan);
-  if (!scanPromise || force) scanPromise = getJSON("data/scan.json").then(j => (STATE.scan = j)).catch(() => (STATE.scan = { aktien: {}, sektoren: {}, fehlt: true }));
+  if (!scanPromise || force) scanPromise = Promise.all([
+    getJSON("data/scan.json").then(j => (STATE.scan = j)).catch(() => (STATE.scan = { aktien: {}, sektoren: {}, fehlt: true })),
+    getJSON("data/alle.json").then(j => (STATE.alle = j)).catch(() => (STATE.alle = null))
+  ]).then(() => STATE.scan);
   return scanPromise;
 }
 const scanOf = s => STATE.scan?.aktien?.[s.symbol] || null;
+const ampOf = sym => STATE.alle?.aktien?.[sym] || null;
+const T_TEILE = [["Trend Woche (EMA 50/200)", 20], ["Trend Tag (EMA 50/200)", 10], ["Struktur", 20], ["RSI Tag und Woche", 15], ["A/D-Linie", 20], ["Smart Money", 10], ["Saisonalität", 5]];
+const ALARM = { timing: ["Timing grün", "b-trig"], golden: ["Golden Cross", "b-zone"], kontra: ["Kontra-Chance", "b-warn"], fairwende: ["Unterbewertet und Wende", "b-zone"] };
+function alarmItem(a) {
+  return `<a class="row al" href="#/scan/${encodeURIComponent(a.sym)}"><span class="badge ${ALARM[a.typ]?.[1] || ""}">${ALARM[a.typ]?.[0] || esc(a.typ)}</span>
+    <div class="mid"><div class="nm">${esc(a.name)}</div><div class="sub">${fmtDate(a.datum)} · ${esc(a.text)}</div></div>${a.q != null ? signal(a.q, a.t) : ""}</a>`;
+}
 
 function fvHtml(x) {
   const f = x.fv, w = x.w;
@@ -964,9 +975,10 @@ function scanSlot(s) {
 }
 
 // ---------- Entdecken: alle Aktien aus dem Universum ----------
-const LINSEN = [["alle", "Alle"], ["unter", "Unterbewertet"], ["dividende", "Dividende"], ["cashflow", "Cashflow"], ["wachstum", "Wachstum"], ["qualitaet", "Qualität"]];
+const LINSEN = [["alle", "Alle"], ["ampel", "Ampel grün"], ["unter", "Unterbewertet"], ["dividende", "Dividende"], ["cashflow", "Cashflow"], ["wachstum", "Wachstum"], ["qualitaet", "Qualität"]];
 const linseOk = (x, l) => {
   const d = x.d || {}, k = x.k || {}, f = x.fv || {};
+  if (l === "ampel") { const a = ampOf(x.sym); return !!a && (a.q ?? 0) >= 60 && a.t >= 60; }
   if (l === "unter") return f.potenzial >= 20 && ["niedrig", "mittel"].includes(f.unsicher) && (x.g ?? 0) >= 2.5;
   if (l === "dividende") return d.div_rendite >= 2.5 && (d.ausschuettung ?? 999) < 85 && (d.div_serie ?? 0) >= 3;
   if (l === "cashflow") return d.fcf_rendite >= 5 && (d.netto_cash || (d.schulden_fcf ?? 99) <= 3) && (k.cashflow ?? 0) >= 3;
@@ -974,8 +986,10 @@ const linseOk = (x, l) => {
   if (l === "qualitaet") return (k.profit ?? 0) >= 3.5 && (x.g ?? 0) >= 3;
   return true;
 };
-const SORTS = [["note", "Gesamtnote"], ["fv", "Fairer Wert (Potenzial)"], ["fcf", "FCF-Rendite"], ["div", "Dividendenrendite"], ["wachs", "Umsatzwachstum 3 Jahre"], ["mom", "Kursmomentum"], ["mc", "Börsenwert"], ["name", "Name"]];
+const SORTS = [["ampel", "Qualität und Timing"], ["timing", "Timing"], ["note", "Gesamtnote Branche"], ["fv", "Fairer Wert (Potenzial)"], ["fcf", "FCF-Rendite"], ["div", "Dividendenrendite"], ["wachs", "Umsatzwachstum 3 Jahre"], ["mom", "Kursmomentum"], ["mc", "Börsenwert"], ["name", "Name"]];
+const ampSum = x => { const a = ampOf(x.sym); return a ? (a.q ?? 0) + a.t : -1; };
 const sortFn = {
+  ampel: (a, b) => ampSum(b) - ampSum(a), timing: (a, b) => (ampOf(b.sym)?.t ?? -1) - (ampOf(a.sym)?.t ?? -1),
   note: (a, b) => (b.g ?? -1) - (a.g ?? -1), fv: (a, b) => (b.fv?.potenzial ?? -999) - (a.fv?.potenzial ?? -999),
   fcf: (a, b) => (b.d?.fcf_rendite ?? -999) - (a.d?.fcf_rendite ?? -999), div: (a, b) => (b.d?.div_rendite ?? -1) - (a.d?.div_rendite ?? -1),
   wachs: (a, b) => (b.d?.umsatz_cagr3 ?? -999) - (a.d?.umsatz_cagr3 ?? -999), mom: (a, b) => (b.d?.mom_12_1 ?? -999) - (a.d?.mom_12_1 ?? -999),
@@ -984,7 +998,8 @@ const sortFn = {
 function entRow(x) {
   const f = x.fv;
   const href = x.app ? `#/aktie/${encodeURIComponent(x.app)}` : `#/scan/${encodeURIComponent(x.sym)}`;
-  return `<a class="row er" href="${href}"><span class="lamp ${noteAmpel(x.g)} er-l" title="Gesamtnote">${x.g == null ? "–" : nf(x.g, 1)}</span>
+  const a = ampOf(x.sym);
+  return `<a class="row er" href="${href}">${a && a.q != null ? signal(a.q, a.t) : `<span class="lamp ${noteAmpel(x.g)} er-l" title="Gesamtnote">${x.g == null ? "–" : nf(x.g, 1)}</span>`}
     <div class="mid"><div class="nm">${esc(x.n || x.sym)}</div><div class="sub">${esc(x.sym)} · ${esc(x.land || x.reg || "")} · ${esc(SEK_DE[x.sek] || x.sek)}${x.app ? " · in der App" : ""}</div>
       <div class="er-k">${BER.map(([k, n]) => `<i title="${n} ${x.k?.[k] ?? "–"}" style="background:${x.k?.[k] == null ? "var(--surface2)" : ampelVar(noteAmpel(x.k[k]))}"></i>`).join("")}</div></div>
     <div class="right"><div class="px">${money(x.p, x.w)}</div>${f?.potenzial != null ? `<div class="er-fv ${f.potenzial >= 15 ? "up" : f.potenzial <= -15 ? "down" : ""}">Fair ${pct(f.potenzial, 0)}</div>` : ""}</div></a>`;
@@ -994,7 +1009,7 @@ function renderEntdecken() {
   ensureScan().then(() => drawEntdecken());
 }
 function drawEntdecken() {
-  const S = STATE.scan, F = STATE.ent || (STATE.ent = store.get("ent", { linse: "alle", reg: "Alle", sek: "Alle", sort: "note", q: "", n: 40 }));
+  const S = STATE.scan, F = STATE.ent || (STATE.ent = store.get("ent", { linse: "alle", reg: "Alle", sek: "Alle", sort: "ampel", q: "", n: 40 }));
   if (!S || S.fehlt || !Object.keys(S.aktien || {}).length) {
     $view.innerHTML = `<header class="top"><div><h1>Entdecken</h1></div></header><div class="empty">Die Liste wird gerade zum ersten Mal gerechnet. Schau in einer Stunde wieder rein.</div>`; return;
   }
@@ -1003,11 +1018,15 @@ function drawEntdecken() {
   const seks = ["Alle", ...Object.keys(S.sektoren || {}).filter(k => k !== "Andere").sort((a, b) => (SEK_DE[a] || a).localeCompare(SEK_DE[b] || b, "de"))];
   const q = F.q.trim().toLowerCase();
   const base = all.filter(x => (F.reg === "Alle" || x.reg === F.reg) && (F.sek === "Alle" || x.sek === F.sek) && (!q || `${x.n} ${x.sym} ${x.br || ""}`.toLowerCase().includes(q)));
-  const list = base.filter(x => linseOk(x, F.linse)).sort(sortFn[F.sort] || sortFn.note);
+  const list = base.filter(x => linseOk(x, F.linse)).sort(sortFn[F.sort] || sortFn.ampel);
+  const woche = (STATE.alle?.alarme || []).filter(a => daysUntil(a.datum) >= -7).slice(0, 6);
   const cnt = Object.fromEntries(LINSEN.map(([k]) => [k, base.filter(x => linseOk(x, k)).length]));
   const save = () => store.set("ent", F);
   $view.innerHTML = `<header class="top"><div><h1>Entdecken</h1><div class="stand">${S.anzahl} etablierte Firmen · Stand ${fmtDate(S.stand)}</div></div></header>
     <p class="intro">Grosse, etablierte Firmen aus USA, Europa, Schweiz, Kanada, Asien und Australien: Börsenwert ab 4 Mrd. CHF, Umsatz ab 0.8 Mrd. CHF und mindestens 3 Jahre an der Börse. Kleinfirmen sind bewusst nicht dabei. Gefällt dir eine, tippe sie an und lass die ganze Analyse machen.</p>
+    <div class="sec"><h2>Neue Signale</h2><p>Aktien, bei denen die Ampeln in den letzten 7 Tagen ein Signal gegeben haben. Dazu kommt jeweils eine Push-Nachricht.</p></div>
+    ${woche.length ? `<div class="list">${woche.map(alarmItem).join("")}</div><p class="dp-link"><a href="#/alarme">Alle Signale der letzten 30 Tage</a></p>` : `<div class="empty">${STATE.alle ? "In den letzten 7 Tagen gab es kein neues Signal." : "Die Ampeln für alle Firmen werden heute Abend zum ersten Mal gerechnet. Signale kommen ab dem zweiten Börsentag."}</div>`}
+    <div class="sec"><h2>Alle Firmen</h2></div>
     <div class="controls" id="controls">
       <div class="search"><input id="eq" type="search" placeholder="Name oder Kürzel" value="${esc(F.q)}" aria-label="Suche">
         <select id="esort" aria-label="Sortierung">${SORTS.map(([k, l]) => `<option value="${k}" ${F.sort === k ? "selected" : ""}>${l}</option>`).join("")}</select></div>
@@ -1033,6 +1052,22 @@ function drawEntdecken() {
   let t; document.getElementById("eq").oninput = e => { clearTimeout(t); t = setTimeout(() => { F.q = e.target.value; F.n = 40; save(); drawEntdecken(); const i = document.getElementById("eq"); i.focus(); i.setSelectionRange(i.value.length, i.value.length); }, 250); };
   const m = document.getElementById("emore"); if (m) m.onclick = () => { F.n += 40; re(); };
 }
+function renderAlarme() {
+  $view.innerHTML = `<a class="back" href="#/entdecken"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>Entdecken</a><div class="empty">Lade …</div>`;
+  ensureScan().then(() => {
+    const al = STATE.alle?.alarme || [];
+    $view.innerHTML = `<a class="back" href="#/entdecken"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>Entdecken</a>
+      <header class="top"><div><h1>Signale</h1><div class="stand">Letzte 30 Tage · ${al.length} Signale</div></div></header>
+      <div class="list">${al.map(alarmItem).join("") || `<div class="empty">Noch keine Signale.</div>`}</div>
+      <details class="more"><summary>Wann ein Signal kommt</summary><ul class="plain">
+        <li><b>Timing grün:</b> Das Timing springt auf 60 oder mehr, bei Qualität ab 60.</li>
+        <li><b>Golden Cross:</b> Im Wochenchart steigt die EMA 50 über die EMA 200, der langfristige Trend dreht nach oben. Qualität ab 50.</li>
+        <li><b>Kontra-Chance:</b> Der Pessimismus steigt auf 60 oder mehr, bei Qualität ab 65. Viel Angst bei einer guten Firma.</li>
+        <li><b>Unterbewertet und Wende:</b> Fairer Wert mindestens 25 % über dem Kurs (Unsicherheit höchstens mittel), Qualität ab 60, und der Kurs schliesst wieder über der Tages-EMA 50.</li>
+        <li>Aktien mit ganzer Analyse melden sich wie bisher über Kaufzone, Trigger und Abbruch.</li></ul></details>`;
+    scrollTo(0, 0);
+  });
+}
 function renderScanDetail(sym) {
   $view.innerHTML = `<a class="back" href="#/entdecken"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>Entdecken</a><div class="empty">Lade …</div>`;
   ensureScan().then(() => {
@@ -1044,9 +1079,15 @@ function renderScanDetail(sym) {
     $view.innerHTML = `<a class="back" href="#/entdecken"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>Entdecken</a>
       <div class="dhead"><h1>${esc(x.n || x.sym)}</h1><div class="meta">${esc(x.sym)} · ${esc(x.land || x.reg || "")} · ${esc(SEK_DE[x.sek] || x.sek)}${x.br ? " · " + esc(x.br) : ""}</div>
         <div class="dprice"><span class="px">${money(x.p, x.w)}</span></div><div class="meta">${x.idx?.length ? "Im Index " + esc(x.idx.join(", ")) + " · " : ""}Börsenwert ${nf(x.mc, x.mc >= 10 ? 0 : 1)} Mrd. CHF</div></div>
-      <div class="banner info">Automatische Kurzbewertung. Für Qualitäts- und Timing-Ampel, Zonen, Sorgen und Wachstumsschub braucht es die ganze Analyse.</div>
+      ${(() => { const a = ampOf(x.sym); return a && a.q != null ? `<div class="scores">${signal(a.q, a.t, true)}
+        <div class="lbl"><div><b>Qualität ${a.q} (${ampelName[ampel(a.q)]})</b>Automatisch aus dem Branchenvergleich</div><div><b>Timing ${a.t} (${ampelName[ampel(a.t)]})</b>Automatisch, Stand ${fmtDate(a.d)}</div></div></div>` : ""; })()}
+      <div class="banner info">Automatische Ampeln. Für Kaufzonen, Trigger, Sorgen und Wachstumsschub braucht es die ganze Analyse. Fordere sie an, wenn dich die Aktie interessiert.</div>
       <div class="card wunsch"><form id="wunsch-form" class="tokenrow"><input id="wunsch-in" type="text" value="${esc(x.n || x.sym)} (${esc(x.sym)})" aria-label="Aktie">
         <button class="btn small primary" type="submit">Ganze Analyse anfordern</button></form><p class="w-msg" id="wmsg" hidden></p></div>
+      ${(() => { const a = ampOf(x.sym); if (!a) return ""; const notes = [null, null, a.st, `Tag ${a.rsid}, Woche ${a.rsiw}`, null, a.sm, null];
+        return `<div class="sec"><h2>Timing ${a.t} von 100</h2><p>Gleiche Regeln wie bei deinen analysierten Aktien. Struktur und Smart Money sind hier automatische Näherungen.</p></div>
+        <div class="card">${partsHtml(T_TEILE.map(([n, mx], i) => ({ name: n, p: a.tt[i], max: mx, txt: notes[i] || "" })))}
+        <p class="fc-cap">Pessimismus ${a.p} von 100 · ${nf(a.hoch, 0)} % unter dem Jahreshoch · ${a.ue200w ? "über" : "unter"} der Wochen-EMA 200 · <a href="https://finance.yahoo.com/quote/${encodeURIComponent(x.sym)}/chart" target="_blank" rel="noopener">Chart bei Yahoo</a></p></div>`; })()}
       ${scanBlock(x)}
       <div class="sec"><h2>Kennzahlen</h2></div>
       <div class="card"><dl class="facts">${fact("KGV", d.kgv)}${fact("Erwartetes KGV", d.kgv_f)}${fact("KGV-Schnitt eigene Jahre", d.kgv_hist)}${fact("FCF-Rendite", d.fcf_rendite, " %")}${fact("Dividendenrendite", d.div_rendite, " %")}
@@ -1067,10 +1108,11 @@ function renderScanDetail(sym) {
 // ---------- Routing ----------
 function route() {
   const h = location.hash || "#/";
-  const tab = h.startsWith("#/termine") ? "termine" : h.startsWith("#/info") ? "info" : h.startsWith("#/depot") ? "depot" : h.startsWith("#/entdecken") || h.startsWith("#/scan/") ? "entdecken" : "home";
+  const tab = h.startsWith("#/termine") ? "termine" : h.startsWith("#/info") ? "info" : h.startsWith("#/depot") ? "depot" : h.startsWith("#/entdecken") || h.startsWith("#/scan/") || h.startsWith("#/alarme") ? "entdecken" : "home";
   document.querySelectorAll(".tabs a").forEach(a => a.dataset.tab === tab ? a.setAttribute("aria-current", "page") : a.removeAttribute("aria-current"));
   if (h.startsWith("#/aktie/")) renderDetail(decodeURIComponent(h.slice(8)));
   else if (h.startsWith("#/scan/")) renderScanDetail(decodeURIComponent(h.slice(7)));
+  else if (h.startsWith("#/alarme")) renderAlarme();
   else if (tab === "entdecken") renderEntdecken();
   else if (tab === "termine") renderTermine();
   else if (tab === "info") renderInfo();
@@ -1079,7 +1121,7 @@ function route() {
 }
 let lastHash = location.hash;
 addEventListener("hashchange", () => {
-  if (!lastHash.startsWith("#/aktie/") && !lastHash.startsWith("#/termine") && !lastHash.startsWith("#/info") && !lastHash.startsWith("#/depot") && !lastHash.startsWith("#/entdecken") && !lastHash.startsWith("#/scan/")) store.set("homeScroll", scrollY);
+  if (!lastHash.startsWith("#/aktie/") && !lastHash.startsWith("#/termine") && !lastHash.startsWith("#/info") && !lastHash.startsWith("#/depot") && !lastHash.startsWith("#/entdecken") && !lastHash.startsWith("#/scan/") && !lastHash.startsWith("#/alarme")) store.set("homeScroll", scrollY);
   lastHash = location.hash; route();
 });
 

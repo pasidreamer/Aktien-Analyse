@@ -370,3 +370,4 @@ details.more{margin-top:8px} details.more summary{cursor:pointer;color:var(--acc
 .er-k{display:flex;gap:3px;margin-top:5px} .er-k i{width:18px;height:5px;border-radius:3px}
 .er-fv{font:600 13px var(--num);color:var(--muted)} .er-fv.up{color:var(--gruen)} .er-fv.down{color:var(--rot)}
 select.chip{appearance:auto;padding:5px 10px;color:var(--ink)}
+.row.al{grid-template-columns:auto 1fr auto}.row.al .sub{white-space:normal}
