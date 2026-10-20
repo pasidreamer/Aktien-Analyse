@@ -8,9 +8,9 @@ on:
   workflow_dispatch:
     inputs:
       stufe:
-        description: "Universum-Stufe (1 = grosse Firmen, 2 = mit Mid Caps)"
+        description: "Universum-Stufe (1 = Kernindizes, 2 = mit Asien, Australien und weiteren Indizes)"
         required: false
-        default: "1"
+        default: "2"
 
 permissions:
   contents: write
@@ -33,7 +33,7 @@ jobs:
           python-version: "3.12"
       - run: pip install pandas lxml html5lib
       - name: Indexlisten lesen
-        run: python scripts/universum.py ${{ inputs.stufe || '1' }} || echo "Universum nicht erreichbar, nehme die alte Liste"
+        run: python scripts/universum.py ${{ inputs.stufe || '2' }} || echo "Universum nicht erreichbar, nehme die alte Liste"
       - uses: actions/upload-artifact@v4
         with:
           name: universum
@@ -47,7 +47,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        teil: [0, 1, 2, 3]
+        teil: [0, 1, 2, 3, 4, 5]
     steps:
       - uses: actions/checkout@v4
         with:
@@ -60,7 +60,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: Kennzahlen holen
-        run: python scripts/scan.py --teil ${{ matrix.teil }} --von 4
+        run: python scripts/scan.py --teil ${{ matrix.teil }} --von 6
       - uses: actions/upload-artifact@v4
         with:
           name: teil-${{ matrix.teil }}

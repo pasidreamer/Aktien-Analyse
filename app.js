@@ -999,15 +999,15 @@ function drawEntdecken() {
     $view.innerHTML = `<header class="top"><div><h1>Entdecken</h1></div></header><div class="empty">Die Liste wird gerade zum ersten Mal gerechnet. Schau in einer Stunde wieder rein.</div>`; return;
   }
   const all = Object.values(S.aktien);
-  const regs = ["Alle", ...["USA", "Schweiz", "Europa", "Kanada", "Asien"].filter(r => all.some(x => x.reg === r))];
+  const regs = ["Alle", ...["USA", "Schweiz", "Europa", "Kanada", "Asien", "Australien"].filter(r => all.some(x => x.reg === r))];
   const seks = ["Alle", ...Object.keys(S.sektoren || {}).filter(k => k !== "Andere").sort((a, b) => (SEK_DE[a] || a).localeCompare(SEK_DE[b] || b, "de"))];
   const q = F.q.trim().toLowerCase();
   const base = all.filter(x => (F.reg === "Alle" || x.reg === F.reg) && (F.sek === "Alle" || x.sek === F.sek) && (!q || `${x.n} ${x.sym} ${x.br || ""}`.toLowerCase().includes(q)));
   const list = base.filter(x => linseOk(x, F.linse)).sort(sortFn[F.sort] || sortFn.note);
   const cnt = Object.fromEntries(LINSEN.map(([k]) => [k, base.filter(x => linseOk(x, k)).length]));
   const save = () => store.set("ent", F);
-  $view.innerHTML = `<header class="top"><div><h1>Entdecken</h1><div class="stand">${S.anzahl} Aktien aus grossen Indizes · Stand ${fmtDate(S.stand)}</div></div></header>
-    <p class="intro">Alle Aktien mit Branchenvergleich, fairem Wert und Hinweisen. Gefällt dir eine, tippe sie an und lass die ganze Analyse machen.</p>
+  $view.innerHTML = `<header class="top"><div><h1>Entdecken</h1><div class="stand">${S.anzahl} etablierte Firmen · Stand ${fmtDate(S.stand)}</div></div></header>
+    <p class="intro">Grosse, etablierte Firmen aus USA, Europa, Schweiz, Kanada, Asien und Australien: Börsenwert ab 4 Mrd. CHF, Umsatz ab 0.8 Mrd. CHF und mindestens 3 Jahre an der Börse. Kleinfirmen sind bewusst nicht dabei. Gefällt dir eine, tippe sie an und lass die ganze Analyse machen.</p>
     <div class="controls" id="controls">
       <div class="search"><input id="eq" type="search" placeholder="Name oder Kürzel" value="${esc(F.q)}" aria-label="Suche">
         <select id="esort" aria-label="Sortierung">${SORTS.map(([k, l]) => `<option value="${k}" ${F.sort === k ? "selected" : ""}>${l}</option>`).join("")}</select></div>

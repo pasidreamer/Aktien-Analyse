@@ -14,7 +14,7 @@ Aufruf:
   python scripts/scan.py --zusammen          (rechnet Vergleich, fairen Wert und Hinweise, schreibt data/scan.json)
   python scripts/scan.py --nur AAPL NESN.SW   (Test für einzelne Symbole, holt und rechnet direkt)
 """
-import json, math, os, sys, time, statistics as stx, datetime as dt
+import json, math, os, re, sys, time, statistics as stx, datetime as dt
 import urllib.request, urllib.parse, http.cookiejar
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -227,7 +227,10 @@ def kennzahlen(sym, extra):
     if 0.8 < ratio < 1.25:
         ratio = 1
     m["mcap"] = mcap
-    m["mcap_chf"] = mcap * (fx(pc, "CHF") or 0) or None
+    chf = fx(pc, "CHF") or 0
+    m["mcap_chf"] = mcap * chf or None
+    m["umsatz_chf"] = rev_t * k * chf if rev_t else None
+    m["wochen"] = len(rows)
     nd = ((last(debt) or 0) - (last(cash) or 0)) * k
     m["nettoschulden"] = nd
     # Bewertung
@@ -350,6 +353,9 @@ BEREICHE = {
     "momentum": [("mom_12_1", 1), ("mom_6", 1), ("ema200w_abstand", 1), ("schaetzung_90t", 1)],
 }
 FIN_SEKTOREN = ("Financial Services", "Real Estate")
+MIN_BOERSENWERT = 4e9   # CHF, etwa 5 Mrd. US-Dollar
+MIN_UMSATZ = 0.8e9      # CHF
+ZU_KLEIN = []
 
 
 def abgeleitet(m):
@@ -508,6 +514,38 @@ def zusammen(teile):
     for t in teile:
         alle.update(t["aktien"])
     fehler = {s: x["fehler"] for t in teile for s, x in t.get("fehler", {}).items()}
+    # Nur etablierte Firmen: Börsenwert ab 4 Mrd. CHF, Umsatz ab 0.8 Mrd. CHF, mindestens 3 Jahre an der Börse.
+    # Aktien aus der App bleiben immer drin.
+    zu_klein = []
+    for s_, m in list(alle.items()):
+        if m.get("app"):
+            continue
+        grund = None
+        if (m.get("mcap_chf") or 0) < MIN_BOERSENWERT:
+            grund = "Börsenwert unter 4 Mrd. CHF"
+        elif (m.get("umsatz_chf") or 0) < MIN_UMSATZ:
+            grund = "Umsatz unter 0.8 Mrd. CHF"
+        elif (m.get("wochen") or 0) < 156:
+            grund = "weniger als 3 Jahre an der Börse"
+        if grund:
+            zu_klein.append([s_, m.get("name"), grund])
+            del alle[s_]
+    # Doppelte Firmen (z. B. ADR und Heimatbörse, zwei Aktienklassen): die App-Aktie oder die grössere behalten
+    def norm(n):
+        n = re.sub(r"[^a-z0-9 ]", " ", str(n or "").lower())
+        stop = {"ag", "inc", "plc", "corp", "corporation", "ltd", "limited", "sa", "nv", "se", "holding", "holdings", "group", "co", "the", "company", "spa", "s", "a", "ab", "publ", "asa", "oyj", "class"}
+        return " ".join(w for w in n.split() if w not in stop)
+    seen = {}
+    for s_, m in sorted(alle.items(), key=lambda kv: (not kv[1].get("app"), -(kv[1].get("mcap_chf") or 0))):
+        k_ = norm(m.get("name"))
+        if not k_:
+            continue
+        if k_ in seen:
+            zu_klein.append([s_, m.get("name"), "doppelt, siehe " + seen[k_]])
+            del alle[s_]
+        else:
+            seen[k_] = s_
+    ZU_KLEIN[:] = zu_klein
     # Beteiligungsfonds (britische Investment Trusts) sind keine normalen Firmen: weglassen
     for s in [s for s, m in alle.items() if (m.get("branche") == "Asset Management" and not m.get("app")
               and (str(m.get("name") or "").endswith(" Ord") or "Investment Trust" in str(m.get("name") or "") or s in ("PSH.L",)))]:
@@ -635,10 +673,10 @@ def main():
     else:
         teile = [json.load(open(os.path.join(TEILE, f))) for f in sorted(os.listdir(TEILE)) if f.endswith(".json")]
     out, sek, fehler = zusammen(teile)
-    res = {"stand": dt.date.today().isoformat(), "anzahl": len(out), "sektoren": sek, "aktien": out}
+    res = {"stand": dt.date.today().isoformat(), "anzahl": len(out), "regeln": {"boersenwert_chf": MIN_BOERSENWERT, "umsatz_chf": MIN_UMSATZ, "jahre": 3}, "sektoren": sek, "aktien": out}
     json.dump(res, open(os.path.join(DATA, "scan.json"), "w"), ensure_ascii=False, separators=(",", ":"))
     json.dump({"stand": res["stand"], "anzahl": len(out), "fehler_anzahl": len(fehler), "fehler": fehler, "debug": [t.get("debug") for t in teile],
-               "ohne_note": [s for s, x in out.items() if x["g"] is None],
+               "ohne_note": [s for s, x in out.items() if x["g"] is None], "zu_klein_oder_doppelt": ZU_KLEIN,
                "ohne_fv": [s for s, x in out.items() if not (x["fv"] or {}).get("wert")],
                "sektoren": {k: v["n"] for k, v in sek.items()}}, open(os.path.join(DATA, "scan_bericht.json"), "w"), ensure_ascii=False, indent=1)
     print(len(out), "Aktien,", len(fehler), "Fehler")
