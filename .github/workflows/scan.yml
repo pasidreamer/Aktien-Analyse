@@ -1,0 +1,112 @@
+name: Branchenvergleich und fairer Wert
+
+# Einmal pro Woche (Samstag früh) und auf Knopfdruck:
+# 1. Indexlisten lesen (Universum), 2. Kennzahlen in 4 Teilen holen, 3. Vergleich rechnen und veröffentlichen.
+on:
+  schedule:
+    - cron: "15 5 * * 6"
+  workflow_dispatch:
+    inputs:
+      stufe:
+        description: "Universum-Stufe (1 = grosse Firmen, 2 = mit Mid Caps)"
+        required: false
+        default: "1"
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: scan
+  cancel-in-progress: false
+
+jobs:
+  universum:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pandas lxml html5lib
+      - name: Indexlisten lesen
+        run: python scripts/universum.py ${{ inputs.stufe || '1' }} || echo "Universum nicht erreichbar, nehme die alte Liste"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: universum
+          path: |
+            data/universum.json
+            data/universum_bericht.json
+
+  hole:
+    needs: universum
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        teil: [0, 1, 2, 3]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/download-artifact@v4
+        with:
+          name: universum
+          path: data
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Kennzahlen holen
+        run: python scripts/scan.py --teil ${{ matrix.teil }} --von 4
+      - uses: actions/upload-artifact@v4
+        with:
+          name: teil-${{ matrix.teil }}
+          path: data/scan_teile/teil_${{ matrix.teil }}.json
+
+  zusammen:
+    needs: hole
+    if: always()
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/download-artifact@v4
+        with:
+          name: universum
+          path: data
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: teil-*
+          path: data/scan_teile
+          merge-multiple: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Vergleich, fairer Wert und Hinweise rechnen
+        run: python scripts/scan.py --zusammen
+      - name: Speichern
+        run: |
+          git config user.name "aktien-ampel-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/scan.json data/scan_bericht.json data/universum.json data/universum_bericht.json
+          if git diff --cached --quiet; then
+            echo "Keine Änderungen"
+          else
+            git commit -m "Branchenvergleich $(date -u +%Y-%m-%d)"
+            git pull --rebase -X theirs
+            git push
+          fi
+      - run: rm -rf data/scan_teile
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - id: deploy
+        uses: actions/deploy-pages@v4
