@@ -508,6 +508,11 @@ def zusammen(teile):
     for t in teile:
         alle.update(t["aktien"])
     fehler = {s: x["fehler"] for t in teile for s, x in t.get("fehler", {}).items()}
+    # Beteiligungsfonds (britische Investment Trusts) sind keine normalen Firmen: weglassen
+    for s in [s for s, m in alle.items() if (m.get("branche") == "Asset Management" and not m.get("app")
+              and (str(m.get("name") or "").endswith(" Ord") or "Investment Trust" in str(m.get("name") or "") or s in ("PSH.L",)))]:
+        fehler[s] = "Fonds, nicht verglichen"
+        del alle[s]
     for m in alle.values():
         m["sektor"] = m.get("sektor") or SEKTOR_MAP.get((m.get("sektor_quelle") or "").strip()) or "Andere"
         abgeleitet(m)
