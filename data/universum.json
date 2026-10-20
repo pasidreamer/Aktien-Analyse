@@ -1,0 +1,9885 @@
+{
+"stand": "2026-10-20",
+"stufe": 1,
+"anzahl": 987,
+"aktien": [
+{
+"symbol": "8TRA.DE",
+"name": "Traton",
+"sektor_quelle": "nan",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"MDAX"
+]
+},
+{
+"symbol": "A",
+"name": "Agilent Technologies",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "A2A.MI",
+"name": "A2A",
+"sektor_quelle": "Utilities",
+"region": "Europa",
+"land": "Italien",
+"indizes": [
+"FTSE MIB"
+]
+},
+{
+"symbol": "AAF.L",
+"name": "Airtel Africa",
+"sektor_quelle": "Telecommunications services",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "AAL.L",
+"name": "Anglo American plc",
+"sektor_quelle": "Mining",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "AAPL",
+"name": "Apple Inc.",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "ABB.ST",
+"name": "ABB Ltd",
+"sektor_quelle": "Industrials",
+"region": "Europa",
+"land": "Schweden",
+"indizes": [
+"OMX Stockholm 30"
+]
+},
+{
+"symbol": "ABBN.SW",
+"name": "ABB Ltd",
+"sektor_quelle": "Industrials",
+"region": "Schweiz",
+"land": "Schweiz",
+"indizes": [
+"SMI"
+]
+},
+{
+"symbol": "ABBV",
+"name": "AbbVie",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "ABDN.L",
+"name": "Aberdeen Group",
+"sektor_quelle": "Financial Services",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "ABF.L",
+"name": "Associated British Foods",
+"sektor_quelle": "Food & tobacco",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "ABN.AS",
+"name": "ABN AMRO",
+"sektor_quelle": "Financials",
+"region": "Europa",
+"land": "Niederlande",
+"indizes": [
+"AEX"
+]
+},
+{
+"symbol": "ABNB",
+"name": "Airbnb",
+"sektor_quelle": "Consumer Discretionary",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "ABT",
+"name": "Abbott Laboratories",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "ABX.TO",
+"name": "Barrick Mining Corporation",
+"sektor_quelle": "Basic Materials",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "AC.PA",
+"name": "Accor",
+"sektor_quelle": "Consumer Services",
+"region": "Europa",
+"land": "Frankreich",
+"indizes": [
+"CAC 40"
+]
+},
+{
+"symbol": "ACA.PA",
+"name": "Crédit Agricole",
+"sektor_quelle": "Financial Services",
+"region": "Europa",
+"land": "Frankreich",
+"indizes": [
+"CAC 40"
+]
+},
+{
+"symbol": "ACGL",
+"name": "Arch Capital Group",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "ACLN.SW",
+"name": "Accelleron",
+"sektor_quelle": "Industrials",
+"region": "Schweiz",
+"land": "Schweiz",
+"indizes": [
+"SMIM"
+]
+},
+{
+"symbol": "ACN",
+"name": "Accenture",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "ACS.MC",
+"name": "ACS",
+"sektor_quelle": "Construction",
+"region": "Europa",
+"land": "Spanien",
+"indizes": [
+"IBEX 35"
+]
+},
+{
+"symbol": "ACX.MC",
+"name": "Acerinox",
+"sektor_quelle": "Steel",
+"region": "Europa",
+"land": "Spanien",
+"indizes": [
+"IBEX 35"
+]
+},
+{
+"symbol": "AD.AS",
+"name": "Ahold Delhaize",
+"sektor_quelle": "Consumer Staples",
+"region": "Europa",
+"land": "Niederlande",
+"indizes": [
+"AEX"
+]
+},
+{
+"symbol": "ADBE",
+"name": "Adobe Inc.",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "ADDT-B.ST",
+"name": "Addtech B",
+"sektor_quelle": "Industrials",
+"region": "Europa",
+"land": "Schweden",
+"indizes": [
+"OMX Stockholm 30"
+]
+},
+{
+"symbol": "ADEN.SW",
+"name": "Adecco",
+"sektor_quelle": "Industrials",
+"region": "Schweiz",
+"land": "Schweiz",
+"indizes": [
+"SMIM"
+]
+},
+{
+"symbol": "ADI",
+"name": "Analog Devices",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "ADM",
+"name": "Archer Daniels Midland",
+"sektor_quelle": "Consumer Staples",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "ADM.L",
+"name": "Admiral Group",
+"sektor_quelle": "Insurance",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "ADP",
+"name": "Automatic Data Processing",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "ADS.DE",
+"name": "Adidas",
+"sektor_quelle": "Apparel",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"DAX"
+]
+},
+{
+"symbol": "ADSK",
+"name": "Autodesk",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "ADYEN.AS",
+"name": "Adyen",
+"sektor_quelle": "Industrials",
+"region": "Europa",
+"land": "Niederlande",
+"indizes": [
+"AEX"
+]
+},
+{
+"symbol": "AEE",
+"name": "Ameren",
+"sektor_quelle": "Utilities",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "AEM.TO",
+"name": "Agnico Eagle Mines Limited",
+"sektor_quelle": "Basic Materials",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "AENA.MC",
+"name": "AENA",
+"sektor_quelle": "Aviation",
+"region": "Europa",
+"land": "Spanien",
+"indizes": [
+"IBEX 35"
+]
+},
+{
+"symbol": "AEP",
+"name": "American Electric Power",
+"sektor_quelle": "Utilities",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "AES",
+"name": "AES Corporation",
+"sektor_quelle": "Utilities",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "AFL",
+"name": "Aflac",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "AFX.DE",
+"name": "Carl Zeiss Meditec",
+"sektor_quelle": "Medical technology",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"MDAX"
+]
+},
+{
+"symbol": "AGN.AS",
+"name": "Aegon",
+"sektor_quelle": "Financials",
+"region": "Europa",
+"land": "Niederlande",
+"indizes": [
+"AEX"
+]
+},
+{
+"symbol": "AI.PA",
+"name": "Air Liquide",
+"sektor_quelle": "Basic Materials",
+"region": "Europa",
+"land": "Frankreich",
+"indizes": [
+"CAC 40"
+]
+},
+{
+"symbol": "AIG",
+"name": "American International Group",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "AIR.PA",
+"name": "Airbus",
+"sektor_quelle": "Aerospace & Defence",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"DAX",
+"CAC 40"
+]
+},
+{
+"symbol": "AIXA.DE",
+"name": "Aixtron",
+"sektor_quelle": "Semiconductor industry",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"MDAX"
+]
+},
+{
+"symbol": "AIZ",
+"name": "Assurant",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "AJG",
+"name": "Arthur J. Gallagher & Co.",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "AKAM",
+"name": "Akamai Technologies",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "AKZA.AS",
+"name": "AkzoNobel",
+"sektor_quelle": "Basic Materials",
+"region": "Europa",
+"land": "Niederlande",
+"indizes": [
+"AEX"
+]
+},
+{
+"symbol": "ALB",
+"name": "Albemarle Corporation",
+"sektor_quelle": "Materials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "ALC.SW",
+"name": "Alcon Inc",
+"sektor_quelle": "Health care",
+"region": "Schweiz",
+"land": "Schweiz",
+"indizes": [
+"SMI"
+]
+},
+{
+"symbol": "ALFA.ST",
+"name": "Alfa Laval",
+"sektor_quelle": "Industrials",
+"region": "Europa",
+"land": "Schweden",
+"indizes": [
+"OMX Stockholm 30"
+]
+},
+{
+"symbol": "ALGN",
+"name": "Align Technology",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "ALL",
+"name": "Allstate",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "ALLE",
+"name": "Allegion",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "ALSYDB.CO",
+"name": "AL Sydbank",
+"sektor_quelle": "Banks",
+"region": "Europa",
+"land": "Dänemark",
+"indizes": [
+"OMX Copenhagen 25"
+]
+},
+{
+"symbol": "ALV.DE",
+"name": "Allianz",
+"sektor_quelle": "Financial Services",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"DAX"
+]
+},
+{
+"symbol": "ALW.L",
+"name": "Alliance Witan",
+"sektor_quelle": "Investment Trusts",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "AMAT",
+"name": "Applied Materials",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "AMBU.CO",
+"name": "Ambu",
+"sektor_quelle": "Health Care",
+"region": "Europa",
+"land": "Dänemark",
+"indizes": [
+"OMX Copenhagen 25"
+]
+},
+{
+"symbol": "AMCR",
+"name": "Amcor",
+"sektor_quelle": "Materials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "AMD",
+"name": "Advanced Micro Devices",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "AME",
+"name": "Ametek",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "AMGN",
+"name": "Amgen",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "AMP",
+"name": "Ameriprise Financial",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "AMP.MI",
+"name": "Amplifon",
+"sektor_quelle": "Health Care",
+"region": "Europa",
+"land": "Italien",
+"indizes": [
+"FTSE MIB"
+]
+},
+{
+"symbol": "AMRZ.SW",
+"name": "Amrize AG",
+"sektor_quelle": "Materials",
+"region": "Schweiz",
+"land": "Schweiz",
+"indizes": [
+"SMI"
+]
+},
+{
+"symbol": "AMS.MC",
+"name": "Amadeus IT Group",
+"sektor_quelle": "Tourism",
+"region": "Europa",
+"land": "Spanien",
+"indizes": [
+"IBEX 35"
+]
+},
+{
+"symbol": "AMT",
+"name": "American Tower",
+"sektor_quelle": "Real Estate",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "AMZN",
+"name": "Amazon",
+"sektor_quelle": "Consumer Discretionary",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "ANA.MC",
+"name": "Acciona",
+"sektor_quelle": "Construction",
+"region": "Europa",
+"land": "Spanien",
+"indizes": [
+"IBEX 35"
+]
+},
+{
+"symbol": "ANE.MC",
+"name": "Acciona Energía",
+"sektor_quelle": "Energy",
+"region": "Europa",
+"land": "Spanien",
+"indizes": [
+"IBEX 35"
+]
+},
+{
+"symbol": "ANET",
+"name": "Arista Networks",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "ANTO.L",
+"name": "Antofagasta plc",
+"sektor_quelle": "Mining",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "AON",
+"name": "Aon plc",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "AOS",
+"name": "A. O. Smith",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "APA",
+"name": "APA Corporation",
+"sektor_quelle": "Energy",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "APD",
+"name": "Air Products",
+"sektor_quelle": "Materials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "APH",
+"name": "Amphenol",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "APO",
+"name": "Apollo Global Management",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "APP",
+"name": "AppLovin",
+"sektor_quelle": "Communication Services",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "APTV",
+"name": "Aptiv",
+"sektor_quelle": "Consumer Discretionary",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "ARE",
+"name": "Alexandria Real Estate Equities",
+"sektor_quelle": "Real Estate",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "ARES",
+"name": "Ares Management",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "ASM.AS",
+"name": "ASM International",
+"sektor_quelle": "Technology",
+"region": "Europa",
+"land": "Niederlande",
+"indizes": [
+"AEX"
+]
+},
+{
+"symbol": "ASML.AS",
+"name": "ASML Holding",
+"sektor_quelle": "Technology",
+"region": "Europa",
+"land": "Niederlande",
+"indizes": [
+"AEX"
+]
+},
+{
+"symbol": "ASRNL.AS",
+"name": "ASR Nederland",
+"sektor_quelle": "Financials",
+"region": "Europa",
+"land": "Niederlande",
+"indizes": [
+"AEX"
+]
+},
+{
+"symbol": "ASSA-B.ST",
+"name": "Assa Abloy B",
+"sektor_quelle": "Industrials",
+"region": "Europa",
+"land": "Schweden",
+"indizes": [
+"OMX Stockholm 30"
+]
+},
+{
+"symbol": "AT1.DE",
+"name": "Aroundtown",
+"sektor_quelle": "Real estate",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"MDAX"
+]
+},
+{
+"symbol": "ATCO-A.ST",
+"name": "Atlas Copco A",
+"sektor_quelle": "Industrials",
+"region": "Europa",
+"land": "Schweden",
+"indizes": [
+"OMX Stockholm 30"
+]
+},
+{
+"symbol": "ATD.TO",
+"name": "Alimentation Couche-Tard Inc.",
+"sektor_quelle": "Consumer Cyclical",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "ATO",
+"name": "Atmos Energy",
+"sektor_quelle": "Utilities",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "AUTO.L",
+"name": "Autotrader Group",
+"sektor_quelle": "Media",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "AV.L",
+"name": "Aviva",
+"sektor_quelle": "Life insurance",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "AVGO",
+"name": "Broadcom",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "AVIO.MI",
+"name": "Avio",
+"sektor_quelle": "Aerospace",
+"region": "Europa",
+"land": "Italien",
+"indizes": [
+"FTSE MIB"
+]
+},
+{
+"symbol": "AVOL.SW",
+"name": "Avolta",
+"sektor_quelle": "Retail discretionary",
+"region": "Schweiz",
+"land": "Schweiz",
+"indizes": [
+"SMIM"
+]
+},
+{
+"symbol": "AVY",
+"name": "Avery Dennison",
+"sektor_quelle": "Materials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "AWK",
+"name": "American Water Works",
+"sektor_quelle": "Utilities",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "AXON",
+"name": "Axon Enterprise",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "AXP",
+"name": "American Express",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "AZM.MI",
+"name": "Azimut",
+"sektor_quelle": "Financial Services",
+"region": "Europa",
+"land": "Italien",
+"indizes": [
+"FTSE MIB"
+]
+},
+{
+"symbol": "AZN.L",
+"name": "AstraZeneca",
+"sektor_quelle": "Pharmaceuticals & biotechnology",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "AZN.ST",
+"name": "AstraZeneca",
+"sektor_quelle": "Health Care",
+"region": "Europa",
+"land": "Schweden",
+"indizes": [
+"OMX Stockholm 30"
+]
+},
+{
+"symbol": "AZO",
+"name": "AutoZone",
+"sektor_quelle": "Consumer Discretionary",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "BA",
+"name": "Boeing",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "BA.L",
+"name": "BAE Systems",
+"sektor_quelle": "Aerospace & defence",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "BAB.L",
+"name": "Babcock International",
+"sektor_quelle": "Aerospace & defence",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "BAC",
+"name": "Bank of America",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "BAER.SW",
+"name": "Julius Bär",
+"sektor_quelle": "Financials",
+"region": "Schweiz",
+"land": "Schweiz",
+"indizes": [
+"SMIM"
+]
+},
+{
+"symbol": "BALL",
+"name": "Ball Corporation",
+"sektor_quelle": "Materials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "BAM.TO",
+"name": "Brookfield Asset Management Ltd.",
+"sektor_quelle": "Financial Services",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "BAMI.MI",
+"name": "Banco BPM",
+"sektor_quelle": "Banks",
+"region": "Europa",
+"land": "Italien",
+"indizes": [
+"FTSE MIB"
+]
+},
+{
+"symbol": "BARC.L",
+"name": "Barclays",
+"sektor_quelle": "Banks",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "BARN.SW",
+"name": "Barry Callebaut",
+"sektor_quelle": "Retail staples",
+"region": "Schweiz",
+"land": "Schweiz",
+"indizes": [
+"SMIM"
+]
+},
+{
+"symbol": "BAS.DE",
+"name": "BASF",
+"sektor_quelle": "Chemicals",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"DAX"
+]
+},
+{
+"symbol": "BATS.L",
+"name": "British American Tobacco",
+"sektor_quelle": "Tobacco",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "BAX",
+"name": "Baxter International",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "BAYN.DE",
+"name": "Bayer",
+"sektor_quelle": "Pharmaceuticals",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"DAX"
+]
+},
+{
+"symbol": "BBOX.L",
+"name": "Tritax Big Box REIT",
+"sektor_quelle": "Real Estate Investment Trusts",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "BBVA.MC",
+"name": "BBVA",
+"sektor_quelle": "Financial Services",
+"region": "Europa",
+"land": "Spanien",
+"indizes": [
+"IBEX 35"
+]
+},
+{
+"symbol": "BBY",
+"name": "Best Buy",
+"sektor_quelle": "Consumer Discretionary",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "BBY.L",
+"name": "Balfour Beatty",
+"sektor_quelle": "Construction & Materials",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "BC.MI",
+"name": "Brunello Cucinelli",
+"sektor_quelle": "Consumer Products and Services",
+"region": "Europa",
+"land": "Italien",
+"indizes": [
+"FTSE MIB"
+]
+},
+{
+"symbol": "BC8.DE",
+"name": "Bechtle",
+"sektor_quelle": "IT services",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"MDAX"
+]
+},
+{
+"symbol": "BCE.TO",
+"name": "BCE Inc.",
+"sektor_quelle": "Communication Services",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "BDX",
+"name": "Becton Dickinson",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "BE",
+"name": "Bloom Energy",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "BEAN.SW",
+"name": "Belimo",
+"sektor_quelle": "Industrials",
+"region": "Schweiz",
+"land": "Schweiz",
+"indizes": [
+"SMIM"
+]
+},
+{
+"symbol": "BEI.DE",
+"name": "Beiersdorf",
+"sektor_quelle": "Consumer goods",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"DAX"
+]
+},
+{
+"symbol": "BEN",
+"name": "Franklin Resources",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "BESI.AS",
+"name": "BE Semiconductors",
+"sektor_quelle": "Technology",
+"region": "Europa",
+"land": "Niederlande",
+"indizes": [
+"AEX"
+]
+},
+{
+"symbol": "BF-B",
+"name": "Brown–Forman",
+"sektor_quelle": "Consumer Staples",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "BFSA.DE",
+"name": "Befesa",
+"sektor_quelle": "Waste management",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"MDAX"
+]
+},
+{
+"symbol": "BG",
+"name": "Bunge Global",
+"sektor_quelle": "Consumer Staples",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "BGEO.L",
+"name": "Lion Finance Group",
+"sektor_quelle": "Banking Services",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "BIIB",
+"name": "Biogen",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "BIP-UN.TO",
+"name": "Brookfield Infrastructure Partners L.P.",
+"sektor_quelle": "Utilities",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "BKNG",
+"name": "Booking Holdings",
+"sektor_quelle": "Consumer Discretionary",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "BKR",
+"name": "Baker Hughes",
+"sektor_quelle": "Energy",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "BKT.MC",
+"name": "Bankinter",
+"sektor_quelle": "Financial Services",
+"region": "Europa",
+"land": "Spanien",
+"indizes": [
+"IBEX 35"
+]
+},
+{
+"symbol": "BLK",
+"name": "BlackRock",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "BLND.L",
+"name": "British Land",
+"sektor_quelle": "Real estate",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "BMED.MI",
+"name": "Banca Mediolanum",
+"sektor_quelle": "Financial Services",
+"region": "Europa",
+"land": "Italien",
+"indizes": [
+"FTSE MIB"
+]
+},
+{
+"symbol": "BMO.TO",
+"name": "Bank of Montreal",
+"sektor_quelle": "Financial Services",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "BMPS.MI",
+"name": "Banca Monte dei Paschi di Siena",
+"sektor_quelle": "Banks",
+"region": "Europa",
+"land": "Italien",
+"indizes": [
+"FTSE MIB"
+]
+},
+{
+"symbol": "BMW.DE",
+"name": "BMW",
+"sektor_quelle": "Automotive",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"DAX"
+]
+},
+{
+"symbol": "BMY",
+"name": "Bristol Myers Squibb",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "BN.PA",
+"name": "Danone",
+"sektor_quelle": "Consumer Defensive",
+"region": "Europa",
+"land": "Frankreich",
+"indizes": [
+"CAC 40"
+]
+},
+{
+"symbol": "BN.TO",
+"name": "Brookfield Corporation",
+"sektor_quelle": "Financial Services",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "BNP.PA",
+"name": "BNP Paribas",
+"sektor_quelle": "Financial Services",
+"region": "Europa",
+"land": "Frankreich",
+"indizes": [
+"CAC 40"
+]
+},
+{
+"symbol": "BNR.DE",
+"name": "Brenntag",
+"sektor_quelle": "Distribution",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"DAX"
+]
+},
+{
+"symbol": "BNS.TO",
+"name": "Bank of Nova Scotia",
+"sektor_quelle": "Financial Services",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "BNY",
+"name": "BNY Mellon",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "BNZL.L",
+"name": "Bunzl",
+"sektor_quelle": "Support services",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "BOL.ST",
+"name": "Boliden",
+"sektor_quelle": "Materials",
+"region": "Europa",
+"land": "Schweden",
+"indizes": [
+"OMX Stockholm 30"
+]
+},
+{
+"symbol": "BOSS.DE",
+"name": "Hugo Boss",
+"sektor_quelle": "Clothing, Accessories",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"MDAX"
+]
+},
+{
+"symbol": "BP.L",
+"name": "BP",
+"sektor_quelle": "Oil & gas producers",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "BPE.MI",
+"name": "BPER Banca",
+"sektor_quelle": "Banks",
+"region": "Europa",
+"land": "Italien",
+"indizes": [
+"FTSE MIB"
+]
+},
+{
+"symbol": "BR",
+"name": "Broadridge Financial Solutions",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "BRBY.L",
+"name": "Burberry Group",
+"sektor_quelle": "Personal goods",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "BRK-B",
+"name": "Berkshire Hathaway",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "BRO",
+"name": "Brown & Brown",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "BSX",
+"name": "Boston Scientific",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "BT-A.L",
+"name": "BT Group",
+"sektor_quelle": "Telecommunications services",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "BTRW.L",
+"name": "Barratt Redrow",
+"sektor_quelle": "Household goods & home construction",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "BVI.PA",
+"name": "Bureau Veritas",
+"sektor_quelle": "Industrials",
+"region": "Europa",
+"land": "Frankreich",
+"indizes": [
+"CAC 40"
+]
+},
+{
+"symbol": "BX",
+"name": "Blackstone Inc.",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "BXP",
+"name": "BXP, Inc.",
+"sektor_quelle": "Real Estate",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "BZU.MI",
+"name": "Buzzi",
+"sektor_quelle": "Construction and Materials",
+"region": "Europa",
+"land": "Italien",
+"indizes": [
+"FTSE MIB"
+]
+},
+{
+"symbol": "C",
+"name": "Citigroup",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "CA.PA",
+"name": "Carrefour",
+"sektor_quelle": "Consumer Defensive",
+"region": "Europa",
+"land": "Frankreich",
+"indizes": [
+"CAC 40"
+]
+},
+{
+"symbol": "CABK.MC",
+"name": "CaixaBank",
+"sektor_quelle": "Financial Services",
+"region": "Europa",
+"land": "Spanien",
+"indizes": [
+"IBEX 35"
+]
+},
+{
+"symbol": "CAE.TO",
+"name": "CAE Inc.",
+"sektor_quelle": "Industrials",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "CAH",
+"name": "Cardinal Health",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "CAP.PA",
+"name": "Capgemini",
+"sektor_quelle": "Technology",
+"region": "Europa",
+"land": "Frankreich",
+"indizes": [
+"CAC 40"
+]
+},
+{
+"symbol": "CARL.CO",
+"name": "Carlsberg Group",
+"sektor_quelle": "Food, Beverage and Tobacco",
+"region": "Europa",
+"land": "Dänemark",
+"indizes": [
+"OMX Copenhagen 25"
+]
+},
+{
+"symbol": "CARR",
+"name": "Carrier Global",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "CASY",
+"name": "Casey's",
+"sektor_quelle": "Consumer Staples",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "CAT",
+"name": "Caterpillar Inc.",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "CB",
+"name": "Chubb Limited",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "CBK.DE",
+"name": "Commerzbank",
+"sektor_quelle": "Financial Services",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"DAX"
+]
+},
+{
+"symbol": "CBOE",
+"name": "Cboe Global Markets",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "CBRE",
+"name": "CBRE Group",
+"sektor_quelle": "Real Estate",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "CCC.L",
+"name": "Computacenter",
+"sektor_quelle": "Software & Computer Services",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "CCEP.L",
+"name": "Coca-Cola Europacific Partners",
+"sektor_quelle": "Beverages",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "CCH.L",
+"name": "Coca-Cola HBC",
+"sektor_quelle": "Beverages",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "CCI",
+"name": "Crown Castle",
+"sektor_quelle": "Real Estate",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "CCL",
+"name": "Carnival Corporation",
+"sektor_quelle": "Consumer Discretionary",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "CCL-B.TO",
+"name": "CCL Industries Inc.",
+"sektor_quelle": "Consumer Cyclical",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "CCO.TO",
+"name": "Cameco Corporation",
+"sektor_quelle": "Energy",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "CDNS",
+"name": "Cadence Design Systems",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "CDW",
+"name": "CDW Corporation",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "CEG",
+"name": "Constellation Energy",
+"sektor_quelle": "Utilities",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "CF",
+"name": "CF Industries",
+"sektor_quelle": "Materials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "CFG",
+"name": "Citizens Financial Group",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "CFR.SW",
+"name": "Compagnie Financière Richemont SA",
+"sektor_quelle": "Retail discretionary",
+"region": "Schweiz",
+"land": "Schweiz",
+"indizes": [
+"SMI"
+]
+},
+{
+"symbol": "CHD",
+"name": "Church & Dwight",
+"sektor_quelle": "Consumer Staples",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "CHRW",
+"name": "C.H. Robinson",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "CHTR",
+"name": "Charter Communications",
+"sektor_quelle": "Communication Services",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "CI",
+"name": "Cigna",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "CIEN",
+"name": "Ciena",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "CINF",
+"name": "Cincinnati Financial",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "CL",
+"name": "Colgate-Palmolive",
+"sektor_quelle": "Consumer Staples",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "CLN.SW",
+"name": "Clariant",
+"sektor_quelle": "Materials",
+"region": "Schweiz",
+"land": "Schweiz",
+"indizes": [
+"SMIM"
+]
+},
+{
+"symbol": "CLNX.MC",
+"name": "Cellnex Telecom",
+"sektor_quelle": "Telecommunications",
+"region": "Europa",
+"land": "Spanien",
+"indizes": [
+"IBEX 35"
+]
+},
+{
+"symbol": "CLS.TO",
+"name": "Celestica Inc.",
+"sektor_quelle": "Information Technology",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "CLX",
+"name": "Clorox",
+"sektor_quelle": "Consumer Staples",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "CM.TO",
+"name": "Canadian Imperial Bank of Commerce",
+"sektor_quelle": "Financial Services",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "CMCSA",
+"name": "Comcast",
+"sektor_quelle": "Communication Services",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "CME",
+"name": "CME Group",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "CMG",
+"name": "Chipotle Mexican Grill",
+"sektor_quelle": "Consumer Discretionary",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "CMI",
+"name": "Cummins",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "CMS",
+"name": "CMS Energy",
+"sektor_quelle": "Utilities",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "CNA.L",
+"name": "Centrica",
+"sektor_quelle": "Multiline utilities",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "CNC",
+"name": "Centene Corporation",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "CNP",
+"name": "CenterPoint Energy",
+"sektor_quelle": "Utilities",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "CNQ.TO",
+"name": "Canadian Natural Resources Limited",
+"sektor_quelle": "Energy",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "CNR.TO",
+"name": "Canadian National Railway Company",
+"sektor_quelle": "Industrials",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "COF",
+"name": "Capital One",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "COHR",
+"name": "Coherent Corp.",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "COIN",
+"name": "Coinbase",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "COL.MC",
+"name": "Inmobiliaria Colonial",
+"sektor_quelle": "Real Estate",
+"region": "Europa",
+"land": "Spanien",
+"indizes": [
+"IBEX 35"
+]
+},
+{
+"symbol": "COLO.CO",
+"name": "Coloplast",
+"sektor_quelle": "Health Care",
+"region": "Europa",
+"land": "Dänemark",
+"indizes": [
+"OMX Copenhagen 25"
+]
+},
+{
+"symbol": "CON.DE",
+"name": "Continental",
+"sektor_quelle": "Automotive",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"DAX"
+]
+},
+{
+"symbol": "COO",
+"name": "Cooper Companies (The)",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "COP",
+"name": "ConocoPhillips",
+"sektor_quelle": "Energy",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "COR",
+"name": "Cencora",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "COST",
+"name": "Costco",
+"sektor_quelle": "Consumer Staples",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "CP.TO",
+"name": "Canadian Pacific Kansas City Limited",
+"sektor_quelle": "Industrials",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "CPAY",
+"name": "Corpay",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "CPG.L",
+"name": "Compass Group",
+"sektor_quelle": "Support services",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "CPR.MI",
+"name": "Campari",
+"sektor_quelle": "Food, Beverage and Tobacco",
+"region": "Europa",
+"land": "Italien",
+"indizes": [
+"FTSE MIB"
+]
+},
+{
+"symbol": "CPRT",
+"name": "Copart",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "CPT",
+"name": "Camden Property Trust",
+"sektor_quelle": "Real Estate",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "CRDA.L",
+"name": "Croda International",
+"sektor_quelle": "Chemicals",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "CRH",
+"name": "CRH plc",
+"sektor_quelle": "Materials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "CRL",
+"name": "Charles River Laboratories",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "CRM",
+"name": "Salesforce",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "CRWD",
+"name": "CrowdStrike",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "CS.PA",
+"name": "Axa",
+"sektor_quelle": "Financial Services",
+"region": "Europa",
+"land": "Frankreich",
+"indizes": [
+"CAC 40"
+]
+},
+{
+"symbol": "CSCO",
+"name": "Cisco",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "CSGP",
+"name": "CoStar Group",
+"sektor_quelle": "Real Estate",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "CSU.TO",
+"name": "Constellation Software Inc.",
+"sektor_quelle": "Information Technology",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "CSX",
+"name": "CSX Corporation",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "CTAS",
+"name": "Cintas",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "CTC-A.TO",
+"name": "Canadian Tire Corporation Limited",
+"sektor_quelle": "Consumer Cyclical",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "CTEC.L",
+"name": "Convatec",
+"sektor_quelle": "Health care equipment & supplies",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "CTSH",
+"name": "Cognizant",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "CVE.TO",
+"name": "Cenovus Energy Inc.",
+"sektor_quelle": "Energy",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "CVNA",
+"name": "Carvana",
+"sektor_quelle": "Consumer Discretionary",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "CVS",
+"name": "CVS Health",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "CVX",
+"name": "Chevron Corporation",
+"sektor_quelle": "Energy",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "D",
+"name": "Dominion Energy",
+"sektor_quelle": "Utilities",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "DAL",
+"name": "Delta Air Lines",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "DANSKE.CO",
+"name": "Danske Bank",
+"sektor_quelle": "Banks",
+"region": "Europa",
+"land": "Dänemark",
+"indizes": [
+"OMX Copenhagen 25"
+]
+},
+{
+"symbol": "DASH",
+"name": "DoorDash",
+"sektor_quelle": "Consumer Discretionary",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "DB1.DE",
+"name": "Deutsche Börse",
+"sektor_quelle": "Financial Services",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"DAX"
+]
+},
+{
+"symbol": "DBK.DE",
+"name": "Deutsche Bank",
+"sektor_quelle": "Financial Services",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"DAX"
+]
+},
+{
+"symbol": "DCC.L",
+"name": "DCC Energy",
+"sektor_quelle": "Support services",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "DD",
+"name": "DuPont",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "DDOG",
+"name": "Datadog",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "DE",
+"name": "Deere & Company",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "DECK",
+"name": "Deckers Brands",
+"sektor_quelle": "Consumer Discretionary",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "DELL",
+"name": "Dell Technologies",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "DEMANT.CO",
+"name": "Demant",
+"sektor_quelle": "Health Care",
+"region": "Europa",
+"land": "Dänemark",
+"indizes": [
+"OMX Copenhagen 25"
+]
+},
+{
+"symbol": "DG",
+"name": "Dollar General",
+"sektor_quelle": "Consumer Staples",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "DG.PA",
+"name": "Vinci",
+"sektor_quelle": "Industrials",
+"region": "Europa",
+"land": "Frankreich",
+"indizes": [
+"CAC 40"
+]
+},
+{
+"symbol": "DGE.L",
+"name": "Diageo",
+"sektor_quelle": "Beverages",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "DGX",
+"name": "Quest Diagnostics",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "DHER.DE",
+"name": "Delivery Hero",
+"sektor_quelle": "Delivery service",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"MDAX"
+]
+},
+{
+"symbol": "DHI",
+"name": "D. R. Horton",
+"sektor_quelle": "Consumer Discretionary",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "DHL.DE",
+"name": "Deutsche Post",
+"sektor_quelle": "Logistics",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"DAX"
+]
+},
+{
+"symbol": "DHR",
+"name": "Danaher Corporation",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "DIA.MI",
+"name": "Diasorin",
+"sektor_quelle": "Health Care",
+"region": "Europa",
+"land": "Italien",
+"indizes": [
+"FTSE MIB"
+]
+},
+{
+"symbol": "DIS",
+"name": "Walt Disney Company (The)",
+"sektor_quelle": "Communication Services",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "DLR",
+"name": "Digital Realty",
+"sektor_quelle": "Real Estate",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "DLTR",
+"name": "Dollar Tree",
+"sektor_quelle": "Consumer Staples",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "DOC",
+"name": "Healthpeak Properties",
+"sektor_quelle": "Real Estate",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "DOL.TO",
+"name": "Dollarama Inc.",
+"sektor_quelle": "Consumer Staples",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "DOV",
+"name": "Dover Corporation",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "DOW",
+"name": "Dow Inc.",
+"sektor_quelle": "Materials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "DPLM.L",
+"name": "Diploma",
+"sektor_quelle": "Industrial Support services",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "DPZ",
+"name": "Domino's",
+"sektor_quelle": "Consumer Discretionary",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "DRI",
+"name": "Darden Restaurants",
+"sektor_quelle": "Consumer Discretionary",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "DSFIR.AS",
+"name": "DSM Firmenich AG",
+"sektor_quelle": "Consumer Staples",
+"region": "Europa",
+"land": "Niederlande",
+"indizes": [
+"AEX"
+]
+},
+{
+"symbol": "DSV.CO",
+"name": "DSV",
+"sektor_quelle": "Industrial Goods and Services",
+"region": "Europa",
+"land": "Dänemark",
+"indizes": [
+"OMX Copenhagen 25"
+]
+},
+{
+"symbol": "DSY.PA",
+"name": "Dassault Systèmes",
+"sektor_quelle": "Technology",
+"region": "Europa",
+"land": "Frankreich",
+"indizes": [
+"CAC 40"
+]
+},
+{
+"symbol": "DTE",
+"name": "DTE Energy",
+"sektor_quelle": "Utilities",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "DTE.DE",
+"name": "Deutsche Telekom",
+"sektor_quelle": "Telecommunication",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"DAX"
+]
+},
+{
+"symbol": "DTG.DE",
+"name": "Daimler Truck",
+"sektor_quelle": "Automotive",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"DAX"
+]
+},
+{
+"symbol": "DUK",
+"name": "Duke Energy",
+"sektor_quelle": "Utilities",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "DVA",
+"name": "DaVita",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "DVN",
+"name": "Devon Energy",
+"sektor_quelle": "Energy",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "DXCM",
+"name": "Dexcom",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "EBAY",
+"name": "eBay Inc.",
+"sektor_quelle": "Consumer Discretionary",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "ECHO",
+"name": "EchoStar",
+"sektor_quelle": "Communication Services",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "ECL",
+"name": "Ecolab",
+"sektor_quelle": "Materials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "ECV.DE",
+"name": "Encavis",
+"sektor_quelle": "Renewable energy",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"MDAX"
+]
+},
+{
+"symbol": "ED",
+"name": "Consolidated Edison",
+"sektor_quelle": "Utilities",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "EDV.L",
+"name": "Endeavour Mining",
+"sektor_quelle": "Mining",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "EFX",
+"name": "Equifax",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "EG",
+"name": "Everest Group",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "EIX",
+"name": "Edison International",
+"sektor_quelle": "Utilities",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "EL",
+"name": "Estée Lauder Companies (The)",
+"sektor_quelle": "Consumer Staples",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "EL.PA",
+"name": "EssilorLuxottica",
+"sektor_quelle": "Healthcare",
+"region": "Europa",
+"land": "Frankreich",
+"indizes": [
+"CAC 40"
+]
+},
+{
+"symbol": "ELE.MC",
+"name": "Endesa",
+"sektor_quelle": "Energy",
+"region": "Europa",
+"land": "Spanien",
+"indizes": [
+"IBEX 35"
+]
+},
+{
+"symbol": "ELV",
+"name": "Elevance Health",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "EMA.TO",
+"name": "Emera Incorporated",
+"sektor_quelle": "Utilities",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "EME",
+"name": "Emcor",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "EMR",
+"name": "Emerson Electric",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "EMSN.SW",
+"name": "Ems-Chemie",
+"sektor_quelle": "Materials",
+"region": "Schweiz",
+"land": "Schweiz",
+"indizes": [
+"SMIM"
+]
+},
+{
+"symbol": "EN.PA",
+"name": "Bouygues",
+"sektor_quelle": "Industrials",
+"region": "Europa",
+"land": "Frankreich",
+"indizes": [
+"CAC 40"
+]
+},
+{
+"symbol": "ENB.TO",
+"name": "Enbridge Inc.",
+"sektor_quelle": "Energy",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "ENEL.MI",
+"name": "Enel",
+"sektor_quelle": "Utilities",
+"region": "Europa",
+"land": "Italien",
+"indizes": [
+"FTSE MIB"
+]
+},
+{
+"symbol": "ENG.MC",
+"name": "Enagás",
+"sektor_quelle": "Energy",
+"region": "Europa",
+"land": "Spanien",
+"indizes": [
+"IBEX 35"
+]
+},
+{
+"symbol": "ENGI.PA",
+"name": "Engie",
+"sektor_quelle": "Utilities",
+"region": "Europa",
+"land": "Frankreich",
+"indizes": [
+"CAC 40"
+]
+},
+{
+"symbol": "ENI.MI",
+"name": "Eni",
+"sektor_quelle": "Energy",
+"region": "Europa",
+"land": "Italien",
+"indizes": [
+"FTSE MIB"
+]
+},
+{
+"symbol": "ENR.DE",
+"name": "Siemens Energy",
+"sektor_quelle": "Energy technology",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"DAX"
+]
+},
+{
+"symbol": "ENX.PA",
+"name": "Euronext",
+"sektor_quelle": "Financial Services",
+"region": "Europa",
+"land": "Frankreich",
+"indizes": [
+"CAC 40"
+]
+},
+{
+"symbol": "EOAN.DE",
+"name": "E.ON",
+"sektor_quelle": "Utilities",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"DAX"
+]
+},
+{
+"symbol": "EOG",
+"name": "EOG Resources",
+"sektor_quelle": "Energy",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "EPI-A.ST",
+"name": "Epiroc A",
+"sektor_quelle": "Industrials",
+"region": "Europa",
+"land": "Schweden",
+"indizes": [
+"OMX Stockholm 30"
+]
+},
+{
+"symbol": "EQIX",
+"name": "Equinix",
+"sektor_quelle": "Real Estate",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "EQT",
+"name": "EQT Corporation",
+"sektor_quelle": "Energy",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "EQT.ST",
+"name": "EQT",
+"sektor_quelle": "Financials",
+"region": "Europa",
+"land": "Schweden",
+"indizes": [
+"OMX Stockholm 30"
+]
+},
+{
+"symbol": "ERF.PA",
+"name": "Eurofins Scientific",
+"sektor_quelle": "Healthcare",
+"region": "Europa",
+"land": "Frankreich",
+"indizes": [
+"CAC 40"
+]
+},
+{
+"symbol": "ERIC-B.ST",
+"name": "Ericsson B",
+"sektor_quelle": "Information Technology",
+"region": "Europa",
+"land": "Schweden",
+"indizes": [
+"OMX Stockholm 30"
+]
+},
+{
+"symbol": "ERIE",
+"name": "Erie Indemnity",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "ES",
+"name": "Eversource Energy",
+"sektor_quelle": "Utilities",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "ESS",
+"name": "Essex Property Trust",
+"sektor_quelle": "Real Estate",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "ESSITY-B.ST",
+"name": "Essity B",
+"sektor_quelle": "Consumer Staples",
+"region": "Europa",
+"land": "Schweden",
+"indizes": [
+"OMX Stockholm 30"
+]
+},
+{
+"symbol": "ETN",
+"name": "Eaton Corporation",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "ETR",
+"name": "Entergy",
+"sektor_quelle": "Utilities",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "EVD.DE",
+"name": "CTS Eventim",
+"sektor_quelle": "Leisure-events",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"MDAX"
+]
+},
+{
+"symbol": "EVK.DE",
+"name": "Evonik",
+"sektor_quelle": "Chemistry",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"MDAX"
+]
+},
+{
+"symbol": "EVO.ST",
+"name": "Evolution",
+"sektor_quelle": "Consumer Discretionary",
+"region": "Europa",
+"land": "Schweden",
+"indizes": [
+"OMX Stockholm 30"
+]
+},
+{
+"symbol": "EVRG",
+"name": "Evergy",
+"sektor_quelle": "Utilities",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "EVT.DE",
+"name": "Evotec",
+"sektor_quelle": "Biotechnology",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"MDAX"
+]
+},
+{
+"symbol": "EW",
+"name": "Edwards Lifesciences",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "EXC",
+"name": "Exelon",
+"sektor_quelle": "Utilities",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "EXE",
+"name": "Expand Energy",
+"sektor_quelle": "Energy",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "EXO.AS",
+"name": "Exor",
+"sektor_quelle": "Financials",
+"region": "Europa",
+"land": "Niederlande",
+"indizes": [
+"AEX"
+]
+},
+{
+"symbol": "EXPD",
+"name": "Expeditors International",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "EXPE",
+"name": "Expedia Group",
+"sektor_quelle": "Consumer Discretionary",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "EXPN.L",
+"name": "Experian",
+"sektor_quelle": "Support services",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "EXR",
+"name": "Extra Space Storage",
+"sektor_quelle": "Real Estate",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "EZJ.L",
+"name": "EasyJet",
+"sektor_quelle": "Travel and Leisure",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "F",
+"name": "Ford Motor Company",
+"sektor_quelle": "Consumer Discretionary",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "FANG",
+"name": "Diamondback Energy",
+"sektor_quelle": "Energy",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "FAST",
+"name": "Fastenal",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "FBK.MI",
+"name": "FinecoBank",
+"sektor_quelle": "Banks",
+"region": "Europa",
+"land": "Italien",
+"indizes": [
+"FTSE MIB"
+]
+},
+{
+"symbol": "FCIT.L",
+"name": "F & C Investment Trust",
+"sektor_quelle": "Collective investments",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "FCT.MI",
+"name": "Fincantieri",
+"sektor_quelle": "Shipbuilding",
+"region": "Europa",
+"land": "Italien",
+"indizes": [
+"FTSE MIB"
+]
+},
+{
+"symbol": "FCX",
+"name": "Freeport-McMoRan",
+"sektor_quelle": "Materials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "FDR.MC",
+"name": "Fluidra",
+"sektor_quelle": "Manufacturing",
+"region": "Europa",
+"land": "Spanien",
+"indizes": [
+"IBEX 35"
+]
+},
+{
+"symbol": "FDS",
+"name": "FactSet",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "FDX",
+"name": "FedEx",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "FDXF",
+"name": "FedEx Freight",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "FE",
+"name": "FirstEnergy",
+"sektor_quelle": "Utilities",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "FER.MC",
+"name": "Ferrovial",
+"sektor_quelle": "Infrastructure",
+"region": "Europa",
+"land": "Spanien",
+"indizes": [
+"IBEX 35"
+]
+},
+{
+"symbol": "FERG",
+"name": "Ferguson Enterprises",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "FFH.TO",
+"name": "Fairfax Financial Holdings Limited",
+"sektor_quelle": "Financial Services",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "FFIV",
+"name": "F5, Inc.",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "FGR.PA",
+"name": "Eiffage",
+"sektor_quelle": "Industrials",
+"region": "Europa",
+"land": "Frankreich",
+"indizes": [
+"CAC 40"
+]
+},
+{
+"symbol": "FHZN.SW",
+"name": "Flughafen Zürich",
+"sektor_quelle": "Industrials",
+"region": "Schweiz",
+"land": "Schweiz",
+"indizes": [
+"SMIM"
+]
+},
+{
+"symbol": "FICO",
+"name": "Fair Isaac",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "FIS",
+"name": "Fidelity National Information Services",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "FISV",
+"name": "Fiserv",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "FITB",
+"name": "Fifth Third Bancorp",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "FIX",
+"name": "Comfort Systems USA",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "FLEX",
+"name": "Flex Ltd.",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "FLS.CO",
+"name": "FLSmidth & Co.",
+"sektor_quelle": "Construction and Materials",
+"region": "Europa",
+"land": "Dänemark",
+"indizes": [
+"OMX Copenhagen 25"
+]
+},
+{
+"symbol": "FM.TO",
+"name": "First Quantum Minerals Ltd.",
+"sektor_quelle": "Basic Materials",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "FME.DE",
+"name": "Fresenius Medical Care",
+"sektor_quelle": "Healthcare",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"DAX"
+]
+},
+{
+"symbol": "FNTN.DE",
+"name": "Freenet",
+"sektor_quelle": "Telecommunications",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"MDAX"
+]
+},
+{
+"symbol": "FNV.TO",
+"name": "Franco-Nevada Corporation",
+"sektor_quelle": "Basic Materials",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "FOX",
+"name": "Fox Corporation (Class B)",
+"sektor_quelle": "Communication Services",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "FOXA",
+"name": "Fox Corporation (Class A)",
+"sektor_quelle": "Communication Services",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "FPE3.DE",
+"name": "Fuchs Petrolub",
+"sektor_quelle": "Chemistry",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"MDAX"
+]
+},
+{
+"symbol": "FRA.DE",
+"name": "Fraport",
+"sektor_quelle": "Airport operator",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"MDAX"
+]
+},
+{
+"symbol": "FRE.DE",
+"name": "Fresenius",
+"sektor_quelle": "Healthcare",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"DAX",
+"MDAX"
+]
+},
+{
+"symbol": "FRES.L",
+"name": "Fresnillo plc",
+"sektor_quelle": "Mining",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "FRT",
+"name": "Federal Realty Investment Trust",
+"sektor_quelle": "Real Estate",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "FSLR",
+"name": "First Solar",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "FSV.TO",
+"name": "FirstService Corporation",
+"sektor_quelle": "Real Estate",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "FTNT",
+"name": "Fortinet",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "FTS.TO",
+"name": "Fortis Inc.",
+"sektor_quelle": "Utilities",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "FTV",
+"name": "Fortive",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "G.MI",
+"name": "Generali",
+"sektor_quelle": "Insurance",
+"region": "Europa",
+"land": "Italien",
+"indizes": [
+"FTSE MIB"
+]
+},
+{
+"symbol": "G1A.DE",
+"name": "GEA Group",
+"sektor_quelle": "Mechanical Engineering",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"DAX",
+"MDAX"
+]
+},
+{
+"symbol": "G24.DE",
+"name": "Scout24",
+"sektor_quelle": "E-Commerce",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"DAX",
+"MDAX"
+]
+},
+{
+"symbol": "GALD.SW",
+"name": "Galderma",
+"sektor_quelle": "Healthcare",
+"region": "Schweiz",
+"land": "Schweiz",
+"indizes": [
+"SMI",
+"SMIM"
+]
+},
+{
+"symbol": "GALE.SW",
+"name": "Galenica",
+"sektor_quelle": "Health care",
+"region": "Schweiz",
+"land": "Schweiz",
+"indizes": [
+"SMIM"
+]
+},
+{
+"symbol": "GAW.L",
+"name": "Games Workshop",
+"sektor_quelle": "Leisure Goods",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "GBF.DE",
+"name": "Bilfinger",
+"sektor_quelle": "nan",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"MDAX"
+]
+},
+{
+"symbol": "GD",
+"name": "General Dynamics",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "GDDY",
+"name": "GoDaddy",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "GE",
+"name": "GE Aerospace",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "GEBN.SW",
+"name": "Geberit AG",
+"sektor_quelle": "Industrials",
+"region": "Schweiz",
+"land": "Schweiz",
+"indizes": [
+"SMI"
+]
+},
+{
+"symbol": "GEHC",
+"name": "GE HealthCare",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "GEN",
+"name": "Gen Digital",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "GEV",
+"name": "GE Vernova",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "GF.SW",
+"name": "Georg Fischer",
+"sektor_quelle": "Industrials",
+"region": "Schweiz",
+"land": "Schweiz",
+"indizes": [
+"SMIM"
+]
+},
+{
+"symbol": "GIB-A.TO",
+"name": "CGI Inc.",
+"sektor_quelle": "Information Technology",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "GIL.TO",
+"name": "Gildan Activewear Inc.",
+"sektor_quelle": "Consumer Cyclical",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "GILD",
+"name": "Gilead Sciences",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "GIS",
+"name": "General Mills",
+"sektor_quelle": "Consumer Staples",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "GIVN.SW",
+"name": "Givaudan SA",
+"sektor_quelle": "Materials",
+"region": "Schweiz",
+"land": "Schweiz",
+"indizes": [
+"SMI"
+]
+},
+{
+"symbol": "GL",
+"name": "Globe Life",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "GLE.PA",
+"name": "Société Générale",
+"sektor_quelle": "Financial Services",
+"region": "Europa",
+"land": "Frankreich",
+"indizes": [
+"CAC 40"
+]
+},
+{
+"symbol": "GLEN.L",
+"name": "Glencore",
+"sektor_quelle": "Mining",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "GLW",
+"name": "Corning Inc.",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "GM",
+"name": "General Motors",
+"sektor_quelle": "Consumer Discretionary",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "GMAB.CO",
+"name": "Genmab",
+"sektor_quelle": "Health Care",
+"region": "Europa",
+"land": "Dänemark",
+"indizes": [
+"OMX Copenhagen 25"
+]
+},
+{
+"symbol": "GN.CO",
+"name": "GN Store Nord",
+"sektor_quelle": "Health Care",
+"region": "Europa",
+"land": "Dänemark",
+"indizes": [
+"OMX Copenhagen 25"
+]
+},
+{
+"symbol": "GNRC",
+"name": "Generac",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "GOOG",
+"name": "Alphabet Inc. (Class C)",
+"sektor_quelle": "Communication Services",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "GOOGL",
+"name": "Alphabet Inc. (Class A)",
+"sektor_quelle": "Communication Services",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "GPC",
+"name": "Genuine Parts Company",
+"sektor_quelle": "Consumer Discretionary",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "GPN",
+"name": "Global Payments",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "GRF.MC",
+"name": "Grifols",
+"sektor_quelle": "Pharmaceuticals",
+"region": "Europa",
+"land": "Spanien",
+"indizes": [
+"IBEX 35"
+]
+},
+{
+"symbol": "GRMN",
+"name": "Garmin",
+"sektor_quelle": "Consumer Discretionary",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "GS",
+"name": "Goldman Sachs",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "GSK.L",
+"name": "GSK plc",
+"sektor_quelle": "Pharmaceuticals & biotechnology",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "GWW",
+"name": "W. W. Grainger",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "GXI.DE",
+"name": "Gerresheimer",
+"sektor_quelle": "Packaging",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"MDAX"
+]
+},
+{
+"symbol": "H.TO",
+"name": "Hydro One Limited",
+"sektor_quelle": "Utilities",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "HAG.DE",
+"name": "Hensoldt",
+"sektor_quelle": "Defence",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"MDAX"
+]
+},
+{
+"symbol": "HAL",
+"name": "Halliburton",
+"sektor_quelle": "Energy",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "HAS",
+"name": "Hasbro",
+"sektor_quelle": "Consumer Discretionary",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "HBAN",
+"name": "Huntington Bancshares",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "HBAN.SW",
+"name": "Helvetia Bâloise",
+"sektor_quelle": "Financials",
+"region": "Schweiz",
+"land": "Schweiz",
+"indizes": [
+"SMIM"
+]
+},
+{
+"symbol": "HCA",
+"name": "HCA Healthcare",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "HD",
+"name": "Home Depot (The)",
+"sektor_quelle": "Consumer Discretionary",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "HEI.DE",
+"name": "Heidelberg Materials",
+"sektor_quelle": "Construction Materials",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"DAX"
+]
+},
+{
+"symbol": "HEIA.AS",
+"name": "Heineken",
+"sektor_quelle": "Consumer Staples",
+"region": "Europa",
+"land": "Niederlande",
+"indizes": [
+"AEX"
+]
+},
+{
+"symbol": "HEN3.DE",
+"name": "Henkel",
+"sektor_quelle": "Consumer Goods",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"DAX"
+]
+},
+{
+"symbol": "HER.MI",
+"name": "Hera",
+"sektor_quelle": "Utilities",
+"region": "Europa",
+"land": "Italien",
+"indizes": [
+"FTSE MIB"
+]
+},
+{
+"symbol": "HEXA-B.ST",
+"name": "Hexagon B",
+"sektor_quelle": "Information Technology",
+"region": "Europa",
+"land": "Schweden",
+"indizes": [
+"OMX Stockholm 30"
+]
+},
+{
+"symbol": "HFG.DE",
+"name": "HelloFresh",
+"sektor_quelle": "Meal kit",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"MDAX"
+]
+},
+{
+"symbol": "HIG",
+"name": "Hartford (The)",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "HII",
+"name": "Huntington Ingalls Industries",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "HLE.DE",
+"name": "Hella",
+"sektor_quelle": "Automotive",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"MDAX"
+]
+},
+{
+"symbol": "HLMA.L",
+"name": "Halma plc",
+"sektor_quelle": "Electronic equipment & parts",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "HLN.L",
+"name": "Haleon",
+"sektor_quelle": "Pharmaceuticals & biotechnology",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "HLT",
+"name": "Hilton Worldwide",
+"sektor_quelle": "Consumer Discretionary",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "HM-B.ST",
+"name": "Hennes & Mauritz B",
+"sektor_quelle": "Consumer Discretionary",
+"region": "Europa",
+"land": "Schweden",
+"indizes": [
+"OMX Stockholm 30"
+]
+},
+{
+"symbol": "HNR1.DE",
+"name": "Hannover Re",
+"sektor_quelle": "Insurance",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"DAX"
+]
+},
+{
+"symbol": "HO.PA",
+"name": "Thales",
+"sektor_quelle": "Industrials",
+"region": "Europa",
+"land": "Frankreich",
+"indizes": [
+"CAC 40"
+]
+},
+{
+"symbol": "HOLN.SW",
+"name": "Holcim Limited",
+"sektor_quelle": "Materials",
+"region": "Schweiz",
+"land": "Schweiz",
+"indizes": [
+"SMI"
+]
+},
+{
+"symbol": "HON",
+"name": "Honeywell Technologies",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "HONA",
+"name": "Honeywell Aerospace",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "HOOD",
+"name": "Robinhood Markets",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "HOT.DE",
+"name": "Hochtief",
+"sektor_quelle": "Construction",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"MDAX"
+]
+},
+{
+"symbol": "HPE",
+"name": "Hewlett Packard Enterprise",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "HPQ",
+"name": "HP Inc.",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "HRL",
+"name": "Hormel Foods",
+"sektor_quelle": "Consumer Staples",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "HSBA.L",
+"name": "HSBC",
+"sektor_quelle": "Banks",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "HSIC",
+"name": "Henry Schein",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "HST",
+"name": "Host Hotels & Resorts",
+"sektor_quelle": "Real Estate",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "HSX.L",
+"name": "Hiscox",
+"sektor_quelle": "Non-life Insurance",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "HSY",
+"name": "Hershey Company (The)",
+"sektor_quelle": "Consumer Staples",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "HUBB",
+"name": "Hubbell Incorporated",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "HUM",
+"name": "Humana",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "HWDN.L",
+"name": "Howdens Joinery",
+"sektor_quelle": "Homebuilding & construction supplies",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "HWM",
+"name": "Howmet Aerospace",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "IAG.L",
+"name": "International Airlines Group",
+"sektor_quelle": "Travel & leisure",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "IAG.MC",
+"name": "International Airlines Group",
+"sektor_quelle": "Aviation",
+"region": "Europa",
+"land": "Spanien",
+"indizes": [
+"IBEX 35"
+]
+},
+{
+"symbol": "IBE.MC",
+"name": "Iberdrola",
+"sektor_quelle": "Energy",
+"region": "Europa",
+"land": "Spanien",
+"indizes": [
+"IBEX 35"
+]
+},
+{
+"symbol": "IBKR",
+"name": "Interactive Brokers",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "IBM",
+"name": "IBM",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "ICE",
+"name": "Intercontinental Exchange",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "ICG.L",
+"name": "ICG",
+"sektor_quelle": "Financial services",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "IDR.MC",
+"name": "Indra",
+"sektor_quelle": "Information Technology",
+"region": "Europa",
+"land": "Spanien",
+"indizes": [
+"IBEX 35"
+]
+},
+{
+"symbol": "IDXX",
+"name": "Idexx Laboratories",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "IEX",
+"name": "IDEX Corporation",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "IFC.TO",
+"name": "Intact Financial Corporation",
+"sektor_quelle": "Financial Services",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "IFF",
+"name": "International Flavors & Fragrances",
+"sektor_quelle": "Materials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "IFX.DE",
+"name": "Infineon Technologies",
+"sektor_quelle": "Technology",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"DAX"
+]
+},
+{
+"symbol": "IG.MI",
+"name": "Italgas",
+"sektor_quelle": "Utilities",
+"region": "Europa",
+"land": "Italien",
+"indizes": [
+"FTSE MIB"
+]
+},
+{
+"symbol": "IGG.L",
+"name": "IG Group",
+"sektor_quelle": "Financial services",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "IHG.L",
+"name": "IHG Hotels & Resorts",
+"sektor_quelle": "Travel & leisure",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "III.L",
+"name": "3i",
+"sektor_quelle": "Financial services",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "ILMN",
+"name": "Illumina, Inc.",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "IMB.L",
+"name": "Imperial Brands",
+"sektor_quelle": "Tobacco",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "IMCD.AS",
+"name": "IMCD",
+"sektor_quelle": "Basic Materials",
+"region": "Europa",
+"land": "Niederlande",
+"indizes": [
+"AEX"
+]
+},
+{
+"symbol": "IMI.L",
+"name": "IMI",
+"sektor_quelle": "Industrial engineering",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "IMO.TO",
+"name": "Imperial Oil Limited",
+"sektor_quelle": "Energy",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "INCY",
+"name": "Incyte",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "INDU-C.ST",
+"name": "Industrivärden C",
+"sektor_quelle": "Financials",
+"region": "Europa",
+"land": "Schweden",
+"indizes": [
+"OMX Stockholm 30"
+]
+},
+{
+"symbol": "INF.L",
+"name": "Informa",
+"sektor_quelle": "Media",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "INGA.AS",
+"name": "ING Group",
+"sektor_quelle": "Financials",
+"region": "Europa",
+"land": "Niederlande",
+"indizes": [
+"AEX"
+]
+},
+{
+"symbol": "INTC",
+"name": "Intel",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "INTU",
+"name": "Intuit",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "INVE-B.ST",
+"name": "Investor B",
+"sektor_quelle": "Financials",
+"region": "Europa",
+"land": "Schweden",
+"indizes": [
+"OMX Stockholm 30"
+]
+},
+{
+"symbol": "INVH",
+"name": "Invitation Homes",
+"sektor_quelle": "Real Estate",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "INVP.L",
+"name": "Investec",
+"sektor_quelle": "Financial Services",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "INW.MI",
+"name": "INWIT",
+"sektor_quelle": "Telecommunications",
+"region": "Europa",
+"land": "Italien",
+"indizes": [
+"FTSE MIB"
+]
+},
+{
+"symbol": "IP",
+"name": "International Paper",
+"sektor_quelle": "Materials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "IQV",
+"name": "IQVIA",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "IR",
+"name": "Ingersoll Rand",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "IRM",
+"name": "Iron Mountain",
+"sektor_quelle": "Real Estate",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "ISP.MI",
+"name": "Intesa Sanpaolo",
+"sektor_quelle": "Banks",
+"region": "Europa",
+"land": "Italien",
+"indizes": [
+"FTSE MIB"
+]
+},
+{
+"symbol": "ISRG",
+"name": "Intuitive Surgical",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "ISS.CO",
+"name": "ISS",
+"sektor_quelle": "Industrial Goods and Services",
+"region": "Europa",
+"land": "Dänemark",
+"indizes": [
+"OMX Copenhagen 25"
+]
+},
+{
+"symbol": "IT",
+"name": "Gartner",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "ITH.L",
+"name": "Ithaca Energy",
+"sektor_quelle": "Oil & Gas Producers",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "ITRK.L",
+"name": "Intertek",
+"sektor_quelle": "Support services",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "ITW",
+"name": "Illinois Tool Works",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "ITX.MC",
+"name": "Inditex",
+"sektor_quelle": "Textile",
+"region": "Europa",
+"land": "Spanien",
+"indizes": [
+"IBEX 35"
+]
+},
+{
+"symbol": "IVG.MI",
+"name": "Iveco",
+"sektor_quelle": "Industrial Goods and Services",
+"region": "Europa",
+"land": "Italien",
+"indizes": [
+"FTSE MIB"
+]
+},
+{
+"symbol": "IVZ",
+"name": "Invesco",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "J",
+"name": "Jacobs Solutions",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "JBHT",
+"name": "J.B. Hunt",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "JBL",
+"name": "Jabil",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "JCI",
+"name": "Johnson Controls",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "JD.L",
+"name": "JD Sports",
+"sektor_quelle": "General retailers",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "JEN.DE",
+"name": "Jenoptik",
+"sektor_quelle": "nan",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"MDAX"
+]
+},
+{
+"symbol": "JKHY",
+"name": "Jack Henry & Associates",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "JNJ",
+"name": "Johnson & Johnson",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "JPM",
+"name": "JPMorgan Chase",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "JUN3.DE",
+"name": "Jungheinrich",
+"sektor_quelle": "Intralogistics, Mechanical engineering",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"MDAX"
+]
+},
+{
+"symbol": "JYSK.CO",
+"name": "Jyske Bank",
+"sektor_quelle": "Banks",
+"region": "Europa",
+"land": "Dänemark",
+"indizes": [
+"OMX Copenhagen 25"
+]
+},
+{
+"symbol": "K.TO",
+"name": "Kinross Gold Corporation",
+"sektor_quelle": "Basic Materials",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "KBX.DE",
+"name": "Knorr-Bremse",
+"sektor_quelle": "Manufacturing",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"MDAX"
+]
+},
+{
+"symbol": "KDP",
+"name": "Keurig Dr Pepper",
+"sektor_quelle": "Consumer Staples",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "KER.PA",
+"name": "Kering",
+"sektor_quelle": "Consumer Cyclical",
+"region": "Europa",
+"land": "Frankreich",
+"indizes": [
+"CAC 40"
+]
+},
+{
+"symbol": "KEY",
+"name": "KeyCorp",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "KEYS",
+"name": "Keysight Technologies",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "KGF.L",
+"name": "Kingfisher plc",
+"sektor_quelle": "Retailers",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "KGX.DE",
+"name": "KION Group",
+"sektor_quelle": "Handling equipment",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"MDAX"
+]
+},
+{
+"symbol": "KHC",
+"name": "Kraft Heinz",
+"sektor_quelle": "Consumer Staples",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "KIM",
+"name": "Kimco Realty",
+"sektor_quelle": "Real Estate",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "KKR",
+"name": "KKR & Co.",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "KLAC",
+"name": "KLA Corporation",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "KMB",
+"name": "Kimberly-Clark",
+"sektor_quelle": "Consumer Staples",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "KMI",
+"name": "Kinder Morgan",
+"sektor_quelle": "Energy",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "KO",
+"name": "Coca-Cola Company (The)",
+"sektor_quelle": "Consumer Staples",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "KPN.AS",
+"name": "KPN",
+"sektor_quelle": "Telecommunications",
+"region": "Europa",
+"land": "Niederlande",
+"indizes": [
+"AEX"
+]
+},
+{
+"symbol": "KR",
+"name": "Kroger",
+"sektor_quelle": "Consumer Staples",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "KRN.DE",
+"name": "Krones",
+"sektor_quelle": "nan",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"MDAX"
+]
+},
+{
+"symbol": "KVUE",
+"name": "Kenvue",
+"sektor_quelle": "Consumer Staples",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "L",
+"name": "Loews Corporation",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "L.TO",
+"name": "Loblaw Companies Limited",
+"sektor_quelle": "Consumer Staples",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "LAND.L",
+"name": "Land Securities",
+"sektor_quelle": "Real estate investment trusts",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "LDO.MI",
+"name": "Leonardo",
+"sektor_quelle": "Industrial Goods and Services",
+"region": "Europa",
+"land": "Italien",
+"indizes": [
+"FTSE MIB"
+]
+},
+{
+"symbol": "LDOS",
+"name": "Leidos",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "LEG.DE",
+"name": "LEG Immobilien",
+"sektor_quelle": "Real estate",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"MDAX"
+]
+},
+{
+"symbol": "LEN",
+"name": "Lennar",
+"sektor_quelle": "Consumer Discretionary",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "LGEN.L",
+"name": "Legal & General",
+"sektor_quelle": "Life insurance",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "LH",
+"name": "Labcorp",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "LHA.DE",
+"name": "Lufthansa",
+"sektor_quelle": "Airlines",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"MDAX"
+]
+},
+{
+"symbol": "LHX",
+"name": "L3Harris",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "LIFCO-B.ST",
+"name": "Lifco B",
+"sektor_quelle": "Industrials",
+"region": "Europa",
+"land": "Schweden",
+"indizes": [
+"OMX Stockholm 30"
+]
+},
+{
+"symbol": "LII",
+"name": "Lennox International",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "LIN",
+"name": "Linde plc",
+"sektor_quelle": "Materials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "LISN.SW",
+"name": "Lindt & Sprüngli",
+"sektor_quelle": "Retail staples",
+"region": "Schweiz",
+"land": "Schweiz",
+"indizes": [
+"SMIM"
+]
+},
+{
+"symbol": "LITE",
+"name": "Lumentum",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "LLOY.L",
+"name": "Lloyds Banking Group",
+"sektor_quelle": "Banks",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "LLY",
+"name": "Lilly (Eli)",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "LMP.L",
+"name": "LondonMetric Property",
+"sektor_quelle": "Real Estate Investment Trusts",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "LMT",
+"name": "Lockheed Martin",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "LNT",
+"name": "Alliant Energy",
+"sektor_quelle": "Utilities",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "LOG.MC",
+"name": "Logista",
+"sektor_quelle": "Logistics",
+"region": "Europa",
+"land": "Spanien",
+"indizes": [
+"IBEX 35"
+]
+},
+{
+"symbol": "LOGN.SW",
+"name": "Logitech International SA",
+"sektor_quelle": "Information technology",
+"region": "Schweiz",
+"land": "Schweiz",
+"indizes": [
+"SMI"
+]
+},
+{
+"symbol": "LONN.SW",
+"name": "Lonza Group AG",
+"sektor_quelle": "Healthcare",
+"region": "Schweiz",
+"land": "Schweiz",
+"indizes": [
+"SMI"
+]
+},
+{
+"symbol": "LOW",
+"name": "Lowe's",
+"sektor_quelle": "Consumer Discretionary",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "LR.PA",
+"name": "Legrand",
+"sektor_quelle": "Industrials",
+"region": "Europa",
+"land": "Frankreich",
+"indizes": [
+"CAC 40"
+]
+},
+{
+"symbol": "LRCX",
+"name": "Lam Research",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "LSEG.L",
+"name": "London Stock Exchange Group",
+"sektor_quelle": "Financial services",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "LTMC.MI",
+"name": "Lottomatica Group",
+"sektor_quelle": "Gambling",
+"region": "Europa",
+"land": "Italien",
+"indizes": [
+"FTSE MIB"
+]
+},
+{
+"symbol": "LULU",
+"name": "Lululemon Athletica",
+"sektor_quelle": "Consumer Discretionary",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "LUV",
+"name": "Southwest Airlines",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "LVS",
+"name": "Las Vegas Sands",
+"sektor_quelle": "Consumer Discretionary",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "LXS.DE",
+"name": "Lanxess",
+"sektor_quelle": "Chemistry",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"MDAX"
+]
+},
+{
+"symbol": "LYB",
+"name": "LyondellBasell",
+"sektor_quelle": "Materials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "LYV",
+"name": "Live Nation Entertainment",
+"sektor_quelle": "Communication Services",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "MA",
+"name": "Mastercard",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "MAA",
+"name": "Mid-America Apartment Communities",
+"sektor_quelle": "Real Estate",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "MAERSK.CO",
+"name": "A.P. Møller-Mærsk (class A)",
+"sektor_quelle": "Industrial Goods and Services",
+"region": "Europa",
+"land": "Dänemark",
+"indizes": [
+"OMX Copenhagen 25",
+"OMX Copenhagen 25"
+]
+},
+{
+"symbol": "MAP.MC",
+"name": "Mapfre",
+"sektor_quelle": "Insurance",
+"region": "Europa",
+"land": "Spanien",
+"indizes": [
+"IBEX 35"
+]
+},
+{
+"symbol": "MAR",
+"name": "Marriott International",
+"sektor_quelle": "Consumer Discretionary",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "MAS",
+"name": "Masco",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "MB.MI",
+"name": "Mediobanca",
+"sektor_quelle": "Banks",
+"region": "Europa",
+"land": "Italien",
+"indizes": [
+"FTSE MIB"
+]
+},
+{
+"symbol": "MBG.DE",
+"name": "Mercedes-Benz Group",
+"sektor_quelle": "Automotive",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"DAX"
+]
+},
+{
+"symbol": "MC.PA",
+"name": "LVMH",
+"sektor_quelle": "Consumer Cyclical",
+"region": "Europa",
+"land": "Frankreich",
+"indizes": [
+"CAC 40"
+]
+},
+{
+"symbol": "MCD",
+"name": "McDonald's",
+"sektor_quelle": "Consumer Discretionary",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "MCHP",
+"name": "Microchip Technology",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "MCK",
+"name": "McKesson",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "MCO",
+"name": "Moody's Corporation",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "MDLZ",
+"name": "Mondelez International",
+"sektor_quelle": "Consumer Staples",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "MDT",
+"name": "Medtronic",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "MET",
+"name": "MetLife",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "META",
+"name": "Meta Platforms",
+"sektor_quelle": "Communication Services",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "MFC.TO",
+"name": "Manulife Financial Corporation",
+"sektor_quelle": "Financial Services",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "MG.TO",
+"name": "Magna International Inc.",
+"sektor_quelle": "Consumer Cyclical",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "MGM",
+"name": "MGM Resorts",
+"sektor_quelle": "Consumer Discretionary",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "MKC",
+"name": "McCormick & Company",
+"sektor_quelle": "Consumer Staples",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "MKS.L",
+"name": "Marks & Spencer",
+"sektor_quelle": "Food & drug retailing",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "ML.PA",
+"name": "Michelin",
+"sektor_quelle": "Industrials",
+"region": "Europa",
+"land": "Frankreich",
+"indizes": [
+"CAC 40"
+]
+},
+{
+"symbol": "MLM",
+"name": "Martin Marietta Materials",
+"sektor_quelle": "Materials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "MMM",
+"name": "3M",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "MNG.L",
+"name": "M&G",
+"sektor_quelle": "Financial services",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "MNST",
+"name": "Monster Beverage",
+"sektor_quelle": "Consumer Staples",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "MO",
+"name": "Altria",
+"sektor_quelle": "Consumer Staples",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "MONC.MI",
+"name": "Moncler",
+"sektor_quelle": "Consumer Products and Services",
+"region": "Europa",
+"land": "Italien",
+"indizes": [
+"FTSE MIB"
+]
+},
+{
+"symbol": "MOS",
+"name": "Mosaic Company (The)",
+"sektor_quelle": "Materials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "MPC",
+"name": "Marathon Petroleum",
+"sektor_quelle": "Energy",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "MPWR",
+"name": "Monolithic Power Systems",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "MRK",
+"name": "Merck & Co.",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "MRK.DE",
+"name": "Merck",
+"sektor_quelle": "Pharmaceuticals",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"DAX"
+]
+},
+{
+"symbol": "MRL.MC",
+"name": "Merlin Properties",
+"sektor_quelle": "Real Estate",
+"region": "Europa",
+"land": "Spanien",
+"indizes": [
+"IBEX 35"
+]
+},
+{
+"symbol": "MRNA",
+"name": "Moderna",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "MRO.L",
+"name": "Melrose Industries",
+"sektor_quelle": "Aerospace & defence",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "MRSH",
+"name": "Marsh McLennan",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "MRU.TO",
+"name": "Metro Inc.",
+"sektor_quelle": "Consumer Staples",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "MRVL",
+"name": "Marvell Technology",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "MS",
+"name": "Morgan Stanley",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "MSCI",
+"name": "MSCI",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "MSFT",
+"name": "Microsoft",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "MSI",
+"name": "Motorola Solutions",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "MT.AS",
+"name": "ArcelorMittal",
+"sektor_quelle": "Basic Materials",
+"region": "Europa",
+"land": "Frankreich",
+"indizes": [
+"CAC 40",
+"AEX"
+]
+},
+{
+"symbol": "MTB",
+"name": "M&T Bank",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "MTD",
+"name": "Mettler Toledo",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "MTLN.L",
+"name": "Metlen Energy & Metals",
+"sektor_quelle": "Multiline utilities",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "MTS.MC",
+"name": "ArcelorMittal",
+"sektor_quelle": "Steel",
+"region": "Europa",
+"land": "Spanien",
+"indizes": [
+"IBEX 35"
+]
+},
+{
+"symbol": "MTX.DE",
+"name": "MTU Aero Engines",
+"sektor_quelle": "Aerospace & Defence",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"DAX"
+]
+},
+{
+"symbol": "MU",
+"name": "Micron Technology",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "MUV2.DE",
+"name": "Munich Re",
+"sektor_quelle": "Financial Services",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"DAX"
+]
+},
+{
+"symbol": "NCLH",
+"name": "Norwegian Cruise Line Holdings",
+"sektor_quelle": "Consumer Discretionary",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "NDA-SE.ST",
+"name": "Nordea Bank Abp",
+"sektor_quelle": "Financials",
+"region": "Europa",
+"land": "Schweden",
+"indizes": [
+"OMX Stockholm 30"
+]
+},
+{
+"symbol": "NDA.CO",
+"name": "Nordea Bank Abp",
+"sektor_quelle": "Banks",
+"region": "Europa",
+"land": "Dänemark",
+"indizes": [
+"OMX Copenhagen 25"
+]
+},
+{
+"symbol": "NDA.DE",
+"name": "Aurubis",
+"sektor_quelle": "Metals",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"MDAX"
+]
+},
+{
+"symbol": "NDAQ",
+"name": "Nasdaq, Inc.",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "NDSN",
+"name": "Nordson Corporation",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "NDX1.DE",
+"name": "Nordex",
+"sektor_quelle": "nan",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"MDAX"
+]
+},
+{
+"symbol": "NEE",
+"name": "NextEra Energy",
+"sektor_quelle": "Utilities",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "NEM",
+"name": "Newmont",
+"sektor_quelle": "Materials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "NEM.DE",
+"name": "Nemetschek",
+"sektor_quelle": "Software",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"MDAX"
+]
+},
+{
+"symbol": "NESN.SW",
+"name": "Nestlé SA",
+"sektor_quelle": "Retail staples",
+"region": "Schweiz",
+"land": "Schweiz",
+"indizes": [
+"SMI"
+]
+},
+{
+"symbol": "NEXI.MI",
+"name": "Nexi",
+"sektor_quelle": "Industrial Goods and Services",
+"region": "Europa",
+"land": "Italien",
+"indizes": [
+"FTSE MIB"
+]
+},
+{
+"symbol": "NFLX",
+"name": "Netflix",
+"sektor_quelle": "Communication Services",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "NG.L",
+"name": "National Grid plc",
+"sektor_quelle": "Multiline utilities",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "NI",
+"name": "NiSource",
+"sektor_quelle": "Utilities",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "NIBE-B.ST",
+"name": "Nibe Industrier B",
+"sektor_quelle": "Industrials",
+"region": "Europa",
+"land": "Schweden",
+"indizes": [
+"OMX Stockholm 30"
+]
+},
+{
+"symbol": "NKE",
+"name": "Nike, Inc.",
+"sektor_quelle": "Consumer Discretionary",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "NKT.CO",
+"name": "NKT",
+"sektor_quelle": "Industrial Goods and Services",
+"region": "Europa",
+"land": "Dänemark",
+"indizes": [
+"OMX Copenhagen 25"
+]
+},
+{
+"symbol": "NN.AS",
+"name": "NN Group",
+"sektor_quelle": "Financials",
+"region": "Europa",
+"land": "Niederlande",
+"indizes": [
+"AEX"
+]
+},
+{
+"symbol": "NOC",
+"name": "Northrop Grumman",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "NOVN.SW",
+"name": "Novartis International AG",
+"sektor_quelle": "Health care",
+"region": "Schweiz",
+"land": "Schweiz",
+"indizes": [
+"SMI"
+]
+},
+{
+"symbol": "NOVO.CO",
+"name": "Novo Nordisk",
+"sektor_quelle": "Health Care",
+"region": "Europa",
+"land": "Dänemark",
+"indizes": [
+"OMX Copenhagen 25"
+]
+},
+{
+"symbol": "NOW",
+"name": "ServiceNow",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "NRG",
+"name": "NRG Energy",
+"sektor_quelle": "Utilities",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "NSC",
+"name": "Norfolk Southern",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "NSIS.CO",
+"name": "Novonesis",
+"sektor_quelle": "Health Care",
+"region": "Europa",
+"land": "Dänemark",
+"indizes": [
+"OMX Copenhagen 25"
+]
+},
+{
+"symbol": "NTAP",
+"name": "NetApp",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "NTGY.MC",
+"name": "Naturgy",
+"sektor_quelle": "Energy",
+"region": "Europa",
+"land": "Spanien",
+"indizes": [
+"IBEX 35"
+]
+},
+{
+"symbol": "NTR.TO",
+"name": "Nutrien Ltd.",
+"sektor_quelle": "Basic Materials",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "NTRS",
+"name": "Northern Trust",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "NUE",
+"name": "Nucor",
+"sektor_quelle": "Materials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "NVDA",
+"name": "Nvidia",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "NVR",
+"name": "NVR, Inc.",
+"sektor_quelle": "Consumer Discretionary",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "NWG.L",
+"name": "NatWest Group",
+"sektor_quelle": "Banks",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "NWS",
+"name": "News Corp (Class B)",
+"sektor_quelle": "Communication Services",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "NWSA",
+"name": "News Corp (Class A)",
+"sektor_quelle": "Communication Services",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "NXPI",
+"name": "NXP Semiconductors",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "NXT.L",
+"name": "Next plc",
+"sektor_quelle": "General retailers",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "O",
+"name": "Realty Income",
+"sektor_quelle": "Real Estate",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "ODFL",
+"name": "Old Dominion",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "OKE",
+"name": "Oneok",
+"sektor_quelle": "Energy",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "OMC",
+"name": "Omnicom Group",
+"sektor_quelle": "Communication Services",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "ON",
+"name": "ON Semiconductor",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "OR.PA",
+"name": "L'Oréal",
+"sektor_quelle": "Consumer Defensive",
+"region": "Europa",
+"land": "Frankreich",
+"indizes": [
+"CAC 40"
+]
+},
+{
+"symbol": "ORA.PA",
+"name": "Orange",
+"sektor_quelle": "Communication Services",
+"region": "Europa",
+"land": "Frankreich",
+"indizes": [
+"CAC 40"
+]
+},
+{
+"symbol": "ORCL",
+"name": "Oracle Corporation",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "ORLY",
+"name": "O'Reilly Automotive",
+"sektor_quelle": "Consumer Discretionary",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "ORSTED.CO",
+"name": "Ørsted",
+"sektor_quelle": "Utilities",
+"region": "Europa",
+"land": "Dänemark",
+"indizes": [
+"OMX Copenhagen 25"
+]
+},
+{
+"symbol": "OTEX.TO",
+"name": "Open Text Corporation",
+"sektor_quelle": "Information Technology",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "OTIS",
+"name": "Otis Worldwide",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "OXY",
+"name": "Occidental Petroleum",
+"sektor_quelle": "Energy",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "P",
+"name": "Everpure",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "PAH3.DE",
+"name": "Porsche SE",
+"sektor_quelle": "Automotive",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"DAX"
+]
+},
+{
+"symbol": "PANW",
+"name": "Palo Alto Networks",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "PAYX",
+"name": "Paychex",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "PCAR",
+"name": "Paccar",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "PCG",
+"name": "PG&E Corporation",
+"sektor_quelle": "Utilities",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "PCT.L",
+"name": "Polar Capital Technology Trust",
+"sektor_quelle": "Investment trusts",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "PEG",
+"name": "Public Service Enterprise Group",
+"sektor_quelle": "Utilities",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "PEP",
+"name": "PepsiCo",
+"sektor_quelle": "Consumer Staples",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "PFE",
+"name": "Pfizer",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "PFG",
+"name": "Principal Financial Group",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "PG",
+"name": "Procter & Gamble",
+"sektor_quelle": "Consumer Staples",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "PGHN.SW",
+"name": "Partners Group Holding AG",
+"sektor_quelle": "Financials",
+"region": "Schweiz",
+"land": "Schweiz",
+"indizes": [
+"SMI"
+]
+},
+{
+"symbol": "PGR",
+"name": "Progressive Corporation",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "PH",
+"name": "Parker Hannifin",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "PHIA.AS",
+"name": "Philips",
+"sektor_quelle": "Health Care",
+"region": "Europa",
+"land": "Niederlande",
+"indizes": [
+"AEX"
+]
+},
+{
+"symbol": "PHM",
+"name": "PulteGroup",
+"sektor_quelle": "Consumer Discretionary",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "PKG",
+"name": "Packaging Corporation of America",
+"sektor_quelle": "Materials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "PLD",
+"name": "Prologis",
+"sektor_quelle": "Real Estate",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "PLTR",
+"name": "Palantir Technologies",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "PM",
+"name": "Philip Morris International",
+"sektor_quelle": "Consumer Staples",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "PNC",
+"name": "PNC Financial Services",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "PNDORA.CO",
+"name": "Pandora",
+"sektor_quelle": "Consumer Products and Services",
+"region": "Europa",
+"land": "Dänemark",
+"indizes": [
+"OMX Copenhagen 25"
+]
+},
+{
+"symbol": "PNR",
+"name": "Pentair",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "PNW",
+"name": "Pinnacle West Capital",
+"sektor_quelle": "Utilities",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "PODD",
+"name": "Insulet Corporation",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "POW.TO",
+"name": "Power Corporation of Canada",
+"sektor_quelle": "Financial Services",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "PPG",
+"name": "PPG Industries",
+"sektor_quelle": "Materials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "PPL",
+"name": "PPL Corporation",
+"sektor_quelle": "Utilities",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "PPL.TO",
+"name": "Pembina Pipeline Corporation",
+"sektor_quelle": "Energy",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "PRU",
+"name": "Prudential Financial",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "PRU.L",
+"name": "Prudential plc",
+"sektor_quelle": "Life insurance",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "PRX.AS",
+"name": "Prosus",
+"sektor_quelle": "Technology",
+"region": "Europa",
+"land": "Niederlande",
+"indizes": [
+"AEX"
+]
+},
+{
+"symbol": "PRY.MI",
+"name": "Prysmian",
+"sektor_quelle": "Industrial Goods and Services",
+"region": "Europa",
+"land": "Italien",
+"indizes": [
+"FTSE MIB"
+]
+},
+{
+"symbol": "PSA",
+"name": "Public Storage",
+"sektor_quelle": "Real Estate",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "PSH.L",
+"name": "Pershing Square Holdings",
+"sektor_quelle": "Financial services",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "PSON.L",
+"name": "Pearson plc",
+"sektor_quelle": "Media",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "PSPN.SW",
+"name": "PSP Swiss Property",
+"sektor_quelle": "Real estate",
+"region": "Schweiz",
+"land": "Schweiz",
+"indizes": [
+"SMIM"
+]
+},
+{
+"symbol": "PST.MI",
+"name": "Poste italiane",
+"sektor_quelle": "Financial Services",
+"region": "Europa",
+"land": "Italien",
+"indizes": [
+"FTSE MIB"
+]
+},
+{
+"symbol": "PSX",
+"name": "Phillips 66",
+"sektor_quelle": "Energy",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "PTC",
+"name": "PTC Inc.",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "PUB.PA",
+"name": "Publicis",
+"sektor_quelle": "Communication Services",
+"region": "Europa",
+"land": "Frankreich",
+"indizes": [
+"CAC 40"
+]
+},
+{
+"symbol": "PUIG.MC",
+"name": "Puig",
+"sektor_quelle": "Clothes and Cosmetics",
+"region": "Europa",
+"land": "Spanien",
+"indizes": [
+"IBEX 35"
+]
+},
+{
+"symbol": "PUM.DE",
+"name": "Puma",
+"sektor_quelle": "Sports equipment",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"MDAX"
+]
+},
+{
+"symbol": "PWR",
+"name": "Quanta Services",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "PYPL",
+"name": "PayPal",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "Q",
+"name": "Qnity Electronics",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "QCOM",
+"name": "Qualcomm",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "QIA.DE",
+"name": "Qiagen",
+"sektor_quelle": "Biotech",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"DAX"
+]
+},
+{
+"symbol": "QSR.TO",
+"name": "Restaurant Brands International Inc.",
+"sektor_quelle": "Consumer Cyclical",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "RAA.DE",
+"name": "Rational",
+"sektor_quelle": "Manufacturing",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"MDAX"
+]
+},
+{
+"symbol": "RACE.MI",
+"name": "Ferrari",
+"sektor_quelle": "Automobiles and Parts",
+"region": "Europa",
+"land": "Italien",
+"indizes": [
+"FTSE MIB"
+]
+},
+{
+"symbol": "RAND.AS",
+"name": "Randstad",
+"sektor_quelle": "Industrials",
+"region": "Europa",
+"land": "Niederlande",
+"indizes": [
+"AEX"
+]
+},
+{
+"symbol": "RBREW.CO",
+"name": "Royal Unibrew",
+"sektor_quelle": "Food, Beverage and Tobacco",
+"region": "Europa",
+"land": "Dänemark",
+"indizes": [
+"OMX Copenhagen 25"
+]
+},
+{
+"symbol": "RCI-B.TO",
+"name": "Rogers Communications Inc.",
+"sektor_quelle": "Communication Services",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "RCL",
+"name": "Royal Caribbean Group",
+"sektor_quelle": "Consumer Discretionary",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "RDC.DE",
+"name": "Redcare Pharmacy",
+"sektor_quelle": "Pharmacy",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"MDAX"
+]
+},
+{
+"symbol": "RDDT",
+"name": "Reddit",
+"sektor_quelle": "Communication Services",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "REC.MI",
+"name": "Recordati",
+"sektor_quelle": "Health Care",
+"region": "Europa",
+"land": "Italien",
+"indizes": [
+"FTSE MIB"
+]
+},
+{
+"symbol": "RED.MC",
+"name": "Redeia Corporación",
+"sektor_quelle": "Energy",
+"region": "Europa",
+"land": "Spanien",
+"indizes": [
+"IBEX 35"
+]
+},
+{
+"symbol": "REG",
+"name": "Regency Centers",
+"sektor_quelle": "Real Estate",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "REGN",
+"name": "Regeneron Pharmaceuticals",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "REL.L",
+"name": "RELX",
+"sektor_quelle": "Media",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "REN.AS",
+"name": "RELX",
+"sektor_quelle": "Consumer Discretionary",
+"region": "Europa",
+"land": "Niederlande",
+"indizes": [
+"AEX"
+]
+},
+{
+"symbol": "REP.MC",
+"name": "Repsol",
+"sektor_quelle": "Oil and Gas",
+"region": "Europa",
+"land": "Spanien",
+"indizes": [
+"IBEX 35"
+]
+},
+{
+"symbol": "RF",
+"name": "Regions Financial Corporation",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "RHM.DE",
+"name": "Rheinmetall",
+"sektor_quelle": "Aerospace & Defence",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"DAX"
+]
+},
+{
+"symbol": "RI.PA",
+"name": "Pernod Ricard",
+"sektor_quelle": "Consumer Defensive",
+"region": "Europa",
+"land": "Frankreich",
+"indizes": [
+"CAC 40"
+]
+},
+{
+"symbol": "RIO.L",
+"name": "Rio Tinto",
+"sektor_quelle": "Mining",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "RJF",
+"name": "Raymond James Financial",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "RKT.L",
+"name": "Reckitt",
+"sektor_quelle": "Household goods & home construction",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "RL",
+"name": "Ralph Lauren Corporation",
+"sektor_quelle": "Consumer Discretionary",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "RMD",
+"name": "ResMed|",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "RMS.PA",
+"name": "Hermès",
+"sektor_quelle": "Consumer Cyclical",
+"region": "Europa",
+"land": "Frankreich",
+"indizes": [
+"CAC 40"
+]
+},
+{
+"symbol": "RNO.PA",
+"name": "Renault",
+"sektor_quelle": "Consumer Cyclical",
+"region": "Europa",
+"land": "Frankreich",
+"indizes": [
+"CAC 40"
+]
+},
+{
+"symbol": "RO.SW",
+"name": "Roche (bearer share)",
+"sektor_quelle": "Health care",
+"region": "Schweiz",
+"land": "Schweiz",
+"indizes": [
+"SMIM"
+]
+},
+{
+"symbol": "ROCK.CO",
+"name": "Rockwool International",
+"sektor_quelle": "Construction and Materials",
+"region": "Europa",
+"land": "Dänemark",
+"indizes": [
+"OMX Copenhagen 25"
+]
+},
+{
+"symbol": "ROK",
+"name": "Rockwell Automation",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "ROL",
+"name": "Rollins, Inc.",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "ROP",
+"name": "Roper Technologies",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "ROP.SW",
+"name": "Roche Holding AG",
+"sektor_quelle": "Health care",
+"region": "Schweiz",
+"land": "Schweiz",
+"indizes": [
+"SMI"
+]
+},
+{
+"symbol": "ROST",
+"name": "Ross Stores",
+"sektor_quelle": "Consumer Discretionary",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "ROVI.MC",
+"name": "Laboratorios Rovi [es]",
+"sektor_quelle": "Pharmaceuticals",
+"region": "Europa",
+"land": "Spanien",
+"indizes": [
+"IBEX 35"
+]
+},
+{
+"symbol": "RR.L",
+"name": "Rolls-Royce Holdings",
+"sektor_quelle": "Aerospace & defence",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "RRTL.DE",
+"name": "RTL Group",
+"sektor_quelle": "Media",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"MDAX"
+]
+},
+{
+"symbol": "RSG",
+"name": "Republic Services",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "RTO.L",
+"name": "Rentokil Initial",
+"sektor_quelle": "Support services",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "RTX",
+"name": "RTX Corporation",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "RVTY",
+"name": "Revvity",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "RWE.DE",
+"name": "RWE",
+"sektor_quelle": "Utilities",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"DAX"
+]
+},
+{
+"symbol": "RY.TO",
+"name": "Royal Bank of Canada",
+"sektor_quelle": "Financial Services",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "SAAB-B.ST",
+"name": "Saab B",
+"sektor_quelle": "Industrials",
+"region": "Europa",
+"land": "Schweden",
+"indizes": [
+"OMX Stockholm 30"
+]
+},
+{
+"symbol": "SAB.MC",
+"name": "Banco Sabadell",
+"sektor_quelle": "Financial Services",
+"region": "Europa",
+"land": "Spanien",
+"indizes": [
+"IBEX 35"
+]
+},
+{
+"symbol": "SAF.PA",
+"name": "Safran",
+"sektor_quelle": "Industrials",
+"region": "Europa",
+"land": "Frankreich",
+"indizes": [
+"CAC 40"
+]
+},
+{
+"symbol": "SAN.MC",
+"name": "Santander",
+"sektor_quelle": "Financial Services",
+"region": "Europa",
+"land": "Spanien",
+"indizes": [
+"IBEX 35"
+]
+},
+{
+"symbol": "SAN.PA",
+"name": "Sanofi",
+"sektor_quelle": "Healthcare",
+"region": "Europa",
+"land": "Frankreich",
+"indizes": [
+"CAC 40"
+]
+},
+{
+"symbol": "SAND.ST",
+"name": "Sandvik",
+"sektor_quelle": "Industrials",
+"region": "Europa",
+"land": "Schweden",
+"indizes": [
+"OMX Stockholm 30"
+]
+},
+{
+"symbol": "SAP.DE",
+"name": "SAP",
+"sektor_quelle": "Technology",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"DAX"
+]
+},
+{
+"symbol": "SAP.TO",
+"name": "Saputo Inc.",
+"sektor_quelle": "Consumer Staples",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "SAX.DE",
+"name": "Ströer",
+"sektor_quelle": "Media",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"MDAX"
+]
+},
+{
+"symbol": "SBAC",
+"name": "SBA Communications",
+"sektor_quelle": "Real Estate",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "SBRY.L",
+"name": "Sainsbury's",
+"sektor_quelle": "Food & drug retailing",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "SBUX",
+"name": "Starbucks",
+"sektor_quelle": "Consumer Discretionary",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "SCA-B.ST",
+"name": "SCA B",
+"sektor_quelle": "Materials",
+"region": "Europa",
+"land": "Schweden",
+"indizes": [
+"OMX Stockholm 30"
+]
+},
+{
+"symbol": "SCHN.SW",
+"name": "Schindler",
+"sektor_quelle": "Industrials",
+"region": "Schweiz",
+"land": "Schweiz",
+"indizes": [
+"SMIM"
+]
+},
+{
+"symbol": "SCHW",
+"name": "Charles Schwab Corporation",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "SCYR.MC",
+"name": "Sacyr",
+"sektor_quelle": "Construction",
+"region": "Europa",
+"land": "Spanien",
+"indizes": [
+"IBEX 35"
+]
+},
+{
+"symbol": "SDF.DE",
+"name": "K+S",
+"sektor_quelle": "Mining (fertilizer and salt)",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"MDAX"
+]
+},
+{
+"symbol": "SDLF.L",
+"name": "Standard Life",
+"sektor_quelle": "Life insurance",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "SDZ.SW",
+"name": "Sandoz",
+"sektor_quelle": "Healthcare",
+"region": "Schweiz",
+"land": "Schweiz",
+"indizes": [
+"SMI",
+"SMIM"
+]
+},
+{
+"symbol": "SEB-A.ST",
+"name": "SEB A",
+"sektor_quelle": "Financials",
+"region": "Europa",
+"land": "Schweden",
+"indizes": [
+"OMX Stockholm 30"
+]
+},
+{
+"symbol": "SGE.L",
+"name": "Sage Group",
+"sektor_quelle": "Software & computer services",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "SGO.PA",
+"name": "Saint-Gobain",
+"sektor_quelle": "Industrials",
+"region": "Europa",
+"land": "Frankreich",
+"indizes": [
+"CAC 40"
+]
+},
+{
+"symbol": "SGRO.L",
+"name": "Segro",
+"sektor_quelle": "Real estate investment trusts",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "SGSN.SW",
+"name": "SGS",
+"sektor_quelle": "Industrials",
+"region": "Schweiz",
+"land": "Schweiz",
+"indizes": [
+"SMIM"
+]
+},
+{
+"symbol": "SHB-A.ST",
+"name": "Handelsbanken A",
+"sektor_quelle": "Financials",
+"region": "Europa",
+"land": "Schweden",
+"indizes": [
+"OMX Stockholm 30"
+]
+},
+{
+"symbol": "SHEL.L",
+"name": "Shell plc",
+"sektor_quelle": "Oil & gas producers",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "SHELL.AS",
+"name": "Shell plc",
+"sektor_quelle": "Energy",
+"region": "Europa",
+"land": "Niederlande",
+"indizes": [
+"AEX"
+]
+},
+{
+"symbol": "SHL.DE",
+"name": "Siemens Healthineers",
+"sektor_quelle": "Medical Equipment",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"DAX"
+]
+},
+{
+"symbol": "SHOP.TO",
+"name": "Shopify Inc.",
+"sektor_quelle": "Information Technology",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "SHW",
+"name": "Sherwin-Williams",
+"sektor_quelle": "Materials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "SIE.DE",
+"name": "Siemens",
+"sektor_quelle": "Industrials",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"DAX"
+]
+},
+{
+"symbol": "SIGN.SW",
+"name": "SIG",
+"sektor_quelle": "Materials",
+"region": "Schweiz",
+"land": "Schweiz",
+"indizes": [
+"SMIM"
+]
+},
+{
+"symbol": "SIKA.SW",
+"name": "Sika AG",
+"sektor_quelle": "Materials",
+"region": "Schweiz",
+"land": "Schweiz",
+"indizes": [
+"SMI"
+]
+},
+{
+"symbol": "SJM",
+"name": "J.M. Smucker Company (The)",
+"sektor_quelle": "Consumer Staples",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "SKA-B.ST",
+"name": "Skanska B",
+"sektor_quelle": "Industrials",
+"region": "Europa",
+"land": "Schweden",
+"indizes": [
+"OMX Stockholm 30"
+]
+},
+{
+"symbol": "SKF-B.ST",
+"name": "SKF B",
+"sektor_quelle": "Industrials",
+"region": "Europa",
+"land": "Schweden",
+"indizes": [
+"OMX Stockholm 30"
+]
+},
+{
+"symbol": "SKYD",
+"name": "Skydance Corporation",
+"sektor_quelle": "Communication Services",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "SLB",
+"name": "Schlumberger",
+"sektor_quelle": "Energy",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "SLF.TO",
+"name": "Sun Life Financial Inc.",
+"sektor_quelle": "Financial Services",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "SLHN.SW",
+"name": "Swiss Life Holding AG",
+"sektor_quelle": "Financials",
+"region": "Schweiz",
+"land": "Schweiz",
+"indizes": [
+"SMI"
+]
+},
+{
+"symbol": "SLR.MC",
+"name": "Solaria",
+"sektor_quelle": "Solar Energy",
+"region": "Europa",
+"land": "Spanien",
+"indizes": [
+"IBEX 35"
+]
+},
+{
+"symbol": "SMCI",
+"name": "Supermicro",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "SMIN.L",
+"name": "Smiths Group",
+"sektor_quelle": "General industrials",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "SMT.L",
+"name": "Scottish Mortgage Investment Trust",
+"sektor_quelle": "Collective investments",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "SN.L",
+"name": "Smith & Nephew",
+"sektor_quelle": "Health care equipment & supplies",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "SNA",
+"name": "Snap-on",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "SNDK",
+"name": "Sandisk",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "SNPS",
+"name": "Synopsys",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "SO",
+"name": "Southern Company",
+"sektor_quelle": "Utilities",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "SOLV",
+"name": "Solventum",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "SOON.SW",
+"name": "Sonova",
+"sektor_quelle": "Health care",
+"region": "Schweiz",
+"land": "Schweiz",
+"indizes": [
+"SMIM"
+]
+},
+{
+"symbol": "SPG",
+"name": "Simon Property Group",
+"sektor_quelle": "Real Estate",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "SPGI",
+"name": "S&P Global",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "SPM.MI",
+"name": "Saipem",
+"sektor_quelle": "Energy",
+"region": "Europa",
+"land": "Italien",
+"indizes": [
+"FTSE MIB"
+]
+},
+{
+"symbol": "SPSN.SW",
+"name": "Swiss Prime Site",
+"sektor_quelle": "Real estate",
+"region": "Schweiz",
+"land": "Schweiz",
+"indizes": [
+"SMIM"
+]
+},
+{
+"symbol": "SPX.L",
+"name": "Spirax Group",
+"sektor_quelle": "Industrial engineering",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "SQN.SW",
+"name": "Swissquote",
+"sektor_quelle": "Financials",
+"region": "Schweiz",
+"land": "Schweiz",
+"indizes": [
+"SMIM"
+]
+},
+{
+"symbol": "SRE",
+"name": "Sempra",
+"sektor_quelle": "Utilities",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "SREN.SW",
+"name": "Swiss Reinsurance Company Ltd",
+"sektor_quelle": "Financials",
+"region": "Schweiz",
+"land": "Schweiz",
+"indizes": [
+"SMI"
+]
+},
+{
+"symbol": "SRG.MI",
+"name": "Snam",
+"sektor_quelle": "Energy",
+"region": "Europa",
+"land": "Italien",
+"indizes": [
+"FTSE MIB"
+]
+},
+{
+"symbol": "SSE.L",
+"name": "SSE plc",
+"sektor_quelle": "Electrical utilities & independent power producers",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "STAN.L",
+"name": "Standard Chartered",
+"sektor_quelle": "Banks",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "STE",
+"name": "Steris",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "STJ.L",
+"name": "St. James's Place",
+"sektor_quelle": "Financial services",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "STLAM.MI",
+"name": "Stellantis",
+"sektor_quelle": "Automobiles and Parts",
+"region": "Europa",
+"land": "Italien",
+"indizes": [
+"FTSE MIB"
+]
+},
+{
+"symbol": "STLAP.PA",
+"name": "Stellantis",
+"sektor_quelle": "Consumer Cyclical",
+"region": "Europa",
+"land": "Frankreich",
+"indizes": [
+"CAC 40"
+]
+},
+{
+"symbol": "STLD",
+"name": "Steel Dynamics",
+"sektor_quelle": "Materials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "STM.DE",
+"name": "Stabilus",
+"sektor_quelle": "Automotive",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"MDAX"
+]
+},
+{
+"symbol": "STMMI.MI",
+"name": "STMicroelectronics",
+"sektor_quelle": "Technology",
+"region": "Europa",
+"land": "Italien",
+"indizes": [
+"FTSE MIB"
+]
+},
+{
+"symbol": "STMN.SW",
+"name": "Straumann",
+"sektor_quelle": "Health care",
+"region": "Schweiz",
+"land": "Schweiz",
+"indizes": [
+"SMIM"
+]
+},
+{
+"symbol": "STMPA.PA",
+"name": "STMicroelectronics",
+"sektor_quelle": "Technology",
+"region": "Europa",
+"land": "Frankreich",
+"indizes": [
+"CAC 40"
+]
+},
+{
+"symbol": "STT",
+"name": "State Street Corporation",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "STX",
+"name": "Seagate Technology",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "STZ",
+"name": "Constellation Brands",
+"sektor_quelle": "Consumer Staples",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "SU.PA",
+"name": "Schneider Electric",
+"sektor_quelle": "Industrials",
+"region": "Europa",
+"land": "Frankreich",
+"indizes": [
+"CAC 40"
+]
+},
+{
+"symbol": "SU.TO",
+"name": "Suncor Energy Inc.",
+"sektor_quelle": "Energy",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "SUNN.SW",
+"name": "Sunrise",
+"sektor_quelle": "Communication services",
+"region": "Schweiz",
+"land": "Schweiz",
+"indizes": [
+"SMIM"
+]
+},
+{
+"symbol": "SVT.L",
+"name": "Severn Trent",
+"sektor_quelle": "Multiline utilities",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "SW",
+"name": "Smurfit Westrock",
+"sektor_quelle": "Materials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "SWED-A.ST",
+"name": "Swedbank A",
+"sektor_quelle": "Financials",
+"region": "Europa",
+"land": "Schweden",
+"indizes": [
+"OMX Stockholm 30"
+]
+},
+{
+"symbol": "SWK",
+"name": "Stanley Black & Decker",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "SWKS",
+"name": "Skyworks Solutions",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "SY1.DE",
+"name": "Symrise",
+"sektor_quelle": "Chemicals",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"DAX"
+]
+},
+{
+"symbol": "SYF",
+"name": "Synchrony Financial",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "SYK",
+"name": "Stryker Corporation",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "SYY",
+"name": "Sysco",
+"sektor_quelle": "Consumer Staples",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "T",
+"name": "AT&T",
+"sektor_quelle": "Communication Services",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "T.TO",
+"name": "Telus Corporation",
+"sektor_quelle": "Communication Services",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "TD.TO",
+"name": "Toronto-Dominion Bank",
+"sektor_quelle": "Financial Services",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "TDG",
+"name": "TransDigm Group",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "TDY",
+"name": "Teledyne Technologies",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "TECH",
+"name": "Bio-Techne",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "TECK-B.TO",
+"name": "Teck Resources Limited",
+"sektor_quelle": "Basic Materials",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "TEF.MC",
+"name": "Telefónica",
+"sektor_quelle": "Telecommunications",
+"region": "Europa",
+"land": "Spanien",
+"indizes": [
+"IBEX 35"
+]
+},
+{
+"symbol": "TEG.DE",
+"name": "TAG Tegernsee Immobilien und Beteiligung",
+"sektor_quelle": "Real estate",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"MDAX"
+]
+},
+{
+"symbol": "TEL",
+"name": "TE Connectivity",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "TEL2-B.ST",
+"name": "Tele2 B",
+"sektor_quelle": "Communication Services",
+"region": "Europa",
+"land": "Schweden",
+"indizes": [
+"OMX Stockholm 30"
+]
+},
+{
+"symbol": "TELIA.ST",
+"name": "Telia Company",
+"sektor_quelle": "Communication Services",
+"region": "Europa",
+"land": "Schweden",
+"indizes": [
+"OMX Stockholm 30"
+]
+},
+{
+"symbol": "TEMN.SW",
+"name": "Temenos",
+"sektor_quelle": "Information technology",
+"region": "Schweiz",
+"land": "Schweiz",
+"indizes": [
+"SMIM"
+]
+},
+{
+"symbol": "TEN.MI",
+"name": "Tenaris",
+"sektor_quelle": "Energy",
+"region": "Europa",
+"land": "Italien",
+"indizes": [
+"FTSE MIB"
+]
+},
+{
+"symbol": "TER",
+"name": "Teradyne",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "TFC",
+"name": "Truist Financial",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "TGT",
+"name": "Target Corporation",
+"sektor_quelle": "Consumer Staples",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "TIT.MI",
+"name": "Telecom Italia",
+"sektor_quelle": "Telecommunications",
+"region": "Europa",
+"land": "Italien",
+"indizes": [
+"FTSE MIB"
+]
+},
+{
+"symbol": "TJX",
+"name": "TJX Companies",
+"sektor_quelle": "Consumer Discretionary",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "TKA.DE",
+"name": "ThyssenKrupp",
+"sektor_quelle": "Conglomerate",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"MDAX"
+]
+},
+{
+"symbol": "TKO",
+"name": "TKO Group Holdings",
+"sektor_quelle": "Communication Services",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "TLX.DE",
+"name": "Talanx",
+"sektor_quelle": "Real Estate",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"MDAX"
+]
+},
+{
+"symbol": "TMO",
+"name": "Thermo Fisher Scientific",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "TMUS",
+"name": "T-Mobile US",
+"sektor_quelle": "Communication Services",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "TMV.DE",
+"name": "TeamViewer",
+"sektor_quelle": "Software",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"MDAX"
+]
+},
+{
+"symbol": "TOU.TO",
+"name": "Tourmaline Oil Corp.",
+"sektor_quelle": "Energy",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "TPL",
+"name": "Texas Pacific Land Corporation",
+"sektor_quelle": "Energy",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "TPR",
+"name": "Tapestry, Inc.",
+"sektor_quelle": "Consumer Discretionary",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "TRGP",
+"name": "Targa Resources",
+"sektor_quelle": "Energy",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "TRI.TO",
+"name": "Thomson Reuters Corporation",
+"sektor_quelle": "Industrials",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "TRMB",
+"name": "Trimble Inc.",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "TRN.MI",
+"name": "Terna",
+"sektor_quelle": "Utilities",
+"region": "Europa",
+"land": "Italien",
+"indizes": [
+"FTSE MIB"
+]
+},
+{
+"symbol": "TROW",
+"name": "T. Rowe Price",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "TRP.TO",
+"name": "TC Energy Corporation",
+"sektor_quelle": "Energy",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "TRV",
+"name": "Travelers Companies (The)",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "TRYG.CO",
+"name": "Tryg",
+"sektor_quelle": "Insurance",
+"region": "Europa",
+"land": "Dänemark",
+"indizes": [
+"OMX Copenhagen 25"
+]
+},
+{
+"symbol": "TSCO",
+"name": "Tractor Supply",
+"sektor_quelle": "Consumer Discretionary",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "TSCO.L",
+"name": "Tesco",
+"sektor_quelle": "Food & drug retailing",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "TSLA",
+"name": "Tesla, Inc.",
+"sektor_quelle": "Consumer Discretionary",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "TSN",
+"name": "Tyson Foods",
+"sektor_quelle": "Consumer Staples",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "TT",
+"name": "Trane Technologies",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "TTE.PA",
+"name": "TotalEnergies",
+"sektor_quelle": "Energy",
+"region": "Europa",
+"land": "Frankreich",
+"indizes": [
+"CAC 40"
+]
+},
+{
+"symbol": "TTWO",
+"name": "Take-Two Interactive",
+"sektor_quelle": "Communication Services",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "TUI1.DE",
+"name": "TUI",
+"sektor_quelle": "Tourism",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"MDAX"
+]
+},
+{
+"symbol": "TWLO",
+"name": "Twilio",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "TXN",
+"name": "Texas Instruments",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "TXT",
+"name": "Textron",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "TYL",
+"name": "Tyler Technologies",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "UAL",
+"name": "United Airlines Holdings",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "UBER",
+"name": "Uber",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "UBSG.SW",
+"name": "UBS Group AG",
+"sektor_quelle": "Financials",
+"region": "Schweiz",
+"land": "Schweiz",
+"indizes": [
+"SMI"
+]
+},
+{
+"symbol": "UCG.MI",
+"name": "UniCredit",
+"sektor_quelle": "Banks",
+"region": "Europa",
+"land": "Italien",
+"indizes": [
+"FTSE MIB"
+]
+},
+{
+"symbol": "UDR",
+"name": "UDR, Inc.",
+"sektor_quelle": "Real Estate",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "UHR.SW",
+"name": "Swatch",
+"sektor_quelle": "Retail discretionary",
+"region": "Schweiz",
+"land": "Schweiz",
+"indizes": [
+"SMIM"
+]
+},
+{
+"symbol": "UHS",
+"name": "Universal Health Services",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "ULTA",
+"name": "Ulta Beauty",
+"sektor_quelle": "Consumer Discretionary",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "ULVR.L",
+"name": "Unilever",
+"sektor_quelle": "Personal goods",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "UMG.AS",
+"name": "Universal Music Group",
+"sektor_quelle": "Consumer Discretionary",
+"region": "Europa",
+"land": "Niederlande",
+"indizes": [
+"AEX"
+]
+},
+{
+"symbol": "UNA.AS",
+"name": "Unilever",
+"sektor_quelle": "Consumer Staples",
+"region": "Europa",
+"land": "Niederlande",
+"indizes": [
+"AEX"
+]
+},
+{
+"symbol": "UNH",
+"name": "UnitedHealth Group",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "UNI.MC",
+"name": "Unicaja",
+"sektor_quelle": "Financial Services",
+"region": "Europa",
+"land": "Spanien",
+"indizes": [
+"IBEX 35"
+]
+},
+{
+"symbol": "UNI.MI",
+"name": "Unipol",
+"sektor_quelle": "Insurance",
+"region": "Europa",
+"land": "Italien",
+"indizes": [
+"FTSE MIB"
+]
+},
+{
+"symbol": "UNP",
+"name": "Union Pacific Corporation",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "UPS",
+"name": "United Parcel Service",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "URI",
+"name": "United Rentals",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "URW.PA",
+"name": "Unibail-Rodamco-Westfield",
+"sektor_quelle": "Real Estate",
+"region": "Europa",
+"land": "Frankreich",
+"indizes": [
+"CAC 40"
+]
+},
+{
+"symbol": "USB",
+"name": "U.S. Bancorp",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "UTDI.DE",
+"name": "United Internet",
+"sektor_quelle": "Telecommunications",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"MDAX"
+]
+},
+{
+"symbol": "UU.L",
+"name": "United Utilities",
+"sektor_quelle": "Multiline utilities",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "V",
+"name": "Visa Inc.",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "VACN.SW",
+"name": "VAT",
+"sektor_quelle": "Industrials",
+"region": "Schweiz",
+"land": "Schweiz",
+"indizes": [
+"SMIM"
+]
+},
+{
+"symbol": "VEEV",
+"name": "Veeva Systems",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "VICI",
+"name": "Vici Properties",
+"sektor_quelle": "Real Estate",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "VIE.PA",
+"name": "Veolia",
+"sektor_quelle": "Industrials",
+"region": "Europa",
+"land": "Frankreich",
+"indizes": [
+"CAC 40"
+]
+},
+{
+"symbol": "VLO",
+"name": "Valero Energy",
+"sektor_quelle": "Energy",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "VLTO",
+"name": "Veralto",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "VMC",
+"name": "Vulcan Materials Company",
+"sektor_quelle": "Materials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "VMRK",
+"name": "Vivmark Residential",
+"sektor_quelle": "Real Estate",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "VNA.DE",
+"name": "Vonovia",
+"sektor_quelle": "Real Estate",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"DAX"
+]
+},
+{
+"symbol": "VOD.L",
+"name": "Vodafone Group",
+"sektor_quelle": "Mobile telecommunications",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "VOLV-B.ST",
+"name": "Volvo B",
+"sektor_quelle": "Industrials",
+"region": "Europa",
+"land": "Schweden",
+"indizes": [
+"OMX Stockholm 30"
+]
+},
+{
+"symbol": "VOW3.DE",
+"name": "Volkswagen Group",
+"sektor_quelle": "Automotive",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"DAX"
+]
+},
+{
+"symbol": "VRSK",
+"name": "Verisk Analytics",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "VRSN",
+"name": "Verisign",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "VRT",
+"name": "Vertiv",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "VRTX",
+"name": "Vertex Pharmaceuticals",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "VST",
+"name": "Vistra Corp.",
+"sektor_quelle": "Utilities",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "VTR",
+"name": "Ventas",
+"sektor_quelle": "Real Estate",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "VTRS",
+"name": "Viatris",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "VWS.CO",
+"name": "Vestas Wind Systems",
+"sektor_quelle": "Energy",
+"region": "Europa",
+"land": "Dänemark",
+"indizes": [
+"OMX Copenhagen 25"
+]
+},
+{
+"symbol": "VYLR",
+"name": "Vylor",
+"sektor_quelle": "Consumer Staples",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "VZ",
+"name": "Verizon",
+"sektor_quelle": "Communication Services",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "WAB",
+"name": "Wabtec",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "WAF.DE",
+"name": "Siltronic",
+"sektor_quelle": "Semiconductor industry",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"MDAX"
+]
+},
+{
+"symbol": "WAT",
+"name": "Waters Corporation",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "WCH.DE",
+"name": "Wacker Chemie",
+"sektor_quelle": "Chemistry",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"MDAX"
+]
+},
+{
+"symbol": "WCN.TO",
+"name": "Waste Connections Inc.",
+"sektor_quelle": "Industrials",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "WDAY",
+"name": "Workday, Inc.",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "WDC",
+"name": "Western Digital",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "WEC",
+"name": "WEC Energy Group",
+"sektor_quelle": "Utilities",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "WEIR.L",
+"name": "Weir",
+"sektor_quelle": "Industrial goods and services",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "WELL",
+"name": "Welltower",
+"sektor_quelle": "Real Estate",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "WFC",
+"name": "Wells Fargo",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "WKL.AS",
+"name": "Wolters Kluwer",
+"sektor_quelle": "Consumer Discretionary",
+"region": "Europa",
+"land": "Niederlande",
+"indizes": [
+"AEX"
+]
+},
+{
+"symbol": "WM",
+"name": "Waste Management",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "WMB",
+"name": "Williams Companies",
+"sektor_quelle": "Energy",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "WMT",
+"name": "Walmart",
+"sektor_quelle": "Consumer Staples",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "WN.TO",
+"name": "George Weston Limited",
+"sektor_quelle": "Consumer Staples",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "WPM.TO",
+"name": "Wheaton Precious Metals Corp.",
+"sektor_quelle": "Basic Materials",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "WPP.L",
+"name": "WPP",
+"sektor_quelle": "Media",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "WRB",
+"name": "W. R. Berkley Corporation",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "WSM",
+"name": "Williams-Sonoma, Inc.",
+"sektor_quelle": "Consumer Discretionary",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "WSP.TO",
+"name": "WSP Global Inc.",
+"sektor_quelle": "Industrials",
+"region": "Kanada",
+"land": "Kanada",
+"indizes": [
+"S&P/TSX 60"
+]
+},
+{
+"symbol": "WST",
+"name": "West Pharmaceutical Services",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "WTB.L",
+"name": "Whitbread",
+"sektor_quelle": "Retail hospitality",
+"region": "Europa",
+"land": "Grossbritannien",
+"indizes": [
+"FTSE 100"
+]
+},
+{
+"symbol": "WTW",
+"name": "Willis Towers Watson",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "WY",
+"name": "Weyerhaeuser",
+"sektor_quelle": "Real Estate",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "WYNN",
+"name": "Wynn Resorts",
+"sektor_quelle": "Consumer Discretionary",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "XEL",
+"name": "Xcel Energy",
+"sektor_quelle": "Utilities",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "XOM",
+"name": "ExxonMobil",
+"sektor_quelle": "Energy",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "XYL",
+"name": "Xylem Inc.",
+"sektor_quelle": "Industrials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "XYZ",
+"name": "Block, Inc.",
+"sektor_quelle": "Financials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "YUM",
+"name": "Yum! Brands",
+"sektor_quelle": "Consumer Discretionary",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "ZAL.DE",
+"name": "Zalando",
+"sektor_quelle": "E-Commerce",
+"region": "Europa",
+"land": "Deutschland",
+"indizes": [
+"DAX"
+]
+},
+{
+"symbol": "ZBH",
+"name": "Zimmer Biomet",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "ZBRA",
+"name": "Zebra Technologies",
+"sektor_quelle": "Information Technology",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "ZEAL.CO",
+"name": "Zealand Pharma",
+"sektor_quelle": "Health Care",
+"region": "Europa",
+"land": "Dänemark",
+"indizes": [
+"OMX Copenhagen 25"
+]
+},
+{
+"symbol": "ZTS",
+"name": "Zoetis",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 500"
+]
+},
+{
+"symbol": "ZURN.SW",
+"name": "Zurich Insurance Group AG",
+"sektor_quelle": "Financials",
+"region": "Schweiz",
+"land": "Schweiz",
+"indizes": [
+"SMI"
+]
+}
+]
+}

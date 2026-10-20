@@ -1,0 +1,167 @@
+{
+ "stand": "2026-10-20",
+ "anzahl": 987,
+ "indizes": [
+  {
+   "index": "S&P 500",
+   "anzahl": 503,
+   "beispiele": [
+    "MMM",
+    "AOS",
+    "ABT",
+    "ABBV",
+    "ACN",
+    "ADBE"
+   ]
+  },
+  {
+   "index": "Nasdaq-100",
+   "anzahl": 0,
+   "beispiele": []
+  },
+  {
+   "index": "SMI",
+   "anzahl": 20,
+   "beispiele": [
+    "NOVN.SW",
+    "ROP.SW",
+    "NESN.SW",
+    "ABBN.SW",
+    "UBSG.SW",
+    "CFR.SW"
+   ]
+  },
+  {
+   "index": "SMIM",
+   "anzahl": 28,
+   "beispiele": [
+    "ACLN.SW",
+    "ADEN.SW",
+    "AVOL.SW",
+    "BARN.SW",
+    "BEAN.SW",
+    "CLN.SW"
+   ]
+  },
+  {
+   "index": "DAX",
+   "anzahl": 40,
+   "beispiele": [
+    "ADS.DE",
+    "AIR.PA",
+    "ALV.DE",
+    "BAS.DE",
+    "BAYN.DE",
+    "BEI.DE"
+   ]
+  },
+  {
+   "index": "MDAX",
+   "anzahl": 50,
+   "beispiele": [
+    "AIXA.DE",
+    "AT1.DE",
+    "NDA.DE",
+    "BC8.DE",
+    "BFSA.DE",
+    "GBF.DE"
+   ]
+  },
+  {
+   "index": "FTSE 100",
+   "anzahl": 100,
+   "beispiele": [
+    "III.L",
+    "ABDN.L",
+    "ADM.L",
+    "AAF.L",
+    "ALW.L",
+    "AAL.L"
+   ]
+  },
+  {
+   "index": "CAC 40",
+   "anzahl": 40,
+   "beispiele": [
+    "AC.PA",
+    "AI.PA",
+    "AIR.PA",
+    "MT.AS",
+    "CS.PA",
+    "BNP.PA"
+   ]
+  },
+  {
+   "index": "AEX",
+   "anzahl": 25,
+   "beispiele": [
+    "ABN.AS",
+    "ADYEN.AS",
+    "AGN.AS",
+    "AD.AS",
+    "AKZA.AS",
+    "MT.AS"
+   ]
+  },
+  {
+   "index": "FTSE MIB",
+   "anzahl": 40,
+   "beispiele": [
+    "A2A.MI",
+    "AMP.MI",
+    "AVIO.MI",
+    "AZM.MI",
+    "BMED.MI",
+    "BMPS.MI"
+   ]
+  },
+  {
+   "index": "IBEX 35",
+   "anzahl": 35,
+   "beispiele": [
+    "ACS.MC",
+    "ACX.MC",
+    "AMS.MC",
+    "ANA.MC",
+    "ANE.MC",
+    "BBVA.MC"
+   ]
+  },
+  {
+   "index": "OMX Stockholm 30",
+   "anzahl": 30,
+   "beispiele": [
+    "ABB.ST",
+    "ADDT-B.ST",
+    "ALFA.ST",
+    "ASSA-B.ST",
+    "AZN.ST",
+    "ATCO-A.ST"
+   ]
+  },
+  {
+   "index": "OMX Copenhagen 25",
+   "anzahl": 25,
+   "beispiele": [
+    "MAERSK.CO",
+    "MAERSK.CO",
+    "ALSYDB.CO",
+    "AMBU.CO",
+    "CARL.CO",
+    "COLO.CO"
+   ]
+  },
+  {
+   "index": "S&P/TSX 60",
+   "anzahl": 59,
+   "beispiele": [
+    "AEM.TO",
+    "ATD.TO",
+    "BMO.TO",
+    "BNS.TO",
+    "ABX.TO",
+    "BCE.TO"
+   ]
+  }
+ ]
+}
