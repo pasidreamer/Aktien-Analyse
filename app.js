@@ -1043,6 +1043,7 @@ function drawEntdecken() {
   const save = () => store.set("ent", F);
   $view.innerHTML = `<header class="top"><div><h1>Entdecken</h1><div class="stand">${S.anzahl} etablierte Firmen · Stand ${fmtDate(S.stand)}</div></div></header>
     <p class="intro">Grosse, etablierte Firmen aus USA, Europa, Schweiz, Kanada, Asien und Australien: Börsenwert ab 4 Mrd. CHF, Umsatz ab 0.8 Mrd. CHF und mindestens 3 Jahre an der Börse. Kleinfirmen sind bewusst nicht dabei. Gefällt dir eine, tippe sie an und lass die ganze Analyse machen.</p>
+    ${marktampelHtml()}
     ${stratCards()}
     <div class="sec"><h2>Neue Signale</h2><p>Aktien, bei denen die Ampeln in den letzten 7 Tagen ein Signal gegeben haben. Dazu kommt jeweils eine Push-Nachricht.</p></div>
     ${woche.length ? `<div class="list">${woche.map(alarmItem).join("")}</div><p class="dp-link"><a href="#/alarme">Alle Signale der letzten 30 Tage</a></p>` : `<div class="empty">${STATE.alle ? "In den letzten 7 Tagen gab es kein neues Signal." : "Die Ampeln für alle Firmen werden heute Abend zum ersten Mal gerechnet. Signale kommen ab dem zweiten Börsentag."}</div>`}
@@ -1089,6 +1090,21 @@ function stratPerf(st) {
   const h = st.historie || [], l = h[h.length - 1];
   return l ? { s: l[1] - 100, b: l[2] - 100, tage: h.length } : { s: 0, b: 0, tage: 0 };
 }
+const MA = { gruen: ["Grün", "gruen", "Aufwärtstrend"], gelb: ["Gelb", "gelb", "Gemischt"], rot: ["Rot", "rot", "Erhöhtes Crash-Risiko"] };
+function marktampelHtml() {
+  const m = STATE.strat?.markt; if (!m) return "";
+  const a = MA[m.farbe] || MA.gelb;
+  return `<div class="sec"><h2>Marktampel</h2><p>Krisenfilter für den Gesamtmarkt. Handelt nicht selbst, hilft dir aber zu entscheiden, wie mutig du gerade kaufst.</p></div>
+    <div class="card mampel"><div class="ma-top"><span class="lamp ${a[1]} ma-l" aria-hidden="true"></span><div><b>${a[0]}: ${a[2]}</b><span>seit ${fmtDate(m.seit)}</span></div></div>
+      <p class="pill-line">${esc(m.text)}</p>
+      <div class="ma-rows">${Object.values(m.indizes || {}).map(i => `<div><span>${esc(i.name)}</span><b class="${i.ueber ? "up" : "down"}">${i.ueber ? "über" : "unter"} dem 200-Tage-Schnitt</b><em>${pct(i.abstand, 1)}</em></div>`).join("")}
+        ${m.breite != null ? `<div><span>Marktbreite</span><b class="${m.breite >= 50 ? "up" : "down"}">${m.breite} % der Firmen im Aufwärtstrend</b><em>Wochen-EMA 200</em></div>` : ""}</div>
+      <details class="more"><summary>So funktioniert die Marktampel</summary><ul class="plain">
+        <li><b>Grün:</b> S&amp;P 500, SMI und MSCI World liegen über ihrem 200-Tage-Schnitt (dem Durchschnittskurs der letzten 200 Börsentage) und mindestens die Hälfte unserer 1'500 Firmen ist im Aufwärtstrend.</li>
+        <li><b>Rot:</b> Alle drei Indizes liegen darunter und weniger als 40 % der Firmen steigen. In solchen Phasen gab es früher die grossen Einbrüche (2008, 2020, 2022).</li>
+        <li><b>Gelb:</b> alles dazwischen.</li>
+        <li>Wechselt die Farbe, bekommst du eine Push-Nachricht. Die Strategie-Depots laufen in jeder Farbe nach ihren Regeln weiter.</li></ul></details></div>`;
+}
 function stratCards() {
   const S = STATE.strat?.strategien; if (!S) return "";
   return `<div class="sec"><h2>Strategie-Depots</h2><p>Eigene Musterdepots aus unseren Ampeln, jeden Monat neu zusammengestellt und gegen den passenden Index gemessen.</p></div>
@@ -1129,6 +1145,12 @@ function renderStrategie(id) {
         return `<a class="row" href="${x.app ? "#/aktie/" + encodeURIComponent(x.app) : "#/scan/" + encodeURIComponent(x.sym)}">${a && a.q != null ? signal(a.q, a.t) : ""}
           <div class="mid"><div class="nm">${esc(x.name || x.sym)}</div><div class="sub">${esc(x.sym)} · ${esc(x.land || "")} · ${esc(SEK_DE[x.sek] || x.sek || "")}${x.app ? " · in der App" : ""}</div></div>
           <div class="right"><div class="px">${x.kurs != null ? nf(x.kurs, 2) : "–"}</div>${x.perf != null ? `<span class="chg ${x.perf > 0 ? "up" : x.perf < 0 ? "down" : ""}">${pct(x.perf, 1)}</span>` : ""}</div></a>`; }).join("")}</div>
+      <div class="sec" id="rechner"><h2>Depot-Rechner</h2><p>Gib ein, wie viel du in diese Strategie stecken willst. Die App rechnet aus, wie viele Stück du von jeder Aktie kaufen müsstest.</p></div>
+      <div class="card"><div class="tokenrow"><input id="rb" type="number" inputmode="decimal" min="0" step="100" placeholder="Betrag in CHF, z. B. 5000" value="${esc(store.get("rechner_betrag", ""))}" aria-label="Betrag in CHF">
+        <label class="rb-frac"><input type="checkbox" id="rf" ${store.get("rechner_bruch", false) ? "checked" : ""}> Bruchteile (Yuh)</label></div>
+        <div id="rtab"></div></div>
+      ${st.transaktionen?.length ? `<div class="sec"><h2>Transaktionen</h2><p>Alle Käufe und Verkäufe der Strategie mit Datum und Kurs.</p></div>
+        <div class="card"><table class="fv-tab"><tbody>${st.transaktionen.slice(0, 60).map(t => `<tr><td>${fmtDate(t.datum)}<small>${esc(t.art)}</small></td><td>${esc(t.name || t.sym)}<small>${esc(t.sym)}</small></td><td class="n ${t.art === "Kauf" ? "up" : "down"}">${t.kurs != null ? money(t.kurs, t.w || "") : "–"}</td></tr>`).join("")}</tbody></table></div>` : ""}
       ${st.wechsel?.length ? `<div class="sec"><h2>Letzte Wechsel</h2></div><div class="card"><ul class="plain">${st.wechsel.slice(0, 6).map(w => `<li><b>${fmtDate(w.datum)}:</b> ${w.rein.length ? "neu " + w.rein.map(r => esc(r[1] || r[0])).join(", ") : "keine neuen"}${w.raus.length ? "; raus " + w.raus.map(r => esc(r[1] || r[0])).join(", ") : ""}</li>`).join("")}</ul></div>` : ""}
       <details class="more" open><summary>So funktioniert die Strategie</summary><ul class="plain">
         <li><b>Auswahl:</b> ${esc(st.text)} ${st.kandidaten ? `Diesen Monat erfüllten ${st.kandidaten} Firmen die Regeln, die besten kamen ins Depot.` : ""}</li>
@@ -1136,6 +1158,22 @@ function renderStrategie(id) {
         <li><b>Gemessen:</b> ab dem Starttag, in der Währung der Börse, ohne Dividenden, Gebühren und Steuern. Der Index wird gleich gemessen.</li>
         <li><b>Ehrlich:</b> Es gibt keinen Rückblick in die Vergangenheit, weil der mit den heutigen Daten geschönt wäre. Ob die Strategie besser ist als der Index, zeigt sich erst nach Monaten und Jahren. Ein paar Wochen sagen fast nichts.</li>
         <li>Musterdepot zum Beobachten, keine Anlageberatung.</li></ul></details>`;
+    const fx = STATE.strat?.fx || {};
+    const rechne = () => {
+      const b = parseFloat(document.getElementById("rb").value), bruch = document.getElementById("rf").checked;
+      store.set("rechner_betrag", document.getElementById("rb").value); store.set("rechner_bruch", bruch);
+      const el = document.getElementById("rtab");
+      if (!(b > 0)) { el.innerHTML = `<p class="fc-cap">Betrag eingeben, dann erscheint die Einkaufsliste.</p>`; return; }
+      const ziel = b / st.positionen.length; let summe = 0, fehlt = [];
+      const rows = st.positionen.map(x => { const k = fx[x.w]; if (!k || x.kurs == null) { fehlt.push(x.name); return ""; }
+        const pc = x.kurs * k, n = bruch ? Math.floor(ziel / pc * 1000) / 1000 : Math.floor(ziel / pc), w = n * pc; summe += w;
+        return `<tr class="${n ? "" : "off"}"><td>${esc(x.name || x.sym)}<small>${esc(x.sym)} · ${money(x.kurs, x.w)}</small></td><td class="n">${nf(n, bruch ? 3 : 0)} Stk.</td><td class="n">${nf(w, 0)} CHF</td></tr>`; }).join("");
+      const zuTeuer = st.positionen.filter(x => fx[x.w] && x.kurs != null && !bruch && x.kurs * fx[x.w] > ziel).length;
+      el.innerHTML = `<table class="fv-tab"><tbody>${rows}</tbody></table>
+        <p class="fc-cap">Pro Aktie ${nf(ziel, 0)} CHF. Investiert ${nf(summe, 0)} CHF, Rest ${nf(b - summe, 0)} CHF.${zuTeuer ? ` ${zuTeuer} Aktie(n) sind teurer als der Anteil pro Aktie und fallen bei ganzen Stücken weg. Mehr Geld einsetzen oder Bruchteile nutzen.` : ""}${fehlt.length ? ` Ohne Wechselkurs: ${esc(fehlt.join(", "))}.` : ""}
+        Kurse vom ${fmtDate(STATE.strat.stand)}, ohne Gebühren. Bei ${st.positionen.length} Aktien und rund 1.5 % Gebühr pro Kauf lohnt sich die Strategie erst ab etwa 5'000 bis 10'000 CHF.</p>`;
+    };
+    document.getElementById("rb").oninput = rechne; document.getElementById("rf").onchange = rechne; rechne();
     scrollTo(0, 0);
   });
 }

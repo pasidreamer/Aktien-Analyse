@@ -60,7 +60,9 @@ jobs:
         env:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
         run: python scripts/alle.py --zusammen
-      - name: Strategie-Depots nachführen
+      - name: Strategie-Depots und Marktampel nachführen
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
         run: python scripts/strategien.py || echo "Strategien übersprungen"
       - name: Speichern
         run: |

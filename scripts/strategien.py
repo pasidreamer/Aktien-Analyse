@@ -112,6 +112,53 @@ def bench_kurs(sym):
         return None, None
 
 
+def sma(a, n):
+    return sum(a[-n:]) / n if len(a) >= n else None
+
+
+def marktampel(alle, alt_markt):
+    """Krisenfilter: Trend von S&P 500 und SMI (über/unter dem 200-Tage-Schnitt) plus Marktbreite unserer Firmen."""
+    idx = {}
+    for sym, name in (("^GSPC", "S&P 500"), ("^SSMI", "SMI"), ("URTH", "MSCI World")):
+        try:
+            rows, _ = U.fetch(sym, "range=2y&interval=1d")
+            c = [r["c"] for r in rows]
+            m200 = sma(c, 200)
+            idx[sym] = {"name": name, "kurs": round(c[-1], 2), "sma200": round(m200, 2), "ueber": c[-1] > m200,
+                        "abstand": round((c[-1] / m200 - 1) * 100, 1), "steigt": m200 > sma(c[:-20], 200)}
+        except Exception as e:  # noqa
+            print("Marktampel: Index fehlt", sym, e)
+    werte = [a for a in alle.values() if a.get("ue200w") is not None]
+    breite = round(sum(1 for a in werte if a["ue200w"]) / len(werte) * 100) if werte else None
+    ueber = [v["ueber"] for v in idx.values()]
+    if ueber and all(ueber) and (breite or 0) >= 50:
+        farbe, text = "gruen", "Aufwärtstrend: Die grossen Indizes liegen über ihrem 200-Tage-Schnitt und die Mehrheit der Firmen ist im Aufwärtstrend."
+    elif ueber and not any(ueber) and (breite or 100) < 40:
+        farbe, text = "rot", "Erhöhtes Crash-Risiko: Die grossen Indizes liegen unter ihrem 200-Tage-Schnitt und die meisten Firmen sind im Abwärtstrend. Neue Käufe nur klein und gestaffelt, Abbruch-Marken ernst nehmen."
+    else:
+        farbe, text = "gelb", "Gemischt: Nicht alle Indizes sind im Aufwärtstrend oder nur ein Teil der Firmen steigt. Vorsichtig kaufen, lieber in Tranchen."
+    verlauf = (alt_markt or {}).get("verlauf", [])
+    heute = dt.date.today().isoformat()
+    if not verlauf or verlauf[-1][1] != farbe:
+        verlauf.append([heute, farbe])
+    return {"farbe": farbe, "text": text, "breite": breite, "indizes": idx, "seit": verlauf[-1][0], "verlauf": verlauf[-60:],
+            "vorher": (alt_markt or {}).get("farbe")}
+
+
+def wechselkurse(waehrungen):
+    fx = {"CHF": 1.0}
+    for w in sorted(set(waehrungen)):
+        if not w or w in fx:
+            continue
+        base, f = ("GBP", 0.01) if w == "GBp" else ("ZAR", 0.01) if w == "ZAc" else (w, 1)
+        try:
+            rows, _ = U.fetch(f"{base}CHF=X", "range=5d&interval=1d")
+            fx[w] = round(rows[-1]["c"] * f, 6)
+        except Exception as e:  # noqa
+            print("Wechselkurs fehlt", w, e)
+    return fx
+
+
 def main():
     neu_erzwingen = "--neu" in sys.argv
     scan = json.load(open(os.path.join(DATA, "scan.json")))["aktien"]
@@ -124,6 +171,9 @@ def main():
         o = alt["strategien"].get(st["id"]) or {}
         hist = o.get("historie", [])
         pos = o.get("positionen", [])
+        if pos and "transaktionen" not in o:  # Startkäufe nachtragen
+            o["transaktionen"] = [{"datum": x.get("seit") or o.get("start"), "art": "Kauf", "sym": x["sym"], "name": x.get("name"), "kurs": x.get("einstieg"),
+                                   "w": (scan.get(x["sym"]) or {}).get("w")} for x in pos]
         bd, bk = bench_kurs(st["benchmark"])
         # Wert heute
         if pos and hist:
@@ -140,9 +190,15 @@ def main():
             if syms:
                 rein = [s for s in syms if s not in alt_syms]
                 raus = [s for s in alt_syms if s not in syms]
+                tx = o.get("transaktionen", [])
+                for s in raus:
+                    tx.insert(0, {"datum": heute, "art": "Verkauf", "sym": s, "name": scan.get(s, {}).get("n") or s, "kurs": (alle.get(s) or {}).get("kurs"), "w": (scan.get(s) or {}).get("w")})
+                for s in rein:
+                    tx.insert(0, {"datum": heute, "art": "Kauf", "sym": s, "name": scan[s].get("n"), "kurs": alle[s]["kurs"], "w": scan[s].get("w")})
+                o["transaktionen"] = tx[:400]
                 if pos:
                     wechsel = ([{"datum": heute, "rein": [[s, scan[s].get("n")] for s in rein], "raus": [[s, scan.get(s, {}).get("n") or s] for s in raus]}] + wechsel)[:24]
-                pos = [{"sym": s, "name": scan[s].get("n"), "sek": scan[s].get("sek"), "land": scan[s].get("land"), "app": scan[s].get("app"),
+                pos = [{"sym": s, "name": scan[s].get("n"), "sek": scan[s].get("sek"), "land": scan[s].get("land"), "app": scan[s].get("app"), "w": scan[s].get("w"),
                         "gewicht": round(1 / len(syms), 5), "einstieg": alle[s]["kurs"], "seit": next((x["seit"] for x in o.get("positionen", []) if x["sym"] == s), heute),
                         "score": scores.get(s)} for s in syms]
                 o["wert_reb"], o["rebalance"], o["kandidaten"] = v, heute, n_kand
@@ -160,8 +216,18 @@ def main():
         out["strategien"][st["id"]] = {
             "id": st["id"], "name": st["name"], "text": st["text"], "benchmark": st["benchmark"], "bname": st["bname"],
             "start": o["start"], "bench_start": o.get("bench_start"), "rebalance": o.get("rebalance"), "wert_reb": o.get("wert_reb", 100),
-            "kandidaten": o.get("kandidaten"), "positionen": pos, "historie": hist[-800:], "wechsel": wechsel}
+            "kandidaten": o.get("kandidaten"), "positionen": pos, "historie": hist[-800:], "wechsel": wechsel,
+            "transaktionen": o.get("transaktionen", [])}
         print(st["name"], len(pos), "Aktien,", o.get("kandidaten"), "Kandidaten, Wert", round(v, 2), "Index", round(b, 2))
+    out["markt"] = marktampel(alle, alt.get("markt"))
+    out["fx"] = wechselkurse([x.get("w") for st in out["strategien"].values() for x in st["positionen"]])
+    m = out["markt"]
+    print("Marktampel", m["farbe"], "Breite", m["breite"], {k: v["abstand"] for k, v in m["indizes"].items()})
+    if m.get("vorher") and m["vorher"] != m["farbe"]:
+        topic = os.environ.get("NTFY_TOPIC", "").strip()
+        if topic:
+            namen = {"gruen": "grün", "gelb": "gelb", "rot": "rot"}
+            U.send_alerts([(f"Marktampel jetzt {namen[m['farbe']]}", m["text"] + f" Marktbreite {m['breite']} %.", "vertical_traffic_light", 4 if m["farbe"] == "rot" else 3, None)])
     json.dump(out, open(p, "w"), ensure_ascii=False, separators=(",", ":"))
 
 
