@@ -216,7 +216,7 @@ function reason(v) {
 
 // ---------- Bausteine ----------
 const signal = (q, t, big) => `<span class="signal${big ? " big" : ""}" role="img" aria-label="Qualität ${q}, Timing ${t}">
-  <span class="lamp ${ampel(q)}">${q}<small>Q</small></span><span class="lamp ${ampel(t)}">${t}<small>T</small></span></span>`;
+  <span class="lamp ${ampel(q)}" style="--v:${q}">${q}<small>Q</small></span><span class="lamp ${ampel(t)}" style="--v:${t}">${t}<small>T</small></span></span>`;
 const badge = st => st && STATUS[st] ? `<span class="badge ${STATUS[st][1]}">${STATUS[st][0]}</span>` : "";
 const chgHtml = v => v == null ? "" : `<span class="chg ${v > 0 ? "up" : v < 0 ? "down" : ""}">${pct(v, 2)}</span>`;
 const trendArrow = d => d >= 3 ? `<span class="trend up" title="Timing steigt">▲${d}</span>` : d <= -3 ? `<span class="trend down" title="Timing fällt">▼${-d}</span>` : "";
@@ -545,6 +545,7 @@ function wunschListe() {
   return [...local, ...remote].filter(x => Date.now() - new Date(x.eingang).getTime() < 14 * 864e5).slice(0, 6);
 }
 function wunschHtml(msg) {
+  if (!istAdmin()) return vorschlagHtml(msg);
   const li = wunschListe();
   return `<div class="sec"><h2>Aktie fehlt?</h2><p>Schreib den Namen oder das Kürzel. Claude macht einmal täglich am Abend die ganze Analyse und nimmt die Aktie in die App auf. Du bekommst eine Push-Nachricht.</p></div>
     <div class="card wunsch"><form id="wunsch-form" class="tokenrow"><input id="wunsch-in" type="text" maxlength="60" autocomplete="off" placeholder="Zum Beispiel «Adobe» oder «ADBE»" aria-label="Aktie wünschen">
@@ -555,6 +556,7 @@ function wunschHtml(msg) {
     </div>`;
 }
 function bindWunsch() {
+  if (!istAdmin()) return bindVorschlag();
   const f = document.getElementById("wunsch-form"); if (!f) return;
   f.onsubmit = async e => {
     e.preventDefault();
@@ -693,7 +695,7 @@ function renderDetail(ticker) {
       <a class="btn primary" href="${esc(s.cheatsheet)}">Cheat Sheet öffnen</a>
       <a class="btn" href="${esc(s.claude)}" target="_blank" rel="noopener">Analyse in Claude öffnen</a>
     </div>
-    ${(() => { const b = window.Depot?.bestand(s.ticker); return b ? `<div class="banner plain dp-held"><b>Im Depot:</b> ${nf(b.stueck, b.stueck % 1 ? 3 : 0)} Stück, Einstand ${money(b.einstand, w)}, ${b.guvPct != null ? `${b.guvPct >= 0 ? "+" : "−"}${nf(Math.abs(b.guvPct), 1)} %` : ""} <a href="#/depot/neu/${encodeURIComponent(s.ticker)}">Kauf oder Verkauf eintragen</a></div>` : `<p class="dp-link"><a href="#/depot/neu/${encodeURIComponent(s.ticker)}">Gekauft? Im Depot-Journal eintragen</a></p>`; })()}
+    ${(() => { const b = window.Depot?.bestand(s.ticker); return b ? `<div class="banner plain dp-held"><b>Im Depot:</b> ${nf(b.stueck, b.stueck % 1 ? 3 : 0)} Stück, Einstand ${money(b.einstand, b.w || w)}, ${b.guvPct != null ? `${b.guvPct >= 0 ? "+" : "−"}${nf(Math.abs(b.guvPct), 1)} %` : ""} <a href="#/depot/neu/${encodeURIComponent(s.ticker)}">Kauf oder Verkauf eintragen</a></div>` : `<p class="dp-link"><a href="#/depot/neu/${encodeURIComponent(s.ticker)}">Gekauft? Im Depot-Journal eintragen</a></p>`; })()}
 
     ${chanceHtml(v)}
 
@@ -812,7 +814,7 @@ function renderTermine() {
 
 function renderInfo() {
   const L = STATE.live;
-  $view.innerHTML = `<header class="top"><div><h1>So funktioniert's</h1></div></header>
+  $view.innerHTML = `<a class="back" href="#/profil"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>Profil</a><header class="top"><div><h1>Anleitung</h1></div></header>
   <div class="card prose">
     <h3>Zwei Ampeln pro Aktie</h3>
     <p><b>Q = Qualität:</b> Ist die Firma kaufenswert? 8 Kriterien: Umsatz, Wachstum, Marge, Gewinn, Free Cashflow, ROIC, Schulden und Bewertung.</p>
@@ -853,17 +855,17 @@ function renderInfo() {
     <p>In Safari öffnen, unten auf «Teilen» tippen und «Zum Home-Bildschirm» wählen. Die App startet dann ohne Browser-Leiste und funktioniert auch offline mit dem letzten Stand.</p>
     <h3>Benachrichtigungen aufs iPhone</h3>
     <p>Die App meldet sich über die kostenlose App «ntfy», wenn eine Aktie in die Kaufzone läuft, einen Trigger auslöst, unter die Abbruch-Marke fällt, das Timing auf hellgrün springt oder am nächsten Tag Zahlen kommen. Einrichtung: ntfy aus dem App Store laden, das persönliche Thema abonnieren und dasselbe Thema in GitHub als Secret <b>NTFY_TOPIC</b> eintragen.</p>
-    <h3>Notizen auf allen Geräten</h3>
+    ${istAdmin() ? `<h3>Notizen auf allen Geräten</h3>
     <p>Ohne Schlüssel bleiben Notizen auf dem Gerät, auf dem du sie schreibst. Mit einem GitHub-Schlüssel (Fine-grained Token nur für dieses Repository, Recht «Contents: Read and write») landen sie in deinem Repository und sind auf iPhone und PC gleich.</p>
     <div class="tokenrow"><input id="tok" type="password" autocomplete="off" placeholder="${token() ? "Schlüssel ist gespeichert" : "GitHub-Schlüssel einfügen"}" aria-label="GitHub-Schlüssel">
       <button class="btn small" id="tok-save">${token() ? "Ersetzen" : "Speichern"}</button>${token() ? '<button class="btn small" id="tok-del">Entfernen</button>' : ""}</div>
-    <p id="tok-state" style="font-size:13.5px;color:var(--muted)"></p>
+    <p id="tok-state" style="font-size:13.5px;color:var(--muted)"></p>` : ""}
     <h3>Stand der Daten</h3>
     <p>${L?.aktualisiert ? "Letztes Kurs-Update: " + new Date(L.aktualisiert).toLocaleString("de-CH") : "Noch kein automatisches Kurs-Update. Angezeigt werden die Werte der letzten Analysen."}${L?.fehler?.length ? "<br>Ohne neue Kurse: " + esc(L.fehler.map(x => x.split(":")[0]).join(", ")) : ""}</p>
     <p style="color:var(--muted);font-size:13.5px">Persönliche Watchlist, keine Anlageberatung.</p>
   </div>`;
   const ts = document.getElementById("tok-state");
-  document.getElementById("tok-save").onclick = async () => {
+  if (ts) document.getElementById("tok-save").onclick = async () => {
     const v = document.getElementById("tok").value.trim(); if (!v) { ts.textContent = "Bitte zuerst den Schlüssel einfügen."; return; }
     ts.textContent = "Prüfe den Schlüssel …";
     const r = await fetch(`https://api.github.com/repos/${REPO}`, { headers: { Authorization: "Bearer " + v } }).catch(() => null);
@@ -1208,9 +1210,9 @@ function renderScanDetail(sym) {
         <div class="dprice"><span class="px">${money(x.p, x.w)}</span></div><div class="meta">${x.idx?.length ? "Im Index " + esc(x.idx.join(", ")) + " · " : ""}Börsenwert ${nf(x.mc, x.mc >= 10 ? 0 : 1)} Mrd. CHF</div></div>
       ${(() => { const a = ampOf(x.sym); return a && a.q != null ? `<div class="scores">${signal(a.q, a.t, true)}
         <div class="lbl"><div><b>Qualität ${a.q} (${ampelName[ampel(a.q)]})</b>Automatisch aus dem Branchenvergleich</div><div><b>Timing ${a.t} (${ampelName[ampel(a.t)]})</b>Automatisch, Stand ${fmtDate(a.d)}</div></div></div>` : ""; })()}
-      <div class="banner info">Automatische Ampeln. Für Kaufzonen, Trigger, Sorgen und Wachstumsschub braucht es die ganze Analyse. Fordere sie an, wenn dich die Aktie interessiert.</div>
+      ${istAdmin() ? `<div class="banner info">Automatische Ampeln. Für Kaufzonen, Trigger, Sorgen und Wachstumsschub braucht es die ganze Analyse. Fordere sie an, wenn dich die Aktie interessiert.</div>
       <div class="card wunsch"><form id="wunsch-form" class="tokenrow"><input id="wunsch-in" type="text" value="${esc(x.n || x.sym)} (${esc(x.sym)})" aria-label="Aktie">
-        <button class="btn small primary" type="submit">Ganze Analyse anfordern</button></form><p class="w-msg" id="wmsg" hidden></p></div>
+        <button class="btn small primary" type="submit">Ganze Analyse anfordern</button></form><p class="w-msg" id="wmsg" hidden></p></div>` : `<div id="vs-slot">${vorschlagKarte(x)}</div>`}
       ${(() => { const a = ampOf(x.sym); if (!a) return ""; const notes = [null, null, a.st, `Tag ${a.rsid}, Woche ${a.rsiw}`, null, a.sm, null];
         return `<div class="sec"><h2>Timing ${a.t} von 100</h2><p>Gleiche Regeln wie bei deinen analysierten Aktien. Struktur und Smart Money sind hier automatische Näherungen.</p></div>
         <div class="card">${partsHtml(T_TEILE.map(([n, mx], i) => ({ name: n, p: a.tt[i], max: mx, txt: notes[i] || "" })))}
@@ -1223,6 +1225,7 @@ function renderScanDetail(sym) {
         ${fact("Aktienzahl pro Jahr", d.aktien_pa, " %")}${fact("Kurs 12 Monate", d.mom_12_1, " %")}${fact("Unter dem Jahreshoch", d.unter_hoch, " %")}</dl></div>
       <p class="fc-cap">Keine Anlageberatung.</p>`;
     const f = document.getElementById("wunsch-form");
+    if (!f) { bindVorschlagKarte(x); scrollTo(0, 0); return; }
     f.onsubmit = async e => { e.preventDefault(); const msg = document.getElementById("wmsg"); msg.hidden = false;
       const text = document.getElementById("wunsch-in").value.trim();
       try { const r = await fetch(`https://ntfy.sh/${WUNSCH_TOPIC}`, { method: "POST", body: text }); if (!r.ok) throw 0;
@@ -1232,10 +1235,137 @@ function renderScanDetail(sym) {
   });
 }
 
+// ---------- Rollen, Vorschläge, Login und Profil ----------
+// Pascal (Admin) entscheidet, welche Aktien ganz analysiert werden. Mitglieder schlagen vor:
+// Das kostet keine KI. Erst wenn Pascal auf «Analysieren» tippt, geht der Auftrag an Claude.
+const istAdmin = () => !!window.SB?.admin();
+const VSTAT = { offen: ["Wartet auf Pascal", "b-trig"], angenommen: ["Angenommen", "b-zone"], abgelehnt: ["Abgelehnt", "b-list"] };
+const vsName = v => v.name && v.name !== v.symbol ? `${v.name} (${v.symbol})` : v.symbol;
+const vsListe = list => list.length ? `<ul class="w-list">${list.map(v => { const st = VSTAT[v.status] || VSTAT.offen;
+  return `<li><span class="badge ${st[1]}">${st[0]}</span><span class="w-t">${esc(vsName(v))}<em>${fmtDate(v.erstellt)}${v.notiz ? " · «" + esc(v.notiz) + "»" : ""}</em></span></li>`; }).join("")}</ul>` : "";
+function vorschlagHtml(msg) {
+  return `<div class="sec"><h2>Aktie fehlt?</h2><p>Schlag sie Pascal vor. Er entscheidet, ob sie ganz analysiert wird. Rund 1'500 Firmen mit automatischen Ampeln findest du schon unter «Entdecken».</p></div>
+    <div class="card wunsch"><form id="vs-form" class="tokenrow"><input id="vs-in" type="text" maxlength="60" autocomplete="off" placeholder="Zum Beispiel «BYD» oder «Adobe»" aria-label="Aktie vorschlagen">
+      <button class="btn small primary" type="submit">Vorschlagen</button></form>${msg ? `<p class="w-msg">${esc(msg)}</p>` : ""}<div id="vs-meine"></div></div>`;
+}
+function bindVorschlag() {
+  const f = document.getElementById("vs-form"); if (!f) return;
+  window.SB?.vorschlaege().then(l => { const el = document.getElementById("vs-meine"); if (el) el.innerHTML = vsListe(l.slice(0, 6)); }).catch(() => {});
+  f.onsubmit = async e => {
+    e.preventDefault();
+    const text = document.getElementById("vs-in").value.trim(); if (!text) return;
+    const hit = STATE.stocks.find(s => [s.ticker, s.symbol, s.name].some(x => x.toLowerCase() === text.toLowerCase()));
+    let msg;
+    if (hit) msg = `${hit.name} ist schon in der App.`;
+    else try { await window.SB.vorschlagen({ symbol: text, name: text }); msg = `«${text}» ist bei Pascal. Er entscheidet, ob die Aktie ganz analysiert wird.`; }
+    catch (err) { msg = err.message; }
+    document.getElementById("wunsch").innerHTML = vorschlagHtml(msg); bindVorschlag();
+  };
+}
+function vorschlagKarte(x) {
+  return `<div class="card vs-card"><b>Noch keine ganze Analyse</b>
+    <p>Hier siehst du nur die automatischen Zahlen. Wenn dich ${esc(x.n || x.sym)} interessiert, schlag die Aktie Pascal vor. Er entscheidet, ob sie ganz analysiert wird.</p>
+    <div id="vs-body"><label class="vs-notiz">Warum interessiert sie dich? (freiwillig)<input id="vs-notiz" maxlength="200" autocomplete="off"></label>
+    <button class="btn primary" id="vs-go" type="button">Pascal vorschlagen</button></div><p class="w-msg" id="vs-msg" role="status"></p></div>`;
+}
+function bindVorschlagKarte(x) {
+  const body = document.getElementById("vs-body"), msg = document.getElementById("vs-msg"); if (!body) return;
+  window.SB?.vorschlaege().then(l => { const v = l.find(y => y.symbol === x.sym && y.user_id === window.SB.ich()?.id);
+    if (v) { body.innerHTML = vsListe([v]); } }).catch(() => {});
+  document.getElementById("vs-go").onclick = async () => {
+    const b = document.getElementById("vs-go"); b.disabled = true; msg.textContent = "Sende …";
+    try { await window.SB.vorschlagen({ symbol: x.sym, name: x.n || x.sym, notiz: document.getElementById("vs-notiz").value.trim() });
+      body.innerHTML = ""; msg.textContent = "Vorgeschlagen. Pascal bekommt eine Nachricht und entscheidet."; }
+    catch (e) { msg.textContent = e.message; b.disabled = false; }
+  };
+}
+
+function renderLogin(fehlerText) {
+  document.body.classList.add("login");
+  $view.innerHTML = `<div class="login-wrap">
+    <svg class="login-logo" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="26" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="6"/><circle cx="32" cy="32" r="26" fill="none" stroke="var(--gruen)" stroke-width="6" stroke-linecap="round" stroke-dasharray="120 164" transform="rotate(-90 32 32)"/></svg>
+    <h1>Aktien-Ampel</h1><p>Melde dich an. Den Zugang bekommst du von Pascal.</p>
+    <form id="lg" class="login-form" novalidate>
+      <label>E-Mail<input id="lg-mail" type="email" autocomplete="username" inputmode="email" required></label>
+      <label>Passwort<input id="lg-pw" type="password" autocomplete="current-password" required></label>
+      <button class="btn primary" type="submit" id="lg-go">Anmelden</button>
+      <p class="dp-err" id="lg-err" role="alert">${esc(fehlerText || (window.SB?.bereit() ? "" : "Die Anmeldung konnte nicht geladen werden. Lade die Seite neu."))}</p>
+    </form></div>`;
+  const f = document.getElementById("lg");
+  f.onsubmit = async e => {
+    e.preventDefault();
+    const mail = document.getElementById("lg-mail").value, pw = document.getElementById("lg-pw").value, err = document.getElementById("lg-err"), b = document.getElementById("lg-go");
+    if (!mail.trim() || !pw) { err.textContent = "Bitte E-Mail und Passwort eingeben."; return; }
+    b.disabled = true; err.textContent = "";
+    try { await window.SB.anmelden(mail, pw); window.Depot?.vergessen(); if (location.hash && location.hash !== "#/") location.hash = "#/"; await weiter(); }
+    catch (x) { err.textContent = x.message; b.disabled = false; }
+  };
+}
+
+function renderProfil() {
+  const ich = window.SB?.ich(); if (!ich) { renderLogin(); return; }
+  const admin = istAdmin();
+  const recht = (n, du, mg) => `<tr><td>${n}</td><td class="${du === "ja" ? "up" : ""}">${du}</td><td class="${mg === "ja" ? "up" : "down"}">${mg}</td></tr>`;
+  $view.innerHTML = `<header class="top"><div><h1>Profil</h1><div class="stand">${esc(ich.email || "")}</div></div></header>
+    <div class="card pf-me"><span class="pf-av">${esc((ich.name || ich.email || "?").slice(0, 1).toUpperCase())}</span>
+      <div><b>${esc(ich.name || "Ohne Namen")}</b><span>${admin ? "Chef: entscheidet über Aktien und App" : "Mitglied: sieht alles, eigenes Journal"}</span></div></div>
+    ${admin ? `<div class="sec"><h2>Vorschläge</h2><p>KI wird erst gebraucht, wenn du auf «Analysieren» tippst.</p></div><div id="pf-vs"><div class="empty">Lade …</div></div>
+      <div class="sec"><h2>Mitglieder</h2></div><div class="card" id="pf-mg"><p class="dp-note">Lade …</p></div>
+      <div class="sec"><h2>Wer darf was</h2></div>
+      <div class="card"><table class="pf-rechte"><thead><tr><th></th><th>Du</th><th>Mitglied</th></tr></thead><tbody>
+        ${recht("Alles ansehen", "ja", "ja")}${recht("Eigenes Journal", "ja", "ja")}${recht("Aktie vorschlagen", "·", "ja")}${recht("Ganze Analyse anfordern", "ja", "nein")}${recht("Aktien aufnehmen, entfernen", "ja", "nein")}</tbody></table>
+        <p class="dp-note">Journale sind privat. Auch du siehst nur dein eigenes.</p></div>
+      <details class="more card pf-help"><summary>Jemanden einladen</summary><div class="prose">
+        <p><b>1.</b> In Supabase: Authentication, dann Users, dann «Add user» und «Create new user».</p>
+        <p><b>2.</b> E-Mail und ein Start-Passwort eingeben, «Auto Confirm User» anhaken.</p>
+        <p><b>3.</b> Der Person den App-Link und das Passwort geben. Sie kann das Passwort hier im Profil ändern.</p>
+        <p>Push bei neuen Vorschlägen: In der App ntfy das Thema <b>${esc(window.SB.VORSCHLAG_TOPIC)}</b> abonnieren.</p></div></details>`
+    : `<div class="sec"><h2>Meine Vorschläge</h2><p>Aktien, die du Pascal vorgeschlagen hast.</p></div><div id="pf-vs"><div class="empty">Lade …</div></div>`}
+    <div class="sec"><h2>Konto</h2></div>
+    <div class="card pf-form">
+      <label>Name<span class="tokenrow"><input id="pf-name" maxlength="40" value="${esc(ich.name || "")}" autocomplete="nickname"><button class="btn small" id="pf-name-s" type="button">Speichern</button></span></label>
+      <label>Neues Passwort<span class="tokenrow"><input id="pf-pw" type="password" autocomplete="new-password" placeholder="mindestens 8 Zeichen"><button class="btn small" id="pf-pw-s" type="button">Ändern</button></span></label>
+      <p id="pf-msg" class="dp-note" role="status"></p></div>
+    <div class="actions"><a class="btn" href="#/info">Anleitung</a><button class="btn" id="pf-out" type="button">Abmelden</button></div>`;
+  const $ = id => document.getElementById(id), msg = $("pf-msg");
+  $("pf-name-s").onclick = async () => { try { await window.SB.name($("pf-name").value); msg.textContent = "Name gespeichert."; renderProfil(); } catch (e) { msg.textContent = e.message; } };
+  $("pf-pw-s").onclick = async () => { const v = $("pf-pw").value; if (v.length < 8) { msg.textContent = "Bitte mindestens 8 Zeichen verwenden."; return; }
+    try { await window.SB.passwort(v); $("pf-pw").value = ""; msg.textContent = "Passwort geändert."; } catch (e) { msg.textContent = e.message; } };
+  $("pf-out").onclick = async () => { await window.SB.abmelden(); window.Depot?.vergessen(); history.replaceState(null, "", "#/"); renderLogin(); };
+  ladeVorschlaege(admin);
+  if (admin) window.SB.mitglieder().then(l => { if (!$("pf-mg")) return; $("pf-mg").innerHTML = l.map(p => `<div class="pf-row"><span class="pf-av sm">${esc((p.name || "?").slice(0, 1).toUpperCase())}</span><span><b>${esc(p.name || "Ohne Namen")}</b><em>${p.rolle === "admin" ? "Chef" : "Mitglied"} seit ${fmtDate(p.erstellt)}</em></span></div>`).join(""); })
+    .catch(() => { if ($("pf-mg")) $("pf-mg").innerHTML = `<p class="dp-note">Mitglieder konnten nicht geladen werden.</p>`; });
+  scrollTo(0, 0);
+}
+async function ladeVorschlaege(admin) {
+  const el = document.getElementById("pf-vs"); if (!el) return;
+  let list;
+  try { [list] = await Promise.all([window.SB.vorschlaege(), ensureScan().catch(() => {})]); }
+  catch { el.innerHTML = `<div class="empty">Vorschläge konnten nicht geladen werden. Bist du online?</div>`; return; }
+  if (!admin) { el.innerHTML = list.length ? `<div class="card">${vsListe(list)}</div>` : `<div class="empty">Noch keine Vorschläge. In «Entdecken» kannst du bei jeder Aktie auf «Pascal vorschlagen» tippen.</div>`; return; }
+  const offen = list.filter(v => v.status === "offen"), fertig = list.filter(v => v.status !== "offen").slice(0, 8);
+  const sym = v => STATE.scan?.aktien?.[v.symbol] ? v.symbol : null;
+  el.innerHTML = (offen.length ? offen.map(v => { const a = sym(v) ? ampOf(v.symbol) : null;
+    return `<div class="card vs-item" data-id="${esc(v.id)}"><div class="vs-head">${a && a.q != null ? signal(a.q, a.t) : ""}<div><b>${sym(v) ? `<a href="#/scan/${encodeURIComponent(v.symbol)}">${esc(vsName(v))}</a>` : esc(vsName(v))}</b><span>von ${esc(v.von || "?")} · ${fmtDate(v.erstellt)}</span></div></div>
+      ${v.notiz ? `<p class="vs-notiz-t">«${esc(v.notiz)}»</p>` : ""}
+      <div class="vs-btns"><button class="btn small" data-nein="${esc(v.id)}" type="button">Ablehnen</button><button class="btn small primary" data-ja="${esc(v.id)}" type="button">Analysieren</button></div><p class="w-msg" hidden></p></div>`; }).join("")
+    : `<div class="empty">Keine offenen Vorschläge.</div>`)
+    + (fertig.length ? `<details class="more"><summary>Erledigt (${fertig.length})</summary><div class="card">${vsListe(fertig.map(v => ({ ...v, notiz: (v.von ? "von " + v.von : "") + (v.notiz ? ", " + v.notiz : "") })))}</div></details>` : "");
+  el.querySelectorAll("[data-nein]").forEach(b => b.onclick = async () => { b.disabled = true; try { await window.SB.entscheiden(b.dataset.nein, "abgelehnt"); } catch {} ladeVorschlaege(true); });
+  el.querySelectorAll("[data-ja]").forEach(b => b.onclick = async () => {
+    const v = list.find(x => x.id === b.dataset.ja), box = b.closest(".vs-item"), m = box.querySelector(".w-msg"); b.disabled = true; m.hidden = false; m.textContent = "Sende an Claude …";
+    const text = vsName(v);
+    try { const r = await fetch(`https://ntfy.sh/${WUNSCH_TOPIC}`, { method: "POST", body: text }); if (!r.ok) throw 0;
+      store.set("wuensche_local", [...store.get("wuensche_local", []), { text, ts: Date.now() }]);
+      await window.SB.entscheiden(v.id, "angenommen"); ladeVorschlaege(true); }
+    catch { m.textContent = "Senden hat nicht geklappt. Bist du online?"; b.disabled = false; }
+  });
+}
+
 // ---------- Routing ----------
 function route() {
   const h = location.hash || "#/";
-  const tab = h.startsWith("#/termine") ? "termine" : h.startsWith("#/info") ? "info" : h.startsWith("#/depot") ? "depot" : h.startsWith("#/entdecken") || h.startsWith("#/scan/") || h.startsWith("#/alarme") || h.startsWith("#/strategie/") ? "entdecken" : "home";
+  const tab = h.startsWith("#/termine") ? "termine" : h.startsWith("#/info") || h.startsWith("#/profil") ? "profil" : h.startsWith("#/depot") ? "depot" : h.startsWith("#/entdecken") || h.startsWith("#/scan/") || h.startsWith("#/alarme") || h.startsWith("#/strategie/") ? "entdecken" : "home";
   document.querySelectorAll(".tabs a").forEach(a => a.dataset.tab === tab ? a.setAttribute("aria-current", "page") : a.removeAttribute("aria-current"));
   if (h.startsWith("#/aktie/")) renderDetail(decodeURIComponent(h.slice(8)));
   else if (h.startsWith("#/scan/")) renderScanDetail(decodeURIComponent(h.slice(7)));
@@ -1243,13 +1373,14 @@ function route() {
   else if (h.startsWith("#/strategie/")) renderStrategie(decodeURIComponent(h.slice(12)));
   else if (tab === "entdecken") renderEntdecken();
   else if (tab === "termine") renderTermine();
-  else if (tab === "info") renderInfo();
+  else if (h.startsWith("#/info")) renderInfo();
+  else if (tab === "profil") renderProfil();
   else if (tab === "depot") window.Depot ? window.Depot.render($view, h.startsWith("#/depot/neu/") ? decodeURIComponent(h.slice(12)) : null) : ($view.innerHTML = '<div class="empty">Das Depot konnte nicht geladen werden.</div>');
   else { renderHome(); const y = store.get("homeScroll", 0); if (y) scrollTo(0, y); }
 }
 let lastHash = location.hash;
 addEventListener("hashchange", () => {
-  if (!lastHash.startsWith("#/aktie/") && !lastHash.startsWith("#/termine") && !lastHash.startsWith("#/info") && !lastHash.startsWith("#/depot") && !lastHash.startsWith("#/entdecken") && !lastHash.startsWith("#/scan/") && !lastHash.startsWith("#/alarme") && !lastHash.startsWith("#/strategie/")) store.set("homeScroll", scrollY);
+  if (!lastHash.startsWith("#/aktie/") && !lastHash.startsWith("#/termine") && !lastHash.startsWith("#/info") && !lastHash.startsWith("#/profil") && !lastHash.startsWith("#/depot") && !lastHash.startsWith("#/entdecken") && !lastHash.startsWith("#/scan/") && !lastHash.startsWith("#/alarme") && !lastHash.startsWith("#/strategie/")) store.set("homeScroll", scrollY);
   lastHash = location.hash; route();
 });
 
@@ -1261,16 +1392,26 @@ async function refresh() {
 
 async function start() {
   STATE.filter = { ...STATE.filter, ...store.get("filter", {}) };
+  if ("serviceWorker" in navigator && location.protocol === "https:") navigator.serviceWorker.register("sw.js").catch(() => {});
+  let ich = null;
+  try { ich = window.SB ? await window.SB.start() : null; } catch { ich = null; }
+  if (!ich) { renderLogin(); return; }
+  await weiter();
+}
+async function weiter() {
+  document.body.classList.remove("login", "start");
+  $view.innerHTML = `<div class="empty">Lade …</div>`;
   try { await load(); route(); }
   catch (e) { $view.innerHTML = `<div class="empty">Die Daten konnten nicht geladen werden. Prüfe die Internetverbindung und lade die Seite neu.</div>`; }
-  if ("serviceWorker" in navigator && location.protocol === "https:") navigator.serviceWorker.register("sw.js").catch(() => {});
+  window.Depot?.laden().catch(() => {});
+  if (weiter.einmal) return; weiter.einmal = true;
   document.addEventListener("visibilitychange", async () => {
-    if (document.visibilityState !== "visible") return;
+    if (document.visibilityState !== "visible" || !window.SB?.ich()) return;
     const before = STATE.live?.aktualisiert;
     try { await load(); } catch { return; }
     if (STATE.live?.aktualisiert !== before) route();
   });
 }
-window.AA = { STATE, view, money, nf, pct, esc, fmtDate, ampel, ampelName, signal, divData, token, b64, unb64, REPO, STATUS };
+window.AA = { STATE, view, money, nf, pct, esc, fmtDate, ampel, ampelName, signal, divData, token, b64, unb64, REPO, STATUS, ensureScan };
 start();
 })();

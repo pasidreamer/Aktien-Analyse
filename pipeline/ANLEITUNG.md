@@ -100,3 +100,14 @@ Arbeitsordner: das geklonte Repo (z. B. /home/claude/aktien-ampel). Alle Pfade u
 - `scripts/strategien.py` rechnet zusätzlich die Marktampel (S&P 500, SMI, MSCI World gegen den 200-Tage-Schnitt plus Marktbreite
   aus `alle.json`), Wechselkurse für den Depot-Rechner und die Transaktionsliste jeder Strategie. Farbwechsel meldet sich per Push.
 - Von Hand starten: Workflow «Strategie-Depots und Marktampel (von Hand)» (`strategien.yml`).
+
+## Login, Rollen und Journale (Supabase)
+
+- Die App braucht ein Login. Die Datenbank ist ein Gratis-Projekt bei Supabase (Frankfurt/EU).
+- **Rollen:** Der erste angelegte Benutzer ist Admin (Pascal). Alle weiteren sind Mitglieder.
+  - Mitglieder sehen alles, führen ihr eigenes Journal und können Aktien **vorschlagen**. Das kostet keine KI.
+  - Nur der Admin kann eine ganze Analyse anfordern. In «Profil» stehen die Vorschläge mit «Ablehnen» und «Analysieren».
+- **Journale sind privat:** Jede Person sieht nur ihr eigenes, auch der Admin. Das regeln die Regeln in `supabase/schema.sql`.
+- **Neue Person:** In Supabase unter Authentication > Users > Add user > Create new user, mit «Auto Confirm User». Neue Anmeldungen von aussen sind abgeschaltet.
+- **Push bei Vorschlägen:** ntfy-Thema `aa-vorschlag-q7m2xk9fwp4h` abonnieren.
+- **Wach halten:** Der Workflow «Supabase wach halten» pingt die Datenbank zweimal pro Woche, sonst pausiert das Gratis-Projekt nach 7 Tagen.
