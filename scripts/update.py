@@ -42,6 +42,17 @@ def fetch(symbol, query):
                     d = dt.datetime.utcfromtimestamp(t + off).date().isoformat()
                     rows.append({"d": d, "h": h, "l": l, "c": c, "v": q["volume"][i] or 0})
                 meta = dict(res["meta"])
+                # Yahoo liefert die Tageskerze des letzten Handelstags manchmal erst Stunden später.
+                # Dann den letzten Kurs aus den Metadaten als Kerze anhängen.
+                try:
+                    if "interval=1d" in query and rows and meta.get("regularMarketTime") and meta.get("regularMarketPrice"):
+                        md = dt.datetime.utcfromtimestamp(meta["regularMarketTime"] + off).date().isoformat()
+                        if md > rows[-1]["d"]:
+                            px = meta["regularMarketPrice"]
+                            rows.append({"d": md, "h": max(meta.get("regularMarketDayHigh") or px, px), "l": min(meta.get("regularMarketDayLow") or px, px),
+                                         "c": px, "v": meta.get("regularMarketVolume") or 0})
+                except Exception:
+                    pass
                 divs = (res.get("events") or {}).get("dividends") or {}
                 meta["_div"] = sorted([dt.datetime.utcfromtimestamp(v["date"] + off).date().isoformat(), round(v["amount"], 4)]
                                       for v in divs.values() if v.get("amount"))
