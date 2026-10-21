@@ -20,6 +20,8 @@ function normal(d) {
   const ks = new Set(d.konten);
   d.tx.forEach(t => { if (t.konto && !ks.has(t.konto)) { d.konten.push(t.konto); ks.add(t.konto); } });
   if (!d.konten.length) d.konten = ["Hauptdepot"];
+  // «Hauptdepot» ist nur der Platzhalter für neue Personen. Sobald eigene Konten da sind und es leer ist, fällt es weg.
+  if (d.konten.length > 1 && !d.tx.some(t => (t.konto || "Hauptdepot") === "Hauptdepot")) d.konten = d.konten.filter(k => k !== "Hauptdepot");
   return d;
 }
 function lesen() {
@@ -161,9 +163,9 @@ function formHtml(d) {
       <label class="wide">Aktie<input id="dp-aktie" list="dp-liste" value="${a.esc(aktie)}" placeholder="Name oder Kürzel, z. B. Nestlé oder NESN.SW" autocomplete="off" required></label>
       <datalist id="dp-liste"></datalist>
       <p class="wide dp-found" id="dp-found"></p>
-      <label>Konto<select id="dp-konto">${d.konten.map(k => `<option ${k === konto ? "selected" : ""}>${a.esc(k)}</option>`).join("")}<option value="__neu">Neues Konto …</option></select></label>
+      <label>Konto (Bank oder App)<select id="dp-konto">${d.konten.map(k => `<option ${k === konto ? "selected" : ""}>${a.esc(k)}</option>`).join("")}<option value="__neu">Neues Konto …</option></select></label>
       <label>Datum<input id="dp-datum" type="date" value="${val("datum", heute)}" required></label>
-      <label class="wide" id="dp-kneu" hidden>Name des neuen Kontos<input id="dp-kname" maxlength="30" placeholder="z. B. Saxo Langfristig, Yuh, 3a"></label>
+      <label class="wide" id="dp-kneu" hidden>Name des neuen Kontos<input id="dp-kname" maxlength="30" placeholder="z. B. Swissquote, PostFinance, Neon, 3a"></label>
       <label class="dp-kauf">Stück<input id="dp-stueck" type="number" inputmode="decimal" step="any" min="0" value="${val("stueck")}"></label>
       <label class="dp-kauf">Kurs pro Stück<input id="dp-kurs" type="number" inputmode="decimal" step="any" min="0" value="${val("kurs", i?.kurs != null && !e ? +(+umrechnen(i.kurs, i.w, w)).toFixed(4) : "")}"></label>
       <label class="dp-div" hidden>Betrag total (nach Steuern)<input id="dp-betrag" type="number" inputmode="decimal" step="any" min="0" value="${val("betrag")}"></label>
@@ -212,7 +214,7 @@ function render(root) {
       <div><span>Erhalten und realisiert</span><b>${chf(c.div + c.real)}</b><em>Dividenden ${chf(c.div)} · Verkäufe ${chf(c.real)}</em></div>
       <div><span>Qualität im Depot</span><b>${c.q != null ? a.nf(c.q, 0) : "–"} <small class="${qC}-t">${qC ? a.ampelName[qC] : ""}</small></b><em>Timing ${c.t != null ? a.nf(c.t, 0) : "–"}, nach Wert gewichtet</em></div>
       <div><span>Käufe nach System</span><b>${c.kaeufe ? `${c.imSystem} von ${c.kaeufe}` : "–"}</b><em>Kaufzone, Trigger, Kontra oder Timing ab hellgrün</em></div>
-    </div>` : `<div class="empty">Noch keine Einträge${konto !== "Alle" ? " in diesem Konto" : ""}. Trage deinen ersten Kauf ein: Die App rechnet danach Wert, Gewinn, Dividenden und die Verteilung selbst aus.</div>`}
+    </div>` : `<div class="empty">Noch keine Einträge${konto !== "Alle" ? " in diesem Konto" : ""}. Trage deinen ersten Kauf ein: Die App rechnet danach Wert, Gewinn, Dividenden und die Verteilung selbst aus. Unter «Konto» kannst du «Neues Konto …» wählen und deine Bank oder App eintragen, zum Beispiel Swissquote oder PostFinance. Hast du mehrere, kannst du danach oben nach Konto filtern.</div>`}
     ${UI.form ? formHtml(d) : `<div class="dp-add"><button class="btn primary" id="dp-new">Kauf oder Verkauf</button><button class="btn" id="dp-new-div">Dividende</button></div>`}
     ${c.offen.length ? `
     ${c.hinweise.length ? `<div class="card dp-hints">${c.hinweise.map(([k, t]) => `<p class="dp-h dp-h-${k}">${a.esc(t)}</p>`).join("")}</div>` : ""}
