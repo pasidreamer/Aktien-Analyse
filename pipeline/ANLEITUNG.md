@@ -94,3 +94,9 @@ Arbeitsordner: das geklonte Repo (z. B. /home/claude/aktien-ampel). Alle Pfade u
 - Signale (nur Aktien ohne ganze Analyse, nur gute Qualität): Timing springt auf 60+, Golden Cross Woche,
   Pessimismus 60+ (Kontra), unterbewertet und Tagesschluss über EMA 50. Push über NTFY_TOPIC, höchstens 3 einzeln plus Sammelmeldung.
 - In der App: `#/entdecken` (Neue Signale oben), `#/alarme`, Detail `#/scan/SYMBOL` mit Ampeln und Timing-Teilen.
+
+## Marktampel, Depot-Rechner, Transaktionen
+
+- `scripts/strategien.py` rechnet zusätzlich die Marktampel (S&P 500, SMI, MSCI World gegen den 200-Tage-Schnitt plus Marktbreite
+  aus `alle.json`), Wechselkurse für den Depot-Rechner und die Transaktionsliste jeder Strategie. Farbwechsel meldet sich per Push.
+- Von Hand starten: Workflow «Strategie-Depots und Marktampel (von Hand)» (`strategien.yml`).
