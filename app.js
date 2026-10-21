@@ -899,8 +899,8 @@ const ampOf = sym => STATE.alle?.aktien?.[sym] || null;
 const T_TEILE = [["Trend Woche (EMA 50/200)", 20], ["Trend Tag (EMA 50/200)", 10], ["Struktur", 20], ["RSI Tag und Woche", 15], ["A/D-Linie", 20], ["Smart Money", 10], ["Saisonalität", 5]];
 const ALARM = { timing: ["Timing grün", "b-trig"], golden: ["Golden Cross", "b-zone"], kontra: ["Kontra-Chance", "b-warn"], fairwende: ["Unterbewertet und Wende", "b-zone"] };
 function alarmItem(a) {
-  return `<a class="row al" href="#/scan/${encodeURIComponent(a.sym)}"><span class="badge ${ALARM[a.typ]?.[1] || ""}">${ALARM[a.typ]?.[0] || esc(a.typ)}</span>
-    <div class="mid"><div class="nm">${esc(a.name)}</div><div class="sub">${fmtDate(a.datum)} · ${esc(a.text)}</div></div>${a.q != null ? signal(a.q, a.t) : ""}</a>`;
+  return `<a class="row al" href="#/scan/${encodeURIComponent(a.sym)}">
+    <div class="mid"><span class="badge ${ALARM[a.typ]?.[1] || ""}">${ALARM[a.typ]?.[0] || esc(a.typ)}</span><div class="nm">${esc(a.name)}</div><div class="sub">${fmtDate(a.datum)} · ${esc(a.text)}</div></div>${a.q != null ? signal(a.q, a.t) : ""}</a>`;
 }
 
 function fvHtml(x) {
@@ -1020,7 +1020,23 @@ function drawEntdecken() {
   const regs = ["Alle", ...["USA", "Schweiz", "Europa", "Kanada", "Asien", "Australien"].filter(r => all.some(x => x.reg === r))];
   const seks = ["Alle", ...Object.keys(S.sektoren || {}).filter(k => k !== "Andere").sort((a, b) => (SEK_DE[a] || a).localeCompare(SEK_DE[b] || b, "de"))];
   const q = F.q.trim().toLowerCase();
-  const base = all.filter(x => (F.reg === "Alle" || x.reg === F.reg) && (F.sek === "Alle" || x.sek === F.sek) && (!q || `${x.n} ${x.sym} ${x.br || ""}`.toLowerCase().includes(q)));
+  const E = F.eigen || (F.eigen = {});
+  const eigenOk = x => {
+    const a = ampOf(x.sym) || {}, d = x.d || {}, f = x.fv || {}, v = k => E[k] !== undefined && E[k] !== "" && !isNaN(+E[k]);
+    if (v("q") && (a.q ?? -1) < +E.q) return false;
+    if (v("t") && (a.t ?? -1) < +E.t) return false;
+    if (v("g") && (x.g ?? -1) < +E.g) return false;
+    if (v("fv") && !((f.potenzial ?? -999) >= +E.fv && ["niedrig", "mittel", "hoch"].includes(f.unsicher))) return false;
+    if (v("div") && (d.div_rendite ?? 0) < +E.div) return false;
+    if (v("fcf") && (d.fcf_rendite ?? -999) < +E.fcf) return false;
+    if (v("wachs") && (d.umsatz_cagr3 ?? -999) < +E.wachs) return false;
+    if (v("kgv") && !(d.kgv != null && d.kgv <= +E.kgv)) return false;
+    if (v("mc") && (x.mc ?? 0) < +E.mc) return false;
+    if (v("hoch") && (a.hoch ?? 0) < +E.hoch) return false;
+    return true;
+  };
+  const eigenAktiv = Object.values(E).some(v => v !== "" && v !== undefined);
+  const base = all.filter(x => (F.reg === "Alle" || x.reg === F.reg) && (F.sek === "Alle" || x.sek === F.sek) && (!q || `${x.n} ${x.sym} ${x.br || ""}`.toLowerCase().includes(q)) && eigenOk(x));
   const list = base.filter(x => linseOk(x, F.linse)).sort(sortFn[F.sort] || sortFn.ampel);
   const woche = (STATE.alle?.alarme || []).filter(a => daysUntil(a.datum) >= -7).slice(0, 6);
   const cnt = Object.fromEntries(LINSEN.map(([k]) => [k, base.filter(x => linseOk(x, k)).length]));
@@ -1038,7 +1054,13 @@ function drawEntdecken() {
       <div class="chips" role="group" aria-label="Region">${regs.map(r => `<button class="chip" data-er="${esc(r)}" aria-pressed="${F.reg === r}">${r === "Alle" ? "Alle Regionen" : r}</button>`).join("")}
         <select id="esek" class="chip" aria-label="Branche">${seks.map(k => `<option value="${esc(k)}" ${F.sek === k ? "selected" : ""}>${k === "Alle" ? "Alle Branchen" : esc(SEK_DE[k] || k)}</option>`).join("")}</select></div>
     </div>
-    <div class="count">${list.length} Aktien${F.linse !== "alle" ? ` · Filter «${LINSEN.find(l => l[0] === F.linse)[1]}»` : ""}</div>
+    <details class="card eigen"${eigenAktiv || F.eigenOffen ? " open" : ""} id="eigen"><summary><b>Eigener Filter</b>${eigenAktiv ? ` <span class="badge b-trig">aktiv</span>` : ""}<span class="eg-sub">Zahlen eingeben, leere Felder zählen nicht</span></summary>
+      <div class="eg-grid">${[["q", "Qualität ab", "0 bis 100, z. B. 65"], ["t", "Timing ab", "0 bis 100, z. B. 55"], ["g", "Branchennote ab", "0 bis 5, z. B. 3"], ["fv", "Fairer Wert, Potenzial ab %", "z. B. 15"],
+        ["div", "Dividendenrendite ab %", "z. B. 3"], ["fcf", "FCF-Rendite ab %", "z. B. 5"], ["wachs", "Umsatzwachstum pro Jahr ab %", "3 Jahre, z. B. 10"],
+        ["kgv", "KGV höchstens", "z. B. 20"], ["mc", "Börsenwert ab Mrd. CHF", "z. B. 20"], ["hoch", "Unter dem Jahreshoch ab %", "z. B. 20"]].map(([k, l, ph]) => `<label>${l}<input type="number" inputmode="decimal" step="any" data-eg="${k}" value="${esc(E[k] ?? "")}" placeholder="${ph}"></label>`).join("")}</div>
+      <div class="eg-bar"><button class="btn small" id="eg-go">Anwenden</button><button class="btn small" id="eg-reset">Zurücksetzen</button>
+        <button class="btn small" data-eg-preset="chance">Beispiel: Gute Firma, günstig, Wende</button></div></details>
+    <div class="count">${list.length} Aktien${F.linse !== "alle" ? ` · Filter «${LINSEN.find(l => l[0] === F.linse)[1]}»` : ""}${eigenAktiv ? " · eigener Filter aktiv" : ""}</div>
     <div class="list">${list.slice(0, F.n).map(entRow).join("") || `<div class="empty">Keine Aktie passt zu diesen Filtern.</div>`}</div>
     ${list.length > F.n ? `<button class="btn" id="emore" style="margin-top:12px;width:100%">${Math.min(40, list.length - F.n)} weitere zeigen</button>` : ""}
     <details class="more"><summary>Was die Filter bedeuten</summary><ul class="plain">
@@ -1055,6 +1077,12 @@ function drawEntdecken() {
   document.getElementById("esort").onchange = e => { F.sort = e.target.value; re(); };
   let t; document.getElementById("eq").oninput = e => { clearTimeout(t); t = setTimeout(() => { F.q = e.target.value; F.n = 40; save(); drawEntdecken(); const i = document.getElementById("eq"); i.focus(); i.setSelectionRange(i.value.length, i.value.length); }, 250); };
   const m = document.getElementById("emore"); if (m) m.onclick = () => { F.n += 40; re(); };
+  const eg = document.getElementById("eigen"); eg.ontoggle = () => { F.eigenOffen = eg.open; save(); };
+  const leseEigen = () => { $view.querySelectorAll("[data-eg]").forEach(i => { E[i.dataset.eg] = i.value.trim(); }); };
+  document.getElementById("eg-go").onclick = () => { leseEigen(); F.n = 40; re(); };
+  $view.querySelectorAll("[data-eg]").forEach(i => i.onkeydown = e => { if (e.key === "Enter") { leseEigen(); F.n = 40; re(); } });
+  document.getElementById("eg-reset").onclick = () => { F.eigen = {}; F.n = 40; re(); };
+  $view.querySelectorAll("[data-eg-preset]").forEach(b => b.onclick = () => { F.eigen = { q: "65", t: "50", fv: "15" }; F.linse = "alle"; F.n = 40; re(); });
 }
 // ---------- Strategie-Depots (wie ProPicks) ----------
 function stratPerf(st) {
