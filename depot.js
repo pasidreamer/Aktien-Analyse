@@ -114,7 +114,8 @@ function check(d, konto) {
   });
   const usd = vert(p => p.w === "GBp" ? "GBP" : p.w).find(x => x[0] === "USD")?.[1] || 0;
   if (usd > 60) hinweise.push(["info", `${a.nf(usd, 0)} % sind in US-Dollar. Fällt der Dollar gegenüber dem Franken, verlierst du auch bei gleichen Kursen.`]);
-  const kaeufe = d.tx.filter(x => x.typ === "kauf" && imKonto(x, konto) && x.grund !== "Übernahme");
+  // Nur Käufe, bei denen die App damals die Ampeln mitgespeichert hat (also in der App eingetragen)
+  const kaeufe = d.tx.filter(x => x.typ === "kauf" && imKonto(x, konto) && x.grund !== "Übernahme" && x.signal);
   const imSystem = kaeufe.filter(x => x.signal && (["in_zone", "nahe_zone", "trigger"].includes(x.signal.status) || (x.signal.pess ?? 0) >= 60 || x.signal.t >= 60)).length;
   return { offen, wert, kosten, guv: wert - kosten, guvPct: kosten ? (wert / kosten - 1) * 100 : null, real, div, divJahr, q, t, hinweise, kaeufe: kaeufe.length, imSystem,
     region: vert(p => p.s?.region || A().STATE.scan?.aktien?.[p.ticker]?.reg), waehrung: vert(p => p.w === "GBp" ? "GBP" : p.w), stil: vert(p => p.s?.tags?.[0] || d.tx.find(t => t.ticker === p.ticker && t.stil)?.stil) };
