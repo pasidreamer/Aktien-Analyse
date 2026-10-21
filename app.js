@@ -398,6 +398,7 @@ function renderHome() {
     <div class="sec"><h2>Chancen-Karte</h2><p>Jeder Punkt ist eine Aktie. Je weiter rechts oben, desto besser Firma und Zeitpunkt. Tippe auf einen Punkt.</p></div>
     ${mapHtml(list)}
 
+    <a class="banner info ent-link" href="#/entdecken"><b>Mehr Aktien im Tab «Entdecken»:</b> Hier stehen deine ${STATE.stocks.length} Aktien mit ganzer Analyse. Rund 1'500 weitere etablierte Firmen mit automatischen Ampeln, Signalen und den Strategie-Depots findest du unter «Entdecken» (Lupe unten).</a>
     <div class="sec"><h2>Alle Aktien</h2></div>
     <div class="controls" id="controls">
       <div class="search"><input id="q" type="search" placeholder="Name, Ticker oder Branche" value="${esc(STATE.filter.q)}" aria-label="Suche">

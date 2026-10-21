@@ -377,3 +377,4 @@ select.chip{appearance:auto;padding:5px 10px;color:var(--ink)}
 .stp span{font:600 22px/1.1 var(--num)} .stp em{font-style:normal;font-size:13px;color:var(--muted)}
 .stcard i{font-style:normal;font-size:12.5px;font-weight:600} .stcard .up,.stp .up{color:var(--gruen)} .stcard .down,.stp .down{color:var(--rot)}
 @media (min-width:700px){.stc{grid-auto-flow:row;grid-template-columns:repeat(3,1fr);grid-auto-columns:auto;overflow:visible}}
+.ent-link{display:block;text-decoration:none;color:inherit}
