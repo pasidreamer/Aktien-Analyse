@@ -1166,8 +1166,10 @@ function renderStrategie(id) {
       if (!(b > 0)) { el.innerHTML = `<p class="fc-cap">Betrag eingeben, dann erscheint die Einkaufsliste.</p>`; return; }
       const ziel = b / st.positionen.length; let summe = 0, fehlt = [];
       const rows = st.positionen.map(x => { const k = fx[x.w]; if (!k || x.kurs == null) { fehlt.push(x.name); return ""; }
-        const pc = x.kurs * k, n = bruch ? Math.floor(ziel / pc * 1000) / 1000 : Math.floor(ziel / pc), w = n * pc; summe += w;
-        return `<tr class="${n ? "" : "off"}"><td>${esc(x.name || x.sym)}<small>${esc(x.sym)} · ${money(x.kurs, x.w)}</small></td><td class="n">${nf(n, bruch ? 3 : 0)} Stk.</td><td class="n">${nf(w, 0)} CHF</td></tr>`; }).join("");
+        const lot = /\.T$/.test(x.sym) ? 100 : 1, hk = /\.HK$/.test(x.sym);
+        const pc = x.kurs * k, n = bruch && lot === 1 && !hk ? Math.floor(ziel / pc * 1000) / 1000 : Math.floor(ziel / pc / lot) * lot, w = n * pc; summe += w;
+        const hinweis = lot > 1 ? ` · nur in Paketen zu 100 Stück (${nf(100 * pc, 0)} CHF)` : hk ? " · Hongkong: Handel in Paketen, Grösse je Aktie in Saxo prüfen" : "";
+        return `<tr class="${n ? "" : "off"}"><td>${esc(x.name || x.sym)}<small>${esc(x.sym)} · ${money(x.kurs, x.w)}${hinweis}</small></td><td class="n">${nf(n, bruch && lot === 1 && !hk ? 3 : 0)} Stk.</td><td class="n">${nf(w, 0)} CHF</td></tr>`; }).join("");
       const zuTeuer = st.positionen.filter(x => fx[x.w] && x.kurs != null && !bruch && x.kurs * fx[x.w] > ziel).length;
       el.innerHTML = `<table class="fv-tab"><tbody>${rows}</tbody></table>
         <p class="fc-cap">Pro Aktie ${nf(ziel, 0)} CHF. Investiert ${nf(summe, 0)} CHF, Rest ${nf(b - summe, 0)} CHF.${zuTeuer ? ` ${zuTeuer} Aktie(n) sind teurer als der Anteil pro Aktie und fallen bei ganzen Stücken weg. Mehr Geld einsetzen oder Bruchteile nutzen.` : ""}${fehlt.length ? ` Ohne Wechselkurs: ${esc(fehlt.join(", "))}.` : ""}
