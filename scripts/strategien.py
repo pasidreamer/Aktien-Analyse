@@ -171,6 +171,8 @@ def main():
         o = alt["strategien"].get(st["id"]) or {}
         hist = o.get("historie", [])
         pos = o.get("positionen", [])
+        for x in pos:
+            x["w"] = x.get("w") or (scan.get(x["sym"]) or {}).get("w")
         if pos and "transaktionen" not in o:  # Startkäufe nachtragen
             o["transaktionen"] = [{"datum": x.get("seit") or o.get("start"), "art": "Kauf", "sym": x["sym"], "name": x.get("name"), "kurs": x.get("einstieg"),
                                    "w": (scan.get(x["sym"]) or {}).get("w")} for x in pos]
