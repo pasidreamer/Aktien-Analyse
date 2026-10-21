@@ -1,0 +1,43 @@
+name: Strategie-Depots und Marktampel (von Hand)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: alle
+  cancel-in-progress: false
+
+jobs:
+  rechne:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Strategien und Marktampel
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+        run: python scripts/strategien.py
+      - name: Speichern
+        run: |
+          git config user.name "aktien-ampel-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/strategien.json
+          git diff --cached --quiet || (git commit -m "Strategien $(date -u +%Y-%m-%d)" && git pull --rebase -X theirs && git push)
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - id: deploy
+        uses: actions/deploy-pages@v4
