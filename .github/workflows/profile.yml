@@ -1,0 +1,24 @@
+name: Firmenbeschreibungen holen
+# Holt die englischen Firmenprofile als Vorlage. Die Datei wird nur als Artefakt abgelegt, nicht veröffentlicht.
+on:
+  workflow_dispatch:
+    inputs:
+      nur_neue:
+        description: "Nur Firmen ohne deutsche Beschreibung (ja/nein)"
+        required: false
+        default: "nein"
+jobs:
+  hole:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python scripts/profile.py ${{ inputs.nur_neue == 'ja' && '--nur-neue' || '' }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: profile-en
+          path: data/profile_en.json
+          retention-days: 7
