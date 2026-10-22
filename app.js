@@ -1015,9 +1015,10 @@ function entRow(x) {
   const href = x.app ? `#/aktie/${encodeURIComponent(x.app)}` : `#/scan/${encodeURIComponent(x.sym)}`;
   const a = ampOf(x.sym);
   return `<a class="row er" href="${href}">${a && a.q != null ? signal(a.q, a.t) : `<span class="lamp ${noteAmpel(x.g)} er-l" title="Gesamtnote">${x.g == null ? "–" : nf(x.g, 1)}</span>`}
-    <div class="mid"><div class="nm">${esc(x.n || x.sym)}</div><div class="sub">${esc(x.sym)} · ${esc(x.land || x.reg || "")} · ${esc(SEK_DE[x.sek] || x.sek)}${x.app ? " · in der App" : ""}</div>${STATE.besch?.[x.sym]?.k ? `<div class="er-was">${esc(STATE.besch[x.sym].k)}</div>` : ""}
+    <div class="mid"><div class="nm">${esc(x.n || x.sym)}</div><div class="sub">${esc(x.sym)} · ${esc(x.land || x.reg || "")} · ${esc(SEK_DE[x.sek] || x.sek)}${x.app ? " · in der App" : ""}</div>
       <div class="er-k">${BER.map(([k, n]) => `<i title="${n} ${x.k?.[k] ?? "–"}" style="background:${x.k?.[k] == null ? "var(--surface2)" : ampelVar(noteAmpel(x.k[k]))}"></i>`).join("")}</div></div>
-    <div class="right"><div class="px">${money(x.p, x.w)}</div>${f?.potenzial != null ? `<div class="er-fv ${f.potenzial >= 15 ? "up" : f.potenzial <= -15 ? "down" : ""}">Fair ${pct(f.potenzial, 0)}</div>` : ""}</div></a>`;
+    <div class="right"><div class="px">${money(x.p, x.w)}</div>${f?.potenzial != null ? `<div class="er-fv ${f.potenzial >= 15 ? "up" : f.potenzial <= -15 ? "down" : ""}">Fair ${pct(f.potenzial, 0)}</div>` : ""}</div>
+    ${STATE.besch?.[x.sym]?.k ? `<div class="er-was">${esc(STATE.besch[x.sym].k)}</div>` : ""}</a>`;
 }
 function renderEntdecken() {
   $view.innerHTML = `<header class="top"><div><h1>Entdecken</h1><div class="stand">Lade die Liste …</div></div></header><div class="empty">Einen Moment.</div>`;
