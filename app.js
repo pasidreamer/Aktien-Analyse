@@ -225,8 +225,8 @@ function rowHtml(v) {
   const s = v.s;
   return `<a class="row" href="#/aktie/${encodeURIComponent(s.ticker)}">
     ${signal(v.q, v.t)}
-    <div class="mid"><div class="nm">${esc(s.name)}</div>
-      <div class="sub">${esc(s.ticker)} · ${esc(regionCode[s.land] || s.land)} · ${esc(s.tags[0])}${window.Depot?.bestand(s.ticker) ? " · Im Depot" : s.status !== "beobachten" ? " · " + LISTE[s.status] : ""}${STATE.notes[s.ticker]?.text?.trim() ? " · Notiz" : ""}</div>
+    <div class="mid"><div class="nm">${merkZeichen(s.ticker)}${esc(s.name)}</div>
+      <div class="sub">${esc(s.ticker)} · ${esc(regionCode[s.land] || s.land)} · ${esc(stileFuer(s.ticker).slice(0, 2).join(", ") || s.tags[0])}${window.Depot?.bestand(s.ticker) ? " · Im Depot" : s.status !== "beobachten" ? " · " + LISTE[s.status] : ""}${STATE.notes[s.ticker]?.text?.trim() ? " · Notiz" : ""}</div>
       ${v.bew?.unter || v.schub || kontra(v) ? `<div class="tags">${v.bew?.unter ? `<span class="tg tg-unter">${nf(v.bew.abschlag, 0)} % günstiger als üblich</span>` : ""}${v.schub ? '<span class="tg tg-schub">Wachstumsschub</span>' : ""}${kontra(v) ? '<span class="tg tg-kontra">Kontra-Signal</span>' : ""}</div>` : ""}</div>
     <div class="right"><div class="px">${money(v.kurs, s.waehrung)}</div><div>${chgHtml(v.chg1)}${trendArrow(v.trendT)}</div>
       ${badge(v.status)}${v.neu ? '<span class="badge b-neu">neu</span>' : ""}</div>
@@ -342,7 +342,8 @@ function filtered() {
   const f = STATE.filter, q = f.q.trim().toLowerCase();
   let list = STATE.stocks.map(view).filter(v => {
     const s = v.s;
-    if (f.stil !== "Alle" && !s.tags.includes(f.stil)) return false;
+    if (f.stil !== "Alle" && !stileFuer(s.ticker).includes(f.stil)) return false;
+    if (f.nurMerk && !window.Depot?.merk(s.ticker)) return false;
     if (f.region !== "Alle" && s.region !== f.region) return false;
     if (f.status !== "Alle" && !(f.status === "depot" ? (s.status === "depot" || window.Depot?.bestand(s.ticker)) : s.status === f.status)) return false;
     if (f.nurGut && v.q < 60) return false;
@@ -390,6 +391,7 @@ function renderHome() {
 
     ${marktHtml()}
 
+    <div id="merkslot">${merkListeHtml()}</div>
     <div class="sec"><h2>Jetzt interessant</h2><p>Qualität mindestens hellgrün und Kurs in der Zone, Trigger ausgelöst oder Timing mindestens hellgrün.</p></div>
     ${hot.length ? `<div class="hot">${hot.map(v => `<a class="hotcard" href="#/aktie/${encodeURIComponent(v.s.ticker)}">${signal(v.q, v.t)}<div><div class="nm">${esc(v.s.name)}</div><div class="tk">${esc(v.s.ticker)} · ${money(v.kurs, v.s.waehrung)}</div></div><div class="why">${esc(reason(v))}</div></a>`).join("")}</div>`
       : `<div class="empty">Gerade erfüllt keine Aktie diese Bedingungen. Die Karte unten zeigt, wer am nächsten dran ist.</div>`}
@@ -410,7 +412,7 @@ function renderHome() {
       <div class="chips" role="group" aria-label="Stil">${chipRow("stil", [["Alle", "Alle"], ...tags.map(t => [t, t])], cnt("stil"))}</div>
       <div class="chips" role="group" aria-label="Region und Liste">${chipRow("region", [["Alle", "Alle Regionen"], ...regions.map(r => [r, r])], cnt("region"))}<span class="sep"></span>
         ${chipRow("status", [["Alle", "Alle Listen"], ...["depot", "kaufliste", "beobachten"].filter(x => STATE.stocks.some(s => s.status === x || (x === "depot" && window.Depot?.bestand(s.ticker)))).map(x => [x, LISTE[x]])])}<span class="sep"></span>
-        <button class="chip" id="nurGut" aria-pressed="${STATE.filter.nurGut}">Nur Qualität ab 60</button></div>
+        <button class="chip" id="nurGut" aria-pressed="${STATE.filter.nurGut}">Nur Qualität ab 60</button><button class="chip" id="nurMerk" aria-pressed="${!!STATE.filter.nurMerk}">Nur gemerkte</button></div>
     </div>
     <div class="count">${list.length} von ${STATE.stocks.length} Aktien</div>
     <div class="list">${list.map(rowHtml).join("") || `<div class="empty">Keine Aktie passt zu diesen Filtern. Setze einen Filter auf «Alle» zurück.</div>`}</div>
@@ -419,10 +421,21 @@ function renderHome() {
   bindHome();
 }
 
+// Merkliste der Person: zuerst «Eng beobachten», dann Favoriten
+function merkListeHtml() {
+  const l = window.Depot?.merkListe() || []; if (!l.length) return "";
+  const brauchtScan = l.some(m => !STATE.stocks.some(s => s.ticker === m.key));
+  if (brauchtScan && !STATE.scan) { ensureScan().then(() => { const el = document.getElementById("merkslot"); if (el) { el.innerHTML = merkListeHtml(); } }); }
+  const zeile = m => { const s = STATE.stocks.find(y => y.ticker === m.key); if (s) return rowHtml(view(s)); const x = STATE.scan?.aktien?.[m.key]; return x ? entRow(x) : ""; };
+  const eng = l.filter(m => m.s === "eng"), fav = l.filter(m => m.s !== "eng");
+  return `<div class="sec"><h2>Deine Merkliste</h2><p>${eng.length ? `${eng.length} eng beobachtet` : ""}${eng.length && fav.length ? ", " : ""}${fav.length ? `${fav.length} Favoriten` : ""}. Merken kannst du auf jeder Aktienseite.</p></div>
+    <div class="list">${eng.map(zeile).join("")}${fav.map(zeile).join("")}</div>`;
+}
 function bindHome() {
   const save = () => store.set("filter", STATE.filter);
   $view.querySelectorAll(".chip[data-f]").forEach(b => b.onclick = () => { STATE.filter[b.dataset.f] = b.dataset.v; save(); renderKeepScroll(); });
   const ng = document.getElementById("nurGut"); ng.onclick = () => { STATE.filter.nurGut = !STATE.filter.nurGut; save(); renderKeepScroll(); };
+  document.getElementById("nurMerk").onclick = () => { STATE.filter.nurMerk = !STATE.filter.nurMerk; save(); renderKeepScroll(); };
   const q = document.getElementById("q");
   q.oninput = () => { STATE.filter.q = q.value; save(); updateList(); };
   document.getElementById("sort").onchange = e => { STATE.filter.sort = e.target.value; save(); renderKeepScroll(); };
@@ -689,7 +702,9 @@ function renderDetail(ticker) {
         <div><b>Timing ${v.t} (${ampelName[ampel(v.t)]}) ${dl(v.dt, "seit Analyse")}</b>Ist jetzt der Zeitpunkt?</div></div></div>
     ${bannerTxt ? `<div class="banner ${bannerTxt[0]}">${esc(bannerTxt[1])}</div>` : ""}
 
+    ${merkHtml(s.ticker)}
     <div id="firmaslot">${firmaHtml(s.symbol)}</div>
+    <div id="stilslot"></div>
     <div class="sec"><h2>Kurz gesagt</h2></div>
     <p class="fazit">${esc(s.fazit)}</p>
     <div class="actions">
@@ -899,6 +914,83 @@ function ensureScan(force) {
   return scanPromise;
 }
 const scanOf = s => STATE.scan?.aktien?.[s.symbol] || null;
+// ---------- Stil-Einordnung: zu welcher Strategie passt die Aktie? ----------
+// Automatisch aus den Kennzahlen (bei den 43 analysierten Aktien aus der Analyse). Jede Person kann es für sich anpassen.
+const STIL_INFO = {
+  Wachstum: "Umsatz und Gewinn wachsen deutlich schneller als die Wirtschaft. Du kaufst vor allem für steigende Kurse, Dividende ist Nebensache.",
+  Dividende: "Zahlt eine überdurchschnittliche Dividende, die seit Jahren gezahlt und vom Gewinn gedeckt ist. Gut für regelmässiges Einkommen.",
+  Dividendenwachstum: "Heute eine kleinere Dividende, aber die Firma wächst und schüttet nur einen Teil des Gewinns aus. So kann die Dividende über Jahre stark steigen.",
+  Cashflow: "Verdient viel freies Geld im Verhältnis zum Börsenwert und hat die Schulden im Griff. Das Geld fliesst in Rückkäufe, Dividenden oder Schuldenabbau.",
+  "Qualität": "Sehr profitabel mit hoher Kapitalrendite. Solche Firmen verdienen auch in schwachen Jahren gut.",
+  Defensiv: "Schwankt weniger als der Markt, weil die Produkte immer gebraucht werden (Essen, Medizin, Strom).",
+  Spekulativ: "Verdient noch kein freies Geld oder schwankt sehr stark. Nur kleine Beträge, hohes Risiko."
+};
+const STILE = Object.keys(STIL_INFO);
+function stileAuto(x) {
+  if (!x) return [];
+  const d = x.d || {}, k = x.k || {}, o = [];
+  if ((d.umsatz_cagr3 ?? 0) >= 10 && (k.wachstum ?? 0) >= 3.5) o.push("Wachstum");
+  if (d.div_rendite >= 2.5 && (d.ausschuettung ?? 999) < 85 && (d.div_serie ?? 0) >= 3) o.push("Dividende");
+  if ((d.div_rendite ?? 0) >= 0.8 && (d.div_serie ?? 0) >= 5 && (d.ausschuettung ?? 999) <= 60 && Math.max(d.eps_cagr3 ?? 0, d.umsatz_cagr3 ?? 0) >= 8) o.push("Dividendenwachstum");
+  if (d.fcf_rendite >= 5 && (d.netto_cash || (d.schulden_fcf ?? 99) <= 3) && (k.cashflow ?? 0) >= 3) o.push("Cashflow");
+  if ((k.profit ?? 0) >= 3.5 && (x.g ?? 0) >= 3) o.push("Qualität");
+  if ((d.beta ?? 9) <= 0.7 && ["Consumer Defensive", "Healthcare", "Utilities"].includes(x.sek) && (k.profit ?? 0) >= 2.5) o.push("Defensiv");
+  if ((d.fcf_marge ?? 0) < 0 || (d.op_marge ?? 0) < 0 || (d.beta ?? 0) >= 1.8) o.push("Spekulativ");
+  return o;
+}
+function stileFuer(key, x) {
+  const eigen = window.Depot?.stil(key); if (eigen) return eigen;
+  const s = STATE.stocks.find(y => y.ticker === key);
+  if (s) { const a = stileAuto(x || scanOf(s)); return [...new Set([...s.tags.filter(t => STIL_INFO[t]), ...a.filter(t => t === "Dividendenwachstum")])]; }
+  return stileAuto(x);
+}
+function stilGrund(st, x) {
+  const d = x?.d || {}; if (!x) return "";
+  if (st === "Wachstum") return d.umsatz_cagr3 != null ? `Umsatz +${nf(d.umsatz_cagr3, 0)} % pro Jahr (3 Jahre)` : "";
+  if (st === "Dividende") return d.div_rendite != null ? `${nf(d.div_rendite, 1)} % Dividendenrendite${d.div_serie ? `, ${d.div_serie_max ? "seit mindestens " : ""}${d.div_serie} Jahre erhöht` : ""}` : "";
+  if (st === "Dividendenwachstum") return d.div_rendite != null ? `${nf(d.div_rendite, 1)} % Rendite, nur ${nf(d.ausschuettung, 0)} % vom Gewinn ausgeschüttet, Gewinn +${nf(Math.max(d.eps_cagr3 ?? 0, d.umsatz_cagr3 ?? 0), 0)} % pro Jahr` : "";
+  if (st === "Cashflow") return d.fcf_rendite != null ? `FCF-Rendite ${nf(d.fcf_rendite, 1)} %, ${d.netto_cash ? "mehr Cash als Schulden" : `Schulden in ${nf(d.schulden_fcf, 1)} Jahren FCF bezahlt`}` : "";
+  if (st === "Qualität") return d.roic != null ? `Kapitalrendite (ROIC) ${nf(d.roic, 0)} %, operative Marge ${nf(d.op_marge, 0)} %` : "";
+  if (st === "Defensiv") return d.beta != null ? `Beta ${nf(d.beta, 1)}: schwankt weniger als der Markt` : "";
+  if (st === "Spekulativ") return (d.fcf_marge ?? 0) < 0 ? `Free-Cashflow-Marge ${nf(d.fcf_marge, 0)} %: verbrennt noch Geld` : d.beta != null ? `Beta ${nf(d.beta, 1)}: schwankt sehr stark` : "";
+  return "";
+}
+const stilTags = list => list.length ? `<div class="tags">${list.map(t => `<span class="tg st-${t.replace(/[^A-Za-z]/g, "")}">${t}</span>`).join("")}</div>` : "";
+// Merk-Knöpfe und Stil-Karte auf den Aktienseiten
+function merkHtml(key) {
+  const m = window.Depot?.merk(key);
+  return `<div class="merk" data-key="${esc(key)}"><button type="button" class="merk-b" data-m="favorit" aria-pressed="${m === "favorit"}">★ Favorit</button><button type="button" class="merk-b" data-m="eng" aria-pressed="${m === "eng"}">◉ Eng beobachten</button></div>`;
+}
+function bindMerk(root = document) {
+  root.querySelectorAll(".merk").forEach(box => box.querySelectorAll(".merk-b").forEach(b => b.onclick = async () => {
+    const neu = b.getAttribute("aria-pressed") === "true" ? null : b.dataset.m;
+    box.querySelectorAll(".merk-b").forEach(x => x.setAttribute("aria-pressed", x.dataset.m === neu));
+    await window.Depot?.setMerk(box.dataset.key, neu);
+  }));
+}
+function stilKarte(key, x, edit) {
+  const eigen = window.Depot?.stil(key), list = stileFuer(key, x);
+  if (edit) return `<div class="card stilk" data-key="${esc(key)}"><h3>Passt zu welcher Strategie?</h3><p class="dp-note">Tippe an, was für dich passt. Das gilt nur für dich.</p>
+    <div class="stil-edit">${STILE.map(t => `<button type="button" class="chip" data-st="${t}" aria-pressed="${list.includes(t)}">${t}</button>`).join("")}</div>
+    <div class="dp-actions"><button class="btn small primary" type="button" data-stil="speichern">Speichern</button><button class="btn small" type="button" data-stil="auto">Automatisch</button><button class="btn small" type="button" data-stil="ab">Abbrechen</button></div></div>`;
+  return `<div class="card stilk" data-key="${esc(key)}"><div class="ch-head"><h3>Passt zu</h3><button class="jump" type="button" data-stil="edit">Anpassen</button></div>
+    ${list.length ? `<ul class="stil-l">${list.map(t => { const g = stilGrund(t, x); return `<li><span class="tg st-${t.replace(/[^A-Za-z]/g, "")}">${t}</span><span>${esc(STIL_INFO[t])}${g ? `<em>${esc(g)}</em>` : ""}</span></li>`; }).join("")}</ul>`
+      : `<p class="dp-note">Passt zu keinem Stil klar. Die Kennzahlen sind überall durchschnittlich.</p>`}
+    <p class="dp-note">${eigen ? "Von dir angepasst." : STATE.stocks.some(s => s.ticker === key) ? "Aus deiner Analyse." : "Automatisch aus den Kennzahlen."}</p></div>`;
+}
+function bindStil(slot, key, x) {
+  const draw = edit => { slot.innerHTML = stilKarte(key, x, edit); bindStil(slot, key, x); };
+  slot.querySelectorAll("[data-st]").forEach(b => b.onclick = () => b.setAttribute("aria-pressed", b.getAttribute("aria-pressed") !== "true"));
+  slot.querySelectorAll("[data-stil]").forEach(b => b.onclick = async () => {
+    const a = b.dataset.stil;
+    if (a === "edit") return draw(true);
+    if (a === "ab") return draw(false);
+    if (a === "auto") await window.Depot?.setStil(key, null);
+    if (a === "speichern") await window.Depot?.setStil(key, [...slot.querySelectorAll("[data-st][aria-pressed=true]")].map(y => y.dataset.st));
+    draw(false);
+  });
+}
+function fuelleStil(key, x) { const slot = document.getElementById("stilslot"); if (!slot) return; slot.innerHTML = stilKarte(key, x, false); bindStil(slot, key, x); }
 // Kurze Firmenbeschreibung auf Deutsch (data/beschreibung.json)
 function firmaHtml(sym) {
   const b = STATE.besch?.[sym]; if (!b?.t) return "";
@@ -982,6 +1074,7 @@ function scanSlot(s) {
   // Platzhalter im Detail, wird gefüllt, sobald scan.json geladen ist
   setTimeout(() => ensureScan().then(() => {
     const fs = document.getElementById("firmaslot"); if (fs && !fs.innerHTML.trim()) fs.innerHTML = firmaHtml(s.symbol);
+    fuelleStil(s.ticker, scanOf(s)); bindMerk();
     const el = document.getElementById("scanslot"); if (!el) return;
     const x = scanOf(s);
     el.innerHTML = x ? scanBlock(x) : `<div class="sec"><h2>Branchenvergleich und fairer Wert</h2></div><div class="empty">${STATE.scan?.fehlt ? "Die Vergleichsdaten werden am Samstag zum ersten Mal gerechnet." : "Für diese Aktie fehlen noch Vergleichsdaten. Sie kommen mit dem nächsten Wochenlauf."}</div>`;
@@ -990,10 +1083,12 @@ function scanSlot(s) {
 }
 
 // ---------- Entdecken: alle Aktien aus dem Universum ----------
-const LINSEN = [["alle", "Alle"], ["ampel", "Ampel grün"], ["unter", "Unterbewertet"], ["dividende", "Dividende"], ["cashflow", "Cashflow"], ["wachstum", "Wachstum"], ["qualitaet", "Qualität"]];
+const LINSEN = [["alle", "Alle"], ["gemerkt", "Gemerkt"], ["ampel", "Ampel grün"], ["unter", "Unterbewertet"], ["Dividende", "Dividende"], ["Dividendenwachstum", "Dividendenwachstum"], ["Cashflow", "Cashflow"], ["Wachstum", "Wachstum"], ["Qualität", "Qualität"], ["Defensiv", "Defensiv"], ["Spekulativ", "Spekulativ"]];
 const linseOk = (x, l) => {
   const d = x.d || {}, k = x.k || {}, f = x.fv || {};
   if (l === "ampel") { const a = ampOf(x.sym); return !!a && (a.q ?? 0) >= 60 && a.t >= 60; }
+  if (l === "gemerkt") return !!window.Depot?.merk(x.app || x.sym);
+  if (STIL_INFO[l]) return stileFuer(x.app || x.sym, x).includes(l);
   if (l === "unter") return f.potenzial >= 20 && ["niedrig", "mittel"].includes(f.unsicher) && (x.g ?? 0) >= 2.5;
   if (l === "dividende") return d.div_rendite >= 2.5 && (d.ausschuettung ?? 999) < 85 && (d.div_serie ?? 0) >= 3;
   if (l === "cashflow") return d.fcf_rendite >= 5 && (d.netto_cash || (d.schulden_fcf ?? 99) <= 3) && (k.cashflow ?? 0) >= 3;
@@ -1010,15 +1105,16 @@ const sortFn = {
   wachs: (a, b) => (b.d?.umsatz_cagr3 ?? -999) - (a.d?.umsatz_cagr3 ?? -999), mom: (a, b) => (b.d?.mom_12_1 ?? -999) - (a.d?.mom_12_1 ?? -999),
   mc: (a, b) => (b.mc ?? 0) - (a.mc ?? 0), name: (a, b) => (a.n || "").localeCompare(b.n || "", "de")
 };
+const merkZeichen = key => { const m = window.Depot?.merk(key); return m === "eng" ? '<span class="mz eng" title="Eng beobachten">◉</span>' : m === "favorit" ? '<span class="mz" title="Favorit">★</span>' : ""; };
 function entRow(x) {
   const f = x.fv;
   const href = x.app ? `#/aktie/${encodeURIComponent(x.app)}` : `#/scan/${encodeURIComponent(x.sym)}`;
   const a = ampOf(x.sym);
   return `<a class="row er" href="${href}">${a && a.q != null ? signal(a.q, a.t) : `<span class="lamp ${noteAmpel(x.g)} er-l" title="Gesamtnote">${x.g == null ? "–" : nf(x.g, 1)}</span>`}
-    <div class="mid"><div class="nm">${esc(x.n || x.sym)}</div><div class="sub">${esc(x.sym)} · ${esc(x.land || x.reg || "")} · ${esc(SEK_DE[x.sek] || x.sek)}${x.app ? " · in der App" : ""}</div>
+    <div class="mid"><div class="nm">${merkZeichen(x.app || x.sym)}${esc(x.n || x.sym)}</div><div class="sub">${esc(x.sym)} · ${esc(x.land || x.reg || "")} · ${esc(SEK_DE[x.sek] || x.sek)}${x.app ? " · in der App" : ""}</div>
       <div class="er-k">${BER.map(([k, n]) => `<i title="${n} ${x.k?.[k] ?? "–"}" style="background:${x.k?.[k] == null ? "var(--surface2)" : ampelVar(noteAmpel(x.k[k]))}"></i>`).join("")}</div></div>
     <div class="right"><div class="px">${money(x.p, x.w)}</div>${f?.potenzial != null ? `<div class="er-fv ${f.potenzial >= 15 ? "up" : f.potenzial <= -15 ? "down" : ""}">Fair ${pct(f.potenzial, 0)}</div>` : ""}</div>
-    ${STATE.besch?.[x.sym]?.k ? `<div class="er-was">${esc(STATE.besch[x.sym].k)}</div>` : ""}</a>`;
+    ${STATE.besch?.[x.sym]?.k ? `<div class="er-was">${esc(STATE.besch[x.sym].k)}</div>` : ""}<div class="er-st">${stilTags(stileFuer(x.app || x.sym, x))}</div></a>`;
 }
 function renderEntdecken() {
   $view.innerHTML = `<header class="top"><div><h1>Entdecken</h1><div class="stand">Lade die Liste …</div></div></header><div class="empty">Einen Moment.</div>`;
@@ -1026,6 +1122,8 @@ function renderEntdecken() {
 }
 function drawEntdecken() {
   const S = STATE.scan, F = STATE.ent || (STATE.ent = store.get("ent", { linse: "alle", reg: "Alle", sek: "Alle", sort: "ampel", q: "", n: 40 }));
+  const ALT_L = { dividende: "Dividende", cashflow: "Cashflow", wachstum: "Wachstum", qualitaet: "Qualität" };
+  if (ALT_L[F.linse]) F.linse = ALT_L[F.linse]; if (!LINSEN.some(l => l[0] === F.linse)) F.linse = "alle";
   if (!S || S.fehlt || !Object.keys(S.aktien || {}).length) {
     $view.innerHTML = `<header class="top"><div><h1>Entdecken</h1></div></header><div class="empty">Die Liste wird gerade zum ersten Mal gerechnet. Schau in einer Stunde wieder rein.</div>`; return;
   }
@@ -1219,7 +1317,9 @@ function renderScanDetail(sym) {
     $view.innerHTML = `<a class="back" href="#/entdecken"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>Entdecken</a>
       <div class="dhead"><h1>${esc(x.n || x.sym)}</h1><div class="meta">${esc(x.sym)} · ${esc(x.land || x.reg || "")} · ${esc(SEK_DE[x.sek] || x.sek)}${x.br ? " · " + esc(x.br) : ""}</div>
         <div class="dprice"><span class="px">${money(x.p, x.w)}</span></div><div class="meta">${x.idx?.length ? "Im Index " + esc(x.idx.join(", ")) + " · " : ""}Börsenwert ${nf(x.mc, x.mc >= 10 ? 0 : 1)} Mrd. CHF</div></div>
+      ${merkHtml(x.app || x.sym)}
       ${firmaHtml(x.sym)}
+      <div id="stilslot"></div>
       ${(() => { const a = ampOf(x.sym); return a && a.q != null ? `<div class="scores">${signal(a.q, a.t, true)}
         <div class="lbl"><div><b>Qualität ${a.q} (${ampelName[ampel(a.q)]})</b>Automatisch aus dem Branchenvergleich</div><div><b>Timing ${a.t} (${ampelName[ampel(a.t)]})</b>Automatisch, Stand ${fmtDate(a.d)}</div></div></div>` : ""; })()}
       ${istAdmin() ? `<div class="banner info">Automatische Ampeln. Für Kaufzonen, Trigger, Sorgen und Wachstumsschub braucht es die ganze Analyse. Fordere sie an, wenn dich die Aktie interessiert.</div>
@@ -1236,6 +1336,7 @@ function renderScanDetail(sym) {
         ${fact("Operative Marge", d.op_marge, " %")}${fact("ROIC", d.roic, " %")}${fact("Free-Cashflow-Marge", d.fcf_marge, " %")}${d.netto_cash ? "<dt>Schulden</dt><dd>Mehr Cash als Schulden</dd>" : fact("Schulden in Jahren FCF", d.schulden_fcf)}
         ${fact("Aktienzahl pro Jahr", d.aktien_pa, " %")}${fact("Kurs 12 Monate", d.mom_12_1, " %")}${fact("Unter dem Jahreshoch", d.unter_hoch, " %")}</dl></div>
       <p class="fc-cap">Keine Anlageberatung.</p>`;
+    fuelleStil(x.app || x.sym, x); bindMerk();
     const f = document.getElementById("wunsch-form");
     if (!f) { bindVorschlagKarte(x); scrollTo(0, 0); return; }
     f.onsubmit = async e => { e.preventDefault(); const msg = document.getElementById("wmsg"); msg.hidden = false;

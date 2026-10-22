@@ -16,7 +16,7 @@ const leer = () => ({ tx: [], manuell: {}, konten: [], ts: 0 });
 const lkey = () => "depot_v2_" + (SB()?.ich()?.id || "gast");
 function normal(d) {
   d = { ...leer(), ...(d || {}) };
-  d.tx = Array.isArray(d.tx) ? d.tx : []; d.manuell = d.manuell || {}; d.konten = Array.isArray(d.konten) ? d.konten : [];
+  d.tx = Array.isArray(d.tx) ? d.tx : []; d.manuell = d.manuell || {}; d.konten = Array.isArray(d.konten) ? d.konten : []; d.merk = d.merk || {}; d.stil = d.stil || {};
   const ks = new Set(d.konten);
   d.tx.forEach(t => { if (t.konto && !ks.has(t.konto)) { d.konten.push(t.konto); ks.add(t.konto); } });
   if (!d.konten.length) d.konten = ["Hauptdepot"];
@@ -363,6 +363,12 @@ window.Depot = {
   },
   laden,
   bestand(ticker) { try { const p = positionen(lesen()).find(x => x.ticker === ticker && x.stueck > 0); return p || null; } catch { return null; } },
-  vergessen() { D = null; UID = null; }
+  vergessen() { D = null; UID = null; },
+  // Merkliste und eigene Stil-Einordnung: gehören zur Person, liegen mit im privaten Journal
+  merk(key) { return lesen().merk[key]?.s || null; },
+  merkListe() { return Object.entries(lesen().merk).map(([key, v]) => ({ key, ...v })).sort((a, b) => (a.s === "eng" ? 0 : 1) - (b.s === "eng" ? 0 : 1) || b.ts - a.ts); },
+  async setMerk(key, s) { const d = lesen(); if (s) d.merk[key] = { s, ts: Date.now() }; else delete d.merk[key]; await schreiben(d); },
+  stil(key) { return lesen().stil[key] || null; },
+  async setStil(key, arr) { const d = lesen(); if (arr) d.stil[key] = arr; else delete d.stil[key]; await schreiben(d); }
 };
 })();
