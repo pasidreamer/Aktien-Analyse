@@ -689,6 +689,7 @@ function renderDetail(ticker) {
         <div><b>Timing ${v.t} (${ampelName[ampel(v.t)]}) ${dl(v.dt, "seit Analyse")}</b>Ist jetzt der Zeitpunkt?</div></div></div>
     ${bannerTxt ? `<div class="banner ${bannerTxt[0]}">${esc(bannerTxt[1])}</div>` : ""}
 
+    <div id="firmaslot">${firmaHtml(s.symbol)}</div>
     <div class="sec"><h2>Kurz gesagt</h2></div>
     <p class="fazit">${esc(s.fazit)}</p>
     <div class="actions">
@@ -892,11 +893,19 @@ function ensureScan(force) {
   if (!scanPromise || force) scanPromise = Promise.all([
     getJSON("data/scan.json").then(j => (STATE.scan = j)).catch(() => (STATE.scan = { aktien: {}, sektoren: {}, fehlt: true })),
     getJSON("data/alle.json").then(j => (STATE.alle = j)).catch(() => (STATE.alle = null)),
-    getJSON("data/strategien.json").then(j => (STATE.strat = j)).catch(() => (STATE.strat = null))
+    getJSON("data/strategien.json").then(j => (STATE.strat = j)).catch(() => (STATE.strat = null)),
+    getJSON("data/beschreibung.json").then(j => (STATE.besch = j.firmen || {})).catch(() => (STATE.besch = {}))
   ]).then(() => STATE.scan);
   return scanPromise;
 }
 const scanOf = s => STATE.scan?.aktien?.[s.symbol] || null;
+// Kurze Firmenbeschreibung auf Deutsch (data/beschreibung.json)
+function firmaHtml(sym) {
+  const b = STATE.besch?.[sym]; if (!b?.t) return "";
+  const host = (b.web || "").replace(/^https?:\/\//, "").replace(/\/.*$/, "");
+  const fakten = [b.ort ? "Sitz: " + esc(b.ort) : "", b.ma ? nf(b.ma, 0) + " Mitarbeitende" : "", host ? `<a href="${esc(b.web)}" target="_blank" rel="noopener">${esc(host)}</a>` : ""].filter(Boolean).join(" · ");
+  return `<div class="card firma"><h3>Was macht die Firma?</h3><p>${esc(b.t)}</p>${fakten ? `<p class="firma-f">${fakten}</p>` : ""}</div>`;
+}
 const ampOf = sym => STATE.alle?.aktien?.[sym] || null;
 const T_TEILE = [["Trend Woche (EMA 50/200)", 20], ["Trend Tag (EMA 50/200)", 10], ["Struktur", 20], ["RSI Tag und Woche", 15], ["A/D-Linie", 20], ["Smart Money", 10], ["Saisonalität", 5]];
 const ALARM = { timing: ["Timing grün", "b-trig"], golden: ["Golden Cross", "b-zone"], kontra: ["Kontra-Chance", "b-warn"], fairwende: ["Unterbewertet und Wende", "b-zone"] };
@@ -972,6 +981,7 @@ function scanBlock(x) {
 function scanSlot(s) {
   // Platzhalter im Detail, wird gefüllt, sobald scan.json geladen ist
   setTimeout(() => ensureScan().then(() => {
+    const fs = document.getElementById("firmaslot"); if (fs && !fs.innerHTML.trim()) fs.innerHTML = firmaHtml(s.symbol);
     const el = document.getElementById("scanslot"); if (!el) return;
     const x = scanOf(s);
     el.innerHTML = x ? scanBlock(x) : `<div class="sec"><h2>Branchenvergleich und fairer Wert</h2></div><div class="empty">${STATE.scan?.fehlt ? "Die Vergleichsdaten werden am Samstag zum ersten Mal gerechnet." : "Für diese Aktie fehlen noch Vergleichsdaten. Sie kommen mit dem nächsten Wochenlauf."}</div>`;
@@ -1005,7 +1015,7 @@ function entRow(x) {
   const href = x.app ? `#/aktie/${encodeURIComponent(x.app)}` : `#/scan/${encodeURIComponent(x.sym)}`;
   const a = ampOf(x.sym);
   return `<a class="row er" href="${href}">${a && a.q != null ? signal(a.q, a.t) : `<span class="lamp ${noteAmpel(x.g)} er-l" title="Gesamtnote">${x.g == null ? "–" : nf(x.g, 1)}</span>`}
-    <div class="mid"><div class="nm">${esc(x.n || x.sym)}</div><div class="sub">${esc(x.sym)} · ${esc(x.land || x.reg || "")} · ${esc(SEK_DE[x.sek] || x.sek)}${x.app ? " · in der App" : ""}</div>
+    <div class="mid"><div class="nm">${esc(x.n || x.sym)}</div><div class="sub">${esc(x.sym)} · ${esc(x.land || x.reg || "")} · ${esc(SEK_DE[x.sek] || x.sek)}${x.app ? " · in der App" : ""}</div>${STATE.besch?.[x.sym]?.k ? `<div class="er-was">${esc(STATE.besch[x.sym].k)}</div>` : ""}
       <div class="er-k">${BER.map(([k, n]) => `<i title="${n} ${x.k?.[k] ?? "–"}" style="background:${x.k?.[k] == null ? "var(--surface2)" : ampelVar(noteAmpel(x.k[k]))}"></i>`).join("")}</div></div>
     <div class="right"><div class="px">${money(x.p, x.w)}</div>${f?.potenzial != null ? `<div class="er-fv ${f.potenzial >= 15 ? "up" : f.potenzial <= -15 ? "down" : ""}">Fair ${pct(f.potenzial, 0)}</div>` : ""}</div></a>`;
 }
@@ -1038,7 +1048,7 @@ function drawEntdecken() {
     return true;
   };
   const eigenAktiv = Object.values(E).some(v => v !== "" && v !== undefined);
-  const base = all.filter(x => (F.reg === "Alle" || x.reg === F.reg) && (F.sek === "Alle" || x.sek === F.sek) && (!q || `${x.n} ${x.sym} ${x.br || ""}`.toLowerCase().includes(q)) && eigenOk(x));
+  const base = all.filter(x => (F.reg === "Alle" || x.reg === F.reg) && (F.sek === "Alle" || x.sek === F.sek) && (!q || `${x.n} ${x.sym} ${x.br || ""} ${STATE.besch?.[x.sym]?.k || ""}`.toLowerCase().includes(q)) && eigenOk(x));
   const list = base.filter(x => linseOk(x, F.linse)).sort(sortFn[F.sort] || sortFn.ampel);
   const woche = (STATE.alle?.alarme || []).filter(a => daysUntil(a.datum) >= -7).slice(0, 6);
   const cnt = Object.fromEntries(LINSEN.map(([k]) => [k, base.filter(x => linseOk(x, k)).length]));
@@ -1208,6 +1218,7 @@ function renderScanDetail(sym) {
     $view.innerHTML = `<a class="back" href="#/entdecken"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>Entdecken</a>
       <div class="dhead"><h1>${esc(x.n || x.sym)}</h1><div class="meta">${esc(x.sym)} · ${esc(x.land || x.reg || "")} · ${esc(SEK_DE[x.sek] || x.sek)}${x.br ? " · " + esc(x.br) : ""}</div>
         <div class="dprice"><span class="px">${money(x.p, x.w)}</span></div><div class="meta">${x.idx?.length ? "Im Index " + esc(x.idx.join(", ")) + " · " : ""}Börsenwert ${nf(x.mc, x.mc >= 10 ? 0 : 1)} Mrd. CHF</div></div>
+      ${firmaHtml(x.sym)}
       ${(() => { const a = ampOf(x.sym); return a && a.q != null ? `<div class="scores">${signal(a.q, a.t, true)}
         <div class="lbl"><div><b>Qualität ${a.q} (${ampelName[ampel(a.q)]})</b>Automatisch aus dem Branchenvergleich</div><div><b>Timing ${a.t} (${ampelName[ampel(a.t)]})</b>Automatisch, Stand ${fmtDate(a.d)}</div></div></div>` : ""; })()}
       ${istAdmin() ? `<div class="banner info">Automatische Ampeln. Für Kaufzonen, Trigger, Sorgen und Wachstumsschub braucht es die ganze Analyse. Fordere sie an, wenn dich die Aktie interessiert.</div>

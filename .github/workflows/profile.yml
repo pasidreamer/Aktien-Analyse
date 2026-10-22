@@ -7,6 +7,8 @@ on:
         description: "Nur Firmen ohne deutsche Beschreibung (ja/nein)"
         required: false
         default: "nein"
+permissions:
+  contents: write
 jobs:
   hole:
     runs-on: ubuntu-latest
@@ -17,8 +19,14 @@ jobs:
         with:
           python-version: "3.12"
       - run: python scripts/profile.py ${{ inputs.nur_neue == 'ja' && '--nur-neue' || '' }}
-      - uses: actions/upload-artifact@v4
-        with:
-          name: profile-en
-          path: data/profile_en.json
-          retention-days: 7
+      # Verschlüsselt ablegen (nur Claude hat den privaten Schlüssel), damit die Texte nicht öffentlich sind
+      - name: Verschlüsseln und auf eigenen Zweig legen
+        run: |
+          mkdir -p /tmp/aus
+          openssl rand -out /tmp/k.bin 32
+          openssl enc -aes-256-cbc -pbkdf2 -salt -in data/profile_en.json -out /tmp/aus/profile_en.enc -pass file:/tmp/k.bin
+          openssl pkeyutl -encrypt -pubin -inkey scripts/profil_pub.pem -pkeyopt rsa_padding_mode:oaep -in /tmp/k.bin -out /tmp/aus/profile_en.key
+          cd /tmp/aus && git init -q && git checkout -q -b profil-daten
+          git config user.name "github-actions" && git config user.email "actions@github.com"
+          git add . && git commit -q -m "Profile (verschlüsselt) $(date -u +%F)"
+          git push -q -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" profil-daten
