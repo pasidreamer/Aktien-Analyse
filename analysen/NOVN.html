@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Novartis Aktien-Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F3F5F7; --surface:#FFFFFF; --ink:#141B24; --muted:#5A6573; --line:#DDE2E8; --grid:#E9EDF1;
+  --accent:#2F45B5; --accent-soft:#E6E9F8; --chip:#EBEEF2;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+  --good:#1D7A4B; --good-bg:#E3F3EA; --warn:#9A6200; --warn-bg:#FBF0DC; --bad:#B2362A; --bad-bg:#FBE6E3;
+  --zone-sup:rgba(29,122,75,.10); --zone-res:rgba(178,54,42,.09);
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+    --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+    --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+    --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+  --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+  --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;padding-inline:16px;padding-block:24px 56px}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+h1,h2,h3{font-family:var(--display);font-stretch:85%;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:clamp(32px,7vw,48px);font-weight:800;line-height:1}
+h2{font-size:24px;font-weight:700}
+h3{font-size:17px;font-weight:700;font-stretch:95%}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+section{display:flex;flex-direction:column;gap:14px}
+.lead{max-width:68ch;color:var(--muted)}
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;align-items:stretch}
+.hero .id{display:flex;flex-direction:column;gap:10px;justify-content:space-between}
+.price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price b{font-family:var(--display);font-size:34px;font-weight:700}
+.meta{font-size:13px;color:var(--muted)}
+.verdict{font-size:15px;padding:12px 14px;border-radius:10px;background:var(--chip)}
+.scales{display:flex;flex-direction:column;gap:18px}
+.scale-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.scale-h span{font-size:13px;color:var(--muted)}
+.scale-h b{font-family:var(--display);font-size:28px;line-height:1}
+.track{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#C8412F 0%,#E0892F 30%,#E3B63A 50%,#8BBF4B 68%,#2E9A5B 100%);margin-top:8px}
+.pin{position:absolute;top:-5px;width:4px;height:22px;border-radius:2px;background:var(--ink);box-shadow:0 0 0 2px var(--surface);transform:translateX(-2px)}
+.ticks{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);font-family:var(--mono);margin-top:6px}
+.state{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;margin-top:8px}
+.st-good{background:var(--good-bg);color:var(--good)}
+.st-warn{background:var(--warn-bg);color:var(--warn)}
+.st-bad{background:var(--bad-bg);color:var(--bad)}
+/* tables */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;color:var(--muted);font-weight:500;font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:700;border-bottom:none}
+.pts{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{height:6px;border-radius:3px;background:var(--chip);min-width:60px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:3px}
+/* grids */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;border-left:4px solid var(--line)}
+.kpi.g{border-left-color:var(--good)}.kpi.w{border-left-color:var(--warn)}.kpi.b{border-left-color:var(--bad)}
+.kpi span{font-size:12px;color:var(--muted)}
+.kpi b{font-family:var(--mono);font-size:19px;font-weight:500;font-variant-numeric:tabular-nums}
+.kpi em{font-style:normal;font-size:12.5px;color:var(--muted)}
+/* charts */
+.chart{position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:14px;height:3px;border-radius:2px;display:inline-block}
+.swb{width:12px;height:10px;border-radius:2px;display:inline-block}
+.tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12.5px;box-shadow:0 4px 14px rgba(0,0,0,.12);white-space:nowrap;z-index:2}
+.tip b{font-family:var(--mono);font-weight:500}
+.tip .d{font-family:var(--mono);color:var(--muted);font-size:11.5px}
+.note{font-size:13.5px;color:var(--muted)}
+ul.clean{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.pro li::marker{color:var(--good)} .con li::marker{color:var(--bad)}
+.zones{display:flex;flex-direction:column;gap:8px}
+.zone{display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:baseline;padding:10px 12px;border-radius:10px;background:var(--chip);font-size:14px}
+.zone b{font-family:var(--mono);font-weight:500}
+.zone.r{border-left:4px solid var(--bad)} .zone.s{border-left:4px solid var(--good)} .zone.t{border-left:4px solid var(--accent)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+summary{cursor:pointer;font-weight:600}
+details p{margin-top:8px;color:var(--muted);max-width:70ch}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+footer{font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:6px;max-width:80ch}
+footer a{color:var(--accent)}
+@media (max-width:760px){.hero,.two{grid-template-columns:1fr}.zone{grid-template-columns:1fr;gap:2px}}
+</style>
+
+<a href="../index.html#/aktie/NOVN" style="display:inline-block;margin:max(12px,env(safe-area-inset-top)) 0 0 16px;background:#1f3a5f;color:#fff;font:600 14px system-ui;padding:8px 12px;border-radius:20px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">Zurück zur App</a>
+<div class="wrap">
+
+<header class="hero">
+  <div class="card id">
+    <div>
+      <div class="eyebrow">Aktien-Check · 22.10.2026</div>
+      <h1>Novartis</h1>
+      <p class="meta">Novartis AG · SIX Swiss Exchange: NOVN, in New York als ADR: NVS · Medikamente (Kisqali, Cosentyx, Kesimpta, Entresto, Pluvicto) · Basel, Schweiz</p>
+    </div>
+    <div class="price"><b>128.88 CHF</b><span class="meta">Schluss 22.10.2026 · 52 Wochen: rund 97 – 132.68 CHF · Allzeithoch 132.68 CHF (Tageshoch 3.9.2026)</span></div>
+    <p class="verdict"><b>Kurz gesagt:</b> Novartis steckt 2026 in einem Patent-Loch: Entresto (2025 noch 7.7 Mrd. USD Umsatz) hat in den USA Nachahmer bekommen und verliert die Hälfte. Darum wächst der Umsatz kaum (ohne Währungen: 1. Quartal −5 %, 2. Quartal +1 %) und der Kerngewinn sinkt 2026 leicht. Neue Mittel wachsen aber stark: Kisqali +44 %, Scemblix +89 %, Pluvicto +43 % (2. Quartal). Ab 2027 erwartet Novartis wieder Gewinnwachstum. Die Aktie steht trotzdem fast am Allzeithoch und ist nicht mehr günstig (KGV 24, auf Kerngewinn 18). Qualität gelb (51), Timing hellgrün (62), aber der Kurs ist weit weg von den Kaufzonen. Nächste Zahlen am 27.10.2026. Keine Anlageberatung.</p>
+  </div>
+  <div class="card scales">
+    <div>
+      <div class="scale-h"><span>Qualität · Ist die Firma kaufenswert?</span><b id="q-val">51</b></div>
+      <div class="track"><i class="pin" id="q-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-warn">▲ Gemischt</span>
+    </div>
+    <div>
+      <div class="scale-h"><span>Timing · Ist jetzt der Zeitpunkt?</span><b id="t-val">62</b></div>
+      <div class="track"><i class="pin" id="t-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-good">● Einstieg in Zonen möglich</span>
+    </div>
+    <p class="note">Skala: unter 30 rot · 30–45 orange · 45–60 gelb · 60–75 hellgrün · ab 75 grün. Beide Werte setzen sich aus festen Kriterien zusammen, siehe unten.</p>
+  </div>
+</header>
+
+<section>
+  <h2>Was die Firma macht</h2>
+  <p class="lead">Novartis aus Basel stellt nur noch neue, patentgeschützte Medikamente her. Die Generika-Sparte Sandoz wurde im Oktober 2023 abgespalten. Vier Schwerpunkte: Herz und Stoffwechsel (Entresto, Leqvio), Immunologie (Cosentyx, Rhapsido), Nervensystem (Kesimpta, Zolgensma) und Krebs (Kisqali, Pluvicto, Scemblix). Die grössten Medikamente 2025: Entresto 7.7 Mrd. USD, Cosentyx 6.7 Mrd., Kisqali 4.8 Mrd., Kesimpta 4.4 Mrd. Die USA bringen rund 40 % des Umsatzes, Europa rund 31 %, Wachstumsmärkte rund 28 % (China 2.5 Mrd. USD im 1. Halbjahr 2026). Novartis berichtet in US-Dollar, die Aktie wird in Franken gehandelt. Im Februar 2026 kaufte Novartis die US-Firma Avidity für rund 12 Mrd. USD (Medikamente für seltene Muskelkrankheiten). Chef ist Vas Narasimhan.</p>
+  <p class="lead">Die Aktie stieg von 82.96 CHF (9.4.2025, Zollschock) auf ein Allzeithoch von 132.68 CHF (3.9.2026). Treiber: starke neue Medikamente, Rückkäufe von 8.9 Mrd. USD im Jahr 2025 und ein Abkommen mit der US-Regierung (19.12.2025): Novartis senkt einige US-Preise, investiert 23 Mrd. USD in den USA und erwartet dafür 3 Jahre ohne Pharma-Zölle. Am 28.4.2026 enttäuschten die Zahlen zum 1. Quartal (Kerngewinn pro Aktie −13 %), die Aktie fiel auf rund 110 CHF. Das 2. Quartal (21.7.) war 12 % besser als erwartet. Im September kamen zwei Rückschläge: Pelacarsen (Herz, 4.9.) und Del-desiran aus dem Avidity-Kauf (8.9.) verfehlten ihr Studienziel. Das ADR fiel an einem Tag um 13.9 %, der Kurs in Franken bis 110.30 CHF. Positiv: Remibrutinib war am 1.9. in zwei grossen Studien gegen Multiple Sklerose erfolgreich. Seither hat sich die Aktie fast ganz erholt.</p>
+</section>
+
+<section>
+  <h2>Fundamental: die Zahlen</h2>
+  <div class="kpis">
+<div class="kpi w"><span>Umsatzwachstum</span><b>+2.7 %</b><em>Letzte 12 Monate in Dollar. Ohne Währungseffekte etwa 0 %: 1. Quartal 2026 −5 %, 2. Quartal +1 %. Grund: Nachahmer für Entresto, Promacta, Tasigna kosten 2026 rund 4 Mrd. USD Umsatz.</em></div>
+<div class="kpi g"><span>Kern-Marge</span><b>38.8 %</b><em>Von 100 Dollar Umsatz bleiben 38.80 Dollar Kern-Betriebsgewinn (ohne Abschreibungen auf Zukäufe, letzte 12 Monate). Ausgewiesen: 32.8 %. Sehr hoch. 2025: 40.1 %.</em></div>
+<div class="kpi w"><span>Kerngewinn pro Aktie</span><b>8.68 USD</b><em>Letzte 12 Monate (eigene Rechnung), 2025: 8.98 USD. 2026 leicht sinkend erwartet, ab 2027 wieder Wachstum laut Novartis. Ausgewiesen: 6.61 USD.</em></div>
+<div class="kpi g"><span>ROIC</span><b>18.8 %</b><em>Auf 100 Dollar investiertes Kapital rund 19 Dollar Gewinn. Gut. 2025 waren es 24.5 %, gesunken durch den Avidity-Kauf.</em></div>
+<div class="kpi g"><span>Free Cashflow</span><b>16.8 Mrd. USD</b><em>Letzte 12 Monate. Sehr hoch und seit 2022 (13.3 Mrd.) gestiegen, im 1. Halbjahr 2026 aber −9 %.</em></div>
+<div class="kpi w"><span>Nettoschulden / EBITDA</span><b>1.7</b><em>Nettoschulden 39.4 Mrd. USD (30.6.2026, nach dem Avidity-Kauf), rund 1.7 Jahresgewinne vor Abschreibungen. Gut tragbar, aber stark gestiegen (Ende 2025: 21.9 Mrd.).</em></div>
+<div class="kpi r"><span>KGV</span><b>24</b><em>Du zahlst 24 Jahresgewinne (ausgewiesen). Eigener Schnitt 2021–2025: 17.1. Rund 40 % teurer als üblich. Auf den Kerngewinn rund 18, erwartet 2026 rund 17.7.</em></div>
+<div class="kpi w"><span>Dividende</span><b>2.9 %</b><em>3.70 CHF pro Aktie, einmal im Jahr (Ex-Tag 10.3.2026, bezahlt am 12.3.2026). 29 Erhöhungen in Folge seit 1996.</em></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>Umsatz pro Quartal (Mrd. USD)</h3>
+      <p class="note">Nettoumsatz laut Novartis. 3 der letzten 4 Quartale über dem Vorjahr (Q3 25 +8 %, Q4 25 +1 %, Q1 26 −1 %, Q2 26 +3 %). Q4 24 und Q1 26 sind gerundete Firmenangaben.</p>
+      <div class="chart" id="c-rev"></div>
+    </div>
+    <div class="card">
+      <h3>Kern-Marge (%)</h3>
+      <p class="note">Kern-Betriebsgewinn pro 100 Dollar Umsatz, wie Novartis ihn meldet. 2021 mit Sandoz, ab 2022 ohne. Von 35 % auf 40 % gestiegen, 2026 wegen der Nachahmer-Medikamente leicht tiefer.</p>
+      <div class="chart" id="c-margin"></div>
+    </div>
+  </div>
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Jahr</th><th class="num">Umsatz Mrd. USD</th><th class="num">Wachstum</th><th class="num">Op. Marge</th><th class="num">EPS USD</th><th class="num">Free Cashflow</th><th class="num">ROIC</th><th class="num">KGV</th></tr></thead>
+      <tbody id="fin-rows"></tbody>
+    </table>
+  </div>
+  <p class="note"><b>Hinweis:</b> Umsatz, Marge, EPS, FCF, ROIC und KGV in der Tabelle laut StockAnalysis, ausgewiesen in USD (Umsatz inkl. Lizenzerlöse, darum höher als der Nettoumsatz). EPS 2021 ist durch den Verkauf der Roche-Beteiligung aufgebläht, 2023 durch die Sandoz-Abspaltung (ohne sie 4.13 USD). Darum schwankt das KGV stark. Kerngewinn pro Aktie: 6.47 (2023), 7.81 (2024), 8.98 USD (2025).</p>
+</section>
+
+<section>
+  <h2>Qualität: 51 von 100</h2>
+  <div class="card tbl"><table id="q-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Technik: Wochenchart (2 Jahre)</h2>
+  <div class="card">
+    <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span><span><i class="swb" style="background:var(--zone-sup);border:1px solid var(--good)"></i>Unterstützung</span><span><i class="swb" style="background:var(--zone-res);border:1px solid var(--bad)"></i>Widerstand</span></div>
+    <div class="chart" id="c-week"></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>A/D-Linie, Woche</h3>
+      <p class="note">Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Positiv: Die Wochen-A/D steigt seit Ende 2024 mit dem Kurs (452 → 573) und steht heute höher als bei den Hochs im Februar (570) und August (568).</p>
+      <div class="chart" id="c-adw"></div>
+    </div>
+    <div class="card">
+      <h3>RSI, Woche</h3>
+      <p class="note">Unter 30 überverkauft, über 70 überkauft. Im Februar 2026 bei 81 (überkauft), im September nach den Studien-Rückschlägen bei 42, heute 57: neutral bis stark.</p>
+      <div class="chart" id="c-rsiw"></div>
+    </div>
+  </div>
+
+  <h2>Technik: Tageschart (1 Jahr)</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Kurs, Tag</h3>
+      <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span></div>
+      <div class="chart" id="c-day"></div>
+    </div>
+    <div class="card">
+      <h3>A/D-Linie, Tag</h3>
+      <p class="note">Warnung: Die Tages-A/D fällt seit Februar (114 → 79), obwohl der Kurs heute fast so hoch steht wie damals. Beim Allzeithoch am 3.9. stand sie bei 93, heute bei 79. Der Anstieg seit dem 5.10. wird von weniger Käufern getragen.</p>
+      <div class="chart" id="c-add"></div>
+    </div>
+  </div>
+
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Indikator</th><th>Tag</th><th>Woche</th><th>Bedeutung</th></tr></thead>
+      <tbody>
+<tr><td>Kurs vs. EMA 50</td><td class="pts">128.9 &gt; 121.6</td><td class="pts">128.9 &gt; 117.5</td><td>Über der mittelfristigen Linie, auf beiden Zeitebenen.</td></tr>
+<tr><td>Kurs vs. EMA 200</td><td class="pts">128.9 &gt; 118.7</td><td class="pts">128.9 &gt; 101.0</td><td>Deutlich über der langfristigen Linie, besonders in der Woche (+28 %).</td></tr>
+<tr><td>EMA 50 vs. EMA 200</td><td class="pts">50 über 200 (goldenes Kreuz seit 15.8.2025)</td><td class="pts">50 über 200 (seit Dezember 2016)</td><td>Aufwärtstrend auf beiden Zeitebenen.</td></tr>
+<tr><td>RSI (14)</td><td class="pts">67.5</td><td class="pts">57.4</td><td>Tag nahe überkauft, Woche neutral.</td></tr>
+<tr><td>A/D</td><td class="pts">fällt seit Februar</td><td class="pts">steigt seit Ende 2024</td><td>Woche positiv, Tag negativ.</td></tr>
+<tr><td>Volumen</td><td colspan="2">Ø 20 Tage 3.09 Mio. vs. Ø 100 Tage 2.87 Mio. Aktien</td><td>Etwas mehr Handel als üblich.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Struktur und Zonen (Smart Money Concept)</h2>
+  <p class="lead">Novartis läuft seit Februar 2026 in einer breiten Spanne zwischen rund 108 und 133 CHF. Hochs: 131 CHF (27.2.), 128.92 CHF (2.7.), 131.50 CHF (29.7.) und 132.68 CHF (3.9., Allzeithoch). Tiefs: 113.64 CHF (23.3.), 108.24 CHF (28.4.), 111.48 CHF (3.6.), 121.02 CHF (14.8.) und nach den Studien-Rückschlägen 110.30 CHF (9.9.). Seit diesem Tief steigt der Kurs mit höheren Tiefs (115.94 CHF am 5.10.) und schloss am 15.10. über dem Hoch vom 30.9. (122.54 CHF): ein Break of Structure nach oben im Tageschart. Der Kurs steht jetzt aber im teuren oberen Teil der Spanne, direkt unter dem Allzeithoch. Ein echter Ausbruch wäre ein Wochenschluss über 133 CHF.</p>
+  <div class="zones">
+<div class="zone r"><b>131–132.70 CHF</b><span>Widerstand: Allzeithochs von Februar, Juli und September.</span></div>
+<div class="zone t"><b>133 CHF</b><span><b>Trigger:</b> Tagesschluss über 133 CHF (neues Allzeithoch), besser mit steigender Tages-A/D. Oder ein Rücksetzer in Kaufzone 1 mit höherem Tief.</span></div>
+<div class="zone s"><b>116–121 CHF</b><span><b>Kaufzone 1:</b> Tiefs August (121.02) und Oktober (115.94 CHF), Tages-EMA 200 (118.70 CHF).</span></div>
+<div class="zone s"><b>108–111.50 CHF</b><span><b>Kaufzone 2:</b> Tiefs April (108.24), Juni (111.48) und September (110.30 CHF).</span></div>
+<div class="zone r"><b>107 CHF</b><span>Abbruch: Wochenschluss unter 107 CHF, also unter dem Tief vom April. Dann wäre die Spanne nach unten gebrochen.</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Smart Money, Insider und Saisonalität</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Wer kauft, wer verkauft?</h3>
+      <ul class="clean" style="margin-top:8px">
+<li><b>Rückkäufe:</b> Programm über bis 10 Mrd. USD, davon Ende Juni 2026 noch 5.6 Mrd. offen. 2025 kaufte Novartis Aktien für 8.9 Mrd. USD zurück (rund 3 % des Börsenwerts). Die Aktienzahl sank seit 2021 von 2.24 auf 1.91 Mrd.</li>
+<li><b>Insider:</b> Manager verkauften von Oktober 2025 bis Oktober 2026 rund 271'500 Aktien für rund 31.9 Mio. CHF, vor allem im Februar 2026 (117 bis 124 CHF). Nur ein kleiner Kauf (3'112 Aktien zu 114.20 CHF am 30.1.2026). Manager erhalten Aktien als Lohn und verkaufen oft, das Signal ist trotzdem negativ.</li>
+<li><b>Analysten:</b> 21 Analysten bei cash.ch: 6 Kaufen, 13 Neutral, 2 Verkaufen. Kursziel im Schnitt 125 CHF (Spanne 95 bis 150 CHF), also unter dem Kurs. Morgan Stanley senkte am 6.10. von 135 auf 130 CHF, Goldman Sachs: Verkaufen, Ziel 113 CHF (1.10.).</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Saisonalität seit 1995</h3>
+      <p class="note">Durchschnittliche Monatsrendite in %. 31 Jahre Daten (seit 1995). Juni (+1.7 %, 69 %), April (+1.3 %, 65 %) und November (+1.9 %, 61 %) sind stark, Januar (−0.8 %, 39 %) und Oktober (+0.1 %, 42 %) schwach. Dezember gemischt (58 %).</p>
+      <div class="chart" id="c-seas"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Timing: 62 von 100</h2>
+  <div class="card tbl"><table id="t-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Worauf du achten solltest: Unterbewertung und Wachstumsschub</h2>
+  <div class="card"><h3>Was die Börse befürchtet</h3><p class="note" style="margin:4px 0">Echte Probleme, eher lösbar: Die Generika-Verluste und die zwei Studien-Flops sind echt, aber vorhersehbar bzw. einmalig, während die neuen Medikamente (Kisqali, Kesimpta, Pluvicto, Scemblix, Leqvio) mit 30–90 % pro Jahr wachsen und das Volumen im 2. Quartal 2026 um 18 Prozentpunkte zulegte.</p><ul class="clean"><li>Novartis verliert gerade den Patentschutz für alte Kassenschlager: Entresto (Herz) brach im 2. Quartal 2026 in den USA wegen Nachahmer-Medikamenten (Generika) um 50 % auf 1.18 Mrd. USD ein, Promacta (−64 %) und Tasigna (−57 %) ebenso. Insgesamt kosten die Generika 2026 laut Firma rund 4 Mrd. USD Umsatz.</li><li>Darum erwartet Novartis für 2026 nur ein kleines Umsatzplus und einen leicht sinkenden Kern-Betriebsgewinn (Gewinn ohne Sondereffekte). Im 1. Quartal 2026 fiel der Kern-Gewinn pro Aktie um 13 %.</li><li>Im September 2026 scheiterten zwei grosse Hoffnungsträger in der letzten Studienphase: Pelacarsen (Herz, 04.09.2026) und Del-desiran (Muskelkrankheit, 08.09.2026). Del-desiran stammt aus dem Kauf von Avidity für rund 12 Mrd. USD. Die US-Aktie (ADR) fiel am 08.09.2026 um 13.9 %.</li><li>Die Nettoschulden (Schulden minus Bargeld) stiegen bis Ende Juni 2026 auf 39.4 Mrd. USD (Ende 2025: 21.9 Mrd.), vor allem wegen Avidity. Dazu drücken US-Preisregeln: Novartis hat sich im Dezember 2025 verpflichtet, neue Medikamente in den USA zu ähnlichen Preisen wie in anderen reichen Ländern einzuführen.</li></ul><h3 style="margin-top:12px">Was die Sorgen beenden könnte</h3><ul class="clean"><li>Die Zahlen zum 3. Quartal zeigen, dass das Wachstum der neuen Medikamente die Generika-Verluste überholt (Umsatz zu konstanten Währungen wieder klar im Plus) und Novartis die Jahresprognose bestätigt <span class="muted">(Zahlen 27.10.2026)</span></li><li>Novartis bestätigt die Rückkehr zu Gewinnwachstum für 2027 und nennt eine konkrete Prognose für 2027 <span class="muted">(Jahreszahlen 03.02.2027)</span></li><li>Zulassungsantrag und erste Zulassungsschritte für Remibrutinib bei Multipler Sklerose sowie Entscheid zu Ianalumab bei Sjögren (Antrag seit 1. Quartal 2026 eingereicht) <span class="muted">(2027 (genaue Daten nicht gefunden))</span></li><li>Klarheit, wie es mit den restlichen Avidity-Programmen weitergeht und ob Novartis den Kaufpreis teilweise abschreiben muss <span class="muted">(Zahlen 27.10.2026 / 03.02.2027)</span></li></ul><h3 style="margin-top:12px">Wachstumsschub: Wachstumsschub möglich</h3><ul class="clean"><li><b>Neue Medikamente wachsen schnell:</b> Kisqali (Brustkrebs) erzielte im 2. Quartal 2026 1.70 Mrd. USD (+44 %), Kesimpta (MS) 1.42 Mrd. (+32 %), Scemblix (Blutkrebs) 0.56 Mrd. (+89 %), Pluvicto (Prostatakrebs) 0.65 Mrd. (+43 %), Leqvio (Cholesterin) 0.48 Mrd. (+61 %). Diese Produkte haben schon Umsätze und Zulassungen. Wenn die Generika-Welle 2027 abebbt, kann ihr Wachstum wieder voll durchschlagen. <span class="muted">(2027–2028)</span></li><li><b>Remibrutinib (Rhapsido) als neue Tablette gegen MS:</b> Remibrutinib ist als Rhapsido gegen chronischen Nesselausschlag zugelassen (USA; EU und Japan im 2. Quartal 2026), aber erst mit 64 Mio. USD Umsatz im 2. Quartal. Am 01.09.2026 war es in zwei grossen MS-Studien besser als das Vergleichsmedikament. Analysten trauen dem Mittel laut Reuters bis zu 9 Mrd. USD Spitzenumsatz pro Jahr zu, falls alle Anwendungen gelingen. <span class="muted">(MS-Zulassung frühestens 2027/2028 (nicht verifiziert))</span></li><li><b>Ianalumab und weitere Zukäufe:</b> Ianalumab gegen die Autoimmunkrankheit Sjögren ist in den USA, der EU und Japan eingereicht und hat von der US-Behörde einen Sonderstatus (Breakthrough) erhalten. Dazu kommen kleinere Zukäufe (Myricx, Abogen). Das ist wichtig, aber im Vergleich zu rund 55 Mrd. USD Umsatz noch klein und unbewiesen. <span class="muted">(2027–2029)</span></li></ul><p style="margin:10px 0 0"><b>Woran du es erkennst:</b> Achte auf zwei Zahlen: Das Umsatzwachstum zu konstanten Währungen (Q1 2026: −5 %, Q2 2026: +1 %) sollte im 3. und 4. Quartal deutlich positiv werden, und der Kern-Gewinn pro Aktie sollte das Vorjahr (Q3 2025: 2.25 USD) wieder übertreffen. Ausserdem die Quartalsumsätze von Rhapsido (Q2 2026: 64 Mio. USD).</p><p style="margin:10px 0 0"><b>Das Chancen-Szenario:</b> Kein klassischer Fall wie Google 2023, denn die Wachstumsmedikamente sind bekannt und die Aktie steht nahe am Allzeithoch (131.62 CHF am 01.09.2026). Chance: Wenn ab 2027 die Generika-Delle vorbei ist, wächst Novartis mit Kisqali, Kesimpta, Pluvicto und später Remibrutinib wieder spürbar, und das Kern-KGV von rund 18 wirkt dann günstig, plus knapp 3 % Dividende und Rückkäufe. Grösstes Risiko: weitere Studien-Flops wie im September 2026, eine Abschreibung auf Avidity und strengere US-Preisregeln, dann bleibt das Wachstum mager.</p><p class="note" style="margin:10px 0 0">Quellen: <a href="https://www.sec.gov/Archives/edgar/data/0001114448/000111444826000012/nvs-20260630-99_1.htm" target="_blank" rel="noopener">Novartis Q2/H1 2026 Bericht (SEC 6-K, 21.07.2026)</a>, <a href="https://whbl.com/2026/09/01/novartis-oral-multiple-sclerosis-drug-meets-main-goal-in-late-stage-studies/" target="_blank" rel="noopener">Reuters via WHBL: Novartis oral multiple sclerosis drug meets main goal (01.09.2026)</a>, <a href="https://www.vermoegenszentrum.ch/en/stock-exchange-and-markets/news/novartis-misses-primary-endpoint-myotonic-dystrophy-study" target="_blank" rel="noopener">Vermögenszentrum: Novartis misses primary endpoint in myotonic dystrophy study (08.09.2026)</a>, <a href="https://www.tctmd.com/news/lpahorizon-top-line-results-dash-hopes-pelacarsen" target="_blank" rel="noopener">TCTMD: Lp(a)HORIZON Top-line Results Dash Hopes for Pelacarsen (08.09.2026)</a>, <a href="https://www.novartis.com/us-en/news/media-releases/novartis-and-us-government-reach-agreement-lowering-drug-prices-us" target="_blank" rel="noopener">Novartis: Agreement with US government on lowering drug prices (19.12.2025)</a></p></div>
+</section>
+
+<section>
+  <h2>Dividende</h2>
+  <div class="card tbl"><table><tr><td style="white-space:nowrap;color:var(--muted)">Wie oft</td><td>1× pro Jahr (jährlich)</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Ex-Tag im</td><td>März</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Geld auf dem Konto im</td><td>März</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Zahltage</td><td>Mitte März, wenige Tage nach der Generalversammlung</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Letzte Zahlung</td><td>3.70 CHF pro Aktie</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Rendite</td><td>2.9 %</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">System</td><td>Schweizer System: eine Dividende pro Jahr, beschlossen an der Generalversammlung Anfang März und ein paar Tage später ausbezahlt (2026: Ex-Tag 10.3., Zahltag 12.3.). Auf Schweizer Dividenden werden 35 % Verrechnungssteuer abgezogen, die du als Person mit Wohnsitz in der Schweiz mit der Steuererklärung zurückbekommst.</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Form</td><td>Bar in Franken aufs Konto. Abzug von 35 % Verrechnungssteuer, die du mit der Steuererklärung zurückbekommst.</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Geschichte</td><td>29 Erhöhungen in Folge seit der Gründung 1996, nie gesenkt.</td></tr></table><p class="note" style="margin:10px 0 0"><b>Ex-Tag:</b> Du bekommst die Dividende nur, wenn du die Aktie am Abend vor dem Ex-Tag besitzt. <b>Zahltag:</b> An diesem Tag kommt das Geld aufs Konto (in der Währung der Aktie, abzüglich Quellensteuer). Die nächsten genauen Termine zeigt die App unter «Termine».</p></div>
+</section>
+
+<section>
+  <h2>Pro und Contra</h2>
+  <div class="two">
+    <div class="card pro"><h3>Spricht dafür</h3><ul class="clean" style="margin-top:8px">
+<li>Starke neue Medikamente: Kisqali +44 %, Kesimpta +32 %, Pluvicto +43 %, Scemblix +89 % (2. Quartal 2026).</li>
+<li>Remibrutinib (Rhapsido) war im September in zwei grossen Studien gegen Multiple Sklerose erfolgreich. Analysten sehen bis 9 Mrd. USD Spitzenumsatz.</li>
+<li>Sehr hohe Marge (Kern 38.8 %) und Free Cashflow von 16.8 Mrd. USD pro Jahr.</li>
+<li>Grosse Rückkäufe und 29 Dividendenerhöhungen in Folge.</li>
+<li>Abkommen mit der US-Regierung bringt laut Novartis 3 Jahre ohne Pharma-Zölle.</li>
+    </ul></div>
+    <div class="card con"><h3>Spricht dagegen</h3><ul class="clean" style="margin-top:8px">
+<li>Patent-Loch: Entresto, Promacta, Tasigna verlieren 2026 zusammen rund 4 Mrd. USD Umsatz, der Kerngewinn sinkt 2026 leicht.</li>
+<li>Zwei Studien-Rückschläge im September, darunter das wichtigste Mittel aus dem 12-Mrd.-Kauf von Avidity. Anwälte prüfen Sammelklagen.</li>
+<li>Nicht mehr günstig: KGV 24 gegen eigenen Schnitt von 17, Kurs über dem mittleren Kursziel der Analysten.</li>
+<li>Druck auf US-Preise (rund 40 % des Umsatzes): Preise drücken das Wachstum um 3 bis 4 Prozentpunkte.</li>
+<li>Manager verkauften für rund 32 Mio. CHF Aktien, Tages-A/D fällt.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section>
+  <h2>Was jetzt zu tun ist</h2>
+  <div class="zones">
+<div class="zone t"><b>Beobachten</b><span>Alarm bei 121 CHF (oberes Ende Kaufzone 1) und 133 CHF (Trigger). Am 27.10. auf die Zahlen achten.</span></div>
+<div class="zone s"><b>Timing grün</b><span>Rücksetzer in Kaufzone 1 (116 bis 121 CHF) mit höherem Tief und drehender Tages-A/D, oder Wochenschluss über 133 CHF. Fundamental: Ohne Währungen wieder Umsatzwachstum und Bestätigung der Prognose 2026.</span></div>
+<div class="zone r"><b>Abbruch</b><span>Wochenschluss unter 107 CHF.</span></div>
+<div class="zone "><b>Nächste Zahlen</b><span>27. Oktober 2026 (3. Quartal, bestätigt). Jahreszahlen am 3. Februar 2027.</span></div>
+  </div>
+</section>
+
+<footer>
+  <span>Kursdaten und Indikatoren (EMA, RSI 14, A/D) selbst berechnet aus Yahoo-Finance-Tages-, Wochen- und Monatsdaten, Stand 22.10.2026. <a href="https://stockanalysis.com/stocks/nvs/financials/ratios/" target="_blank" rel="noopener">StockAnalysis.com</a> (Stand 22.10.2026), <a href="https://www.sec.gov/Archives/edgar/data/0001114448/000111444826000012/nvs-20260630-99_1.htm" target="_blank" rel="noopener">Novartis Zahlen 2. Quartal 2026</a>, <a href="https://www.sec.gov/Archives/edgar/data/1114448/000111444826000007/a260204-99_1.htm" target="_blank" rel="noopener">Novartis Jahreszahlen 2025</a>, <a href="https://www.novartis.com/us-en/news/media-releases/novartis-and-us-government-reach-agreement-lowering-drug-prices-us" target="_blank" rel="noopener">Abkommen mit der US-Regierung</a>, <a href="https://www.vermoegenszentrum.ch/en/stock-exchange-and-markets/news/novartis-misses-primary-endpoint-myotonic-dystrophy-study" target="_blank" rel="noopener">Del-desiran (8.9.2026)</a>, <a href="https://ch.marketscreener.com/kurs/aktie/NOVARTIS-AG-9364983/unternehmen-insider-transaktionen/" target="_blank" rel="noopener">Insider (MarketScreener)</a>, <a href="https://www.cash.ch/aktien/novartis-n-1200526" target="_blank" rel="noopener">Kursziele (cash.ch)</a>. Branchenvergleich der App: Note 3.3 von 5, fairer Wert rund 5 % über dem Kurs, Unsicherheit hoch.</span>
+  <span>Persönliche Analyse, keine Anlageberatung. Vergangene Kurse und Saisonalität sagen nichts Sicheres über die Zukunft.</span>
+</footer>
+</div>
+
+<script>
+const Q=[["Umsatztrend", "3 von 4 Quartalen über Vorjahr, Tempo zuletzt tief", 8, 15], ["Wachstumstempo", "+2.7 % in 12 Monaten, ohne Währungen rund 0 % (Generika)", 0, 10], ["Operative Marge", "Kern 38.8 %, ausgewiesen 32.8 % (9 Pkt.), 5 Jahre steigend, 2026 leicht tiefer (5 Pkt.)", 14, 15], ["Gewinnwachstum (EPS)", "Kerngewinn 2023–2025 stark gestiegen, 2026 leicht rückläufig erwartet", 5, 10], ["Free Cashflow", "Hoch, meist steigend, 1. Halbjahr 2026 aber −9 %", 6, 10], ["ROIC", "18.8 % (10 Pkt.), nach Anstieg wieder gesunken (±0)", 10, 15], ["Schulden", "Nettoschulden/EBITDA rund 1.7", 7, 10], ["Bewertung vs. eigene Historie", "KGV 24 statt Ø 17.1, über 30 % teurer (auf Kerngewinn rund 18)", 1, 15]];
+const T=[["Trend Woche (EMA 50/200)", "Kurs über beiden, EMA 50 deutlich über 200", 19, 20], ["Trend Tag (EMA 50/200)", "Kurs über beiden, EMA 50 über 200", 9, 10], ["Struktur (SMC)", "Break of Structure nach oben am 15.10., aber Kurs im teuren Teil der Spanne", 12, 20], ["RSI Tag/Woche", "Tag 67.5 (nahe überkauft), Woche 57", 6, 15], ["A/D Tag/Woche", "Woche steigt, Tag fällt seit Februar", 10, 20], ["Smart Money", "Start 3, grosser Rückkauf (+3), gehäufte Insider-Verkäufe (−3)", 3, 10], ["Saisonalität", "November 61 %, Dezember 58 %, Januar 39 % positive Jahre", 3, 5]];
+const FIN=[["2021", 43974, "−11.9 %", "24.9 %", 10.63, 14005, "13.3 %", "8.2"], ["2022", 43461, "−1.2 %", "21.2 %", 3.17, 13320, "11.1 %", "28.0"], ["2023", 46660, "+7.4 %", "21.9 %", 7.1, 13398, "15.1 %", "14.0"], ["2024", 51722, "+10.9 %", "31.6 %", 5.87, 16253, "23.6 %", "16.4"], ["2025", 56674, "+9.6 %", "33.5 %", 7.15, 17596, "24.5 %", "19.0"], ["Letzte 12 Mt.", 56693, "+2.7 %", "32.8 %", 6.61, 16763, "18.8 %", "24.0"]];
+const HALF=[["Q3 24", 12.82], ["Q4 24", 13.2], ["Q1 25", 13.23], ["Q2 25", 14.05], ["Q3 25", 13.91], ["Q4 25", 13.34], ["Q1 26", 13.1], ["Q2 26", 14.41]];
+const MARGIN=[["2021", 32.1], ["2022", 35.1], ["2023", 36.0], ["2024", 38.7], ["2025", 40.1], ["12 Mt.", 38.8]];
+const SEAS=[-0.8, 0.9, 0.7, 1.3, 0.6, 1.7, 0.6, -0.4, 1.1, 0.1, 1.9, 0.7];
+const SEASHIT=[39.0, 58.0, 55.0, 65.0, 59.0, 69.0, 53.0, 50.0, 59.0, 42.0, 61.0, 58.0];
+const MON=["Jan","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"];
+const W=`2024-10-28,95.49,93.42,84.28,48,451.9;2024-11-04,92.86,93.4,84.37,43,436.8;2024-11-11,91.71,93.33,84.44,41,428.1;2024-11-18,93.68,93.34,84.53,46,441.6;2024-11-25,93.27,93.34,84.62,45,455.2;2024-12-02,89.81,93.2,84.67,39,439.6;2024-12-09,87.74,92.99,84.7,36,429.5;2024-12-16,86.72,92.74,84.72,34,420.6;2024-12-23,88.82,92.59,84.76,40,425.3;2024-12-30,89.02,92.45,84.8,40,428.5;2025-01-06,91.09,92.4,84.87,46,436.6;2025-01-13,89.32,92.28,84.91,42,421;2025-01-20,90.26,92.2,84.96,44,425.8;2025-01-27,95.58,92.33,85.07,55,433;2025-02-03,96.83,92.51,85.19,58,432.4;2025-02-10,95.37,92.62,85.29,54,417;2025-02-17,98.15,92.83,85.42,59,434.1;2025-02-24,97.66,93.02,85.54,58,425.2;2025-03-03,100.92,93.33,85.69,63,441.7;2025-03-10,96.35,93.45,85.8,53,427.5;2025-03-17,99.23,93.68,85.93,58,446.1;2025-03-24,98.62,93.87,86.06,56,456.2;2025-03-31,92.03,93.8,86.12,45,436.7;2025-04-07,86.09,93.5,86.12,38,439.1;2025-04-14,90.63,93.39,86.16,45,452.9;2025-04-21,92.54,93.35,86.22,48,461.9;2025-04-28,94.21,93.39,86.3,50,469.3;2025-05-05,90.91,93.29,86.35,46,455.7;2025-05-12,91.47,93.22,86.4,47,470.1;2025-05-19,92.76,93.2,86.46,49,472;2025-05-26,94.03,93.23,86.54,51,474.4;2025-06-02,97.08,93.38,86.64,55,483.4;2025-06-09,97.16,93.53,86.75,55,480.3;2025-06-16,94.89,93.58,86.83,51,465.4;2025-06-23,96.18,93.69,86.92,53,468.7;2025-06-30,98.12,93.86,87.03,56,472.3;2025-07-07,96.23,93.95,87.13,53,461.4;2025-07-14,92.29,93.89,87.18,46,447;2025-07-21,92.85,93.85,87.23,47,448.6;2025-07-28,94.19,93.86,87.3,50,446;2025-08-04,94.06,93.87,87.37,49,449.3;2025-08-11,99.49,94.09,87.49,58,461.7;2025-08-18,101.96,94.4,87.63,62,466.6;2025-08-25,101.16,94.66,87.77,60,462.9;2025-09-01,103.98,95.03,87.93,64,470.3;2025-09-08,98.85,95.18,88.04,54,458.9;2025-09-15,97.77,95.28,88.14,52,461.1;2025-09-22,98.4,95.4,88.24,53,464;2025-09-29,105.22,95.79,88.41,62,476.6;2025-10-06,104.96,96.15,88.57,62,466.2;2025-10-13,104.22,96.46,88.73,60,470;2025-10-20,104.08,96.76,88.88,60,466.3;2025-10-27,99.27,96.86,88.98,51,461.1;2025-11-03,102,97.06,89.11,55,468.5;2025-11-10,104.42,97.35,89.27,58,473.2;2025-11-17,102.88,97.57,89.4,56,474;2025-11-24,104.48,97.84,89.55,58,478.3;2025-12-01,107.08,98.2,89.73,61,485.4;2025-12-08,105.5,98.49,89.88,58,485.3;2025-12-15,108.52,98.88,90.07,62,498.3;2025-12-22,110.1,99.32,90.27,64,501.1;2025-12-29,109.6,99.72,90.46,63,498.4;2026-01-05,114.04,100.28,90.69,68,511.2;2026-01-12,115.6,100.89,90.94,70,518.1;2026-01-19,115.64,101.46,91.19,70,527;2026-01-26,114.62,101.98,91.42,67,524.8;2026-02-02,119.96,102.69,91.71,73,541.2;2026-02-09,125.14,103.57,92.04,77,558.1;2026-02-16,126.46,104.46,92.38,78,554.2;2026-02-23,130.5,105.48,92.76,81,570.3;2026-03-02,123.26,106.18,93.06,66,558.3;2026-03-09,121.36,106.78,93.34,62,549.5;2026-03-16,115.6,107.12,93.57,54,529.3;2026-03-23,119.14,107.59,93.82,58,539.8;2026-03-30,123.2,108.21,94.11,62,547.6;2026-04-06,121.76,108.74,94.39,60,547.9;2026-04-13,118.82,109.13,94.63,55,544.3;2026-04-20,113.7,109.31,94.82,49,533.9;2026-04-27,115.9,109.57,95.03,51,546.2;2026-05-04,113.36,109.72,95.21,48,538.5;2026-05-11,116.68,109.99,95.43,52,542.6;2026-05-18,119.46,110.36,95.67,56,550.3;2026-05-25,117.82,110.66,95.89,53,542;2026-06-01,117.98,110.94,96.11,53,556.3;2026-06-08,122.08,111.38,96.36,58,565.2;2026-06-15,118.3,111.65,96.58,53,545.3;2026-06-22,126.28,112.22,96.88,61,560;2026-06-29,127.92,112.84,97.19,63,567.5;2026-07-06,124.28,113.29,97.46,57,556.9;2026-07-13,125,113.75,97.73,58,566.6;2026-07-20,126.9,114.26,98.02,60,574.6;2026-07-27,126.6,114.75,98.31,60,565.7;2026-08-03,125.98,115.19,98.58,59,567.6;2026-08-10,122.44,115.47,98.82,53,562.4;2026-08-17,127.42,115.94,99.1,59,569.5;2026-08-24,123.74,116.25,99.35,54,561.8;2026-08-31,129.58,116.77,99.65,60,568.3;2026-09-07,112.04,116.58,99.77,42,549.3;2026-09-14,115.1,116.53,99.92,45,553;2026-09-21,119.8,116.65,100.12,49,566.8;2026-09-28,116.34,116.64,100.28,46,552.2;2026-10-05,119.1,116.74,100.47,49,559.6;2026-10-12,124.7,117.05,100.71,54,571.1;2026-10-22,128.88,117.51,100.99,57,573.2`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+const DD=`2025-10-09,106.62,100.18,97.06,36.8;2025-10-10,104.96,100.37,97.14,34.1;2025-10-13,104.5,100.53,97.21,34.2;2025-10-14,104.04,100.67,97.28,33.6;2025-10-15,104.04,100.8,97.35,36.3;2025-10-16,104.34,100.94,97.42,38.2;2025-10-17,104.22,101.07,97.48,41.2;2025-10-20,104.14,101.19,97.55,41.4;2025-10-21,104.56,101.32,97.62,41.9;2025-10-22,104.86,101.46,97.69,42.4;2025-10-23,104.52,101.58,97.76,42.6;2025-10-24,104.08,101.68,97.82,41.2;2025-10-27,103.16,101.74,97.88,44.6;2025-10-28,98.87,101.62,97.89,42.4;2025-10-29,98.5,101.5,97.89,45.5;2025-10-30,98.88,101.4,97.9,47.7;2025-10-31,99.27,101.32,97.92,47.3;2025-11-03,99.5,101.24,97.93,46.8;2025-11-04,101.48,101.25,97.97,49.2;2025-11-05,101.58,101.27,98,49.6;2025-11-06,101.92,101.29,98.04,49.8;2025-11-07,102,101.32,98.08,51.4;2025-11-10,102.2,101.35,98.12,52.7;2025-11-11,104.08,101.46,98.18,55.3;2025-11-12,104.7,101.59,98.25,56.4;2025-11-13,105.74,101.75,98.32,57.5;2025-11-14,104.42,101.86,98.38,55.5;2025-11-17,105.78,102.01,98.46,57.1;2025-11-18,102,102.01,98.49,55.1;2025-11-19,102.22,102.02,98.53,53.9;2025-11-20,100.42,101.96,98.55,52;2025-11-21,102.88,101.99,98.59,55.3;2025-11-24,103,102.03,98.63,54.8;2025-11-25,104.58,102.13,98.69,56.3;2025-11-26,105.3,102.26,98.76,57.3;2025-11-27,104.64,102.35,98.82,56.9;2025-11-28,104.48,102.43,98.87,55.9;2025-12-01,104.26,102.5,98.93,54.7;2025-12-02,106.2,102.65,99,57.3;2025-12-03,107.4,102.84,99.08,57.3;2025-12-04,106.88,102.99,99.16,56.2;2025-12-05,107.08,103.15,99.24,55.1;2025-12-08,106.64,103.29,99.31,53.7;2025-12-09,106.82,103.43,99.39,53.5;2025-12-10,105.42,103.51,99.45,54.7;2025-12-11,105.98,103.6,99.51,56.1;2025-12-12,105.5,103.68,99.57,55.6;2025-12-15,107.24,103.82,99.65,58;2025-12-16,107.48,103.96,99.73,55.8;2025-12-17,107.96,104.12,99.81,57.8;2025-12-18,107.74,104.26,99.89,58.6;2025-12-19,108.52,104.43,99.97,66.1;2025-12-22,108.72,104.6,100.06,68.8;2025-12-23,110.1,104.81,100.16,69.6;2025-12-29,109.9,105.01,100.26,69.6;2025-12-30,109.6,105.19,100.35,68.6;2026-01-05,108.5,105.32,100.43,67.8;2026-01-06,111.52,105.56,100.54,70;2026-01-07,113.6,105.88,100.67,72.2;2026-01-08,113.76,106.19,100.8,70.5;2026-01-09,114.04,106.5,100.93,71.2;2026-01-12,113.84,106.78,101.06,72.6;2026-01-13,113.64,107.05,101.19,73.5;2026-01-14,116.06,107.41,101.34,77.3;2026-01-15,114.48,107.68,101.47,74.8;2026-01-16,115.6,107.99,101.61,75.9;2026-01-19,115.56,108.29,101.75,75.3;2026-01-20,114.26,108.52,101.87,76.3;2026-01-21,114.34,108.75,101.99,77.1;2026-01-22,115.1,109,102.12,78.3;2026-01-23,115.64,109.26,102.26,79.4;2026-01-26,115.88,109.52,102.39,81.9;2026-01-27,116.52,109.8,102.53,82.9;2026-01-28,114.2,109.97,102.65,81.3;2026-01-29,114.28,110.14,102.77,82.8;2026-01-30,114.62,110.31,102.88,83.1;2026-02-02,117.24,110.59,103.03,86.2;2026-02-03,116.88,110.83,103.17,85.2;2026-02-04,118.7,111.14,103.32,88.6;2026-02-05,119.28,111.46,103.48,91.1;2026-02-06,119.96,111.79,103.64,92.7;2026-02-09,120.2,112.12,103.81,91.3;2026-02-10,121,112.47,103.98,93.2;2026-02-11,123.1,112.89,104.17,97;2026-02-12,123.8,113.32,104.36,99.2;2026-02-13,125.14,113.78,104.57,102.5;2026-02-16,126.46,114.28,104.79,105.3;2026-02-17,128.38,114.83,105.02,106.4;2026-02-18,127.38,115.32,105.25,102.9;2026-02-19,126.48,115.76,105.46,101.2;2026-02-20,126.46,116.18,105.67,102.1;2026-02-23,127.98,116.64,105.89,104.8;2026-02-24,129.6,117.15,106.12,108.5;2026-02-25,129.8,117.65,106.36,112.2;2026-02-26,128.1,118.06,106.58,110.7;2026-02-27,130.5,118.54,106.81,114.2;2026-03-02,129.96,118.99,107.04,116.2;2026-03-03,126.4,119.28,107.24,113.1;2026-03-04,127.68,119.61,107.44,113.6;2026-03-05,124.82,119.82,107.61,111;2026-03-06,123.26,119.95,107.77,110.7;2026-03-09,125.3,120.16,107.94,114.7;2026-03-10,122,120.23,108.08,113.1;2026-03-11,121.24,120.27,108.21,113.2;2026-03-12,120.84,120.29,108.34,112.7;2026-03-13,121.36,120.34,108.47,112.6;2026-03-16,121.44,120.38,108.6,112.8;2026-03-17,121.78,120.43,108.73,112.9;2026-03-18,119.5,120.4,108.84,112.1;2026-03-19,116.88,120.26,108.92,107.8;2026-03-20,115.6,120.08,108.98,99.8;2026-03-23,116.12,119.92,109.05,101.1;2026-03-24,117.48,119.83,109.14,103.8;2026-03-25,119.62,119.82,109.24,106;2026-03-26,119.52,119.81,109.34,107.7;2026-03-27,119.14,119.78,109.44,107.1;2026-03-30,119.82,119.78,109.55,107.6;2026-03-31,120.86,119.82,109.66,105.6;2026-04-01,122.9,119.94,109.79,106.2;2026-04-02,123.2,120.07,109.92,107.3;2026-04-07,119.8,120.06,110.02,104.6;2026-04-08,121.18,120.11,110.13,102.8;2026-04-09,122.18,120.19,110.25,105;2026-04-10,121.76,120.25,110.37,102.9;2026-04-13,120.62,120.26,110.47,101;2026-04-14,120.28,120.26,110.57,100.6;2026-04-15,118.34,120.19,110.64,98.4;2026-04-16,117.42,120.08,110.71,96.9;2026-04-17,118.82,120.03,110.79,99.9;2026-04-20,118.22,119.96,110.87,100.8;2026-04-21,116.1,119.81,110.92,99.7;2026-04-22,115.58,119.64,110.96,98.8;2026-04-23,116.28,119.51,111.02,100.6;2026-04-24,113.7,119.28,111.04,97.9;2026-04-27,114.08,119.08,111.07,99.4;2026-04-28,114.72,118.91,111.11,103.6;2026-04-29,113.34,118.69,111.13,102.2;2026-04-30,115.9,118.58,111.18,105;2026-05-04,113.84,118.39,111.21,103.5;2026-05-05,113.54,118.2,111.23,101.3;2026-05-06,115.64,118.1,111.27,101.6;2026-05-07,113.3,117.91,111.29,99;2026-05-08,113.36,117.74,111.31,98.8;2026-05-11,113.7,117.58,111.34,98.4;2026-05-12,115.9,117.51,111.38,100.7;2026-05-13,116.8,117.48,111.44,100.6;2026-05-15,116.68,117.45,111.49,97.7;2026-05-18,117.2,117.44,111.55,98;2026-05-19,119.04,117.51,111.62,99.1;2026-05-20,118.54,117.55,111.69,97.4;2026-05-21,119.24,117.61,111.76,97.9;2026-05-22,119.46,117.68,111.84,98.6;2026-05-26,118.44,117.71,111.91,96.8;2026-05-27,119.58,117.79,111.98,98.8;2026-05-28,118.26,117.81,112.05,99.2;2026-05-29,117.82,117.81,112.1,90.9;2026-06-01,113.9,117.65,112.12,87.9;2026-06-02,113,117.47,112.13,86.9;2026-06-03,113.52,117.32,112.14,88.3;2026-06-04,115.84,117.26,112.18,89.4;2026-06-05,117.98,117.29,112.24,92.4;2026-06-08,117.34,117.29,112.29,91.3;2026-06-09,118.38,117.33,112.35,92.4;2026-06-10,119.04,117.4,112.42,93.5;2026-06-11,121.54,117.56,112.51,95.1;2026-06-12,122.08,117.74,112.6,95.2;2026-06-15,120.22,117.84,112.68,92.9;2026-06-16,119.7,117.91,112.75,93.8;2026-06-17,121,118.03,112.83,96.1;2026-06-18,118.04,118.03,112.88,93.2;2026-06-19,118.3,118.04,112.94,81.3;2026-06-22,120.28,118.13,113.01,83.6;2026-06-23,123.42,118.34,113.11,86.5;2026-06-24,124.34,118.57,113.22,85.9;2026-06-25,126,118.86,113.35,88.7;2026-06-26,126.28,119.15,113.48,91.9;2026-06-29,126.2,119.43,113.61,92.7;2026-06-30,126.58,119.71,113.74,91.3;2026-07-01,125,119.92,113.85,90.3;2026-07-02,128.02,120.24,113.99,91.8;2026-07-03,127.92,120.54,114.13,92.4;2026-07-06,125.1,120.72,114.24,90.8;2026-07-07,126.8,120.95,114.36,92.4;2026-07-08,125.9,121.15,114.48,92.4;2026-07-09,124.3,121.27,114.57,90.5;2026-07-10,124.28,121.39,114.67,88.7;2026-07-13,124.58,121.52,114.77,89.8;2026-07-14,122.42,121.55,114.85,88.4;2026-07-15,122,121.57,114.92,89.3;2026-07-16,123.26,121.63,115,91.6;2026-07-17,125,121.77,115.1,93.4;2026-07-20,123.1,121.82,115.18,91.8;2026-07-21,125.54,121.96,115.28,93.2;2026-07-22,125.34,122.1,115.38,92.9;2026-07-23,127.66,122.32,115.5,95.4;2026-07-24,126.9,122.5,115.62,95;2026-07-27,128.52,122.73,115.75,95.3;2026-07-28,130.4,123.03,115.89,96.7;2026-07-29,129.74,123.3,116.03,95.7;2026-07-30,126.78,123.43,116.14,93.9;2026-07-31,126.6,123.56,116.24,92.9;2026-08-03,124.5,123.59,116.32,90.6;2026-08-04,124.6,123.63,116.41,89.5;2026-08-05,124.46,123.66,116.49,88.4;2026-08-06,125.18,123.72,116.57,87.8;2026-08-07,125.98,123.81,116.67,87.6;2026-08-10,126.8,123.93,116.77,89.4;2026-08-11,125.86,124.01,116.86,87.8;2026-08-12,124.2,124.01,116.93,87.7;2026-08-13,123.74,124,117,87.1;2026-08-14,122.44,123.94,117.05,87.2;2026-08-17,123.4,123.92,117.11,88.4;2026-08-18,125.56,123.98,117.2,90;2026-08-19,127.12,124.11,117.3,91.2;2026-08-20,126.34,124.19,117.39,90.8;2026-08-21,127.42,124.32,117.49,93;2026-08-24,126.76,124.42,117.58,93.6;2026-08-25,128.34,124.57,117.69,95.1;2026-08-26,127.18,124.67,117.78,94;2026-08-27,124.64,124.67,117.85,92.8;2026-08-28,123.74,124.64,117.91,91.4;2026-08-31,123.26,124.58,117.96,90.8;2026-09-01,130.96,124.83,118.09,92.8;2026-09-02,131.32,125.09,118.22,93.2;2026-09-03,131.32,125.33,118.35,92.6;2026-09-04,129.58,125.5,118.46,90.6;2026-09-07,125.46,125.5,118.53,89.5;2026-09-08,111.8,124.96,118.47,79.1;2026-09-09,111.66,124.44,118.4,80.1;2026-09-10,112.14,123.95,118.34,77.7;2026-09-11,112.04,123.49,118.27,74.9;2026-09-14,113.92,123.11,118.23,73.5;2026-09-15,113.84,122.75,118.19,75.1;2026-09-16,114.28,122.42,118.15,73.7;2026-09-17,116.02,122.17,118.13,75.3;2026-09-18,115.1,121.89,118.1,66.9;2026-09-21,116.14,121.66,118.08,67.1;2026-09-22,116.46,121.46,118.06,69.3;2026-09-23,117.6,121.31,118.06,69.6;2026-09-24,118.96,121.22,118.07,70.7;2026-09-25,119.8,121.16,118.08,73.3;2026-09-28,121.4,121.17,118.12,73.6;2026-09-29,120.92,121.16,118.14,72.3;2026-09-30,119.96,121.11,118.16,68;2026-10-01,118.06,120.99,118.16,66.5;2026-10-02,116.34,120.81,118.14,64.2;2026-10-05,116.48,120.64,118.13,62.9;2026-10-06,117.18,120.51,118.12,62.4;2026-10-07,120.02,120.49,118.14,65.7;2026-10-08,117.72,120.38,118.13,63.5;2026-10-09,119.1,120.33,118.14,63.5;2026-10-12,119.96,120.31,118.16,65.1;2026-10-13,119.3,120.27,118.17,62.2;2026-10-14,122.66,120.37,118.22,64.9;2026-10-15,125.9,120.58,118.29,69.6;2026-10-16,124.7,120.75,118.36,71.7;2026-10-19,124.2,120.88,118.41,71.1;2026-10-20,126.5,121.1,118.49,74.3;2026-10-21,126.88,121.33,118.58,76.4;2026-10-22,128.88,121.62,118.68,78.5`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+
+const fmtN=(v,d=2)=>v.toLocaleString("de-CH",{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmtD=s=>{const [y,m,d]=s.split("-");return d+"."+m+"."+y.slice(2)};
+const NS="http://www.w3.org/2000/svg";
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+
+function scoreTable(id,rows){
+  let tot=0,max=0;
+  const html='<thead><tr><th>Kriterium</th><th>Stand</th><th class="num">Punkte</th><th style="width:22%"></th></tr></thead><tbody>'+rows.map(r=>{tot+=r[2];max+=r[3];const p=r[2]/r[3];const c=p>=.75?"var(--good)":p>=.45?"var(--warn)":"var(--bad)";
+    return `<tr><td>${r[0]}</td><td class="muted">${r[1]}</td><td class="num">${r[2]} / ${r[3]}</td><td><div class="bar"><i style="width:${p*100}%;background:${c}"></i></div></td></tr>`}).join("")+`<tr class="total"><td>Total</td><td></td><td class="num">${tot} / ${max}</td><td></td></tr></tbody>`;
+  document.getElementById(id).innerHTML=html;return tot;
+}
+const qs=scoreTable("q-tbl",Q), ts=scoreTable("t-tbl",T);
+document.getElementById("q-val").textContent=qs;document.getElementById("t-val").textContent=ts;
+document.getElementById("q-pin").style.left=qs+"%";document.getElementById("t-pin").style.left=ts+"%";
+
+document.getElementById("fin-rows").innerHTML=FIN.map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1].toLocaleString("de-CH")}</td><td class="num">${r[2]}</td><td class="num">${r[3]}</td><td class="num">${fmtN(r[4])}</td><td class="num">${r[5].toLocaleString("de-CH")}</td><td class="num">${r[6]}</td><td class="num">${r[7]}</td></tr>`).join("");
+
+/* generic line chart */
+function lineChart(host,{dates,series,bands=[],yFmt=v=>fmtN(v),h=300,zero=false,refs=[],pad}){
+  const W_=800,H=h,m={t:12,r:56,b:28,l:8};
+  const all=series.flatMap(s=>s.values).concat(bands.flatMap(b=>[b.from,b.to])).concat(refs.map(r=>r.v));
+  if(zero)all.push(0);
+  let lo=Math.min(...all),hi=Math.max(...all);const sp=(hi-lo)||1;lo-=sp*.06;hi+=sp*.06;
+  if(pad){lo=pad[0];hi=pad[1]}
+  const n=dates.length,x=i=>m.l+i*(W_-m.l-m.r)/(n-1),y=v=>m.t+(hi-v)*(H-m.t-m.b)/(hi-lo);
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  // grid
+  const steps=5;for(let k=0;k<=steps;k++){const v=lo+(hi-lo)*k/steps;el("line",{x1:m.l,x2:W_-m.r,y1:y(v),y2:y(v),stroke:"var(--grid)","stroke-width":1},svg);
+    const t=el("text",{x:W_-m.r+6,y:y(v)+4,"font-size":11,fill:"var(--muted)","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=yFmt(v)}
+  bands.forEach(b=>{el("rect",{x:m.l,width:W_-m.l-m.r,y:y(Math.max(b.from,b.to)),height:Math.abs(y(b.from)-y(b.to)),fill:b.type==="res"?"var(--zone-res)":"var(--zone-sup)"},svg)});
+  refs.forEach(r=>{el("line",{x1:m.l,x2:W_-m.r,y1:y(r.v),y2:y(r.v),stroke:"var(--muted)","stroke-dasharray":"4 4","stroke-width":1},svg);
+    const t=el("text",{x:m.l+4,y:y(r.v)-4,"font-size":11,fill:"var(--muted)"},svg);t.textContent=r.label});
+  if(zero)el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  // x labels
+  const every=Math.ceil(n/6);for(let i=0;i<n;i+=every){const t=el("text",{x:x(i),y:H-8,"font-size":11,fill:"var(--muted)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);const d=dates[i];t.textContent=d.slice(5,7)+"/"+d.slice(2,4)}
+  series.forEach(s=>{const dpath=s.values.map((v,i)=>(i?"L":"M")+x(i).toFixed(1)+","+y(v).toFixed(1)).join("");
+    el("path",{d:dpath,fill:"none",stroke:s.color,"stroke-width":s.w||2,"stroke-linejoin":"round","stroke-linecap":"round"},svg);
+    const lv=s.values[n-1];el("circle",{cx:x(n-1),cy:y(lv),r:3.5,fill:s.color,stroke:"var(--surface)","stroke-width":2},svg)});
+  // hover
+  const cross=el("line",{y1:m.t,y2:H-m.b,stroke:"var(--muted)","stroke-width":1,opacity:0},svg);
+  const ov=el("rect",{x:m.l,y:m.t,width:W_-m.l-m.r,height:H-m.t-m.b,fill:"transparent"},svg);
+  host.appendChild(svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;host.appendChild(tip);
+  function move(ev){const r=svg.getBoundingClientRect();const px=(ev.clientX-r.left)*W_/r.width;let i=Math.round((px-m.l)/((W_-m.l-m.r)/(n-1)));i=Math.max(0,Math.min(n-1,i));
+    cross.setAttribute("x1",x(i));cross.setAttribute("x2",x(i));cross.setAttribute("opacity",1);
+    tip.innerHTML=`<div class="d">${fmtD(dates[i])}</div>`+series.map(s=>`<div><i class="sw" style="background:${s.color}"></i> ${s.name}: <b>${yFmt(s.values[i])}</b></div>`).join("");
+    tip.hidden=false;const hx=x(i)*r.width/W_;tip.style.left=Math.min(Math.max(0,hx+12),r.width-tip.offsetWidth)+"px";tip.style.top="8px"}
+  ov.addEventListener("pointermove",move);ov.addEventListener("pointerleave",()=>{tip.hidden=true;cross.setAttribute("opacity",0)});
+}
+function barChart(host,{labels,values,fmt,h=220,color,neg,tipExtra}){
+  const W_=800,H=h,m={t:18,r:8,b:28,l:8};
+  const hi=Math.max(0,...values),lo=Math.min(0,...values);const lo2=lo<0?lo*1.15:lo,hi2=hi*1.15||1;
+  const y=v=>m.t+(hi2-v)*(H-m.t-m.b)/(hi2-lo2);const n=values.length,bw=(W_-m.l-m.r)/n;
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;
+  values.forEach((v,i)=>{const x0=m.l+i*bw+bw*.18,w=bw*.64,y0=y(Math.max(v,0)),hh=Math.max(1,Math.abs(y(v)-y(0)));
+    const r=el("rect",{x:x0,y:y0,width:w,height:hh,rx:4,fill:v<0?(neg||"var(--s2)"):(color||"var(--s1)")},svg);
+    const t=el("text",{x:x0+w/2,y:v<0?y(v)+13:y0-5,"font-size":11.5,fill:"var(--ink)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=fmt(v);
+    const l=el("text",{x:x0+w/2,y:H-8,"font-size":11.5,fill:"var(--muted)","text-anchor":"middle"},svg);l.textContent=labels[i];
+    const hit=el("rect",{x:m.l+i*bw,y:m.t,width:bw,height:H-m.t-m.b,fill:"transparent"},svg);
+    hit.addEventListener("pointerenter",()=>{tip.innerHTML=`<div class="d">${labels[i]}</div><b>${fmt(v)}</b>${tipExtra?tipExtra(i):""}`;tip.hidden=false;const R=svg.getBoundingClientRect();tip.style.left=Math.min((m.l+i*bw)*R.width/W_,R.width-tip.offsetWidth)+"px";tip.style.top="0px"});
+    hit.addEventListener("pointerleave",()=>tip.hidden=true)});
+  host.appendChild(svg);host.appendChild(tip);
+}
+barChart(document.getElementById("c-rev"),{labels:HALF.map(r=>r[0]),values:HALF.map(r=>r[1]),fmt:v=>fmtN(v,1),h:200});
+barChart(document.getElementById("c-margin"),{labels:MARGIN.map(r=>r[0]),values:MARGIN.map(r=>r[1]),fmt:v=>fmtN(v,1)+" %",h:200});
+barChart(document.getElementById("c-seas"),{labels:MON,values:SEAS,fmt:v=>(v>0?"+":"")+fmtN(v,1),h:220,tipExtra:i=>`<div>${SEASHIT[i]} % der Jahre positiv</div>`});
+const BANDS=[{"from": 131, "to": 132.7, "type": "res"}, {"from": 116, "to": 121, "type": "sup"}, {"from": 108, "to": 111.5, "type": "sup"}], REFS=[{"v": 133, "label": "Trigger 133"}];
+const wd=W.map(r=>r[0]);
+lineChart(document.getElementById("c-week"),{dates:wd,series:[{name:"Kurs",values:W.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:W.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:W.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,yFmt:v=>fmtN(v,0),h:320});
+lineChart(document.getElementById("c-adw"),{dates:wd,series:[{name:"A/D Woche",values:W.map(r=>r[5]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,zero:true});
+lineChart(document.getElementById("c-rsiw"),{dates:wd,series:[{name:"RSI Woche",values:W.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,refs:[{v:70,label:"70 überkauft"},{v:30,label:"30 überverkauft"}],pad:[10,90]});
+const dd=DD.map(r=>r[0]);
+lineChart(document.getElementById("c-day"),{dates:dd,series:[{name:"Kurs",values:DD.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:DD.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:DD.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,refs:REFS,yFmt:v=>fmtN(v,0),h:260});
+lineChart(document.getElementById("c-add"),{dates:dd,series:[{name:"A/D Tag",values:DD.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:260,zero:true});
+</script>

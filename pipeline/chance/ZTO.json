@@ -1,0 +1,32 @@
+{
+ "ticker": "ZTO",
+ "sorgen": [
+  "Am 18.08.2026 senkte ZTO die Prognose für die Paketmenge 2026: neu nur noch +6 % bis +10 % (40.8–42.4 Mrd. Pakete) statt +10 % bis +13 %. Im 2. Quartal wuchs die Menge nur noch um 6.5 %, die ganze Branche in China verlangsamt sich (Januar bis Mai 2026 nur +5.2 %, 2025 noch +13.6 %).",
+  "Der starke Gewinnsprung im 2. Quartal (bereinigter Reingewinn +50 %) war zum Teil eine Einmalsache: eine Steuerrückzahlung von 344 Mio. RMB. Gleichzeitig steigen die Kosten, weil Kuriere neu Sozialversicherung erhalten müssen und Öl teurer wird (laut Firma 1–2 Fen mehr pro Paket im 2. Halbjahr).",
+  "Zwei grosse Banken haben die Aktie herabgestuft: JPMorgan am 03.09.2026 (Kursziel 29 auf 22 USD) und Goldman Sachs am 14.10.2026 (25 auf 22 USD, Begründung: schwacher Online-Konsum und Überkapazität). Die Aktie fiel am 21.09.2026 an einem Tag um 8.6 % und steht mit rund 20 USD nahe am 52-Wochen-Tief von 18.11 USD.",
+  "Die Konkurrenz holt bei der Menge auf: J&T wuchs in China im 3. Quartal 2026 um 15.3 %, also mehr als doppelt so schnell wie ZTO im 2. Quartal. Beobachter warnen, dass der Preiskampf über versteckte Rabatte zurückkehren könnte, wenn das Wachstum weiter sinkt."
+ ],
+ "sorgen_art": "gemischt",
+ "sorgen_art_text": "Das Geschäft verdient mehr denn je (Umsatz Q2 +23 %, Betriebsgewinn +30 %, Netto-Cash statt Schulden), aber die schwächere Paketmenge, steigende Kosten und die Abhängigkeit von der staatlichen Preispolitik sind echte, wenn auch eher vorübergehende Baustellen.",
+ "aufloeser": [
+  {"was": "Die Zahlen zum 3. Quartal zeigen, dass der höhere Preis pro Paket (Q2: +15.5 %) hält, der Marktanteil (Q2: 19.9 %) nicht sinkt und die Prognose von 6–10 % Mengenwachstum bestätigt wird", "wann": "Zahlen 3. Quartal, 17.11.2026 (nach US-Börsenschluss)"},
+  {"was": "Die Regierung bleibt bei ihrer Politik gegen Dumpingpreise («Anti-Involution»), und die monatlichen Branchendaten der Postbehörde zeigen weiter steigende Erlöse pro Paket", "wann": "laufend, monatlich bis Anfang 2027"},
+  {"was": "Jahreszahlen 2026 mit einer Prognose für 2027, die wieder stabiles Mengenwachstum zeigt, plus Entscheid über die Dividende (für das 1. Halbjahr 2026 gab es keine)", "wann": "Jahreszahlen, voraussichtlich März 2027"},
+  {"was": "Der Aktienrückkauf läuft weiter: Vom Programm über 1.5 Mrd. USD (rund 10 % des Börsenwerts) waren nach dem 2. Quartal noch rund 1.36 Mrd. USD offen. Das stützt den Kurs und den Gewinn pro Aktie", "wann": "bis 20.03.2028"}
+ ],
+ "schub_stufe": "mittel",
+ "schub_treiber": [
+  {"titel": "Höhere Preise dank staatlicher Preisdisziplin", "text": "Seit die Behörden gegen Preise unter den Kosten vorgehen, steigt der Preis pro Paket bei ZTO wieder: +8.2 % im 1. Quartal und +15.5 % im 2. Quartal 2026 (1.37 statt 1.24 RMB). Weil ZTO die tiefsten Kosten der Branche hat, bleibt bei jedem Rappen Preiserhöhung viel als Gewinn hängen; die Betriebsmarge stieg im 2. Quartal auf 22.2 %. Unsicher ist, wie lange die Politik durchgezogen wird.", "wann": "2026–2027"},
+  {"titel": "Grosskunden und Retouren", "text": "Der Umsatz mit Grosskunden (vor allem Rücksendungen aus dem Onlinehandel) stieg im 2. Quartal um 63.6 %. Darum wächst der Umsatz (+23 %) viel stärker als die Paketmenge (+6.5 %). Das ist ein echter, schon sichtbarer Treiber, aber diese Pakete sind tendenziell weniger profitabel als normale Pakete.", "wann": "2026–2027"},
+  {"titel": "Aktienrückkauf statt Wachstum", "text": "ZTO will jedes Jahr mindestens 50 % des Vorjahresgewinns über Dividende und Rückkauf zurückgeben. Beim heutigen KGV von rund 10.6 kauft die Firma viele Aktien günstig zurück, das hebt den Gewinn pro Aktie, auch wenn die Paketmenge nur langsam wächst.", "wann": "bis März 2028"}
+ ],
+ "schub_beweis": "Achte bei den Zahlen vom 17.11.2026 auf zwei Werte: den Preis pro Paket im Kern-Express (sollte weiter deutlich über Vorjahr liegen) und die Betriebsmarge (sollte über 21 % bleiben, Q2: 22.2 %). Bleibt zudem der Marktanteil um 20 %, wirkt der Preis-Hebel.",
+ "szenario": "Kein Fall wie Google 2023, eher eine Neubewertung: Wenn die Preisdisziplin in China hält und ZTO trotz langsamerer Menge mehr pro Paket verdient, könnte die Börse die Aktie wieder näher am eigenen Schnitt bewerten (KGV 2023–2025 um 13, heute rund 10.6), dazu kommen Rückkäufe und eine Dividende von zuletzt rund 3.4 %. Grösstes Risiko: Der Preiskampf kehrt zurück, Konkurrenten wie J&T nehmen Marktanteile weg und die Kosten für Kuriere steigen, dann bleibt die Aktie trotz tiefem KGV liegen.",
+ "quellen": [
+  {"titel": "ZTO: Second Quarter 2026 Unaudited Financial Results (SEC 6-K, 18.08.2026)", "url": "https://www.sec.gov/Archives/edgar/data/0001677250/000110465926098506/tm2623526d1_ex99-1.htm"},
+  {"titel": "Investing.com: ZTO Q2 2026 slides: profit surges 50%, shares fall on earnings quality (18.08.2026)", "url": "https://www.investing.com/news/company-news/zto-q2-2026-slides-profit-surges-50-shares-fall-on-earnings-quality-93CH-4866352"},
+  {"titel": "Bamboo Works: Is China's express delivery price war over? The answer will lie in profits (2026)", "url": "https://thebambooworks.com/is-chinas-express-delivery-price-war-over-the-answer-will-lie-in-profits/"},
+  {"titel": "ad-hoc-news: Goldman Sachs cuts target to USD 22.00 for ZTO Express stock (19.10.2026)", "url": "https://www.ad-hoc-news.de/boerse/news/nebenwerte/goldman-sachs-cuts-target-to-usd-22-00-for-zto-express-stock/70356426"},
+  {"titel": "J&T Global Express: Q3 2026 Betriebsdaten, China +15.3 % (Kosmo, 14.10.2026)", "url": "https://www.kosmo.com.my/?p=1025825"}
+ ]
+}

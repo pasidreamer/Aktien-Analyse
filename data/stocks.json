@@ -1,5 +1,5 @@
 {
- "stand": "2026-10-19",
+ "stand": "2026-10-22",
  "aktien": [
   {
    "ticker": "APP",
@@ -14579,6 +14579,1100 @@
    ],
    "cheatsheet": "analysen/SONY.html",
    "claude": "https://claude.ai/artifact/54U9s1Qxbvvi87ANTfqx6r"
+  },
+  {
+   "ticker": "UHR",
+   "symbol": "UHR.SW",
+   "name": "Swatch Group",
+   "tags": [
+    "Dividende"
+   ],
+   "land": "Schweiz",
+   "region": "Schweiz",
+   "branche": "Uhren und Schmuck",
+   "status": "beobachten",
+   "waehrung": "CHF",
+   "analyse": {
+    "datenstand": "2026-10-22",
+    "kurs": 178.6,
+    "q": 25,
+    "t": 39
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "In Franken 1 von 4 Halbjahren höher, ohne Währungen 2 von 4 (mit steigendem Tempo)",
+     "p": 4,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "Ohne Währungseffekte rund +6.5 % in 12 Monaten (2. Halbjahr 2025 +4.7 %, 1. Halbjahr 2026 +8.5 %)",
+     "p": 6,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "1.9 % (0 Pkt.), seit 2022 stark gefallen (0 Pkt.)",
+     "p": 0,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "Von 16.75 CHF (2023) auf 0.18 CHF eingebrochen",
+     "p": 0,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Positiv (270 Mio. CHF), aber 2023 und 2024 negativ",
+     "p": 3,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "0.2 % (2 Pkt.), fallend (−1)",
+     "p": 1,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Netto-Cash 1.13 Mrd. CHF",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "Erw. KGV 31.5 statt Median 18.5, über 30 % teurer (Buchwert-Sicht günstig, KBV 0.84)",
+     "p": 1,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs unter beiden, EMA 50 unter 200, aber Abstand schrumpft (183 zu 196)",
+     "p": 4,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs knapp unter beiden, Todeskreuz am 14.10., EMAs flach",
+     "p": 2,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Dreieck: tiefere Hochs, aber höhere Tiefs seit März",
+     "p": 8,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "Tag 44, Woche 46, kein Signal",
+     "p": 7,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Woche steigt, Tag fällt seit Juli",
+     "p": 10,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Start 3, keine Rückkäufe, keine neuen Hayek-Käufe gefunden, kleine Verkäufe",
+     "p": 3,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "November 61 %, Dezember 71 % positive Jahre",
+     "p": 5,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 31.5,
+    "schnitt": 18.5,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      166,
+      171
+     ],
+     [
+      159.8,
+      161
+     ]
+    ],
+    "widerstand": [
+     [
+      193,
+      197.4
+     ],
+     [
+      212,
+      223
+     ]
+    ],
+    "trigger": 186,
+    "abbruch": 158
+   },
+   "zahlen": "2027-01-28",
+   "dividende": "2.5 %",
+   "div_info": {
+    "pro_jahr": 1,
+    "rhythmus": "jährlich",
+    "ex_monate": [
+     5
+    ],
+    "zahl_monate": [
+     5
+    ],
+    "zahl_text": "Mitte bis Ende Mai, wenige Tage nach der Generalversammlung",
+    "abstand_tage": 4,
+    "betrag": 4.5,
+    "system": "Schweizer System: eine Dividende pro Jahr, beschlossen an der Generalversammlung im Mai und ein paar Tage später ausbezahlt (2026: Ex-Tag 15.5., Zahltag 19.5.). Auf Schweizer Dividenden werden 35 % Verrechnungssteuer abgezogen, die du als Person mit Wohnsitz in der Schweiz mit der Steuererklärung zurückbekommst.",
+    "serie": "Keine stabile Serie: gekürzt für 2019, 2020 und 2024 (von 6.50 auf 4.50 CHF). Für 2025 gleich hoch, obwohl der Gewinn pro Aktie nur 0.06 CHF betrug."
+   },
+   "chance": {
+    "ticker": "UHR",
+    "sorgen": [
+     "Der Gewinn ist fast weg: 2025 sank der Betriebsgewinn auf 135 Mio. CHF (Marge 2.1 %, früher über 15 %), und im 1. Halbjahr 2026 waren es nur 52 Mio. CHF statt der erwarteten rund 120 Mio. Grund sind vor allem die eigenen Fabriken: Swatch hält Werke und Stellen, obwohl weniger verkauft wird. Dazu kostet der starke Franken viel Geld.",
+     "China, früher über 40 % des Umsatzes, ist stark geschrumpft (Grosschina 2025 rund 1.46 Mrd. CHF, 2021 noch 3.08 Mrd. laut marketscreener). Goldman Sachs stuft die Aktie am 05.10.2026 auf 'Sell' (Ziel 174 CHF) wegen China, Nahost und Überkapazität.",
+     "Die Lager sind riesig: 7.3 Mrd. CHF Ende Juni 2026, mehr als ein ganzer Jahresumsatz. Das bindet viel Geld.",
+     "Schlechte Governance (Führung und Kontrolle der Firma): Die Familie Hayek hat 44.5 % der Stimmen mit nur rund 26 % des Kapitals. An der GV vom 12.05.2026 wurde der Aktivist Steven Wood abgelehnt, obwohl 80.4 % der Inhaberaktionäre für ihn stimmten. Ethos nennt die Struktur eine der schlechtesten der Schweiz."
+    ],
+    "sorgen_art": "gemischt",
+    "sorgen_art_text": "Der Umsatz wächst wieder (1. Halbjahr 2026 +8.5 % zu konstanten Währungen), aber die Marge ist durch eigene Entscheide (volle Fabriken, hohe Lager) und den Franken echt kaputt, und die Governance ändert sich kaum.",
+    "aufloeser": [
+     {
+      "was": "Swatch zeigt für das 2. Halbjahr 2026 die versprochene 'deutliche Verbesserung der Profitabilität' und einen Jahresumsatz klar über 2025 (6.28 Mrd. CHF)",
+      "wann": "Jahresumsatz und Kennzahlen 2026, erwartet Ende Januar 2027 (Vorjahr 30.01.2026, Datum noch nicht bestätigt)"
+     },
+     {
+      "was": "Betriebsgewinn steigt Richtung der Analystenschätzung für 2026 (rund 340 Mio. CHF), Lager sinken, Free Cashflow bleibt positiv",
+      "wann": "Geschäftsbericht 2026, erwartet ca. März 2027"
+     },
+     {
+      "was": "China erholt sich weiter (Detailhandel H1 2026 +9 %, Uhrenexporte nach China August 2026 +15.8 %), auch die Nachbestellungen der Händler ziehen an",
+      "wann": "Monatliche Uhrenexporte, Halbjahr 2027 (Juli 2027)"
+     },
+     {
+      "was": "Mehr Mitsprache für Inhaberaktionäre, z. B. ein unabhängiger Vertreter oder Trennung von Präsidium und Geschäftsleitung",
+      "wann": "Generalversammlung, erwartet Mai 2027"
+     }
+    ],
+    "schub_stufe": "mittel",
+    "schub_treiber": [
+     {
+      "titel": "Margen-Hebel durch volle Fabriken",
+      "text": "Swatch hat Kapazität für deutlich mehr Uhren und keine Stellen abgebaut. Wenn der Umsatz steigt, wirken die Fixkosten kaum mehr, und der Gewinn kann stark steigen. Analysten erwarten einen Betriebsgewinn von 135 Mio. CHF (2025) auf rund 547 Mio. (2027) und 703 Mio. (2028); Nick Hayek nannte 500–600 Mio. 'oder mehr' (keine offizielle Prognose). Im Mai/Juni 2026 lag die Marge bei Uhren & Schmuck ohne Produktion schon bei 15 %.",
+      "wann": "2027–2028"
+     },
+     {
+      "titel": "Royal Pop mit Audemars Piguet",
+      "text": "Die am 16.05.2026 lancierte Taschenuhr löste weltweit Schlangen aus; laut Firma übersteigt die Nachfrage das Angebot bei weitem, bei hoher Marge. Schätzungen gehen weit auseinander: RBC rechnet mit bis zu 1.05 Mrd. CHF Umsatz und rund 390 Mio. CHF Gewinnanteil über 2026–2029, die FT nennt eher 150–170 Mio. CHF Umsatz. UBS hält den Effekt für 'anekdotisch'.",
+      "wann": "2026–2027"
+     },
+     {
+      "titel": "Wachstum ausserhalb Chinas",
+      "text": "Im 1. Halbjahr 2026 wuchsen USA (+27 %), Japan (+20 %), Spanien (+28 %) und Indien (+38 %) stark. Der US-Zoll ist von 39 % (August 2025) auf 12.5 % (seit 24.07.2026) gesunken. Das macht Swatch weniger abhängig von China.",
+      "wann": "laufend, 2026–2027"
+     }
+    ],
+    "schub_beweis": "Achte auf die operative Marge: H1 2026 lag sie bei 1.7 %. Steigt sie im Gesamtjahr 2026 auf rund 5 % und 2027 über 8 %, und sinken gleichzeitig die Lager unter 7 Mrd. CHF, dann wirkt der Hebel.",
+    "szenario": "Kein Fall wie Google 2023, eher eine Wende aus dem Tief: Die Aktie notiert unter dem Buchwert (Kurs-Buchwert 0.84) und hat 1.1 Mrd. CHF Netto-Cash. Wenn der Umsatz weiter wächst und die Fabriken wieder ausgelastet sind, könnte der Gewinn pro Aktie laut Schätzungen von 0.06 CHF (2025) auf rund 9 CHF (2028) steigen; bei einem KGV um 16–18 (eigener Schnitt in normalen Jahren) wäre das deutlich über dem heutigen Kurs. Grösstes Risiko: Die Marge bleibt tief, weil die Familie Hayek Kapazität und Lager nicht anpasst, und viele Analysten (Konsens 'Sell', Ziel um 167–170 CHF) behalten recht.",
+    "quellen": [
+     {
+      "titel": "Swatch Group: Half-Year Report 2026 (21.07.2026)",
+      "url": "https://mailing-ircockpit.eqs.com/crm-mailing/5b724614-ea7c-11e8-902f-2c44fd856d8c/848ccdaa-2561-4ad8-8a87-17034876eeb7/48b92baa-da0e-41be-85f7-ff8982cd305e/PR_Halfyear_Report_2026_en.pdf"
+     },
+     {
+      "titel": "swissinfo/Financial Times: Time's up for Swatch? (08.06.2026)",
+      "url": "https://www.swissinfo.ch/eng/workplace/times-up-for-swatch/91545252"
+     },
+     {
+      "titel": "swissinfo: Swatch quashes activist attempt to shake up Hayek stronghold (12.05.2026)",
+      "url": "https://www.swissinfo.ch/eng/swatch-quashes-activist-attempt-to-shake-up-hayek-stronghold/91402437"
+     },
+     {
+      "titel": "cash.ch: Swatch oder Richemont? Für Goldman Sachs ist die Wahl klar (05.10.2026)",
+      "url": "https://www.cash.ch/news/top-news/swatch-oder-richemont-fur-goldman-sachs-ist-die-wahl-klar-974141"
+     },
+     {
+      "titel": "The Hour Markers: Audemars Piguet x Swatch Royal Pop and the stock market (Mai 2026)",
+      "url": "https://thehourmarkers.com/articles/audemars-piguet-swatch-royal-pop-stock-market"
+     }
+    ]
+   },
+   "fazit": "Swatch verkauft wieder mehr Uhren (1. Halbjahr 2026: +8.5 % ohne Währungseffekte, USA +27 %), verdient aber fast nichts: Von 100 Franken Umsatz blieben im 1. Halbjahr nur 1.70 Franken Betriebsgewinn (2023 noch 15). Grund: Swatch behält alle Fabriken und Stellen, obwohl viel weniger verkauft wird. Dazu liegen Uhren für 7.3 Mrd. CHF im Lager, mehr als ein ganzer Jahresumsatz. Stark ist nur die Bilanz: 1.1 Mrd. CHF mehr Geld als Schulden, Börsenwert unter dem Buchwert (0.84). Qualität rot (25), Timing orange (39). Die Mehrheit der Analysten rät zum Verkaufen (Kursziel im Schnitt rund 170 CHF), der Branchenvergleich gibt nur 1.3 von 5 Punkten. Keine Anlageberatung.",
+   "about": "Swatch ist der grösste Uhrenkonzern der Schweiz mit rund 31'800 Mitarbeitenden. Zum Konzern gehören teure Marken wie Breguet, Blancpain, Harry Winston und Omega, mittlere wie Longines, Rado und Tissot und günstige wie Swatch und Hamilton. Swatch baut fast alle Teile selbst, auch Uhrwerke für andere Marken (ETA). Uhren und Schmuck bringen rund 94 % des Umsatzes, Elektronik (Batterien, Sport-Zeitmessung) rund 6 %. Regionen 2025: übriges Asien rund 25 %, Grosschina 23 %, übriges Europa 22 %, Amerika 21 %, Schweiz 8 %. Es gibt zwei Aktien: die Inhaberaktie UHR (hier analysiert) und die Namenaktie UHRN, die nur ein Fünftel kostet, aber gleich viel Stimmrecht hat. So kontrolliert die Familie Hayek mit rund 26 % des Kapitals 44.5 % der Stimmen. Nayla Hayek ist Präsidentin, ihr Bruder Nick Hayek Chef.",
+   "kpis": [
+    {
+     "ampel": "w",
+     "name": "Umsatzwachstum",
+     "wert": "+8.5 %",
+     "text": "1. Halbjahr 2026 ohne Währungseffekte. In Franken nur +2.0 %, weil der starke Franken die Auslandsumsätze kleiner macht. Das ganze Jahr 2025: −6.8 % in Franken."
+    },
+    {
+     "ampel": "r",
+     "name": "Operative Marge",
+     "wert": "1.9 %",
+     "text": "Von 100 Franken Umsatz bleiben 1.90 Franken Betriebsgewinn (letzte 12 Monate). 2023 waren es 15.1 %. Sehr schwach, weil die Fabriken halb leer laufen."
+    },
+    {
+     "ampel": "r",
+     "name": "Gewinn pro Aktie (EPS)",
+     "wert": "0.18 CHF",
+     "text": "Letzte 12 Monate, fast null. 2023 waren es 16.75 CHF. Analysten erwarten für 2027 wieder rund 7 CHF, das ist aber unsicher."
+    },
+    {
+     "ampel": "r",
+     "name": "ROIC",
+     "wert": "0.2 %",
+     "text": "Auf 100 Franken investiertes Kapital fast kein Gewinn. 2022 waren es 9.4 %. Sehr schwach."
+    },
+    {
+     "ampel": "w",
+     "name": "Free Cashflow",
+     "wert": "270 Mio. CHF",
+     "text": "Letzte 12 Monate. Geld, das nach Investitionen übrig bleibt. Positiv, aber klein: 2023 und 2024 war er negativ (−115 und −170 Mio.)."
+    },
+    {
+     "ampel": "g",
+     "name": "Netto-Cash",
+     "wert": "1.13 Mrd. CHF",
+     "text": "Swatch hat mehr Geld als Schulden (30.6.2026). Eigenkapitalquote 87 %. Sehr solide."
+    },
+    {
+     "ampel": "r",
+     "name": "KGV erwartet",
+     "wert": "31.5",
+     "text": "Du zahlst 31 erwartete Jahresgewinne. Das heutige KGV (über 1'000) ist wegen des Gewinns von fast null sinnlos. Eigener Schnitt (Median 2021–2025): 18.5. Teuer gemessen am Gewinn, günstig gemessen am Buchwert (0.84)."
+    },
+    {
+     "ampel": "w",
+     "name": "Dividende",
+     "wert": "2.5 %",
+     "text": "4.50 CHF pro Inhaberaktie, einmal im Jahr (Ex-Tag 15.5.2026, bezahlt am 19.5.2026). Nicht durch den Gewinn gedeckt (Gewinn 2025: 0.06 CHF pro Aktie). 2025 gekürzt."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "212–223 CHF",
+     "text": "Widerstand: Hochs von Juni und Juli 2026."
+    },
+    {
+     "art": "r",
+     "wert": "193–197.40 CHF",
+     "text": "Widerstand: Hochs August und September, Wochen-EMA 200 (196.30 CHF)."
+    },
+    {
+     "art": "t",
+     "wert": "186 CHF",
+     "text": "Trigger: Tagesschluss über 186 CHF (letztes tieferes Hoch vom 16.10.), besser mit steigender Tages-A/D."
+    },
+    {
+     "art": "s",
+     "wert": "166–171 CHF",
+     "text": "Kaufzone 1: Tiefs vom Juli (166.50) und September (171.25 CHF)."
+    },
+    {
+     "art": "s",
+     "wert": "159.80–161 CHF",
+     "text": "Kaufzone 2: Tiefs von Dezember 2025 (159.80) und März 2026 (161 CHF), 52-Wochen-Tief."
+    },
+    {
+     "art": "r",
+     "wert": "158 CHF",
+     "text": "Abbruch: Wochenschluss unter 158 CHF, also unter dem 52-Wochen-Tief."
+    }
+   ],
+   "pro": [
+    "Umsatz wächst wieder: ohne Währungen +8.5 % im 1. Halbjahr 2026, USA +27 %, China im Laden +9 %.",
+    "Sehr solide Bilanz: 1.13 Mrd. CHF Netto-Cash, Eigenkapitalquote 87 %, Börsenwert unter dem Buchwert.",
+    "Grosser Gewinnhebel: Wenn die Fabriken wieder ausgelastet sind, steigt der Gewinn schnell. Nick Hayek nannte 500 bis 600 Mio. CHF Betriebsgewinn als möglich (keine offizielle Prognose).",
+    "Royal Pop mit Audemars Piguet: Nachfrage laut Swatch weit über dem Angebot, hohe Marge.",
+    "Starke Marken (Omega, Longines, Tissot) und eigene Uhrwerk-Produktion."
+   ],
+   "contra": [
+    "Fast kein Gewinn: Marge 1.9 %, Gewinn pro Aktie 0.18 CHF. Die Dividende wird aus der Substanz bezahlt.",
+    "Lager von 7.3 Mrd. CHF, mehr als ein Jahresumsatz. Das bindet viel Geld.",
+    "Schwache Führung aus Sicht vieler Anleger: Die Familie Hayek kontrolliert mit 26 % Kapital 44.5 % der Stimmen.",
+    "Abhängig von China und vom starken Franken. US-Zoll von 12.5 % auf Schweizer Uhren.",
+    "Die meisten Analysten raten zum Verkaufen, viele Leerverkäufer. Keine Rückkäufe."
+   ],
+   "smart_money": [
+    "Familie Hayek: Der Hayek-Pool kaufte 2025 laut Geschäftsbericht rund 193'000 Inhaberaktien und 440'000 Namenaktien dazu (Stimmanteil 44.1 → 44.5 %). Käufe aus den letzten 6 Monaten habe ich nicht gefunden.",
+    "Weitere Insider: Eine Führungsperson verkaufte seit Oktober 2025 in 9 kleinen Tranchen Namenaktien für zusammen rund 0.9 Mio. CHF. Kleine Beträge, kein starkes Signal.",
+    "Rückkäufe: Keine. 2025 und im 1. Halbjahr 2026 kaufte Swatch keine eigenen Aktien zurück.",
+    "Aktivist: Steven Wood (GreenWood Investors) kämpft für bessere Führung, scheiterte aber zweimal an der Familie Hayek. Rund 28 % der frei handelbaren Aktien sind leerverkauft (Mai 2026).",
+    "Analysten: 18 Analysten bei cash.ch: 2 Kaufen, 9 Neutral, 7 Verkaufen. Kursziel im Schnitt 169.70 CHF (Spanne 90 bis 225 CHF). Goldman Sachs: Verkaufen, Ziel 174 CHF (5.10.2026). Kepler Cheuvreux: Kaufen, Ziel 225 CHF (August 2026)."
+   ],
+   "cheatsheet": "analysen/UHR.html",
+   "claude": "https://claude.ai/artifact/HpQMfv4rMppcMCvRZDmnka"
+  },
+  {
+   "ticker": "NOVN",
+   "symbol": "NOVN.SW",
+   "name": "Novartis",
+   "tags": [
+    "Dividende",
+    "Defensiv",
+    "Qualität"
+   ],
+   "land": "Schweiz",
+   "region": "Schweiz",
+   "branche": "Pharma",
+   "status": "beobachten",
+   "waehrung": "CHF",
+   "analyse": {
+    "datenstand": "2026-10-22",
+    "kurs": 128.88,
+    "q": 51,
+    "t": 62
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "3 von 4 Quartalen über Vorjahr, Tempo zuletzt tief",
+     "p": 8,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "+2.7 % in 12 Monaten, ohne Währungen rund 0 % (Generika)",
+     "p": 0,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "Kern 38.8 %, ausgewiesen 32.8 % (9 Pkt.), 5 Jahre steigend, 2026 leicht tiefer (5 Pkt.)",
+     "p": 14,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "Kerngewinn 2023–2025 stark gestiegen, 2026 leicht rückläufig erwartet",
+     "p": 5,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Hoch, meist steigend, 1. Halbjahr 2026 aber −9 %",
+     "p": 6,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "18.8 % (10 Pkt.), nach Anstieg wieder gesunken (±0)",
+     "p": 10,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Nettoschulden/EBITDA rund 1.7",
+     "p": 7,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "KGV 24 statt Ø 17.1, über 30 % teurer (auf Kerngewinn rund 18)",
+     "p": 1,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs über beiden, EMA 50 deutlich über 200",
+     "p": 19,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs über beiden, EMA 50 über 200",
+     "p": 9,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Break of Structure nach oben am 15.10., aber Kurs im teuren Teil der Spanne",
+     "p": 12,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "Tag 67.5 (nahe überkauft), Woche 57",
+     "p": 6,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Woche steigt, Tag fällt seit Februar",
+     "p": 10,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Start 3, grosser Rückkauf (+3), gehäufte Insider-Verkäufe (−3)",
+     "p": 3,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "November 61 %, Dezember 58 %, Januar 39 % positive Jahre",
+     "p": 3,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 24.0,
+    "schnitt": 17.1,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      116,
+      121
+     ],
+     [
+      108,
+      111.5
+     ]
+    ],
+    "widerstand": [
+     [
+      131,
+      132.7
+     ]
+    ],
+    "trigger": 133,
+    "abbruch": 107
+   },
+   "zahlen": "2026-10-27",
+   "dividende": "2.9 %",
+   "div_info": {
+    "pro_jahr": 1,
+    "rhythmus": "jährlich",
+    "ex_monate": [
+     3
+    ],
+    "zahl_monate": [
+     3
+    ],
+    "zahl_text": "Mitte März, wenige Tage nach der Generalversammlung",
+    "abstand_tage": 2,
+    "betrag": 3.7,
+    "system": "Schweizer System: eine Dividende pro Jahr, beschlossen an der Generalversammlung Anfang März und ein paar Tage später ausbezahlt (2026: Ex-Tag 10.3., Zahltag 12.3.). Auf Schweizer Dividenden werden 35 % Verrechnungssteuer abgezogen, die du als Person mit Wohnsitz in der Schweiz mit der Steuererklärung zurückbekommst.",
+    "serie": "29 Erhöhungen in Folge seit der Gründung 1996, nie gesenkt."
+   },
+   "chance": {
+    "ticker": "NOVN",
+    "sorgen": [
+     "Novartis verliert gerade den Patentschutz für alte Kassenschlager: Entresto (Herz) brach im 2. Quartal 2026 in den USA wegen Nachahmer-Medikamenten (Generika) um 50 % auf 1.18 Mrd. USD ein, Promacta (−64 %) und Tasigna (−57 %) ebenso. Insgesamt kosten die Generika 2026 laut Firma rund 4 Mrd. USD Umsatz.",
+     "Darum erwartet Novartis für 2026 nur ein kleines Umsatzplus und einen leicht sinkenden Kern-Betriebsgewinn (Gewinn ohne Sondereffekte). Im 1. Quartal 2026 fiel der Kern-Gewinn pro Aktie um 13 %.",
+     "Im September 2026 scheiterten zwei grosse Hoffnungsträger in der letzten Studienphase: Pelacarsen (Herz, 04.09.2026) und Del-desiran (Muskelkrankheit, 08.09.2026). Del-desiran stammt aus dem Kauf von Avidity für rund 12 Mrd. USD. Die US-Aktie (ADR) fiel am 08.09.2026 um 13.9 %.",
+     "Die Nettoschulden (Schulden minus Bargeld) stiegen bis Ende Juni 2026 auf 39.4 Mrd. USD (Ende 2025: 21.9 Mrd.), vor allem wegen Avidity. Dazu drücken US-Preisregeln: Novartis hat sich im Dezember 2025 verpflichtet, neue Medikamente in den USA zu ähnlichen Preisen wie in anderen reichen Ländern einzuführen."
+    ],
+    "sorgen_art": "gemischt",
+    "sorgen_art_text": "Die Generika-Verluste und die zwei Studien-Flops sind echt, aber vorhersehbar bzw. einmalig, während die neuen Medikamente (Kisqali, Kesimpta, Pluvicto, Scemblix, Leqvio) mit 30–90 % pro Jahr wachsen und das Volumen im 2. Quartal 2026 um 18 Prozentpunkte zulegte.",
+    "aufloeser": [
+     {
+      "was": "Die Zahlen zum 3. Quartal zeigen, dass das Wachstum der neuen Medikamente die Generika-Verluste überholt (Umsatz zu konstanten Währungen wieder klar im Plus) und Novartis die Jahresprognose bestätigt",
+      "wann": "Zahlen 27.10.2026"
+     },
+     {
+      "was": "Novartis bestätigt die Rückkehr zu Gewinnwachstum für 2027 und nennt eine konkrete Prognose für 2027",
+      "wann": "Jahreszahlen 03.02.2027"
+     },
+     {
+      "was": "Zulassungsantrag und erste Zulassungsschritte für Remibrutinib bei Multipler Sklerose sowie Entscheid zu Ianalumab bei Sjögren (Antrag seit 1. Quartal 2026 eingereicht)",
+      "wann": "2027 (genaue Daten nicht gefunden)"
+     },
+     {
+      "was": "Klarheit, wie es mit den restlichen Avidity-Programmen weitergeht und ob Novartis den Kaufpreis teilweise abschreiben muss",
+      "wann": "Zahlen 27.10.2026 / 03.02.2027"
+     }
+    ],
+    "schub_stufe": "mittel",
+    "schub_treiber": [
+     {
+      "titel": "Neue Medikamente wachsen schnell",
+      "text": "Kisqali (Brustkrebs) erzielte im 2. Quartal 2026 1.70 Mrd. USD (+44 %), Kesimpta (MS) 1.42 Mrd. (+32 %), Scemblix (Blutkrebs) 0.56 Mrd. (+89 %), Pluvicto (Prostatakrebs) 0.65 Mrd. (+43 %), Leqvio (Cholesterin) 0.48 Mrd. (+61 %). Diese Produkte haben schon Umsätze und Zulassungen. Wenn die Generika-Welle 2027 abebbt, kann ihr Wachstum wieder voll durchschlagen.",
+      "wann": "2027–2028"
+     },
+     {
+      "titel": "Remibrutinib (Rhapsido) als neue Tablette gegen MS",
+      "text": "Remibrutinib ist als Rhapsido gegen chronischen Nesselausschlag zugelassen (USA; EU und Japan im 2. Quartal 2026), aber erst mit 64 Mio. USD Umsatz im 2. Quartal. Am 01.09.2026 war es in zwei grossen MS-Studien besser als das Vergleichsmedikament. Analysten trauen dem Mittel laut Reuters bis zu 9 Mrd. USD Spitzenumsatz pro Jahr zu, falls alle Anwendungen gelingen.",
+      "wann": "MS-Zulassung frühestens 2027/2028 (nicht verifiziert)"
+     },
+     {
+      "titel": "Ianalumab und weitere Zukäufe",
+      "text": "Ianalumab gegen die Autoimmunkrankheit Sjögren ist in den USA, der EU und Japan eingereicht und hat von der US-Behörde einen Sonderstatus (Breakthrough) erhalten. Dazu kommen kleinere Zukäufe (Myricx, Abogen). Das ist wichtig, aber im Vergleich zu rund 55 Mrd. USD Umsatz noch klein und unbewiesen.",
+      "wann": "2027–2029"
+     }
+    ],
+    "schub_beweis": "Achte auf zwei Zahlen: Das Umsatzwachstum zu konstanten Währungen (Q1 2026: −5 %, Q2 2026: +1 %) sollte im 3. und 4. Quartal deutlich positiv werden, und der Kern-Gewinn pro Aktie sollte das Vorjahr (Q3 2025: 2.25 USD) wieder übertreffen. Ausserdem die Quartalsumsätze von Rhapsido (Q2 2026: 64 Mio. USD).",
+    "szenario": "Kein klassischer Fall wie Google 2023, denn die Wachstumsmedikamente sind bekannt und die Aktie steht nahe am Allzeithoch (131.62 CHF am 01.09.2026). Chance: Wenn ab 2027 die Generika-Delle vorbei ist, wächst Novartis mit Kisqali, Kesimpta, Pluvicto und später Remibrutinib wieder spürbar, und das Kern-KGV von rund 18 wirkt dann günstig, plus knapp 3 % Dividende und Rückkäufe. Grösstes Risiko: weitere Studien-Flops wie im September 2026, eine Abschreibung auf Avidity und strengere US-Preisregeln, dann bleibt das Wachstum mager.",
+    "quellen": [
+     {
+      "titel": "Novartis Q2/H1 2026 Bericht (SEC 6-K, 21.07.2026)",
+      "url": "https://www.sec.gov/Archives/edgar/data/0001114448/000111444826000012/nvs-20260630-99_1.htm"
+     },
+     {
+      "titel": "Reuters via WHBL: Novartis oral multiple sclerosis drug meets main goal (01.09.2026)",
+      "url": "https://whbl.com/2026/09/01/novartis-oral-multiple-sclerosis-drug-meets-main-goal-in-late-stage-studies/"
+     },
+     {
+      "titel": "Vermögenszentrum: Novartis misses primary endpoint in myotonic dystrophy study (08.09.2026)",
+      "url": "https://www.vermoegenszentrum.ch/en/stock-exchange-and-markets/news/novartis-misses-primary-endpoint-myotonic-dystrophy-study"
+     },
+     {
+      "titel": "TCTMD: Lp(a)HORIZON Top-line Results Dash Hopes for Pelacarsen (08.09.2026)",
+      "url": "https://www.tctmd.com/news/lpahorizon-top-line-results-dash-hopes-pelacarsen"
+     },
+     {
+      "titel": "Novartis: Agreement with US government on lowering drug prices (19.12.2025)",
+      "url": "https://www.novartis.com/us-en/news/media-releases/novartis-and-us-government-reach-agreement-lowering-drug-prices-us"
+     }
+    ]
+   },
+   "fazit": "Novartis steckt 2026 in einem Patent-Loch: Entresto (2025 noch 7.7 Mrd. USD Umsatz) hat in den USA Nachahmer bekommen und verliert die Hälfte. Darum wächst der Umsatz kaum (ohne Währungen: 1. Quartal −5 %, 2. Quartal +1 %) und der Kerngewinn sinkt 2026 leicht. Neue Mittel wachsen aber stark: Kisqali +44 %, Scemblix +89 %, Pluvicto +43 % (2. Quartal). Ab 2027 erwartet Novartis wieder Gewinnwachstum. Die Aktie steht trotzdem fast am Allzeithoch und ist nicht mehr günstig (KGV 24, auf Kerngewinn 18). Qualität gelb (51), Timing hellgrün (62), aber der Kurs ist weit weg von den Kaufzonen. Nächste Zahlen am 27.10.2026. Keine Anlageberatung.",
+   "about": "Novartis aus Basel stellt nur noch neue, patentgeschützte Medikamente her. Die Generika-Sparte Sandoz wurde im Oktober 2023 abgespalten. Vier Schwerpunkte: Herz und Stoffwechsel (Entresto, Leqvio), Immunologie (Cosentyx, Rhapsido), Nervensystem (Kesimpta, Zolgensma) und Krebs (Kisqali, Pluvicto, Scemblix). Die grössten Medikamente 2025: Entresto 7.7 Mrd. USD, Cosentyx 6.7 Mrd., Kisqali 4.8 Mrd., Kesimpta 4.4 Mrd. Die USA bringen rund 40 % des Umsatzes, Europa rund 31 %, Wachstumsmärkte rund 28 % (China 2.5 Mrd. USD im 1. Halbjahr 2026). Novartis berichtet in US-Dollar, die Aktie wird in Franken gehandelt. Im Februar 2026 kaufte Novartis die US-Firma Avidity für rund 12 Mrd. USD (Medikamente für seltene Muskelkrankheiten). Chef ist Vas Narasimhan.",
+   "kpis": [
+    {
+     "ampel": "w",
+     "name": "Umsatzwachstum",
+     "wert": "+2.7 %",
+     "text": "Letzte 12 Monate in Dollar. Ohne Währungseffekte etwa 0 %: 1. Quartal 2026 −5 %, 2. Quartal +1 %. Grund: Nachahmer für Entresto, Promacta, Tasigna kosten 2026 rund 4 Mrd. USD Umsatz."
+    },
+    {
+     "ampel": "g",
+     "name": "Kern-Marge",
+     "wert": "38.8 %",
+     "text": "Von 100 Dollar Umsatz bleiben 38.80 Dollar Kern-Betriebsgewinn (ohne Abschreibungen auf Zukäufe, letzte 12 Monate). Ausgewiesen: 32.8 %. Sehr hoch. 2025: 40.1 %."
+    },
+    {
+     "ampel": "w",
+     "name": "Kerngewinn pro Aktie",
+     "wert": "8.68 USD",
+     "text": "Letzte 12 Monate (eigene Rechnung), 2025: 8.98 USD. 2026 leicht sinkend erwartet, ab 2027 wieder Wachstum laut Novartis. Ausgewiesen: 6.61 USD."
+    },
+    {
+     "ampel": "g",
+     "name": "ROIC",
+     "wert": "18.8 %",
+     "text": "Auf 100 Dollar investiertes Kapital rund 19 Dollar Gewinn. Gut. 2025 waren es 24.5 %, gesunken durch den Avidity-Kauf."
+    },
+    {
+     "ampel": "g",
+     "name": "Free Cashflow",
+     "wert": "16.8 Mrd. USD",
+     "text": "Letzte 12 Monate. Sehr hoch und seit 2022 (13.3 Mrd.) gestiegen, im 1. Halbjahr 2026 aber −9 %."
+    },
+    {
+     "ampel": "w",
+     "name": "Nettoschulden / EBITDA",
+     "wert": "1.7",
+     "text": "Nettoschulden 39.4 Mrd. USD (30.6.2026, nach dem Avidity-Kauf), rund 1.7 Jahresgewinne vor Abschreibungen. Gut tragbar, aber stark gestiegen (Ende 2025: 21.9 Mrd.)."
+    },
+    {
+     "ampel": "r",
+     "name": "KGV",
+     "wert": "24",
+     "text": "Du zahlst 24 Jahresgewinne (ausgewiesen). Eigener Schnitt 2021–2025: 17.1. Rund 40 % teurer als üblich. Auf den Kerngewinn rund 18, erwartet 2026 rund 17.7."
+    },
+    {
+     "ampel": "w",
+     "name": "Dividende",
+     "wert": "2.9 %",
+     "text": "3.70 CHF pro Aktie, einmal im Jahr (Ex-Tag 10.3.2026, bezahlt am 12.3.2026). 29 Erhöhungen in Folge seit 1996."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "131–132.70 CHF",
+     "text": "Widerstand: Allzeithochs von Februar, Juli und September."
+    },
+    {
+     "art": "t",
+     "wert": "133 CHF",
+     "text": "Trigger: Tagesschluss über 133 CHF (neues Allzeithoch), besser mit steigender Tages-A/D. Oder ein Rücksetzer in Kaufzone 1 mit höherem Tief."
+    },
+    {
+     "art": "s",
+     "wert": "116–121 CHF",
+     "text": "Kaufzone 1: Tiefs August (121.02) und Oktober (115.94 CHF), Tages-EMA 200 (118.70 CHF)."
+    },
+    {
+     "art": "s",
+     "wert": "108–111.50 CHF",
+     "text": "Kaufzone 2: Tiefs April (108.24), Juni (111.48) und September (110.30 CHF)."
+    },
+    {
+     "art": "r",
+     "wert": "107 CHF",
+     "text": "Abbruch: Wochenschluss unter 107 CHF, also unter dem Tief vom April. Dann wäre die Spanne nach unten gebrochen."
+    }
+   ],
+   "pro": [
+    "Starke neue Medikamente: Kisqali +44 %, Kesimpta +32 %, Pluvicto +43 %, Scemblix +89 % (2. Quartal 2026).",
+    "Remibrutinib (Rhapsido) war im September in zwei grossen Studien gegen Multiple Sklerose erfolgreich. Analysten sehen bis 9 Mrd. USD Spitzenumsatz.",
+    "Sehr hohe Marge (Kern 38.8 %) und Free Cashflow von 16.8 Mrd. USD pro Jahr.",
+    "Grosse Rückkäufe und 29 Dividendenerhöhungen in Folge.",
+    "Abkommen mit der US-Regierung bringt laut Novartis 3 Jahre ohne Pharma-Zölle."
+   ],
+   "contra": [
+    "Patent-Loch: Entresto, Promacta, Tasigna verlieren 2026 zusammen rund 4 Mrd. USD Umsatz, der Kerngewinn sinkt 2026 leicht.",
+    "Zwei Studien-Rückschläge im September, darunter das wichtigste Mittel aus dem 12-Mrd.-Kauf von Avidity. Anwälte prüfen Sammelklagen.",
+    "Nicht mehr günstig: KGV 24 gegen eigenen Schnitt von 17, Kurs über dem mittleren Kursziel der Analysten.",
+    "Druck auf US-Preise (rund 40 % des Umsatzes): Preise drücken das Wachstum um 3 bis 4 Prozentpunkte.",
+    "Manager verkauften für rund 32 Mio. CHF Aktien, Tages-A/D fällt."
+   ],
+   "smart_money": [
+    "Rückkäufe: Programm über bis 10 Mrd. USD, davon Ende Juni 2026 noch 5.6 Mrd. offen. 2025 kaufte Novartis Aktien für 8.9 Mrd. USD zurück (rund 3 % des Börsenwerts). Die Aktienzahl sank seit 2021 von 2.24 auf 1.91 Mrd.",
+    "Insider: Manager verkauften von Oktober 2025 bis Oktober 2026 rund 271'500 Aktien für rund 31.9 Mio. CHF, vor allem im Februar 2026 (117 bis 124 CHF). Nur ein kleiner Kauf (3'112 Aktien zu 114.20 CHF am 30.1.2026). Manager erhalten Aktien als Lohn und verkaufen oft, das Signal ist trotzdem negativ.",
+    "Analysten: 21 Analysten bei cash.ch: 6 Kaufen, 13 Neutral, 2 Verkaufen. Kursziel im Schnitt 125 CHF (Spanne 95 bis 150 CHF), also unter dem Kurs. Morgan Stanley senkte am 6.10. von 135 auf 130 CHF, Goldman Sachs: Verkaufen, Ziel 113 CHF (1.10.)."
+   ],
+   "cheatsheet": "analysen/NOVN.html",
+   "claude": "https://claude.ai/artifact/NpxtxfHb7hXZLPwZprE4QB"
+  },
+  {
+   "ticker": "ZTO",
+   "symbol": "ZTO",
+   "name": "ZTO Express",
+   "tags": [
+    "Wachstum",
+    "Dividende"
+   ],
+   "land": "China",
+   "region": "Asien",
+   "branche": "Paketdienst und Logistik",
+   "status": "beobachten",
+   "waehrung": "USD",
+   "analyse": {
+    "datenstand": "2026-10-22",
+    "kurs": 20.06,
+    "q": 83,
+    "t": 34
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "4 von 4 Quartalen über Vorjahr, Tempo steigt (11 → 12 → 22 → 23 %)",
+     "p": 15,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "+17 % in 12 Monaten (Paketmenge nur +6 bis +10 % erwartet)",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "21.0 % (6 Pkt.), über 5 Jahre gestiegen, seit 2024 gefallen: stabil (3 Pkt.)",
+     "p": 9,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "Rund +10 % pro Jahr seit 2022, zuletzt höher (mit Einmaleffekt)",
+     "p": 8,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Positiv, seit 2022 meist steigend, 2024 kurz tiefer",
+     "p": 6,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "16.5 % (10 Pkt.), steigend (+1)",
+     "p": 11,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Netto-Cash rund 9.5 Mrd. RMB",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "KGV 10.6 statt Ø 18.4, über 30 % günstiger (gegen 2023–2025 rund 20 %)",
+     "p": 14,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs unter beiden, EMA 50 unter 200, aber flach und nah beieinander",
+     "p": 4,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs unter beiden, EMA 50 unter 200",
+     "p": 1,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Tiefere Hochs und tiefere Tiefs, erste höhere Tiefe im Tageschart",
+     "p": 4,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "Tag 47, Woche 37, kein klares Signal",
+     "p": 7,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Woche: bullische Divergenz, Tag leicht fallend",
+     "p": 11,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Start 3, grosser Rückkauf (+3), keine Insider-Daten",
+     "p": 6,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "November 44 %, Dezember 50 % positive Jahre",
+     "p": 1,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 10.6,
+    "schnitt": 18.4,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      18.9,
+      19.6
+     ],
+     [
+      16.3,
+      17.9
+     ]
+    ],
+    "widerstand": [
+     [
+      21.8,
+      22.4
+     ],
+     [
+      23.1,
+      24.8
+     ]
+    ],
+    "trigger": 21.05,
+    "abbruch": 18.1
+   },
+   "zahlen": "2026-11-17",
+   "dividende": "3.4 %",
+   "div_info": {
+    "pro_jahr": 2,
+    "rhythmus": "halbjährlich",
+    "ex_monate": [
+     4,
+     9
+    ],
+    "zahl_monate": [
+     4,
+     10
+    ],
+    "zahl_text": "Ende April (für das 2. Halbjahr) und Ende Oktober (für das 1. Halbjahr). 2026 fällt die Zahlung im Herbst aus.",
+    "abstand_tage": 21,
+    "betrag": 0.39,
+    "system": "Halbjährliche Dividende in US-Dollar pro ADR, mindestens 40 % des bereinigten Vorjahresgewinns. Ab 2026 zählen Dividende und Rückkäufe zusammen (mindestens 50 % des Gewinns). Für das 1. Halbjahr 2026 gibt es keine Zwischendividende, weil ZTO stattdessen viele Aktien zurückgekauft hat.",
+    "form": "Bar in US-Dollar (über die US-Variante der Aktie, ADR). Die Cayman Islands ziehen keine Quellensteuer ab. Ob China eine Quellensteuer abzieht, konnte ich nicht sicher klären. Die ADR-Bank behält eine kleine Gebühr."
+   },
+   "chance": {
+    "ticker": "ZTO",
+    "sorgen": [
+     "Am 18.08.2026 senkte ZTO die Prognose für die Paketmenge 2026: neu nur noch +6 % bis +10 % (40.8–42.4 Mrd. Pakete) statt +10 % bis +13 %. Im 2. Quartal wuchs die Menge nur noch um 6.5 %, die ganze Branche in China verlangsamt sich (Januar bis Mai 2026 nur +5.2 %, 2025 noch +13.6 %).",
+     "Der starke Gewinnsprung im 2. Quartal (bereinigter Reingewinn +50 %) war zum Teil eine Einmalsache: eine Steuerrückzahlung von 344 Mio. RMB. Gleichzeitig steigen die Kosten, weil Kuriere neu Sozialversicherung erhalten müssen und Öl teurer wird (laut Firma 1–2 Fen mehr pro Paket im 2. Halbjahr).",
+     "Zwei grosse Banken haben die Aktie herabgestuft: JPMorgan am 03.09.2026 (Kursziel 29 auf 22 USD) und Goldman Sachs am 14.10.2026 (25 auf 22 USD, Begründung: schwacher Online-Konsum und Überkapazität). Die Aktie fiel am 21.09.2026 an einem Tag um 8.6 % und steht mit rund 20 USD nahe am 52-Wochen-Tief von 18.11 USD.",
+     "Die Konkurrenz holt bei der Menge auf: J&T wuchs in China im 3. Quartal 2026 um 15.3 %, also mehr als doppelt so schnell wie ZTO im 2. Quartal. Beobachter warnen, dass der Preiskampf über versteckte Rabatte zurückkehren könnte, wenn das Wachstum weiter sinkt."
+    ],
+    "sorgen_art": "gemischt",
+    "sorgen_art_text": "Das Geschäft verdient mehr denn je (Umsatz Q2 +23 %, Betriebsgewinn +30 %, Netto-Cash statt Schulden), aber die schwächere Paketmenge, steigende Kosten und die Abhängigkeit von der staatlichen Preispolitik sind echte, wenn auch eher vorübergehende Baustellen.",
+    "aufloeser": [
+     {
+      "was": "Die Zahlen zum 3. Quartal zeigen, dass der höhere Preis pro Paket (Q2: +15.5 %) hält, der Marktanteil (Q2: 19.9 %) nicht sinkt und die Prognose von 6–10 % Mengenwachstum bestätigt wird",
+      "wann": "Zahlen 3. Quartal, 17.11.2026 (nach US-Börsenschluss)"
+     },
+     {
+      "was": "Die Regierung bleibt bei ihrer Politik gegen Dumpingpreise («Anti-Involution»), und die monatlichen Branchendaten der Postbehörde zeigen weiter steigende Erlöse pro Paket",
+      "wann": "laufend, monatlich bis Anfang 2027"
+     },
+     {
+      "was": "Jahreszahlen 2026 mit einer Prognose für 2027, die wieder stabiles Mengenwachstum zeigt, plus Entscheid über die Dividende (für das 1. Halbjahr 2026 gab es keine)",
+      "wann": "Jahreszahlen, voraussichtlich März 2027"
+     },
+     {
+      "was": "Der Aktienrückkauf läuft weiter: Vom Programm über 1.5 Mrd. USD (rund 10 % des Börsenwerts) waren nach dem 2. Quartal noch rund 1.36 Mrd. USD offen. Das stützt den Kurs und den Gewinn pro Aktie",
+      "wann": "bis 20.03.2028"
+     }
+    ],
+    "schub_stufe": "mittel",
+    "schub_treiber": [
+     {
+      "titel": "Höhere Preise dank staatlicher Preisdisziplin",
+      "text": "Seit die Behörden gegen Preise unter den Kosten vorgehen, steigt der Preis pro Paket bei ZTO wieder: +8.2 % im 1. Quartal und +15.5 % im 2. Quartal 2026 (1.37 statt 1.24 RMB). Weil ZTO die tiefsten Kosten der Branche hat, bleibt bei jedem Rappen Preiserhöhung viel als Gewinn hängen; die Betriebsmarge stieg im 2. Quartal auf 22.2 %. Unsicher ist, wie lange die Politik durchgezogen wird.",
+      "wann": "2026–2027"
+     },
+     {
+      "titel": "Grosskunden und Retouren",
+      "text": "Der Umsatz mit Grosskunden (vor allem Rücksendungen aus dem Onlinehandel) stieg im 2. Quartal um 63.6 %. Darum wächst der Umsatz (+23 %) viel stärker als die Paketmenge (+6.5 %). Das ist ein echter, schon sichtbarer Treiber, aber diese Pakete sind tendenziell weniger profitabel als normale Pakete.",
+      "wann": "2026–2027"
+     },
+     {
+      "titel": "Aktienrückkauf statt Wachstum",
+      "text": "ZTO will jedes Jahr mindestens 50 % des Vorjahresgewinns über Dividende und Rückkauf zurückgeben. Beim heutigen KGV von rund 10.6 kauft die Firma viele Aktien günstig zurück, das hebt den Gewinn pro Aktie, auch wenn die Paketmenge nur langsam wächst.",
+      "wann": "bis März 2028"
+     }
+    ],
+    "schub_beweis": "Achte bei den Zahlen vom 17.11.2026 auf zwei Werte: den Preis pro Paket im Kern-Express (sollte weiter deutlich über Vorjahr liegen) und die Betriebsmarge (sollte über 21 % bleiben, Q2: 22.2 %). Bleibt zudem der Marktanteil um 20 %, wirkt der Preis-Hebel.",
+    "szenario": "Kein Fall wie Google 2023, eher eine Neubewertung: Wenn die Preisdisziplin in China hält und ZTO trotz langsamerer Menge mehr pro Paket verdient, könnte die Börse die Aktie wieder näher am eigenen Schnitt bewerten (KGV 2023–2025 um 13, heute rund 10.6), dazu kommen Rückkäufe und eine Dividende von zuletzt rund 3.4 %. Grösstes Risiko: Der Preiskampf kehrt zurück, Konkurrenten wie J&T nehmen Marktanteile weg und die Kosten für Kuriere steigen, dann bleibt die Aktie trotz tiefem KGV liegen.",
+    "quellen": [
+     {
+      "titel": "ZTO: Second Quarter 2026 Unaudited Financial Results (SEC 6-K, 18.08.2026)",
+      "url": "https://www.sec.gov/Archives/edgar/data/0001677250/000110465926098506/tm2623526d1_ex99-1.htm"
+     },
+     {
+      "titel": "Investing.com: ZTO Q2 2026 slides: profit surges 50%, shares fall on earnings quality (18.08.2026)",
+      "url": "https://www.investing.com/news/company-news/zto-q2-2026-slides-profit-surges-50-shares-fall-on-earnings-quality-93CH-4866352"
+     },
+     {
+      "titel": "Bamboo Works: Is China's express delivery price war over? The answer will lie in profits (2026)",
+      "url": "https://thebambooworks.com/is-chinas-express-delivery-price-war-over-the-answer-will-lie-in-profits/"
+     },
+     {
+      "titel": "ad-hoc-news: Goldman Sachs cuts target to USD 22.00 for ZTO Express stock (19.10.2026)",
+      "url": "https://www.ad-hoc-news.de/boerse/news/nebenwerte/goldman-sachs-cuts-target-to-usd-22-00-for-zto-express-stock/70356426"
+     },
+     {
+      "titel": "J&T Global Express: Q3 2026 Betriebsdaten, China +15.3 % (Kosmo, 14.10.2026)",
+      "url": "https://www.kosmo.com.my/?p=1025825"
+     }
+    ]
+   },
+   "fazit": "ZTO ist Chinas grösster Paketdienst (38.5 Mrd. Pakete 2025, rund 20 % Marktanteil) und verdient gut: Umsatz +23 % im 2. Quartal 2026, Marge 21 %, mehr Geld als Schulden. Mit einem KGV von rund 10.6 ist die Aktie billig. Die Börse sorgt sich um die Menge: Am 18.8.2026 senkte ZTO das Ziel für 2026 auf +6 bis +10 % mehr Pakete, Konkurrent J&T wächst schneller, und der Onlinehandel in China wächst nur noch rund 5 %. Der Staat verbietet Preise unter den Kosten, das hebt den Preis pro Paket (+15.5 %), kostet aber Menge. Qualität grün (83), Timing orange (34): Der Abwärtstrend seit März ist intakt. ZTO kauft laufend eigene Aktien um 19.50 USD zurück. Zusätzliches Risiko: China-Aktie mit Firmensitz auf den Cayman Islands. Keine Anlageberatung.",
+   "about": "ZTO Express aus Shanghai ist nach Paketmenge seit rund 10 Jahren der grösste Paketdienst Chinas. ZTO besitzt das Rückgrat: 93 Sortierzentren, eine eigene Lastwagenflotte und die Software. Abholen und Ausliefern machen über 6'000 selbständige Partnerfirmen mit über 31'000 Abholstellen. ZTO verdient an jedem Paket, das durch sein Netz läuft. Vorteil: wenig eigenes Personal, hohe Marge. Nachteil: Geht es den Partnern schlecht, leidet die Qualität. 93 % des Umsatzes kommen aus dem Paketgeschäft, der Rest aus Verpackungsmaterial und Frachtvermittlung. Gründer und Chef Lai Meisong kontrolliert die Firma über Aktien mit Mehrfachstimmrecht (rund 26.5 % der Aktien, Stand Mai 2025), Alibaba hielt rund 8.4 %. Die Aktie wird in New York (ZTO, in Dollar) und in Hongkong (2057) gehandelt.",
+   "kpis": [
+    {
+     "ampel": "g",
+     "name": "Umsatzwachstum",
+     "wert": "+17.0 %",
+     "text": "Letzte 12 Monate. 2. Quartal 2026: +23 %. Die Paketmenge wuchs aber nur 6.5 %, der Rest kommt von höheren Preisen und Grosskunden, die ZTO selbst abrechnet."
+    },
+    {
+     "ampel": "g",
+     "name": "Operative Marge",
+     "wert": "21.0 %",
+     "text": "Von 100 Yuan Umsatz bleiben 21 Yuan Betriebsgewinn (letzte 12 Monate). Gut, aber tiefer als 2023/24 (26 bis 27 %), weil ZTO mehr eigene Grosskunden-Pakete abrechnet."
+    },
+    {
+     "ampel": "g",
+     "name": "Gewinn pro Aktie (EPS)",
+     "wert": "12.82 RMB",
+     "text": "Letzte 12 Monate, rund 1.89 USD pro ADR. 2022: 8.36 RMB. Im Schnitt rund +10 % pro Jahr. Enthält eine einmalige Steuerrückzahlung."
+    },
+    {
+     "ampel": "w",
+     "name": "ROIC",
+     "wert": "16.5 %",
+     "text": "Auf 100 Yuan investiertes Kapital rund 16.50 Yuan Gewinn. Ordentlich und seit 2021 (12.3 %) gestiegen."
+    },
+    {
+     "ampel": "g",
+     "name": "Free Cashflow",
+     "wert": "9.8 Mrd. RMB",
+     "text": "Letzte 12 Monate, rund 1.45 Mrd. USD. Seit 2022 jedes Jahr positiv (2024 leicht tiefer)."
+    },
+    {
+     "ampel": "g",
+     "name": "Netto-Cash",
+     "wert": "9.5 Mrd. RMB",
+     "text": "Mehr Geld als Schulden (30.6.2026, eigene Rechnung), rund 1.4 Mrd. USD. Mit langfristigen Anlagen sogar 16 Mrd. RMB."
+    },
+    {
+     "ampel": "g",
+     "name": "KGV",
+     "wert": "10.6",
+     "text": "Du zahlst rund 11 Jahresgewinne. Eigener Schnitt 2021–2025: 18.4 (2023–2025 nur 13.2). Also deutlich günstiger als üblich. China-Aktien sind generell tief bewertet."
+    },
+    {
+     "ampel": "w",
+     "name": "Dividende",
+     "wert": "3.4 %",
+     "text": "Zuletzt 0.39 USD (Ex-Tag 8.4.2026, bezahlt am 29.4.2026) und 0.30 USD (Oktober 2025). Für das 1. Halbjahr 2026 gibt es keine Zwischendividende, ZTO kauft stattdessen Aktien zurück."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "23.10–24.80 USD",
+     "text": "Widerstand: Hochs Juli und August, Tief vom April."
+    },
+    {
+     "art": "r",
+     "wert": "21.80–22.40 USD",
+     "text": "Widerstand: Wochen-EMA 50 und 200, Hoch vom 3.6. und Tief vom 12.8."
+    },
+    {
+     "art": "t",
+     "wert": "21.05 USD",
+     "text": "Trigger: Tagesschluss über 21.05 USD (letztes tieferes Hoch vom 18.9.), besser mit steigender Tages-A/D."
+    },
+    {
+     "art": "s",
+     "wert": "18.90–19.60 USD",
+     "text": "Kaufzone 1: Tiefs vom 21.9. (18.95) und 29.9. (19.33 USD). Hier kaufte ZTO selbst Aktien zurück (19.44 bis 19.57 USD am 30.9.)."
+    },
+    {
+     "art": "s",
+     "wert": "16.30–17.90 USD",
+     "text": "Kaufzone 2: Tiefs von Januar, April, Mai und September 2025 (16.34 bis 17.89 USD)."
+    },
+    {
+     "art": "r",
+     "wert": "18.10 USD",
+     "text": "Abbruch: Wochenschluss unter 18.10 USD, also unter dem 52-Wochen-Tief."
+    }
+   ],
+   "pro": [
+    "Marktführer in China mit rund 20 % Anteil, Umsatz +23 % im 2. Quartal 2026.",
+    "Staatliches Verbot von Preisen unter den Kosten hebt den Preis pro Paket (+15.5 % im 2. Quartal).",
+    "Mehr Geld als Schulden, Free Cashflow von 9.8 Mrd. RMB in 12 Monaten.",
+    "Günstig: KGV rund 10.6, grosser Rückkauf (rund 10 % des Börsenwerts bis 2028).",
+    "Wochen-A/D zeigt eine bullische Divergenz: Beim tieferen Kurs wurde nicht mehr verkauft."
+   ],
+   "contra": [
+    "Mengenziel 2026 gesenkt (+6 bis +10 %), Konkurrent J&T wächst schneller (+15 % im 3. Quartal).",
+    "Chinas Onlinehandel wächst nur noch rund 5 %, der Preiskampf kann über Rabatte zurückkommen.",
+    "Höhere Kosten für Sozialversicherung der Kuriere und Diesel.",
+    "China-Risiko: Firmensitz auf den Cayman Islands, Gründer kontrolliert die Stimmen, US-Börsenregeln für chinesische Firmen.",
+    "Keine Zwischendividende 2026, Abwärtstrend im Chart intakt."
+   ],
+   "smart_money": [
+    "Rückkäufe: Neues Programm über 1.5 Mrd. USD bis März 2028, rund 10 % des Börsenwerts (also rund 5 % pro Jahr). 2026 bis Juni 31.8 Mio. Aktien für 740 Mio. USD zurückgekauft, im September weiter zu rund 19.50 USD.",
+    "Insider: Gründer Lai Meisong hält rund 26.5 % der Aktien (Mai 2025), dazu Mehrfachstimmrechte. Käufe oder Verkäufe der Führung in den letzten 6 Monaten habe ich nicht gefunden. Alibaba (8.4 %) prüfte 2025 einen Teilverkauf.",
+    "Grosse Investoren (13F): Gemischt. Im 1. Quartal 2026 reduzierten Pzena, Temasek und Goldman Sachs, Fisher und Marshall Wace stockten auf. Im 2. Quartal stockten JPMorgan und Point72 auf, Citigroup halbierte.",
+    "Analysten: Kursziel im Schnitt 24.70 bis 26 USD (Spanne 22 bis 30.10 USD), mehrheitlich Halten. JPMorgan (3.9.) und Goldman Sachs (14.10.) stuften auf Neutral ab, Ziel je 22 USD."
+   ],
+   "cheatsheet": "analysen/ZTO.html",
+   "claude": "https://claude.ai/artifact/W5bD7XCXqkXpULq8Dw4SE4"
   }
  ]
 }

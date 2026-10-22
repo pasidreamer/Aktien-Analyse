@@ -1,0 +1,32 @@
+{
+ "ticker": "NOVN",
+ "sorgen": [
+  "Novartis verliert gerade den Patentschutz für alte Kassenschlager: Entresto (Herz) brach im 2. Quartal 2026 in den USA wegen Nachahmer-Medikamenten (Generika) um 50 % auf 1.18 Mrd. USD ein, Promacta (−64 %) und Tasigna (−57 %) ebenso. Insgesamt kosten die Generika 2026 laut Firma rund 4 Mrd. USD Umsatz.",
+  "Darum erwartet Novartis für 2026 nur ein kleines Umsatzplus und einen leicht sinkenden Kern-Betriebsgewinn (Gewinn ohne Sondereffekte). Im 1. Quartal 2026 fiel der Kern-Gewinn pro Aktie um 13 %.",
+  "Im September 2026 scheiterten zwei grosse Hoffnungsträger in der letzten Studienphase: Pelacarsen (Herz, 04.09.2026) und Del-desiran (Muskelkrankheit, 08.09.2026). Del-desiran stammt aus dem Kauf von Avidity für rund 12 Mrd. USD. Die US-Aktie (ADR) fiel am 08.09.2026 um 13.9 %.",
+  "Die Nettoschulden (Schulden minus Bargeld) stiegen bis Ende Juni 2026 auf 39.4 Mrd. USD (Ende 2025: 21.9 Mrd.), vor allem wegen Avidity. Dazu drücken US-Preisregeln: Novartis hat sich im Dezember 2025 verpflichtet, neue Medikamente in den USA zu ähnlichen Preisen wie in anderen reichen Ländern einzuführen."
+ ],
+ "sorgen_art": "gemischt",
+ "sorgen_art_text": "Die Generika-Verluste und die zwei Studien-Flops sind echt, aber vorhersehbar bzw. einmalig, während die neuen Medikamente (Kisqali, Kesimpta, Pluvicto, Scemblix, Leqvio) mit 30–90 % pro Jahr wachsen und das Volumen im 2. Quartal 2026 um 18 Prozentpunkte zulegte.",
+ "aufloeser": [
+  {"was": "Die Zahlen zum 3. Quartal zeigen, dass das Wachstum der neuen Medikamente die Generika-Verluste überholt (Umsatz zu konstanten Währungen wieder klar im Plus) und Novartis die Jahresprognose bestätigt", "wann": "Zahlen 27.10.2026"},
+  {"was": "Novartis bestätigt die Rückkehr zu Gewinnwachstum für 2027 und nennt eine konkrete Prognose für 2027", "wann": "Jahreszahlen 03.02.2027"},
+  {"was": "Zulassungsantrag und erste Zulassungsschritte für Remibrutinib bei Multipler Sklerose sowie Entscheid zu Ianalumab bei Sjögren (Antrag seit 1. Quartal 2026 eingereicht)", "wann": "2027 (genaue Daten nicht gefunden)"},
+  {"was": "Klarheit, wie es mit den restlichen Avidity-Programmen weitergeht und ob Novartis den Kaufpreis teilweise abschreiben muss", "wann": "Zahlen 27.10.2026 / 03.02.2027"}
+ ],
+ "schub_stufe": "mittel",
+ "schub_treiber": [
+  {"titel": "Neue Medikamente wachsen schnell", "text": "Kisqali (Brustkrebs) erzielte im 2. Quartal 2026 1.70 Mrd. USD (+44 %), Kesimpta (MS) 1.42 Mrd. (+32 %), Scemblix (Blutkrebs) 0.56 Mrd. (+89 %), Pluvicto (Prostatakrebs) 0.65 Mrd. (+43 %), Leqvio (Cholesterin) 0.48 Mrd. (+61 %). Diese Produkte haben schon Umsätze und Zulassungen. Wenn die Generika-Welle 2027 abebbt, kann ihr Wachstum wieder voll durchschlagen.", "wann": "2027–2028"},
+  {"titel": "Remibrutinib (Rhapsido) als neue Tablette gegen MS", "text": "Remibrutinib ist als Rhapsido gegen chronischen Nesselausschlag zugelassen (USA; EU und Japan im 2. Quartal 2026), aber erst mit 64 Mio. USD Umsatz im 2. Quartal. Am 01.09.2026 war es in zwei grossen MS-Studien besser als das Vergleichsmedikament. Analysten trauen dem Mittel laut Reuters bis zu 9 Mrd. USD Spitzenumsatz pro Jahr zu, falls alle Anwendungen gelingen.", "wann": "MS-Zulassung frühestens 2027/2028 (nicht verifiziert)"},
+  {"titel": "Ianalumab und weitere Zukäufe", "text": "Ianalumab gegen die Autoimmunkrankheit Sjögren ist in den USA, der EU und Japan eingereicht und hat von der US-Behörde einen Sonderstatus (Breakthrough) erhalten. Dazu kommen kleinere Zukäufe (Myricx, Abogen). Das ist wichtig, aber im Vergleich zu rund 55 Mrd. USD Umsatz noch klein und unbewiesen.", "wann": "2027–2029"}
+ ],
+ "schub_beweis": "Achte auf zwei Zahlen: Das Umsatzwachstum zu konstanten Währungen (Q1 2026: −5 %, Q2 2026: +1 %) sollte im 3. und 4. Quartal deutlich positiv werden, und der Kern-Gewinn pro Aktie sollte das Vorjahr (Q3 2025: 2.25 USD) wieder übertreffen. Ausserdem die Quartalsumsätze von Rhapsido (Q2 2026: 64 Mio. USD).",
+ "szenario": "Kein klassischer Fall wie Google 2023, denn die Wachstumsmedikamente sind bekannt und die Aktie steht nahe am Allzeithoch (131.62 CHF am 01.09.2026). Chance: Wenn ab 2027 die Generika-Delle vorbei ist, wächst Novartis mit Kisqali, Kesimpta, Pluvicto und später Remibrutinib wieder spürbar, und das Kern-KGV von rund 18 wirkt dann günstig, plus knapp 3 % Dividende und Rückkäufe. Grösstes Risiko: weitere Studien-Flops wie im September 2026, eine Abschreibung auf Avidity und strengere US-Preisregeln, dann bleibt das Wachstum mager.",
+ "quellen": [
+  {"titel": "Novartis Q2/H1 2026 Bericht (SEC 6-K, 21.07.2026)", "url": "https://www.sec.gov/Archives/edgar/data/0001114448/000111444826000012/nvs-20260630-99_1.htm"},
+  {"titel": "Reuters via WHBL: Novartis oral multiple sclerosis drug meets main goal (01.09.2026)", "url": "https://whbl.com/2026/09/01/novartis-oral-multiple-sclerosis-drug-meets-main-goal-in-late-stage-studies/"},
+  {"titel": "Vermögenszentrum: Novartis misses primary endpoint in myotonic dystrophy study (08.09.2026)", "url": "https://www.vermoegenszentrum.ch/en/stock-exchange-and-markets/news/novartis-misses-primary-endpoint-myotonic-dystrophy-study"},
+  {"titel": "TCTMD: Lp(a)HORIZON Top-line Results Dash Hopes for Pelacarsen (08.09.2026)", "url": "https://www.tctmd.com/news/lpahorizon-top-line-results-dash-hopes-pelacarsen"},
+  {"titel": "Novartis: Agreement with US government on lowering drug prices (19.12.2025)", "url": "https://www.novartis.com/us-en/news/media-releases/novartis-and-us-government-reach-agreement-lowering-drug-prices-us"}
+ ]
+}

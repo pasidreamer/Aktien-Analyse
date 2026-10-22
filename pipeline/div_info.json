@@ -664,5 +664,52 @@
   "system": "Japanisches Stichtag-System: zwei Dividenden pro Jahr, für die Aktionäre am 30. September (Zwischendividende) und am 31. März (Jahresdividende). Ausbezahlt wird rund 2 Monate später. Plan 2026/27: 2 × 17.5 ¥ = 35 ¥ (+40 %). Seit 2016 jedes Jahr erhöht, 2014 aber einmal gestrichen. Ausschüttung nur 15 % vom Gewinn.",
   "form": "Bar in US-Dollar (JPMorgan wechselt die Yen in Dollar, der Betrag schwankt mit dem Kurs, aktuell rund 0.11 $ pro Zahlung). Japan zieht 15.315 % Quellensteuer ab. 10 % kannst du über die Schweizer Steuererklärung anrechnen lassen (Formular DA-1, erst ab CHF 100 ausländischer Steuer pro Jahr), die restlichen 5.315 % müsstest du in Japan zurückfordern. Bei 0.11 $ kommen rund 0.093 $ aufs Konto.",
   "serie": "Seit 2016 jedes Jahr erhöht (10 Erhöhungen in Folge)."
+ },
+ "UHR": {
+  "pro_jahr": 1,
+  "rhythmus": "jährlich",
+  "ex_monate": [
+   5
+  ],
+  "zahl_monate": [
+   5
+  ],
+  "zahl_text": "Mitte bis Ende Mai, wenige Tage nach der Generalversammlung",
+  "abstand_tage": 4,
+  "betrag": 4.5,
+  "system": "Schweizer System: eine Dividende pro Jahr, beschlossen an der Generalversammlung im Mai und ein paar Tage später ausbezahlt (2026: Ex-Tag 15.5., Zahltag 19.5.). Auf Schweizer Dividenden werden 35 % Verrechnungssteuer abgezogen, die du als Person mit Wohnsitz in der Schweiz mit der Steuererklärung zurückbekommst.",
+  "serie": "Keine stabile Serie: gekürzt für 2019, 2020 und 2024 (von 6.50 auf 4.50 CHF). Für 2025 gleich hoch, obwohl der Gewinn pro Aktie nur 0.06 CHF betrug."
+ },
+ "NOVN": {
+  "pro_jahr": 1,
+  "rhythmus": "jährlich",
+  "ex_monate": [
+   3
+  ],
+  "zahl_monate": [
+   3
+  ],
+  "zahl_text": "Mitte März, wenige Tage nach der Generalversammlung",
+  "abstand_tage": 2,
+  "betrag": 3.7,
+  "system": "Schweizer System: eine Dividende pro Jahr, beschlossen an der Generalversammlung Anfang März und ein paar Tage später ausbezahlt (2026: Ex-Tag 10.3., Zahltag 12.3.). Auf Schweizer Dividenden werden 35 % Verrechnungssteuer abgezogen, die du als Person mit Wohnsitz in der Schweiz mit der Steuererklärung zurückbekommst.",
+  "serie": "29 Erhöhungen in Folge seit der Gründung 1996, nie gesenkt."
+ },
+ "ZTO": {
+  "pro_jahr": 2,
+  "rhythmus": "halbjährlich",
+  "ex_monate": [
+   4,
+   9
+  ],
+  "zahl_monate": [
+   4,
+   10
+  ],
+  "zahl_text": "Ende April (für das 2. Halbjahr) und Ende Oktober (für das 1. Halbjahr). 2026 fällt die Zahlung im Herbst aus.",
+  "abstand_tage": 21,
+  "betrag": 0.39,
+  "system": "Halbjährliche Dividende in US-Dollar pro ADR, mindestens 40 % des bereinigten Vorjahresgewinns. Ab 2026 zählen Dividende und Rückkäufe zusammen (mindestens 50 % des Gewinns). Für das 1. Halbjahr 2026 gibt es keine Zwischendividende, weil ZTO stattdessen viele Aktien zurückgekauft hat.",
+  "form": "Bar in US-Dollar (über die US-Variante der Aktie, ADR). Die Cayman Islands ziehen keine Quellensteuer ab. Ob China eine Quellensteuer abzieht, konnte ich nicht sicher klären. Die ADR-Bank behält eine kleine Gebühr."
  }
 }

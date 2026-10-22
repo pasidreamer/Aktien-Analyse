@@ -4,19 +4,22 @@
    "id": "9c5jpjjMTfbo",
    "text": "The Swatch Group AG (UHR.SW)",
    "eingang": "2026-10-22T05:58Z",
-   "status": "offen"
+   "status": "fertig",
+   "ticker": "UHR"
   },
   {
    "id": "V85DoKoEvGQt",
    "text": "Novartis AG (NOVN.SW)",
    "eingang": "2026-10-22T05:59Z",
-   "status": "offen"
+   "status": "fertig",
+   "ticker": "NOVN"
   },
   {
    "id": "eeL9Cyr6yn8M",
    "text": "ZTO Express (Cayman) Inc. (2057.HK)",
    "eingang": "2026-10-22T07:44Z",
-   "status": "offen"
+   "status": "fertig",
+   "ticker": "ZTO"
   }
  ],
  "stand": "2026-10-22T12:09Z"

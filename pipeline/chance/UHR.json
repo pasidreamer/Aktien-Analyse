@@ -1,0 +1,32 @@
+{
+ "ticker": "UHR",
+ "sorgen": [
+  "Der Gewinn ist fast weg: 2025 sank der Betriebsgewinn auf 135 Mio. CHF (Marge 2.1 %, früher über 15 %), und im 1. Halbjahr 2026 waren es nur 52 Mio. CHF statt der erwarteten rund 120 Mio. Grund sind vor allem die eigenen Fabriken: Swatch hält Werke und Stellen, obwohl weniger verkauft wird. Dazu kostet der starke Franken viel Geld.",
+  "China, früher über 40 % des Umsatzes, ist stark geschrumpft (Grosschina 2025 rund 1.46 Mrd. CHF, 2021 noch 3.08 Mrd. laut marketscreener). Goldman Sachs stuft die Aktie am 05.10.2026 auf 'Sell' (Ziel 174 CHF) wegen China, Nahost und Überkapazität.",
+  "Die Lager sind riesig: 7.3 Mrd. CHF Ende Juni 2026, mehr als ein ganzer Jahresumsatz. Das bindet viel Geld.",
+  "Schlechte Governance (Führung und Kontrolle der Firma): Die Familie Hayek hat 44.5 % der Stimmen mit nur rund 26 % des Kapitals. An der GV vom 12.05.2026 wurde der Aktivist Steven Wood abgelehnt, obwohl 80.4 % der Inhaberaktionäre für ihn stimmten. Ethos nennt die Struktur eine der schlechtesten der Schweiz."
+ ],
+ "sorgen_art": "gemischt",
+ "sorgen_art_text": "Der Umsatz wächst wieder (1. Halbjahr 2026 +8.5 % zu konstanten Währungen), aber die Marge ist durch eigene Entscheide (volle Fabriken, hohe Lager) und den Franken echt kaputt, und die Governance ändert sich kaum.",
+ "aufloeser": [
+  {"was": "Swatch zeigt für das 2. Halbjahr 2026 die versprochene 'deutliche Verbesserung der Profitabilität' und einen Jahresumsatz klar über 2025 (6.28 Mrd. CHF)", "wann": "Jahresumsatz und Kennzahlen 2026, erwartet Ende Januar 2027 (Vorjahr 30.01.2026, Datum noch nicht bestätigt)"},
+  {"was": "Betriebsgewinn steigt Richtung der Analystenschätzung für 2026 (rund 340 Mio. CHF), Lager sinken, Free Cashflow bleibt positiv", "wann": "Geschäftsbericht 2026, erwartet ca. März 2027"},
+  {"was": "China erholt sich weiter (Detailhandel H1 2026 +9 %, Uhrenexporte nach China August 2026 +15.8 %), auch die Nachbestellungen der Händler ziehen an", "wann": "Monatliche Uhrenexporte, Halbjahr 2027 (Juli 2027)"},
+  {"was": "Mehr Mitsprache für Inhaberaktionäre, z. B. ein unabhängiger Vertreter oder Trennung von Präsidium und Geschäftsleitung", "wann": "Generalversammlung, erwartet Mai 2027"}
+ ],
+ "schub_stufe": "mittel",
+ "schub_treiber": [
+  {"titel": "Margen-Hebel durch volle Fabriken", "text": "Swatch hat Kapazität für deutlich mehr Uhren und keine Stellen abgebaut. Wenn der Umsatz steigt, wirken die Fixkosten kaum mehr, und der Gewinn kann stark steigen. Analysten erwarten einen Betriebsgewinn von 135 Mio. CHF (2025) auf rund 547 Mio. (2027) und 703 Mio. (2028); Nick Hayek nannte 500–600 Mio. 'oder mehr' (keine offizielle Prognose). Im Mai/Juni 2026 lag die Marge bei Uhren & Schmuck ohne Produktion schon bei 15 %.", "wann": "2027–2028"},
+  {"titel": "Royal Pop mit Audemars Piguet", "text": "Die am 16.05.2026 lancierte Taschenuhr löste weltweit Schlangen aus; laut Firma übersteigt die Nachfrage das Angebot bei weitem, bei hoher Marge. Schätzungen gehen weit auseinander: RBC rechnet mit bis zu 1.05 Mrd. CHF Umsatz und rund 390 Mio. CHF Gewinnanteil über 2026–2029, die FT nennt eher 150–170 Mio. CHF Umsatz. UBS hält den Effekt für 'anekdotisch'.", "wann": "2026–2027"},
+  {"titel": "Wachstum ausserhalb Chinas", "text": "Im 1. Halbjahr 2026 wuchsen USA (+27 %), Japan (+20 %), Spanien (+28 %) und Indien (+38 %) stark. Der US-Zoll ist von 39 % (August 2025) auf 12.5 % (seit 24.07.2026) gesunken. Das macht Swatch weniger abhängig von China.", "wann": "laufend, 2026–2027"}
+ ],
+ "schub_beweis": "Achte auf die operative Marge: H1 2026 lag sie bei 1.7 %. Steigt sie im Gesamtjahr 2026 auf rund 5 % und 2027 über 8 %, und sinken gleichzeitig die Lager unter 7 Mrd. CHF, dann wirkt der Hebel.",
+ "szenario": "Kein Fall wie Google 2023, eher eine Wende aus dem Tief: Die Aktie notiert unter dem Buchwert (Kurs-Buchwert 0.84) und hat 1.1 Mrd. CHF Netto-Cash. Wenn der Umsatz weiter wächst und die Fabriken wieder ausgelastet sind, könnte der Gewinn pro Aktie laut Schätzungen von 0.06 CHF (2025) auf rund 9 CHF (2028) steigen; bei einem KGV um 16–18 (eigener Schnitt in normalen Jahren) wäre das deutlich über dem heutigen Kurs. Grösstes Risiko: Die Marge bleibt tief, weil die Familie Hayek Kapazität und Lager nicht anpasst, und viele Analysten (Konsens 'Sell', Ziel um 167–170 CHF) behalten recht.",
+ "quellen": [
+  {"titel": "Swatch Group: Half-Year Report 2026 (21.07.2026)", "url": "https://mailing-ircockpit.eqs.com/crm-mailing/5b724614-ea7c-11e8-902f-2c44fd856d8c/848ccdaa-2561-4ad8-8a87-17034876eeb7/48b92baa-da0e-41be-85f7-ff8982cd305e/PR_Halfyear_Report_2026_en.pdf"},
+  {"titel": "swissinfo/Financial Times: Time's up for Swatch? (08.06.2026)", "url": "https://www.swissinfo.ch/eng/workplace/times-up-for-swatch/91545252"},
+  {"titel": "swissinfo: Swatch quashes activist attempt to shake up Hayek stronghold (12.05.2026)", "url": "https://www.swissinfo.ch/eng/swatch-quashes-activist-attempt-to-shake-up-hayek-stronghold/91402437"},
+  {"titel": "cash.ch: Swatch oder Richemont? Für Goldman Sachs ist die Wahl klar (05.10.2026)", "url": "https://www.cash.ch/news/top-news/swatch-oder-richemont-fur-goldman-sachs-ist-die-wahl-klar-974141"},
+  {"titel": "The Hour Markers: Audemars Piguet x Swatch Royal Pop and the stock market (Mai 2026)", "url": "https://thehourmarkers.com/articles/audemars-piguet-swatch-royal-pop-stock-market"}
+ ]
+}

@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Swatch Group Aktien-Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F3F5F7; --surface:#FFFFFF; --ink:#141B24; --muted:#5A6573; --line:#DDE2E8; --grid:#E9EDF1;
+  --accent:#2F45B5; --accent-soft:#E6E9F8; --chip:#EBEEF2;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+  --good:#1D7A4B; --good-bg:#E3F3EA; --warn:#9A6200; --warn-bg:#FBF0DC; --bad:#B2362A; --bad-bg:#FBE6E3;
+  --zone-sup:rgba(29,122,75,.10); --zone-res:rgba(178,54,42,.09);
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+    --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+    --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+    --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+  --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+  --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;padding-inline:16px;padding-block:24px 56px}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+h1,h2,h3{font-family:var(--display);font-stretch:85%;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:clamp(32px,7vw,48px);font-weight:800;line-height:1}
+h2{font-size:24px;font-weight:700}
+h3{font-size:17px;font-weight:700;font-stretch:95%}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+section{display:flex;flex-direction:column;gap:14px}
+.lead{max-width:68ch;color:var(--muted)}
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;align-items:stretch}
+.hero .id{display:flex;flex-direction:column;gap:10px;justify-content:space-between}
+.price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price b{font-family:var(--display);font-size:34px;font-weight:700}
+.meta{font-size:13px;color:var(--muted)}
+.verdict{font-size:15px;padding:12px 14px;border-radius:10px;background:var(--chip)}
+.scales{display:flex;flex-direction:column;gap:18px}
+.scale-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.scale-h span{font-size:13px;color:var(--muted)}
+.scale-h b{font-family:var(--display);font-size:28px;line-height:1}
+.track{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#C8412F 0%,#E0892F 30%,#E3B63A 50%,#8BBF4B 68%,#2E9A5B 100%);margin-top:8px}
+.pin{position:absolute;top:-5px;width:4px;height:22px;border-radius:2px;background:var(--ink);box-shadow:0 0 0 2px var(--surface);transform:translateX(-2px)}
+.ticks{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);font-family:var(--mono);margin-top:6px}
+.state{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;margin-top:8px}
+.st-good{background:var(--good-bg);color:var(--good)}
+.st-warn{background:var(--warn-bg);color:var(--warn)}
+.st-bad{background:var(--bad-bg);color:var(--bad)}
+/* tables */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;color:var(--muted);font-weight:500;font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:700;border-bottom:none}
+.pts{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{height:6px;border-radius:3px;background:var(--chip);min-width:60px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:3px}
+/* grids */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;border-left:4px solid var(--line)}
+.kpi.g{border-left-color:var(--good)}.kpi.w{border-left-color:var(--warn)}.kpi.b{border-left-color:var(--bad)}
+.kpi span{font-size:12px;color:var(--muted)}
+.kpi b{font-family:var(--mono);font-size:19px;font-weight:500;font-variant-numeric:tabular-nums}
+.kpi em{font-style:normal;font-size:12.5px;color:var(--muted)}
+/* charts */
+.chart{position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:14px;height:3px;border-radius:2px;display:inline-block}
+.swb{width:12px;height:10px;border-radius:2px;display:inline-block}
+.tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12.5px;box-shadow:0 4px 14px rgba(0,0,0,.12);white-space:nowrap;z-index:2}
+.tip b{font-family:var(--mono);font-weight:500}
+.tip .d{font-family:var(--mono);color:var(--muted);font-size:11.5px}
+.note{font-size:13.5px;color:var(--muted)}
+ul.clean{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.pro li::marker{color:var(--good)} .con li::marker{color:var(--bad)}
+.zones{display:flex;flex-direction:column;gap:8px}
+.zone{display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:baseline;padding:10px 12px;border-radius:10px;background:var(--chip);font-size:14px}
+.zone b{font-family:var(--mono);font-weight:500}
+.zone.r{border-left:4px solid var(--bad)} .zone.s{border-left:4px solid var(--good)} .zone.t{border-left:4px solid var(--accent)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+summary{cursor:pointer;font-weight:600}
+details p{margin-top:8px;color:var(--muted);max-width:70ch}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+footer{font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:6px;max-width:80ch}
+footer a{color:var(--accent)}
+@media (max-width:760px){.hero,.two{grid-template-columns:1fr}.zone{grid-template-columns:1fr;gap:2px}}
+</style>
+
+<a href="../index.html#/aktie/UHR" style="display:inline-block;margin:max(12px,env(safe-area-inset-top)) 0 0 16px;background:#1f3a5f;color:#fff;font:600 14px system-ui;padding:8px 12px;border-radius:20px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">Zurück zur App</a>
+<div class="wrap">
+
+<header class="hero">
+  <div class="card id">
+    <div>
+      <div class="eyebrow">Aktien-Check · 22.10.2026</div>
+      <h1>Swatch Group</h1>
+      <p class="meta">The Swatch Group AG · SIX Swiss Exchange: UHR (Inhaberaktie), auch UHRN (Namenaktie) · Uhren und Schmuck (Omega, Longines, Tissot, Swatch) · Biel, Schweiz</p>
+    </div>
+    <div class="price"><b>178.60 CHF</b><span class="meta">Schluss 22.10.2026 · 52 Wochen: 159.80 – 223.10 CHF · Allzeithoch rund 606 CHF im November 2013</span></div>
+    <p class="verdict"><b>Kurz gesagt:</b> Swatch verkauft wieder mehr Uhren (1. Halbjahr 2026: +8.5 % ohne Währungseffekte, USA +27 %), verdient aber fast nichts: Von 100 Franken Umsatz blieben im 1. Halbjahr nur 1.70 Franken Betriebsgewinn (2023 noch 15). Grund: Swatch behält alle Fabriken und Stellen, obwohl viel weniger verkauft wird. Dazu liegen Uhren für 7.3 Mrd. CHF im Lager, mehr als ein ganzer Jahresumsatz. Stark ist nur die Bilanz: 1.1 Mrd. CHF mehr Geld als Schulden, Börsenwert unter dem Buchwert (0.84). Qualität rot (25), Timing orange (39). Die Mehrheit der Analysten rät zum Verkaufen (Kursziel im Schnitt rund 170 CHF), der Branchenvergleich gibt nur 1.3 von 5 Punkten. Keine Anlageberatung.</p>
+  </div>
+  <div class="card scales">
+    <div>
+      <div class="scale-h"><span>Qualität · Ist die Firma kaufenswert?</span><b id="q-val">25</b></div>
+      <div class="track"><i class="pin" id="q-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-bad">▲ Schwach</span>
+    </div>
+    <div>
+      <div class="scale-h"><span>Timing · Ist jetzt der Zeitpunkt?</span><b id="t-val">39</b></div>
+      <div class="track"><i class="pin" id="t-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-warn">▲ Beobachten: Trigger noch nicht erreicht</span>
+    </div>
+    <p class="note">Skala: unter 30 rot · 30–45 orange · 45–60 gelb · 60–75 hellgrün · ab 75 grün. Beide Werte setzen sich aus festen Kriterien zusammen, siehe unten.</p>
+  </div>
+</header>
+
+<section>
+  <h2>Was die Firma macht</h2>
+  <p class="lead">Swatch ist der grösste Uhrenkonzern der Schweiz mit rund 31'800 Mitarbeitenden. Zum Konzern gehören teure Marken wie Breguet, Blancpain, Harry Winston und Omega, mittlere wie Longines, Rado und Tissot und günstige wie Swatch und Hamilton. Swatch baut fast alle Teile selbst, auch Uhrwerke für andere Marken (ETA). Uhren und Schmuck bringen rund 94 % des Umsatzes, Elektronik (Batterien, Sport-Zeitmessung) rund 6 %. Regionen 2025: übriges Asien rund 25 %, Grosschina 23 %, übriges Europa 22 %, Amerika 21 %, Schweiz 8 %. Es gibt zwei Aktien: die Inhaberaktie UHR (hier analysiert) und die Namenaktie UHRN, die nur ein Fünftel kostet, aber gleich viel Stimmrecht hat. So kontrolliert die Familie Hayek mit rund 26 % des Kapitals 44.5 % der Stimmen. Nayla Hayek ist Präsidentin, ihr Bruder Nick Hayek Chef.</p>
+  <p class="lead">Die Aktie stand im November 2013 bei rund 606 CHF und hat seither rund 70 % verloren. 2024 und 2025 brach China ein, früher über 40 % des Umsatzes (Grosschina 2021: 3.08 Mrd. CHF, 2025: 1.46 Mrd. CHF). Der Gewinn fiel von 16.75 CHF pro Aktie (2023) auf 0.06 CHF (2025), die Dividende wurde 2025 von 6.50 auf 4.50 CHF gekürzt. Im April 2025 fiel die Aktie wegen der US-Zölle auf rund 120 CHF (Zoll auf Schweizer Uhren zeitweise 39 %, seit 24.7.2026 12.5 %). Danach Erholung bis 223.10 CHF am 2.6.2026, getragen von der Uhr Royal Pop mit Audemars Piguet (Schlangen vor den Läden im Mai). Am 21.7.2026 kamen schwache Halbjahreszahlen: Betriebsgewinn 52 Mio. CHF statt rund 120 Mio. erwartet. Die Aktie fiel in einer Woche von 203 auf 166.50 CHF. An der Generalversammlung am 12.5.2026 lehnte die Familie Hayek den Aktivisten Steven Wood erneut ab, obwohl 80 % der Inhaberaktionäre für ihn stimmten. Rund 28 % der frei handelbaren Aktien sind leerverkauft (Wetten auf fallende Kurse, Stand Mai 2026).</p>
+</section>
+
+<section>
+  <h2>Fundamental: die Zahlen</h2>
+  <div class="kpis">
+<div class="kpi w"><span>Umsatzwachstum</span><b>+8.5 %</b><em>1. Halbjahr 2026 ohne Währungseffekte. In Franken nur +2.0 %, weil der starke Franken die Auslandsumsätze kleiner macht. Das ganze Jahr 2025: −6.8 % in Franken.</em></div>
+<div class="kpi r"><span>Operative Marge</span><b>1.9 %</b><em>Von 100 Franken Umsatz bleiben 1.90 Franken Betriebsgewinn (letzte 12 Monate). 2023 waren es 15.1 %. Sehr schwach, weil die Fabriken halb leer laufen.</em></div>
+<div class="kpi r"><span>Gewinn pro Aktie (EPS)</span><b>0.18 CHF</b><em>Letzte 12 Monate, fast null. 2023 waren es 16.75 CHF. Analysten erwarten für 2027 wieder rund 7 CHF, das ist aber unsicher.</em></div>
+<div class="kpi r"><span>ROIC</span><b>0.2 %</b><em>Auf 100 Franken investiertes Kapital fast kein Gewinn. 2022 waren es 9.4 %. Sehr schwach.</em></div>
+<div class="kpi w"><span>Free Cashflow</span><b>270 Mio. CHF</b><em>Letzte 12 Monate. Geld, das nach Investitionen übrig bleibt. Positiv, aber klein: 2023 und 2024 war er negativ (−115 und −170 Mio.).</em></div>
+<div class="kpi g"><span>Netto-Cash</span><b>1.13 Mrd. CHF</b><em>Swatch hat mehr Geld als Schulden (30.6.2026). Eigenkapitalquote 87 %. Sehr solide.</em></div>
+<div class="kpi r"><span>KGV erwartet</span><b>31.5</b><em>Du zahlst 31 erwartete Jahresgewinne. Das heutige KGV (über 1'000) ist wegen des Gewinns von fast null sinnlos. Eigener Schnitt (Median 2021–2025): 18.5. Teuer gemessen am Gewinn, günstig gemessen am Buchwert (0.84).</em></div>
+<div class="kpi w"><span>Dividende</span><b>2.5 %</b><em>4.50 CHF pro Inhaberaktie, einmal im Jahr (Ex-Tag 15.5.2026, bezahlt am 19.5.2026). Nicht durch den Gewinn gedeckt (Gewinn 2025: 0.06 CHF pro Aktie). 2025 gekürzt.</em></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>Umsatz pro Halbjahr (Mio. CHF)</h3>
+      <p class="note">Swatch meldet nur halbjährlich. In Franken lag nur das 1. Halbjahr 2026 über dem Vorjahr (+2.0 %). Ohne Währungseffekte wuchs Swatch im 2. Halbjahr 2025 um 4.7 % und im 1. Halbjahr 2026 um 8.5 %. Das 2. Halbjahr ist aus Jahr minus 1. Halbjahr berechnet.</p>
+      <div class="chart" id="c-rev"></div>
+    </div>
+    <div class="card">
+      <h3>Operative Marge pro Jahr</h3>
+      <p class="note">Betriebsgewinn pro 100 Franken Umsatz. Von 15.5 % (2022) auf 1.9 % gefallen. Swatch hält Fabriken und Stellen, obwohl weniger verkauft wird. Uhren und Schmuck allein (ohne Produktion) hatten im 1. Halbjahr 2026 eine Marge von 9.0 %.</p>
+      <div class="chart" id="c-margin"></div>
+    </div>
+  </div>
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Jahr</th><th class="num">Umsatz Mio. CHF</th><th class="num">Wachstum</th><th class="num">Op. Marge</th><th class="num">EPS CHF</th><th class="num">Free Cashflow</th><th class="num">ROIC</th><th class="num">KGV</th></tr></thead>
+      <tbody id="fin-rows"></tbody>
+    </table>
+  </div>
+  <p class="note"><b>Hinweis:</b> Das KGV 2025 (2'934) und heute (über 1'000) ist wegen des Gewinns von fast null nicht aussagekräftig. Free Cashflow je nach Quelle leicht anders (MarketScreener: 2024 −216, 2025 +56 Mio. CHF). Zahlen pro Inhaberaktie, Quelle StockAnalysis.</p>
+</section>
+
+<section>
+  <h2>Qualität: 25 von 100</h2>
+  <div class="card tbl"><table id="q-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Technik: Wochenchart (2 Jahre)</h2>
+  <div class="card">
+    <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span><span><i class="swb" style="background:var(--zone-sup);border:1px solid var(--good)"></i>Unterstützung</span><span><i class="swb" style="background:var(--zone-res);border:1px solid var(--bad)"></i>Widerstand</span></div>
+    <div class="chart" id="c-week"></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>A/D-Linie, Woche</h3>
+      <p class="note">Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Tausend Aktien. Leicht positiv: Die Wochen-A/D stieg vom Tief im Juni 2025 (−20'212) auf −16'002. Seit März 2026 macht der Kurs höhere Tiefs (161 → 166.50 → 171.25 → 174.70 CHF) und die A/D steigt mit (−17'434 → −15'946).</p>
+      <div class="chart" id="c-adw"></div>
+    </div>
+    <div class="card">
+      <h3>RSI, Woche</h3>
+      <p class="note">Unter 30 überverkauft, über 70 überkauft. Im April 2025 bei 28 (überverkauft), im Juni 2026 bei 66, heute 46: neutral.</p>
+      <div class="chart" id="c-rsiw"></div>
+    </div>
+  </div>
+
+  <h2>Technik: Tageschart (1 Jahr)</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Kurs, Tag</h3>
+      <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span></div>
+      <div class="chart" id="c-day"></div>
+    </div>
+    <div class="card">
+      <h3>A/D-Linie, Tag</h3>
+      <p class="note">Negativ: Die Tages-A/D fällt seit Mitte Juli von rund 1'980 auf 1'112. Beim Tief vom 13.10. (174.70 CHF) stand sie tiefer als beim tieferen Tief vom 16.9. (171.25 CHF). Grosse Anleger kaufen die Erholung nicht mit.</p>
+      <div class="chart" id="c-add"></div>
+    </div>
+  </div>
+
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Indikator</th><th>Tag</th><th>Woche</th><th>Bedeutung</th></tr></thead>
+      <tbody>
+<tr><td>Kurs vs. EMA 50</td><td class="pts">178.6 &lt; 183.4</td><td class="pts">178.6 &lt; 182.7</td><td>Unter der mittelfristigen Linie, auf beiden Zeitebenen.</td></tr>
+<tr><td>Kurs vs. EMA 200</td><td class="pts">178.6 &lt; 183.5</td><td class="pts">178.6 &lt; 196.3</td><td>Unter der langfristigen Linie.</td></tr>
+<tr><td>EMA 50 vs. EMA 200</td><td class="pts">50 knapp unter 200 (Todeskreuz am 14.10.2026), fast gleich hoch</td><td class="pts">50 unter 200 (seit September 2023), Abstand schrumpft</td><td>Tag ohne Richtung, Woche noch abwärts, aber die EMA 50 steigt seit einem Jahr.</td></tr>
+<tr><td>RSI (14)</td><td class="pts">44.0</td><td class="pts">45.9</td><td>Neutral, kein Signal.</td></tr>
+<tr><td>A/D</td><td class="pts">fällt seit Juli</td><td class="pts">steigt seit Juni 2025</td><td>Woche positiv, Tag negativ.</td></tr>
+<tr><td>Volumen</td><td colspan="2">Ø 20 Tage 86'600 vs. Ø 100 Tage 93'000 Aktien</td><td>Etwas weniger Handel als üblich.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Struktur und Zonen (Smart Money Concept)</h2>
+  <p class="lead">Seit dem Hoch vom 2.6.2026 (223.10 CHF) macht Swatch tiefere Hochs: 212.30 CHF (15.7.), 197.40 CHF (17.8.), 193 CHF (30.9.) und 186 CHF (16.10.). Gleichzeitig steigen die Tiefs: 161 CHF (19.3.), 166.50 CHF (28.7.), 171.25 CHF (16.9.), 174.70 CHF (13.10.). Der Kurs wird also in einem Dreieck zusammengedrückt. Ein Ausbruch nach oben wäre ein Tagesschluss über 186 CHF und danach über 193 CHF. Bricht der Kurs unter 171 CHF, ist die Reihe höherer Tiefs gebrochen. Über dem Kurs liegt die Wochen-EMA 200 bei 196 CHF als Widerstand.</p>
+  <div class="zones">
+<div class="zone r"><b>212–223 CHF</b><span>Widerstand: Hochs von Juni und Juli 2026.</span></div>
+<div class="zone r"><b>193–197.40 CHF</b><span>Widerstand: Hochs August und September, Wochen-EMA 200 (196.30 CHF).</span></div>
+<div class="zone t"><b>186 CHF</b><span><b>Trigger:</b> Tagesschluss über 186 CHF (letztes tieferes Hoch vom 16.10.), besser mit steigender Tages-A/D.</span></div>
+<div class="zone s"><b>166–171 CHF</b><span><b>Kaufzone 1:</b> Tiefs vom Juli (166.50) und September (171.25 CHF).</span></div>
+<div class="zone s"><b>159.80–161 CHF</b><span><b>Kaufzone 2:</b> Tiefs von Dezember 2025 (159.80) und März 2026 (161 CHF), 52-Wochen-Tief.</span></div>
+<div class="zone r"><b>158 CHF</b><span>Abbruch: Wochenschluss unter 158 CHF, also unter dem 52-Wochen-Tief.</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Smart Money, Insider und Saisonalität</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Wer kauft, wer verkauft?</h3>
+      <ul class="clean" style="margin-top:8px">
+<li><b>Familie Hayek:</b> Der Hayek-Pool kaufte 2025 laut Geschäftsbericht rund 193'000 Inhaberaktien und 440'000 Namenaktien dazu (Stimmanteil 44.1 → 44.5 %). Käufe aus den letzten 6 Monaten habe ich nicht gefunden.</li>
+<li><b>Weitere Insider:</b> Eine Führungsperson verkaufte seit Oktober 2025 in 9 kleinen Tranchen Namenaktien für zusammen rund 0.9 Mio. CHF. Kleine Beträge, kein starkes Signal.</li>
+<li><b>Rückkäufe:</b> Keine. 2025 und im 1. Halbjahr 2026 kaufte Swatch keine eigenen Aktien zurück.</li>
+<li><b>Aktivist:</b> Steven Wood (GreenWood Investors) kämpft für bessere Führung, scheiterte aber zweimal an der Familie Hayek. Rund 28 % der frei handelbaren Aktien sind leerverkauft (Mai 2026).</li>
+<li><b>Analysten:</b> 18 Analysten bei cash.ch: 2 Kaufen, 9 Neutral, 7 Verkaufen. Kursziel im Schnitt 169.70 CHF (Spanne 90 bis 225 CHF). Goldman Sachs: Verkaufen, Ziel 174 CHF (5.10.2026). Kepler Cheuvreux: Kaufen, Ziel 225 CHF (August 2026).</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Saisonalität seit 1998</h3>
+      <p class="note">Durchschnittliche Monatsrendite in %. 28 Jahre Daten (seit 1998). Dezember (+3.0 %, 71 % positive Jahre), Februar (+3.2 %, 68 %) und November (+1.2 %, 61 %) sind stark, August (−3.2 %, 31 %) und Juni (−2.3 %, 29 %) schwach.</p>
+      <div class="chart" id="c-seas"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Timing: 39 von 100</h2>
+  <div class="card tbl"><table id="t-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Worauf du achten solltest: Unterbewertung und Wachstumsschub</h2>
+  <div class="card"><h3>Was die Börse befürchtet</h3><p class="note" style="margin:4px 0">Echte Probleme, eher lösbar: Der Umsatz wächst wieder (1. Halbjahr 2026 +8.5 % zu konstanten Währungen), aber die Marge ist durch eigene Entscheide (volle Fabriken, hohe Lager) und den Franken echt kaputt, und die Governance ändert sich kaum.</p><ul class="clean"><li>Der Gewinn ist fast weg: 2025 sank der Betriebsgewinn auf 135 Mio. CHF (Marge 2.1 %, früher über 15 %), und im 1. Halbjahr 2026 waren es nur 52 Mio. CHF statt der erwarteten rund 120 Mio. Grund sind vor allem die eigenen Fabriken: Swatch hält Werke und Stellen, obwohl weniger verkauft wird. Dazu kostet der starke Franken viel Geld.</li><li>China, früher über 40 % des Umsatzes, ist stark geschrumpft (Grosschina 2025 rund 1.46 Mrd. CHF, 2021 noch 3.08 Mrd. laut marketscreener). Goldman Sachs stuft die Aktie am 05.10.2026 auf 'Sell' (Ziel 174 CHF) wegen China, Nahost und Überkapazität.</li><li>Die Lager sind riesig: 7.3 Mrd. CHF Ende Juni 2026, mehr als ein ganzer Jahresumsatz. Das bindet viel Geld.</li><li>Schlechte Governance (Führung und Kontrolle der Firma): Die Familie Hayek hat 44.5 % der Stimmen mit nur rund 26 % des Kapitals. An der GV vom 12.05.2026 wurde der Aktivist Steven Wood abgelehnt, obwohl 80.4 % der Inhaberaktionäre für ihn stimmten. Ethos nennt die Struktur eine der schlechtesten der Schweiz.</li></ul><h3 style="margin-top:12px">Was die Sorgen beenden könnte</h3><ul class="clean"><li>Swatch zeigt für das 2. Halbjahr 2026 die versprochene 'deutliche Verbesserung der Profitabilität' und einen Jahresumsatz klar über 2025 (6.28 Mrd. CHF) <span class="muted">(Jahresumsatz und Kennzahlen 2026, erwartet Ende Januar 2027 (Vorjahr 30.01.2026, Datum noch nicht bestätigt))</span></li><li>Betriebsgewinn steigt Richtung der Analystenschätzung für 2026 (rund 340 Mio. CHF), Lager sinken, Free Cashflow bleibt positiv <span class="muted">(Geschäftsbericht 2026, erwartet ca. März 2027)</span></li><li>China erholt sich weiter (Detailhandel H1 2026 +9 %, Uhrenexporte nach China August 2026 +15.8 %), auch die Nachbestellungen der Händler ziehen an <span class="muted">(Monatliche Uhrenexporte, Halbjahr 2027 (Juli 2027))</span></li><li>Mehr Mitsprache für Inhaberaktionäre, z. B. ein unabhängiger Vertreter oder Trennung von Präsidium und Geschäftsleitung <span class="muted">(Generalversammlung, erwartet Mai 2027)</span></li></ul><h3 style="margin-top:12px">Wachstumsschub: Wachstumsschub möglich</h3><ul class="clean"><li><b>Margen-Hebel durch volle Fabriken:</b> Swatch hat Kapazität für deutlich mehr Uhren und keine Stellen abgebaut. Wenn der Umsatz steigt, wirken die Fixkosten kaum mehr, und der Gewinn kann stark steigen. Analysten erwarten einen Betriebsgewinn von 135 Mio. CHF (2025) auf rund 547 Mio. (2027) und 703 Mio. (2028); Nick Hayek nannte 500–600 Mio. 'oder mehr' (keine offizielle Prognose). Im Mai/Juni 2026 lag die Marge bei Uhren &amp; Schmuck ohne Produktion schon bei 15 %. <span class="muted">(2027–2028)</span></li><li><b>Royal Pop mit Audemars Piguet:</b> Die am 16.05.2026 lancierte Taschenuhr löste weltweit Schlangen aus; laut Firma übersteigt die Nachfrage das Angebot bei weitem, bei hoher Marge. Schätzungen gehen weit auseinander: RBC rechnet mit bis zu 1.05 Mrd. CHF Umsatz und rund 390 Mio. CHF Gewinnanteil über 2026–2029, die FT nennt eher 150–170 Mio. CHF Umsatz. UBS hält den Effekt für 'anekdotisch'. <span class="muted">(2026–2027)</span></li><li><b>Wachstum ausserhalb Chinas:</b> Im 1. Halbjahr 2026 wuchsen USA (+27 %), Japan (+20 %), Spanien (+28 %) und Indien (+38 %) stark. Der US-Zoll ist von 39 % (August 2025) auf 12.5 % (seit 24.07.2026) gesunken. Das macht Swatch weniger abhängig von China. <span class="muted">(laufend, 2026–2027)</span></li></ul><p style="margin:10px 0 0"><b>Woran du es erkennst:</b> Achte auf die operative Marge: H1 2026 lag sie bei 1.7 %. Steigt sie im Gesamtjahr 2026 auf rund 5 % und 2027 über 8 %, und sinken gleichzeitig die Lager unter 7 Mrd. CHF, dann wirkt der Hebel.</p><p style="margin:10px 0 0"><b>Das Chancen-Szenario:</b> Kein Fall wie Google 2023, eher eine Wende aus dem Tief: Die Aktie notiert unter dem Buchwert (Kurs-Buchwert 0.84) und hat 1.1 Mrd. CHF Netto-Cash. Wenn der Umsatz weiter wächst und die Fabriken wieder ausgelastet sind, könnte der Gewinn pro Aktie laut Schätzungen von 0.06 CHF (2025) auf rund 9 CHF (2028) steigen; bei einem KGV um 16–18 (eigener Schnitt in normalen Jahren) wäre das deutlich über dem heutigen Kurs. Grösstes Risiko: Die Marge bleibt tief, weil die Familie Hayek Kapazität und Lager nicht anpasst, und viele Analysten (Konsens 'Sell', Ziel um 167–170 CHF) behalten recht.</p><p class="note" style="margin:10px 0 0">Quellen: <a href="https://mailing-ircockpit.eqs.com/crm-mailing/5b724614-ea7c-11e8-902f-2c44fd856d8c/848ccdaa-2561-4ad8-8a87-17034876eeb7/48b92baa-da0e-41be-85f7-ff8982cd305e/PR_Halfyear_Report_2026_en.pdf" target="_blank" rel="noopener">Swatch Group: Half-Year Report 2026 (21.07.2026)</a>, <a href="https://www.swissinfo.ch/eng/workplace/times-up-for-swatch/91545252" target="_blank" rel="noopener">swissinfo/Financial Times: Time's up for Swatch? (08.06.2026)</a>, <a href="https://www.swissinfo.ch/eng/swatch-quashes-activist-attempt-to-shake-up-hayek-stronghold/91402437" target="_blank" rel="noopener">swissinfo: Swatch quashes activist attempt to shake up Hayek stronghold (12.05.2026)</a>, <a href="https://www.cash.ch/news/top-news/swatch-oder-richemont-fur-goldman-sachs-ist-die-wahl-klar-974141" target="_blank" rel="noopener">cash.ch: Swatch oder Richemont? Für Goldman Sachs ist die Wahl klar (05.10.2026)</a>, <a href="https://thehourmarkers.com/articles/audemars-piguet-swatch-royal-pop-stock-market" target="_blank" rel="noopener">The Hour Markers: Audemars Piguet x Swatch Royal Pop and the stock market (Mai 2026)</a></p></div>
+</section>
+
+<section>
+  <h2>Dividende</h2>
+  <div class="card tbl"><table><tr><td style="white-space:nowrap;color:var(--muted)">Wie oft</td><td>1× pro Jahr (jährlich)</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Ex-Tag im</td><td>Mai</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Geld auf dem Konto im</td><td>Mai</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Zahltage</td><td>Mitte bis Ende Mai, wenige Tage nach der Generalversammlung</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Letzte Zahlung</td><td>4.50 CHF pro Aktie</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Rendite</td><td>2.5 %</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">System</td><td>Schweizer System: eine Dividende pro Jahr, beschlossen an der Generalversammlung im Mai und ein paar Tage später ausbezahlt (2026: Ex-Tag 15.5., Zahltag 19.5.). Auf Schweizer Dividenden werden 35 % Verrechnungssteuer abgezogen, die du als Person mit Wohnsitz in der Schweiz mit der Steuererklärung zurückbekommst.</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Form</td><td>Bar in Franken aufs Konto. Abzug von 35 % Verrechnungssteuer, die du mit der Steuererklärung zurückbekommst.</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Geschichte</td><td>Keine stabile Serie: gekürzt für 2019, 2020 und 2024 (von 6.50 auf 4.50 CHF). Für 2025 gleich hoch, obwohl der Gewinn pro Aktie nur 0.06 CHF betrug.</td></tr></table><p class="note" style="margin:10px 0 0"><b>Ex-Tag:</b> Du bekommst die Dividende nur, wenn du die Aktie am Abend vor dem Ex-Tag besitzt. <b>Zahltag:</b> An diesem Tag kommt das Geld aufs Konto (in der Währung der Aktie, abzüglich Quellensteuer). Die nächsten genauen Termine zeigt die App unter «Termine».</p></div>
+</section>
+
+<section>
+  <h2>Pro und Contra</h2>
+  <div class="two">
+    <div class="card pro"><h3>Spricht dafür</h3><ul class="clean" style="margin-top:8px">
+<li>Umsatz wächst wieder: ohne Währungen +8.5 % im 1. Halbjahr 2026, USA +27 %, China im Laden +9 %.</li>
+<li>Sehr solide Bilanz: 1.13 Mrd. CHF Netto-Cash, Eigenkapitalquote 87 %, Börsenwert unter dem Buchwert.</li>
+<li>Grosser Gewinnhebel: Wenn die Fabriken wieder ausgelastet sind, steigt der Gewinn schnell. Nick Hayek nannte 500 bis 600 Mio. CHF Betriebsgewinn als möglich (keine offizielle Prognose).</li>
+<li>Royal Pop mit Audemars Piguet: Nachfrage laut Swatch weit über dem Angebot, hohe Marge.</li>
+<li>Starke Marken (Omega, Longines, Tissot) und eigene Uhrwerk-Produktion.</li>
+    </ul></div>
+    <div class="card con"><h3>Spricht dagegen</h3><ul class="clean" style="margin-top:8px">
+<li>Fast kein Gewinn: Marge 1.9 %, Gewinn pro Aktie 0.18 CHF. Die Dividende wird aus der Substanz bezahlt.</li>
+<li>Lager von 7.3 Mrd. CHF, mehr als ein Jahresumsatz. Das bindet viel Geld.</li>
+<li>Schwache Führung aus Sicht vieler Anleger: Die Familie Hayek kontrolliert mit 26 % Kapital 44.5 % der Stimmen.</li>
+<li>Abhängig von China und vom starken Franken. US-Zoll von 12.5 % auf Schweizer Uhren.</li>
+<li>Die meisten Analysten raten zum Verkaufen, viele Leerverkäufer. Keine Rückkäufe.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section>
+  <h2>Was jetzt zu tun ist</h2>
+  <div class="zones">
+<div class="zone t"><b>Beobachten</b><span>Alarm bei 186 CHF (Trigger) und 171 CHF (oberes Ende Kaufzone 1). Erst einsteigen, wenn die Marge sichtbar steigt.</span></div>
+<div class="zone s"><b>Timing grün</b><span>Tagesschluss über 186 CHF, danach Wochenschluss über 197 CHF (Wochen-EMA 200), mit drehender Tages-A/D. Fundamental: Betriebsmarge im 2. Halbjahr 2026 klar über 5 %.</span></div>
+<div class="zone r"><b>Abbruch</b><span>Wochenschluss unter 158 CHF.</span></div>
+<div class="zone "><b>Nächste Zahlen</b><span>Jahresumsatz 2026 voraussichtlich Ende Januar 2027 (Datum noch nicht bestätigt), Geschäftsbericht im März 2027. Monatlich: Uhrenexporte des Uhrenverbands.</span></div>
+  </div>
+</section>
+
+<footer>
+  <span>Kursdaten und Indikatoren (EMA, RSI 14, A/D) selbst berechnet aus Yahoo-Finance-Tages-, Wochen- und Monatsdaten, Stand 22.10.2026. <a href="https://stockanalysis.com/quote/swx/UHR/financials/" target="_blank" rel="noopener">StockAnalysis.com</a> (Stand 22.10.2026), <a href="https://mailing-ircockpit.eqs.com/crm-mailing/5b724614-ea7c-11e8-902f-2c44fd856d8c/848ccdaa-2561-4ad8-8a87-17034876eeb7/48b92baa-da0e-41be-85f7-ff8982cd305e/PR_Halfyear_Report_2026_en.pdf" target="_blank" rel="noopener">Swatch Halbjahresbericht 2026</a>, <a href="https://www.swatchgroup.com/sites/default/files/annual_report/annual_report_corporate_governance_en.pdf" target="_blank" rel="noopener">Swatch Geschäftsbericht 2025 (Corporate Governance)</a>, <a href="https://www.cash.ch/news/top-news/swatch-oder-richemont-fur-goldman-sachs-ist-die-wahl-klar-974141" target="_blank" rel="noopener">cash.ch: Goldman Sachs (5.10.2026)</a>, <a href="https://www.swissinfo.ch/eng/swatch-quashes-activist-attempt-to-shake-up-hayek-stronghold/91402437" target="_blank" rel="noopener">swissinfo: Generalversammlung 2026</a>, <a href="https://www.crownandcaliber.com/p/swiss-watch-tariffs-change-again-what-the-new-12-5-rate-means" target="_blank" rel="noopener">US-Zölle (24.7.2026)</a>, <a href="https://www.cash.ch/aktien/the-swatch-grp-i-1225515" target="_blank" rel="noopener">Kursziele (cash.ch)</a>. Branchenvergleich der App: Note 1.3 von 5, fairer Wert rund 44 % unter dem Kurs, Unsicherheit mittel.</span>
+  <span>Persönliche Analyse, keine Anlageberatung. Vergangene Kurse und Saisonalität sagen nichts Sicheres über die Zukunft.</span>
+</footer>
+</div>
+
+<script>
+const Q=[["Umsatztrend", "In Franken 1 von 4 Halbjahren höher, ohne Währungen 2 von 4 (mit steigendem Tempo)", 4, 15], ["Wachstumstempo", "Ohne Währungseffekte rund +6.5 % in 12 Monaten (2. Halbjahr 2025 +4.7 %, 1. Halbjahr 2026 +8.5 %)", 6, 10], ["Operative Marge", "1.9 % (0 Pkt.), seit 2022 stark gefallen (0 Pkt.)", 0, 15], ["Gewinnwachstum (EPS)", "Von 16.75 CHF (2023) auf 0.18 CHF eingebrochen", 0, 10], ["Free Cashflow", "Positiv (270 Mio. CHF), aber 2023 und 2024 negativ", 3, 10], ["ROIC", "0.2 % (2 Pkt.), fallend (−1)", 1, 15], ["Schulden", "Netto-Cash 1.13 Mrd. CHF", 10, 10], ["Bewertung vs. eigene Historie", "Erw. KGV 31.5 statt Median 18.5, über 30 % teurer (Buchwert-Sicht günstig, KBV 0.84)", 1, 15]];
+const T=[["Trend Woche (EMA 50/200)", "Kurs unter beiden, EMA 50 unter 200, aber Abstand schrumpft (183 zu 196)", 4, 20], ["Trend Tag (EMA 50/200)", "Kurs knapp unter beiden, Todeskreuz am 14.10., EMAs flach", 2, 10], ["Struktur (SMC)", "Dreieck: tiefere Hochs, aber höhere Tiefs seit März", 8, 20], ["RSI Tag/Woche", "Tag 44, Woche 46, kein Signal", 7, 15], ["A/D Tag/Woche", "Woche steigt, Tag fällt seit Juli", 10, 20], ["Smart Money", "Start 3, keine Rückkäufe, keine neuen Hayek-Käufe gefunden, kleine Verkäufe", 3, 10], ["Saisonalität", "November 61 %, Dezember 71 % positive Jahre", 5, 5]];
+const FIN=[["2021", 7313, "+30.7 %", "14.0 %", 14.76, 1047, "8.5 %", "18.5"], ["2022", 7499, "+2.5 %", "15.5 %", 15.56, 385, "9.4 %", "16.2"], ["2023", 7888, "+5.2 %", "15.1 %", 16.75, -115, "9.3 %", "13.4"], ["2024", 6735, "−14.6 %", "4.5 %", 3.73, -170, "1.8 %", "43.8"], ["2025", 6280, "−6.8 %", "2.2 %", 0.06, 98, "0.2 %", "2'934"], ["Letzte 12 Mt.", 6342, "+1.0 %", "1.9 %", 0.18, 270, "0.2 %", "1'042"]];
+const HALF=[["H1 23", 4019], ["H2 23", 3869], ["H1 24", 3445], ["H2 24", 3290], ["H1 25", 3059], ["H2 25", 3221], ["H1 26", 3121]];
+const MARGIN=[["2021", 14.0], ["2022", 15.5], ["2023", 15.1], ["2024", 4.5], ["2025", 2.2], ["12 Mt.", 1.9]];
+const SEAS=[-0.1, 3.2, -0.1, 2.1, -0.9, -2.3, 2.5, -3.2, -0.5, 0.9, 1.2, 3.0];
+const SEASHIT=[43.0, 68.0, 57.0, 61.0, 39.0, 29.0, 64.0, 31.0, 55.0, 53.0, 61.0, 71.0];
+const MON=["Jan","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"];
+const W=`2024-10-28,179.85,196.76,238.98,48,-15925.8;2024-11-04,161.9,195.39,238.22,40,-17102.1;2024-11-11,166.9,194.28,237.51,43,-16165.1;2024-11-18,159.5,192.91,236.73,39,-16596.7;2024-11-25,159.95,191.62,235.97,40,-16857.6;2024-12-02,163,190.5,235.24,42,-16105.1;2024-12-09,164.7,189.49,234.54,43,-16323.6;2024-12-16,161.55,188.39,233.81,41,-16085.1;2024-12-23,163.75,187.42,233.12,43,-15931.8;2024-12-30,157.55,186.25,232.36,40,-16280.2;2025-01-06,157.4,185.12,231.62,39,-16791.4;2025-01-13,162.2,184.22,230.93,43,-16836.8;2025-01-20,166,183.51,230.28,46,-16899.8;2025-01-27,169.5,182.96,229.68,49,-15529.9;2025-02-03,166.1,182.3,229.04,47,-15748.8;2025-02-10,170.75,181.84,228.46,50,-15671.7;2025-02-17,173.15,181.5,227.91,52,-14846.5;2025-02-24,175,181.25,227.39,53,-14859.9;2025-03-03,169.15,180.77,226.81,49,-15370.1;2025-03-10,166.75,180.22,226.21,47,-15535.7;2025-03-17,160.3,179.44,225.55,42,-16331.1;2025-03-24,156.5,178.54,224.87,40,-16866.4;2025-03-31,131.7,176.71,223.94,28,-18280.3;2025-04-07,132.95,174.99,223.03,29,-17944.2;2025-04-14,133.9,173.38,222.15,30,-18009.4;2025-04-21,142.7,172.18,221.36,38,-17518.8;2025-04-28,142.15,171,220.57,38,-17475.6;2025-05-05,139.55,169.76,219.76,36,-17492;2025-05-12,147.25,168.88,219.04,43,-17273.6;2025-05-19,139.55,167.73,218.25,39,-17795.7;2025-05-26,138.55,166.59,217.46,38,-18328;2025-06-02,137.75,165.46,216.66,38,-18533.3;2025-06-09,134.1,164.23,215.84,35,-19201.9;2025-06-16,130.3,162.9,214.99,33,-19978.9;2025-06-23,131.1,161.65,214.16,34,-20064;2025-06-30,129.85,160.4,213.32,33,-20212.5;2025-07-07,136.55,159.47,212.55,41,-19760;2025-07-14,140.45,158.72,211.84,45,-19481.9;2025-07-21,158.7,158.72,211.31,58,-18503.5;2025-07-28,144.9,158.18,210.65,49,-19206.9;2025-08-04,141.85,157.54,209.96,47,-19127.1;2025-08-11,138.7,156.8,209.25,45,-19464.6;2025-08-18,144.3,156.31,208.61,49,-18885.1;2025-08-25,144.55,155.85,207.97,49,-19337.8;2025-09-01,148.1,155.54,207.37,52,-18943.8;2025-09-08,149.5,155.31,206.8,53,-18593.4;2025-09-15,150.65,155.12,206.24,53,-18510.8;2025-09-22,149.85,154.92,205.68,53,-18862.2;2025-09-29,152.5,154.82,205.15,55,-18640.3;2025-10-06,155.55,154.85,204.66,57,-18542.4;2025-10-13,174.1,155.61,204.35,68,-17818.1;2025-10-20,174.95,156.36,204.06,69,-17633;2025-10-27,167.8,156.81,203.7,62,-18244.6;2025-11-03,164.9,157.13,203.31,59,-18167.9;2025-11-10,175,157.83,203.03,65,-17980.6;2025-11-17,166.5,158.17,202.67,58,-18261.1;2025-11-24,162.15,158.33,202.26,54,-18683.1;2025-12-01,166.25,158.64,201.91,57,-18392;2025-12-08,164.15,158.85,201.53,55,-18237.5;2025-12-15,168.05,159.21,201.2,58,-17919.7;2025-12-22,168.6,159.58,200.87,58,-17933.5;2025-12-29,168.25,159.92,200.55,58,-17956.7;2026-01-05,176.4,160.57,200.31,63,-17603.3;2026-01-12,170.9,160.97,200.01,58,-18124.7;2026-01-19,166.1,161.17,199.68,53,-18218.9;2026-01-26,183,162.03,199.51,64,-17410.5;2026-02-02,193.75,163.27,199.45,68,-16663.9;2026-02-09,196.45,164.58,199.42,69,-16597.5;2026-02-16,197.85,165.88,199.41,70,-16459.1;2026-02-23,196.8,167.09,199.38,69,-16630.5;2026-03-02,170.9,167.24,199.1,49,-17245.7;2026-03-09,170.05,167.35,198.81,49,-17278;2026-03-16,167.95,167.38,198.5,48,-17433.9;2026-03-23,170.6,167.5,198.23,49,-17387.9;2026-03-30,176.45,167.85,198.01,53,-17223.5;2026-04-06,187.55,168.63,197.9,59,-16976.9;2026-04-13,189.65,169.45,197.82,60,-16584.7;2026-04-20,181.55,169.92,197.66,55,-16742.6;2026-04-27,180.75,170.35,197.49,54,-16748.1;2026-05-04,210.6,171.93,197.62,67,-16137.3;2026-05-11,201.1,173.07,197.66,61,-16245.2;2026-05-18,199.7,174.12,197.68,60,-16403.7;2026-05-25,216.2,175.77,197.86,66,-16151.1;2026-06-01,203.3,176.85,197.92,59,-16555;2026-06-08,209.3,178.12,198.03,61,-16228.9;2026-06-15,210.7,179.4,198.16,62,-16299.3;2026-06-22,202.6,180.31,198.2,57,-16419.2;2026-06-29,197,180.96,198.19,54,-16493.8;2026-07-06,203,181.83,198.24,57,-16250.3;2026-07-13,206.3,182.79,198.32,58,-16239;2026-07-20,169.9,182.28,198.03,41,-17071.4;2026-07-27,180.3,182.2,197.86,46,-16470.5;2026-08-03,189.05,182.47,197.77,50,-16131.2;2026-08-10,196.55,183.02,197.76,53,-15834.9;2026-08-17,189.2,183.27,197.67,50,-15893.7;2026-08-24,187.1,183.42,197.57,49,-15969;2026-08-31,185.2,183.49,197.44,48,-15910.8;2026-09-07,180,183.35,197.27,46,-15962.7;2026-09-14,176.4,183.08,197.06,44,-15831.3;2026-09-21,183.25,183.08,196.92,48,-15407.3;2026-09-28,182.05,183.04,196.78,47,-15925.9;2026-10-05,177.45,182.82,196.58,45,-16199;2026-10-12,183.7,182.86,196.46,49,-15945.7;2026-10-22,178.6,182.69,196.28,46,-16001.8`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+const DD=`2025-10-09,157.1,148.04,150.24,-572.6;2025-10-10,155.55,148.33,150.29,-734.6;2025-10-13,157.85,148.71,150.37,-712.4;2025-10-14,159.2,149.12,150.46,-582;2025-10-15,172,150.02,150.67,-484.8;2025-10-16,174.25,150.97,150.91,-432.4;2025-10-17,174.1,151.87,151.14,-330.1;2025-10-20,177,152.86,151.39,-222.7;2025-10-21,171.7,153.6,151.6,-255.3;2025-10-22,171.8,154.31,151.8,-204;2025-10-23,177.2,155.21,152.05,-108;2025-10-24,174.95,155.98,152.28,-106;2025-10-27,171.95,156.61,152.47,-142.4;2025-10-28,173,157.25,152.68,-95.7;2025-10-29,175.9,157.98,152.91,-9.3;2025-10-30,174.25,158.62,153.12,-50.1;2025-10-31,167.8,158.98,153.27,-177.4;2025-11-03,167.55,159.32,153.41,-186.9;2025-11-04,163.8,159.49,153.51,-218;2025-11-05,163.9,159.67,153.62,-194.1;2025-11-06,160.75,159.71,153.69,-277.5;2025-11-07,164.9,159.91,153.8,-192.6;2025-11-10,166.55,160.17,153.93,-140.4;2025-11-11,176.7,160.82,154.15,50.6;2025-11-12,177.85,161.49,154.39,8.5;2025-11-13,176.4,162.07,154.61,-62;2025-11-14,175,162.58,154.81,-104.7;2025-11-17,171.3,162.92,154.97,-178.8;2025-11-18,167.2,163.09,155.1,-242.5;2025-11-19,167.3,163.26,155.22,-202.9;2025-11-20,166.8,163.39,155.33,-177;2025-11-21,166.5,163.52,155.44,-168.2;2025-11-24,167.2,163.66,155.56,-205;2025-11-25,168.85,163.86,155.69,-104.9;2025-11-26,167.7,164.01,155.81,-183.6;2025-11-27,164.65,164.04,155.9,-250.3;2025-11-28,162.15,163.97,155.96,-281.8;2025-12-01,165.25,164.02,156.05,-220.5;2025-12-02,165.75,164.08,156.15,-193.8;2025-12-03,165.1,164.12,156.24,-163.9;2025-12-04,166.6,164.22,156.34,-58.1;2025-12-05,166.25,164.3,156.44,-17.6;2025-12-08,162.4,164.23,156.5,-102.3;2025-12-09,163.2,164.19,156.57,-45.3;2025-12-10,162.35,164.11,156.62,11.7;2025-12-11,161.85,164.02,156.68,-78.1;2025-12-12,164.15,164.03,156.75,-79.4;2025-12-15,164.85,164.06,156.83,-173;2025-12-16,168.3,164.23,156.95,21.9;2025-12-17,168.05,164.38,157.06,55.8;2025-12-18,170.25,164.61,157.19,179.2;2025-12-19,168.05,164.74,157.3,141.2;2025-12-22,168.85,164.9,157.41,136;2025-12-23,168.6,165.05,157.52,130.3;2025-12-29,168.25,165.17,157.63,116.3;2025-12-30,168.25,165.3,157.73,109.2;2026-01-05,172,165.56,157.88,136.5;2026-01-06,177.7,166.03,158.07,251.3;2026-01-07,174.55,166.37,158.24,242.8;2026-01-08,173.8,166.66,158.39,272.3;2026-01-09,176.4,167.04,158.57,255.1;2026-01-12,174.25,167.32,158.73,227.3;2026-01-13,174.9,167.62,158.89,215.1;2026-01-14,180.9,168.14,159.11,331;2026-01-15,174.45,168.39,159.26,160.1;2026-01-16,170.9,168.49,159.38,122.4;2026-01-19,168,168.47,159.46,185.5;2026-01-20,164.75,168.32,159.51,168.3;2026-01-21,167.3,168.28,159.59,250;2026-01-22,168.6,168.3,159.68,239.8;2026-01-23,166.1,168.21,159.75,167.7;2026-01-26,165.85,168.12,159.81,209.5;2026-01-27,166.65,168.06,159.87,204.2;2026-01-28,167.55,168.04,159.95,245;2026-01-29,161.35,167.78,159.96,75.6;2026-01-30,183,168.37,160.19,436.9;2026-02-02,179.3,168.8,160.38,407.5;2026-02-03,184.5,169.42,160.62,503.6;2026-02-04,189.15,170.19,160.91,649.7;2026-02-05,188.2,170.9,161.18,649.7;2026-02-06,193.75,171.79,161.5,774.7;2026-02-09,193.8,172.66,161.82,761.1;2026-02-10,198.5,173.67,162.19,793.3;2026-02-11,199.45,174.68,162.56,861.9;2026-02-12,196.7,175.54,162.9,756.6;2026-02-13,196.45,176.36,163.23,930.1;2026-02-16,197.05,177.18,163.57,926.1;2026-02-17,197.35,177.97,163.91,920.6;2026-02-18,199.2,178.8,164.26,969.7;2026-02-19,195.6,179.46,164.57,974.1;2026-02-20,197.85,180.18,164.9,970.5;2026-02-23,198.3,180.89,165.23,977.3;2026-02-24,201.9,181.71,165.6,1063.9;2026-02-25,199.45,182.41,165.93,1054.2;2026-02-26,201.2,183.15,166.29,1050.9;2026-02-27,196.8,183.68,166.59,1021;2026-03-02,183.95,183.69,166.76,905.8;2026-03-03,178.3,183.48,166.88,865.3;2026-03-04,178.15,183.27,166.99,880.5;2026-03-05,174.25,182.92,167.06,761.4;2026-03-06,170.9,182.45,167.1,694.8;2026-03-09,169.5,181.94,167.12,824.9;2026-03-10,172,181.55,167.17,808.7;2026-03-11,172.15,181.18,167.22,911.5;2026-03-12,171.55,180.8,167.26,914.3;2026-03-13,170.05,180.38,167.29,901.9;2026-03-16,173.45,180.11,167.35,954.3;2026-03-17,174.85,179.9,167.43,1010.2;2026-03-18,167,179.4,167.42,892.4;2026-03-19,164.45,178.81,167.39,937.4;2026-03-20,167.95,178.39,167.4,1035.6;2026-03-23,171,178.1,167.44,1065.9;2026-03-24,171.85,177.85,167.48,1097.1;2026-03-25,174.9,177.74,167.55,1129.1;2026-03-26,173.5,177.57,167.61,1073.6;2026-03-27,170.6,177.3,167.64,1021.7;2026-03-30,170.5,177.03,167.67,1108.8;2026-03-31,173.5,176.89,167.73,1206.5;2026-04-01,176.75,176.89,167.82,1195.5;2026-04-02,176.45,176.87,167.9,1235.6;2026-04-07,174.05,176.76,167.97,1140.8;2026-04-08,184.7,177.07,168.13,1218.4;2026-04-09,184.2,177.35,168.29,1282.9;2026-04-10,187.55,177.75,168.48,1294.5;2026-04-13,184.45,178.01,168.64,1308.2;2026-04-14,186.6,178.35,168.82,1407.8;2026-04-15,179.3,178.39,168.93,1320.6;2026-04-16,182.7,178.55,169.06,1395.4;2026-04-17,189.65,178.99,169.27,1458.2;2026-04-20,184.75,179.22,169.42,1408.1;2026-04-21,185.75,179.47,169.58,1403;2026-04-22,183.05,179.61,169.72,1369.5;2026-04-23,182.7,179.73,169.85,1399.3;2026-04-24,181.55,179.8,169.96,1412.2;2026-04-27,183.7,179.96,170.1,1448.2;2026-04-28,181.35,180.01,170.21,1419.4;2026-04-29,179.4,179.99,170.3,1404.5;2026-04-30,180.75,180.02,170.41,1440.5;2026-05-04,178.65,179.96,170.49,1390.2;2026-05-05,181.8,180.04,170.6,1491.5;2026-05-06,190.65,180.45,170.8,1568.2;2026-05-07,201.8,181.29,171.11,1657.6;2026-05-08,210.6,182.44,171.5,1789.1;2026-05-11,201.9,183.2,171.81,1674.7;2026-05-12,207.4,184.15,172.16,1702.8;2026-05-13,201.9,184.85,172.46,1821.8;2026-05-15,201.1,185.48,172.74,1931.2;2026-05-18,201.9,186.13,173.03,1972.3;2026-05-19,201.4,186.73,173.31,1891.6;2026-05-20,204.3,187.42,173.62,1905.1;2026-05-21,201.7,187.98,173.9,1884.8;2026-05-22,199.7,188.44,174.16,1847.2;2026-05-26,206,189.13,174.47,1914.3;2026-05-27,211.8,190.01,174.85,1975;2026-05-28,214.1,190.96,175.24,2077.3;2026-05-29,216.2,191.95,175.64,1997.3;2026-06-01,215.1,192.86,176.04,1969;2026-06-02,219.2,193.89,176.47,1949.3;2026-06-03,212.3,194.61,176.82,1829.1;2026-06-04,209.3,195.19,177.15,1789.4;2026-06-05,203.3,195.51,177.41,1721.5;2026-06-08,202.3,195.77,177.65,1787.1;2026-06-09,201.2,195.99,177.89,1687;2026-06-10,199.55,196.12,178.1,1671.4;2026-06-11,202,196.36,178.34,1661.6;2026-06-12,209.3,196.86,178.65,1692.3;2026-06-15,212.8,197.49,178.99,1658.4;2026-06-16,210.3,197.99,179.3,1607.1;2026-06-17,210.1,198.47,179.61,1664.6;2026-06-18,211.2,198.96,179.92,1717.4;2026-06-19,210.7,199.42,180.23,1738.4;2026-06-22,208.3,199.77,180.51,1760.3;2026-06-23,204.3,199.95,180.74,1712.5;2026-06-24,202.9,200.07,180.96,1636.7;2026-06-25,206.2,200.31,181.22,1759;2026-06-26,202.6,200.4,181.43,1672.7;2026-06-29,202,200.46,181.63,1686.2;2026-06-30,197.6,200.35,181.79,1656;2026-07-01,198.35,200.27,181.96,1734.2;2026-07-02,195.2,200.07,182.09,1692.6;2026-07-03,197,199.95,182.24,1763.3;2026-07-06,196.6,199.82,182.38,1763.3;2026-07-07,198.65,199.77,182.54,1783.4;2026-07-08,200.1,199.79,182.72,1742.7;2026-07-09,203.1,199.92,182.92,1733;2026-07-10,203,200.04,183.12,1704.3;2026-07-13,205.5,200.25,183.34,1781.2;2026-07-14,203,200.36,183.54,1820.1;2026-07-15,209.9,200.73,183.8,1881.2;2026-07-16,207.9,201.01,184.04,1952.1;2026-07-17,206.3,201.22,184.26,1996.6;2026-07-20,203,201.29,184.45,1980.3;2026-07-21,186.35,200.7,184.47,1719.9;2026-07-22,176.7,199.76,184.39,1527.8;2026-07-23,173.45,198.73,184.28,1426.9;2026-07-24,169.9,197.6,184.14,1330.3;2026-07-27,166.55,196.38,183.96,1176.5;2026-07-28,169.95,195.35,183.82,1303.9;2026-07-29,175.05,194.55,183.74,1159.7;2026-07-30,177,193.86,183.67,1216.2;2026-07-31,180.3,193.33,183.63,1280.1;2026-08-03,181.3,192.86,183.61,1249.1;2026-08-04,186.6,192.61,183.64,1327.9;2026-08-05,185.25,192.32,183.66,1343;2026-08-06,188.45,192.17,183.7,1380.9;2026-08-07,189.05,192.05,183.76,1401.5;2026-08-10,194.7,192.15,183.87,1457.2;2026-08-11,193.75,192.22,183.97,1412.2;2026-08-12,193.25,192.26,184.06,1429.1;2026-08-13,195.25,192.37,184.17,1433.2;2026-08-14,196.55,192.54,184.29,1487.4;2026-08-17,189.25,192.41,184.34,1421;2026-08-18,184.45,192.1,184.34,1365.2;2026-08-19,185.25,191.83,184.35,1430.3;2026-08-20,187.7,191.67,184.38,1436.8;2026-08-21,189.2,191.57,184.43,1457.5;2026-08-24,187.95,191.43,184.47,1433.5;2026-08-25,187.95,191.29,184.5,1472.9;2026-08-26,189.5,191.22,184.55,1459.1;2026-08-27,185.85,191.01,184.57,1410.8;2026-08-28,187.1,190.86,184.59,1365.6;2026-08-31,187.4,190.72,184.62,1332.8;2026-09-01,186,190.54,184.63,1360;2026-09-02,183.9,190.28,184.62,1343.7;2026-09-03,182.95,189.99,184.61,1413.1;2026-09-04,185.2,189.8,184.61,1422.4;2026-09-07,185.4,189.63,184.62,1444.5;2026-09-08,181.85,189.32,184.59,1377.5;2026-09-09,178.4,188.9,184.53,1403.6;2026-09-10,177.5,188.45,184.46,1410.6;2026-09-11,180,188.12,184.42,1440.8;2026-09-14,175.55,187.62,184.33,1371.9;2026-09-15,173.65,187.08,184.22,1376.3;2026-09-16,174.65,186.59,184.13,1429.1;2026-09-17,177.25,186.22,184.06,1506;2026-09-18,176.4,185.84,183.98,1382.8;2026-09-21,178,185.53,183.92,1340.6;2026-09-22,176.6,185.18,183.85,1252.4;2026-09-23,180.4,184.99,183.82,1345.2;2026-09-24,179.75,184.79,183.78,1213.3;2026-09-25,183.25,184.73,183.77,1271;2026-09-28,186.6,184.8,183.8,1355.7;2026-09-29,191.1,185.05,183.87,1422.1;2026-09-30,187.95,185.16,183.91,1298;2026-10-01,184.55,185.14,183.92,1221.5;2026-10-02,182.05,185.02,183.9,1159;2026-10-05,182.8,184.93,183.89,1186.8;2026-10-06,183.15,184.86,183.88,1141.3;2026-10-07,181.1,184.71,183.85,1113.3;2026-10-08,177.4,184.43,183.79,1079.1;2026-10-09,177.45,184.15,183.73,1016.6;2026-10-12,178.15,183.92,183.67,1087;2026-10-13,177.55,183.67,183.61,1147.4;2026-10-14,179.65,183.51,183.57,1122.2;2026-10-15,183.9,183.52,183.57,1170.4;2026-10-16,183.7,183.53,183.58,1119.5;2026-10-19,183.2,183.52,183.57,1162.7;2026-10-20,185.2,183.58,183.59,1230.2;2026-10-21,183.25,183.57,183.58,1168.2;2026-10-22,178.6,183.38,183.54,1112.1`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+
+const fmtN=(v,d=2)=>v.toLocaleString("de-CH",{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmtD=s=>{const [y,m,d]=s.split("-");return d+"."+m+"."+y.slice(2)};
+const NS="http://www.w3.org/2000/svg";
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+
+function scoreTable(id,rows){
+  let tot=0,max=0;
+  const html='<thead><tr><th>Kriterium</th><th>Stand</th><th class="num">Punkte</th><th style="width:22%"></th></tr></thead><tbody>'+rows.map(r=>{tot+=r[2];max+=r[3];const p=r[2]/r[3];const c=p>=.75?"var(--good)":p>=.45?"var(--warn)":"var(--bad)";
+    return `<tr><td>${r[0]}</td><td class="muted">${r[1]}</td><td class="num">${r[2]} / ${r[3]}</td><td><div class="bar"><i style="width:${p*100}%;background:${c}"></i></div></td></tr>`}).join("")+`<tr class="total"><td>Total</td><td></td><td class="num">${tot} / ${max}</td><td></td></tr></tbody>`;
+  document.getElementById(id).innerHTML=html;return tot;
+}
+const qs=scoreTable("q-tbl",Q), ts=scoreTable("t-tbl",T);
+document.getElementById("q-val").textContent=qs;document.getElementById("t-val").textContent=ts;
+document.getElementById("q-pin").style.left=qs+"%";document.getElementById("t-pin").style.left=ts+"%";
+
+document.getElementById("fin-rows").innerHTML=FIN.map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1].toLocaleString("de-CH")}</td><td class="num">${r[2]}</td><td class="num">${r[3]}</td><td class="num">${fmtN(r[4])}</td><td class="num">${r[5].toLocaleString("de-CH")}</td><td class="num">${r[6]}</td><td class="num">${r[7]}</td></tr>`).join("");
+
+/* generic line chart */
+function lineChart(host,{dates,series,bands=[],yFmt=v=>fmtN(v),h=300,zero=false,refs=[],pad}){
+  const W_=800,H=h,m={t:12,r:56,b:28,l:8};
+  const all=series.flatMap(s=>s.values).concat(bands.flatMap(b=>[b.from,b.to])).concat(refs.map(r=>r.v));
+  if(zero)all.push(0);
+  let lo=Math.min(...all),hi=Math.max(...all);const sp=(hi-lo)||1;lo-=sp*.06;hi+=sp*.06;
+  if(pad){lo=pad[0];hi=pad[1]}
+  const n=dates.length,x=i=>m.l+i*(W_-m.l-m.r)/(n-1),y=v=>m.t+(hi-v)*(H-m.t-m.b)/(hi-lo);
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  // grid
+  const steps=5;for(let k=0;k<=steps;k++){const v=lo+(hi-lo)*k/steps;el("line",{x1:m.l,x2:W_-m.r,y1:y(v),y2:y(v),stroke:"var(--grid)","stroke-width":1},svg);
+    const t=el("text",{x:W_-m.r+6,y:y(v)+4,"font-size":11,fill:"var(--muted)","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=yFmt(v)}
+  bands.forEach(b=>{el("rect",{x:m.l,width:W_-m.l-m.r,y:y(Math.max(b.from,b.to)),height:Math.abs(y(b.from)-y(b.to)),fill:b.type==="res"?"var(--zone-res)":"var(--zone-sup)"},svg)});
+  refs.forEach(r=>{el("line",{x1:m.l,x2:W_-m.r,y1:y(r.v),y2:y(r.v),stroke:"var(--muted)","stroke-dasharray":"4 4","stroke-width":1},svg);
+    const t=el("text",{x:m.l+4,y:y(r.v)-4,"font-size":11,fill:"var(--muted)"},svg);t.textContent=r.label});
+  if(zero)el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  // x labels
+  const every=Math.ceil(n/6);for(let i=0;i<n;i+=every){const t=el("text",{x:x(i),y:H-8,"font-size":11,fill:"var(--muted)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);const d=dates[i];t.textContent=d.slice(5,7)+"/"+d.slice(2,4)}
+  series.forEach(s=>{const dpath=s.values.map((v,i)=>(i?"L":"M")+x(i).toFixed(1)+","+y(v).toFixed(1)).join("");
+    el("path",{d:dpath,fill:"none",stroke:s.color,"stroke-width":s.w||2,"stroke-linejoin":"round","stroke-linecap":"round"},svg);
+    const lv=s.values[n-1];el("circle",{cx:x(n-1),cy:y(lv),r:3.5,fill:s.color,stroke:"var(--surface)","stroke-width":2},svg)});
+  // hover
+  const cross=el("line",{y1:m.t,y2:H-m.b,stroke:"var(--muted)","stroke-width":1,opacity:0},svg);
+  const ov=el("rect",{x:m.l,y:m.t,width:W_-m.l-m.r,height:H-m.t-m.b,fill:"transparent"},svg);
+  host.appendChild(svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;host.appendChild(tip);
+  function move(ev){const r=svg.getBoundingClientRect();const px=(ev.clientX-r.left)*W_/r.width;let i=Math.round((px-m.l)/((W_-m.l-m.r)/(n-1)));i=Math.max(0,Math.min(n-1,i));
+    cross.setAttribute("x1",x(i));cross.setAttribute("x2",x(i));cross.setAttribute("opacity",1);
+    tip.innerHTML=`<div class="d">${fmtD(dates[i])}</div>`+series.map(s=>`<div><i class="sw" style="background:${s.color}"></i> ${s.name}: <b>${yFmt(s.values[i])}</b></div>`).join("");
+    tip.hidden=false;const hx=x(i)*r.width/W_;tip.style.left=Math.min(Math.max(0,hx+12),r.width-tip.offsetWidth)+"px";tip.style.top="8px"}
+  ov.addEventListener("pointermove",move);ov.addEventListener("pointerleave",()=>{tip.hidden=true;cross.setAttribute("opacity",0)});
+}
+function barChart(host,{labels,values,fmt,h=220,color,neg,tipExtra}){
+  const W_=800,H=h,m={t:18,r:8,b:28,l:8};
+  const hi=Math.max(0,...values),lo=Math.min(0,...values);const lo2=lo<0?lo*1.15:lo,hi2=hi*1.15||1;
+  const y=v=>m.t+(hi2-v)*(H-m.t-m.b)/(hi2-lo2);const n=values.length,bw=(W_-m.l-m.r)/n;
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;
+  values.forEach((v,i)=>{const x0=m.l+i*bw+bw*.18,w=bw*.64,y0=y(Math.max(v,0)),hh=Math.max(1,Math.abs(y(v)-y(0)));
+    const r=el("rect",{x:x0,y:y0,width:w,height:hh,rx:4,fill:v<0?(neg||"var(--s2)"):(color||"var(--s1)")},svg);
+    const t=el("text",{x:x0+w/2,y:v<0?y(v)+13:y0-5,"font-size":11.5,fill:"var(--ink)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=fmt(v);
+    const l=el("text",{x:x0+w/2,y:H-8,"font-size":11.5,fill:"var(--muted)","text-anchor":"middle"},svg);l.textContent=labels[i];
+    const hit=el("rect",{x:m.l+i*bw,y:m.t,width:bw,height:H-m.t-m.b,fill:"transparent"},svg);
+    hit.addEventListener("pointerenter",()=>{tip.innerHTML=`<div class="d">${labels[i]}</div><b>${fmt(v)}</b>${tipExtra?tipExtra(i):""}`;tip.hidden=false;const R=svg.getBoundingClientRect();tip.style.left=Math.min((m.l+i*bw)*R.width/W_,R.width-tip.offsetWidth)+"px";tip.style.top="0px"});
+    hit.addEventListener("pointerleave",()=>tip.hidden=true)});
+  host.appendChild(svg);host.appendChild(tip);
+}
+barChart(document.getElementById("c-rev"),{labels:HALF.map(r=>r[0]),values:HALF.map(r=>r[1]),fmt:v=>fmtN(v,0),h:200});
+barChart(document.getElementById("c-margin"),{labels:MARGIN.map(r=>r[0]),values:MARGIN.map(r=>r[1]),fmt:v=>fmtN(v,1)+" %",h:200});
+barChart(document.getElementById("c-seas"),{labels:MON,values:SEAS,fmt:v=>(v>0?"+":"")+fmtN(v,1),h:220,tipExtra:i=>`<div>${SEASHIT[i]} % der Jahre positiv</div>`});
+const BANDS=[{"from": 212, "to": 223, "type": "res"}, {"from": 193, "to": 197.4, "type": "res"}, {"from": 166, "to": 171, "type": "sup"}, {"from": 159.8, "to": 161, "type": "sup"}], REFS=[{"v": 186, "label": "Trigger 186"}];
+const wd=W.map(r=>r[0]);
+lineChart(document.getElementById("c-week"),{dates:wd,series:[{name:"Kurs",values:W.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:W.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:W.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,yFmt:v=>fmtN(v,0),h:320});
+lineChart(document.getElementById("c-adw"),{dates:wd,series:[{name:"A/D Woche",values:W.map(r=>r[5]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,zero:true});
+lineChart(document.getElementById("c-rsiw"),{dates:wd,series:[{name:"RSI Woche",values:W.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,refs:[{v:70,label:"70 überkauft"},{v:30,label:"30 überverkauft"}],pad:[10,90]});
+const dd=DD.map(r=>r[0]);
+lineChart(document.getElementById("c-day"),{dates:dd,series:[{name:"Kurs",values:DD.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:DD.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:DD.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,refs:REFS,yFmt:v=>fmtN(v,0),h:260});
+lineChart(document.getElementById("c-add"),{dates:dd,series:[{name:"A/D Tag",values:DD.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:260,zero:true});
+</script>

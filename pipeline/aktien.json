@@ -1582,5 +1582,127 @@
   "pe_typ": "KGV",
   "zahlen": "2026-11-05",
   "artifact": "54U9s1Qxbvvi87ANTfqx6r"
+ },
+ "UHR": {
+  "symbol": "UHR.SW",
+  "name": "Swatch Group",
+  "tags": [
+   "Dividende"
+  ],
+  "land": "Schweiz",
+  "region": "Schweiz",
+  "branche": "Uhren und Schmuck",
+  "status": "beobachten",
+  "waehrung": "CHF",
+  "kurs": 178.6,
+  "datenstand": "2026-10-22",
+  "kauf": [
+   [
+    166,
+    171
+   ],
+   [
+    159.8,
+    161
+   ]
+  ],
+  "widerstand": [
+   [
+    193,
+    197.4
+   ],
+   [
+    212,
+    223
+   ]
+  ],
+  "trigger": 186,
+  "abbruch": 158,
+  "pe": 31.5,
+  "pe_avg": 18.5,
+  "pe_typ": "KGV",
+  "zahlen": "2027-01-28",
+  "artifact": "HpQMfv4rMppcMCvRZDmnka"
+ },
+ "NOVN": {
+  "symbol": "NOVN.SW",
+  "name": "Novartis",
+  "tags": [
+   "Dividende",
+   "Defensiv",
+   "Qualität"
+  ],
+  "land": "Schweiz",
+  "region": "Schweiz",
+  "branche": "Pharma",
+  "status": "beobachten",
+  "waehrung": "CHF",
+  "kurs": 128.88,
+  "datenstand": "2026-10-22",
+  "kauf": [
+   [
+    116,
+    121
+   ],
+   [
+    108,
+    111.5
+   ]
+  ],
+  "widerstand": [
+   [
+    131,
+    132.7
+   ]
+  ],
+  "trigger": 133,
+  "abbruch": 107,
+  "pe": 24.0,
+  "pe_avg": 17.1,
+  "pe_typ": "KGV",
+  "zahlen": "2026-10-27",
+  "artifact": "NpxtxfHb7hXZLPwZprE4QB"
+ },
+ "ZTO": {
+  "symbol": "ZTO",
+  "name": "ZTO Express",
+  "tags": [
+   "Wachstum",
+   "Dividende"
+  ],
+  "land": "China",
+  "region": "Asien",
+  "branche": "Paketdienst und Logistik",
+  "status": "beobachten",
+  "waehrung": "USD",
+  "kurs": 20.06,
+  "datenstand": "2026-10-22",
+  "kauf": [
+   [
+    18.9,
+    19.6
+   ],
+   [
+    16.3,
+    17.9
+   ]
+  ],
+  "widerstand": [
+   [
+    21.8,
+    22.4
+   ],
+   [
+    23.1,
+    24.8
+   ]
+  ],
+  "trigger": 21.05,
+  "abbruch": 18.1,
+  "pe": 10.6,
+  "pe_avg": 18.4,
+  "pe_typ": "KGV",
+  "zahlen": "2026-11-17",
+  "artifact": "W5bD7XCXqkXpULq8Dw4SE4"
  }
 }
