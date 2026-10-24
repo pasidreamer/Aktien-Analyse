@@ -1,5 +1,5 @@
 {
-"stand": "2026-10-20",
+"stand": "2026-10-24",
 "stufe": 2,
 "anzahl": 2281,
 "aktien": [
@@ -8283,16 +8283,6 @@
 "land": "USA",
 "indizes": [
 "S&P 500"
-]
-},
-{
-"symbol": "DIA.MI",
-"name": "Diasorin",
-"sektor_quelle": "Health Care",
-"region": "Europa",
-"land": "Italien",
-"indizes": [
-"FTSE MIB"
 ]
 },
 {
@@ -17913,7 +17903,7 @@
 },
 {
 "symbol": "RMD",
-"name": "ResMed|",
+"name": "ResMed",
 "sektor_quelle": "Health Care",
 "region": "USA",
 "land": "USA",
@@ -20640,6 +20630,16 @@
 "land": "USA",
 "indizes": [
 "S&P 500"
+]
+},
+{
+"symbol": "TPRO.MI",
+"name": "Technoprobe",
+"sektor_quelle": "Technology",
+"region": "Europa",
+"land": "Italien",
+"indizes": [
+"FTSE MIB"
 ]
 },
 {
