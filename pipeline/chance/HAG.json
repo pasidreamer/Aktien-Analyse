@@ -1,0 +1,67 @@
+{
+ "ticker": "HAG",
+ "sorgen": [
+  "Die Bewertung ist sehr hoch: KGV rund 82, auf die Gewinne 2026 rund 38. Goldman Sachs sieht das Wachstum schon im Kurs.",
+  "Anleger zweifeln, ob Hensoldt den Rekord-Auftragsbestand (10.4 Mrd. €) schnell und mit guter Marge in Umsatz verwandeln kann. Die Prognose wurde am 31.07.2026 nur bestätigt, die Aktie fiel um 5 %.",
+  "Rückschläge bei Schiffen: Die Fregatte F126 wurde am 30.06.2026 gestrichen, die Sensoren für die Ersatz-Fregatten gingen am 16.07. an Saab.",
+  "Friedensgespräche zur Ukraine drückten den Kurs Ende 2025 um rund 28 % in einem Monat."
+ ],
+ "sorgen_art": "stimmung",
+ "sorgen_art_text": "Aufträge, Umsatz und Wachstum steigen weiter, gedrückt wird der Kurs vor allem von Bewertung und Friedensangst. Echt sind nur die tiefe Marge im 1. Halbjahr und kleinere Marine-Verluste.",
+ "aufloeser": [
+  {
+   "was": "Q3-Zahlen: Hebt Hensoldt die Umsatzprognose (2.75 Mrd. €) an? Analysten erwarten schon 2.82 Mrd. €",
+   "wann": "Zahlen 05.11.2026"
+  },
+  {
+   "was": "Investorentag mit möglichen höheren Zielen für 2030 (bisher 6 Mrd. € Umsatz, über 20 % Marge)",
+   "wann": "10.11.2026"
+  },
+  {
+   "was": "Jahreszahlen 2026: Wurden 18.5 bis 19 % Marge und rund 50 % Cash-Umwandlung erreicht?",
+   "wann": "Februar 2027"
+  },
+  {
+   "was": "Feste Bestellung der Ukraine für Weitbereichsradare (bisher nur Absichtserklärung vom 04.10.2026)",
+   "wann": "offen"
+  }
+ ],
+ "schub_stufe": "stark",
+ "schub_treiber": [
+  {
+   "titel": "Rekord-Auftragsbestand",
+   "text": "Im 1. Halbjahr 2026 verdoppelte sich der Auftragseingang auf 2.8 Mrd. €, der Bestand stieg auf 10.4 Mrd. € (fast 4 Jahresumsätze). Dabei sind Eurofighter-Radare, PEGASUS (rund 900 Mio. €), Puma- und Schakal-Optik. Das Umsatzwachstum stieg schon von 10 % (2025) auf rund 24 %.",
+   "wann": "2026–2028"
+  },
+  {
+   "titel": "Neues Radarwerk",
+   "text": "Ab 2027 liefert ein neues Werk, die Radar-Kapazität ist dann mehr als dreimal so gross wie 2021. Radare wie das TRML-4D sind in der Ukraine erprobt und gefragt.",
+   "wann": "ab 2027"
+  },
+  {
+   "titel": "Margen-Hebel",
+   "text": "Mit mehr Umsatz verteilen sich die Fixkosten: Ziel ist eine bereinigte Marge vor Abschreibungen von über 20 % bis 2030 (2025: 18.4 %). Analysten erwarten 2027 +17 % und 2028 +19 % Umsatz.",
+   "wann": "2027–2030"
+  }
+ ],
+ "schub_beweis": "Achte auf das Umsatzwachstum aus eigener Kraft (Q1 2026: +15 %) und das Book-to-Bill (Aufträge geteilt durch Umsatz, H1 2026: 2.4). Bleibt das Wachstum über 15 % und steigt die bereinigte Marge über 19 %, ist der Schub da.",
+ "szenario": "Ähnlich wie Google 2023 auf kleinerer Ebene: Die Aufträge sind schon unterschrieben, die Umsätze kommen erst. Hebt Hensoldt im November Prognose und Ziele, könnte die Aktie wieder Richtung Allzeithoch (117.70 €) laufen. Grösstes Risiko: Die hohe Bewertung. Schon kleine Verzögerungen bei der Umsetzung können den Kurs stark fallen lassen.",
+ "quellen": [
+  {
+   "titel": "Hensoldt: Halbjahr 2026 (31.07.2026)",
+   "url": "https://www.hensoldt.net/news/hensoldt-doubles-order-intake-in-the-first-half-of-2026-%E2%80%93-revenue-and-earnings-rise-significantly"
+  },
+  {
+   "titel": "Hensoldt: Kapitalmarkttag 2025",
+   "url": "https://www.hensoldt.net/news/capital-markets-day-hensoldt-makes-significant-progress-in-capacity-expansion-and-software-defined-defence"
+  },
+  {
+   "titel": "Quwa: Auftragsbestand über 10 Mrd. €",
+   "url": "https://quwa.org/europe/defence-news-eu/hensoldt-doubles-order-intake-as-backlog-passes-e10-billion-but-middle-east-business-stays-marginal/"
+  },
+  {
+   "titel": "Hensoldt: Aktie und Konsens",
+   "url": "https://investors.hensoldt.net/share"
+  }
+ ]
+}

@@ -25,22 +25,25 @@
    "id": "chat-2026-10-25-0",
    "text": "Rheinmetall (RHM.DE)",
    "eingang": "2026-10-25T12:49Z",
-   "status": "offen",
-   "hinweis": "Von Pascal im Chat gewünscht."
+   "status": "fertig",
+   "hinweis": "Von Pascal im Chat gewünscht.",
+   "ticker": "RHM"
   },
   {
    "id": "chat-2026-10-25-1",
    "text": "Hensoldt (HAG.DE)",
    "eingang": "2026-10-25T12:49Z",
-   "status": "offen",
-   "hinweis": "Von Pascal im Chat gewünscht."
+   "status": "fertig",
+   "hinweis": "Von Pascal im Chat gewünscht.",
+   "ticker": "HAG"
   },
   {
    "id": "chat-2026-10-25-2",
    "text": "Renk Group (R3NK.DE)",
    "eingang": "2026-10-25T12:49Z",
-   "status": "offen",
-   "hinweis": "Von Pascal im Chat gewünscht."
+   "status": "fertig",
+   "hinweis": "Von Pascal im Chat gewünscht.",
+   "ticker": "R3NK"
   }
  ],
  "stand": "2026-10-25T12:49Z"

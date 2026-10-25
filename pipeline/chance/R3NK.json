@@ -1,0 +1,58 @@
+{
+ "ticker": "R3NK",
+ "sorgen": [
+  "Das Wachstum ist 2026 fast stehen geblieben: Umsatz im 1. Halbjahr nur +2.7 % nach +20 % im Jahr 2025.",
+  "Am 21.10.2026 gab Renk nach dem Verkauf der Gleitlager eine neue Prognose (Umsatz rund 1.4 Mrd. €, bereinigtes EBIT 240 bis 255 Mio. €), die eher am unteren Ende der alten liegt. JPMorgan senkte das Ziel auf 50 €.",
+  "Die Bank of America zweifelt, dass die hohe Getriebe-Produktion nach 2030 anhält (Abstufung auf Neutral, Ziel 42.50 €). Bei Ukraine-Friedensgesprächen gelten Landsysteme als am stärksten gefährdet.",
+  "Angebotsdruck: KNDS verkaufte im Mai 5.8 Mio. Aktien und hält noch 10 %, Leerverkäufer halten grob 5 %."
+ ],
+ "sorgen_art": "gemischt",
+ "sorgen_art_text": "Die Wachstumsdelle ist echt, aber der Auftragsbestand (7.4 Mrd. €) ist so hoch wie nie. Ein Teil des Drucks kommt von Aktienverkäufen und Stimmung.",
+ "aufloeser": [
+  {
+   "was": "Q3-Zahlen: Zieht das Wachstum im 2. Halbjahr an (Umsatz über 308 Mio. € im Vorjahresquartal)?",
+   "wann": "Zahlen 05.11.2026"
+  },
+  {
+   "was": "Abschluss des Kaufs von David Brown Defence (Marine-Getriebe UK, Kanada, Australien) und des Gleitlager-Verkaufs",
+   "wann": "4. Quartal 2026"
+  },
+  {
+   "was": "Jahreszahlen 2026 und Prognose 2027 (Analysten erwarten rund +18 % Umsatz)",
+   "wann": "März 2027"
+  }
+ ],
+ "schub_stufe": "mittel",
+ "schub_treiber": [
+  {
+   "titel": "Rekord-Auftragsbestand",
+   "text": "7.4 Mrd. € Ende Juni 2026, gut fünf Jahresumsätze. Im 2. Quartal kamen Rekord-Aufträge von 613 Mio. € herein, darunter Leopard-2-Getriebe für KNDS (rund 130 Mio. €, Lieferung 2029 bis 2032).",
+   "wann": "2027–2032"
+  },
+  {
+   "titel": "USA und Marine",
+   "text": "Ein 5-jähriger Rahmenvertrag mit dem US-Verteidigungsministerium über bis zu 691 Mio. $ und der Kauf von David Brown Defence öffnen neue Märkte. Beides bringt erst ab 2027 spürbar Umsatz.",
+   "wann": "2027–2030"
+  }
+ ],
+ "schub_beweis": "Achte auf das Umsatzwachstum pro Quartal (H1 2026: +2.7 %). Steigt es wieder über 15 % und bleibt die bereinigte Marge über 16 %, wird aus dem Auftragsbestand Umsatz.",
+ "szenario": "Kein klarer Google-2023-Fall, eher ein Rücksetzer mit vollen Auftragsbüchern: Kommt das Wachstum 2027 zurück, ist die Aktie auf die erwarteten Gewinne (KGV rund 18) nicht teuer, und Analysten sehen im Schnitt rund 60 €. Grösstes Risiko: Weitere Verschiebungen von Aufträgen und ein Frieden in der Ukraine, dann bleibt das Wachstum schwach und Verkäufer drücken weiter.",
+ "quellen": [
+  {
+   "titel": "Kapitalmarktexperten: Renk H1 2026 (09.08.2026)",
+   "url": "https://www.kapitalmarktexperten.de/renk-group-aktie-auftragsbestand-auf-74-milliarden/"
+  },
+  {
+   "titel": "Goldesel: Neue Prognose und JPMorgan (22.10.2026)",
+   "url": "https://goldesel.de/aktien/news/renk-grounpv-aktie-jpmorgan-senkt-kursziel-auf-50-euro-halt-an-overweight-fest"
+  },
+  {
+   "titel": "Finanztrends: BofA stuft ab (05.10.2026)",
+   "url": "https://www.finanztrends.de/news/renk-group-aktie-bofa-stuft-auf-neutral-zurueck/"
+  },
+  {
+   "titel": "MarketScreener: Finanzen und Schätzungen",
+   "url": "https://in.marketscreener.com/quote/stock/RENK-GROUP-AG-160066728/finances/"
+  }
+ ]
+}

@@ -1,0 +1,67 @@
+{
+ "ticker": "RHM",
+ "sorgen": [
+  "Ein Frieden in der Ukraine könnte die Nachfrage nach Munition und Fahrzeugen bremsen. Gespräche im April und Juli 2026 drückten den Kurs jeweils um über 10 %.",
+  "Rheinmetall hat 2026 die Erwartungen zweimal verfehlt (Jahreszahlen 11.3., 1. Quartal 7.5.) und am 6.8. die Umsatzprognose auf 13.7 bis 14.2 Mrd. € gesenkt.",
+  "Der Free Cashflow ist eingebrochen: Im 1. Halbjahr 2026 flossen 1.6 Mrd. € ab, aus Netto-Cash wurden 2.7 Mrd. € Nettoschulden.",
+  "Der Bund stoppte am 24.6.2026 die Fregatte F126, den grössten Auftrag der neu gekauften Werft NVL. Berenberg zweifelt zudem am Wachstum nach 2030 (Abstufung 9.10.)."
+ ],
+ "sorgen_art": "gemischt",
+ "sorgen_art_text": "Das Geschäft wächst stark weiter (Auftragsbestand 80.5 Mrd. €), aber Cashflow, Marine-Sparte und verfehlte Erwartungen sind echte, eher vorübergehende Probleme.",
+ "aufloeser": [
+  {
+   "was": "Q3-Zahlen: Kommt der Umsatz (erwartet rund 3.2 Mrd. €) und bestätigt Rheinmetall die Jahresziele?",
+   "wann": "Zahlen 05.11.2026"
+  },
+  {
+   "was": "Investorentag: Bestätigung oder Anpassung der Ziele 2030 (rund 50 Mrd. € Umsatz)",
+   "wann": "26./27.11.2026"
+  },
+  {
+   "was": "Bundestag gibt den Boxer-Auftrag Arminius frei: rund 12.4 Mrd. € für Rheinmetall und über 3 Mrd. € Anzahlung, das würde das Cashflow-Problem lösen",
+   "wann": "09.12.2026, Anzahlung Dezember/Januar"
+  },
+  {
+   "was": "Jahreszahlen 2026 und Prognose 2027 (Analysten erwarten rund 18.5 Mrd. € Umsatz)",
+   "wann": "11.03.2027"
+  }
+ ],
+ "schub_stufe": "stark",
+ "schub_treiber": [
+  {
+   "titel": "Bundeswehr-Grossaufträge",
+   "text": "Der Auftragsbestand stieg in 18 Monaten von 46.9 auf 80.5 Mrd. €. Mit Arminius (rund 1'800 Boxer, Anteil Rheinmetall rund 12.4 Mrd. €) käme ein weiterer Riesenauftrag dazu. Die Umsätze daraus fliessen über viele Jahre.",
+   "wann": "2026–2030"
+  },
+  {
+   "titel": "Munition und Flugabwehr",
+   "text": "Neue Munitionswerke laufen hoch, die Flugabwehr wuchs im 1. Halbjahr 2026 um 62 %. Munition ist mit 29 % Marge die profitabelste Sparte und hebt die Konzernmarge.",
+   "wann": "2026–2028"
+  },
+  {
+   "titel": "Marine und Satelliten",
+   "text": "Die Werft NVL (rund 1.3 Mrd. € Umsatz) ist seit März 2026 dabei, im Oktober startete die Serienfertigung von Satelliten mit ICEYE. Beides ist noch klein und nach dem F126-Stopp unsicher.",
+   "wann": "2027–2030"
+  }
+ ],
+ "schub_beweis": "Achte auf den Umsatz im 4. Quartal (für die Prognose braucht das 2. Halbjahr rund 8.5 bis 9 Mrd. €) und auf den operativen Free Cashflow nach der Arminius-Anzahlung. Steigt der Auftragsbestand weiter über 80 Mrd. € und wird der Cashflow positiv, kommt der Schub.",
+ "szenario": "Ähnlich wie Google 2023, nur mit Panzern statt KI: Die Börse fürchtet das Ende des Booms, während die Aufträge für Jahre gebucht sind. Gelingen Arminius und die Prognose, könnte die Aktie wieder Richtung Analystenziel (rund 1'560 €) laufen. Grösstes Risiko: Ein Friedensschluss und weitere Verzögerungen bei Aufträgen und Zahlungen, dann bleibt der Cashflow negativ und die Bewertung sinkt weiter.",
+ "quellen": [
+  {
+   "titel": "Rheinmetall: Geschäftsjahr 2025 (11.03.2026)",
+   "url": "https://www.rheinmetall.com/de/media/news-watch/news/2026/03/2026-03-11-rheinmetall-bilanzvorlage-geschaeftsjahr-2025"
+  },
+  {
+   "titel": "Börse Global: Boxer-Auftrag Arminius (18.09.2026)",
+   "url": "https://www.boerse-global.de/rheinmetall-aktie-124-milliarden-fuer-boxer-radpanzer-angepeilt/827711"
+  },
+  {
+   "titel": "ms-aktuell: Berenberg stuft ab (11.10.2026)",
+   "url": "https://ms-aktuell.de/finanzen/rheinmetall-aktie-berenberg-11-10-2026/"
+  },
+  {
+   "titel": "MarketScreener: Analysten-Konsens",
+   "url": "https://in.marketscreener.com/quote/stock/RHEINMETALL-AG-436527/consensus/"
+  }
+ ]
+}

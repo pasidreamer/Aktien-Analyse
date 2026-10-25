@@ -1,0 +1,397 @@
+<title>Hensoldt Aktien-Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F3F5F7; --surface:#FFFFFF; --ink:#141B24; --muted:#5A6573; --line:#DDE2E8; --grid:#E9EDF1;
+  --accent:#2F45B5; --accent-soft:#E6E9F8; --chip:#EBEEF2;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+  --good:#1D7A4B; --good-bg:#E3F3EA; --warn:#9A6200; --warn-bg:#FBF0DC; --bad:#B2362A; --bad-bg:#FBE6E3;
+  --zone-sup:rgba(29,122,75,.10); --zone-res:rgba(178,54,42,.09);
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+    --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+    --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+    --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+  --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+  --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;padding-inline:16px;padding-block:24px 56px}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+h1,h2,h3{font-family:var(--display);font-stretch:85%;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:clamp(32px,7vw,48px);font-weight:800;line-height:1}
+h2{font-size:24px;font-weight:700}
+h3{font-size:17px;font-weight:700;font-stretch:95%}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+section{display:flex;flex-direction:column;gap:14px}
+.lead{max-width:68ch;color:var(--muted)}
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;align-items:stretch}
+.hero .id{display:flex;flex-direction:column;gap:10px;justify-content:space-between}
+.price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price b{font-family:var(--display);font-size:34px;font-weight:700}
+.meta{font-size:13px;color:var(--muted)}
+.verdict{font-size:15px;padding:12px 14px;border-radius:10px;background:var(--chip)}
+.scales{display:flex;flex-direction:column;gap:18px}
+.scale-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.scale-h span{font-size:13px;color:var(--muted)}
+.scale-h b{font-family:var(--display);font-size:28px;line-height:1}
+.track{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#C8412F 0%,#E0892F 30%,#E3B63A 50%,#8BBF4B 68%,#2E9A5B 100%);margin-top:8px}
+.pin{position:absolute;top:-5px;width:4px;height:22px;border-radius:2px;background:var(--ink);box-shadow:0 0 0 2px var(--surface);transform:translateX(-2px)}
+.ticks{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);font-family:var(--mono);margin-top:6px}
+.state{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;margin-top:8px}
+.st-good{background:var(--good-bg);color:var(--good)}
+.st-warn{background:var(--warn-bg);color:var(--warn)}
+.st-bad{background:var(--bad-bg);color:var(--bad)}
+/* tables */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;color:var(--muted);font-weight:500;font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:700;border-bottom:none}
+.pts{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{height:6px;border-radius:3px;background:var(--chip);min-width:60px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:3px}
+/* grids */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;border-left:4px solid var(--line)}
+.kpi.g{border-left-color:var(--good)}.kpi.w{border-left-color:var(--warn)}.kpi.b{border-left-color:var(--bad)}
+.kpi span{font-size:12px;color:var(--muted)}
+.kpi b{font-family:var(--mono);font-size:19px;font-weight:500;font-variant-numeric:tabular-nums}
+.kpi em{font-style:normal;font-size:12.5px;color:var(--muted)}
+/* charts */
+.chart{position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:14px;height:3px;border-radius:2px;display:inline-block}
+.swb{width:12px;height:10px;border-radius:2px;display:inline-block}
+.tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12.5px;box-shadow:0 4px 14px rgba(0,0,0,.12);white-space:nowrap;z-index:2}
+.tip b{font-family:var(--mono);font-weight:500}
+.tip .d{font-family:var(--mono);color:var(--muted);font-size:11.5px}
+.note{font-size:13.5px;color:var(--muted)}
+ul.clean{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.pro li::marker{color:var(--good)} .con li::marker{color:var(--bad)}
+.zones{display:flex;flex-direction:column;gap:8px}
+.zone{display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:baseline;padding:10px 12px;border-radius:10px;background:var(--chip);font-size:14px}
+.zone b{font-family:var(--mono);font-weight:500}
+.zone.r{border-left:4px solid var(--bad)} .zone.s{border-left:4px solid var(--good)} .zone.t{border-left:4px solid var(--accent)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+summary{cursor:pointer;font-weight:600}
+details p{margin-top:8px;color:var(--muted);max-width:70ch}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+footer{font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:6px;max-width:80ch}
+footer a{color:var(--accent)}
+@media (max-width:760px){.hero,.two{grid-template-columns:1fr}.zone{grid-template-columns:1fr;gap:2px}}
+</style>
+
+<div class="wrap">
+
+<header class="hero">
+  <div class="card id">
+    <div>
+      <div class="eyebrow">Aktien-Check · 23.10.2026</div>
+      <h1>Hensoldt</h1>
+      <p class="meta">Hensoldt AG · Xetra: HAG · Rüstungselektronik: Radare, Optronik (Zielfernrohre, Periskope), Elektronische Kampfführung · Taufkirchen bei München, Deutschland</p>
+    </div>
+    <div class="price"><b>84.02 €</b><span class="meta">Schluss 23.10.2026 · 52 Wochen: 63.18 – 99.70 € · Allzeithoch 117.70 € am 6.10.2025</span></div>
+    <p class="verdict"><b>Kurz gesagt:</b> Hensoldt baut die «Augen und Ohren» von Panzern, Flugzeugen und Schiffen: Radare, Zielgeräte und Sensoren. Das Geschäft läuft stark: Auftragsbestand Rekord 10.4 Mrd. € (fast 4 Jahresumsätze), Umsatz im 1. Halbjahr 2026 +24 %, Ziel 2030 rund 6 Mrd. € Umsatz. Aber die Aktie ist teuer (KGV 82) und die Firma verdient nach allen Kosten wenig: operative Marge nur 9 %, Kapitalrendite 8 %. Qualität gelb (51), Timing hellgrün (61). Der Kurs liegt über allen Durchschnittslinien und machte am 16.10. ein neues Hoch im Tageschart. Die Käufer-Spur (A/D) zieht aber nicht mit.</p>
+  </div>
+  <div class="card scales">
+    <div>
+      <div class="scale-h"><span>Qualität · Ist die Firma kaufenswert?</span><b id="q-val">51</b></div>
+      <div class="track"><i class="pin" id="q-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-warn">▲ Gemischt</span>
+    </div>
+    <div>
+      <div class="scale-h"><span>Timing · Ist jetzt der Zeitpunkt?</span><b id="t-val">61</b></div>
+      <div class="track"><i class="pin" id="t-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-good">● Einstieg in Zonen möglich</span>
+    </div>
+    <p class="note">Skala: unter 30 rot · 30–45 orange · 45–60 gelb · 60–75 hellgrün · ab 75 grün. Beide Werte setzen sich aus festen Kriterien zusammen, siehe unten.</p>
+  </div>
+</header>
+
+<section>
+  <h2>Was die Firma macht</h2>
+  <p class="lead">Hensoldt entwickelt und baut Sensoren für Armeen: Radare zur Luftraumüberwachung (TRML-4D, im Einsatz in der Ukraine), das Radar im Eurofighter, Aufklärungstechnik für Flugzeuge (PEGASUS), Optronik wie Zielfernrohre und Periskope für Panzer (Puma, Leopard, Boxer) und Systeme zur Störung feindlicher Elektronik. Seit dem Kauf von ESG 2024 gehört auch Software und Wartung dazu. Die Firma ist 2017 aus Airbus abgespalten worden und seit 2020 an der Börse. Grösste Aktionäre sind der deutsche Staat (25.1 % über die KfW) und der italienische Rüstungskonzern Leonardo (22.8 %). Kunden sind vor allem Deutschland und andere NATO-Länder.</p>
+  <p class="lead">2025 stieg die Aktie um über 150 % und erreichte am 6.10.2025 das Allzeithoch von 117.70 €. Am Kapitalmarkttag vom 11.11.2025 enttäuschten die Mittelfrist-Ziele (Aktie −8 %), danach drückte der US-Friedensplan für die Ukraine: Ende November lag der Kurs bei 69.90 €. Im Januar 2026 ging es wieder auf über 92 €. Am 29.6.2026 fiel die Aktie auf rund 66 €, weil Anleger auf grosse Aufträge warteten und der Bund am 30.6. die Fregatte F126 strich (Hensoldt hatte dafür Verträge über mehr als 200 Mio. €). Am 16.7. ging ein Sensor-Auftrag für die Ersatz-Fregatten an Saab. Die Halbjahreszahlen am 31.7. waren stark (Auftragseingang verdoppelt auf 2.8 Mrd. €), die Prognose wurde aber nur bestätigt (Aktie −5 %). Mitte August folgte das Hoch bei rund 96 €, Ende September ein Tief bei 74 €. Seit dem 9.10. stieg der Kurs von 74.64 auf 84.02 €, unter anderem nach einer Absichtserklärung der Ukraine für weitere Radare (4.10.) und einer Hochstufung durch Jefferies.</p>
+</section>
+
+<section>
+  <h2>Fundamental: die Zahlen</h2>
+  <div class="kpis">
+<div class="kpi g"><span>Umsatzwachstum</span><b>+14.7 %</b><em>Letzte 12 Monate. Im 1. Halbjahr 2026 +24 %, aus eigener Kraft im 1. Quartal +15 %. Für 2026 erwartet Hensoldt rund 2.75 Mrd. € (+12 %).</em></div>
+<div class="kpi r"><span>Operative Marge</span><b>9.3 %</b><em>Von 100 € Umsatz bleiben 9.30 € Betriebsgewinn nach allen Kosten. Seit 2021 seitwärts zwischen 8 und 10 %. Hensoldt selbst nennt die bereinigte Marge vor Abschreibungen: 18.4 % (2025), Ziel 2030 über 20 %.</em></div>
+<div class="kpi w"><span>Gewinn pro Aktie (EPS)</span><b>1.03 €</b><em>Letzte 12 Monate. Schwankt stark: 0.60 € (2021), 0.53 € (2023), 0.77 € (2025). Zinsen und Abschreibungen auf Zukäufe fressen viel Gewinn.</em></div>
+<div class="kpi r"><span>ROIC</span><b>8.2 %</b><em>Auf 100 € investiertes Kapital nur rund 8 € Gewinn. Tief und seit 2024 (14.2 %) gesunken, weil der Kauf von ESG viel Kapital gebunden hat.</em></div>
+<div class="kpi g"><span>Free Cashflow</span><b>567 Mio. €</b><em>Letzte 12 Monate nach StockAnalysis, 2021 waren es 299 Mio. €. Hensoldt rechnet strenger (bereinigt): 347 Mio. € für 2025, nach 249 Mio. € (2024).</em></div>
+<div class="kpi w"><span>Nettoschulden</span><b>1.1 Mrd. €</b><em>Mitte 2026, mit Leasing. Das sind rund 2.3 bereinigte Jahresgewinne vor Abschreibungen. Hensoldt rechnet enger und meldet 1.6 (Ende 2025), Ziel 2026 rund 1.5.</em></div>
+<div class="kpi r"><span>KGV</span><b>82</b><em>Du zahlst rund 82 Jahresgewinne. Eigener Schnitt 2021 bis 2025 rund 47. Also rund 75 % teurer als üblich. Auf die erwarteten Gewinne für 2026 gerechnet rund 38.</em></div>
+<div class="kpi w"><span>Dividende</span><b>0.7 %</b><em>0.55 € pro Aktie, einmal im Jahr (bezahlt am 27.5.2026). Seit dem Börsengang jedes Jahr erhöht (2021: 0.25 €). Hensoldt zahlt 30 bis 40 % des bereinigten Gewinns aus.</em></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>Umsatz pro Quartal (Mio. €)</h3>
+      <p class="note">Alle Quartale über dem Vorjahr, zuletzt +26 % und +22 %. Das 4. Quartal ist immer das stärkste, weil viele Lieferungen zum Jahresende abgerechnet werden. Quartale aus den Halbjahres- und 9-Monats-Zahlen selbst gerechnet.</p>
+      <div class="chart" id="c-rev"></div>
+    </div>
+    <div class="card">
+      <h3>Operative Marge pro Jahr</h3>
+      <p class="note">Nach allen Kosten (EBIT) seit 2021 stabil bei 8 bis 10 %. Die von Hensoldt gezeigte bereinigte Marge vor Abschreibungen liegt bei rund 18 %.</p>
+      <div class="chart" id="c-margin"></div>
+    </div>
+  </div>
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Jahr</th><th class="num">Umsatz Mio. €</th><th class="num">Wachstum</th><th class="num">Op. Marge</th><th class="num">EPS €</th><th class="num">Free Cashflow</th><th class="num">ROIC</th><th class="num">KGV</th></tr></thead>
+      <tbody id="fin-rows"></tbody>
+    </table>
+  </div>
+  <p class="note"><b>Hinweis:</b> Zahlen nach StockAnalysis. Der Free Cashflow dort ist höher als Hensoldts eigener «bereinigter Free Cashflow» (2025: 347 statt 450 Mio. €). Das KGV-Mittel ist über 2021 bis 2025 gerechnet (20.9, 29.8, 50.3, 36.9, 95.3) und wird durch 2025 stark nach oben gezogen. Der Mittelwert ohne 2025 wäre 34.5.</p>
+</section>
+
+<section>
+  <h2>Qualität: 51 von 100</h2>
+  <div class="card tbl"><table id="q-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Technik: Wochenchart (2 Jahre)</h2>
+  <div class="card">
+    <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span><span><i class="swb" style="background:var(--zone-sup);border:1px solid var(--good)"></i>Unterstützung</span><span><i class="swb" style="background:var(--zone-res);border:1px solid var(--bad)"></i>Widerstand</span></div>
+    <div class="chart" id="c-week"></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>A/D-Linie, Woche</h3>
+      <p class="note">Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Die Wochen-A/D fällt seit dem Frühling: Ende Mai stand sie bei 88 € Kurs bei +0.2, Mitte August bei 87 € bei −2.1, heute bei 84 € bei −3.8. Der Kurs hält sich, aber die Wochen schliessen eher schwach: leichte Verteilung.</p>
+      <div class="chart" id="c-adw"></div>
+    </div>
+    <div class="card">
+      <h3>RSI, Woche</h3>
+      <p class="note">Unter 30 überverkauft, über 70 überkauft. Im Juni bei 40, im August bei 62, heute 53: neutral, ohne Signal.</p>
+      <div class="chart" id="c-rsiw"></div>
+    </div>
+  </div>
+
+  <h2>Technik: Tageschart (1 Jahr)</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Kurs, Tag</h3>
+      <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span></div>
+      <div class="chart" id="c-day"></div>
+    </div>
+    <div class="card">
+      <h3>A/D-Linie, Tag</h3>
+      <p class="note">Leicht negativ. Beim Tief vom 8.10. (73.70 €) lag die Tages-A/D bei 7.3, tiefer als beim Tief vom 15.9. (8.4). Mit dem Anstieg auf 84 € kam sie nur auf 8.2 zurück. Ende August stand sie bei 85.70 € Kurs bei 9.1. Der Anstieg kommt mit wenig Kaufdruck.</p>
+      <div class="chart" id="c-add"></div>
+    </div>
+  </div>
+
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Indikator</th><th>Tag</th><th>Woche</th><th>Bedeutung</th></tr></thead>
+      <tbody>
+<tr><td>Kurs vs. EMA 50</td><td class="pts">84.0 &gt; 81.2</td><td class="pts">84.0 &gt; 79.8</td><td>Über der mittelfristigen Linie, auf beiden Zeitebenen.</td></tr>
+<tr><td>Kurs vs. EMA 200</td><td class="pts">84.0 &gt; 80.3</td><td class="pts">84.0 &gt; 58.7</td><td>Über der langfristigen Linie, auf beiden Zeitebenen.</td></tr>
+<tr><td>EMA 50 vs. EMA 200</td><td class="pts">50 über 200 (seit 16.10.2026)</td><td class="pts">50 über 200 (seit November 2023)</td><td>Woche klar aufwärts, Tag frisch gekreuzt, die Linien liegen aber eng beieinander.</td></tr>
+<tr><td>RSI (14)</td><td class="pts">56.1</td><td class="pts">52.6</td><td>Tag aus 35 (Ende September) nach oben gedreht, Woche neutral.</td></tr>
+<tr><td>A/D</td><td class="pts">tiefer als bei gleichem Kurs im August</td><td class="pts">fällt seit Mai</td><td>Kaufdruck fehlt auf beiden Zeitebenen.</td></tr>
+<tr><td>Volumen</td><td colspan="2">Ø 20 Tage 0.23 Mio. vs. Ø 100 Tage 0.28 Mio. Aktien</td><td>Weniger Handel als im Sommer.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Struktur und Zonen (Smart Money Concept)</h2>
+  <p class="lead">Nach dem Allzeithoch von 117.70 € (Oktober 2025) fiel Hensoldt bis 64.80 € (Dezember 2025). Seither bewegt sich die Aktie in einer breiten Seitwärtsspanne zwischen rund 63 und 97 €: Hochs bei 96.70 € (Januar), 91.72 € (Mai) und 96.70 € (August), Tiefs bei 66.20 € (März), 63.18 € (Juni) und 73.70 € (Oktober). Das Oktober-Tief liegt klar über dem Juni-Tief: ein höheres Tief im Wochenchart. Im Tageschart machte der Kurs von August bis Oktober tiefere Hochs (96.70 → 90.24 → 85.04 €). Am 16.10. schloss er mit 87.86 € über dem Hoch vom 6.10. (85.04 €): ein Change of Character nach oben. Der Kurs liegt jetzt in der oberen Hälfte der Spanne, also eher im teuren Bereich.</p>
+  <div class="zones">
+<div class="zone r"><b>95–97 €</b><span>Widerstand: Hochs vom Januar und August (96.70 €). Oberkante der Seitwärtsspanne.</span></div>
+<div class="zone r"><b>89–90.5 €</b><span>Widerstand: Hoch vom 16.10. (89.02 €) und vom 27.8. (90.24 €).</span></div>
+<div class="zone t"><b>90.3 €</b><span><b>Trigger:</b> Tagesschluss über dem Hoch vom 27.8. Dann wäre das tiefere Hoch vom Spätsommer überwunden.</span></div>
+<div class="zone s"><b>77–80.5 €</b><span><b>Kaufzone 1:</b> Tages-EMA 200 (80.30 €), Wochen-EMA 50 (79.80 €) und Bodenbildung von Mitte September (76 bis 79 €).</span></div>
+<div class="zone s"><b>69.5–74 €</b><span><b>Kaufzone 2:</b> Tiefs vom 8.10. (73.70 €), 17.7. (71 €) und 12.5. (69.48 €).</span></div>
+<div class="zone r"><b>69 €</b><span>Abbruch: Wochenschluss unter dem Mai-Tief (69.48 €). Dann droht ein Rückfall Richtung Juni-Tief (63 €).</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Smart Money, Insider und Saisonalität</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Wer kauft, wer verkauft?</h3>
+      <ul class="clean" style="margin-top:8px">
+<li><b>Insider-Käufe:</b> CEO Oliver Dörre kaufte am 22./23.6.2026 rund 2'500 Aktien zu 67.98 und 69.50 € (rund 172'000 €), Vorständin Inka Tews rund 300 Aktien (rund 20'000 €), nahe am Jahrestief. Quelle sind Medienberichte, die Originalmeldungen sind nicht geprüft.</li>
+<li><b>Insider-Verkauf:</b> Reiner Winkler verkaufte am 18.8.2026 10'000 Aktien zu 94.71 € (rund 947'000 €), nahe am Hoch.</li>
+<li><b>Grossaktionäre:</b> Bund (KfW) 25.1 %, Leonardo 22.8 % (am 21.7.2026 bestätigt, kein Verkauf). BlackRock hielt im Februar rund 5 % inklusive Instrumente, im August meldete es die Schwelle von 3 %. Keine Rückkäufe.</li>
+<li><b>Analysten:</b> 16 Analysten, Mehrheit «Kaufen», Kursziel im Schnitt 92 € (StockAnalysis). Spanne 62 € (mwb, Verkaufen) bis 105 € (Deutsche Bank). Jefferies stufte Anfang Oktober auf Kaufen hoch (98 €), Goldman Sachs Neutral (85 €).</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Saisonalität seit 2020</h3>
+      <p class="note">Durchschnittliche Monatsrendite in %. Nur 6 Jahre Daten (seit 2020), darum wenig aussagekräftig. November schwach (−2.2 %, 33 % positiv), Dezember gemischt (+2.3 %, 50 %), Januar stark (+9.9 %, 83 %).</p>
+      <div class="chart" id="c-seas"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Timing: 61 von 100</h2>
+  <div class="card tbl"><table id="t-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Dividende</h2>
+  <div class="card tbl"><table><tr><td style="white-space:nowrap;color:var(--muted)">Wie oft</td><td>1× pro Jahr (jährlich)</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Ex-Tag im</td><td>Mai</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Geld auf dem Konto im</td><td>Mai</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Zahltage</td><td>Ende Mai, wenige Tage nach der Generalversammlung (2026: Generalversammlung 22. Mai, Ex-Tag 25. Mai, Zahltag 27. Mai; Termin 2027 noch nicht bestätigt)</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Letzte Zahlung</td><td>0.55 € pro Aktie</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Rendite</td><td>0.7 %</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">System</td><td>Deutsches System: eine Dividende pro Jahr, beschlossen an der Generalversammlung im Mai. Hensoldt zahlt 30 bis 40 % des bereinigten Gewinns aus und hat die Dividende seit dem Börsengang jedes Jahr erhöht (0.25 € für 2021, 0.55 € für 2025). Die Rendite ist tief.</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Form</td><td>Bar in Euro aufs Konto. Deutschland zieht 26.375 % Quellensteuer ab. 15 % kannst du über die Schweizer Steuererklärung anrechnen lassen (Formular DA-1), die restlichen 11.375 % musst du in Deutschland zurückfordern (Bundeszentralamt für Steuern, innert rund 3 Jahren). Lohnt sich erst bei grösseren Beträgen.</td></tr></table><p class="note" style="margin:10px 0 0"><b>Ex-Tag:</b> Du bekommst die Dividende nur, wenn du die Aktie am Abend vor dem Ex-Tag besitzt. <b>Zahltag:</b> An diesem Tag kommt das Geld aufs Konto (in der Währung der Aktie, abzüglich Quellensteuer). Die nächsten genauen Termine zeigt die App unter «Termine».</p></div>
+</section>
+
+<section>
+  <h2>Pro und Contra</h2>
+  <div class="two">
+    <div class="card pro"><h3>Spricht dafür</h3><ul class="clean" style="margin-top:8px">
+<li>Rekord-Auftragsbestand 10.4 Mrd. € und Auftragseingang im 1. Halbjahr verdoppelt (Book-to-Bill 2.4).</li>
+<li>Das Wachstum beschleunigt sich: +26 % und +22 % in den letzten zwei Quartalen.</li>
+<li>Wichtige Systeme sind Standard: Eurofighter-Radar, TRML-4D (im Einsatz in der Ukraine), Optik für Puma und Boxer.</li>
+<li>Ab 2027 liefert ein neues Radarwerk, die Kapazität steigt auf mehr als das Dreifache von 2021.</li>
+<li>Starke Ankeraktionäre (Bund, Leonardo) und Insider-Käufe am Juni-Tief.</li>
+    </ul></div>
+    <div class="card con"><h3>Spricht dagegen</h3><ul class="clean" style="margin-top:8px">
+<li>Sehr teuer: KGV 82, auf die Gewinne 2026 rund 38. Viel Erfolg ist schon im Kurs.</li>
+<li>Nach allen Kosten verdient Hensoldt wenig: 9 % Marge, 8 % Kapitalrendite.</li>
+<li>Der Gewinn hängt stark am 4. Quartal, das 1. Halbjahr bringt nur 12 % bereinigte Marge.</li>
+<li>Rückschläge bei Schiffen (F126 gestrichen, MEKO-Sensoren an Saab) und rund 40 % Abhängigkeit von Landfahrzeugen.</li>
+<li>Die A/D-Linie fällt: Der jüngste Anstieg hat wenig Kaufdruck.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section>
+  <h2>Was jetzt zu tun ist</h2>
+  <div class="zones">
+<div class="zone t"><b>Beobachten</b><span>Alarm bei 90.30 € (Trigger) und 80.50 € (oberes Ende Kaufzone 1).</span></div>
+<div class="zone s"><b>Timing grün</b><span>Tagesschluss über 90.30 € mit wieder steigender A/D. Oder ein Rücksetzer in 77 bis 80.50 €, der über der Tages-EMA 200 dreht. Fundamental: Q3-Zahlen am 5.11. (Prognose erhöht?) und Investorentag am 10.11. (höhere Ziele 2030?).</span></div>
+<div class="zone r"><b>Abbruch</b><span>Wochenschluss unter 69 €. Dann ist das Juni-Tief (63 €) wieder im Spiel.</span></div>
+<div class="zone "><b>Nächste Zahlen</b><span>9 Monate 2026 am 5. November 2026, Investorentag am 10. November 2026. Erwartet (mwb): Umsatz rund 695 Mio. € im 3. Quartal (+17 %).</span></div>
+  </div>
+</section>
+
+<footer>
+  <span>Kursdaten und Indikatoren (EMA, RSI 14, A/D) selbst berechnet aus Yahoo-Finance-Tages-, Wochen- und Monatsdaten, Stand 23.10.2026. <a href="https://stockanalysis.com/quote/etr/HAG/financials/income-statement/" target="_blank" rel="noopener">StockAnalysis.com</a> (Stand 25.10.2026), <a href="https://www.hensoldt.net/news/hensoldt-doubles-order-intake-in-the-first-half-of-2026-%E2%80%93-revenue-and-earnings-rise-significantly" target="_blank" rel="noopener">Hensoldt H1 2026</a>, <a href="https://www.hensoldt.net/news/hensoldt-raises-adjusted-free-cash-flow-guidance-for-2026-and-confirms-net-leverage-target" target="_blank" rel="noopener">Hensoldt Cashflow-Prognose (1.6.2026)</a>, <a href="https://www.hensoldt.net/news/capital-markets-day-hensoldt-makes-significant-progress-in-capacity-expansion-and-software-defined-defence" target="_blank" rel="noopener">Kapitalmarkttag 2025</a>, <a href="https://investors.hensoldt.net/share" target="_blank" rel="noopener">Hensoldt Aktie und Konsens</a>, <a href="https://quwa.org/europe/defence-news-eu/hensoldt-doubles-order-intake-as-backlog-passes-e10-billion-but-middle-east-business-stays-marginal/" target="_blank" rel="noopener">Quwa zu H1 2026</a>, <a href="https://esut.de/2026/10/meldungen/75661/mehr-hensoldt-weitbereichsradare-fuer-die-ukrainische-luftraumueberwachung/" target="_blank" rel="noopener">ESUT: Ukraine-Radare (Oktober 2026)</a>, <a href="https://stockanalysis.com/quote/etr/HAG/dividend/" target="_blank" rel="noopener">Dividende (StockAnalysis)</a>. Branchenvergleich App: Note 2.2 von 5, fairer Wert nach Modellen deutlich unter dem Kurs, Unsicherheit sehr hoch.</span>
+  <span>Persönliche Analyse, keine Anlageberatung. Vergangene Kurse und Saisonalität sagen nichts Sicheres über die Zukunft.</span>
+</footer>
+</div>
+
+<script>
+const Q=[["Umsatztrend", "4 von 4 Quartalen über Vorjahr, Tempo steigt von +6 bis 12 % auf +22 bis 26 %", 14, 15], ["Wachstumstempo", "Aus eigener Kraft rund 12 bis 15 %", 8, 10], ["Operative Marge", "9.3 % (3 Pkt.), seit 5 Jahren stabil (3 Pkt.)", 6, 15], ["Gewinnwachstum (EPS)", "Schwankend: 2022 bis 2025 kaum Wachstum, letzte 12 Monate +34 % zu 2025", 5, 10], ["Free Cashflow", "Immer positiv, in 4 der letzten 5 Perioden gestiegen", 10, 10], ["ROIC", "8.2 %, seit 2024 gesunken", 1, 15], ["Schulden", "Firma: 1.5 bis 1.6, mit Leasing selbst gerechnet 2.3", 6, 10], ["Bewertung vs. eigene Historie", "KGV 82 statt Ø 47 (2021–2025), rund 75 % teurer", 1, 15]];
+const T=[["Trend Woche (EMA 50/200)", "Kurs über beiden, EMA 50 klar über EMA 200", 18, 20], ["Trend Tag (EMA 50/200)", "Kurs über beiden, Golden Cross am 16.10., Linien noch flach", 8, 10], ["Struktur (SMC)", "Seitwärtsspanne mit höherem Tief (Woche), CHoCH im Tageschart am 16.10., Kurs eher im teuren Teil", 12, 20], ["RSI Tag/Woche", "Tag aus 35 nach oben gedreht im intakten Wochentrend, keine Divergenz", 11, 15], ["A/D Tag/Woche", "Beide fallen, obwohl der Kurs sich hält: leichte Verteilung", 3, 20], ["Smart Money", "Start 3, Vorstand kaufte im Juni +4, Verkauf von Winkler im August −1, kein Rückkauf", 6, 10], ["Saisonalität", "November schwach, Januar stark, nur 6 Jahre Daten", 3, 5]];
+const FIN=[["2021", 1474, "+22.1 %", "8.6 %", 0.6, 299, "10.1 %", "20.9"], ["2022", 1707, "+15.8 %", "9.7 %", 0.75, 244, "11.0 %", "29.8"], ["2023", 1847, "+8.2 %", "9.0 %", 0.53, 267, "10.9 %", "50.3"], ["2024", 2240, "+21.3 %", "8.3 %", 0.93, 311, "14.2 %", "36.9"], ["2025", 2455, "+9.6 %", "9.0 %", 0.77, 450, "9.6 %", "95.3"], ["Letzte 12 Mt.", 2678, "+14.7 %", "9.3 %", 1.03, 567, "8.2 %", "81.6"]];
+const HALF=[["Q3 24", 528], ["Q4 24", 863], ["Q1 25", 395], ["Q2 25", 549], ["Q3 25", 592], ["Q4 25", 919], ["Q1 26", 496], ["Q2 26", 671]];
+const MARGIN=[["2021", 8.6], ["2022", 9.7], ["2023", 9.0], ["2024", 8.3], ["2025", 9.0], ["12 Mt.", 9.3]];
+const SEAS=[9.9, 11.7, 7.1, 3.3, -1.4, 3.2, -3.0, -3.1, 0.5, 0.0, -2.2, 2.3];
+const SEASHIT=[83.0, 60.0, 83.0, 50.0, 67.0, 50.0, 17.0, 17.0, 57.0, 0.0, 33.0, 50.0];
+const MON=["Jan","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"];
+const W=`2024-10-20,32,32.02,25.35,49,-10.2;2024-10-28,31.28,31.99,25.41,47,-10.6;2024-11-04,33.4,32.05,25.49,53,-9.7;2024-11-11,34.36,32.14,25.58,55,-9.9;2024-11-18,36.6,32.31,25.69,60,-8.7;2024-11-25,36.8,32.49,25.8,60,-8.6;2024-12-02,37.72,32.69,25.92,62,-8.4;2024-12-09,35.3,32.8,26.01,55,-8.7;2024-12-16,33.86,32.84,26.09,51,-9.1;2024-12-23,34.64,32.91,26.17,53,-9.1;2024-12-30,33.88,32.95,26.25,51,-9.2;2025-01-06,37.24,33.11,26.36,59,-7.9;2025-01-13,36.62,33.25,26.46,57,-7.9;2025-01-20,38.44,33.46,26.58,61,-7.3;2025-01-27,38.78,33.66,26.7,61,-6.2;2025-02-03,36.3,33.77,26.8,54,-7.9;2025-02-10,40.78,34.04,26.94,63,-5.5;2025-02-17,45.54,34.49,27.12,69,-6.9;2025-02-24,52.35,35.19,27.37,76,-4.7;2025-03-03,63.4,36.3,27.73,83,-13.8;2025-03-10,72.3,37.71,28.18,86,-7;2025-03-17,67.65,38.89,28.57,78,-12.7;2025-03-30,57.75,39.63,28.86,63,-15.9;2025-04-06,62,40.5,29.19,66,-12;2025-04-13,65.6,41.49,29.55,68,-11.8;2025-04-20,64.65,42.4,29.9,67,-11.3;2025-04-27,71.15,43.52,30.31,71,-9;2025-05-04,73.5,44.7,30.74,72,-6.4;2025-05-11,73.1,45.81,31.16,72,-2.4;2025-05-18,79.3,47.13,31.64,75,-1;2025-05-25,92,48.89,32.24,80,3.1;2025-06-01,99.1,50.85,32.91,83,-0.4;2025-06-08,94.2,52.55,33.52,76,-1;2025-06-15,94.55,54.2,34.12,76,0.2;2025-06-22,94.6,55.79,34.73,76,0.9;2025-06-29,97.55,57.42,35.35,78,3;2025-07-06,101.9,59.17,36.01,79,2.8;2025-07-13,103.2,60.89,36.68,80,3;2025-07-20,96.95,62.31,37.28,71,1.8;2025-07-27,91.65,63.46,37.82,64,0.3;2025-08-03,85.25,64.31,38.29,57,-1.7;2025-08-10,85.7,65.15,38.77,58,-1.4;2025-08-17,86.55,65.99,39.24,58,0.6;2025-08-24,88.65,66.88,39.73,60,4.6;2025-08-31,90.4,67.8,40.24,61,3.5;2025-09-07,93.3,68.8,40.77,64,4.4;2025-09-14,93.65,69.78,41.29,64,3;2025-09-21,103.1,71.08,41.91,71,4.6;2025-09-28,113.8,72.76,42.62,76,6.1;2025-10-05,105.1,74.03,43.24,66,4.6;2025-10-12,90.85,74.69,43.72,53,2.4;2025-10-19,97.85,75.59,44.26,57,2.2;2025-10-27,92.2,76.25,44.73,53,1.2;2025-11-03,91.65,76.85,45.2,52,1.9;2025-11-10,84.15,77.14,45.59,47,0;2025-11-17,72.5,76.95,45.85,40,-2.6;2025-11-24,68.35,76.62,46.08,38,-4.3;2025-12-01,68.45,76.3,46.3,38,-3.8;2025-12-08,73.05,76.17,46.57,42,-3;2025-12-15,73.6,76.07,46.84,42,-1.4;2025-12-22,73.2,75.96,47.1,42,-1.6;2025-12-29,76.4,75.97,47.39,45,-1;2026-01-05,91.3,76.57,47.83,57,2;2026-01-12,92.85,77.21,48.28,58,3.8;2026-01-19,87.55,77.62,48.67,53,3;2026-01-26,83.65,77.85,49.01,50,2.2;2026-02-02,77.75,77.85,49.3,46,1.9;2026-02-09,80.8,77.97,49.61,48,2.5;2026-02-16,84.15,78.21,49.96,51,3.8;2026-02-23,74.4,78.06,50.2,44,1.8;2026-03-02,73.7,77.89,50.43,43,0.5;2026-03-09,78.1,77.9,50.71,47,0.9;2026-03-16,74.55,77.77,50.95,45,-1.6;2026-03-29,83.35,77.98,51.27,52,0.8;2026-04-05,76.72,77.94,51.52,47,-0.6;2026-04-12,80.84,78.05,51.81,50,-0.5;2026-04-19,73.02,77.85,52.03,45,-1.9;2026-04-26,77.12,77.82,52.27,48,-0.8;2026-05-03,73.42,77.65,52.49,45,-3.2;2026-05-10,74.1,77.51,52.7,46,-2.5;2026-05-17,89.04,77.96,53.06,56,-0.3;2026-05-24,88.42,78.37,53.41,56,0.2;2026-05-31,78.78,78.39,53.67,49,-1;2026-06-07,75.62,78.28,53.88,47,-1.7;2026-06-14,72.46,78.05,54.07,45,-2.3;2026-06-21,64.9,77.54,54.18,40,-4.1;2026-06-28,75.58,77.46,54.39,48,-2.9;2026-07-05,74.32,77.34,54.59,47,-3.9;2026-07-12,76.32,77.3,54.8,49,-2.8;2026-07-19,79.8,77.4,55.05,51,-2.1;2026-07-26,79.76,77.49,55.3,51,-3.1;2026-08-02,90.32,77.99,55.65,59,-2.2;2026-08-09,96.08,78.7,56.05,62,-1.2;2026-08-16,89.3,79.12,56.38,56,-1.8;2026-08-23,87.2,79.43,56.69,55,-2.1;2026-08-30,79.7,79.44,56.92,49,-3.2;2026-09-06,76.64,79.33,57.11,47,-4;2026-09-13,78.12,79.29,57.32,48,-3.8;2026-09-20,75.86,79.15,57.51,46,-4.4;2026-09-27,79.34,79.16,57.72,49,-3.8;2026-10-04,76.22,79.04,57.91,47,-4.5;2026-10-11,87.86,79.39,58.21,56,-3.4;2026-10-18,84.02,79.57,58.46,53,-3.8;2026-10-23,84.02,79.75,58.72,53,-3.8`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+const DD=`2025-10-15,97.05,98.98,79.65,10;2025-10-16,98.55,98.96,79.84,10.2;2025-10-17,90.85,98.64,79.95,9.6;2025-10-20,98,98.62,80.13,10;2025-10-21,98.65,98.62,80.31,10;2025-10-22,97.4,98.57,80.48,9.5;2025-10-23,96.65,98.5,80.64,9.2;2025-10-24,97.85,98.47,80.82,9;2025-10-27,95.8,98.37,80.96,8.7;2025-10-28,96.05,98.28,81.11,9;2025-10-29,93.7,98.1,81.24,8.7;2025-10-30,91.8,97.85,81.35,8.7;2025-10-31,92.2,97.63,81.45,8.7;2025-11-03,94.05,97.49,81.58,8.6;2025-11-04,91.95,97.27,81.68,8.6;2025-11-05,89.45,96.96,81.76,8.4;2025-11-06,87.7,96.6,81.82,8.4;2025-11-07,91.65,96.41,81.92,8.7;2025-11-10,95,96.35,82.05,9.1;2025-11-11,87.05,95.99,82.1,8.4;2025-11-12,82.8,95.47,82.1,8.1;2025-11-13,84.15,95.03,82.12,8.1;2025-11-14,84.15,94.6,82.14,8.2;2025-11-17,82.95,94.14,82.15,7.9;2025-11-18,81.25,93.64,82.14,7.7;2025-11-19,77.1,92.99,82.09,6.9;2025-11-20,77.6,92.38,82.05,6.9;2025-11-21,72.5,91.6,81.95,6.5;2025-11-24,69.2,90.73,81.83,5.8;2025-11-25,68.9,89.87,81.7,5.7;2025-11-26,69,89.05,81.57,5.4;2025-11-27,69.7,88.29,81.45,5.3;2025-11-28,68.35,87.51,81.32,5.2;2025-12-01,66.2,86.68,81.17,5.4;2025-12-02,68.15,85.95,81.04,5.8;2025-12-03,68.3,85.26,80.92,5.5;2025-12-04,69.05,84.62,80.8,5.5;2025-12-05,68.45,83.99,80.67,5.6;2025-12-08,69.95,83.44,80.57,5.7;2025-12-09,74.05,83.07,80.5,6;2025-12-10,72.5,82.65,80.42,6.2;2025-12-11,71.3,82.21,80.33,6;2025-12-12,73.05,81.85,80.26,6.3;2025-12-15,72.2,81.47,80.18,6.4;2025-12-16,69.6,81.01,80.07,6.6;2025-12-17,71.75,80.64,79.99,6.8;2025-12-18,72.95,80.34,79.92,7.1;2025-12-19,73.6,80.08,79.86,7;2025-12-22,73.5,79.82,79.8,7.2;2025-12-23,73.2,79.56,79.73,7.1;2025-12-29,72.5,79.28,79.66,7.3;2025-12-30,73.4,79.05,79.6,7.4;2026-01-02,76.4,78.95,79.56,7.6;2026-01-05,82.65,79.09,79.59,8.2;2026-01-06,82,79.21,79.62,8.2;2026-01-07,86.85,79.51,79.69,8.9;2026-01-08,86.35,79.77,79.76,8.8;2026-01-09,91.3,80.23,79.87,9.3;2026-01-12,92,80.69,79.99,9.3;2026-01-13,92,81.13,80.11,9.4;2026-01-14,90.7,81.51,80.22,9.5;2026-01-15,90,81.84,80.31,9.7;2026-01-16,92.85,82.27,80.44,10.1;2026-01-19,92.25,82.66,80.56,9.5;2026-01-20,89.75,82.94,80.65,9.2;2026-01-21,87.05,83.1,80.71,8.9;2026-01-22,83.6,83.12,80.74,8.7;2026-01-23,87.55,83.3,80.81,9.1;2026-01-26,84.55,83.34,80.85,8.9;2026-01-27,87,83.49,80.91,9.2;2026-01-28,86.6,83.61,80.96,9.1;2026-01-29,84.55,83.65,81,8.9;2026-01-30,83.65,83.65,81.03,8.9;2026-02-02,79.4,83.48,81.01,8.6;2026-02-03,80.45,83.36,81,8.4;2026-02-04,77.55,83.13,80.97,8.2;2026-02-05,76.35,82.87,80.92,8.2;2026-02-06,77.75,82.67,80.89,8.3;2026-02-09,81.35,82.62,80.9,8.7;2026-02-10,80.75,82.54,80.89,8.8;2026-02-11,79.35,82.42,80.88,8.8;2026-02-12,79.05,82.29,80.86,8.6;2026-02-13,80.8,82.23,80.86,8.7;2026-02-16,81.2,82.19,80.86,8.8;2026-02-17,79.9,82.1,80.85,9.2;2026-02-18,82.4,82.11,80.87,9.3;2026-02-19,83.6,82.17,80.9,9.5;2026-02-20,84.15,82.25,80.93,9.6;2026-02-23,80.9,82.19,80.93,9.5;2026-02-24,79.5,82.09,80.91,9.3;2026-02-25,80.1,82.01,80.91,9.5;2026-02-26,76.65,81.8,80.86,9.8;2026-02-27,74.4,81.51,80.8,9.2;2026-03-02,78.05,81.37,80.77,9.1;2026-03-03,76.65,81.19,80.73,8.9;2026-03-04,78.65,81.09,80.71,9.1;2026-03-05,71.85,80.73,80.62,8.7;2026-03-06,73.7,80.45,80.55,8.6;2026-03-09,77.15,80.32,80.52,8.9;2026-03-10,77.55,80.21,80.49,8.9;2026-03-11,76.2,80.05,80.45,9;2026-03-12,78.6,80,80.43,8.6;2026-03-13,78.1,79.92,80.41,8.5;2026-03-16,82.3,80.02,80.43,8.6;2026-03-17,82.15,80.1,80.44,8.9;2026-03-18,84,80.25,80.48,9;2026-03-19,79.15,80.21,80.46,8.6;2026-03-20,74.55,79.99,80.41,7.7;2026-03-23,74.05,79.76,80.34,7.8;2026-03-24,71.9,79.45,80.26,7.8;2026-03-25,73.6,79.22,80.19,7.8;2026-03-26,69.5,78.84,80.09,7.1;2026-03-27,67.1,78.38,79.96,6.7;2026-03-30,70.9,78.08,79.87,7;2026-03-31,75.6,77.99,79.82,7.8;2026-04-01,82.7,78.17,79.85,8.6;2026-04-02,83.35,78.37,79.89,9;2026-04-07,81,78.48,79.9,9;2026-04-08,82.9,78.65,79.93,9.3;2026-04-09,81.52,78.76,79.94,9.4;2026-04-10,76.72,78.68,79.91,9;2026-04-13,78.8,78.69,79.9,9.3;2026-04-14,78.46,78.68,79.89,9.2;2026-04-15,80.96,78.77,79.9,9.6;2026-04-16,80.78,78.85,79.91,9.4;2026-04-17,80.84,78.92,79.92,9.2;2026-04-20,82.36,79.06,79.94,9.4;2026-04-21,79.04,79.06,79.93,9.1;2026-04-22,77.84,79.01,79.91,8.9;2026-04-23,78.42,78.99,79.9,9;2026-04-24,73.02,78.75,79.83,8.7;2026-04-27,74.16,78.57,79.77,8.8;2026-04-28,74.08,78.4,79.71,9;2026-04-29,75.26,78.27,79.67,9;2026-04-30,77.12,78.23,79.64,9.3;2026-05-04,78.48,78.24,79.63,9.3;2026-05-05,80.78,78.34,79.64,9.4;2026-05-06,80.78,78.43,79.66,9.7;2026-05-07,77.8,78.41,79.64,9.6;2026-05-08,73.42,78.21,79.57,9.1;2026-05-11,71.22,77.94,79.49,8.7;2026-05-12,71.48,77.69,79.41,8.9;2026-05-13,74.3,77.55,79.36,9.3;2026-05-14,75.6,77.48,79.32,9.5;2026-05-15,74.1,77.34,79.27,9.3;2026-05-18,73.6,77.2,79.22,8.8;2026-05-19,79.62,77.29,79.22,9.3;2026-05-20,87.8,77.7,79.3,10.1;2026-05-21,88.1,78.11,79.39,9.6;2026-05-22,89.04,78.54,79.49,9.6;2026-05-25,89.02,78.95,79.58,9.7;2026-05-26,86.02,79.23,79.65,9.6;2026-05-27,85,79.46,79.7,9.5;2026-05-28,90,79.87,79.8,10.1;2026-05-29,88.42,80.2,79.89,9.7;2026-06-01,83.28,80.32,79.92,9.4;2026-06-02,80.06,80.31,79.92,8.9;2026-06-03,79.28,80.27,79.92,9;2026-06-04,78.82,80.22,79.91,9.1;2026-06-05,78.78,80.16,79.9,9;2026-06-08,77.8,80.07,79.87,8.9;2026-06-09,77.86,79.98,79.85,9;2026-06-10,77.9,79.9,79.83,8.8;2026-06-11,78.88,79.86,79.83,8.9;2026-06-12,75.62,79.69,79.78,8.7;2026-06-15,71.74,79.38,79.7,8.3;2026-06-16,70.66,79.04,79.61,8;2026-06-17,72.08,78.77,79.54,8.1;2026-06-18,71.58,78.48,79.46,8;2026-06-19,72.46,78.25,79.39,7.9;2026-06-22,69.1,77.89,79.29,7.7;2026-06-23,71.3,77.63,79.21,8;2026-06-24,68.96,77.29,79.11,8.1;2026-06-25,64.34,76.78,78.96,7.6;2026-06-26,64.9,76.32,78.82,8;2026-06-29,67.56,75.97,78.71,8.3;2026-06-30,67.76,75.65,78.6,8.4;2026-07-01,70.9,75.47,78.52,8.7;2026-07-02,76.96,75.52,78.51,9.1;2026-07-03,75.58,75.53,78.48,8.9;2026-07-06,80.18,75.71,78.49,9.3;2026-07-07,80.92,75.91,78.52,9.4;2026-07-08,78.68,76.02,78.52,9.2;2026-07-09,74.22,75.95,78.48,8.8;2026-07-10,74.32,75.89,78.44,9.1;2026-07-13,73.5,75.79,78.39,9;2026-07-14,73.16,75.69,78.33,9.1;2026-07-15,73.8,75.62,78.29,9.2;2026-07-16,73.28,75.52,78.24,9.2;2026-07-17,76.32,75.56,78.22,9.5;2026-07-20,75.2,75.54,78.19,9.4;2026-07-21,76.18,75.57,78.17,9.4;2026-07-22,77.28,75.63,78.16,9.4;2026-07-23,79.12,75.77,78.17,9.3;2026-07-24,79.8,75.93,78.19,9.5;2026-07-27,82.96,76.2,78.23,9.6;2026-07-28,84.38,76.52,78.3,9.6;2026-07-29,84.62,76.84,78.36,9.7;2026-07-30,83.98,77.12,78.41,9.7;2026-07-31,79.76,77.23,78.43,9.5;2026-08-03,86.34,77.58,78.51,9.9;2026-08-04,87.44,77.97,78.6,9.7;2026-08-05,87.48,78.34,78.68,9.4;2026-08-06,90.36,78.81,78.8,9.7;2026-08-07,90.32,79.27,78.91,9.4;2026-08-10,92.04,79.77,79.05,9.5;2026-08-11,90.5,80.19,79.16,9.3;2026-08-12,92.12,80.66,79.29,9.5;2026-08-13,92.42,81.12,79.42,9.3;2026-08-14,96.08,81.7,79.58,9.5;2026-08-17,95.64,82.25,79.74,9.6;2026-08-18,94.14,82.72,79.89,9.6;2026-08-19,92.56,83.1,80.01,9.4;2026-08-20,89.98,83.37,80.11,9.3;2026-08-21,89.3,83.6,80.2,9.4;2026-08-24,86.98,83.74,80.27,9.3;2026-08-25,87.08,83.87,80.34,9.2;2026-08-26,87.26,84,80.41,9.2;2026-08-27,89.22,84.21,80.5,9.3;2026-08-28,87.2,84.32,80.56,9.1;2026-08-31,85.7,84.38,80.61,9.1;2026-09-01,82.7,84.31,80.63,8.9;2026-09-02,82.38,84.24,80.65,9;2026-09-03,81.76,84.14,80.66,9;2026-09-04,79.7,83.96,80.65,8.8;2026-09-07,79.18,83.78,80.64,8.7;2026-09-08,81.5,83.69,80.65,8.9;2026-09-09,78.62,83.49,80.63,8.8;2026-09-10,77.5,83.25,80.6,8.6;2026-09-11,76.64,82.99,80.56,8.5;2026-09-14,76.86,82.75,80.52,8.4;2026-09-15,77.1,82.53,80.49,8.4;2026-09-16,77.78,82.35,80.46,8.4;2026-09-17,77.68,82.16,80.43,8.4;2026-09-18,78.12,82,80.41,8.2;2026-09-21,78.3,81.86,80.39,8.2;2026-09-22,77.3,81.68,80.36,8.1;2026-09-23,79.3,81.59,80.35,8.2;2026-09-24,76,81.37,80.3,8.1;2026-09-25,75.86,81.15,80.26,8.1;2026-09-28,75.52,80.93,80.21,7.9;2026-09-29,75.48,80.72,80.16,8;2026-09-30,76.24,80.54,80.13,7.8;2026-10-01,76.96,80.4,80.09,7.7;2026-10-02,79.34,80.36,80.09,7.6;2026-10-05,82.58,80.45,80.11,7.9;2026-10-06,78.9,80.39,80.1,7.5;2026-10-07,75.14,80.18,80.05,7.3;2026-10-08,74.68,79.96,80,7.3;2026-10-09,76.22,79.82,79.96,7.5;2026-10-12,80.64,79.85,79.97,7.7;2026-10-13,79.18,79.82,79.96,7.6;2026-10-14,80.78,79.86,79.97,7.6;2026-10-15,82.92,79.98,80,7.9;2026-10-16,87.86,80.29,80.07,8.1;2026-10-19,87.56,80.58,80.15,8.2;2026-10-20,86.32,80.8,80.21,8.2;2026-10-21,84.3,80.94,80.25,8.2;2026-10-22,83.84,81.05,80.29,8.2;2026-10-23,84.02,81.17,80.32,8.2`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+
+const fmtN=(v,d=2)=>v.toLocaleString("de-CH",{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmtD=s=>{const [y,m,d]=s.split("-");return d+"."+m+"."+y.slice(2)};
+const NS="http://www.w3.org/2000/svg";
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+
+function scoreTable(id,rows){
+  let tot=0,max=0;
+  const html='<thead><tr><th>Kriterium</th><th>Stand</th><th class="num">Punkte</th><th style="width:22%"></th></tr></thead><tbody>'+rows.map(r=>{tot+=r[2];max+=r[3];const p=r[2]/r[3];const c=p>=.75?"var(--good)":p>=.45?"var(--warn)":"var(--bad)";
+    return `<tr><td>${r[0]}</td><td class="muted">${r[1]}</td><td class="num">${r[2]} / ${r[3]}</td><td><div class="bar"><i style="width:${p*100}%;background:${c}"></i></div></td></tr>`}).join("")+`<tr class="total"><td>Total</td><td></td><td class="num">${tot} / ${max}</td><td></td></tr></tbody>`;
+  document.getElementById(id).innerHTML=html;return tot;
+}
+const qs=scoreTable("q-tbl",Q), ts=scoreTable("t-tbl",T);
+document.getElementById("q-val").textContent=qs;document.getElementById("t-val").textContent=ts;
+document.getElementById("q-pin").style.left=qs+"%";document.getElementById("t-pin").style.left=ts+"%";
+
+document.getElementById("fin-rows").innerHTML=FIN.map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1].toLocaleString("de-CH")}</td><td class="num">${r[2]}</td><td class="num">${r[3]}</td><td class="num">${fmtN(r[4])}</td><td class="num">${r[5].toLocaleString("de-CH")}</td><td class="num">${r[6]}</td><td class="num">${r[7]}</td></tr>`).join("");
+
+/* generic line chart */
+function lineChart(host,{dates,series,bands=[],yFmt=v=>fmtN(v),h=300,zero=false,refs=[],pad}){
+  const W_=800,H=h,m={t:12,r:56,b:28,l:8};
+  const all=series.flatMap(s=>s.values).concat(bands.flatMap(b=>[b.from,b.to])).concat(refs.map(r=>r.v));
+  if(zero)all.push(0);
+  let lo=Math.min(...all),hi=Math.max(...all);const sp=(hi-lo)||1;lo-=sp*.06;hi+=sp*.06;
+  if(pad){lo=pad[0];hi=pad[1]}
+  const n=dates.length,x=i=>m.l+i*(W_-m.l-m.r)/(n-1),y=v=>m.t+(hi-v)*(H-m.t-m.b)/(hi-lo);
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  // grid
+  const steps=5;for(let k=0;k<=steps;k++){const v=lo+(hi-lo)*k/steps;el("line",{x1:m.l,x2:W_-m.r,y1:y(v),y2:y(v),stroke:"var(--grid)","stroke-width":1},svg);
+    const t=el("text",{x:W_-m.r+6,y:y(v)+4,"font-size":11,fill:"var(--muted)","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=yFmt(v)}
+  bands.forEach(b=>{el("rect",{x:m.l,width:W_-m.l-m.r,y:y(Math.max(b.from,b.to)),height:Math.abs(y(b.from)-y(b.to)),fill:b.type==="res"?"var(--zone-res)":"var(--zone-sup)"},svg)});
+  refs.forEach(r=>{el("line",{x1:m.l,x2:W_-m.r,y1:y(r.v),y2:y(r.v),stroke:"var(--muted)","stroke-dasharray":"4 4","stroke-width":1},svg);
+    const t=el("text",{x:m.l+4,y:y(r.v)-4,"font-size":11,fill:"var(--muted)"},svg);t.textContent=r.label});
+  if(zero)el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  // x labels
+  const every=Math.ceil(n/6);for(let i=0;i<n;i+=every){const t=el("text",{x:x(i),y:H-8,"font-size":11,fill:"var(--muted)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);const d=dates[i];t.textContent=d.slice(5,7)+"/"+d.slice(2,4)}
+  series.forEach(s=>{const dpath=s.values.map((v,i)=>(i?"L":"M")+x(i).toFixed(1)+","+y(v).toFixed(1)).join("");
+    el("path",{d:dpath,fill:"none",stroke:s.color,"stroke-width":s.w||2,"stroke-linejoin":"round","stroke-linecap":"round"},svg);
+    const lv=s.values[n-1];el("circle",{cx:x(n-1),cy:y(lv),r:3.5,fill:s.color,stroke:"var(--surface)","stroke-width":2},svg)});
+  // hover
+  const cross=el("line",{y1:m.t,y2:H-m.b,stroke:"var(--muted)","stroke-width":1,opacity:0},svg);
+  const ov=el("rect",{x:m.l,y:m.t,width:W_-m.l-m.r,height:H-m.t-m.b,fill:"transparent"},svg);
+  host.appendChild(svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;host.appendChild(tip);
+  function move(ev){const r=svg.getBoundingClientRect();const px=(ev.clientX-r.left)*W_/r.width;let i=Math.round((px-m.l)/((W_-m.l-m.r)/(n-1)));i=Math.max(0,Math.min(n-1,i));
+    cross.setAttribute("x1",x(i));cross.setAttribute("x2",x(i));cross.setAttribute("opacity",1);
+    tip.innerHTML=`<div class="d">${fmtD(dates[i])}</div>`+series.map(s=>`<div><i class="sw" style="background:${s.color}"></i> ${s.name}: <b>${yFmt(s.values[i])}</b></div>`).join("");
+    tip.hidden=false;const hx=x(i)*r.width/W_;tip.style.left=Math.min(Math.max(0,hx+12),r.width-tip.offsetWidth)+"px";tip.style.top="8px"}
+  ov.addEventListener("pointermove",move);ov.addEventListener("pointerleave",()=>{tip.hidden=true;cross.setAttribute("opacity",0)});
+}
+function barChart(host,{labels,values,fmt,h=220,color,neg,tipExtra}){
+  const W_=800,H=h,m={t:18,r:8,b:28,l:8};
+  const hi=Math.max(0,...values),lo=Math.min(0,...values);const lo2=lo<0?lo*1.15:lo,hi2=hi*1.15||1;
+  const y=v=>m.t+(hi2-v)*(H-m.t-m.b)/(hi2-lo2);const n=values.length,bw=(W_-m.l-m.r)/n;
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;
+  values.forEach((v,i)=>{const x0=m.l+i*bw+bw*.18,w=bw*.64,y0=y(Math.max(v,0)),hh=Math.max(1,Math.abs(y(v)-y(0)));
+    const r=el("rect",{x:x0,y:y0,width:w,height:hh,rx:4,fill:v<0?(neg||"var(--s2)"):(color||"var(--s1)")},svg);
+    const t=el("text",{x:x0+w/2,y:v<0?y(v)+13:y0-5,"font-size":11.5,fill:"var(--ink)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=fmt(v);
+    const l=el("text",{x:x0+w/2,y:H-8,"font-size":11.5,fill:"var(--muted)","text-anchor":"middle"},svg);l.textContent=labels[i];
+    const hit=el("rect",{x:m.l+i*bw,y:m.t,width:bw,height:H-m.t-m.b,fill:"transparent"},svg);
+    hit.addEventListener("pointerenter",()=>{tip.innerHTML=`<div class="d">${labels[i]}</div><b>${fmt(v)}</b>${tipExtra?tipExtra(i):""}`;tip.hidden=false;const R=svg.getBoundingClientRect();tip.style.left=Math.min((m.l+i*bw)*R.width/W_,R.width-tip.offsetWidth)+"px";tip.style.top="0px"});
+    hit.addEventListener("pointerleave",()=>tip.hidden=true)});
+  host.appendChild(svg);host.appendChild(tip);
+}
+barChart(document.getElementById("c-rev"),{labels:HALF.map(r=>r[0]),values:HALF.map(r=>r[1]),fmt:v=>fmtN(v,0),h:200});
+barChart(document.getElementById("c-margin"),{labels:MARGIN.map(r=>r[0]),values:MARGIN.map(r=>r[1]),fmt:v=>fmtN(v,1)+" %",h:200});
+barChart(document.getElementById("c-seas"),{labels:MON,values:SEAS,fmt:v=>(v>0?"+":"")+fmtN(v,1),h:220,tipExtra:i=>`<div>${SEASHIT[i]} % der Jahre positiv</div>`});
+const BANDS=[{"from": 95, "to": 97, "type": "res"}, {"from": 89, "to": 90.5, "type": "res"}, {"from": 77, "to": 80.5, "type": "sup"}, {"from": 69.5, "to": 74, "type": "sup"}], REFS=[{"v": 90.3, "label": "Trigger 90.3"}];
+const wd=W.map(r=>r[0]);
+lineChart(document.getElementById("c-week"),{dates:wd,series:[{name:"Kurs",values:W.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:W.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:W.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,yFmt:v=>fmtN(v,0),h:320});
+lineChart(document.getElementById("c-adw"),{dates:wd,series:[{name:"A/D Woche",values:W.map(r=>r[5]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,zero:true});
+lineChart(document.getElementById("c-rsiw"),{dates:wd,series:[{name:"RSI Woche",values:W.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,refs:[{v:70,label:"70 überkauft"},{v:30,label:"30 überverkauft"}],pad:[10,90]});
+const dd=DD.map(r=>r[0]);
+lineChart(document.getElementById("c-day"),{dates:dd,series:[{name:"Kurs",values:DD.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:DD.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:DD.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,refs:REFS,yFmt:v=>fmtN(v,0),h:260});
+lineChart(document.getElementById("c-add"),{dates:dd,series:[{name:"A/D Tag",values:DD.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:260,zero:true});
+</script>

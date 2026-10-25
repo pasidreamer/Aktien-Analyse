@@ -1,5 +1,5 @@
 {
- "stand": "2026-10-22",
+ "stand": "2026-10-25",
  "aktien": [
   {
    "ticker": "APP",
@@ -15673,6 +15673,1083 @@
    ],
    "cheatsheet": "analysen/ZTO.html",
    "claude": "https://claude.ai/artifact/W5bD7XCXqkXpULq8Dw4SE4"
+  },
+  {
+   "ticker": "RHM",
+   "symbol": "RHM.DE",
+   "name": "Rheinmetall",
+   "tags": [
+    "Wachstum"
+   ],
+   "land": "Deutschland",
+   "region": "Europa",
+   "branche": "Rüstung",
+   "status": "beobachten",
+   "waehrung": "EUR",
+   "analyse": {
+    "datenstand": "2026-10-23",
+    "kurs": 1019.0,
+    "q": 66,
+    "t": 48
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "Q1 2026 +8 %, Q2 2026 +69 %, Jahr 2025 +29 %. Die Quartale 2025 ohne Zivilgeschäft fehlen (Daten teils fehlen)",
+     "p": 10,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "Prognose 2026 aus eigener Kraft +28 bis 31 %",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "18.5 % laut Firma (6 Pkt.), seit 2021 klar steigend (6 Pkt.)",
+     "p": 12,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "Fortgeführtes Geschäft 17.19 → 22.73 → 26.47 €, über 15 % pro Jahr",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Meist positiv (2022 negativ), letzte 12 Monate stark gesunken auf 0.4 Mrd. €",
+     "p": 3,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "18.7 %, seit 2021 seitwärts zwischen 17 und 23 %",
+     "p": 10,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Nettoschulden/EBITDA rund 1.2",
+     "p": 7,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "KGV 38.5 statt Ø 32.4 (2021–2025), rund 19 % teurer",
+     "p": 4,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs über EMA 200 (963 €), unter EMA 50 (1'235 €): Rücksetzer im Aufwärtstrend, EMA 50 fällt aber",
+     "p": 12,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs knapp unter beiden, EMA 50 unter 200, Abstand zur EMA 50 klein",
+     "p": 2,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Woche tiefere Tiefs, aber möglicher Doppelboden. Tag: erster CHoCH am 16.10., noch unbestätigt",
+     "p": 8,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "Bullische Divergenz Tag (Oktober-Tief tiefer, RSI höher), Woche ähnlich, Trend aber nicht intakt",
+     "p": 12,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Beide neutral bis leicht fallend, keine Divergenz",
+     "p": 4,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Start 3, Insider-Käufe rund 14 Mio. € seit Mai +4, kein Rückkauf",
+     "p": 7,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "November schwach (39 %), Dezember und Januar stark (61 % und 79 %)",
+     "p": 3,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 38.5,
+    "schnitt": 32.4,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      910,
+      962
+     ],
+     [
+      820,
+      895
+     ]
+    ],
+    "widerstand": [
+     [
+      1096,
+      1146
+     ],
+     [
+      1185,
+      1240
+     ]
+    ],
+    "trigger": 1097,
+    "abbruch": 900
+   },
+   "zahlen": "2026-11-05",
+   "dividende": "1.1 %",
+   "div_info": {
+    "pro_jahr": 1,
+    "rhythmus": "jährlich",
+    "ex_monate": [
+     5
+    ],
+    "zahl_monate": [
+     5
+    ],
+    "zahl_text": "Mitte Mai, zwei bis drei Tage nach der Generalversammlung (2026: Generalversammlung 12. Mai, Ex-Tag 13. Mai, Zahltag 15. Mai; Termin 2027 noch nicht bestätigt)",
+    "abstand_tage": 2,
+    "betrag": 11.5,
+    "system": "Deutsches System: eine Dividende pro Jahr, beschlossen an der Generalversammlung im Mai und wenige Tage später ausbezahlt. Rheinmetall zahlt 35 bis 40 % des Gewinns aus (für 2025: 45.5 %). Seit 2021 stieg die Dividende jedes Jahr (3.30 → 4.30 → 5.70 → 8.10 → 11.50 €). Analysten erwarten für 2026 rund 15 €.",
+    "form": "Bar in Euro aufs Konto. Deutschland zieht 26.375 % Quellensteuer ab. 15 % kannst du über die Schweizer Steuererklärung anrechnen lassen (Formular DA-1), die restlichen 11.375 % musst du in Deutschland zurückfordern (Bundeszentralamt für Steuern, innert rund 3 Jahren). Lohnt sich erst bei grösseren Beträgen."
+   },
+   "chance": {
+    "ticker": "RHM",
+    "sorgen": [
+     "Ein Frieden in der Ukraine könnte die Nachfrage nach Munition und Fahrzeugen bremsen. Gespräche im April und Juli 2026 drückten den Kurs jeweils um über 10 %.",
+     "Rheinmetall hat 2026 die Erwartungen zweimal verfehlt (Jahreszahlen 11.3., 1. Quartal 7.5.) und am 6.8. die Umsatzprognose auf 13.7 bis 14.2 Mrd. € gesenkt.",
+     "Der Free Cashflow ist eingebrochen: Im 1. Halbjahr 2026 flossen 1.6 Mrd. € ab, aus Netto-Cash wurden 2.7 Mrd. € Nettoschulden.",
+     "Der Bund stoppte am 24.6.2026 die Fregatte F126, den grössten Auftrag der neu gekauften Werft NVL. Berenberg zweifelt zudem am Wachstum nach 2030 (Abstufung 9.10.)."
+    ],
+    "sorgen_art": "gemischt",
+    "sorgen_art_text": "Das Geschäft wächst stark weiter (Auftragsbestand 80.5 Mrd. €), aber Cashflow, Marine-Sparte und verfehlte Erwartungen sind echte, eher vorübergehende Probleme.",
+    "aufloeser": [
+     {
+      "was": "Q3-Zahlen: Kommt der Umsatz (erwartet rund 3.2 Mrd. €) und bestätigt Rheinmetall die Jahresziele?",
+      "wann": "Zahlen 05.11.2026"
+     },
+     {
+      "was": "Investorentag: Bestätigung oder Anpassung der Ziele 2030 (rund 50 Mrd. € Umsatz)",
+      "wann": "26./27.11.2026"
+     },
+     {
+      "was": "Bundestag gibt den Boxer-Auftrag Arminius frei: rund 12.4 Mrd. € für Rheinmetall und über 3 Mrd. € Anzahlung, das würde das Cashflow-Problem lösen",
+      "wann": "09.12.2026, Anzahlung Dezember/Januar"
+     },
+     {
+      "was": "Jahreszahlen 2026 und Prognose 2027 (Analysten erwarten rund 18.5 Mrd. € Umsatz)",
+      "wann": "11.03.2027"
+     }
+    ],
+    "schub_stufe": "stark",
+    "schub_treiber": [
+     {
+      "titel": "Bundeswehr-Grossaufträge",
+      "text": "Der Auftragsbestand stieg in 18 Monaten von 46.9 auf 80.5 Mrd. €. Mit Arminius (rund 1'800 Boxer, Anteil Rheinmetall rund 12.4 Mrd. €) käme ein weiterer Riesenauftrag dazu. Die Umsätze daraus fliessen über viele Jahre.",
+      "wann": "2026–2030"
+     },
+     {
+      "titel": "Munition und Flugabwehr",
+      "text": "Neue Munitionswerke laufen hoch, die Flugabwehr wuchs im 1. Halbjahr 2026 um 62 %. Munition ist mit 29 % Marge die profitabelste Sparte und hebt die Konzernmarge.",
+      "wann": "2026–2028"
+     },
+     {
+      "titel": "Marine und Satelliten",
+      "text": "Die Werft NVL (rund 1.3 Mrd. € Umsatz) ist seit März 2026 dabei, im Oktober startete die Serienfertigung von Satelliten mit ICEYE. Beides ist noch klein und nach dem F126-Stopp unsicher.",
+      "wann": "2027–2030"
+     }
+    ],
+    "schub_beweis": "Achte auf den Umsatz im 4. Quartal (für die Prognose braucht das 2. Halbjahr rund 8.5 bis 9 Mrd. €) und auf den operativen Free Cashflow nach der Arminius-Anzahlung. Steigt der Auftragsbestand weiter über 80 Mrd. € und wird der Cashflow positiv, kommt der Schub.",
+    "szenario": "Ähnlich wie Google 2023, nur mit Panzern statt KI: Die Börse fürchtet das Ende des Booms, während die Aufträge für Jahre gebucht sind. Gelingen Arminius und die Prognose, könnte die Aktie wieder Richtung Analystenziel (rund 1'560 €) laufen. Grösstes Risiko: Ein Friedensschluss und weitere Verzögerungen bei Aufträgen und Zahlungen, dann bleibt der Cashflow negativ und die Bewertung sinkt weiter.",
+    "quellen": [
+     {
+      "titel": "Rheinmetall: Geschäftsjahr 2025 (11.03.2026)",
+      "url": "https://www.rheinmetall.com/de/media/news-watch/news/2026/03/2026-03-11-rheinmetall-bilanzvorlage-geschaeftsjahr-2025"
+     },
+     {
+      "titel": "Börse Global: Boxer-Auftrag Arminius (18.09.2026)",
+      "url": "https://www.boerse-global.de/rheinmetall-aktie-124-milliarden-fuer-boxer-radpanzer-angepeilt/827711"
+     },
+     {
+      "titel": "ms-aktuell: Berenberg stuft ab (11.10.2026)",
+      "url": "https://ms-aktuell.de/finanzen/rheinmetall-aktie-berenberg-11-10-2026/"
+     },
+     {
+      "titel": "MarketScreener: Analysten-Konsens",
+      "url": "https://in.marketscreener.com/quote/stock/RHEINMETALL-AG-436527/consensus/"
+     }
+    ]
+   },
+   "fazit": "Rheinmetall ist der grösste Rüstungskonzern Deutschlands und wächst so schnell wie nie: Auftragsbestand 80.5 Mrd. € (rund 6 Jahresumsätze), Umsatz im 2. Quartal 2026 +69 %, Ziel 2030 rund 50 Mrd. € Umsatz. Trotzdem hat sich der Kurs vom Hoch (rund 2'000 €) auf 1'019 € halbiert. Gründe: Friedensgespräche zur Ukraine, verfehlte Erwartungen, das gestoppte Fregattenprogramm F126 und ein tief negativer Free Cashflow im 1. Halbjahr (−1.6 Mrd. €). Qualität hellgrün (66), Timing gelb (48). Der Chef kauft seit Mai für rund 13.6 Mio. € eigene Aktien. Der grosse Prüfstein ist der Bundestag am 9.12.2026 zum Boxer-Auftrag (rund 12.4 Mrd. € für Rheinmetall).",
+   "about": "Rheinmetall baut Militärfahrzeuge (Boxer, Lynx, Panther, Teile des Leopard 2), Artillerie- und Panzermunition, Flugabwehr (Skynex), Elektronik und Digitalisierung für Armeen und seit März 2026 mit der Werft NVL auch Kriegsschiffe. 2025 kam rund die Hälfte des Umsatzes aus Fahrzeugen, gut ein Drittel aus Waffen und Munition, der Rest aus Elektronik. Die Munitionssparte ist am profitabelsten (29 % Marge). Das zivile Geschäft (Autoteile) wird verkauft und ist in den Zahlen ab 2024 herausgerechnet. Wichtigster Kunde ist Deutschland (38 % im 1. Halbjahr 2026), danach andere NATO-Länder und die Ukraine. Fast alle Aktien sind im Streubesitz.",
+   "kpis": [
+    {
+     "ampel": "g",
+     "name": "Umsatzwachstum",
+     "wert": "+29 %",
+     "text": "Jahr 2025 ohne Zivilgeschäft (9.9 Mrd. €). Für 2026 erwartet Rheinmetall 13.7 bis 14.2 Mrd. €, aus eigener Kraft +28 bis 31 %. Im 2. Quartal 2026 +69 % (mit der Werft NVL)."
+    },
+    {
+     "ampel": "g",
+     "name": "Operative Marge",
+     "wert": "18.5 %",
+     "text": "Laut Firma 2025, von 100 € Umsatz bleiben 18.50 € Betriebsgewinn. Ziel 2026 rund 19 %, 2030 über 20 %. Nach strengerer Rechnung (StockAnalysis) 16.9 %, 2021 waren es nur 11 %."
+    },
+    {
+     "ampel": "g",
+     "name": "Gewinn pro Aktie (EPS)",
+     "wert": "26.47 €",
+     "text": "Letzte 12 Monate, nur fortgeführtes Rüstungsgeschäft (selbst gerechnet aus Firmenzahlen). 2024: 17.19 €, 2025: 22.73 €. Mit dem Verlust aus dem Zivilgeschäft sind es nur 15.46 €."
+    },
+    {
+     "ampel": "g",
+     "name": "ROIC",
+     "wert": "18.7 %",
+     "text": "Auf 100 € investiertes Kapital rund 19 € Gewinn. Gut, seit 2021 zwischen 17 und 23 %."
+    },
+    {
+     "ampel": "r",
+     "name": "Free Cashflow",
+     "wert": "0.4 Mrd. €",
+     "text": "Letzte 12 Monate, nur 3 % vom Umsatz. Im 1. Halbjahr 2026 flossen 1.6 Mrd. € ab, weil Anzahlungen fehlten und Lager und Werke ausgebaut wurden. 2025 waren es noch +1.4 Mrd. €."
+    },
+    {
+     "ampel": "w",
+     "name": "Nettoschulden",
+     "wert": "2.7 Mrd. €",
+     "text": "Mitte 2026, Ende 2025 hatte Rheinmetall noch 0.4 Mrd. € mehr Geld als Schulden. Das sind rund 1.2 Jahresgewinne vor Abschreibungen (EBITDA 2.3 Mrd. €). Noch gut tragbar."
+    },
+    {
+     "ampel": "w",
+     "name": "KGV",
+     "wert": "38.5",
+     "text": "Du zahlst rund 38 Jahresgewinne. Eigener Schnitt 2021 bis 2025 rund 32 (stark steigend von 12 auf 70). Also rund 19 % teurer als der Schnitt. Auf die erwarteten Gewinne 2027 gerechnet rund 21."
+    },
+    {
+     "ampel": "w",
+     "name": "Dividende",
+     "wert": "1.1 %",
+     "text": "11.50 € pro Aktie, einmal im Jahr (bezahlt am 15.5.2026). +42 % zum Vorjahr, seit 2021 mehr als verdreifacht. Rheinmetall zahlt 35 bis 40 % des Gewinns aus."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "1'185–1'240 €",
+     "text": "Widerstand: Hochs vom August (1'234 und 1'238 €) und Tages-EMA 200 (1'218 €)."
+    },
+    {
+     "art": "r",
+     "wert": "1'096–1'146 €",
+     "text": "Widerstand: Hoch vom 16.10. (1'096.60 €) und vom 7.7. (1'146 €)."
+    },
+    {
+     "art": "t",
+     "wert": "1'097 €",
+     "text": "Trigger: Tagesschluss über dem Hoch vom 16.10. Dann wäre aus dem ersten Change of Character ein höheres Hoch geworden."
+    },
+    {
+     "art": "s",
+     "wert": "910–962 €",
+     "text": "Kaufzone 1: Doppelboden aus den Tiefs vom 26.6. (929 €) und 8.10. (909 €), Wochen-EMA 200 (963 €)."
+    },
+    {
+     "art": "s",
+     "wert": "820–895 €",
+     "text": "Kaufzone 2: Kurslücke vom Februar 2025 (Wochenschluss 894 €), letzte grössere Unterstützung unter dem Doppelboden."
+    },
+    {
+     "art": "r",
+     "wert": "900 €",
+     "text": "Abbruch: Wochenschluss unter dem Oktober-Tief (909 €). Dann wäre der Doppelboden gebrochen."
+    }
+   ],
+   "pro": [
+    "Rekord-Auftragsbestand 80.5 Mrd. €, rund sechs Jahresumsätze. Das Wachstum ist für Jahre gesichert.",
+    "Prognose 2026: +28 bis 31 % aus eigener Kraft, Marge rund 19 %, im 2. Quartal schon 17.1 %.",
+    "Der CEO kauft massiv eigene Aktien (rund 13.6 Mio. € seit Mai), auch zu tiefen Kursen.",
+    "Ein grosser Auslöser steht fest: Bundestag am 9.12.2026 zum Boxer-Auftrag Arminius, mit über 3 Mrd. € Anzahlung.",
+    "Die Dividende stieg seit 2021 von 3.30 auf 11.50 €."
+   ],
+   "contra": [
+    "Der Free Cashflow ist eingebrochen (1. Halbjahr −1.6 Mrd. €), die Firma hat jetzt Nettoschulden statt Netto-Cash.",
+    "Die Erwartungen sind hoch: 2026 schon zweimal verfehlt, Umsatzprognose im August gesenkt.",
+    "Die Werft NVL hat mit der gestrichenen Fregatte F126 ihren grössten Auftrag verloren.",
+    "Ein Frieden in der Ukraine drückt jedes Mal stark auf den Kurs, und Deutschland ist ein Klumpenrisiko (38 % Umsatz).",
+    "Die Bewertung ist trotz Halbierung nicht billig: KGV 38.5, teurer als der eigene Schnitt."
+   ],
+   "smart_money": [
+    "Insider-Käufe: CEO Armin Papperger kaufte seit Mai 2026 für rund 13.6 Mio. € eigene Aktien, unter anderem 4'000 Stück zu 1'249.91 € am 1.6. (5.0 Mio. €), 3'188 Stück zu 954.62 € am 25.6. (3.0 Mio. €) und 525 Stück zu rund 950 € am 29.9. Auch Aufsichtsratschef Ulrich Grillo, Vorstand René Gansauge und eine Stiftung von Aufsichtsrat Andreas Georgi (2.10.) kauften. Verkäufe von Insidern: keine gefunden.",
+    "Rückkäufe: Keine. Die Aktienzahl stieg 2025 um rund 4 % (Kapitalerhöhung für Zukäufe). Eine Wandelanleihe (500 Mio. €, Wandlungspreis 307.80 €) kann weitere rund 1.6 Mio. Aktien bringen.",
+    "Grosse Investoren: 98 % Streubesitz. Bewegungen grosser Fonds 2026 nicht gefunden.",
+    "Analysten: 21 Analysten, Mehrheit «Kaufen», Kursziel im Schnitt rund 1'560 € (StockAnalysis, MarketScreener). Spanne 1'020 € (Berenberg, Halten, 9.10.) bis 2'380 €. JPMorgan Neutral (1'500 €), Goldman Sachs Kaufen (2'300 €). Im April lag das Ziel im Schnitt noch bei 2'045 €."
+   ],
+   "cheatsheet": "analysen/RHM.html",
+   "claude": "https://claude.ai/artifact/RBjarDweHi63aQhqN5Dj6z"
+  },
+  {
+   "ticker": "HAG",
+   "symbol": "HAG.DE",
+   "name": "Hensoldt",
+   "tags": [
+    "Wachstum"
+   ],
+   "land": "Deutschland",
+   "region": "Europa",
+   "branche": "Rüstungselektronik",
+   "status": "beobachten",
+   "waehrung": "EUR",
+   "analyse": {
+    "datenstand": "2026-10-23",
+    "kurs": 84.02,
+    "q": 51,
+    "t": 61
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "4 von 4 Quartalen über Vorjahr, Tempo steigt von +6 bis 12 % auf +22 bis 26 %",
+     "p": 14,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "Aus eigener Kraft rund 12 bis 15 %",
+     "p": 8,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "9.3 % (3 Pkt.), seit 5 Jahren stabil (3 Pkt.)",
+     "p": 6,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "Schwankend: 2022 bis 2025 kaum Wachstum, letzte 12 Monate +34 % zu 2025",
+     "p": 5,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Immer positiv, in 4 der letzten 5 Perioden gestiegen",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "8.2 %, seit 2024 gesunken",
+     "p": 1,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Firma: 1.5 bis 1.6, mit Leasing selbst gerechnet 2.3",
+     "p": 6,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "KGV 82 statt Ø 47 (2021–2025), rund 75 % teurer",
+     "p": 1,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs über beiden, EMA 50 klar über EMA 200",
+     "p": 18,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs über beiden, Golden Cross am 16.10., Linien noch flach",
+     "p": 8,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Seitwärtsspanne mit höherem Tief (Woche), CHoCH im Tageschart am 16.10., Kurs eher im teuren Teil",
+     "p": 12,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "Tag aus 35 nach oben gedreht im intakten Wochentrend, keine Divergenz",
+     "p": 11,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Beide fallen, obwohl der Kurs sich hält: leichte Verteilung",
+     "p": 3,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Start 3, Vorstand kaufte im Juni +4, Verkauf von Winkler im August −1, kein Rückkauf",
+     "p": 6,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "November schwach, Januar stark, nur 6 Jahre Daten",
+     "p": 3,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 81.6,
+    "schnitt": 46.6,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      77,
+      80.5
+     ],
+     [
+      69.5,
+      74
+     ]
+    ],
+    "widerstand": [
+     [
+      89,
+      90.5
+     ],
+     [
+      95,
+      97
+     ]
+    ],
+    "trigger": 90.3,
+    "abbruch": 69
+   },
+   "zahlen": "2026-11-05",
+   "dividende": "0.7 %",
+   "div_info": {
+    "pro_jahr": 1,
+    "rhythmus": "jährlich",
+    "ex_monate": [
+     5
+    ],
+    "zahl_monate": [
+     5
+    ],
+    "zahl_text": "Ende Mai, wenige Tage nach der Generalversammlung (2026: Generalversammlung 22. Mai, Ex-Tag 25. Mai, Zahltag 27. Mai; Termin 2027 noch nicht bestätigt)",
+    "abstand_tage": 2,
+    "betrag": 0.55,
+    "system": "Deutsches System: eine Dividende pro Jahr, beschlossen an der Generalversammlung im Mai. Hensoldt zahlt 30 bis 40 % des bereinigten Gewinns aus und hat die Dividende seit dem Börsengang jedes Jahr erhöht (0.25 € für 2021, 0.55 € für 2025). Die Rendite ist tief.",
+    "form": "Bar in Euro aufs Konto. Deutschland zieht 26.375 % Quellensteuer ab. 15 % kannst du über die Schweizer Steuererklärung anrechnen lassen (Formular DA-1), die restlichen 11.375 % musst du in Deutschland zurückfordern (Bundeszentralamt für Steuern, innert rund 3 Jahren). Lohnt sich erst bei grösseren Beträgen."
+   },
+   "chance": {
+    "ticker": "HAG",
+    "sorgen": [
+     "Die Bewertung ist sehr hoch: KGV rund 82, auf die Gewinne 2026 rund 38. Goldman Sachs sieht das Wachstum schon im Kurs.",
+     "Anleger zweifeln, ob Hensoldt den Rekord-Auftragsbestand (10.4 Mrd. €) schnell und mit guter Marge in Umsatz verwandeln kann. Die Prognose wurde am 31.07.2026 nur bestätigt, die Aktie fiel um 5 %.",
+     "Rückschläge bei Schiffen: Die Fregatte F126 wurde am 30.06.2026 gestrichen, die Sensoren für die Ersatz-Fregatten gingen am 16.07. an Saab.",
+     "Friedensgespräche zur Ukraine drückten den Kurs Ende 2025 um rund 28 % in einem Monat."
+    ],
+    "sorgen_art": "stimmung",
+    "sorgen_art_text": "Aufträge, Umsatz und Wachstum steigen weiter, gedrückt wird der Kurs vor allem von Bewertung und Friedensangst. Echt sind nur die tiefe Marge im 1. Halbjahr und kleinere Marine-Verluste.",
+    "aufloeser": [
+     {
+      "was": "Q3-Zahlen: Hebt Hensoldt die Umsatzprognose (2.75 Mrd. €) an? Analysten erwarten schon 2.82 Mrd. €",
+      "wann": "Zahlen 05.11.2026"
+     },
+     {
+      "was": "Investorentag mit möglichen höheren Zielen für 2030 (bisher 6 Mrd. € Umsatz, über 20 % Marge)",
+      "wann": "10.11.2026"
+     },
+     {
+      "was": "Jahreszahlen 2026: Wurden 18.5 bis 19 % Marge und rund 50 % Cash-Umwandlung erreicht?",
+      "wann": "Februar 2027"
+     },
+     {
+      "was": "Feste Bestellung der Ukraine für Weitbereichsradare (bisher nur Absichtserklärung vom 04.10.2026)",
+      "wann": "offen"
+     }
+    ],
+    "schub_stufe": "stark",
+    "schub_treiber": [
+     {
+      "titel": "Rekord-Auftragsbestand",
+      "text": "Im 1. Halbjahr 2026 verdoppelte sich der Auftragseingang auf 2.8 Mrd. €, der Bestand stieg auf 10.4 Mrd. € (fast 4 Jahresumsätze). Dabei sind Eurofighter-Radare, PEGASUS (rund 900 Mio. €), Puma- und Schakal-Optik. Das Umsatzwachstum stieg schon von 10 % (2025) auf rund 24 %.",
+      "wann": "2026–2028"
+     },
+     {
+      "titel": "Neues Radarwerk",
+      "text": "Ab 2027 liefert ein neues Werk, die Radar-Kapazität ist dann mehr als dreimal so gross wie 2021. Radare wie das TRML-4D sind in der Ukraine erprobt und gefragt.",
+      "wann": "ab 2027"
+     },
+     {
+      "titel": "Margen-Hebel",
+      "text": "Mit mehr Umsatz verteilen sich die Fixkosten: Ziel ist eine bereinigte Marge vor Abschreibungen von über 20 % bis 2030 (2025: 18.4 %). Analysten erwarten 2027 +17 % und 2028 +19 % Umsatz.",
+      "wann": "2027–2030"
+     }
+    ],
+    "schub_beweis": "Achte auf das Umsatzwachstum aus eigener Kraft (Q1 2026: +15 %) und das Book-to-Bill (Aufträge geteilt durch Umsatz, H1 2026: 2.4). Bleibt das Wachstum über 15 % und steigt die bereinigte Marge über 19 %, ist der Schub da.",
+    "szenario": "Ähnlich wie Google 2023 auf kleinerer Ebene: Die Aufträge sind schon unterschrieben, die Umsätze kommen erst. Hebt Hensoldt im November Prognose und Ziele, könnte die Aktie wieder Richtung Allzeithoch (117.70 €) laufen. Grösstes Risiko: Die hohe Bewertung. Schon kleine Verzögerungen bei der Umsetzung können den Kurs stark fallen lassen.",
+    "quellen": [
+     {
+      "titel": "Hensoldt: Halbjahr 2026 (31.07.2026)",
+      "url": "https://www.hensoldt.net/news/hensoldt-doubles-order-intake-in-the-first-half-of-2026-%E2%80%93-revenue-and-earnings-rise-significantly"
+     },
+     {
+      "titel": "Hensoldt: Kapitalmarkttag 2025",
+      "url": "https://www.hensoldt.net/news/capital-markets-day-hensoldt-makes-significant-progress-in-capacity-expansion-and-software-defined-defence"
+     },
+     {
+      "titel": "Quwa: Auftragsbestand über 10 Mrd. €",
+      "url": "https://quwa.org/europe/defence-news-eu/hensoldt-doubles-order-intake-as-backlog-passes-e10-billion-but-middle-east-business-stays-marginal/"
+     },
+     {
+      "titel": "Hensoldt: Aktie und Konsens",
+      "url": "https://investors.hensoldt.net/share"
+     }
+    ]
+   },
+   "fazit": "Hensoldt baut die «Augen und Ohren» von Panzern, Flugzeugen und Schiffen: Radare, Zielgeräte und Sensoren. Das Geschäft läuft stark: Auftragsbestand Rekord 10.4 Mrd. € (fast 4 Jahresumsätze), Umsatz im 1. Halbjahr 2026 +24 %, Ziel 2030 rund 6 Mrd. € Umsatz. Aber die Aktie ist teuer (KGV 82) und die Firma verdient nach allen Kosten wenig: operative Marge nur 9 %, Kapitalrendite 8 %. Qualität gelb (51), Timing hellgrün (61). Der Kurs liegt über allen Durchschnittslinien und machte am 16.10. ein neues Hoch im Tageschart. Die Käufer-Spur (A/D) zieht aber nicht mit.",
+   "about": "Hensoldt entwickelt und baut Sensoren für Armeen: Radare zur Luftraumüberwachung (TRML-4D, im Einsatz in der Ukraine), das Radar im Eurofighter, Aufklärungstechnik für Flugzeuge (PEGASUS), Optronik wie Zielfernrohre und Periskope für Panzer (Puma, Leopard, Boxer) und Systeme zur Störung feindlicher Elektronik. Seit dem Kauf von ESG 2024 gehört auch Software und Wartung dazu. Die Firma ist 2017 aus Airbus abgespalten worden und seit 2020 an der Börse. Grösste Aktionäre sind der deutsche Staat (25.1 % über die KfW) und der italienische Rüstungskonzern Leonardo (22.8 %). Kunden sind vor allem Deutschland und andere NATO-Länder.",
+   "kpis": [
+    {
+     "ampel": "g",
+     "name": "Umsatzwachstum",
+     "wert": "+14.7 %",
+     "text": "Letzte 12 Monate. Im 1. Halbjahr 2026 +24 %, aus eigener Kraft im 1. Quartal +15 %. Für 2026 erwartet Hensoldt rund 2.75 Mrd. € (+12 %)."
+    },
+    {
+     "ampel": "r",
+     "name": "Operative Marge",
+     "wert": "9.3 %",
+     "text": "Von 100 € Umsatz bleiben 9.30 € Betriebsgewinn nach allen Kosten. Seit 2021 seitwärts zwischen 8 und 10 %. Hensoldt selbst nennt die bereinigte Marge vor Abschreibungen: 18.4 % (2025), Ziel 2030 über 20 %."
+    },
+    {
+     "ampel": "w",
+     "name": "Gewinn pro Aktie (EPS)",
+     "wert": "1.03 €",
+     "text": "Letzte 12 Monate. Schwankt stark: 0.60 € (2021), 0.53 € (2023), 0.77 € (2025). Zinsen und Abschreibungen auf Zukäufe fressen viel Gewinn."
+    },
+    {
+     "ampel": "r",
+     "name": "ROIC",
+     "wert": "8.2 %",
+     "text": "Auf 100 € investiertes Kapital nur rund 8 € Gewinn. Tief und seit 2024 (14.2 %) gesunken, weil der Kauf von ESG viel Kapital gebunden hat."
+    },
+    {
+     "ampel": "g",
+     "name": "Free Cashflow",
+     "wert": "567 Mio. €",
+     "text": "Letzte 12 Monate nach StockAnalysis, 2021 waren es 299 Mio. €. Hensoldt rechnet strenger (bereinigt): 347 Mio. € für 2025, nach 249 Mio. € (2024)."
+    },
+    {
+     "ampel": "w",
+     "name": "Nettoschulden",
+     "wert": "1.1 Mrd. €",
+     "text": "Mitte 2026, mit Leasing. Das sind rund 2.3 bereinigte Jahresgewinne vor Abschreibungen. Hensoldt rechnet enger und meldet 1.6 (Ende 2025), Ziel 2026 rund 1.5."
+    },
+    {
+     "ampel": "r",
+     "name": "KGV",
+     "wert": "82",
+     "text": "Du zahlst rund 82 Jahresgewinne. Eigener Schnitt 2021 bis 2025 rund 47. Also rund 75 % teurer als üblich. Auf die erwarteten Gewinne für 2026 gerechnet rund 38."
+    },
+    {
+     "ampel": "w",
+     "name": "Dividende",
+     "wert": "0.7 %",
+     "text": "0.55 € pro Aktie, einmal im Jahr (bezahlt am 27.5.2026). Seit dem Börsengang jedes Jahr erhöht (2021: 0.25 €). Hensoldt zahlt 30 bis 40 % des bereinigten Gewinns aus."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "95–97 €",
+     "text": "Widerstand: Hochs vom Januar und August (96.70 €). Oberkante der Seitwärtsspanne."
+    },
+    {
+     "art": "r",
+     "wert": "89–90.5 €",
+     "text": "Widerstand: Hoch vom 16.10. (89.02 €) und vom 27.8. (90.24 €)."
+    },
+    {
+     "art": "t",
+     "wert": "90.3 €",
+     "text": "Trigger: Tagesschluss über dem Hoch vom 27.8. Dann wäre das tiefere Hoch vom Spätsommer überwunden."
+    },
+    {
+     "art": "s",
+     "wert": "77–80.5 €",
+     "text": "Kaufzone 1: Tages-EMA 200 (80.30 €), Wochen-EMA 50 (79.80 €) und Bodenbildung von Mitte September (76 bis 79 €)."
+    },
+    {
+     "art": "s",
+     "wert": "69.5–74 €",
+     "text": "Kaufzone 2: Tiefs vom 8.10. (73.70 €), 17.7. (71 €) und 12.5. (69.48 €)."
+    },
+    {
+     "art": "r",
+     "wert": "69 €",
+     "text": "Abbruch: Wochenschluss unter dem Mai-Tief (69.48 €). Dann droht ein Rückfall Richtung Juni-Tief (63 €)."
+    }
+   ],
+   "pro": [
+    "Rekord-Auftragsbestand 10.4 Mrd. € und Auftragseingang im 1. Halbjahr verdoppelt (Book-to-Bill 2.4).",
+    "Das Wachstum beschleunigt sich: +26 % und +22 % in den letzten zwei Quartalen.",
+    "Wichtige Systeme sind Standard: Eurofighter-Radar, TRML-4D (im Einsatz in der Ukraine), Optik für Puma und Boxer.",
+    "Ab 2027 liefert ein neues Radarwerk, die Kapazität steigt auf mehr als das Dreifache von 2021.",
+    "Starke Ankeraktionäre (Bund, Leonardo) und Insider-Käufe am Juni-Tief."
+   ],
+   "contra": [
+    "Sehr teuer: KGV 82, auf die Gewinne 2026 rund 38. Viel Erfolg ist schon im Kurs.",
+    "Nach allen Kosten verdient Hensoldt wenig: 9 % Marge, 8 % Kapitalrendite.",
+    "Der Gewinn hängt stark am 4. Quartal, das 1. Halbjahr bringt nur 12 % bereinigte Marge.",
+    "Rückschläge bei Schiffen (F126 gestrichen, MEKO-Sensoren an Saab) und rund 40 % Abhängigkeit von Landfahrzeugen.",
+    "Die A/D-Linie fällt: Der jüngste Anstieg hat wenig Kaufdruck."
+   ],
+   "smart_money": [
+    "Insider-Käufe: CEO Oliver Dörre kaufte am 22./23.6.2026 rund 2'500 Aktien zu 67.98 und 69.50 € (rund 172'000 €), Vorständin Inka Tews rund 300 Aktien (rund 20'000 €), nahe am Jahrestief. Quelle sind Medienberichte, die Originalmeldungen sind nicht geprüft.",
+    "Insider-Verkauf: Reiner Winkler verkaufte am 18.8.2026 10'000 Aktien zu 94.71 € (rund 947'000 €), nahe am Hoch.",
+    "Grossaktionäre: Bund (KfW) 25.1 %, Leonardo 22.8 % (am 21.7.2026 bestätigt, kein Verkauf). BlackRock hielt im Februar rund 5 % inklusive Instrumente, im August meldete es die Schwelle von 3 %. Keine Rückkäufe.",
+    "Analysten: 16 Analysten, Mehrheit «Kaufen», Kursziel im Schnitt 92 € (StockAnalysis). Spanne 62 € (mwb, Verkaufen) bis 105 € (Deutsche Bank). Jefferies stufte Anfang Oktober auf Kaufen hoch (98 €), Goldman Sachs Neutral (85 €)."
+   ],
+   "cheatsheet": "analysen/HAG.html",
+   "claude": "https://claude.ai/artifact/9cFxvNdn1uny5wstnnCa7d"
+  },
+  {
+   "ticker": "R3NK",
+   "symbol": "R3NK.DE",
+   "name": "Renk Group",
+   "tags": [
+    "Wachstum"
+   ],
+   "land": "Deutschland",
+   "region": "Europa",
+   "branche": "Rüstung (Getriebe)",
+   "status": "beobachten",
+   "waehrung": "EUR",
+   "analyse": {
+    "datenstand": "2026-10-23",
+    "kurs": 36.31,
+    "q": 59,
+    "t": 28
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "4 von 4 Quartalen über Vorjahr, aber das Tempo bricht ein (+21 % auf +2 %)",
+     "p": 11,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "Letzte 12 Monate rund +10 %, 1. Halbjahr 2026 nur +2.7 %",
+     "p": 6,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "12.4 % (3 Pkt.), seit 2022 jedes Jahr gestiegen (6 Pkt.)",
+     "p": 9,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "2022 bis 2025 stark gestiegen (0.16 → 1.00 €), letzte 12 Monate flach",
+     "p": 8,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Immer positiv, aber schwankend",
+     "p": 6,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "9.9 % (unter 10 %), klar steigend",
+     "p": 3,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Nettoschulden/EBITDA rund 1.4",
+     "p": 7,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "KGV 36.7 statt Ø rund 44 (2024–2025), rund 17 % günstiger, nur kurze Historie",
+     "p": 9,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs unter beiden, EMA 50 noch über EMA 200, fällt aber schnell",
+     "p": 4,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs unter beiden, EMA 50 unter EMA 200",
+     "p": 1,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Tiefere Hochs und tiefere Tiefs, noch kein Change of Character",
+     "p": 3,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "Tag aus 23 auf 42 erholt, Woche 38, kein intakter Trend",
+     "p": 6,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Tag: bullische Divergenz. Woche: fällt mit dem Kurs",
+     "p": 10,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Start 3, keine Insider-Käufe, kein Rückkauf, Grossaktionär verkauft und Leerverkäufer −1",
+     "p": 2,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "Zu wenig Daten (seit 2024)",
+     "p": 2,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 36.7,
+    "schnitt": 44.1,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      33.5,
+      35.7
+     ],
+     [
+      29,
+      31.2
+     ]
+    ],
+    "widerstand": [
+     [
+      38.9,
+      42.8
+     ],
+     [
+      47,
+      50
+     ]
+    ],
+    "trigger": 42.8,
+    "abbruch": 33
+   },
+   "zahlen": "2026-11-05",
+   "dividende": "1.6 %",
+   "div_info": {
+    "pro_jahr": 1,
+    "rhythmus": "jährlich",
+    "ex_monate": [
+     6
+    ],
+    "zahl_monate": [
+     6
+    ],
+    "zahl_text": "Mitte Juni, wenige Tage nach der Generalversammlung (2026: Generalversammlung 10. Juni, Ex-Tag 11. Juni, Zahltag 15. Juni; Termin 2027 noch nicht bestätigt)",
+    "abstand_tage": 4,
+    "betrag": 0.58,
+    "system": "Deutsches System: eine Dividende pro Jahr, beschlossen an der Generalversammlung im Juni. Renk zahlt rund 40 % des bereinigten Gewinns aus. Seit dem Börsengang erhöht: 0.30 € (2023), 0.42 € (2024), 0.58 € (2025). Analysten erwarten für 2026 rund 0.73 €.",
+    "form": "Bar in Euro aufs Konto. Deutschland zieht 26.375 % Quellensteuer ab. 15 % kannst du über die Schweizer Steuererklärung anrechnen lassen (Formular DA-1), die restlichen 11.375 % musst du in Deutschland zurückfordern (Bundeszentralamt für Steuern, innert rund 3 Jahren). Lohnt sich erst bei grösseren Beträgen."
+   },
+   "chance": {
+    "ticker": "R3NK",
+    "sorgen": [
+     "Das Wachstum ist 2026 fast stehen geblieben: Umsatz im 1. Halbjahr nur +2.7 % nach +20 % im Jahr 2025.",
+     "Am 21.10.2026 gab Renk nach dem Verkauf der Gleitlager eine neue Prognose (Umsatz rund 1.4 Mrd. €, bereinigtes EBIT 240 bis 255 Mio. €), die eher am unteren Ende der alten liegt. JPMorgan senkte das Ziel auf 50 €.",
+     "Die Bank of America zweifelt, dass die hohe Getriebe-Produktion nach 2030 anhält (Abstufung auf Neutral, Ziel 42.50 €). Bei Ukraine-Friedensgesprächen gelten Landsysteme als am stärksten gefährdet.",
+     "Angebotsdruck: KNDS verkaufte im Mai 5.8 Mio. Aktien und hält noch 10 %, Leerverkäufer halten grob 5 %."
+    ],
+    "sorgen_art": "gemischt",
+    "sorgen_art_text": "Die Wachstumsdelle ist echt, aber der Auftragsbestand (7.4 Mrd. €) ist so hoch wie nie. Ein Teil des Drucks kommt von Aktienverkäufen und Stimmung.",
+    "aufloeser": [
+     {
+      "was": "Q3-Zahlen: Zieht das Wachstum im 2. Halbjahr an (Umsatz über 308 Mio. € im Vorjahresquartal)?",
+      "wann": "Zahlen 05.11.2026"
+     },
+     {
+      "was": "Abschluss des Kaufs von David Brown Defence (Marine-Getriebe UK, Kanada, Australien) und des Gleitlager-Verkaufs",
+      "wann": "4. Quartal 2026"
+     },
+     {
+      "was": "Jahreszahlen 2026 und Prognose 2027 (Analysten erwarten rund +18 % Umsatz)",
+      "wann": "März 2027"
+     }
+    ],
+    "schub_stufe": "mittel",
+    "schub_treiber": [
+     {
+      "titel": "Rekord-Auftragsbestand",
+      "text": "7.4 Mrd. € Ende Juni 2026, gut fünf Jahresumsätze. Im 2. Quartal kamen Rekord-Aufträge von 613 Mio. € herein, darunter Leopard-2-Getriebe für KNDS (rund 130 Mio. €, Lieferung 2029 bis 2032).",
+      "wann": "2027–2032"
+     },
+     {
+      "titel": "USA und Marine",
+      "text": "Ein 5-jähriger Rahmenvertrag mit dem US-Verteidigungsministerium über bis zu 691 Mio. $ und der Kauf von David Brown Defence öffnen neue Märkte. Beides bringt erst ab 2027 spürbar Umsatz.",
+      "wann": "2027–2030"
+     }
+    ],
+    "schub_beweis": "Achte auf das Umsatzwachstum pro Quartal (H1 2026: +2.7 %). Steigt es wieder über 15 % und bleibt die bereinigte Marge über 16 %, wird aus dem Auftragsbestand Umsatz.",
+    "szenario": "Kein klarer Google-2023-Fall, eher ein Rücksetzer mit vollen Auftragsbüchern: Kommt das Wachstum 2027 zurück, ist die Aktie auf die erwarteten Gewinne (KGV rund 18) nicht teuer, und Analysten sehen im Schnitt rund 60 €. Grösstes Risiko: Weitere Verschiebungen von Aufträgen und ein Frieden in der Ukraine, dann bleibt das Wachstum schwach und Verkäufer drücken weiter.",
+    "quellen": [
+     {
+      "titel": "Kapitalmarktexperten: Renk H1 2026 (09.08.2026)",
+      "url": "https://www.kapitalmarktexperten.de/renk-group-aktie-auftragsbestand-auf-74-milliarden/"
+     },
+     {
+      "titel": "Goldesel: Neue Prognose und JPMorgan (22.10.2026)",
+      "url": "https://goldesel.de/aktien/news/renk-grounpv-aktie-jpmorgan-senkt-kursziel-auf-50-euro-halt-an-overweight-fest"
+     },
+     {
+      "titel": "Finanztrends: BofA stuft ab (05.10.2026)",
+      "url": "https://www.finanztrends.de/news/renk-group-aktie-bofa-stuft-auf-neutral-zurueck/"
+     },
+     {
+      "titel": "MarketScreener: Finanzen und Schätzungen",
+      "url": "https://in.marketscreener.com/quote/stock/RENK-GROUP-AG-160066728/finances/"
+     }
+    ]
+   },
+   "fazit": "Renk baut die Getriebe, mit denen Panzer wie der Leopard 2 fahren, und ist dort Weltmarktführer. Der Auftragsbestand ist auf den Rekord von 7.4 Mrd. € gestiegen, gut fünf Jahresumsätze. Trotzdem ist die Aktie vom Hoch (rund 90 €) auf 36.31 € gefallen, das sind rund −60 %. Der Hauptgrund ist echt: Das Wachstum ist 2026 fast stehen geblieben (1. Halbjahr nur +2.7 % nach +20 % im Jahr 2025), und am 21.10. kam eine tiefere Prognose. Dazu drücken Friedensgespräche, der Verkauf eines grossen Aktienpakets durch KNDS und Leerverkäufer. Qualität gelb (59), Timing rot (28). Der Abwärtstrend ist intakt. Ein erstes gutes Zeichen: Die Tages-A/D steigt, obwohl der Kurs tiefer ist.",
+   "about": "Renk entwickelt und baut Getriebe und Antriebe. Rund drei Viertel des Umsatzes kommen aus der Rüstung: Getriebe für Kettenfahrzeuge (Leopard 2, Puma, K2 in Südkorea, Abrams in den USA über RENK America), dazu Antriebe für Marineschiffe und U-Boote. Der Rest sind Industriegetriebe, zum Beispiel für Zementmühlen und Windkraft. Die Sparte Gleitlager wird an die österreichische Miba verkauft. Renk ist seit Februar 2024 an der Börse. Der Panzerbauer KNDS hält noch rund 10 %, nachdem er im Mai 2026 5.8 Mio. Aktien verkauft hat.",
+   "kpis": [
+    {
+     "ampel": "w",
+     "name": "Umsatzwachstum",
+     "wert": "+10 %",
+     "text": "Letzte 12 Monate (selbst gerechnet). 2024 +23 %, 2025 +20 %, aber im 1. Halbjahr 2026 nur noch +2.7 %. Renk sagt, das 2. Halbjahr werde viel stärker."
+    },
+    {
+     "ampel": "w",
+     "name": "Operative Marge",
+     "wert": "12.4 %",
+     "text": "Letzte 12 Monate nach allen Kosten. Seit 2022 (7.7 %) jedes Jahr gestiegen. Renk zeigt die bereinigte Marge: 16.9 % (2025), Ziel 2030 über 20 %."
+    },
+    {
+     "ampel": "w",
+     "name": "Gewinn pro Aktie (EPS)",
+     "wert": "0.99 €",
+     "text": "Letzte 12 Monate, kaum mehr als 2025 (1.00 €). Vorher stark gestiegen: 0.16 € (2022), 0.32 € (2023), 0.53 € (2024)."
+    },
+    {
+     "ampel": "r",
+     "name": "ROIC",
+     "wert": "9.9 %",
+     "text": "Auf 100 € investiertes Kapital rund 10 € Gewinn. Noch tief, aber stark verbessert (2022: 5.6 %), weil die alten Schulden aus der Zeit vor dem Börsengang sinken."
+    },
+    {
+     "ampel": "w",
+     "name": "Free Cashflow",
+     "wert": "rund 116 Mio. €",
+     "text": "Letzte 12 Monate, 8 % vom Umsatz. Schwankt: 138 Mio. € (2024), 94 Mio. € (2025). Im 1. Halbjahr 2026 41 Mio. €, besser als erwartet."
+    },
+    {
+     "ampel": "g",
+     "name": "Nettoschulden",
+     "wert": "0.37 Mrd. €",
+     "text": "Mitte 2026. Das sind rund 1.4 Jahresgewinne vor Abschreibungen (EBITDA 2025: 264 Mio. €). Im Juli 2026 wurden die alten Kredite durch günstigere ersetzt (1.05 Mrd. €)."
+    },
+    {
+     "ampel": "w",
+     "name": "KGV",
+     "wert": "36.7",
+     "text": "Du zahlst rund 37 Jahresgewinne. Schnitt der Jahresenden seit dem Börsengang (2024 und 2025): rund 44. Also rund 17 % günstiger, aber nur zwei Vergleichswerte. Auf die erwarteten Gewinne 2027 gerechnet rund 18."
+    },
+    {
+     "ampel": "w",
+     "name": "Dividende",
+     "wert": "1.6 %",
+     "text": "0.58 € pro Aktie, einmal im Jahr (bezahlt am 15.6.2026). +38 % zum Vorjahr. Renk zahlt rund 40 % des bereinigten Gewinns aus."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "47–50 €",
+     "text": "Widerstand: Hochs und Tiefs vom Juli und August (46.51 bis 49.96 €), Tages-EMA 200 (47.40 €) und Wochen-EMA 50 (47.70 €)."
+    },
+    {
+     "art": "r",
+     "wert": "38.9–42.8 €",
+     "text": "Widerstand: Hoch vom 21.10. (38.88 €), Wochen-EMA 200 (39.90 €), Tages-EMA 50 (40.20 €) und Hoch vom 21.9. (42.74 €)."
+    },
+    {
+     "art": "t",
+     "wert": "42.8 €",
+     "text": "Trigger: Tagesschluss über dem letzten tieferen Hoch vom 21.9. Das wäre der erste Change of Character nach oben."
+    },
+    {
+     "art": "s",
+     "wert": "33.5–35.7 €",
+     "text": "Kaufzone 1: Jahrestief vom 8.10. (33.49 €) und Tief vom 23.10. (35.65 €)."
+    },
+    {
+     "art": "s",
+     "wert": "29–31.2 €",
+     "text": "Kaufzone 2: Tief vom April 2025 (31.17 €), vor der grossen Rally 2025."
+    },
+    {
+     "art": "r",
+     "wert": "33 €",
+     "text": "Abbruch: Wochenschluss unter dem Oktober-Tief (33.49 €). Dann wäre die Kaufzone 2 das nächste Ziel."
+    }
+   ],
+   "pro": [
+    "Weltmarktführer bei Getrieben für Kettenfahrzeuge, Rekord-Auftragsbestand 7.4 Mrd. €.",
+    "Lieferungen sind weit hinaus gebucht: KNDS-Auftrag für Leopard-2-Getriebe bis 2032, US-Rahmenvertrag bis zu 691 Mio. $.",
+    "Analysten erwarten 2027 rund +18 % Umsatz, auf diese Gewinne gerechnet ist das KGV nur rund 18.",
+    "Schulden moderat (1.4), Kredite günstiger refinanziert, Gleitlager-Verkauf bringt Geld.",
+    "Tages-A/D steigt bei tieferem Kurs: Es wird wieder gekauft."
+   ],
+   "contra": [
+    "Das Wachstum ist 2026 fast stehen geblieben (+2.7 % im 1. Halbjahr), die neue Prognose liegt eher am unteren Ende.",
+    "Das Gewinnziel 2027 lag schon im November 2025 unter den Erwartungen.",
+    "Angebotsdruck: KNDS hat verkauft und hält noch 10 %, dazu rund 5 % Leerverkäufer.",
+    "Hohe Abhängigkeit von Landfahrzeugen, die bei einem Frieden in der Ukraine als Erste leiden würden.",
+    "Klarer Abwärtstrend auf beiden Zeitebenen, keine Insider-Käufe am Tief."
+   ],
+   "smart_money": [
+    "Insider: In den letzten 6 Monaten keine Käufe oder Verkäufe gefunden. Zuletzt am 6.3.2026: Vorständin Anja Mänz-Siebje kaufte bei 54.78 € (rund 30'000 €), eine dem CEO nahestehende Person kaufte und verkaufte fast gleich viel.",
+    "Grossaktionär verkauft: KNDS verkaufte im Mai 2026 5.8 Mio. Aktien (rund 262 Mio. €, rund 45 € pro Aktie) und hält noch 10 %. Nach der Sperrfrist kann weiteres Angebot kommen.",
+    "Leerverkäufer: AQR (1.78 %), Marshall Wace (über 1 %), PDT Partners (1.0 %) und Bridgewater (0.61 %, Anfang Oktober aufgestockt) wetten auf fallende Kurse, zusammen grob 5 % der Aktien. Keine Rückkäufe.",
+    "Analysten: Mehrheit «Kaufen», Kursziel im Schnitt rund 60 € (MarketScreener, 17 Analysten). Die Ziele sinken aber: JPMorgan 75 → 62 → 50 € (21.10.), Bank of America Neutral mit 42.50 €."
+   ],
+   "cheatsheet": "analysen/R3NK.html",
+   "claude": "https://claude.ai/artifact/JVP1LSBEKCvNyEvgTPyvGL"
   }
  ]
 }

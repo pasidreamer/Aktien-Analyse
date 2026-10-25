@@ -1,0 +1,397 @@
+<title>Renk Group Aktien-Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F3F5F7; --surface:#FFFFFF; --ink:#141B24; --muted:#5A6573; --line:#DDE2E8; --grid:#E9EDF1;
+  --accent:#2F45B5; --accent-soft:#E6E9F8; --chip:#EBEEF2;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+  --good:#1D7A4B; --good-bg:#E3F3EA; --warn:#9A6200; --warn-bg:#FBF0DC; --bad:#B2362A; --bad-bg:#FBE6E3;
+  --zone-sup:rgba(29,122,75,.10); --zone-res:rgba(178,54,42,.09);
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+    --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+    --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+    --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+  --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+  --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;padding-inline:16px;padding-block:24px 56px}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+h1,h2,h3{font-family:var(--display);font-stretch:85%;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:clamp(32px,7vw,48px);font-weight:800;line-height:1}
+h2{font-size:24px;font-weight:700}
+h3{font-size:17px;font-weight:700;font-stretch:95%}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+section{display:flex;flex-direction:column;gap:14px}
+.lead{max-width:68ch;color:var(--muted)}
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;align-items:stretch}
+.hero .id{display:flex;flex-direction:column;gap:10px;justify-content:space-between}
+.price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price b{font-family:var(--display);font-size:34px;font-weight:700}
+.meta{font-size:13px;color:var(--muted)}
+.verdict{font-size:15px;padding:12px 14px;border-radius:10px;background:var(--chip)}
+.scales{display:flex;flex-direction:column;gap:18px}
+.scale-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.scale-h span{font-size:13px;color:var(--muted)}
+.scale-h b{font-family:var(--display);font-size:28px;line-height:1}
+.track{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#C8412F 0%,#E0892F 30%,#E3B63A 50%,#8BBF4B 68%,#2E9A5B 100%);margin-top:8px}
+.pin{position:absolute;top:-5px;width:4px;height:22px;border-radius:2px;background:var(--ink);box-shadow:0 0 0 2px var(--surface);transform:translateX(-2px)}
+.ticks{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);font-family:var(--mono);margin-top:6px}
+.state{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;margin-top:8px}
+.st-good{background:var(--good-bg);color:var(--good)}
+.st-warn{background:var(--warn-bg);color:var(--warn)}
+.st-bad{background:var(--bad-bg);color:var(--bad)}
+/* tables */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;color:var(--muted);font-weight:500;font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:700;border-bottom:none}
+.pts{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{height:6px;border-radius:3px;background:var(--chip);min-width:60px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:3px}
+/* grids */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;border-left:4px solid var(--line)}
+.kpi.g{border-left-color:var(--good)}.kpi.w{border-left-color:var(--warn)}.kpi.b{border-left-color:var(--bad)}
+.kpi span{font-size:12px;color:var(--muted)}
+.kpi b{font-family:var(--mono);font-size:19px;font-weight:500;font-variant-numeric:tabular-nums}
+.kpi em{font-style:normal;font-size:12.5px;color:var(--muted)}
+/* charts */
+.chart{position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:14px;height:3px;border-radius:2px;display:inline-block}
+.swb{width:12px;height:10px;border-radius:2px;display:inline-block}
+.tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12.5px;box-shadow:0 4px 14px rgba(0,0,0,.12);white-space:nowrap;z-index:2}
+.tip b{font-family:var(--mono);font-weight:500}
+.tip .d{font-family:var(--mono);color:var(--muted);font-size:11.5px}
+.note{font-size:13.5px;color:var(--muted)}
+ul.clean{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.pro li::marker{color:var(--good)} .con li::marker{color:var(--bad)}
+.zones{display:flex;flex-direction:column;gap:8px}
+.zone{display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:baseline;padding:10px 12px;border-radius:10px;background:var(--chip);font-size:14px}
+.zone b{font-family:var(--mono);font-weight:500}
+.zone.r{border-left:4px solid var(--bad)} .zone.s{border-left:4px solid var(--good)} .zone.t{border-left:4px solid var(--accent)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+summary{cursor:pointer;font-weight:600}
+details p{margin-top:8px;color:var(--muted);max-width:70ch}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+footer{font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:6px;max-width:80ch}
+footer a{color:var(--accent)}
+@media (max-width:760px){.hero,.two{grid-template-columns:1fr}.zone{grid-template-columns:1fr;gap:2px}}
+</style>
+
+<div class="wrap">
+
+<header class="hero">
+  <div class="card id">
+    <div>
+      <div class="eyebrow">Aktien-Check · 23.10.2026</div>
+      <h1>Renk Group</h1>
+      <p class="meta">RENK Group AG · Xetra: R3NK · Getriebe für Panzer und Militärfahrzeuge, Schiffsantriebe, Industriegetriebe · Augsburg, Deutschland</p>
+    </div>
+    <div class="price"><b>36.31 €</b><span class="meta">Schluss 23.10.2026 · 52 Wochen: 33.49 – 68.36 € · Allzeithoch rund 90 € (Wochenhoch Ende September 2025)</span></div>
+    <p class="verdict"><b>Kurz gesagt:</b> Renk baut die Getriebe, mit denen Panzer wie der Leopard 2 fahren, und ist dort Weltmarktführer. Der Auftragsbestand ist auf den Rekord von 7.4 Mrd. € gestiegen, gut fünf Jahresumsätze. Trotzdem ist die Aktie vom Hoch (rund 90 €) auf 36.31 € gefallen, das sind rund −60 %. Der Hauptgrund ist echt: Das Wachstum ist 2026 fast stehen geblieben (1. Halbjahr nur +2.7 % nach +20 % im Jahr 2025), und am 21.10. kam eine tiefere Prognose. Dazu drücken Friedensgespräche, der Verkauf eines grossen Aktienpakets durch KNDS und Leerverkäufer. Qualität gelb (59), Timing rot (28). Der Abwärtstrend ist intakt. Ein erstes gutes Zeichen: Die Tages-A/D steigt, obwohl der Kurs tiefer ist.</p>
+  </div>
+  <div class="card scales">
+    <div>
+      <div class="scale-h"><span>Qualität · Ist die Firma kaufenswert?</span><b id="q-val">59</b></div>
+      <div class="track"><i class="pin" id="q-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-warn">▲ Gemischt</span>
+    </div>
+    <div>
+      <div class="scale-h"><span>Timing · Ist jetzt der Zeitpunkt?</span><b id="t-val">28</b></div>
+      <div class="track"><i class="pin" id="t-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-bad">▲ Abwarten: Abwärtstrend intakt</span>
+    </div>
+    <p class="note">Skala: unter 30 rot · 30–45 orange · 45–60 gelb · 60–75 hellgrün · ab 75 grün. Beide Werte setzen sich aus festen Kriterien zusammen, siehe unten.</p>
+  </div>
+</header>
+
+<section>
+  <h2>Was die Firma macht</h2>
+  <p class="lead">Renk entwickelt und baut Getriebe und Antriebe. Rund drei Viertel des Umsatzes kommen aus der Rüstung: Getriebe für Kettenfahrzeuge (Leopard 2, Puma, K2 in Südkorea, Abrams in den USA über RENK America), dazu Antriebe für Marineschiffe und U-Boote. Der Rest sind Industriegetriebe, zum Beispiel für Zementmühlen und Windkraft. Die Sparte Gleitlager wird an die österreichische Miba verkauft. Renk ist seit Februar 2024 an der Börse. Der Panzerbauer KNDS hält noch rund 10 %, nachdem er im Mai 2026 5.8 Mio. Aktien verkauft hat.</p>
+  <p class="lead">Bis Anfang Oktober 2025 stieg die Aktie um über 360 % in einem Jahr auf rund 90 €. Am Kapitalmarkttag vom 20.11.2025 lag das Gewinnziel für 2027 (bereinigtes EBIT über 300 Mio. €) klar unter den Erwartungen der Analysten (365 Mio. €). Am 5.3.2026 meldete Renk Rekordzahlen für 2025, aber rund 200 Mio. € Aufträge rutschten ins Jahr 2026. Im April und Mai drückten Ukraine-Friedensgespräche, Bernstein nannte Hersteller von Landsystemen (Rheinmetall, Renk) am stärksten gefährdet. Im Mai verkaufte KNDS ein grosses Aktienpaket (262 Mio. €). Das 1. Halbjahr brachte nur +2.7 % Umsatz. Ende September senkte JPMorgan das Ziel und warnte vor einem schwachen 3. Quartal, die Bank of America stufte auf Neutral ab (Ziel 42.50 €). Am 8.10. fiel die Aktie auf 33.49 €. Am 21.10. kündigte Renk den Verkauf der Gleitlager an und gab eine neue Prognose ohne diese Sparte: Umsatz rund 1.4 Mrd. €, bereinigtes EBIT 240 bis 255 Mio. €. Das liegt eher am unteren Ende der alten Prognose. JPMorgan senkte das Ziel auf 50 €.</p>
+</section>
+
+<section>
+  <h2>Fundamental: die Zahlen</h2>
+  <div class="kpis">
+<div class="kpi w"><span>Umsatzwachstum</span><b>+10 %</b><em>Letzte 12 Monate (selbst gerechnet). 2024 +23 %, 2025 +20 %, aber im 1. Halbjahr 2026 nur noch +2.7 %. Renk sagt, das 2. Halbjahr werde viel stärker.</em></div>
+<div class="kpi w"><span>Operative Marge</span><b>12.4 %</b><em>Letzte 12 Monate nach allen Kosten. Seit 2022 (7.7 %) jedes Jahr gestiegen. Renk zeigt die bereinigte Marge: 16.9 % (2025), Ziel 2030 über 20 %.</em></div>
+<div class="kpi w"><span>Gewinn pro Aktie (EPS)</span><b>0.99 €</b><em>Letzte 12 Monate, kaum mehr als 2025 (1.00 €). Vorher stark gestiegen: 0.16 € (2022), 0.32 € (2023), 0.53 € (2024).</em></div>
+<div class="kpi r"><span>ROIC</span><b>9.9 %</b><em>Auf 100 € investiertes Kapital rund 10 € Gewinn. Noch tief, aber stark verbessert (2022: 5.6 %), weil die alten Schulden aus der Zeit vor dem Börsengang sinken.</em></div>
+<div class="kpi w"><span>Free Cashflow</span><b>rund 116 Mio. €</b><em>Letzte 12 Monate, 8 % vom Umsatz. Schwankt: 138 Mio. € (2024), 94 Mio. € (2025). Im 1. Halbjahr 2026 41 Mio. €, besser als erwartet.</em></div>
+<div class="kpi g"><span>Nettoschulden</span><b>0.37 Mrd. €</b><em>Mitte 2026. Das sind rund 1.4 Jahresgewinne vor Abschreibungen (EBITDA 2025: 264 Mio. €). Im Juli 2026 wurden die alten Kredite durch günstigere ersetzt (1.05 Mrd. €).</em></div>
+<div class="kpi w"><span>KGV</span><b>36.7</b><em>Du zahlst rund 37 Jahresgewinne. Schnitt der Jahresenden seit dem Börsengang (2024 und 2025): rund 44. Also rund 17 % günstiger, aber nur zwei Vergleichswerte. Auf die erwarteten Gewinne 2027 gerechnet rund 18.</em></div>
+<div class="kpi w"><span>Dividende</span><b>1.6 %</b><em>0.58 € pro Aktie, einmal im Jahr (bezahlt am 15.6.2026). +38 % zum Vorjahr. Renk zahlt rund 40 % des bereinigten Gewinns aus.</em></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>Umsatz pro Quartal (Mio. €)</h3>
+      <p class="note">2025 wuchs jedes Quartal 15 bis 28 %, im 1. und 2. Quartal 2026 nur noch +3.9 % und +1.9 %. Quartale teils aus den Halbjahres- und 9-Monats-Zahlen selbst gerechnet. Die Gleitlager (2025: 128 Mio. € Umsatz) sind hier noch enthalten.</p>
+      <div class="chart" id="c-rev"></div>
+    </div>
+    <div class="card">
+      <h3>Operative Marge pro Jahr</h3>
+      <p class="note">Nach allen Kosten (IFRS), nach TipRanks. Seit 2022 jedes Jahr höher. Bereinigt laut Renk: 16.2 % (2023), 16.6 % (2024), 16.9 % (2025), 15.4 % im 1. Halbjahr 2026.</p>
+      <div class="chart" id="c-margin"></div>
+    </div>
+  </div>
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Jahr</th><th class="num">Umsatz Mio. €</th><th class="num">Wachstum</th><th class="num">Op. Marge</th><th class="num">EPS €</th><th class="num">Free Cashflow</th><th class="num">ROIC</th><th class="num">KGV</th></tr></thead>
+      <tbody id="fin-rows"></tbody>
+    </table>
+  </div>
+  <p class="note"><b>Hinweis:</b> Renk ist erst seit Februar 2024 an der Börse, darum gibt es KGV-Werte nur für 2024 und 2025. Zahlen 2021 fehlen teilweise und sind weggelassen. Quellen: Umsatz nach Firma und MarketScreener, Marge, Gewinn pro Aktie, ROIC und KGV nach TipRanks, Free Cashflow nach TipRanks und MarketScreener. StockAnalysis war für diese Analyse nicht abrufbar.</p>
+</section>
+
+<section>
+  <h2>Qualität: 59 von 100</h2>
+  <div class="card tbl"><table id="q-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Technik: Wochenchart (2 Jahre)</h2>
+  <div class="card">
+    <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span><span><i class="swb" style="background:var(--zone-sup);border:1px solid var(--good)"></i>Unterstützung</span><span><i class="swb" style="background:var(--zone-res);border:1px solid var(--bad)"></i>Widerstand</span></div>
+    <div class="chart" id="c-week"></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>A/D-Linie, Woche</h3>
+      <p class="note">Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Die Wochen-A/D fällt seit dem Hoch 2025 mit dem Kurs: Ende September 2026 −13.5 bei 37 €, heute −14.3 bei 36 €. Es überwiegen die Verkäufer.</p>
+      <div class="chart" id="c-adw"></div>
+    </div>
+    <div class="card">
+      <h3>RSI, Woche</h3>
+      <p class="note">Unter 30 überverkauft, über 70 überkauft. Anfang Oktober bei 33, knapp über überverkauft, heute 38. Schwach, ohne Bodenzeichen.</p>
+      <div class="chart" id="c-rsiw"></div>
+    </div>
+  </div>
+
+  <h2>Technik: Tageschart (1 Jahr)</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Kurs, Tag</h3>
+      <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span></div>
+      <div class="chart" id="c-day"></div>
+    </div>
+    <div class="card">
+      <h3>A/D-Linie, Tag</h3>
+      <p class="note">Positiv: Am 22.9. schloss der Kurs bei 41.08 € und die Tages-A/D stand bei 20.7. Heute ist der Kurs tiefer (36.31 €), die A/D aber höher (20.9). Auch nach dem Tief vom 8.10. (33.49 €, A/D 18.7) stieg sie schneller als der Kurs. Bei tieferen Preisen wird also mehr gekauft (bullische Divergenz).</p>
+      <div class="chart" id="c-add"></div>
+    </div>
+  </div>
+
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Indikator</th><th>Tag</th><th>Woche</th><th>Bedeutung</th></tr></thead>
+      <tbody>
+<tr><td>Kurs vs. EMA 50</td><td class="pts">36.3 &lt; 40.2</td><td class="pts">36.3 &lt; 47.7</td><td>Unter der mittelfristigen Linie, auf beiden Zeitebenen.</td></tr>
+<tr><td>Kurs vs. EMA 200</td><td class="pts">36.3 &lt; 47.4</td><td class="pts">36.3 &lt; 39.9</td><td>Unter der langfristigen Linie, auf beiden Zeitebenen.</td></tr>
+<tr><td>EMA 50 vs. EMA 200</td><td class="pts">50 unter 200 (seit 9.3.2026)</td><td class="pts">50 noch über 200, fällt schnell</td><td>Der Trend zeigt klar nach unten.</td></tr>
+<tr><td>RSI (14)</td><td class="pts">41.6</td><td class="pts">38.1</td><td>Tag aus 23 (8.10., stark überverkauft) erholt, Woche schwach.</td></tr>
+<tr><td>A/D</td><td class="pts">höher bei tieferem Kurs (bullische Divergenz)</td><td class="pts">fällt mit dem Kurs</td><td>Tag positiv, Woche negativ.</td></tr>
+<tr><td>Volumen</td><td colspan="2">Ø 20 Tage 0.55 Mio. vs. Ø 100 Tage 0.53 Mio. Aktien</td><td>Normaler Handel.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Struktur und Zonen (Smart Money Concept)</h2>
+  <p class="lead">Seit dem Wochenhoch von rund 90 € (Ende September 2025) ist Renk in einem klaren Abwärtstrend: tiefere Hochs (66.90 € im Januar, 61.94 € im März, 57.77 € im April, 56.85 € im Mai, 53.59 € im August) und tiefere Tiefs (49.11, 46.33, 42.12, 40.34 und 33.49 € am 8.10.2026). Im Tageschart liegt das letzte tiefere Hoch bei 42.74 € (21.9.). Die Erholung nach dem Oktober-Tief endete bisher bei 38.88 € (21.10.), knapp unter der Wochen-EMA 200 (39.90 €). Ein Change of Character nach oben fehlt noch. Gut: Das Tief vom 23.10. (35.65 €) liegt über dem Oktober-Tief.</p>
+  <div class="zones">
+<div class="zone r"><b>47–50 €</b><span>Widerstand: Hochs und Tiefs vom Juli und August (46.51 bis 49.96 €), Tages-EMA 200 (47.40 €) und Wochen-EMA 50 (47.70 €).</span></div>
+<div class="zone r"><b>38.9–42.8 €</b><span>Widerstand: Hoch vom 21.10. (38.88 €), Wochen-EMA 200 (39.90 €), Tages-EMA 50 (40.20 €) und Hoch vom 21.9. (42.74 €).</span></div>
+<div class="zone t"><b>42.8 €</b><span><b>Trigger:</b> Tagesschluss über dem letzten tieferen Hoch vom 21.9. Das wäre der erste Change of Character nach oben.</span></div>
+<div class="zone s"><b>33.5–35.7 €</b><span><b>Kaufzone 1:</b> Jahrestief vom 8.10. (33.49 €) und Tief vom 23.10. (35.65 €).</span></div>
+<div class="zone s"><b>29–31.2 €</b><span><b>Kaufzone 2:</b> Tief vom April 2025 (31.17 €), vor der grossen Rally 2025.</span></div>
+<div class="zone r"><b>33 €</b><span>Abbruch: Wochenschluss unter dem Oktober-Tief (33.49 €). Dann wäre die Kaufzone 2 das nächste Ziel.</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Smart Money, Insider und Saisonalität</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Wer kauft, wer verkauft?</h3>
+      <ul class="clean" style="margin-top:8px">
+<li><b>Insider:</b> In den letzten 6 Monaten keine Käufe oder Verkäufe gefunden. Zuletzt am 6.3.2026: Vorständin Anja Mänz-Siebje kaufte bei 54.78 € (rund 30'000 €), eine dem CEO nahestehende Person kaufte und verkaufte fast gleich viel.</li>
+<li><b>Grossaktionär verkauft:</b> KNDS verkaufte im Mai 2026 5.8 Mio. Aktien (rund 262 Mio. €, rund 45 € pro Aktie) und hält noch 10 %. Nach der Sperrfrist kann weiteres Angebot kommen.</li>
+<li><b>Leerverkäufer:</b> AQR (1.78 %), Marshall Wace (über 1 %), PDT Partners (1.0 %) und Bridgewater (0.61 %, Anfang Oktober aufgestockt) wetten auf fallende Kurse, zusammen grob 5 % der Aktien. Keine Rückkäufe.</li>
+<li><b>Analysten:</b> Mehrheit «Kaufen», Kursziel im Schnitt rund 60 € (MarketScreener, 17 Analysten). Die Ziele sinken aber: JPMorgan 75 → 62 → 50 € (21.10.), Bank of America Neutral mit 42.50 €.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Saisonalität seit 2024</h3>
+      <p class="note">Durchschnittliche Monatsrendite in %. Nur 2 bis 3 Jahre Daten (seit Februar 2024), darum kaum aussagekräftig. November und Dezember waren je einmal positiv und einmal negativ, der Januar zweimal stark positiv.</p>
+      <div class="chart" id="c-seas"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Timing: 28 von 100</h2>
+  <div class="card tbl"><table id="t-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Dividende</h2>
+  <div class="card tbl"><table><tr><td style="white-space:nowrap;color:var(--muted)">Wie oft</td><td>1× pro Jahr (jährlich)</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Ex-Tag im</td><td>Juni</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Geld auf dem Konto im</td><td>Juni</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Zahltage</td><td>Mitte Juni, wenige Tage nach der Generalversammlung (2026: Generalversammlung 10. Juni, Ex-Tag 11. Juni, Zahltag 15. Juni; Termin 2027 noch nicht bestätigt)</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Letzte Zahlung</td><td>0.58 € pro Aktie</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Rendite</td><td>1.6 %</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">System</td><td>Deutsches System: eine Dividende pro Jahr, beschlossen an der Generalversammlung im Juni. Renk zahlt rund 40 % des bereinigten Gewinns aus. Seit dem Börsengang erhöht: 0.30 € (2023), 0.42 € (2024), 0.58 € (2025). Analysten erwarten für 2026 rund 0.73 €.</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Form</td><td>Bar in Euro aufs Konto. Deutschland zieht 26.375 % Quellensteuer ab. 15 % kannst du über die Schweizer Steuererklärung anrechnen lassen (Formular DA-1), die restlichen 11.375 % musst du in Deutschland zurückfordern (Bundeszentralamt für Steuern, innert rund 3 Jahren). Lohnt sich erst bei grösseren Beträgen.</td></tr></table><p class="note" style="margin:10px 0 0"><b>Ex-Tag:</b> Du bekommst die Dividende nur, wenn du die Aktie am Abend vor dem Ex-Tag besitzt. <b>Zahltag:</b> An diesem Tag kommt das Geld aufs Konto (in der Währung der Aktie, abzüglich Quellensteuer). Die nächsten genauen Termine zeigt die App unter «Termine».</p></div>
+</section>
+
+<section>
+  <h2>Pro und Contra</h2>
+  <div class="two">
+    <div class="card pro"><h3>Spricht dafür</h3><ul class="clean" style="margin-top:8px">
+<li>Weltmarktführer bei Getrieben für Kettenfahrzeuge, Rekord-Auftragsbestand 7.4 Mrd. €.</li>
+<li>Lieferungen sind weit hinaus gebucht: KNDS-Auftrag für Leopard-2-Getriebe bis 2032, US-Rahmenvertrag bis zu 691 Mio. $.</li>
+<li>Analysten erwarten 2027 rund +18 % Umsatz, auf diese Gewinne gerechnet ist das KGV nur rund 18.</li>
+<li>Schulden moderat (1.4), Kredite günstiger refinanziert, Gleitlager-Verkauf bringt Geld.</li>
+<li>Tages-A/D steigt bei tieferem Kurs: Es wird wieder gekauft.</li>
+    </ul></div>
+    <div class="card con"><h3>Spricht dagegen</h3><ul class="clean" style="margin-top:8px">
+<li>Das Wachstum ist 2026 fast stehen geblieben (+2.7 % im 1. Halbjahr), die neue Prognose liegt eher am unteren Ende.</li>
+<li>Das Gewinnziel 2027 lag schon im November 2025 unter den Erwartungen.</li>
+<li>Angebotsdruck: KNDS hat verkauft und hält noch 10 %, dazu rund 5 % Leerverkäufer.</li>
+<li>Hohe Abhängigkeit von Landfahrzeugen, die bei einem Frieden in der Ukraine als Erste leiden würden.</li>
+<li>Klarer Abwärtstrend auf beiden Zeitebenen, keine Insider-Käufe am Tief.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section>
+  <h2>Was jetzt zu tun ist</h2>
+  <div class="zones">
+<div class="zone t"><b>Beobachten</b><span>Alarm bei 42.80 € (Trigger) und 35.70 € (oberes Ende Kaufzone 1).</span></div>
+<div class="zone s"><b>Timing grün</b><span>Tagesschluss über 42.80 € mit weiter steigender A/D. Fundamental: Die Q3-Zahlen am 5.11. müssen zeigen, dass das Wachstum im 2. Halbjahr anzieht (Umsatz über dem Vorjahr von 308 Mio. €, Auftragseingang hoch).</span></div>
+<div class="zone r"><b>Abbruch</b><span>Wochenschluss unter 33 €. Dann wäre die Kaufzone 2 (29 bis 31.20 €) das nächste Ziel.</span></div>
+<div class="zone "><b>Nächste Zahlen</b><span>9 Monate 2026 am 5. November 2026. Jahreszahlen 2026 und Prognose 2027 voraussichtlich im März 2027.</span></div>
+  </div>
+</section>
+
+<footer>
+  <span>Kursdaten und Indikatoren (EMA, RSI 14, A/D) selbst berechnet aus Yahoo-Finance-Tages-, Wochen- und Monatsdaten, Stand 23.10.2026. <a href="https://de.marketscreener.com/kurs/aktie/RENK-GROUP-AG-160066728/finanzen/" target="_blank" rel="noopener">MarketScreener</a> (Stand 23.10.2026), <a href="https://www.tipranks.com/stocks/de:r3nk/financials/ratios" target="_blank" rel="noopener">TipRanks Kennzahlen</a>, <a href="https://www.produktion.de/ruestung-aerospace/renk-rekordjahr-dank-boomendem-verteidigungsgeschaeft/2622002" target="_blank" rel="noopener">Renk Geschäftsjahr 2025</a>, <a href="https://www.kapitalmarktexperten.de/renk-group-aktie-auftragsbestand-auf-74-milliarden/" target="_blank" rel="noopener">Renk H1 2026</a>, <a href="https://goldesel.de/aktien/news/renk-grounpv-aktie-jpmorgan-senkt-kursziel-auf-50-euro-halt-an-overweight-fest" target="_blank" rel="noopener">Neue Prognose und JPMorgan (22.10.2026)</a>, <a href="https://stock3.com/news/renk-stellt-neue-langfristziele-vor-ebit-prognose-2027-unter-erwartungen-16805410" target="_blank" rel="noopener">Kapitalmarkttag 2025</a>, <a href="https://www.boerse-express.com/news/articles/renk-aktie-knds-verkauft-58-millionen-aktien-925841" target="_blank" rel="noopener">KNDS-Verkauf</a>, <a href="https://www.boerse-global.de/renk-group-aktie-leerverkaeufer-greifen-zu/830620" target="_blank" rel="noopener">Leerverkäufer (4.10.2026)</a>. Im Branchenvergleich der App ist Renk noch nicht enthalten.</span>
+  <span>Persönliche Analyse, keine Anlageberatung. Vergangene Kurse und Saisonalität sagen nichts Sicheres über die Zukunft.</span>
+</footer>
+</div>
+
+<script>
+const Q=[["Umsatztrend", "4 von 4 Quartalen über Vorjahr, aber das Tempo bricht ein (+21 % auf +2 %)", 11, 15], ["Wachstumstempo", "Letzte 12 Monate rund +10 %, 1. Halbjahr 2026 nur +2.7 %", 6, 10], ["Operative Marge", "12.4 % (3 Pkt.), seit 2022 jedes Jahr gestiegen (6 Pkt.)", 9, 15], ["Gewinnwachstum (EPS)", "2022 bis 2025 stark gestiegen (0.16 → 1.00 €), letzte 12 Monate flach", 8, 10], ["Free Cashflow", "Immer positiv, aber schwankend", 6, 10], ["ROIC", "9.9 % (unter 10 %), klar steigend", 3, 15], ["Schulden", "Nettoschulden/EBITDA rund 1.4", 7, 10], ["Bewertung vs. eigene Historie", "KGV 36.7 statt Ø rund 44 (2024–2025), rund 17 % günstiger, nur kurze Historie", 9, 15]];
+const T=[["Trend Woche (EMA 50/200)", "Kurs unter beiden, EMA 50 noch über EMA 200, fällt aber schnell", 4, 20], ["Trend Tag (EMA 50/200)", "Kurs unter beiden, EMA 50 unter EMA 200", 1, 10], ["Struktur (SMC)", "Tiefere Hochs und tiefere Tiefs, noch kein Change of Character", 3, 20], ["RSI Tag/Woche", "Tag aus 23 auf 42 erholt, Woche 38, kein intakter Trend", 6, 15], ["A/D Tag/Woche", "Tag: bullische Divergenz. Woche: fällt mit dem Kurs", 10, 20], ["Smart Money", "Start 3, keine Insider-Käufe, kein Rückkauf, Grossaktionär verkauft und Leerverkäufer −1", 2, 10], ["Saisonalität", "Zu wenig Daten (seit 2024)", 2, 5]];
+const FIN=[["2022", 849, "+21.6 %", "7.7 %", 0.16, 62, "5.6 %", "–"], ["2023", 926, "+9.0 %", "9.6 %", 0.32, 48, "5.7 %", "–"], ["2024", 1141, "+23.2 %", "10.2 %", 0.53, 138, "6.0 %", "34.6"], ["2025", 1366, "+19.8 %", "12.6 %", 1.0, 94, "11.6 %", "53.6"], ["Letzte 12 Mt.", 1383, "+10 %", "12.4 %", 0.99, 116, "9.9 %", "36.7"]];
+const HALF=[["Q3 24", 268], ["Q4 24", 363], ["Q1 25", 273], ["Q2 25", 347], ["Q3 25", 308], ["Q4 25", 438], ["Q1 26", 284], ["Q2 26", 354]];
+const MARGIN=[["2022", 7.7], ["2023", 9.6], ["2024", 10.2], ["2025", 12.6], ["12 Mt.", 12.4]];
+const SEAS=[17.4, 13.5, 5.0, 1.4, -14.6, 5.9, -2.4, -18.8, -15.3, 0.0, -7.5, -0.8];
+const SEASHIT=[100.0, 100.0, 60.0, 50.0, 0.0, 100.0, 33.0, 0.0, 0.0, 0.0, 50.0, 50.0];
+const MON=["Jan","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"];
+const W=`2024-10-20,19.33,23.3,21.29,40,-11.3;2024-10-28,18.45,23.11,21.26,38,-12.1;2024-11-04,19.81,22.98,21.25,43,-10.4;2024-11-11,18.87,22.82,21.23,40,-12.4;2024-11-18,20.05,22.71,21.21,45,-12.4;2024-11-25,19.89,22.6,21.2,44,-9.4;2024-12-02,20.96,22.54,21.2,48,-8.9;2024-12-09,19.62,22.42,21.18,44,-9.6;2024-12-16,18.32,22.26,21.15,40,-10.6;2024-12-23,18.31,22.11,21.13,40,-10.7;2024-12-30,19.19,21.99,21.11,44,-10.1;2025-01-06,21.19,21.96,21.11,51,-8.2;2025-01-13,22.65,21.99,21.12,56,-7;2025-01-20,22.86,22.02,21.14,57,-6;2025-01-27,24.56,22.12,21.17,61,-2.2;2025-02-03,22.44,22.14,21.19,53,-4.5;2025-02-10,25.05,22.25,21.23,60,-0.5;2025-02-17,27.6,22.46,21.29,66,-8.7;2025-02-24,29.87,22.75,21.37,69,-6.7;2025-03-03,35.51,23.25,21.51,77,-12.1;2025-03-10,40.22,23.92,21.7,81,-6.8;2025-03-17,42.02,24.63,21.9,82,-17.4;2025-03-30,41.37,25.28,22.1,80,-18.3;2025-04-06,45.33,26.07,22.33,83,-12.6;2025-04-13,49.95,27.01,22.6,85,-11.3;2025-04-20,49.36,27.88,22.87,84,-10.3;2025-04-27,55.41,28.96,23.19,87,-6.4;2025-05-04,58.01,30.1,23.54,88,-5.5;2025-05-11,59.88,31.27,23.9,88,-0.7;2025-05-18,69.1,32.75,24.35,91,5.7;2025-05-25,78.38,34.54,24.89,93,11.4;2025-06-01,78.6,36.27,25.42,93,1.8;2025-06-08,71.4,37.65,25.88,79,-0.7;2025-06-15,69.51,38.9,26.31,75,-1.6;2025-06-22,65.94,39.96,26.71,70,-1.5;2025-06-29,65.91,40.97,27.1,70,-0.8;2025-07-06,71.98,42.19,27.55,74,2.4;2025-07-13,71.34,43.33,27.98,72,-2.7;2025-07-20,70.85,44.41,28.41,72,-2.3;2025-07-27,68,45.34,28.8,67,-1.7;2025-08-03,61.41,45.97,29.13,57,-3.9;2025-08-10,61,46.56,29.44,56,-3.9;2025-08-17,58.47,47.02,29.73,53,-4.4;2025-08-24,62.43,47.63,30.06,57,-2;2025-08-31,66.58,48.37,30.42,61,-0.7;2025-09-07,70.59,49.24,30.82,65,1.3;2025-09-14,69.99,50.06,31.21,64,0.7;2025-09-21,81.17,51.28,31.71,72,5.1;2025-09-28,88.44,52.73,32.27,76,8;2025-10-05,76.22,53.66,32.71,61,4.8;2025-10-12,62.71,54.01,33.01,49,0.7;2025-10-19,66.52,54.5,33.34,52,-1;2025-10-27,65.79,54.94,33.66,51,-1.1;2025-11-03,64.44,55.32,33.97,50,-0.9;2025-11-10,65.27,55.71,34.28,51,-0.4;2025-11-17,50.86,55.52,34.45,40,-4.7;2025-11-24,50.45,55.32,34.61,40,-4.4;2025-12-01,51.71,55.18,34.78,41,-1.3;2025-12-08,54.42,55.15,34.97,44,-3.5;2025-12-15,53.37,55.08,35.15,43,-1.9;2025-12-22,52.79,54.99,35.33,43,-2.3;2025-12-29,55.56,55.01,35.53,46,-1;2026-01-05,64.18,55.37,35.82,54,1.9;2026-01-12,62.28,55.64,36.08,52,0.8;2026-01-19,59.45,55.79,36.31,49,-0.5;2026-01-26,54.05,55.72,36.49,45,-2.4;2026-02-02,54.39,55.67,36.67,45,-1.2;2026-02-09,57.54,55.74,36.87,48,-1.3;2026-02-16,60.79,55.94,37.11,52,0.2;2026-02-23,56.93,55.98,37.31,48,-1.3;2026-03-02,55.71,55.97,37.49,46,-2.6;2026-03-09,54.31,55.9,37.66,45,-4;2026-03-16,51.74,55.74,37.8,43,-8.1;2026-03-29,53.89,55.67,37.96,45,-6.3;2026-04-05,52.28,55.54,38.1,44,-7.4;2026-04-12,55.01,55.51,38.27,47,-5.9;2026-04-19,53.9,55.45,38.43,46,-8.2;2026-04-26,53.97,55.39,38.58,46,-8.5;2026-05-03,48.11,55.11,38.68,39,-12.6;2026-05-10,43.9,54.67,38.73,36,-14.7;2026-05-17,49.03,54.45,38.83,43,-12.2;2026-05-24,56.85,54.54,39.01,52,-9;2026-05-31,51.85,54.44,39.14,47,-9.6;2026-06-07,46.21,54.11,39.21,42,-11.7;2026-06-14,47.99,53.87,39.3,44,-9.4;2026-06-21,42.21,53.42,39.32,39,-11.8;2026-06-28,46.8,53.16,39.4,44,-9.9;2026-07-05,43.46,52.78,39.44,42,-11.8;2026-07-12,43.85,52.43,39.48,42,-10.7;2026-07-19,45.26,52.15,39.54,44,-10;2026-07-26,47.85,51.98,39.62,47,-9.2;2026-08-02,49.99,51.9,39.73,49,-9.3;2026-08-09,51.69,51.89,39.85,51,-8.2;2026-08-16,47.81,51.73,39.92,47,-9.4;2026-08-23,47.56,51.57,40,47,-9.4;2026-08-30,43.16,51.24,40.03,42,-11.3;2026-09-06,41.74,50.87,40.05,40,-13.2;2026-09-13,42.28,50.53,40.07,41,-10.8;2026-09-20,40.58,50.14,40.08,39,-11.7;2026-09-27,37.26,49.63,40.05,36,-13.5;2026-10-04,34.04,49.02,39.99,33,-15.6;2026-10-11,38.33,48.6,39.97,40,-12.9;2026-10-18,36.31,48.12,39.94,38,-14.3;2026-10-23,36.31,47.66,39.9,38,-14.3`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+const DD=`2025-10-15,65.68,73.11,57.56,30.9;2025-10-16,66.21,72.84,57.64,31.1;2025-10-17,62.71,72.45,57.69,30.8;2025-10-20,66.95,72.23,57.78,31.5;2025-10-21,66.51,72.01,57.87,31.2;2025-10-22,67.22,71.82,57.96,30.3;2025-10-23,65.41,71.57,58.04,29.5;2025-10-24,66.52,71.37,58.12,29.7;2025-10-27,66.3,71.17,58.2,29.5;2025-10-28,66.76,71,58.29,29.9;2025-10-29,64.47,70.74,58.35,29.5;2025-10-30,64.96,70.51,58.42,29.6;2025-10-31,65.79,70.33,58.49,29.2;2025-11-03,66.25,70.17,58.57,29.2;2025-11-04,65.19,69.97,58.63,29.1;2025-11-05,63.71,69.73,58.68,29.1;2025-11-06,63,69.46,58.73,29.1;2025-11-07,64.44,69.27,58.78,29.4;2025-11-10,65.89,69.14,58.85,29.1;2025-11-11,63.86,68.93,58.9,28.9;2025-11-12,62.81,68.69,58.94,28.9;2025-11-13,67.33,68.64,59.03,29.6;2025-11-14,65.27,68.5,59.09,30;2025-11-17,63.38,68.3,59.13,29.7;2025-11-18,62.31,68.07,59.16,29.6;2025-11-19,57.52,67.65,59.15,28.6;2025-11-20,55.5,67.18,59.11,28.4;2025-11-21,50.86,66.54,59.03,28.2;2025-11-24,48.63,65.84,58.92,28.1;2025-11-25,50.91,65.25,58.84,28.5;2025-11-26,51.35,64.7,58.77,28.5;2025-11-27,51.08,64.17,58.69,28.2;2025-11-28,50.45,63.63,58.61,28.1;2025-12-01,48.07,63.02,58.51,27.9;2025-12-02,48.97,62.47,58.41,27.9;2025-12-03,49.22,61.95,58.32,27.5;2025-12-04,49.46,61.46,58.23,27.4;2025-12-05,51.71,61.08,58.17,27.7;2025-12-08,54.57,60.82,58.13,28.3;2025-12-09,57.57,60.7,58.13,28.7;2025-12-10,55.99,60.51,58.1,29.2;2025-12-11,55.6,60.32,58.08,29.3;2025-12-12,54.42,60.09,58.04,29.2;2025-12-15,53.92,59.85,58,29.6;2025-12-16,51.62,59.52,57.94,29.4;2025-12-17,52.54,59.25,57.89,29.1;2025-12-18,53.55,59.03,57.84,29.5;2025-12-19,53.37,58.8,57.8,29.9;2025-12-22,53.28,58.59,57.75,30.1;2025-12-23,52.79,58.36,57.7,29.9;2025-12-29,52.4,58.13,57.65,30.2;2025-12-30,53.62,57.95,57.61,30.3;2026-01-02,55.56,57.86,57.59,30.8;2026-01-05,60.02,57.94,57.61,31.4;2026-01-06,59.6,58.01,57.63,31.3;2026-01-07,61.86,58.16,57.68,31.9;2026-01-08,63.67,58.37,57.74,31.8;2026-01-09,64.18,58.6,57.8,31.9;2026-01-12,66.22,58.9,57.88,32.2;2026-01-13,64.96,59.14,57.95,32.1;2026-01-14,61.26,59.22,57.99,31.5;2026-01-15,60.95,59.29,58.02,32;2026-01-16,62.28,59.41,58.06,32.4;2026-01-19,61.99,59.51,58.1,31.5;2026-01-20,60.74,59.56,58.12,31.5;2026-01-21,58.72,59.52,58.13,30.9;2026-01-22,57.5,59.44,58.12,30.8;2026-01-23,59.45,59.44,58.14,31.6;2026-01-26,57.48,59.37,58.13,31.2;2026-01-27,58.31,59.33,58.13,31.4;2026-01-28,57.83,59.27,58.13,31.3;2026-01-29,54.9,59.1,58.1,30.8;2026-01-30,54.05,58.9,58.06,30.7;2026-02-02,52.35,58.64,58,30.3;2026-02-03,53.3,58.43,57.95,30.2;2026-02-04,51.3,58.15,57.89,29.8;2026-02-05,51.62,57.9,57.82,30.3;2026-02-06,54.39,57.76,57.79,30.1;2026-02-09,57.48,57.75,57.79,30.6;2026-02-10,59.07,57.8,57.8,31.1;2026-02-11,57.4,57.78,57.8,31;2026-02-12,56.91,57.75,57.79,30.6;2026-02-13,57.54,57.74,57.78,30.5;2026-02-16,59.04,57.79,57.8,31;2026-02-17,58.22,57.81,57.8,31;2026-02-18,61.03,57.93,57.83,31.4;2026-02-19,60.94,58.05,57.86,31.5;2026-02-20,60.79,58.16,57.89,31.6;2026-02-23,58.83,58.19,57.9,31.3;2026-02-24,59.45,58.24,57.92,31.7;2026-02-25,58.21,58.23,57.92,31.6;2026-02-26,58.13,58.23,57.92,31.7;2026-02-27,56.93,58.18,57.91,31.4;2026-03-02,58.97,58.21,57.92,31.1;2026-03-03,57.06,58.17,57.92,31;2026-03-04,58.7,58.19,57.92,31.3;2026-03-05,52,57.94,57.86,29.1;2026-03-06,55.71,57.86,57.84,29.6;2026-03-09,55.45,57.76,57.82,30.1;2026-03-10,55.3,57.67,57.79,29.5;2026-03-11,54.33,57.53,57.76,29.5;2026-03-12,54.62,57.42,57.73,28.5;2026-03-13,54.31,57.3,57.69,28.3;2026-03-16,56.31,57.26,57.68,28.6;2026-03-17,56.79,57.24,57.67,29.2;2026-03-18,57.27,57.24,57.67,29.1;2026-03-19,54.51,57.14,57.64,28.7;2026-03-20,51.74,56.92,57.58,27.4;2026-03-23,51.69,56.72,57.52,27.5;2026-03-24,51.1,56.5,57.46,27.5;2026-03-25,52.36,56.34,57.4,27.9;2026-03-26,47.92,56.01,57.31,26.6;2026-03-27,47.01,55.65,57.21,26.5;2026-03-30,48.38,55.37,57.12,26.9;2026-03-31,50.64,55.18,57.06,27.5;2026-04-01,54.78,55.17,57.03,28.3;2026-04-02,53.89,55.12,57,28.4;2026-04-07,53.76,55.06,56.97,28.5;2026-04-08,55.62,55.08,56.96,28.8;2026-04-09,54.22,55.05,56.93,28.6;2026-04-10,52.28,54.94,56.88,28.4;2026-04-13,53,54.87,56.84,28.6;2026-04-14,52.06,54.76,56.8,28.4;2026-04-15,53.4,54.7,56.76,28.7;2026-04-16,52.92,54.63,56.72,28.5;2026-04-17,55.01,54.65,56.71,28.8;2026-04-20,55,54.66,56.69,29.1;2026-04-21,54.76,54.67,56.67,28.6;2026-04-22,55.78,54.71,56.66,28.8;2026-04-23,56.91,54.8,56.66,29.3;2026-04-24,53.9,54.76,56.64,28.8;2026-04-27,54.93,54.77,56.62,28.9;2026-04-28,53.26,54.71,56.59,28.6;2026-04-29,53.77,54.67,56.56,28.6;2026-04-30,53.97,54.64,56.53,28.7;2026-05-04,54.4,54.63,56.51,28.5;2026-05-05,55.26,54.66,56.5,28.4;2026-05-06,54.37,54.65,56.48,28.4;2026-05-07,51.39,54.52,56.43,27.6;2026-05-08,48.11,54.27,56.34,26.4;2026-05-11,46.3,53.96,56.24,25.8;2026-05-12,44.1,53.57,56.12,25.1;2026-05-13,43.72,53.18,56,25.2;2026-05-14,45.11,52.87,55.89,25.7;2026-05-15,43.9,52.51,55.77,25.3;2026-05-18,44.47,52.2,55.66,25.5;2026-05-19,46.26,51.97,55.57,25.6;2026-05-20,47.81,51.8,55.49,25.8;2026-05-21,47.69,51.64,55.41,25.2;2026-05-22,49.03,51.54,55.35,25.2;2026-05-25,50.61,51.5,55.3,25.5;2026-05-26,51.63,51.51,55.26,25.7;2026-05-27,52.59,51.55,55.24,25.6;2026-05-28,55.45,51.7,55.24,26;2026-05-29,56.85,51.91,55.26,26.8;2026-06-01,52.39,51.92,55.23,26.5;2026-06-02,50.01,51.85,55.18,26.1;2026-06-03,51.35,51.83,55.14,26.2;2026-06-04,51.23,51.81,55.1,26.2;2026-06-05,51.85,51.81,55.07,26.4;2026-06-08,50.55,51.76,55.02,26.2;2026-06-09,51.57,51.75,54.99,26.6;2026-06-10,50.48,51.7,54.94,26.4;2026-06-11,48.62,51.58,54.88,26.4;2026-06-12,46.21,51.37,54.79,25.7;2026-06-15,45.32,51.13,54.7,25.5;2026-06-16,45.1,50.9,54.6,25;2026-06-17,47.06,50.75,54.53,25.4;2026-06-18,46.85,50.59,54.45,25.2;2026-06-19,47.99,50.49,54.39,25.4;2026-06-22,45.24,50.29,54.3,24.8;2026-06-23,45.74,50.11,54.21,24.5;2026-06-24,42.44,49.81,54.09,23.2;2026-06-25,40.9,49.46,53.96,22.6;2026-06-26,42.21,49.17,53.85,22.5;2026-06-29,42.76,48.92,53.74,22.5;2026-06-30,42.17,48.66,53.62,22.4;2026-07-01,44.44,48.49,53.53,23.1;2026-07-02,47.26,48.44,53.47,23.6;2026-07-03,46.8,48.38,53.4,23.4;2026-07-06,48.69,48.39,53.35,23.6;2026-07-07,48.26,48.39,53.3,23.3;2026-07-08,45.77,48.28,53.23,22.7;2026-07-09,43.72,48.1,53.13,22.2;2026-07-10,43.46,47.92,53.04,22.5;2026-07-13,42.94,47.73,52.94,22.4;2026-07-14,43.31,47.55,52.84,22.7;2026-07-15,43.89,47.41,52.75,22.9;2026-07-16,42.91,47.23,52.65,22.6;2026-07-17,43.85,47.1,52.57,22.8;2026-07-20,44.02,46.98,52.48,23;2026-07-21,44.38,46.88,52.4,22.9;2026-07-22,44.82,46.8,52.33,23;2026-07-23,45.35,46.74,52.26,22.8;2026-07-24,45.26,46.68,52.19,22.8;2026-07-27,46.86,46.69,52.13,22.9;2026-07-28,48.19,46.75,52.09,23.4;2026-07-29,48.43,46.81,52.06,23.5;2026-07-30,47.69,46.85,52.01,23.6;2026-07-31,47.85,46.89,51.97,23.5;2026-08-03,49.02,46.97,51.94,23.8;2026-08-04,49.52,47.07,51.92,23.7;2026-08-05,48.5,47.13,51.89,23.3;2026-08-06,51.31,47.29,51.88,23.8;2026-08-07,49.99,47.4,51.86,23.3;2026-08-10,50.19,47.51,51.84,23.1;2026-08-11,50.16,47.61,51.83,23.1;2026-08-12,50.24,47.71,51.81,22.9;2026-08-13,50.02,47.8,51.79,22.7;2026-08-14,51.69,47.96,51.79,22.8;2026-08-17,51.16,48.08,51.79,22.6;2026-08-18,49.99,48.16,51.77,22.5;2026-08-19,49.84,48.22,51.75,22;2026-08-20,47.96,48.21,51.71,21.7;2026-08-21,47.81,48.2,51.67,21.8;2026-08-24,46.44,48.13,51.62,21.6;2026-08-25,46.69,48.07,51.57,21.4;2026-08-26,47.6,48.05,51.53,21.4;2026-08-27,48.2,48.06,51.5,21.5;2026-08-28,47.56,48.04,51.46,21.2;2026-08-31,47.01,48,51.42,20.8;2026-09-01,44.56,47.86,51.35,20.3;2026-09-02,44.58,47.74,51.28,20.3;2026-09-03,43.58,47.57,51.2,20.3;2026-09-04,43.16,47.4,51.12,19.9;2026-09-07,42.57,47.21,51.04,19.6;2026-09-08,44.15,47.09,50.97,19.7;2026-09-09,42.81,46.92,50.89,19.5;2026-09-10,42.33,46.74,50.8,20;2026-09-11,41.74,46.55,50.71,19.9;2026-09-14,42.15,46.37,50.63,19.8;2026-09-15,41.61,46.19,50.54,19.9;2026-09-16,40.72,45.97,50.44,19.5;2026-09-17,40.03,45.74,50.34,19.3;2026-09-18,42.28,45.6,50.26,21;2026-09-21,41.96,45.46,50.17,20.9;2026-09-22,41.08,45.29,50.08,20.7;2026-09-23,41.9,45.16,50,20.9;2026-09-24,40.23,44.96,49.9,20.7;2026-09-25,40.58,44.79,49.81,20.6;2026-09-28,39.62,44.59,49.71,20.6;2026-09-29,38.42,44.35,49.6,20.5;2026-09-30,37.72,44.09,49.48,19.9;2026-10-01,36.72,43.8,49.35,19.6;2026-10-02,37.26,43.54,49.23,19.7;2026-10-05,37.29,43.3,49.11,19.8;2026-10-06,36.19,43.02,48.99,19.4;2026-10-07,34.44,42.68,48.84,18.8;2026-10-08,33.95,42.34,48.69,18.7;2026-10-09,34.04,42.01,48.55,18.6;2026-10-12,34.69,41.73,48.41,19;2026-10-13,33.88,41.42,48.26,18.7;2026-10-14,34.79,41.16,48.13,19;2026-10-15,36.2,40.96,48.01,19.7;2026-10-16,38.33,40.86,47.92,20.3;2026-10-19,38.19,40.76,47.82,20.9;2026-10-20,37.28,40.62,47.71,20.8;2026-10-21,37.28,40.49,47.61,20.7;2026-10-22,37.08,40.35,47.5,20.9;2026-10-23,36.31,40.2,47.39,20.9`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+
+const fmtN=(v,d=2)=>v.toLocaleString("de-CH",{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmtD=s=>{const [y,m,d]=s.split("-");return d+"."+m+"."+y.slice(2)};
+const NS="http://www.w3.org/2000/svg";
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+
+function scoreTable(id,rows){
+  let tot=0,max=0;
+  const html='<thead><tr><th>Kriterium</th><th>Stand</th><th class="num">Punkte</th><th style="width:22%"></th></tr></thead><tbody>'+rows.map(r=>{tot+=r[2];max+=r[3];const p=r[2]/r[3];const c=p>=.75?"var(--good)":p>=.45?"var(--warn)":"var(--bad)";
+    return `<tr><td>${r[0]}</td><td class="muted">${r[1]}</td><td class="num">${r[2]} / ${r[3]}</td><td><div class="bar"><i style="width:${p*100}%;background:${c}"></i></div></td></tr>`}).join("")+`<tr class="total"><td>Total</td><td></td><td class="num">${tot} / ${max}</td><td></td></tr></tbody>`;
+  document.getElementById(id).innerHTML=html;return tot;
+}
+const qs=scoreTable("q-tbl",Q), ts=scoreTable("t-tbl",T);
+document.getElementById("q-val").textContent=qs;document.getElementById("t-val").textContent=ts;
+document.getElementById("q-pin").style.left=qs+"%";document.getElementById("t-pin").style.left=ts+"%";
+
+document.getElementById("fin-rows").innerHTML=FIN.map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1].toLocaleString("de-CH")}</td><td class="num">${r[2]}</td><td class="num">${r[3]}</td><td class="num">${fmtN(r[4])}</td><td class="num">${r[5].toLocaleString("de-CH")}</td><td class="num">${r[6]}</td><td class="num">${r[7]}</td></tr>`).join("");
+
+/* generic line chart */
+function lineChart(host,{dates,series,bands=[],yFmt=v=>fmtN(v),h=300,zero=false,refs=[],pad}){
+  const W_=800,H=h,m={t:12,r:56,b:28,l:8};
+  const all=series.flatMap(s=>s.values).concat(bands.flatMap(b=>[b.from,b.to])).concat(refs.map(r=>r.v));
+  if(zero)all.push(0);
+  let lo=Math.min(...all),hi=Math.max(...all);const sp=(hi-lo)||1;lo-=sp*.06;hi+=sp*.06;
+  if(pad){lo=pad[0];hi=pad[1]}
+  const n=dates.length,x=i=>m.l+i*(W_-m.l-m.r)/(n-1),y=v=>m.t+(hi-v)*(H-m.t-m.b)/(hi-lo);
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  // grid
+  const steps=5;for(let k=0;k<=steps;k++){const v=lo+(hi-lo)*k/steps;el("line",{x1:m.l,x2:W_-m.r,y1:y(v),y2:y(v),stroke:"var(--grid)","stroke-width":1},svg);
+    const t=el("text",{x:W_-m.r+6,y:y(v)+4,"font-size":11,fill:"var(--muted)","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=yFmt(v)}
+  bands.forEach(b=>{el("rect",{x:m.l,width:W_-m.l-m.r,y:y(Math.max(b.from,b.to)),height:Math.abs(y(b.from)-y(b.to)),fill:b.type==="res"?"var(--zone-res)":"var(--zone-sup)"},svg)});
+  refs.forEach(r=>{el("line",{x1:m.l,x2:W_-m.r,y1:y(r.v),y2:y(r.v),stroke:"var(--muted)","stroke-dasharray":"4 4","stroke-width":1},svg);
+    const t=el("text",{x:m.l+4,y:y(r.v)-4,"font-size":11,fill:"var(--muted)"},svg);t.textContent=r.label});
+  if(zero)el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  // x labels
+  const every=Math.ceil(n/6);for(let i=0;i<n;i+=every){const t=el("text",{x:x(i),y:H-8,"font-size":11,fill:"var(--muted)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);const d=dates[i];t.textContent=d.slice(5,7)+"/"+d.slice(2,4)}
+  series.forEach(s=>{const dpath=s.values.map((v,i)=>(i?"L":"M")+x(i).toFixed(1)+","+y(v).toFixed(1)).join("");
+    el("path",{d:dpath,fill:"none",stroke:s.color,"stroke-width":s.w||2,"stroke-linejoin":"round","stroke-linecap":"round"},svg);
+    const lv=s.values[n-1];el("circle",{cx:x(n-1),cy:y(lv),r:3.5,fill:s.color,stroke:"var(--surface)","stroke-width":2},svg)});
+  // hover
+  const cross=el("line",{y1:m.t,y2:H-m.b,stroke:"var(--muted)","stroke-width":1,opacity:0},svg);
+  const ov=el("rect",{x:m.l,y:m.t,width:W_-m.l-m.r,height:H-m.t-m.b,fill:"transparent"},svg);
+  host.appendChild(svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;host.appendChild(tip);
+  function move(ev){const r=svg.getBoundingClientRect();const px=(ev.clientX-r.left)*W_/r.width;let i=Math.round((px-m.l)/((W_-m.l-m.r)/(n-1)));i=Math.max(0,Math.min(n-1,i));
+    cross.setAttribute("x1",x(i));cross.setAttribute("x2",x(i));cross.setAttribute("opacity",1);
+    tip.innerHTML=`<div class="d">${fmtD(dates[i])}</div>`+series.map(s=>`<div><i class="sw" style="background:${s.color}"></i> ${s.name}: <b>${yFmt(s.values[i])}</b></div>`).join("");
+    tip.hidden=false;const hx=x(i)*r.width/W_;tip.style.left=Math.min(Math.max(0,hx+12),r.width-tip.offsetWidth)+"px";tip.style.top="8px"}
+  ov.addEventListener("pointermove",move);ov.addEventListener("pointerleave",()=>{tip.hidden=true;cross.setAttribute("opacity",0)});
+}
+function barChart(host,{labels,values,fmt,h=220,color,neg,tipExtra}){
+  const W_=800,H=h,m={t:18,r:8,b:28,l:8};
+  const hi=Math.max(0,...values),lo=Math.min(0,...values);const lo2=lo<0?lo*1.15:lo,hi2=hi*1.15||1;
+  const y=v=>m.t+(hi2-v)*(H-m.t-m.b)/(hi2-lo2);const n=values.length,bw=(W_-m.l-m.r)/n;
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;
+  values.forEach((v,i)=>{const x0=m.l+i*bw+bw*.18,w=bw*.64,y0=y(Math.max(v,0)),hh=Math.max(1,Math.abs(y(v)-y(0)));
+    const r=el("rect",{x:x0,y:y0,width:w,height:hh,rx:4,fill:v<0?(neg||"var(--s2)"):(color||"var(--s1)")},svg);
+    const t=el("text",{x:x0+w/2,y:v<0?y(v)+13:y0-5,"font-size":11.5,fill:"var(--ink)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=fmt(v);
+    const l=el("text",{x:x0+w/2,y:H-8,"font-size":11.5,fill:"var(--muted)","text-anchor":"middle"},svg);l.textContent=labels[i];
+    const hit=el("rect",{x:m.l+i*bw,y:m.t,width:bw,height:H-m.t-m.b,fill:"transparent"},svg);
+    hit.addEventListener("pointerenter",()=>{tip.innerHTML=`<div class="d">${labels[i]}</div><b>${fmt(v)}</b>${tipExtra?tipExtra(i):""}`;tip.hidden=false;const R=svg.getBoundingClientRect();tip.style.left=Math.min((m.l+i*bw)*R.width/W_,R.width-tip.offsetWidth)+"px";tip.style.top="0px"});
+    hit.addEventListener("pointerleave",()=>tip.hidden=true)});
+  host.appendChild(svg);host.appendChild(tip);
+}
+barChart(document.getElementById("c-rev"),{labels:HALF.map(r=>r[0]),values:HALF.map(r=>r[1]),fmt:v=>fmtN(v,0),h:200});
+barChart(document.getElementById("c-margin"),{labels:MARGIN.map(r=>r[0]),values:MARGIN.map(r=>r[1]),fmt:v=>fmtN(v,1)+" %",h:200});
+barChart(document.getElementById("c-seas"),{labels:MON,values:SEAS,fmt:v=>(v>0?"+":"")+fmtN(v,1),h:220,tipExtra:i=>`<div>${SEASHIT[i]} % der Jahre positiv</div>`});
+const BANDS=[{"from": 47, "to": 50, "type": "res"}, {"from": 38.9, "to": 42.8, "type": "res"}, {"from": 33.5, "to": 35.7, "type": "sup"}, {"from": 29, "to": 31.2, "type": "sup"}], REFS=[{"v": 42.8, "label": "Trigger 42.8"}];
+const wd=W.map(r=>r[0]);
+lineChart(document.getElementById("c-week"),{dates:wd,series:[{name:"Kurs",values:W.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:W.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:W.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,yFmt:v=>fmtN(v,0),h:320});
+lineChart(document.getElementById("c-adw"),{dates:wd,series:[{name:"A/D Woche",values:W.map(r=>r[5]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,zero:true});
+lineChart(document.getElementById("c-rsiw"),{dates:wd,series:[{name:"RSI Woche",values:W.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,refs:[{v:70,label:"70 überkauft"},{v:30,label:"30 überverkauft"}],pad:[10,90]});
+const dd=DD.map(r=>r[0]);
+lineChart(document.getElementById("c-day"),{dates:dd,series:[{name:"Kurs",values:DD.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:DD.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:DD.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,refs:REFS,yFmt:v=>fmtN(v,0),h:260});
+lineChart(document.getElementById("c-add"),{dates:dd,series:[{name:"A/D Tag",values:DD.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:260,zero:true});
+</script>

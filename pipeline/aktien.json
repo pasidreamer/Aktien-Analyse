@@ -1704,5 +1704,128 @@
   "pe_typ": "KGV",
   "zahlen": "2026-11-17",
   "artifact": "W5bD7XCXqkXpULq8Dw4SE4"
+ },
+ "RHM": {
+  "symbol": "RHM.DE",
+  "name": "Rheinmetall",
+  "tags": [
+   "Wachstum"
+  ],
+  "land": "Deutschland",
+  "region": "Europa",
+  "branche": "Rüstung",
+  "status": "beobachten",
+  "waehrung": "EUR",
+  "kurs": 1019.0,
+  "datenstand": "2026-10-23",
+  "kauf": [
+   [
+    910,
+    962
+   ],
+   [
+    820,
+    895
+   ]
+  ],
+  "widerstand": [
+   [
+    1096,
+    1146
+   ],
+   [
+    1185,
+    1240
+   ]
+  ],
+  "trigger": 1097,
+  "abbruch": 900,
+  "pe": 38.5,
+  "pe_avg": 32.4,
+  "pe_typ": "KGV",
+  "zahlen": "2026-11-05",
+  "artifact": "RBjarDweHi63aQhqN5Dj6z"
+ },
+ "HAG": {
+  "symbol": "HAG.DE",
+  "name": "Hensoldt",
+  "tags": [
+   "Wachstum"
+  ],
+  "land": "Deutschland",
+  "region": "Europa",
+  "branche": "Rüstungselektronik",
+  "status": "beobachten",
+  "waehrung": "EUR",
+  "kurs": 84.02,
+  "datenstand": "2026-10-23",
+  "kauf": [
+   [
+    77,
+    80.5
+   ],
+   [
+    69.5,
+    74
+   ]
+  ],
+  "widerstand": [
+   [
+    89,
+    90.5
+   ],
+   [
+    95,
+    97
+   ]
+  ],
+  "trigger": 90.3,
+  "abbruch": 69,
+  "pe": 81.6,
+  "pe_avg": 46.6,
+  "pe_typ": "KGV",
+  "zahlen": "2026-11-05",
+  "artifact": "9cFxvNdn1uny5wstnnCa7d"
+ },
+ "R3NK": {
+  "symbol": "R3NK.DE",
+  "name": "Renk Group",
+  "tags": [
+   "Wachstum"
+  ],
+  "land": "Deutschland",
+  "region": "Europa",
+  "branche": "Rüstung (Getriebe)",
+  "status": "beobachten",
+  "waehrung": "EUR",
+  "kurs": 36.31,
+  "datenstand": "2026-10-23",
+  "kauf": [
+   [
+    33.5,
+    35.7
+   ],
+   [
+    29,
+    31.2
+   ]
+  ],
+  "widerstand": [
+   [
+    38.9,
+    42.8
+   ],
+   [
+    47,
+    50
+   ]
+  ],
+  "trigger": 42.8,
+  "abbruch": 33,
+  "pe": 36.7,
+  "pe_avg": 44.1,
+  "pe_typ": "KGV",
+  "zahlen": "2026-11-05",
+  "artifact": "JVP1LSBEKCvNyEvgTPyvGL"
  }
 }

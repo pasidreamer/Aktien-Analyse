@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rheinmetall Aktien-Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F3F5F7; --surface:#FFFFFF; --ink:#141B24; --muted:#5A6573; --line:#DDE2E8; --grid:#E9EDF1;
+  --accent:#2F45B5; --accent-soft:#E6E9F8; --chip:#EBEEF2;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+  --good:#1D7A4B; --good-bg:#E3F3EA; --warn:#9A6200; --warn-bg:#FBF0DC; --bad:#B2362A; --bad-bg:#FBE6E3;
+  --zone-sup:rgba(29,122,75,.10); --zone-res:rgba(178,54,42,.09);
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+    --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+    --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+    --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+  --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+  --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;padding-inline:16px;padding-block:24px 56px}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+h1,h2,h3{font-family:var(--display);font-stretch:85%;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:clamp(32px,7vw,48px);font-weight:800;line-height:1}
+h2{font-size:24px;font-weight:700}
+h3{font-size:17px;font-weight:700;font-stretch:95%}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+section{display:flex;flex-direction:column;gap:14px}
+.lead{max-width:68ch;color:var(--muted)}
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;align-items:stretch}
+.hero .id{display:flex;flex-direction:column;gap:10px;justify-content:space-between}
+.price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price b{font-family:var(--display);font-size:34px;font-weight:700}
+.meta{font-size:13px;color:var(--muted)}
+.verdict{font-size:15px;padding:12px 14px;border-radius:10px;background:var(--chip)}
+.scales{display:flex;flex-direction:column;gap:18px}
+.scale-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.scale-h span{font-size:13px;color:var(--muted)}
+.scale-h b{font-family:var(--display);font-size:28px;line-height:1}
+.track{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#C8412F 0%,#E0892F 30%,#E3B63A 50%,#8BBF4B 68%,#2E9A5B 100%);margin-top:8px}
+.pin{position:absolute;top:-5px;width:4px;height:22px;border-radius:2px;background:var(--ink);box-shadow:0 0 0 2px var(--surface);transform:translateX(-2px)}
+.ticks{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);font-family:var(--mono);margin-top:6px}
+.state{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;margin-top:8px}
+.st-good{background:var(--good-bg);color:var(--good)}
+.st-warn{background:var(--warn-bg);color:var(--warn)}
+.st-bad{background:var(--bad-bg);color:var(--bad)}
+/* tables */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;color:var(--muted);font-weight:500;font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:700;border-bottom:none}
+.pts{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{height:6px;border-radius:3px;background:var(--chip);min-width:60px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:3px}
+/* grids */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;border-left:4px solid var(--line)}
+.kpi.g{border-left-color:var(--good)}.kpi.w{border-left-color:var(--warn)}.kpi.b{border-left-color:var(--bad)}
+.kpi span{font-size:12px;color:var(--muted)}
+.kpi b{font-family:var(--mono);font-size:19px;font-weight:500;font-variant-numeric:tabular-nums}
+.kpi em{font-style:normal;font-size:12.5px;color:var(--muted)}
+/* charts */
+.chart{position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:14px;height:3px;border-radius:2px;display:inline-block}
+.swb{width:12px;height:10px;border-radius:2px;display:inline-block}
+.tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12.5px;box-shadow:0 4px 14px rgba(0,0,0,.12);white-space:nowrap;z-index:2}
+.tip b{font-family:var(--mono);font-weight:500}
+.tip .d{font-family:var(--mono);color:var(--muted);font-size:11.5px}
+.note{font-size:13.5px;color:var(--muted)}
+ul.clean{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.pro li::marker{color:var(--good)} .con li::marker{color:var(--bad)}
+.zones{display:flex;flex-direction:column;gap:8px}
+.zone{display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:baseline;padding:10px 12px;border-radius:10px;background:var(--chip);font-size:14px}
+.zone b{font-family:var(--mono);font-weight:500}
+.zone.r{border-left:4px solid var(--bad)} .zone.s{border-left:4px solid var(--good)} .zone.t{border-left:4px solid var(--accent)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+summary{cursor:pointer;font-weight:600}
+details p{margin-top:8px;color:var(--muted);max-width:70ch}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+footer{font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:6px;max-width:80ch}
+footer a{color:var(--accent)}
+@media (max-width:760px){.hero,.two{grid-template-columns:1fr}.zone{grid-template-columns:1fr;gap:2px}}
+</style>
+
+<a href="../index.html#/aktie/RHM" style="display:inline-block;margin:max(12px,env(safe-area-inset-top)) 0 0 16px;background:#1f3a5f;color:#fff;font:600 14px system-ui;padding:8px 12px;border-radius:20px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">Zurück zur App</a>
+<div class="wrap">
+
+<header class="hero">
+  <div class="card id">
+    <div>
+      <div class="eyebrow">Aktien-Check · 23.10.2026</div>
+      <h1>Rheinmetall</h1>
+      <p class="meta">Rheinmetall AG · Xetra: RHM · Rüstung: Panzer und Militärfahrzeuge, Munition, Flugabwehr, Elektronik, seit März 2026 auch Kriegsschiffe (NVL) · Düsseldorf, Deutschland</p>
+    </div>
+    <div class="price"><b>1'019.00 €</b><span class="meta">Schluss 23.10.2026 · 52 Wochen: 909 – 1'966 € · Allzeithoch rund 2'008 € (Wochenhoch Ende September 2025)</span></div>
+    <p class="verdict"><b>Kurz gesagt:</b> Rheinmetall ist der grösste Rüstungskonzern Deutschlands und wächst so schnell wie nie: Auftragsbestand 80.5 Mrd. € (rund 6 Jahresumsätze), Umsatz im 2. Quartal 2026 +69 %, Ziel 2030 rund 50 Mrd. € Umsatz. Trotzdem hat sich der Kurs vom Hoch (rund 2'000 €) auf 1'019 € halbiert. Gründe: Friedensgespräche zur Ukraine, verfehlte Erwartungen, das gestoppte Fregattenprogramm F126 und ein tief negativer Free Cashflow im 1. Halbjahr (−1.6 Mrd. €). Qualität hellgrün (66), Timing gelb (48). Der Chef kauft seit Mai für rund 13.6 Mio. € eigene Aktien. Der grosse Prüfstein ist der Bundestag am 9.12.2026 zum Boxer-Auftrag (rund 12.4 Mrd. € für Rheinmetall).</p>
+  </div>
+  <div class="card scales">
+    <div>
+      <div class="scale-h"><span>Qualität · Ist die Firma kaufenswert?</span><b id="q-val">66</b></div>
+      <div class="track"><i class="pin" id="q-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-good">● Solide</span>
+    </div>
+    <div>
+      <div class="scale-h"><span>Timing · Ist jetzt der Zeitpunkt?</span><b id="t-val">48</b></div>
+      <div class="track"><i class="pin" id="t-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-warn">▲ Warten auf Bestätigung</span>
+    </div>
+    <p class="note">Skala: unter 30 rot · 30–45 orange · 45–60 gelb · 60–75 hellgrün · ab 75 grün. Beide Werte setzen sich aus festen Kriterien zusammen, siehe unten.</p>
+  </div>
+</header>
+
+<section>
+  <h2>Was die Firma macht</h2>
+  <p class="lead">Rheinmetall baut Militärfahrzeuge (Boxer, Lynx, Panther, Teile des Leopard 2), Artillerie- und Panzermunition, Flugabwehr (Skynex), Elektronik und Digitalisierung für Armeen und seit März 2026 mit der Werft NVL auch Kriegsschiffe. 2025 kam rund die Hälfte des Umsatzes aus Fahrzeugen, gut ein Drittel aus Waffen und Munition, der Rest aus Elektronik. Die Munitionssparte ist am profitabelsten (29 % Marge). Das zivile Geschäft (Autoteile) wird verkauft und ist in den Zahlen ab 2024 herausgerechnet. Wichtigster Kunde ist Deutschland (38 % im 1. Halbjahr 2026), danach andere NATO-Länder und die Ukraine. Fast alle Aktien sind im Streubesitz.</p>
+  <p class="lead">2025 stieg die Aktie um rund 119 %, Ende September 2025 kostete sie knapp 2'000 €. Seither fiel sie um rund die Hälfte. Am 18.11.2025 setzte Rheinmetall sehr hohe Ziele (2030: rund 50 Mrd. € Umsatz, Marge über 20 %). Am 11.3.2026 lagen die Jahreszahlen 2025 und die Prognose 2026 unter den Erwartungen (Aktie −6 %). Im April drückten Gespräche über einen Frieden in der Ukraine die ganze Branche. Am 7.5. verfehlte das 1. Quartal die Erwartungen (Gewinn pro Aktie 2.18 € statt 2.70 €), JPMorgan stufte auf Neutral ab. Am 24.6. stoppte der Bund die Fregatte F126, für die die neue Rheinmetall-Werft NVL verantwortlich war (Aktie bis −13 % an einem Tag). Am 6.8. senkte Rheinmetall die Umsatzprognose 2026 leicht auf 13.7 bis 14.2 Mrd. €, das 2. Quartal war aber stark (Marge 17.1 % statt erwarteter 14.9 %). Am 9.10. stufte Berenberg auf Halten ab (Ziel 1'020 €), Kurs 939 €. Seither erholte sich die Aktie leicht.</p>
+</section>
+
+<section>
+  <h2>Fundamental: die Zahlen</h2>
+  <div class="kpis">
+<div class="kpi g"><span>Umsatzwachstum</span><b>+29 %</b><em>Jahr 2025 ohne Zivilgeschäft (9.9 Mrd. €). Für 2026 erwartet Rheinmetall 13.7 bis 14.2 Mrd. €, aus eigener Kraft +28 bis 31 %. Im 2. Quartal 2026 +69 % (mit der Werft NVL).</em></div>
+<div class="kpi g"><span>Operative Marge</span><b>18.5 %</b><em>Laut Firma 2025, von 100 € Umsatz bleiben 18.50 € Betriebsgewinn. Ziel 2026 rund 19 %, 2030 über 20 %. Nach strengerer Rechnung (StockAnalysis) 16.9 %, 2021 waren es nur 11 %.</em></div>
+<div class="kpi g"><span>Gewinn pro Aktie (EPS)</span><b>26.47 €</b><em>Letzte 12 Monate, nur fortgeführtes Rüstungsgeschäft (selbst gerechnet aus Firmenzahlen). 2024: 17.19 €, 2025: 22.73 €. Mit dem Verlust aus dem Zivilgeschäft sind es nur 15.46 €.</em></div>
+<div class="kpi g"><span>ROIC</span><b>18.7 %</b><em>Auf 100 € investiertes Kapital rund 19 € Gewinn. Gut, seit 2021 zwischen 17 und 23 %.</em></div>
+<div class="kpi r"><span>Free Cashflow</span><b>0.4 Mrd. €</b><em>Letzte 12 Monate, nur 3 % vom Umsatz. Im 1. Halbjahr 2026 flossen 1.6 Mrd. € ab, weil Anzahlungen fehlten und Lager und Werke ausgebaut wurden. 2025 waren es noch +1.4 Mrd. €.</em></div>
+<div class="kpi w"><span>Nettoschulden</span><b>2.7 Mrd. €</b><em>Mitte 2026, Ende 2025 hatte Rheinmetall noch 0.4 Mrd. € mehr Geld als Schulden. Das sind rund 1.2 Jahresgewinne vor Abschreibungen (EBITDA 2.3 Mrd. €). Noch gut tragbar.</em></div>
+<div class="kpi w"><span>KGV</span><b>38.5</b><em>Du zahlst rund 38 Jahresgewinne. Eigener Schnitt 2021 bis 2025 rund 32 (stark steigend von 12 auf 70). Also rund 19 % teurer als der Schnitt. Auf die erwarteten Gewinne 2027 gerechnet rund 21.</em></div>
+<div class="kpi w"><span>Dividende</span><b>1.1 %</b><em>11.50 € pro Aktie, einmal im Jahr (bezahlt am 15.5.2026). +42 % zum Vorjahr, seit 2021 mehr als verdreifacht. Rheinmetall zahlt 35 bis 40 % des Gewinns aus.</em></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>Umsatz pro Halbjahr ohne Zivilgeschäft (Mio. €)</h3>
+      <p class="note">Nur Halbjahre, weil die Quartale 2025 ohne Zivilgeschäft nicht einzeln veröffentlicht sind. Das 1. Halbjahr 2026 lag 39 % über dem Vorjahr (ohne die Werft NVL +30 %). Das 2. Halbjahr ist bei Rheinmetall immer das stärkste.</p>
+      <div class="chart" id="c-rev"></div>
+    </div>
+    <div class="card">
+      <h3>Operative Marge pro Jahr</h3>
+      <p class="note">Nach StockAnalysis gerechnet. Der Sprung 2024 kommt auch daher, dass das schwächere Zivilgeschäft herausgerechnet ist. Laut Firma: 18.0 % (2024) und 18.5 % (2025).</p>
+      <div class="chart" id="c-margin"></div>
+    </div>
+  </div>
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Jahr</th><th class="num">Umsatz Mio. €</th><th class="num">Wachstum</th><th class="num">Op. Marge</th><th class="num">EPS €</th><th class="num">Free Cashflow</th><th class="num">ROIC</th><th class="num">KGV</th></tr></thead>
+      <tbody id="fin-rows"></tbody>
+    </table>
+  </div>
+  <p class="note"><b>Hinweis:</b> Ab 2024 ohne das zivile Geschäft (Autoteile), das verkauft wird. Darum sind 2021 bis 2023 nicht ganz vergleichbar. Gewinn pro Aktie bis 2025 nach MarketScreener, letzte 12 Monate selbst gerechnet (fortgeführtes Geschäft). KGV = Jahresschlusskurs geteilt durch diesen Gewinn, Schnitt 2021 bis 2025: 32.4. Free Cashflow nach StockAnalysis (Firma 2025: 1.2 Mrd. € «operativer Free Cashflow»).</p>
+</section>
+
+<section>
+  <h2>Qualität: 66 von 100</h2>
+  <div class="card tbl"><table id="q-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Technik: Wochenchart (2 Jahre)</h2>
+  <div class="card">
+    <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span><span><i class="swb" style="background:var(--zone-sup);border:1px solid var(--good)"></i>Unterstützung</span><span><i class="swb" style="background:var(--zone-res);border:1px solid var(--bad)"></i>Widerstand</span></div>
+    <div class="chart" id="c-week"></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>A/D-Linie, Woche</h3>
+      <p class="note">Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Die Wochen-A/D fällt seit dem Hoch im Sommer 2025 langsam: Mitte September 2026 stand sie bei gleichem Kurs (1'012 €) bei 41.1, heute bei 40.6. Kein Zeichen, dass grosse Käufer zurückkommen.</p>
+      <div class="chart" id="c-adw"></div>
+    </div>
+    <div class="card">
+      <h3>RSI, Woche</h3>
+      <p class="note">Unter 30 überverkauft, über 70 überkauft. Im Juni bei 30 (überverkauft), beim tieferen Kurs-Tief im Oktober bei 36: leicht positive Abweichung. Heute 43, neutral.</p>
+      <div class="chart" id="c-rsiw"></div>
+    </div>
+  </div>
+
+  <h2>Technik: Tageschart (1 Jahr)</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Kurs, Tag</h3>
+      <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span></div>
+      <div class="chart" id="c-day"></div>
+    </div>
+    <div class="card">
+      <h3>A/D-Linie, Tag</h3>
+      <p class="note">Neutral bis leicht negativ. Beim Tief vom 8.10. (909 €) lag die Tages-A/D bei 12.5, tiefer als beim Tief vom 11.9. (13.4). Mit der Erholung stieg sie auf 13.2, liegt aber unter dem Wert vom 15.9. (13.5) bei fast gleichem Kurs. Es fehlt eine klare Käufer-Spur.</p>
+      <div class="chart" id="c-add"></div>
+    </div>
+  </div>
+
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Indikator</th><th>Tag</th><th>Woche</th><th>Bedeutung</th></tr></thead>
+      <tbody>
+<tr><td>Kurs vs. EMA 50</td><td class="pts">1'019 &lt; 1'030</td><td class="pts">1'019 &lt; 1'235</td><td>Knapp unter der Tageslinie, klar unter der Wochenlinie.</td></tr>
+<tr><td>Kurs vs. EMA 200</td><td class="pts">1'019 &lt; 1'218</td><td class="pts">1'019 &gt; 963</td><td>Tag darunter, Woche noch darüber.</td></tr>
+<tr><td>EMA 50 vs. EMA 200</td><td class="pts">50 unter 200 (seit 31.3.2026)</td><td class="pts">50 über 200, Abstand schrumpft</td><td>Tag im Abwärtstrend, Woche: Rücksetzer im langen Aufwärtstrend.</td></tr>
+<tr><td>RSI (14)</td><td class="pts">51.9</td><td class="pts">42.6</td><td>Tag: Kurs-Tief im Oktober tiefer als im Juni, RSI höher (36 statt 24): bullische Divergenz.</td></tr>
+<tr><td>A/D</td><td class="pts">leicht tiefer bei gleichem Kurs</td><td class="pts">fällt langsam</td><td>Keine Käufer-Spur, eher neutral bis negativ.</td></tr>
+<tr><td>Volumen</td><td colspan="2">Ø 20 Tage 0.19 Mio. vs. Ø 100 Tage 0.21 Mio. Aktien</td><td>Etwas weniger Handel als im Sommer.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Struktur und Zonen (Smart Money Concept)</h2>
+  <p class="lead">Seit dem Wochenhoch von rund 2'008 € (Ende September 2025) macht Rheinmetall tiefere Hochs (1'966 € im Januar, 1'238 € im August 2026) und tiefere Tiefs (1'099 € im Mai, 929 € im Juni, 909 € am 8.10.2026). Das Juni- und das Oktober-Tief liegen nah beieinander, beide knapp unter der Wochen-EMA 200 (963 €): eine mögliche Bodenbildung, aber noch nicht bestätigt. Im Tageschart gab es seit August tiefere Hochs (1'238 → 1'185 → 1'045 → 987 €). Am 16.10. schloss der Kurs mit 1'090 € deutlich über dem letzten tieferen Hoch (1'045 € vom 16.9.): ein erster Change of Character im Tageschart. Seither kam der Kurs auf 1'019 € zurück. Darüber liegt der Widerstand 1'096 bis 1'146 € (Hoch vom 16.10. und vom 7.7.).</p>
+  <div class="zones">
+<div class="zone r"><b>1'185–1'240 €</b><span>Widerstand: Hochs vom August (1'234 und 1'238 €) und Tages-EMA 200 (1'218 €).</span></div>
+<div class="zone r"><b>1'096–1'146 €</b><span>Widerstand: Hoch vom 16.10. (1'096.60 €) und vom 7.7. (1'146 €).</span></div>
+<div class="zone t"><b>1'097 €</b><span><b>Trigger:</b> Tagesschluss über dem Hoch vom 16.10. Dann wäre aus dem ersten Change of Character ein höheres Hoch geworden.</span></div>
+<div class="zone s"><b>910–962 €</b><span><b>Kaufzone 1:</b> Doppelboden aus den Tiefs vom 26.6. (929 €) und 8.10. (909 €), Wochen-EMA 200 (963 €).</span></div>
+<div class="zone s"><b>820–895 €</b><span><b>Kaufzone 2:</b> Kurslücke vom Februar 2025 (Wochenschluss 894 €), letzte grössere Unterstützung unter dem Doppelboden.</span></div>
+<div class="zone r"><b>900 €</b><span>Abbruch: Wochenschluss unter dem Oktober-Tief (909 €). Dann wäre der Doppelboden gebrochen.</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Smart Money, Insider und Saisonalität</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Wer kauft, wer verkauft?</h3>
+      <ul class="clean" style="margin-top:8px">
+<li><b>Insider-Käufe:</b> CEO Armin Papperger kaufte seit Mai 2026 für rund 13.6 Mio. € eigene Aktien, unter anderem 4'000 Stück zu 1'249.91 € am 1.6. (5.0 Mio. €), 3'188 Stück zu 954.62 € am 25.6. (3.0 Mio. €) und 525 Stück zu rund 950 € am 29.9. Auch Aufsichtsratschef Ulrich Grillo, Vorstand René Gansauge und eine Stiftung von Aufsichtsrat Andreas Georgi (2.10.) kauften. Verkäufe von Insidern: keine gefunden.</li>
+<li><b>Rückkäufe:</b> Keine. Die Aktienzahl stieg 2025 um rund 4 % (Kapitalerhöhung für Zukäufe). Eine Wandelanleihe (500 Mio. €, Wandlungspreis 307.80 €) kann weitere rund 1.6 Mio. Aktien bringen.</li>
+<li><b>Grosse Investoren:</b> 98 % Streubesitz. Bewegungen grosser Fonds 2026 nicht gefunden.</li>
+<li><b>Analysten:</b> 21 Analysten, Mehrheit «Kaufen», Kursziel im Schnitt rund 1'560 € (StockAnalysis, MarketScreener). Spanne 1'020 € (Berenberg, Halten, 9.10.) bis 2'380 €. JPMorgan Neutral (1'500 €), Goldman Sachs Kaufen (2'300 €). Im April lag das Ziel im Schnitt noch bei 2'045 €.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Saisonalität seit 1998</h3>
+      <p class="note">Durchschnittliche Monatsrendite in %. Daten seit 1998. November schwach (−1.1 %, nur 39 % positive Jahre), Dezember (+4.5 %, 61 %) und Januar (+6.7 %, 79 %) sind die stärksten Monate. Der Oktober ist noch nicht abgeschlossen.</p>
+      <div class="chart" id="c-seas"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Timing: 48 von 100</h2>
+  <div class="card tbl"><table id="t-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Dividende</h2>
+  <div class="card tbl"><table><tr><td style="white-space:nowrap;color:var(--muted)">Wie oft</td><td>1× pro Jahr (jährlich)</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Ex-Tag im</td><td>Mai</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Geld auf dem Konto im</td><td>Mai</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Zahltage</td><td>Mitte Mai, zwei bis drei Tage nach der Generalversammlung (2026: Generalversammlung 12. Mai, Ex-Tag 13. Mai, Zahltag 15. Mai; Termin 2027 noch nicht bestätigt)</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Letzte Zahlung</td><td>11.50 € pro Aktie</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Rendite</td><td>1.1 %</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">System</td><td>Deutsches System: eine Dividende pro Jahr, beschlossen an der Generalversammlung im Mai und wenige Tage später ausbezahlt. Rheinmetall zahlt 35 bis 40 % des Gewinns aus (für 2025: 45.5 %). Seit 2021 stieg die Dividende jedes Jahr (3.30 → 4.30 → 5.70 → 8.10 → 11.50 €). Analysten erwarten für 2026 rund 15 €.</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Form</td><td>Bar in Euro aufs Konto. Deutschland zieht 26.375 % Quellensteuer ab. 15 % kannst du über die Schweizer Steuererklärung anrechnen lassen (Formular DA-1), die restlichen 11.375 % musst du in Deutschland zurückfordern (Bundeszentralamt für Steuern, innert rund 3 Jahren). Lohnt sich erst bei grösseren Beträgen.</td></tr></table><p class="note" style="margin:10px 0 0"><b>Ex-Tag:</b> Du bekommst die Dividende nur, wenn du die Aktie am Abend vor dem Ex-Tag besitzt. <b>Zahltag:</b> An diesem Tag kommt das Geld aufs Konto (in der Währung der Aktie, abzüglich Quellensteuer). Die nächsten genauen Termine zeigt die App unter «Termine».</p></div>
+</section>
+
+<section>
+  <h2>Worauf du achten solltest: Unterbewertung und Wachstumsschub</h2>
+  <div class="card"><p style="margin:0 0 10px"><b>Bewertung:</b> KGV 38.5 statt 32.4 im eigenen 5-Jahres-Schnitt, also 19 % teurer als üblich (am Analysetag).</p><h3>Was die Börse befürchtet</h3><p class="note" style="margin:4px 0">Echte Probleme, eher lösbar: Das Geschäft wächst stark weiter (Auftragsbestand 80.5 Mrd. €), aber Cashflow, Marine-Sparte und verfehlte Erwartungen sind echte, eher vorübergehende Probleme.</p><ul class="clean"><li>Ein Frieden in der Ukraine könnte die Nachfrage nach Munition und Fahrzeugen bremsen. Gespräche im April und Juli 2026 drückten den Kurs jeweils um über 10 %.</li><li>Rheinmetall hat 2026 die Erwartungen zweimal verfehlt (Jahreszahlen 11.3., 1. Quartal 7.5.) und am 6.8. die Umsatzprognose auf 13.7 bis 14.2 Mrd. € gesenkt.</li><li>Der Free Cashflow ist eingebrochen: Im 1. Halbjahr 2026 flossen 1.6 Mrd. € ab, aus Netto-Cash wurden 2.7 Mrd. € Nettoschulden.</li><li>Der Bund stoppte am 24.6.2026 die Fregatte F126, den grössten Auftrag der neu gekauften Werft NVL. Berenberg zweifelt zudem am Wachstum nach 2030 (Abstufung 9.10.).</li></ul><h3 style="margin-top:12px">Was die Sorgen beenden könnte</h3><ul class="clean"><li>Q3-Zahlen: Kommt der Umsatz (erwartet rund 3.2 Mrd. €) und bestätigt Rheinmetall die Jahresziele? <span class="muted">(Zahlen 05.11.2026)</span></li><li>Investorentag: Bestätigung oder Anpassung der Ziele 2030 (rund 50 Mrd. € Umsatz) <span class="muted">(26./27.11.2026)</span></li><li>Bundestag gibt den Boxer-Auftrag Arminius frei: rund 12.4 Mrd. € für Rheinmetall und über 3 Mrd. € Anzahlung, das würde das Cashflow-Problem lösen <span class="muted">(09.12.2026, Anzahlung Dezember/Januar)</span></li><li>Jahreszahlen 2026 und Prognose 2027 (Analysten erwarten rund 18.5 Mrd. € Umsatz) <span class="muted">(11.03.2027)</span></li></ul><h3 style="margin-top:12px">Wachstumsschub: Starker Wachstumsschub möglich</h3><ul class="clean"><li><b>Bundeswehr-Grossaufträge:</b> Der Auftragsbestand stieg in 18 Monaten von 46.9 auf 80.5 Mrd. €. Mit Arminius (rund 1'800 Boxer, Anteil Rheinmetall rund 12.4 Mrd. €) käme ein weiterer Riesenauftrag dazu. Die Umsätze daraus fliessen über viele Jahre. <span class="muted">(2026–2030)</span></li><li><b>Munition und Flugabwehr:</b> Neue Munitionswerke laufen hoch, die Flugabwehr wuchs im 1. Halbjahr 2026 um 62 %. Munition ist mit 29 % Marge die profitabelste Sparte und hebt die Konzernmarge. <span class="muted">(2026–2028)</span></li><li><b>Marine und Satelliten:</b> Die Werft NVL (rund 1.3 Mrd. € Umsatz) ist seit März 2026 dabei, im Oktober startete die Serienfertigung von Satelliten mit ICEYE. Beides ist noch klein und nach dem F126-Stopp unsicher. <span class="muted">(2027–2030)</span></li></ul><p style="margin:10px 0 0"><b>Woran du es erkennst:</b> Achte auf den Umsatz im 4. Quartal (für die Prognose braucht das 2. Halbjahr rund 8.5 bis 9 Mrd. €) und auf den operativen Free Cashflow nach der Arminius-Anzahlung. Steigt der Auftragsbestand weiter über 80 Mrd. € und wird der Cashflow positiv, kommt der Schub.</p><p style="margin:10px 0 0"><b>Das Chancen-Szenario:</b> Ähnlich wie Google 2023, nur mit Panzern statt KI: Die Börse fürchtet das Ende des Booms, während die Aufträge für Jahre gebucht sind. Gelingen Arminius und die Prognose, könnte die Aktie wieder Richtung Analystenziel (rund 1'560 €) laufen. Grösstes Risiko: Ein Friedensschluss und weitere Verzögerungen bei Aufträgen und Zahlungen, dann bleibt der Cashflow negativ und die Bewertung sinkt weiter.</p><p class="note" style="margin:10px 0 0">Quellen: <a href="https://www.rheinmetall.com/de/media/news-watch/news/2026/03/2026-03-11-rheinmetall-bilanzvorlage-geschaeftsjahr-2025" target="_blank" rel="noopener">Rheinmetall: Geschäftsjahr 2025 (11.03.2026)</a>, <a href="https://www.boerse-global.de/rheinmetall-aktie-124-milliarden-fuer-boxer-radpanzer-angepeilt/827711" target="_blank" rel="noopener">Börse Global: Boxer-Auftrag Arminius (18.09.2026)</a>, <a href="https://ms-aktuell.de/finanzen/rheinmetall-aktie-berenberg-11-10-2026/" target="_blank" rel="noopener">ms-aktuell: Berenberg stuft ab (11.10.2026)</a>, <a href="https://in.marketscreener.com/quote/stock/RHEINMETALL-AG-436527/consensus/" target="_blank" rel="noopener">MarketScreener: Analysten-Konsens</a></p></div>
+</section>
+
+<section>
+  <h2>Pro und Contra</h2>
+  <div class="two">
+    <div class="card pro"><h3>Spricht dafür</h3><ul class="clean" style="margin-top:8px">
+<li>Rekord-Auftragsbestand 80.5 Mrd. €, rund sechs Jahresumsätze. Das Wachstum ist für Jahre gesichert.</li>
+<li>Prognose 2026: +28 bis 31 % aus eigener Kraft, Marge rund 19 %, im 2. Quartal schon 17.1 %.</li>
+<li>Der CEO kauft massiv eigene Aktien (rund 13.6 Mio. € seit Mai), auch zu tiefen Kursen.</li>
+<li>Ein grosser Auslöser steht fest: Bundestag am 9.12.2026 zum Boxer-Auftrag Arminius, mit über 3 Mrd. € Anzahlung.</li>
+<li>Die Dividende stieg seit 2021 von 3.30 auf 11.50 €.</li>
+    </ul></div>
+    <div class="card con"><h3>Spricht dagegen</h3><ul class="clean" style="margin-top:8px">
+<li>Der Free Cashflow ist eingebrochen (1. Halbjahr −1.6 Mrd. €), die Firma hat jetzt Nettoschulden statt Netto-Cash.</li>
+<li>Die Erwartungen sind hoch: 2026 schon zweimal verfehlt, Umsatzprognose im August gesenkt.</li>
+<li>Die Werft NVL hat mit der gestrichenen Fregatte F126 ihren grössten Auftrag verloren.</li>
+<li>Ein Frieden in der Ukraine drückt jedes Mal stark auf den Kurs, und Deutschland ist ein Klumpenrisiko (38 % Umsatz).</li>
+<li>Die Bewertung ist trotz Halbierung nicht billig: KGV 38.5, teurer als der eigene Schnitt.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section>
+  <h2>Was jetzt zu tun ist</h2>
+  <div class="zones">
+<div class="zone t"><b>Beobachten</b><span>Alarm bei 1'097 € (Trigger) und 962 € (oberes Ende Kaufzone 1).</span></div>
+<div class="zone s"><b>Timing grün</b><span>Tagesschluss über 1'097 € mit steigender A/D. Oder ein Test der Kaufzone 910 bis 962 €, der über 900 € hält. Fundamental: Q3-Zahlen am 5.11., Investorentag 26./27.11. und vor allem die Freigabe für Arminius am 9.12.2026.</span></div>
+<div class="zone r"><b>Abbruch</b><span>Wochenschluss unter 900 €. Dann wäre die Kaufzone 2 (820 bis 895 €) das nächste Ziel.</span></div>
+<div class="zone "><b>Nächste Zahlen</b><span>3. Quartal am 5. November 2026 (bestätigt). Erwartet: rund 3.2 Mrd. € Umsatz, 7.00 € Gewinn pro Aktie. Jahreszahlen am 11. März 2027.</span></div>
+  </div>
+</section>
+
+<footer>
+  <span>Kursdaten und Indikatoren (EMA, RSI 14, A/D) selbst berechnet aus Yahoo-Finance-Tages-, Wochen- und Monatsdaten, Stand 23.10.2026. <a href="https://stockanalysis.com/quote/etr/RHM/financials/" target="_blank" rel="noopener">StockAnalysis.com</a> (Stand 25.10.2026), <a href="https://www.rheinmetall.com/de/media/news-watch/news/2026/03/2026-03-11-rheinmetall-bilanzvorlage-geschaeftsjahr-2025" target="_blank" rel="noopener">Rheinmetall Geschäftsjahr 2025</a>, Rheinmetall Halbjahresbericht 6.8.2026, <a href="https://uk.marketscreener.com/quote/stock/RHEINMETALL-AG-436527/finances/" target="_blank" rel="noopener">MarketScreener</a>, <a href="https://www.marketscreener.com/quote/stock/RHEINMETALL-AG-436527/company-insider-trading/" target="_blank" rel="noopener">Insider (MarketScreener)</a>, <a href="https://ms-aktuell.de/finanzen/rheinmetall-aktie-berenberg-11-10-2026/" target="_blank" rel="noopener">Berenberg-Abstufung (11.10.2026)</a>, <a href="https://www.boerse-global.de/rheinmetall-aktie-124-milliarden-fuer-boxer-radpanzer-angepeilt/827711" target="_blank" rel="noopener">Boxer-Auftrag Arminius (18.9.2026)</a>, <a href="https://www.rheinmetall.com/de/investor-relations/aktie/dividende" target="_blank" rel="noopener">Dividende (Rheinmetall)</a>. Branchenvergleich App: Note 2.2 von 5, fairer Wert nach Modellen deutlich unter dem Kurs, Unsicherheit hoch.</span>
+  <span>Persönliche Analyse, keine Anlageberatung. Vergangene Kurse und Saisonalität sagen nichts Sicheres über die Zukunft.</span>
+</footer>
+</div>
+
+<script>
+const Q=[["Umsatztrend", "Q1 2026 +8 %, Q2 2026 +69 %, Jahr 2025 +29 %. Die Quartale 2025 ohne Zivilgeschäft fehlen (Daten teils fehlen)", 10, 15], ["Wachstumstempo", "Prognose 2026 aus eigener Kraft +28 bis 31 %", 10, 10], ["Operative Marge", "18.5 % laut Firma (6 Pkt.), seit 2021 klar steigend (6 Pkt.)", 12, 15], ["Gewinnwachstum (EPS)", "Fortgeführtes Geschäft 17.19 → 22.73 → 26.47 €, über 15 % pro Jahr", 10, 10], ["Free Cashflow", "Meist positiv (2022 negativ), letzte 12 Monate stark gesunken auf 0.4 Mrd. €", 3, 10], ["ROIC", "18.7 %, seit 2021 seitwärts zwischen 17 und 23 %", 10, 15], ["Schulden", "Nettoschulden/EBITDA rund 1.2", 7, 10], ["Bewertung vs. eigene Historie", "KGV 38.5 statt Ø 32.4 (2021–2025), rund 19 % teurer", 4, 15]];
+const T=[["Trend Woche (EMA 50/200)", "Kurs über EMA 200 (963 €), unter EMA 50 (1'235 €): Rücksetzer im Aufwärtstrend, EMA 50 fällt aber", 12, 20], ["Trend Tag (EMA 50/200)", "Kurs knapp unter beiden, EMA 50 unter 200, Abstand zur EMA 50 klein", 2, 10], ["Struktur (SMC)", "Woche tiefere Tiefs, aber möglicher Doppelboden. Tag: erster CHoCH am 16.10., noch unbestätigt", 8, 20], ["RSI Tag/Woche", "Bullische Divergenz Tag (Oktober-Tief tiefer, RSI höher), Woche ähnlich, Trend aber nicht intakt", 12, 15], ["A/D Tag/Woche", "Beide neutral bis leicht fallend, keine Divergenz", 4, 20], ["Smart Money", "Start 3, Insider-Käufe rund 14 Mio. € seit Mai +4, kein Rückkauf", 7, 10], ["Saisonalität", "November schwach (39 %), Dezember und Januar stark (61 % und 79 %)", 3, 5]];
+const FIN=[["2021", 5658, "+4.7 %", "11.1 %", 6.72, 419, "21.3 %", "12.3"], ["2022", 6410, "+13.3 %", "11.5 %", 10.82, -175, "19.3 %", "17.4"], ["2023", 7176, "+12.0 %", "12.0 %", 12.07, 345, "16.6 %", "23.9"], ["2024", 7715, "+7.5 %", "17.2 %", 15.96, 988, "18.6 %", "38.6"], ["2025", 9935, "+28.8 %", "16.8 %", 22.29, 1415, "23.1 %", "69.7"], ["Letzte 12 Mt.", 11413, "+49 %", "16.9 %", 26.47, 391, "18.7 %", "38.5"]];
+const HALF=[["H1 25", 3749], ["H2 25", 6186], ["H1 26", 5227]];
+const MARGIN=[["2021", 11.1], ["2022", 11.5], ["2023", 12.0], ["2024", 17.2], ["2025", 16.8], ["12 Mt.", 16.9]];
+const SEAS=[6.7, 5.7, 2.6, -0.9, -1.5, 1.0, -0.4, -0.7, -2.1, 0.0, -1.1, 4.5];
+const SEASHIT=[79.0, 67.0, 50.0, 50.0, 43.0, 46.0, 46.0, 38.0, 45.0, 0.0, 39.0, 61.0];
+const MON=["Jan","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"];
+const W=`2024-10-20,485.8,445.7,278.4,50,28.7;2024-10-28,478,446.97,280.39,48,28.6;2024-11-04,546,450.85,283.03,59,30.8;2024-11-11,575.8,455.75,285.95,63,31.6;2024-11-18,619,462.16,289.26,67,33;2024-11-25,622.4,468.44,292.57,67,33.5;2024-12-02,651.8,475.63,296.15,70,34;2024-12-09,616,481.13,299.33,63,33.9;2024-12-16,611.6,486.25,302.44,62,33.5;2024-12-23,617.8,491.41,305.58,63,33.3;2024-12-30,615.6,496.28,308.66,63,33.6;2025-01-06,650,502.31,312.06,67,34.6;2025-01-13,694.4,509.84,315.86,71,35.8;2025-01-20,731.6,518.54,320,74,36.6;2025-01-27,755.4,527.83,324.33,76,37.6;2025-02-03,723.4,535.5,328.3,69,36.3;2025-02-10,817,546.54,333.16,76,38.1;2025-02-17,894.2,560.17,338.75,80,36.9;2025-02-24,1006.5,577.67,345.39,84,39;2025-03-03,1115,598.74,353.05,87,37;2025-03-10,1369,628.95,363.16,91,40.6;2025-03-17,1305,655.46,372.53,84,39.6;2025-03-30,1276,679.8,381.52,81,38.1;2025-04-06,1360.5,706.49,391.26,83,40.7;2025-04-13,1464,736.2,401.93,85,41.2;2025-04-20,1386.5,761.7,411.73,77,41.1;2025-04-27,1576,793.63,423.32,82,42.4;2025-05-04,1694,828.94,435.96,84,43.3;2025-05-11,1723,864,448.77,84,45;2025-05-18,1783.5,900.06,462.05,85,45.7;2025-05-25,1885,938.69,476.21,87,46;2025-06-01,1788,971.99,489.26,79,45;2025-06-08,1795.5,1004.29,502.26,79,46.4;2025-06-15,1757.5,1033.82,514.75,76,46.3;2025-06-22,1751,1061.95,527.05,75,46.3;2025-06-29,1755,1089.13,539.26,75,46.7;2025-07-06,1840,1118.57,552.21,78,47.4;2025-07-13,1835.5,1146.69,564.98,77,47.1;2025-07-20,1734,1169.72,576.61,68,46.4;2025-07-27,1707.5,1190.81,587.86,66,46.4;2025-08-03,1620.5,1207.66,598.14,59,45.6;2025-08-10,1621,1223.87,608.31,59,46.2;2025-08-17,1622.5,1239.5,618.41,59,46.8;2025-08-24,1689.5,1257.15,629.06,63,47.2;2025-08-31,1744.5,1276.26,640.16,66,47.3;2025-09-07,1896.5,1300.58,652.66,72,48.5;2025-09-14,1928,1325.19,665.35,73,48.3;2025-09-21,1960.5,1350.1,678.24,74,48.7;2025-09-28,1962.5,1374.12,691.02,74,48.7;2025-10-05,1882,1394.04,702.87,66,48.3;2025-10-12,1661.5,1404.52,712.41,50,47.2;2025-10-19,1764,1418.62,722.87,56,47.1;2025-10-27,1701.5,1429.71,732.61,52,46.7;2025-11-03,1749,1442.24,742.72,55,47.1;2025-11-10,1727,1453.4,752.52,53,47;2025-11-17,1519.5,1455.99,760.15,43,45.2;2025-11-24,1480.5,1456.96,767.32,41,45.1;2025-12-01,1529.5,1459.8,774.9,44,45.8;2025-12-08,1616,1465.93,783.27,49,46;2025-12-15,1559.5,1469.6,790.99,46,46.3;2025-12-22,1541,1472.4,798.46,45,46.3;2025-12-29,1602,1477.48,806.45,49,46.7;2026-01-05,1900,1494.05,817.33,62,48.3;2026-01-12,1902,1510.05,828.12,62,48.5;2026-01-19,1830,1522.59,838.09,58,48.1;2026-01-26,1781.5,1532.75,847.48,55,47.7;2026-02-02,1604.5,1535.56,855.01,47,47.2;2026-02-09,1609,1538.44,862.52,47,47.3;2026-02-16,1740,1546.34,871.25,53,47.8;2026-02-23,1663.5,1550.94,879.13,49,47.4;2026-03-02,1592.5,1552.57,886.23,46,46.6;2026-03-09,1592.5,1554.13,893.26,46,46.7;2026-03-16,1503,1552.13,899.32,42,45.5;2026-03-29,1570.5,1552.85,906,46,46.3;2026-04-05,1463.8,1549.36,911.55,41,45.7;2026-04-12,1495.2,1547.23,917.36,43,45.8;2026-04-19,1319.2,1538.29,921.36,36,44.8;2026-04-26,1355.8,1531.13,925.68,39,44.9;2026-05-03,1218.4,1518.87,928.59,34,43;2026-05-10,1120,1503.23,930.5,31,41.9;2026-05-17,1227.2,1492.4,933.45,37,42.7;2026-05-24,1293.4,1484.6,937.03,41,43.6;2026-05-31,1209.8,1473.82,939.74,38,43.3;2026-06-07,1205.6,1463.3,942.39,38,43.3;2026-06-14,1202.6,1453.08,944.98,38,44;2026-06-21,946.6,1433.22,945,30,42;2026-06-28,1093.4,1419.89,946.47,38,43.1;2026-07-05,992,1403.11,946.93,35,42.2;2026-07-12,984.2,1386.68,947.3,35,42.4;2026-07-19,1037.6,1373,948.19,38,42.8;2026-07-26,1140,1363.86,950.1,43,43.2;2026-08-02,1146.4,1355.33,952.06,43,42.5;2026-08-09,1202,1349.32,954.54,46,42.9;2026-08-16,1155.4,1341.71,956.54,44,42.4;2026-08-23,1154.6,1334.38,958.51,44,42.6;2026-08-30,1034,1322.6,959.26,39,41.8;2026-09-06,990.6,1309.58,959.58,37,41.2;2026-09-13,1011.8,1297.9,960.1,39,41.1;2026-09-20,982.4,1285.53,960.32,37,40.6;2026-09-27,956.9,1272.64,960.28,36,40.3;2026-10-04,939.1,1259.56,960.07,36,40.1;2026-10-11,1090.2,1252.92,961.37,46,41.1;2026-10-18,1019,1243.74,961.94,43,40.6;2026-10-23,1019,1234.93,962.51,43,40.6`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+const DD=`2025-10-15,1745,1835.19,1505.2,17.7;2025-10-16,1774.5,1832.81,1507.88,17.9;2025-10-17,1661.5,1826.09,1509.41,17.8;2025-10-20,1759.5,1823.48,1511.9,18;2025-10-21,1780.5,1821.79,1514.57,18.1;2025-10-22,1750.5,1819,1516.92,17.9;2025-10-23,1766,1816.92,1519.4,17.8;2025-10-24,1764,1814.85,1521.83,17.8;2025-10-27,1731.5,1811.58,1523.92,17.7;2025-10-28,1745,1808.97,1526.12,17.8;2025-10-29,1731,1805.91,1528.16,17.8;2025-10-30,1705,1801.95,1529.92,17.7;2025-10-31,1701.5,1798.01,1531.62,17.6;2025-11-03,1773.5,1797.05,1534.03,17.8;2025-11-04,1729,1794.38,1535.97,17.7;2025-11-05,1707,1790.96,1537.67,17.7;2025-11-06,1708,1787.7,1539.37,17.6;2025-11-07,1749,1786.18,1541.45,17.7;2025-11-10,1787,1786.22,1543.9,17.8;2025-11-11,1731.5,1784.07,1545.76,17.7;2025-11-12,1745,1782.54,1547.74,17.7;2025-11-13,1750.5,1781.28,1549.76,17.7;2025-11-14,1727,1779.15,1551.53,17.9;2025-11-17,1723,1776.95,1553.23,17.8;2025-11-18,1716,1774.56,1554.85,17.5;2025-11-19,1596,1767.56,1555.26,17;2025-11-20,1637,1762.44,1556.07,16.8;2025-11-21,1519.5,1752.91,1555.71,16.4;2025-11-24,1443,1740.76,1554.59,16.1;2025-11-25,1468,1730.06,1553.73,16.2;2025-11-26,1495.5,1720.86,1553.15,16.2;2025-11-27,1514,1712.75,1552.76,16.2;2025-11-28,1480.5,1703.64,1552.04,16.1;2025-12-01,1448,1693.62,1551,16.2;2025-12-02,1490,1685.63,1550.4,16.3;2025-12-03,1519,1679.1,1550.08,16.3;2025-12-04,1540,1673.64,1549.98,16.5;2025-12-05,1529.5,1667.99,1549.78,16.4;2025-12-08,1585,1664.74,1550.13,16.6;2025-12-09,1641.5,1663.83,1551.04,16.6;2025-12-10,1610,1661.71,1551.63,16.7;2025-12-11,1602.5,1659.39,1552.13,16.6;2025-12-12,1616,1657.69,1552.77,16.6;2025-12-15,1573.5,1654.39,1552.97,16.5;2025-12-16,1502,1648.41,1552.47,16.5;2025-12-17,1527,1643.65,1552.21,16.5;2025-12-18,1550,1639.98,1552.19,16.6;2025-12-19,1559.5,1636.82,1552.26,16.8;2025-12-22,1545,1633.22,1552.19,16.8;2025-12-23,1541,1629.61,1552.08,16.8;2025-12-29,1526,1625.54,1551.82,16.9;2025-12-30,1561,1623.01,1551.91,17;2026-01-02,1602,1622.19,1552.41,17.1;2026-01-05,1752,1627.28,1554.4,17.5;2026-01-06,1740.5,1631.72,1556.25,17.3;2026-01-07,1825,1639.3,1558.92,17.7;2026-01-08,1851,1647.6,1561.83,17.6;2026-01-09,1900,1657.5,1565.19,17.9;2026-01-12,1890,1666.62,1568.43,17.7;2026-01-13,1904,1675.92,1571.77,17.9;2026-01-14,1899,1684.67,1575.02,18;2026-01-15,1913.5,1693.65,1578.39,18.2;2026-01-16,1902,1701.82,1581.61,18;2026-01-19,1920,1710.37,1584.98,17.7;2026-01-20,1909,1718.16,1588.2,17.8;2026-01-21,1853.5,1723.47,1590.84,17.7;2026-01-22,1790.5,1726.1,1592.83,17.7;2026-01-23,1830,1730.17,1595.19,17.8;2026-01-26,1791,1732.56,1597.14,17.7;2026-01-27,1850,1737.16,1599.65,17.9;2026-01-28,1845,1741.39,1602.09,17.9;2026-01-29,1795.5,1743.51,1604.02,17.8;2026-01-30,1781.5,1745,1605.78,17.8;2026-02-02,1729,1744.38,1607.01,17.7;2026-02-03,1760.5,1745.01,1608.54,17.7;2026-02-04,1679.5,1742.44,1609.24,17.6;2026-02-05,1571,1735.72,1608.86,17.6;2026-02-06,1604.5,1730.57,1608.82,17.6;2026-02-09,1649,1727.37,1609.22,17.7;2026-02-10,1629,1723.51,1609.42,17.6;2026-02-11,1592,1718.36,1609.24,17.6;2026-02-12,1579.5,1712.91,1608.95,17.6;2026-02-13,1609,1708.84,1608.95,17.6;2026-02-16,1620,1705.35,1609.06,17.6;2026-02-17,1611.5,1701.67,1609.08,17.7;2026-02-18,1694,1701.37,1609.93,17.9;2026-02-19,1743.5,1703.02,1611.25,18;2026-02-20,1740,1704.47,1612.54,18;2026-02-23,1701.5,1704.36,1613.42,18;2026-02-24,1724.5,1705.15,1614.53,18;2026-02-25,1682,1704.24,1615.2,18;2026-02-26,1674,1703.05,1615.78,18;2026-02-27,1663.5,1701.5,1616.26,17.8;2026-03-02,1627.5,1698.6,1616.37,17.5;2026-03-03,1580,1693.95,1616.01,17.3;2026-03-04,1638.5,1691.77,1616.23,17.5;2026-03-05,1547,1686.1,1615.54,17.2;2026-03-06,1592.5,1682.43,1615.31,17.3;2026-03-09,1625,1680.17,1615.41,17.4;2026-03-10,1653,1679.11,1615.78,17.6;2026-03-11,1520.5,1672.89,1614.84,16.9;2026-03-12,1550.5,1668.09,1614.2,16.8;2026-03-13,1592.5,1665.13,1613.98,16.8;2026-03-16,1624.5,1663.53,1614.08,16.8;2026-03-17,1635,1662.41,1614.29,17;2026-03-18,1605.5,1660.18,1614.2,16.8;2026-03-19,1550,1655.86,1613.57,16.5;2026-03-20,1503,1649.87,1612.47,16.1;2026-03-23,1483,1643.32,1611.18,16.2;2026-03-24,1471.5,1636.58,1609.79,16.2;2026-03-25,1486.5,1630.7,1608.56,16.2;2026-03-26,1436,1623.06,1606.84,16.1;2026-03-27,1379.5,1613.51,1604.58,15.9;2026-03-30,1409.5,1605.51,1602.64,16.1;2026-03-31,1444.5,1599.2,1601.07,16.2;2026-04-01,1581.5,1598.5,1600.87,16.5;2026-04-02,1570.5,1597.4,1600.57,16.6;2026-04-07,1531,1594.8,1599.88,16.5;2026-04-08,1578,1594.14,1599.66,16.6;2026-04-09,1550.2,1592.42,1599.17,16.7;2026-04-10,1463.8,1587.37,1597.82,16.5;2026-04-13,1495.4,1583.77,1596.8,16.6;2026-04-14,1486.6,1579.96,1595.71,16.6;2026-04-15,1515.2,1577.42,1594.9,16.7;2026-04-16,1497.2,1574.27,1593.93,16.6;2026-04-17,1495.2,1571.17,1592.95,16.4;2026-04-20,1475.8,1567.43,1591.78,16.5;2026-04-21,1431,1562.08,1590.18,16.3;2026-04-22,1422.8,1556.62,1588.52,16.2;2026-04-23,1407,1550.75,1586.71,16.2;2026-04-24,1319.2,1541.67,1584.05,15.9;2026-04-27,1345.8,1533.99,1581.68,15.9;2026-04-28,1343.2,1526.51,1579.31,16;2026-04-29,1338,1519.12,1576.91,15.8;2026-04-30,1355.8,1512.71,1574.71,16;2026-05-04,1388.2,1507.83,1572.85,15.9;2026-05-05,1435.4,1504.99,1571.48,16.1;2026-05-06,1441.6,1502.5,1570.19,16.2;2026-05-07,1341.6,1496.19,1567.92,15.9;2026-05-08,1218.4,1485.3,1564.44,15.3;2026-05-11,1185.6,1473.55,1560.67,15.2;2026-05-12,1162,1461.33,1556.7,15.3;2026-05-13,1121.6,1448.01,1552.37,15.2;2026-05-14,1143.2,1436.05,1548.3,15.2;2026-05-15,1120,1423.66,1544.04,14.9;2026-05-18,1172,1413.79,1540.34,15.2;2026-05-19,1207,1405.68,1537.02,15.1;2026-05-20,1233.6,1398.93,1534,15.3;2026-05-21,1209.4,1391.5,1530.77,15.1;2026-05-22,1227.2,1385.06,1527.75,15.1;2026-05-25,1243.6,1379.51,1524.92,15.2;2026-05-26,1237.2,1373.93,1522.06,15.2;2026-05-27,1232.8,1368.39,1519.18,15.1;2026-05-28,1284,1365.08,1516.84,15.2;2026-05-29,1293.4,1362.27,1514.62,15.3;2026-06-01,1207,1356.18,1511.56,15;2026-06-02,1190,1349.67,1508.36,14.9;2026-06-03,1200.4,1343.81,1505.29,15.1;2026-06-04,1190.2,1337.79,1502.16,15.1;2026-06-05,1209.8,1332.77,1499.25,15.2;2026-06-08,1199.8,1327.56,1496.27,15.2;2026-06-09,1207.2,1322.84,1493.39,15.2;2026-06-10,1197.2,1317.91,1490.45,15.2;2026-06-11,1220,1314.07,1487.76,15.2;2026-06-12,1205.6,1309.82,1484.95,15.1;2026-06-15,1150.2,1303.56,1481.62,15;2026-06-16,1145.6,1297.36,1478.27,14.8;2026-06-17,1170.2,1292.37,1475.21,14.9;2026-06-18,1178.6,1287.91,1472.26,14.9;2026-06-19,1202.6,1284.57,1469.57,15;2026-06-22,1189.4,1280.84,1466.79,14.9;2026-06-23,1166.6,1276.36,1463.8,14.8;2026-06-24,949,1263.52,1458.68,13.7;2026-06-25,949,1251.18,1453.61,13.7;2026-06-26,946.6,1239.24,1448.56,13.9;2026-06-29,970.9,1228.72,1443.81,14;2026-06-30,990.5,1219.37,1439.3,14.1;2026-07-01,1050.6,1212.76,1435.43,14.4;2026-07-02,1115,1208.92,1432.24,14.8;2026-07-03,1093.4,1204.39,1428.87,14.7;2026-07-06,1130,1201.47,1425.9,14.9;2026-07-07,1111.6,1197.95,1422.77,14.7;2026-07-08,1058.8,1192.49,1419.15,14.5;2026-07-09,1013.2,1185.46,1415.11,14.3;2026-07-10,992,1177.88,1410.9,14.3;2026-07-13,979.2,1170.08,1406.6,14.3;2026-07-14,979.9,1162.63,1402.36,14.4;2026-07-15,976.1,1155.31,1398.12,14.5;2026-07-16,963.9,1147.81,1393.79,14.4;2026-07-17,984.2,1141.39,1389.72,14.6;2026-07-20,990.3,1135.46,1385.74,14.6;2026-07-21,995.4,1129.97,1381.86,14.6;2026-07-22,1007.8,1125.18,1378.14,14.6;2026-07-23,1017,1120.94,1374.55,14.4;2026-07-24,1037.6,1117.67,1371.19,14.5;2026-07-27,1050.6,1115.04,1368,14.5;2026-07-28,1086.8,1113.93,1365.2,14.5;2026-07-29,1153.4,1115.48,1363.1,14.8;2026-07-30,1139.6,1116.43,1360.87,14.8;2026-07-31,1140,1117.35,1358.68,14.7;2026-08-03,1175,1119.61,1356.85,14.8;2026-08-04,1200.8,1122.79,1355.3,14.7;2026-08-05,1200.6,1125.85,1353.76,14.5;2026-08-06,1159,1127.15,1351.82,14.3;2026-08-07,1146.4,1127.9,1349.77,14.2;2026-08-10,1142.2,1128.46,1347.71,14.2;2026-08-11,1142.2,1129,1345.66,14.2;2026-08-12,1168.2,1130.54,1343.9,14.1;2026-08-13,1164.6,1131.87,1342.11,14.1;2026-08-14,1202,1134.62,1340.72,14.1;2026-08-17,1214,1137.74,1339.46,14;2026-08-18,1213.8,1140.72,1338.21,14;2026-08-19,1178.8,1142.21,1336.62,13.9;2026-08-20,1162.2,1143,1334.89,13.8;2026-08-21,1155.4,1143.48,1333.1,13.9;2026-08-24,1125.2,1142.77,1331.03,13.8;2026-08-25,1118.2,1141.8,1328.91,13.8;2026-08-26,1138.8,1141.68,1327.02,13.9;2026-08-27,1173.2,1142.92,1325.49,14;2026-08-28,1154.6,1143.38,1323.79,13.9;2026-08-31,1110.8,1142.1,1321.67,13.7;2026-09-01,1079.8,1139.66,1319.27,13.6;2026-09-02,1090.4,1137.73,1316.99,13.7;2026-09-03,1070.2,1135.08,1314.53,13.6;2026-09-04,1034,1131.11,1311.74,13.5;2026-09-07,1020.8,1126.79,1308.85,13.4;2026-09-08,1051.8,1123.85,1306.29,13.5;2026-09-09,1012.4,1119.48,1303.36,13.4;2026-09-10,1016.4,1115.43,1300.51,13.5;2026-09-11,990.6,1110.54,1297.43,13.4;2026-09-14,996.7,1106.08,1294.43,13.4;2026-09-15,1028.6,1103.04,1291.79,13.5;2026-09-16,1013,1099.51,1289.01,13.3;2026-09-17,1016.2,1096.24,1286.3,13.3;2026-09-18,1011.8,1092.93,1283.57,13;2026-09-21,1010.6,1089.7,1280.85,13;2026-09-22,991.4,1085.84,1277.97,12.9;2026-09-23,1025,1083.46,1275.45,13.1;2026-09-24,990,1079.79,1272.61,13;2026-09-25,982.4,1075.97,1269.73,13;2026-09-28,966.3,1071.67,1266.71,12.8;2026-09-29,960.4,1067.31,1263.66,12.8;2026-09-30,956.4,1062.96,1260.6,12.7;2026-10-01,945.8,1058.37,1257.47,12.7;2026-10-02,956.9,1054.39,1254.48,12.6;2026-10-05,980.2,1051.48,1251.75,12.8;2026-10-06,953,1047.62,1248.78,12.6;2026-10-07,926.2,1042.85,1245.57,12.4;2026-10-08,934.9,1038.62,1242.48,12.5;2026-10-09,939.1,1034.72,1239.46,12.6;2026-10-12,962.2,1031.87,1236.7,12.8;2026-10-13,953.4,1028.8,1233.88,12.7;2026-10-14,983.3,1027.01,1231.39,12.8;2026-10-15,1026,1026.97,1229.34,13;2026-10-16,1090.2,1029.45,1227.96,13.3;2026-10-19,1059.8,1030.64,1226.29,13.3;2026-10-20,1054,1031.56,1224.57,13.3;2026-10-21,1020,1031.1,1222.54,13.3;2026-10-22,1015,1030.47,1220.47,13.2;2026-10-23,1019,1030.02,1218.47,13.2`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+
+const fmtN=(v,d=2)=>v.toLocaleString("de-CH",{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmtD=s=>{const [y,m,d]=s.split("-");return d+"."+m+"."+y.slice(2)};
+const NS="http://www.w3.org/2000/svg";
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+
+function scoreTable(id,rows){
+  let tot=0,max=0;
+  const html='<thead><tr><th>Kriterium</th><th>Stand</th><th class="num">Punkte</th><th style="width:22%"></th></tr></thead><tbody>'+rows.map(r=>{tot+=r[2];max+=r[3];const p=r[2]/r[3];const c=p>=.75?"var(--good)":p>=.45?"var(--warn)":"var(--bad)";
+    return `<tr><td>${r[0]}</td><td class="muted">${r[1]}</td><td class="num">${r[2]} / ${r[3]}</td><td><div class="bar"><i style="width:${p*100}%;background:${c}"></i></div></td></tr>`}).join("")+`<tr class="total"><td>Total</td><td></td><td class="num">${tot} / ${max}</td><td></td></tr></tbody>`;
+  document.getElementById(id).innerHTML=html;return tot;
+}
+const qs=scoreTable("q-tbl",Q), ts=scoreTable("t-tbl",T);
+document.getElementById("q-val").textContent=qs;document.getElementById("t-val").textContent=ts;
+document.getElementById("q-pin").style.left=qs+"%";document.getElementById("t-pin").style.left=ts+"%";
+
+document.getElementById("fin-rows").innerHTML=FIN.map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1].toLocaleString("de-CH")}</td><td class="num">${r[2]}</td><td class="num">${r[3]}</td><td class="num">${fmtN(r[4])}</td><td class="num">${r[5].toLocaleString("de-CH")}</td><td class="num">${r[6]}</td><td class="num">${r[7]}</td></tr>`).join("");
+
+/* generic line chart */
+function lineChart(host,{dates,series,bands=[],yFmt=v=>fmtN(v),h=300,zero=false,refs=[],pad}){
+  const W_=800,H=h,m={t:12,r:56,b:28,l:8};
+  const all=series.flatMap(s=>s.values).concat(bands.flatMap(b=>[b.from,b.to])).concat(refs.map(r=>r.v));
+  if(zero)all.push(0);
+  let lo=Math.min(...all),hi=Math.max(...all);const sp=(hi-lo)||1;lo-=sp*.06;hi+=sp*.06;
+  if(pad){lo=pad[0];hi=pad[1]}
+  const n=dates.length,x=i=>m.l+i*(W_-m.l-m.r)/(n-1),y=v=>m.t+(hi-v)*(H-m.t-m.b)/(hi-lo);
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  // grid
+  const steps=5;for(let k=0;k<=steps;k++){const v=lo+(hi-lo)*k/steps;el("line",{x1:m.l,x2:W_-m.r,y1:y(v),y2:y(v),stroke:"var(--grid)","stroke-width":1},svg);
+    const t=el("text",{x:W_-m.r+6,y:y(v)+4,"font-size":11,fill:"var(--muted)","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=yFmt(v)}
+  bands.forEach(b=>{el("rect",{x:m.l,width:W_-m.l-m.r,y:y(Math.max(b.from,b.to)),height:Math.abs(y(b.from)-y(b.to)),fill:b.type==="res"?"var(--zone-res)":"var(--zone-sup)"},svg)});
+  refs.forEach(r=>{el("line",{x1:m.l,x2:W_-m.r,y1:y(r.v),y2:y(r.v),stroke:"var(--muted)","stroke-dasharray":"4 4","stroke-width":1},svg);
+    const t=el("text",{x:m.l+4,y:y(r.v)-4,"font-size":11,fill:"var(--muted)"},svg);t.textContent=r.label});
+  if(zero)el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  // x labels
+  const every=Math.ceil(n/6);for(let i=0;i<n;i+=every){const t=el("text",{x:x(i),y:H-8,"font-size":11,fill:"var(--muted)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);const d=dates[i];t.textContent=d.slice(5,7)+"/"+d.slice(2,4)}
+  series.forEach(s=>{const dpath=s.values.map((v,i)=>(i?"L":"M")+x(i).toFixed(1)+","+y(v).toFixed(1)).join("");
+    el("path",{d:dpath,fill:"none",stroke:s.color,"stroke-width":s.w||2,"stroke-linejoin":"round","stroke-linecap":"round"},svg);
+    const lv=s.values[n-1];el("circle",{cx:x(n-1),cy:y(lv),r:3.5,fill:s.color,stroke:"var(--surface)","stroke-width":2},svg)});
+  // hover
+  const cross=el("line",{y1:m.t,y2:H-m.b,stroke:"var(--muted)","stroke-width":1,opacity:0},svg);
+  const ov=el("rect",{x:m.l,y:m.t,width:W_-m.l-m.r,height:H-m.t-m.b,fill:"transparent"},svg);
+  host.appendChild(svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;host.appendChild(tip);
+  function move(ev){const r=svg.getBoundingClientRect();const px=(ev.clientX-r.left)*W_/r.width;let i=Math.round((px-m.l)/((W_-m.l-m.r)/(n-1)));i=Math.max(0,Math.min(n-1,i));
+    cross.setAttribute("x1",x(i));cross.setAttribute("x2",x(i));cross.setAttribute("opacity",1);
+    tip.innerHTML=`<div class="d">${fmtD(dates[i])}</div>`+series.map(s=>`<div><i class="sw" style="background:${s.color}"></i> ${s.name}: <b>${yFmt(s.values[i])}</b></div>`).join("");
+    tip.hidden=false;const hx=x(i)*r.width/W_;tip.style.left=Math.min(Math.max(0,hx+12),r.width-tip.offsetWidth)+"px";tip.style.top="8px"}
+  ov.addEventListener("pointermove",move);ov.addEventListener("pointerleave",()=>{tip.hidden=true;cross.setAttribute("opacity",0)});
+}
+function barChart(host,{labels,values,fmt,h=220,color,neg,tipExtra}){
+  const W_=800,H=h,m={t:18,r:8,b:28,l:8};
+  const hi=Math.max(0,...values),lo=Math.min(0,...values);const lo2=lo<0?lo*1.15:lo,hi2=hi*1.15||1;
+  const y=v=>m.t+(hi2-v)*(H-m.t-m.b)/(hi2-lo2);const n=values.length,bw=(W_-m.l-m.r)/n;
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;
+  values.forEach((v,i)=>{const x0=m.l+i*bw+bw*.18,w=bw*.64,y0=y(Math.max(v,0)),hh=Math.max(1,Math.abs(y(v)-y(0)));
+    const r=el("rect",{x:x0,y:y0,width:w,height:hh,rx:4,fill:v<0?(neg||"var(--s2)"):(color||"var(--s1)")},svg);
+    const t=el("text",{x:x0+w/2,y:v<0?y(v)+13:y0-5,"font-size":11.5,fill:"var(--ink)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=fmt(v);
+    const l=el("text",{x:x0+w/2,y:H-8,"font-size":11.5,fill:"var(--muted)","text-anchor":"middle"},svg);l.textContent=labels[i];
+    const hit=el("rect",{x:m.l+i*bw,y:m.t,width:bw,height:H-m.t-m.b,fill:"transparent"},svg);
+    hit.addEventListener("pointerenter",()=>{tip.innerHTML=`<div class="d">${labels[i]}</div><b>${fmt(v)}</b>${tipExtra?tipExtra(i):""}`;tip.hidden=false;const R=svg.getBoundingClientRect();tip.style.left=Math.min((m.l+i*bw)*R.width/W_,R.width-tip.offsetWidth)+"px";tip.style.top="0px"});
+    hit.addEventListener("pointerleave",()=>tip.hidden=true)});
+  host.appendChild(svg);host.appendChild(tip);
+}
+barChart(document.getElementById("c-rev"),{labels:HALF.map(r=>r[0]),values:HALF.map(r=>r[1]),fmt:v=>fmtN(v,0),h:200});
+barChart(document.getElementById("c-margin"),{labels:MARGIN.map(r=>r[0]),values:MARGIN.map(r=>r[1]),fmt:v=>fmtN(v,1)+" %",h:200});
+barChart(document.getElementById("c-seas"),{labels:MON,values:SEAS,fmt:v=>(v>0?"+":"")+fmtN(v,1),h:220,tipExtra:i=>`<div>${SEASHIT[i]} % der Jahre positiv</div>`});
+const BANDS=[{"from": 1185, "to": 1240, "type": "res"}, {"from": 1096, "to": 1146, "type": "res"}, {"from": 910, "to": 962, "type": "sup"}, {"from": 820, "to": 895, "type": "sup"}], REFS=[{"v": 1097, "label": "Trigger 1'097"}];
+const wd=W.map(r=>r[0]);
+lineChart(document.getElementById("c-week"),{dates:wd,series:[{name:"Kurs",values:W.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:W.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:W.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,yFmt:v=>fmtN(v,0),h:320});
+lineChart(document.getElementById("c-adw"),{dates:wd,series:[{name:"A/D Woche",values:W.map(r=>r[5]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,zero:true});
+lineChart(document.getElementById("c-rsiw"),{dates:wd,series:[{name:"RSI Woche",values:W.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,refs:[{v:70,label:"70 überkauft"},{v:30,label:"30 überverkauft"}],pad:[10,90]});
+const dd=DD.map(r=>r[0]);
+lineChart(document.getElementById("c-day"),{dates:dd,series:[{name:"Kurs",values:DD.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:DD.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:DD.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,refs:REFS,yFmt:v=>fmtN(v,0),h:260});
+lineChart(document.getElementById("c-add"),{dates:dd,series:[{name:"A/D Tag",values:DD.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:260,zero:true});
+</script>
