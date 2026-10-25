@@ -353,7 +353,7 @@ function filtered() {
     if (fk === "beides" && !(v.bew?.unter && v.schub)) return false;
     if (fk === "kontra" && !kontra(v)) return false;
     if (fk === "cash" && !((v.fcf?.score ?? 0) >= 70)) return false;
-    if (q && !(`${s.name} ${s.ticker} ${s.branche} ${s.land}`.toLowerCase().includes(q))) return false;
+    if (q) { const x = scanOf(s); const txt = `${s.name} ${s.ticker} ${s.branche} ${s.land} ${x ? suchText(x) : ""}`.toLowerCase(); if (!q.split(/\s+/).every(w => txt.includes(w))) return false; }
     return true;
   });
   const by = {
@@ -403,7 +403,7 @@ function renderHome() {
     <a class="banner info ent-link" href="#/entdecken"><b>Mehr Aktien im Tab «Entdecken»:</b> Hier stehen deine ${STATE.stocks.length} Aktien mit ganzer Analyse. Rund 1'500 weitere etablierte Firmen mit automatischen Ampeln, Signalen und den Strategie-Depots findest du unter «Entdecken» (Lupe unten).</a>
     <div class="sec"><h2>Alle Aktien</h2></div>
     <div class="controls" id="controls">
-      <div class="search"><input id="q" type="search" placeholder="Name, Ticker oder Branche" value="${esc(STATE.filter.q)}" aria-label="Suche">
+      <div class="search"><input id="q" type="search" placeholder="Name, Ticker oder Branche (z. B. Energie)" value="${esc(STATE.filter.q)}" aria-label="Suche">
         <select id="sort" aria-label="Sortierung">
           ${[["chance", "Beste Chance"], ["qualitaet", "Qualität"], ["timing", "Timing"], ["unterbewertung", "Am stärksten unterbewertet"], ["cashflow", "Free Cashflow"], ["zone", "Nähe zur Kaufzone"], ["tag", "Tagesveränderung"], ["zahlen", "Nächste Zahlen"], ["dividende", "Dividende"], ["name", "Name"]].map(([k, l]) => `<option value="${k}" ${STATE.filter.sort === k ? "selected" : ""}>${l}</option>`).join("")}
         </select></div>
@@ -437,7 +437,7 @@ function bindHome() {
   const ng = document.getElementById("nurGut"); ng.onclick = () => { STATE.filter.nurGut = !STATE.filter.nurGut; save(); renderKeepScroll(); };
   document.getElementById("nurMerk").onclick = () => { STATE.filter.nurMerk = !STATE.filter.nurMerk; save(); renderKeepScroll(); };
   const q = document.getElementById("q");
-  q.oninput = () => { STATE.filter.q = q.value; save(); updateList(); };
+  q.oninput = () => { STATE.filter.q = q.value; save(); updateList(); if (!STATE.scan) ensureScan().then(updateList); };
   document.getElementById("sort").onchange = e => { STATE.filter.sort = e.target.value; save(); renderKeepScroll(); };
   document.getElementById("reload").onclick = refresh;
   bindWunsch();
@@ -693,7 +693,7 @@ function renderDetail(ticker) {
   $view.innerHTML = `
     <a class="back" href="#/"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>Übersicht</a>
     <div class="dhead"><h1>${esc(s.name)}</h1>
-      <div class="meta">${esc(s.ticker)} · ${esc(s.land)} · ${esc(s.branche)} · ${esc(s.tags.join(", "))}</div>
+      <div class="meta">${esc(s.ticker)} · ${esc(s.land)} · ${esc(s.branche)}${scanOf(s) ? ` · Sektor ${esc(SEK_DE[scanOf(s).sek] || scanOf(s).sek)}` : ""}</div>
       <div class="dprice"><span class="px">${money(p, w)}</span>${chgHtml(v.chg1)}<span class="badge b-list">${LISTE[s.status]}</span></div>
       <div class="meta">Stand ${fmtDate(v.datum)}${v.L ? `, seit der Analyse ${pct(v.L.chg_analyse, 1)}` : ""}</div></div>
 
@@ -897,6 +897,14 @@ function renderInfo() {
 const SEK_DE = { "Technology": "Technologie", "Healthcare": "Gesundheit", "Financial Services": "Finanzen", "Consumer Cyclical": "Zyklischer Konsum",
   "Consumer Defensive": "Basiskonsum", "Industrials": "Industrie", "Energy": "Energie", "Basic Materials": "Rohstoffe", "Communication Services": "Kommunikation",
   "Utilities": "Versorger", "Real Estate": "Immobilien", "Andere": "Andere" };
+// Branchen (Yahoo) auf Deutsch, damit man gezielt suchen kann: «Chemie», «Lebensmittel», «Rüstung» …
+const BRANCHE_DE = {"Advertising Agencies": "Werbeagenturen", "Aerospace & Defense": "Luftfahrt und Rüstung", "Agricultural Inputs": "Dünger und Agrarchemie", "Airlines": "Fluggesellschaften", "Airports & Air Services": "Flughäfen", "Aluminum": "Aluminium", "Apparel Manufacturing": "Bekleidung (Hersteller)", "Apparel Retail": "Bekleidung (Handel)", "Asset Management": "Vermögensverwaltung", "Auto & Truck Dealerships": "Autohandel", "Auto Manufacturers": "Autohersteller", "Auto Parts": "Autozulieferer", "Banks - Diversified": "Grossbanken", "Banks - Regional": "Regionalbanken", "Beverages - Brewers": "Bier und Brauereien", "Beverages - Non-Alcoholic": "Getränke (alkoholfrei)", "Beverages - Wineries & Distilleries": "Wein und Spirituosen", "Biotechnology": "Biotechnologie", "Broadcasting": "Fernsehen und Radio", "Building Materials": "Baustoffe (Zement, Kies)", "Building Products & Equipment": "Bauprodukte und Gebäudetechnik", "Business Equipment & Supplies": "Bürobedarf", "Capital Markets": "Investmentbanken und Broker", "Chemicals": "Chemie", "Communication Equipment": "Netzwerk- und Funktechnik", "Computer Hardware": "Computer und Hardware", "Confectioners": "Süsswaren und Schokolade", "Conglomerates": "Mischkonzerne", "Consulting Services": "Beratung", "Consumer Electronics": "Unterhaltungselektronik", "Copper": "Kupfer", "Credit Services": "Kredite und Kreditkarten", "Department Stores": "Warenhäuser", "Diagnostics & Research": "Diagnostik und Labor", "Discount Stores": "Discounter", "Drug Manufacturers - General": "Pharma (gross)", "Drug Manufacturers - Specialty & Generic": "Pharma (Spezial und Generika)", "Electrical Equipment & Parts": "Elektrotechnik", "Electronic Components": "Elektronik-Bauteile", "Electronic Gaming & Multimedia": "Videospiele", "Electronics & Computer Distribution": "Elektronik-Grosshandel", "Engineering & Construction": "Bau und Ingenieurwesen", "Entertainment": "Unterhaltung und Medien", "Farm & Heavy Construction Machinery": "Land- und Baumaschinen", "Farm Products": "Agrarprodukte", "Financial Conglomerates": "Finanz-Mischkonzerne", "Financial Data & Stock Exchanges": "Börsen und Finanzdaten", "Food Distribution": "Lebensmittel-Grosshandel", "Footwear & Accessories": "Schuhe und Accessoires", "Furnishings, Fixtures & Appliances": "Möbel und Haushaltsgeräte", "Gambling": "Glücksspiel", "Gold": "Gold", "Grocery Stores": "Supermärkte", "Health Information Services": "Gesundheits-IT", "Healthcare Plans": "Krankenversicherer", "Home Improvement Retail": "Baumärkte", "Household & Personal Products": "Haushalt und Körperpflege", "Industrial Distribution": "Industrie-Grosshandel", "Information Technology Services": "IT-Dienstleister", "Infrastructure Operations": "Infrastruktur-Betreiber", "Insurance - Diversified": "Versicherungen (breit)", "Insurance - Life": "Lebensversicherungen", "Insurance - Property & Casualty": "Sachversicherungen", "Insurance - Reinsurance": "Rückversicherungen", "Insurance - Specialty": "Spezialversicherungen", "Insurance Brokers": "Versicherungsmakler", "Integrated Freight & Logistics": "Logistik und Paketdienste", "Internet Content & Information": "Internet und Suchmaschinen", "Internet Retail": "Onlinehandel", "Leisure": "Freizeit", "Lodging": "Hotels", "Lumber & Wood Production": "Holz", "Luxury Goods": "Luxusgüter", "Marine Shipping": "Schifffahrt", "Medical Care Facilities": "Spitäler und Kliniken", "Medical Devices": "Medizintechnik", "Medical Distribution": "Medizin-Grosshandel", "Medical Instruments & Supplies": "Medizinbedarf", "Metal Fabrication": "Metallverarbeitung", "Oil & Gas Drilling": "Öl- und Gasbohrung", "Oil & Gas E&P": "Öl- und Gasförderung", "Oil & Gas Equipment & Services": "Öl- und Gasdienstleister", "Oil & Gas Integrated": "Ölkonzerne", "Oil & Gas Midstream": "Pipelines und Gastransport", "Oil & Gas Refining & Marketing": "Raffinerien und Tankstellen", "Other Industrial Metals & Mining": "Bergbau (Metalle)", "Other Precious Metals & Mining": "Edelmetalle (Silber, Platin)", "Packaged Foods": "Lebensmittel", "Packaging & Containers": "Verpackungen", "Paper & Paper Products": "Papier", "Personal Services": "Persönliche Dienstleistungen", "Pharmaceutical Retailers": "Apotheken", "Pollution & Treatment Controls": "Umwelttechnik", "Publishing": "Verlage", "REIT - Diversified": "Immobilienfonds (gemischt)", "REIT - Healthcare Facilities": "Immobilienfonds (Pflege, Spitäler)", "REIT - Hotel & Motel": "Immobilienfonds (Hotels)", "REIT - Industrial": "Immobilienfonds (Lager, Logistik)", "REIT - Mortgage": "Immobilienfonds (Hypotheken)", "REIT - Office": "Immobilienfonds (Büros)", "REIT - Residential": "Immobilienfonds (Wohnungen)", "REIT - Retail": "Immobilienfonds (Einkaufszentren)", "REIT - Specialty": "Immobilienfonds (Spezial: Funktürme, Rechenzentren)", "Railroads": "Eisenbahnen", "Real Estate - Development": "Immobilien-Entwickler", "Real Estate - Diversified": "Immobilien (gemischt)", "Real Estate Services": "Immobilien-Dienstleister", "Rental & Leasing Services": "Vermietung und Leasing", "Residential Construction": "Wohnungsbau", "Resorts & Casinos": "Resorts und Casinos", "Restaurants": "Restaurants und Fast Food", "Scientific & Technical Instruments": "Mess- und Laborgeräte", "Security & Protection Services": "Sicherheitsdienste", "Semiconductor Equipment & Materials": "Chipmaschinen und Materialien", "Semiconductors": "Halbleiter und Chips", "Software - Application": "Software (Anwendungen)", "Software - Infrastructure": "Software (Infrastruktur, Cloud)", "Solar": "Solar", "Specialty Business Services": "Unternehmensdienste", "Specialty Chemicals": "Spezialchemie", "Specialty Industrial Machinery": "Maschinenbau", "Specialty Retail": "Fachhandel", "Staffing & Employment Services": "Personalvermittlung", "Steel": "Stahl", "Telecom Services": "Telekommunikation", "Textile Manufacturing": "Textilien", "Thermal Coal": "Kohle", "Tobacco": "Tabak", "Tools & Accessories": "Werkzeuge", "Travel Services": "Reisen", "Trucking": "Lastwagen-Transport", "Uranium": "Uran", "Utilities - Diversified": "Strom und Gas (gemischt)", "Utilities - Independent Power Producers": "Stromproduzenten", "Utilities - Regulated Electric": "Stromversorger", "Utilities - Regulated Gas": "Gasversorger", "Utilities - Regulated Water": "Wasserversorger", "Utilities - Renewable": "Erneuerbare Energie", "Waste Management": "Entsorgung und Recycling"};
+const brDe = br => br ? (BRANCHE_DE[br] || br) : "";
+// Zusätzliche Suchwörter je Sektor (Alltagssprache)
+const SEK_WORTE = { "Energy": "energie öl gas", "Basic Materials": "rohstoffe metalle bergbau", "Consumer Defensive": "basiskonsum", "Utilities": "versorger strom energie",
+  "Healthcare": "gesundheit pharma medizin", "Technology": "technologie tech", "Financial Services": "finanzen banken versicherungen", "Industrials": "industrie", "Real Estate": "immobilien",
+  "Communication Services": "kommunikation medien telekom", "Consumer Cyclical": "konsum autos" };
+const suchText = x => `${x.n} ${x.sym} ${x.br || ""} ${brDe(x.br)} ${x.sek || ""} ${SEK_DE[x.sek] || ""} ${SEK_WORTE[x.sek] || ""} ${STATE.besch?.[x.sym]?.k || ""}`.toLowerCase();
 const BER = [["bewertung", "Bewertung", "Wie günstig im Vergleich zum Gewinn, Free Cashflow und EBITDA"], ["wachstum", "Wachstum", "Umsatz-, Gewinn- und Cashflow-Wachstum, erwartetes Gewinnwachstum"],
   ["profit", "Profitabilität", "Bruttomarge, operative Marge, ROIC, Eigenkapitalrendite, Margen-Trend"], ["cashflow", "Cashflow und Bilanz", "FCF-Marge, Cash im Verhältnis zum Gewinn, Schulden, Aktienzahl"],
   ["momentum", "Kursmomentum", "Kursentwicklung 6 und 12 Monate, Trend, Änderung der Gewinnschätzungen"]];
@@ -1111,7 +1119,7 @@ function entRow(x) {
   const href = x.app ? `#/aktie/${encodeURIComponent(x.app)}` : `#/scan/${encodeURIComponent(x.sym)}`;
   const a = ampOf(x.sym);
   return `<a class="row er" href="${href}">${a && a.q != null ? signal(a.q, a.t) : `<span class="lamp ${noteAmpel(x.g)} er-l" title="Gesamtnote">${x.g == null ? "–" : nf(x.g, 1)}</span>`}
-    <div class="mid"><div class="nm">${merkZeichen(x.app || x.sym)}${esc(x.n || x.sym)}</div><div class="sub">${esc(x.sym)} · ${esc(x.land || x.reg || "")} · ${esc(SEK_DE[x.sek] || x.sek)}${x.app ? " · in der App" : ""}</div>
+    <div class="mid"><div class="nm">${merkZeichen(x.app || x.sym)}${esc(x.n || x.sym)}</div><div class="sub">${esc(x.sym)} · ${esc(x.land || x.reg || "")} · ${esc(brDe(x.br) || SEK_DE[x.sek] || x.sek)}${x.app ? " · in der App" : ""}</div>
       <div class="er-k">${BER.map(([k, n]) => `<i title="${n} ${x.k?.[k] ?? "–"}" style="background:${x.k?.[k] == null ? "var(--surface2)" : ampelVar(noteAmpel(x.k[k]))}"></i>`).join("")}</div></div>
     <div class="right"><div class="px">${money(x.p, x.w)}</div>${f?.potenzial != null ? `<div class="er-fv ${f.potenzial >= 15 ? "up" : f.potenzial <= -15 ? "down" : ""}">Fair ${pct(f.potenzial, 0)}</div>` : ""}</div>
     ${STATE.besch?.[x.sym]?.k ? `<div class="er-was">${esc(STATE.besch[x.sym].k)}</div>` : ""}<div class="er-st">${stilTags(stileFuer(x.app || x.sym, x))}</div></a>`;
@@ -1147,7 +1155,7 @@ function drawEntdecken() {
     return true;
   };
   const eigenAktiv = Object.values(E).some(v => v !== "" && v !== undefined);
-  const base = all.filter(x => (F.reg === "Alle" || x.reg === F.reg) && (F.sek === "Alle" || x.sek === F.sek) && (!q || `${x.n} ${x.sym} ${x.br || ""} ${STATE.besch?.[x.sym]?.k || ""}`.toLowerCase().includes(q)) && eigenOk(x));
+  const base = all.filter(x => (F.reg === "Alle" || x.reg === F.reg) && (F.sek === "Alle" || x.sek === F.sek) && (!F.br || F.br === "Alle" || x.br === F.br) && (!q || q.split(/\s+/).every(w => suchText(x).includes(w))) && eigenOk(x));
   const list = base.filter(x => linseOk(x, F.linse)).sort(sortFn[F.sort] || sortFn.ampel);
   const woche = (STATE.alle?.alarme || []).filter(a => daysUntil(a.datum) >= -7).slice(0, 6);
   const cnt = Object.fromEntries(LINSEN.map(([k]) => [k, base.filter(x => linseOk(x, k)).length]));
@@ -1160,11 +1168,14 @@ function drawEntdecken() {
     ${woche.length ? `<div class="list">${woche.map(alarmItem).join("")}</div><p class="dp-link"><a href="#/alarme">Alle Signale der letzten 30 Tage</a></p>` : `<div class="empty">${STATE.alle ? "In den letzten 7 Tagen gab es kein neues Signal." : "Die Ampeln für alle Firmen werden heute Abend zum ersten Mal gerechnet. Signale kommen ab dem zweiten Börsentag."}</div>`}
     <div class="sec"><h2>Alle Firmen</h2></div>
     <div class="controls" id="controls">
-      <div class="search"><input id="eq" type="search" placeholder="Name oder Kürzel" value="${esc(F.q)}" aria-label="Suche">
+      <div class="search"><input id="eq" type="search" placeholder="Name, Kürzel oder Branche (z. B. Chemie)" value="${esc(F.q)}" aria-label="Suche">
         <select id="esort" aria-label="Sortierung">${SORTS.map(([k, l]) => `<option value="${k}" ${F.sort === k ? "selected" : ""}>${l}</option>`).join("")}</select></div>
       <div class="chips" role="group" aria-label="Strategie">${LINSEN.map(([k, l]) => `<button class="chip" data-el="${k}" aria-pressed="${F.linse === k}">${l}<span class="n">${cnt[k]}</span></button>`).join("")}</div>
       <div class="chips" role="group" aria-label="Region">${regs.map(r => `<button class="chip" data-er="${esc(r)}" aria-pressed="${F.reg === r}">${r === "Alle" ? "Alle Regionen" : r}</button>`).join("")}
-        <select id="esek" class="chip" aria-label="Branche">${seks.map(k => `<option value="${esc(k)}" ${F.sek === k ? "selected" : ""}>${k === "Alle" ? "Alle Branchen" : esc(SEK_DE[k] || k)}</option>`).join("")}</select></div>
+      </div>
+      <div class="ent-sel"><select id="esek" aria-label="Sektor">${seks.map(k => `<option value="${esc(k)}" ${F.sek === k ? "selected" : ""}>${k === "Alle" ? "Alle Sektoren" : esc(SEK_DE[k] || k)} (${all.filter(x => k === "Alle" || x.sek === k).length})</option>`).join("")}</select>
+        <select id="ebr" aria-label="Branche">${(() => { const brs = {}; all.filter(x => F.sek === "Alle" || x.sek === F.sek).forEach(x => { if (x.br) brs[x.br] = (brs[x.br] || 0) + 1; });
+          return [`<option value="Alle">Alle Branchen</option>`, ...Object.entries(brs).sort((a, b) => brDe(a[0]).localeCompare(brDe(b[0]), "de")).map(([k, n]) => `<option value="${esc(k)}" ${F.br === k ? "selected" : ""}>${esc(brDe(k))} (${n})</option>`)].join(""); })()}</select></div>
     </div>
     <details class="card eigen"${eigenAktiv || F.eigenOffen ? " open" : ""} id="eigen"><summary><b>Eigener Filter</b>${eigenAktiv ? ` <span class="badge b-trig">aktiv</span>` : ""}<span class="eg-sub">Zahlen eingeben, leere Felder zählen nicht</span></summary>
       <div class="eg-grid">${[["q", "Qualität ab", "0 bis 100, z. B. 65"], ["t", "Timing ab", "0 bis 100, z. B. 55"], ["g", "Branchennote ab", "0 bis 5, z. B. 3"], ["fv", "Fairer Wert, Potenzial ab %", "z. B. 15"],
@@ -1185,7 +1196,8 @@ function drawEntdecken() {
   const re = () => { save(); const y = scrollY; drawEntdecken(); scrollTo(0, y); };
   $view.querySelectorAll("[data-el]").forEach(b => b.onclick = () => { F.linse = b.dataset.el; F.n = 40; re(); });
   $view.querySelectorAll("[data-er]").forEach(b => b.onclick = () => { F.reg = b.dataset.er; F.n = 40; re(); });
-  document.getElementById("esek").onchange = e => { F.sek = e.target.value; F.n = 40; re(); };
+  document.getElementById("esek").onchange = e => { F.sek = e.target.value; F.br = "Alle"; F.n = 40; re(); };
+  document.getElementById("ebr").onchange = e => { F.br = e.target.value; F.n = 40; re(); };
   document.getElementById("esort").onchange = e => { F.sort = e.target.value; re(); };
   let t; document.getElementById("eq").oninput = e => { clearTimeout(t); t = setTimeout(() => { F.q = e.target.value; F.n = 40; save(); drawEntdecken(); const i = document.getElementById("eq"); i.focus(); i.setSelectionRange(i.value.length, i.value.length); }, 250); };
   const m = document.getElementById("emore"); if (m) m.onclick = () => { F.n += 40; re(); };
@@ -1315,7 +1327,7 @@ function renderScanDetail(sym) {
     const d = x.d || {};
     const fact = (n, v, u = "") => v == null ? "" : `<dt>${n}</dt><dd>${nf(v, 1)}${u}</dd>`;
     $view.innerHTML = `<a class="back" href="#/entdecken"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>Entdecken</a>
-      <div class="dhead"><h1>${esc(x.n || x.sym)}</h1><div class="meta">${esc(x.sym)} · ${esc(x.land || x.reg || "")} · ${esc(SEK_DE[x.sek] || x.sek)}${x.br ? " · " + esc(x.br) : ""}</div>
+      <div class="dhead"><h1>${esc(x.n || x.sym)}</h1><div class="meta">${esc(x.sym)} · ${esc(x.land || x.reg || "")} · Sektor ${esc(SEK_DE[x.sek] || x.sek)}${x.br ? " · Branche " + esc(brDe(x.br)) : ""}</div>
         <div class="dprice"><span class="px">${money(x.p, x.w)}</span></div><div class="meta">${x.idx?.length ? "Im Index " + esc(x.idx.join(", ")) + " · " : ""}Börsenwert ${nf(x.mc, x.mc >= 10 ? 0 : 1)} Mrd. CHF</div></div>
       ${merkHtml(x.app || x.sym)}
       ${firmaHtml(x.sym)}
