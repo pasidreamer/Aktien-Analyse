@@ -3037,7 +3037,205 @@
     "nachhaltig": 9
    },
    "score": 68
+  },
+  "RHM": {
+   "waehrung": "EUR",
+   "jahre": [
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+   ],
+   "fcf": [
+    -0.17,
+    0.34,
+    0.99,
+    1.42
+   ],
+   "umsatz": [
+    6.41,
+    7.18,
+    7.71,
+    9.94
+   ],
+   "fcf_ttm": 0.39,
+   "umsatz_ttm": 11.41,
+   "aktien_mio": [
+    43.4,
+    46.3,
+    46.7,
+    46.7
+   ],
+   "netto_schulden": -0.41,
+   "schulden": 1.28,
+   "cash": 1.69,
+   "boersenwert_chf": 43.2,
+   "k": {
+    "wachstum": null,
+    "steigende_jahre": 3,
+    "jahre_n": 3,
+    "marge": 3.4,
+    "rendite": 0.84,
+    "schulden_jahre": 0,
+    "aktien_pa": 2.48,
+    "rueckgabe": 34.0,
+    "abbau": 0.0,
+    "verlustjahre": 1,
+    "sbc": 0.0,
+    "deckung": 1.06
+   },
+   "verwendung": [
+    [
+     "Dividenden",
+     34
+    ],
+    [
+     "zusätzlich neue Schulden aufgenommen",
+     16
+    ]
+   ],
+   "p": {
+    "wachstum": 6,
+    "marge": 2,
+    "rendite": 0,
+    "schulden": 20,
+    "verwendung": 2,
+    "nachhaltig": 7
+   },
+   "score": 37
+  },
+  "HAG": {
+   "waehrung": "EUR",
+   "jahre": [
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+   ],
+   "fcf": [
+    0.15,
+    0.15,
+    0.11,
+    0.24
+   ],
+   "umsatz": [
+    1.71,
+    1.85,
+    2.24,
+    2.45
+   ],
+   "fcf_ttm": 0.31,
+   "umsatz_ttm": 2.68,
+   "aktien_mio": [
+    105.0,
+    106.0,
+    116.0,
+    116.0
+   ],
+   "netto_schulden": 0.7,
+   "schulden": 1.63,
+   "cash": 0.93,
+   "boersenwert_chf": 9.0,
+   "k": {
+    "wachstum": 17.9,
+    "steigende_jahre": 2,
+    "jahre_n": 3,
+    "marge": 11.5,
+    "rendite": 3.16,
+    "schulden_jahre": 2.28,
+    "aktien_pa": 3.38,
+    "rueckgabe": 25.0,
+    "abbau": 0.0,
+    "verlustjahre": 0,
+    "sbc": 0.0,
+    "deckung": 1.98
+   },
+   "verwendung": [
+    [
+     "Dividenden",
+     25
+    ],
+    [
+     "zusätzlich neue Schulden aufgenommen",
+     58
+    ]
+   ],
+   "p": {
+    "wachstum": 18,
+    "marge": 10,
+    "rendite": 8,
+    "schulden": 8,
+    "verwendung": 2,
+    "nachhaltig": 9
+   },
+   "score": 55
+  },
+  "R3NK": {
+   "waehrung": "EUR",
+   "jahre": [
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+   ],
+   "fcf": [
+    0.09,
+    0.05,
+    0.14,
+    0.09
+   ],
+   "umsatz": [
+    0.85,
+    0.93,
+    1.14,
+    1.37
+   ],
+   "fcf_ttm": 0.12,
+   "umsatz_ttm": 1.38,
+   "aktien_mio": [
+    100.0,
+    100.0,
+    100.1,
+    100.1
+   ],
+   "netto_schulden": 0.38,
+   "schulden": 0.54,
+   "cash": 0.16,
+   "boersenwert_chf": 3.4,
+   "k": {
+    "wachstum": 1.4,
+    "steigende_jahre": 1,
+    "jahre_n": 3,
+    "marge": 8.9,
+    "rendite": 3.38,
+    "schulden_jahre": 3.09,
+    "aktien_pa": 0.03,
+    "rueckgabe": 19.0,
+    "abbau": 15.0,
+    "verlustjahre": 0,
+    "sbc": 0.0,
+    "deckung": 1.73
+   },
+   "verwendung": [
+    [
+     "Dividenden",
+     19
+    ],
+    [
+     "Schuldenabbau",
+     15
+    ]
+   ],
+   "p": {
+    "wachstum": 5,
+    "marge": 5,
+    "rendite": 8,
+    "schulden": 4,
+    "verwendung": 5,
+    "nachhaltig": 9
+   },
+   "score": 36
   }
  },
- "stand": "2026-10-24"
+ "stand": "2026-10-25"
 }
