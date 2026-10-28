@@ -44,7 +44,14 @@
    "status": "fertig",
    "hinweis": "Von Pascal im Chat gewünscht.",
    "ticker": "R3NK"
+  },
+  {
+   "id": "chat-2026-10-28T06:36-O",
+   "text": "Realty Income (O)",
+   "eingang": "2026-10-28T06:36Z",
+   "status": "offen",
+   "hinweis": "Von Pascal im Chat gewünscht. REIT: Dividende mit AFFO statt Gewinn prüfen, monatliche Zahlung."
   }
  ],
- "stand": "2026-10-25T12:49Z"
+ "stand": "2026-10-28T06:36Z"
 }
