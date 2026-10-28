@@ -3235,6 +3235,212 @@
     "nachhaltig": 9
    },
    "score": 36
+  },
+  "O": {
+   "waehrung": "USD",
+   "jahre": [
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+   ],
+   "fcf": [
+    2.56,
+    2.96,
+    3.57,
+    3.99
+   ],
+   "umsatz": [
+    3.34,
+    4.08,
+    5.27,
+    5.75
+   ],
+   "fcf_ttm": 4.17,
+   "umsatz_ttm": 5.97,
+   "aktien_mio": [
+    613.5,
+    694.8,
+    865.8,
+    911.0
+   ],
+   "netto_schulden": 28.91,
+   "schulden": 29.35,
+   "cash": 0.43,
+   "boersenwert_chf": 43.5,
+   "k": {
+    "wachstum": 15.9,
+    "steigende_jahre": 3,
+    "jahre_n": 3,
+    "marge": 69.8,
+    "rendite": 7.93,
+    "schulden_jahre": 6.94,
+    "aktien_pa": 14.09,
+    "rueckgabe": 74.0,
+    "abbau": 0.0,
+    "verlustjahre": 0,
+    "sbc": 1.0,
+    "deckung": 3.58
+   },
+   "verwendung": [
+    [
+     "Aktienrückkäufe",
+     1
+    ],
+    [
+     "Dividenden",
+     73
+    ],
+    [
+     "zusätzlich neue Schulden aufgenommen",
+     69
+    ]
+   ],
+   "p": {
+    "wachstum": 20,
+    "marge": 20,
+    "rendite": 15,
+    "schulden": 0,
+    "verwendung": 6,
+    "nachhaltig": 7
+   },
+   "score": 68
+  },
+  "0700": {
+   "waehrung": "CNY",
+   "jahre": [
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+   ],
+   "fcf": [
+    95.24,
+    174.56,
+    162.47,
+    190.17
+   ],
+   "umsatz": [
+    554.55,
+    609.01,
+    660.26,
+    751.77
+   ],
+   "fcf_ttm": 143.25,
+   "umsatz_ttm": 788.48,
+   "aktien_mio": [
+    9695.0,
+    9610.0,
+    9408.0,
+    9244.0
+   ],
+   "netto_schulden": -426.75,
+   "schulden": 0.0,
+   "cash": 426.75,
+   "boersenwert_chf": null,
+   "k": {
+    "wachstum": 25.9,
+    "steigende_jahre": 2,
+    "jahre_n": 3,
+    "marge": 18.2,
+    "rendite": null,
+    "schulden_jahre": 0,
+    "aktien_pa": -1.58,
+    "rueckgabe": 56.0,
+    "abbau": 0.0,
+    "verlustjahre": 0,
+    "sbc": 15.0,
+    "deckung": 0.86
+   },
+   "verwendung": [
+    [
+     "Aktienrückkäufe",
+     40
+    ],
+    [
+     "Dividenden",
+     16
+    ],
+    [
+     "zusätzlich neue Schulden aufgenommen",
+     9
+    ]
+   ],
+   "p": {
+    "wachstum": 18,
+    "marge": 14,
+    "rendite": 0,
+    "schulden": 20,
+    "verwendung": 11,
+    "nachhaltig": 9
+   },
+   "score": 72
+  },
+  "1211": {
+   "waehrung": "CNY",
+   "jahre": [
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+   ],
+   "fcf": [
+    43.38,
+    47.63,
+    36.09,
+    -97.67
+   ],
+   "umsatz": [
+    424.06,
+    602.32,
+    777.1,
+    803.96
+   ],
+   "fcf_ttm": -56.35,
+   "umsatz_ttm": 777.5,
+   "aktien_mio": [
+    8733.3,
+    8732.8,
+    8732.0,
+    9111.5
+   ],
+   "netto_schulden": -10.84,
+   "schulden": 119.12,
+   "cash": 129.96,
+   "boersenwert_chf": null,
+   "k": {
+    "wachstum": null,
+    "steigende_jahre": 1,
+    "jahre_n": 3,
+    "marge": -7.2,
+    "rendite": null,
+    "schulden_jahre": 0,
+    "aktien_pa": 1.42,
+    "rueckgabe": 22.0,
+    "abbau": 0.0,
+    "verlustjahre": 1,
+    "sbc": 0.0,
+    "deckung": 0.25
+   },
+   "verwendung": [
+    [
+     "Dividenden",
+     22
+    ],
+    [
+     "zusätzlich neue Schulden aufgenommen",
+     61
+    ]
+   ],
+   "p": {
+    "wachstum": 2,
+    "marge": 0,
+    "rendite": 0,
+    "schulden": 0,
+    "verwendung": 2,
+    "nachhaltig": 4
+   },
+   "score": 8
   }
  },
  "stand": "2026-10-28"
