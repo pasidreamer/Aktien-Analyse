@@ -72,7 +72,21 @@
    "eingang": "2026-10-28T06:37Z",
    "status": "offen",
    "hinweis": "Von Pascal im Chat gewünscht. Lot-Grösse in Hongkong beachten."
+  },
+  {
+   "id": "chat-2026-10-28T10:16-RSG",
+   "text": "Republic Services (RSG)",
+   "eingang": "2026-10-28T10:16Z",
+   "status": "offen",
+   "hinweis": "Von Pascal im Chat gewünscht."
+  },
+  {
+   "id": "chat-2026-10-28T10:16-NNAS",
+   "text": "NN Group (NN.AS)",
+   "eingang": "2026-10-28T10:16Z",
+   "status": "offen",
+   "hinweis": "Von Pascal im Chat gewünscht. Versicherer: Solvency-Quote und Kapitalgenerierung statt FCF prüfen."
   }
  ],
- "stand": "2026-10-28T06:37Z"
+ "stand": "2026-10-28T10:16Z"
 }
