@@ -1,0 +1,102 @@
+import json, os, sys
+P = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); sys.path.insert(0, P)
+from helpers import L, ADW, RSIW, SEAS
+c = {
+"ticker": "0700", "name": "Tencent Holdings", "datum": "28.10.2026", "waehrung": "HKD", "land": "China",
+"meta": "Tencent Holdings Ltd. · Hongkong: 0700 (in Hongkong-Dollar, 1 Lot = 100 Aktien) · Internet, Games, Werbung, Bezahldienste · Shenzhen, China",
+"price": "387.60 HKD",
+"pricemeta": "Schluss 28.10.2026 · 52 Wochen: 378 – 664 HKD · 1 Lot (100 Aktien) kostet rund 38'760 HKD, also rund 4'000 CHF",
+"verdict": "Tencent ist Chinas grösster Internetkonzern (WeChat mit 1.44 Mrd. Nutzern, grösster Spielehersteller der Welt) und verdient sehr gut: Umsatz +11 % im 2. Quartal 2026, operative Marge rund 33 %, mehr Geld als Schulden. Die Aktie ist seit Oktober 2025 aber um rund 42 % gefallen (683 auf 387.60 HKD). Der Grund ist vor allem die Rechnung für künstliche Intelligenz (KI): Im 2. Quartal stiegen die Investitionen um 176 % auf 52.8 Mrd. RMB, der Free Cashflow war erstmals negativ (−13.8 Mrd. RMB) und das Netto-Cash schrumpfte von 146.9 auf 58.2 Mrd. RMB. Dazu kommen ein geplanter Anleihen-Verkauf und gesenkte Gewinnschätzungen. Mit einem KGV von rund 13.3 ist die Aktie rund 28 % günstiger als ihr eigener Schnitt. Qualität hellgrün (72), Timing rot (28): Der Abwärtstrend ist auf beiden Zeitebenen intakt. Achtung Lot-Grösse: In Hongkong kaufst du mindestens 100 Aktien, das sind heute rund 4'000 CHF. Keine Anlageberatung.",
+"about": "Tencent aus Shenzhen betreibt WeChat (in China «Weixin»), die App, über die in China fast alles läuft: Nachrichten, Bezahlen (WeChat Pay), Mini-Programme, Videos. 1.439 Mrd. Menschen nutzen sie jeden Monat (Juni 2026). Tencent verdient auf drei Wegen: 1. <b>Spiele und Abos</b> (48 % des Umsatzes im 2. Quartal 2026), zum Beispiel «Honor of Kings» und Beteiligungen an Spielefirmen weltweit. 2. <b>Werbung</b> (21 %) in WeChat und den Video-Apps. 3. <b>Bezahldienste und Cloud</b> (29 %). Dazu hält Tencent viele Beteiligungen an anderen Firmen. Die Aktie wird in Hongkong in Hongkong-Dollar gehandelt, die Firma rechnet aber in chinesischen Yuan (RMB). Eine Handelseinheit («Lot») sind 100 Aktien, kleinere Mengen kannst du an der Börse Hongkong nicht kaufen. Die US-Variante (TCEHY) wird nur ausserbörslich gehandelt.",
+"why": "Die Aktie stieg von 365 HKD (Januar 2025) bis 683 HKD (Wochenschluss Ende September 2025). Seither fällt sie. Erstens ist die KI teuer: Tencent baut eigene KI-Modelle (Hunyuan «Hy3») und Produkte (Yuanbao, CodeBuddy, WorkBuddy). Im 2. Quartal 2026 stieg der Betriebsgewinn ohne diese neuen KI-Produkte um 19 %, mit ihnen nur um 9 %. Die Investitionen sprangen auf 52.8 Mrd. RMB, davon 51.4 Mrd. RMB Vorauszahlungen für Rechenleistung. Bernstein erwartet 2026 über 200 Mrd. RMB. Zweitens: Am 22.7.2026 fiel die Aktie um 7 %, weil Händler einen Rückgang der Handy-Spiele befürchteten. Drittens: Laut Bloomberg prüft Tencent einen Anleihen-Verkauf von bis zu 5 Mrd. USD (8.10.2026). Morgan Stanley senkte das Kursziel am 29.9. von 735 auf 650 HKD. Am 21.10. fiel die Aktie unter 400 HKD, nach einem Reuters-Bericht über grosse Chip-Bestellungen von ByteDance, Alibaba und Tencent. Die Rückkäufe sind 2026 kleiner als 2025. Das Kerngeschäft wächst aber weiter: Werbung +22 %, Spiele im Inland +17 %.",
+"kpis": [
+ ["g","Umsatzwachstum","+12.0 %","Letzte 12 Monate (bis Juni 2026). 2. Quartal 2026: +11 %, 1. Quartal: +9 %. Für einen so grossen Konzern gutes Tempo."],
+ ["g","Operative Marge","33.3 %","Von 100 Yuan Umsatz bleiben 33 Yuan Betriebsgewinn (letzte 12 Monate). Sehr hoch und seit 2022 (20 %) stark gestiegen. Die neuen KI-Produkte drücken die Marge aber jetzt."],
+ ["w","Gewinn pro Aktie (EPS)","25.45 RMB","Letzte 12 Monate, rund 29 HKD. Seit 2022 (19.34 RMB) im Schnitt rund +8 % pro Jahr. Im 2. Quartal 2026 nur +0.7 % beim Reingewinn wegen der KI-Kosten."],
+ ["w","ROIC","14.0 %","Auf 100 Yuan investiertes Kapital rund 14 Yuan Gewinn. Ordentlich, aber tiefer als 2021 (23.6 %). Die hohen KI-Investitionen müssen sich erst noch auszahlen."],
+ ["w","Free Cashflow","168 Mrd. RMB","Letzte 12 Monate. 2025 waren es noch 216 Mrd. RMB. Im 2. Quartal 2026 negativ (−13.8 Mrd. RMB) wegen Vorauszahlungen für KI-Chips."],
+ ["g","Netto-Cash","58.2 Mrd. RMB","Mehr Geld als Schulden (30.6.2026). Aber stark gesunken: Ende März waren es noch 146.9 Mrd. RMB."],
+ ["g","KGV","13.3","Du zahlst rund 13 Jahresgewinne. Eigener Schnitt 2021 bis 2025: 18.4. Also rund 28 % günstiger als üblich. Mit den bereinigten Gewinnen (ohne Sondereffekte) liegt das KGV bei rund 11.5."],
+ ["w","Dividende","1.4 %","5.30 HKD pro Aktie, einmal pro Jahr (Ex-Tag 15.5.2026, bezahlt am 1.6.2026). Ein Jahr vorher 4.50 HKD, also +18 %. Laut Börse Hongkong keine Quellensteuer."]
+],
+"revtitle": "Umsatz pro Quartal (Mrd. RMB)", "revunit": "Mio. RMB", "epsunit": "RMB",
+"revnote": "Alle 4 letzten Quartale über dem Vorjahr (+15, +13, +9 und +11 %). Das Tempo ist 2026 etwas tiefer als Ende 2025.",
+"marginnote": "Betriebsgewinn pro 100 Yuan Umsatz. Von 20 % (2022) auf 33 % gestiegen, weil Werbung und Spiele mit hoher Marge wuchsen und Tencent Kosten senkte.",
+"finnote": "<b>Hinweis:</b> Zahlen in chinesischen Yuan (RMB), der Kurs in Hongkong-Dollar (1 HKD = rund 0.87 RMB). Umsatz, Marge, EPS und Free Cashflow laut StockAnalysis (Stand 30.6.2026), ROIC laut roic.ai (12 Monate: Branchenvergleich der App), KGV laut Wisesheets (Jahresende). Das EPS 2021 und 2022 enthält grosse Gewinne aus dem Verkauf von Beteiligungen (zum Beispiel JD.com), 2023 Abschreibungen auf Beteiligungen. Darum springt das EPS stärker als das Geschäft. Tencent selbst nennt für 2025 ein bereinigtes EPS von 27.88 RMB.",
+"FIN": [["2021",560118,"+16.2 %","22.1 %",23.16,145884,"23.6 %","14.5"],["2022",554552,"−1.0 %","20.0 %",19.34,123412,"18.0 %","14.2"],["2023",609015,"+9.8 %","26.8 %",11.89,200954,"10.2 %","22.1"],["2024",660257,"+8.4 %","31.5 %",20.49,195594,"15.6 %","18.7"],["2025",751766,"+13.9 %","32.7 %",24.15,215570,"16.3 %","22.3"],["Letzte 12 Mt.",788483,"+12.0 %","33.3 %",25.45,168309,"14.0 %","13.3"]],
+"QREV": [["Q3 24",167.2],["Q4 24",172.4],["Q1 25",180.0],["Q2 25",184.5],["Q3 25",192.9],["Q4 25",194.4],["Q1 26",196.5],["Q2 26",204.8]],
+"revdec": 1,
+"MARGIN": [["2021",22.1],["2022",20.0],["2023",26.8],["2024",31.5],["2025",32.7],["12 Mt.",33.3]],
+"Q": [
+ ["Umsatztrend","4 von 4 Quartalen über Vorjahr (+15, +13, +9, +11 %), Tempo nicht steigend",12,15],
+ ["Wachstumstempo","+12.0 % in 12 Monaten",8,10],
+ ["Operative Marge","33.3 % (9 Pkt.), seit 2022 klar steigend (6 Pkt.)",15,15],
+ ["Gewinnwachstum (EPS)","Rund +8 % pro Jahr seit 2022, 2. Quartal 2026 fast null wegen KI-Kosten",5,10],
+ ["Free Cashflow","Immer positiv, aber schwankend und zuletzt gesunken (KI-Investitionen)",6,10],
+ ["ROIC","14.0 % (6 Pkt.), Trend gemischt (23.6 % 2021, 10.2 % 2023, 16.3 % 2025)",6,15],
+ ["Schulden","Netto-Cash 58.2 Mrd. RMB (30.6.2026), aber schrumpfend",10,10],
+ ["Bewertung vs. eigene Historie","KGV 13.3 statt Ø 18.4, rund 28 % günstiger",10,15]
+],
+"adwnote": ADW + "Negativ: Die Wochen-A/D fällt seit September 2025 stetig (+894 auf −1'255 Mio.). Sie macht jedes neue Kurstief mit. Es wird also weiter verkauft, ein Boden ist hier nicht zu sehen.",
+"rsiwnote": RSIW + "Positiv: Im Mai 2026 lag der Wochen-RSI bei 27 (Kurs 427 HKD), heute bei 35, obwohl der Kurs tiefer steht (387.60 HKD). Das ist eine bullische Divergenz: Der Verkaufsdruck lässt nach. Bestätigt ist sie erst mit einem höheren Tief im Kurs.",
+"addnote": "Negativ: Die Tages-A/D fällt weiter mit dem Kurs (−1'056 beim Tief vom 8.10., −1'096 beim Tief vom 23.10., heute −1'109). Seit dem Tief vom 23.10. (378 HKD) bewegt sich der Kurs nur seitwärts zwischen 382 und 391 HKD.",
+"ind": [
+ ["Kurs vs. EMA 50","387.60 &lt; 424.85","387.60 &lt; 472.31","Deutlich unter der mittelfristigen Linie, auf beiden Zeitebenen."],
+ ["Kurs vs. EMA 200","387.60 &lt; 471.83","387.60 &lt; 450.64","Unter der langfristigen Linie, rund 14 % darunter in der Woche."],
+ ["EMA 50 vs. EMA 200","50 unter 200 (Todeskreuz am 4.3.2026)","50 noch über 200, Abstand schrumpft schnell","Tag klarer Abwärtstrend, Woche kurz vor dem Todeskreuz."],
+ ["RSI (14)","32.1","35.1","Tag fast überverkauft (22.10.: 27), Woche schwach mit Divergenz."],
+ ["A/D","fällt mit dem Kurs","fällt mit dem Kurs","Beide Zeitebenen zeigen Verkäufe."],
+ ["Volumen","Ø 20 Tage 21.5 Mio. vs. Ø 100 Tage 26.2 Mio. Aktien","Etwas weniger Handel als üblich, kein Ausverkauf mit hohem Volumen."]
+],
+"smc": "Seit dem Hoch Ende September 2025 (683 HKD Wochenschluss) fällt Tencent mit tieferen Hochs und tieferen Tiefen. Wochenhochs: 639 (Januar), 578 (März), 526.50 (April), 497.80 (August) und 463.40 HKD (22.9.). Wochentiefs: 476 (März), 420.40 (Mai), 411 (Juni) und 378 HKD (23.10.2026). Im Tageschart ist das letzte tiefere Hoch 430.40 HKD (12. und 14.10.). Ein Change of Character nach oben wäre ein Tagesschluss darüber. Die Zone 410 bis 420 HKD war im September und Oktober eine Unterstützung und ist jetzt ein Widerstand.",
+"zones": [
+ ["r","450–472 HKD","Widerstand: Wochen-EMA 200 (450.60), Hoch vom 22.9. (463.40), Tages-EMA 200 und Wochen-EMA 50 (rund 472)."],
+ ["r","410–432 HKD","Widerstand: frühere Tiefs vom September und Oktober (411 bis 419), Tages-EMA 50 (424.85), Hoch vom 12./14.10. (430.40)."],
+ ["t","430.40 HKD","<b>Trigger:</b> Tagesschluss über 430.40 HKD (letztes tieferes Hoch vom 12./14.10.), besser mit steigender Tages-A/D."],
+ ["s","378–392 HKD","<b>Kaufzone 1:</b> Tief vom 23.10.2026 (378) und Wochentief vom November 2024 (392). Der Kurs steht schon in dieser Zone, aber ohne Bodensignal."],
+ ["s","345–365 HKD","<b>Kaufzone 2:</b> Tief vom Januar 2025 (364.80 HKD). Laut BigGo Finance (21.10.) ergibt der Bärenfall mit drei Jahren hohen KI-Investitionen einen Wert von 350 bis 400 HKD."],
+ ["r","340 HKD","Abbruch: Wochenschluss unter 340 HKD, also klar unter dem Tief von Januar 2025."]
+],
+"smart": [
+ "<b>Rückkäufe:</b> 2025 kaufte Tencent 153.4 Mio. Aktien für rund 80 Mrd. HKD zurück. 2026 deutlich weniger: 1. Quartal 7.6 Mrd. HKD, 2. Quartal 16.9 Mrd. HKD. Hochgerechnet rund 1.4 % des Börsenwerts (rund 3'580 Mrd. HKD am 21.10.) pro Jahr. Das Geld fliesst jetzt in KI.",
+ "<b>Insider:</b> Gründer und Chef Ma Huateng hält einen grossen Anteil. Käufe der Führung am Markt in den letzten 6 Monaten habe ich nicht gefunden. Grösste Aktionärin ist Prosus (Naspers), die seit 2022 laufend Tencent-Aktien verkauft, um eigene Rückkäufe zu bezahlen.",
+ "<b>Grosse Investoren:</b> Chinesische Fonds reduzierten ihre Tencent-Anteile im 2. Quartal 2026 um rund 18.7 Mrd. RMB (laut Shattered.io). Der Leerverkaufs-Anteil am Umsatz lag am 21.10. bei 18.7 %, Käufe aus Festland-China über Stock Connect brachen ein.",
+ "<b>Analysten:</b> 41 Analysten, Kursziel im Schnitt rund 652 HKD, fast alle Kaufen. Aber die Ziele sinken: Morgan Stanley 735 auf 650 HKD (29.9.), UBS 770 auf 740 HKD (Oktober), Haitong 470 HKD (Oktober)."
+],
+"seasnote": SEAS + "22 Jahre Daten (seit 2004). Fast alle Monate im Schnitt positiv. Januar (+5.8 %, 64 %) und April (+5.4 %, 73 %) sind stark. November (+2.7 %, 50 %) ist ein Münzwurf, Dezember (+3.5 %, 59 %) etwas besser.",
+"T": [
+ ["Trend Woche (EMA 50/200)","Kurs unter beiden, EMA 50 noch knapp über 200, aber fallend",4,20],
+ ["Trend Tag (EMA 50/200)","Kurs unter beiden, EMA 50 unter 200 seit März",1,10],
+ ["Struktur (SMC)","Tiefere Hochs und tiefere Tiefs, neues Tief am 23.10.",2,20],
+ ["RSI Tag/Woche","Woche: bullische Divergenz (27 im Mai, heute 35 bei tieferem Kurs), Tag 32",12,15],
+ ["A/D Tag/Woche","Beide fallen mit dem Kurs",3,20],
+ ["Smart Money","Start 3, Rückkauf unter 2 % pro Jahr, keine Insider-Käufe gefunden",3,10],
+ ["Saisonalität","November 50 %, Dezember 59 %, Januar 64 % positive Jahre",3,5]
+],
+"pro": [
+ "WeChat ist in China kaum zu ersetzen: 1.44 Mrd. Nutzer, dazu Bezahldienst und Mini-Programme.",
+ "Das Kerngeschäft wächst: Werbung +22 %, Spiele im Inland +17 % im 2. Quartal 2026.",
+ "Sehr hohe Marge (33 %) und mehr Geld als Schulden.",
+ "Günstig bewertet: KGV rund 13.3 statt Ø 18.4, bereinigt rund 11.5.",
+ "Wochen-RSI zeigt eine bullische Divergenz, der Verkaufsdruck lässt etwas nach."
+],
+"con": [
+ "KI-Investitionen fressen den Cashflow: Investitionen +176 %, Free Cashflow im 2. Quartal negativ.",
+ "Gewinn wächst 2026 kaum (Reingewinn 2. Quartal +0.7 %), Analysten senken die Schätzungen.",
+ "Rückkäufe deutlich kleiner als 2025, geplanter Anleihen-Verkauf bis 5 Mrd. USD.",
+ "China-Risiko: staatliche Regeln für Spiele und Internet, Spannungen mit den USA, Verkäufe der Grossaktionärin Prosus.",
+ "Abwärtstrend intakt, A/D fällt auf beiden Zeitebenen. Mindestkauf 100 Aktien (rund 4'000 CHF)."
+],
+"todo": [
+ ["t","Beobachten","Alarm bei 430.40 HKD (Trigger) und 378 HKD (Tief vom 23.10.)."],
+ ["s","Timing grün","Tagesschluss über 430.40 HKD mit steigender Tages-A/D, danach Wochenschluss über der Wochen-EMA 200 (rund 450 HKD). Fundamental: Am 18.11. sinkende Vorauszahlungen für KI, Free Cashflow wieder klar positiv und Werbung weiter rund +18 %."],
+ ["r","Abbruch","Wochenschluss unter 340 HKD."],
+ ["","Nächste Zahlen","Voraussichtlich 18. November 2026 (3. Quartal, laut BigGo Finance, Termin noch nicht offiziell von Tencent bestätigt gefunden). Jahreszahlen voraussichtlich Mitte März 2027."]
+],
+"bands": [{"from":450,"to":472,"type":"res"},{"from":410,"to":432,"type":"res"},{"from":378,"to":392,"type":"sup"},{"from":345,"to":365,"type":"sup"}],
+"refs": [{"v":430.4,"label":"Trigger 430.40"}],
+"sources": L("https://stockanalysis.com/quote/otc/TCEHY/financials/","StockAnalysis.com (Tencent)") + " (Stand 30.6.2026), " + L("https://en.prnasia.com/releases/apac/tencent-announces-2026-second-quarter-results-543788.shtml","Tencent Zahlen 2. Quartal 2026 (12.8.2026)") + ", " + L("https://en.prnasia.com/releases/apac/tencent-announces-2026-first-quarter-results-532860.shtml","Tencent Zahlen 1. Quartal 2026") + ", " + L("https://en.prnasia.com/releases/apac/tencent-announces-2025-annual-and-fourth-quarter-results-525781.shtml","Tencent Jahreszahlen 2025") + ", " + L("https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0318/2026031800476.pdf","HKEX: Dividende 2025") + ", " + L("https://finance.biggo.com/news/0b52ecf7-3aec-4640-bbfd-58571eb3800e","BigGo: Tencent unter 400 HKD (21.10.2026)") + ", " + L("https://www.investing.com/news/stock-market-news/why-is-tencent-stock-falling-today-93CH-4937958","Investing.com: Anleihe (8.10.2026)") + ", " + L("https://www.wisesheets.io/pe-ratio/0700.HK","KGV-Historie (Wisesheets)") + ", " + L("https://shattered.io/tencent-stock-drop-2026/","Shattered.io: Kurssturz 22.7.2026") + ", " + L("https://www.roic.ai/quote/0700.HK/classic","ROIC (roic.ai)") + ". Branchenvergleich der App: Note 3.0 von 5, fairer Wert rund 16 % über dem Kurs (447 HKD), Unsicherheit hoch."
+}
+if __name__ == "__main__":
+    json.dump(c, open(os.path.join(P, "config", "0700.json"), "w"), ensure_ascii=False, indent=1)
+    print("ok", sum(r[2] for r in c["Q"]), sum(r[2] for r in c["T"]))

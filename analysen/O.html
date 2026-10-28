@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Realty Income Aktien-Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F3F5F7; --surface:#FFFFFF; --ink:#141B24; --muted:#5A6573; --line:#DDE2E8; --grid:#E9EDF1;
+  --accent:#2F45B5; --accent-soft:#E6E9F8; --chip:#EBEEF2;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+  --good:#1D7A4B; --good-bg:#E3F3EA; --warn:#9A6200; --warn-bg:#FBF0DC; --bad:#B2362A; --bad-bg:#FBE6E3;
+  --zone-sup:rgba(29,122,75,.10); --zone-res:rgba(178,54,42,.09);
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+    --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+    --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+    --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+  --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+  --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;padding-inline:16px;padding-block:24px 56px}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+h1,h2,h3{font-family:var(--display);font-stretch:85%;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:clamp(32px,7vw,48px);font-weight:800;line-height:1}
+h2{font-size:24px;font-weight:700}
+h3{font-size:17px;font-weight:700;font-stretch:95%}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+section{display:flex;flex-direction:column;gap:14px}
+.lead{max-width:68ch;color:var(--muted)}
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;align-items:stretch}
+.hero .id{display:flex;flex-direction:column;gap:10px;justify-content:space-between}
+.price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price b{font-family:var(--display);font-size:34px;font-weight:700}
+.meta{font-size:13px;color:var(--muted)}
+.verdict{font-size:15px;padding:12px 14px;border-radius:10px;background:var(--chip)}
+.scales{display:flex;flex-direction:column;gap:18px}
+.scale-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.scale-h span{font-size:13px;color:var(--muted)}
+.scale-h b{font-family:var(--display);font-size:28px;line-height:1}
+.track{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#C8412F 0%,#E0892F 30%,#E3B63A 50%,#8BBF4B 68%,#2E9A5B 100%);margin-top:8px}
+.pin{position:absolute;top:-5px;width:4px;height:22px;border-radius:2px;background:var(--ink);box-shadow:0 0 0 2px var(--surface);transform:translateX(-2px)}
+.ticks{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);font-family:var(--mono);margin-top:6px}
+.state{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;margin-top:8px}
+.st-good{background:var(--good-bg);color:var(--good)}
+.st-warn{background:var(--warn-bg);color:var(--warn)}
+.st-bad{background:var(--bad-bg);color:var(--bad)}
+/* tables */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;color:var(--muted);font-weight:500;font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:700;border-bottom:none}
+.pts{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{height:6px;border-radius:3px;background:var(--chip);min-width:60px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:3px}
+/* grids */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;border-left:4px solid var(--line)}
+.kpi.g{border-left-color:var(--good)}.kpi.w{border-left-color:var(--warn)}.kpi.b{border-left-color:var(--bad)}
+.kpi span{font-size:12px;color:var(--muted)}
+.kpi b{font-family:var(--mono);font-size:19px;font-weight:500;font-variant-numeric:tabular-nums}
+.kpi em{font-style:normal;font-size:12.5px;color:var(--muted)}
+/* charts */
+.chart{position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:14px;height:3px;border-radius:2px;display:inline-block}
+.swb{width:12px;height:10px;border-radius:2px;display:inline-block}
+.tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12.5px;box-shadow:0 4px 14px rgba(0,0,0,.12);white-space:nowrap;z-index:2}
+.tip b{font-family:var(--mono);font-weight:500}
+.tip .d{font-family:var(--mono);color:var(--muted);font-size:11.5px}
+.note{font-size:13.5px;color:var(--muted)}
+ul.clean{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.pro li::marker{color:var(--good)} .con li::marker{color:var(--bad)}
+.zones{display:flex;flex-direction:column;gap:8px}
+.zone{display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:baseline;padding:10px 12px;border-radius:10px;background:var(--chip);font-size:14px}
+.zone b{font-family:var(--mono);font-weight:500}
+.zone.r{border-left:4px solid var(--bad)} .zone.s{border-left:4px solid var(--good)} .zone.t{border-left:4px solid var(--accent)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+summary{cursor:pointer;font-weight:600}
+details p{margin-top:8px;color:var(--muted);max-width:70ch}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+footer{font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:6px;max-width:80ch}
+footer a{color:var(--accent)}
+@media (max-width:760px){.hero,.two{grid-template-columns:1fr}.zone{grid-template-columns:1fr;gap:2px}}
+</style>
+
+<a href="../index.html#/aktie/O" style="display:inline-block;margin:max(12px,env(safe-area-inset-top)) 0 0 16px;background:#1f3a5f;color:#fff;font:600 14px system-ui;padding:8px 12px;border-radius:20px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">Zurück zur App</a>
+<div class="wrap">
+
+<header class="hero">
+  <div class="card id">
+    <div>
+      <div class="eyebrow">Aktien-Check · 28.10.2026</div>
+      <h1>Realty Income</h1>
+      <p class="meta">Realty Income Corporation · NYSE: O · Immobilienfirma (REIT) mit Netto-Mietverträgen · San Diego, USA</p>
+    </div>
+    <div class="price"><b>56.23 USD</b><span class="meta">Schluss 28.10.2026 · 52 Wochen: 53.15 – 67.94 USD · Allzeithoch rund 82 USD (Wochenschluss)</span></div>
+    <p class="verdict"><b>Kurz gesagt:</b> Realty Income vermietet über 15'500 Läden, Lager und andere Gebäude an rund 1'800 Firmen und zahlt jeden Monat eine Dividende (zurzeit 0.2715 USD, rund 5.8 % Rendite). Das Geschäft läuft stabil: 98.8 % der Gebäude sind vermietet, der Mittelzufluss pro Aktie (AFFO, siehe unten) soll 2026 um rund 3.7 % auf 4.44 bis 4.45 USD steigen. Die Aktie fiel trotzdem von 67.15 USD (Juli) auf 53.15 USD (8.10.2026), vor allem wegen der Zinsen: Die 10-jährige US-Staatsanleihe rentierte im September über 5 %. Dann werden Schulden teurer und Anleihen zur Konkurrenz für Dividendenaktien. Achtung: Bei einem REIT sagen Gewinn und KGV wenig aus, darum bewerte ich mit AFFO und Kurs/AFFO. Qualität gelb (52): sicherer Mieter-Mix, aber viele Schulden, tiefe Kapitalrendite und nur rund 3 bis 4 % Wachstum pro Aktie. Timing gelb (46): Der Kurs erholt sich vom Tief, der Abwärtstrend ist aber noch nicht gebrochen. Keine Anlageberatung.</p>
+  </div>
+  <div class="card scales">
+    <div>
+      <div class="scale-h"><span>Qualität · Ist die Firma kaufenswert?</span><b id="q-val">52</b></div>
+      <div class="track"><i class="pin" id="q-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-warn">▲ Gemischt</span>
+    </div>
+    <div>
+      <div class="scale-h"><span>Timing · Ist jetzt der Zeitpunkt?</span><b id="t-val">46</b></div>
+      <div class="track"><i class="pin" id="t-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-warn">▲ Warten auf Bestätigung</span>
+    </div>
+    <p class="note">Skala: unter 30 rot · 30–45 orange · 45–60 gelb · 60–75 hellgrün · ab 75 grün. Beide Werte setzen sich aus festen Kriterien zusammen, siehe unten.</p>
+  </div>
+</header>
+
+<section>
+  <h2>Was die Firma macht</h2>
+  <p class="lead">Realty Income (gegründet 1969, San Diego) ist ein REIT: eine Immobilienfirma, die mindestens 90 % ihres steuerbaren Gewinns ausschütten muss und dafür kaum Gewinnsteuern zahlt. Sie besitzt 15'588 Gebäude in den USA, Grossbritannien und acht weiteren Ländern Europas, vermietet an 1'798 Firmen aus 92 Branchen (30.6.2026). Typisch sind Läden von Supermärkten, Tankstellen-Shops, Baumärkten und Discountern, dazu Lager, Fabriken und neu Rechenzentren. Fast alles sind Netto-Mietverträge: Der Mieter zahlt Steuern, Versicherung und Unterhalt selbst. Die Verträge laufen im Schnitt noch 8.6 Jahre und haben meist eingebaute Mieterhöhungen. Realty Income nennt sich «The Monthly Dividend Company»: Die Dividende kommt jeden Monat und wurde seit dem Börsengang 1994 schon 136 Mal erhöht. Wachstum kommt vor allem durch den Kauf neuer Gebäude (2026 geplant: rund 10 Mrd. USD), bezahlt mit neuen Schulden und neuen Aktien.</p>
+  <p class="lead">Wichtig zum Verständnis: Ein REIT schreibt seine Gebäude jedes Jahr ab (Q2 2026: 645 Mio. USD). Das drückt den Buchgewinn, obwohl kein Geld abfliesst. Darum schaut man auf AFFO (angepasster Mittelzufluss aus dem Geschäft): Gewinn plus Abschreibungen, minus laufende Unterhaltskosten. 2025 waren das 4.28 USD pro Aktie, der Buchgewinn nur 1.17 USD. Zum Kurs: Im Februar 2026 erreichte die Aktie 67.94 USD, im Juli nochmals 67.15 USD. Seither fällt sie: im September fünf Wochen in Folge, am 8.10.2026 bis 53.15 USD (Tief seit Frühling 2025). Gründe: Die Rendite der 10-jährigen US-Staatsanleihe stieg im September auf 5.01 bis 5.12 %, den höchsten Wert seit fast 20 Jahren (Benzinga, 27.9.). Die Zinskosten stiegen im 2. Quartal auf 312 Mio. USD (Vorjahr 284 Mio.), die Schulden auf das 5.4-fache des Betriebsgewinns vor Abschreibungen (vorher 5.2). Der Buchgewinn im 2. Quartal (0.37 USD je Aktie) lag wegen einer Wertberichtigung von 54 Mio. USD unter den Erwartungen. Scotiabank stufte auf «Sector Perform» ab (Kursziel 67 auf 58 USD), Evercore, Mizuho und Barclays senkten die Ziele. Das Geschäft selbst lief gut: Die Firma hob im August die AFFO-Prognose und das Kaufvolumen an. Es ist also vor allem ein Zins-Thema, aber höhere Zinsen machen Wachstum für Realty Income echt teurer.</p>
+</section>
+
+<section>
+  <h2>Fundamental: die Zahlen</h2>
+  <div class="kpis">
+<div class="kpi g"><span>Umsatzwachstum</span><b>+10.7 %</b><em>Letzte 12 Monate (bis 30.6.2026). Das kommt vor allem aus Zukäufen. Gleiche Gebäude wie im Vorjahr bringen nur rund 1.1 % mehr Miete (Firmenprognose 2026).</em></div>
+<div class="kpi g"><span>Operative Marge</span><b>46.0 %</b><em>Von 100 USD Miete bleiben 46 USD Betriebsgewinn, nach den hohen Abschreibungen. Ohne Abschreibungen bleibt fast alles, weil die Mieter die Nebenkosten zahlen.</em></div>
+<div class="kpi w"><span>AFFO pro Aktie</span><b>4.39 USD</b><em>Letzte 12 Monate, statt Gewinn pro Aktie (Buchgewinn nur 1.37 USD). Prognose 2026: 4.44 bis 4.45 USD, also rund +3.7 %. Seit 2022 nur rund +3 % pro Jahr.</em></div>
+<div class="kpi r"><span>ROIC</span><b>3.6 %</b><em>Kapitalrendite laut StockAnalysis. Sehr tief, aber typisch für Immobilien mit hohen Abschreibungen. Neue Käufe bringen laut Firma rund 7.3 % Anfangsrendite (2. Quartal 2026).</em></div>
+<div class="kpi g"><span>Operativer Cashflow</span><b>4.17 Mrd. USD</b><em>Letzte 12 Monate. Seit 2021 jedes Jahr gestiegen (1.32 Mrd.). Klassischer Free Cashflow ist negativ, weil die Firma laufend Gebäude kauft.</em></div>
+<div class="kpi r"><span>Nettoschulden / EBITDAre</span><b>5.4</b><em>Schulden von 30.4 Mrd. USD entsprechen 5.4 Jahren Betriebsgewinn vor Abschreibungen (30.6.2026). Für einen REIT üblich, nach unserem Schema aber hoch. Zinskosten steigen.</em></div>
+<div class="kpi g"><span>Kurs / AFFO</span><b>12.8</b><em>Du zahlst rund 13 Jahre Mittelzufluss. Eigener Schnitt 2021 bis 2025: 15.3. Also rund 16 % günstiger als üblich. Das normale KGV (rund 41) ist bei REITs nicht aussagekräftig.</em></div>
+<div class="kpi g"><span>Dividende</span><b>5.8 %</b><em>0.2715 USD pro Monat, aufs Jahr 3.258 USD. Rund 73 % des AFFO werden ausgeschüttet: gedeckt. Zuletzt erhöht am 8.9.2026, aber nur um 0.2 %.</em></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>Umsatz pro Quartal (Mrd. $)</h3>
+      <p class="note">Alle 8 Quartale über dem Vorjahr, zuletzt +10.5, +11.0, +12.2 und +9.7 %. Das Wachstum stammt fast ganz aus neu gekauften Gebäuden, nicht aus höheren Mieten.</p>
+      <div class="chart" id="c-rev"></div>
+    </div>
+    <div class="card">
+      <h3>Operative Marge pro Jahr</h3>
+      <p class="note">Betriebsgewinn pro 100 USD Umsatz, nach Abschreibungen. 2022 tiefer wegen der Übernahme von VEREIT, seither wieder gestiegen. Über 5 Jahre etwa stabil.</p>
+      <div class="chart" id="c-margin"></div>
+    </div>
+  </div>
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Jahr</th><th class="num">Umsatz Mio. $</th><th class="num">Wachstum</th><th class="num">Op. Marge</th><th class="num">EPS (AFFO, $)</th><th class="num">Free Cashflow</th><th class="num">ROIC</th><th class="num">Kurs/AFFO</th></tr></thead>
+      <tbody id="fin-rows"></tbody>
+    </table>
+  </div>
+  <p class="note"><b>Hinweis:</b> Bei einem REIT ersetze ich den Gewinn pro Aktie durch AFFO pro Aktie und das KGV durch Kurs/AFFO (Jahresschnitt laut Sure Dividend, heute eigene Rechnung mit 56.23 USD). In der Spalte «Free Cashflow» steht der operative Cashflow in Mio. USD, weil der Kauf neuer Gebäude der eigentliche Zweck der Firma ist. Umsatz, Marge, Cashflow und ROIC laut StockAnalysis. Grosse Sprünge 2022 und 2024 durch die Übernahmen von VEREIT (Ende 2021) und Spirit Realty (Januar 2024).</p>
+</section>
+
+<section>
+  <h2>Qualität: 52 von 100</h2>
+  <div class="card tbl"><table id="q-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Technik: Wochenchart (2 Jahre)</h2>
+  <div class="card">
+    <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span><span><i class="swb" style="background:var(--zone-sup);border:1px solid var(--good)"></i>Unterstützung</span><span><i class="swb" style="background:var(--zone-res);border:1px solid var(--bad)"></i>Widerstand</span></div>
+    <div class="chart" id="c-week"></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>A/D-Linie, Woche</h3>
+      <p class="note">Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Von Juli (347) bis Ende September (184) fiel die Wochen-A/D stark mit dem Kurs: Es wurde verkauft. Seit dem Tief steigt sie wieder auf 256, zusammen mit dem Kurs. Noch keine Divergenz, aber die Verkäufe haben nachgelassen.</p>
+      <div class="chart" id="c-adw"></div>
+    </div>
+    <div class="card">
+      <h3>RSI, Woche</h3>
+      <p class="note">Unter 30 überverkauft, über 70 überkauft. Ende September bei 29 (überverkauft), heute 39: dreht nach oben, ist aber noch schwach.</p>
+      <div class="chart" id="c-rsiw"></div>
+    </div>
+  </div>
+
+  <h2>Technik: Tageschart (1 Jahr)</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Kurs, Tag</h3>
+      <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span></div>
+      <div class="chart" id="c-day"></div>
+    </div>
+    <div class="card">
+      <h3>A/D-Linie, Tag</h3>
+      <p class="note">Positiv: Beim neuen Kurstief am 8.10. (53.15 USD) stand die Tages-A/D höher (−142.6) als beim Tief vom 1.10. (53.33 USD, −154.8). Bullische Divergenz. Seit Mitte Oktober läuft sie seitwärts (−131 bis −138).</p>
+      <div class="chart" id="c-add"></div>
+    </div>
+  </div>
+
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Indikator</th><th>Tag</th><th>Woche</th><th>Bedeutung</th></tr></thead>
+      <tbody>
+<tr><td>Kurs vs. EMA 50</td><td class="pts">56.23 &lt; 57.46</td><td class="pts">56.23 &lt; 60.06</td><td>Knapp unter der Tageslinie, deutlich unter der Wochenlinie.</td></tr>
+<tr><td>Kurs vs. EMA 200</td><td class="pts">56.23 &lt; 60.06</td><td class="pts">56.23 &lt; 59.65</td><td>Unter der langfristigen Linie auf beiden Zeitebenen.</td></tr>
+<tr><td>EMA 50 vs. EMA 200</td><td class="pts">50 unter 200 (Todeskreuz am 18.9.2026)</td><td class="pts">50 noch knapp über 200 (60.06 zu 59.65), Abstand schrumpft</td><td>Tag im Abwärtstrend, Woche kippt bald.</td></tr>
+<tr><td>RSI (14)</td><td class="pts">49.5</td><td class="pts">38.8</td><td>Tag neutral nach Überverkauf (Tiefst 12 am 1.10.), Woche schwach.</td></tr>
+<tr><td>A/D</td><td class="pts">bullische Divergenz am Tief, jetzt seitwärts</td><td class="pts">steigt seit Oktober mit dem Kurs</td><td>Verkaufsdruck hat nachgelassen.</td></tr>
+<tr><td>Volumen</td><td colspan="2">Ø 20 Tage 8.14 Mio. vs. Ø 100 Tage 6.73 Mio. Aktien</td><td>Mehr Handel als üblich, typisch nach einem starken Fall.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Struktur und Zonen (Smart Money Concept)</h2>
+  <p class="lead">Im Wochenchart pendelte die Aktie 2026 zwischen 59.48 und 67.94 USD. Die Hochs 67.94 (23.2.), 65.35 (20.4.) und 67.15 USD (13.7.) und die Tiefs 59.85 (23.3.) und 59.48 USD (2.6.) bildeten eine Seitwärtsspanne. Im September brach der Kurs unter die Tiefs (Bruch der Struktur nach unten) und fiel bis 53.15 USD (8.10.). Seither im Tageschart erste höhere Hochs und Tiefs: Tief 53.15, Hoch 56.78 (15.10.), höheres Tief 55.28 (21.10.), höheres Hoch 57.42 USD (26.10.). Der Kurs liegt in der unteren Hälfte (Discount) der Spanne 53 bis 68 USD. Ein klarer Change of Character wäre ein Tagesschluss über 57.50 USD und danach über 60 USD (alle EMAs).</p>
+  <div class="zones">
+<div class="zone r"><b>61.10–63.50 USD</b><span>Widerstand: Tiefs vom 15.5. und 10.8. (61.11, 61.27), Hoch vom 20.8. (63.54 USD).</span></div>
+<div class="zone r"><b>59.50–60.10 USD</b><span>Widerstand: Tages-EMA 200 (60.06), Wochen-EMA 50 und 200 (60.06, 59.65), Tief vom 2.6. (59.48 USD).</span></div>
+<div class="zone t"><b>57.50 USD</b><span><b>Trigger:</b> Tagesschluss über 57.50 USD (Hoch vom 26.10. und Tages-EMA 50), besser mit steigender Tages-A/D.</span></div>
+<div class="zone s"><b>53.15–54.40 USD</b><span><b>Kaufzone 1:</b> Tief vom 8.10.2026 (53.15) und Wochentiefs von Februar und Mai 2025 (53.30, 54.38 USD).</span></div>
+<div class="zone s"><b>50.70–51.60 USD</b><span><b>Kaufzone 2:</b> Wochentiefs vom Januar (51.60) und April 2025 (50.71 USD).</span></div>
+<div class="zone r"><b>52.80 USD</b><span>Abbruch: Wochenschluss unter 52.80 USD, also unter dem Tief vom Oktober.</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Smart Money, Insider und Saisonalität</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Wer kauft, wer verkauft?</h3>
+      <ul class="clean" style="margin-top:8px">
+<li><b>Rückkäufe:</b> Keine. Realty Income gibt laufend neue Aktien aus, um Gebäude zu kaufen: 934.0 Mio. Aktien Ende 2025, 946.2 Mio. am 30.6.2026 (+1.3 % in einem Halbjahr). Das ist bei REITs normal, verwässert aber deinen Anteil.</li>
+<li><b>Insider:</b> Keine Käufe in den letzten 12 Monaten. Ein Verkauf: Rechtschefin Michelle Bushore, 7'400 Aktien zu 62.42 USD am 2.4.2026 (rund 0.46 Mio. USD). Insider halten nur rund 0.1 % der Aktien.</li>
+<li><b>Grosse Investoren (13F):</b> Gemischt. Im 2. Quartal 2026 stockten State Street (+3.4 %) und Citadel (+50 %, kleine Position) auf, Envestnet, Allianz und Neuberger Berman reduzierten um 5 bis 8 %.</li>
+<li><b>Analysten:</b> Mehrheitlich Halten (25 Analysten), Kursziel im Schnitt 64.63 USD (StockAnalysis, 26.10.2026). Höchste Ziele 72 USD (Bank of America, UBS). Scotiabank stufte im September ab (Ziel 58 USD).</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Saisonalität seit 1994</h3>
+      <p class="note">Durchschnittliche Monatsrendite in %. Lange Datenreihe seit 1994. Die nächsten Monate sind historisch gut: November (+0.6 %, 62 %), Dezember (+1.3 %, 62 %) und Januar (+2.5 %, 72 %). Schwach sind Mai (44 %) und Oktober (45 %).</p>
+      <div class="chart" id="c-seas"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Timing: 46 von 100</h2>
+  <div class="card tbl"><table id="t-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Worauf du achten solltest: Unterbewertung und Wachstumsschub</h2>
+  <div class="card"><h3>Was die Börse befürchtet</h3><p class="note" style="margin:4px 0">Echte Probleme, eher lösbar: Das Geschäft läuft stabil (98.8 % vermietet, Prognose im August angehoben), der Kurs fällt vor allem wegen der Zinsen; höhere Zinsen bremsen aber das Wachstum von Realty Income echt, solange sie hoch bleiben.</p><ul class="clean"><li>Die Zinsen sind hoch: Die 10-jährige US-Staatsanleihe rentierte im September 2026 über 5 % (bis 5.12 %), so hoch wie seit fast 20 Jahren nicht mehr. Wer Einkommen sucht, bekommt fast gleich viel mit sicheren Anleihen, darum verkaufen Anleger Dividendenaktien wie Realty Income.</li><li>Die Schulden werden teurer: Die Zinskosten stiegen im 2. Quartal 2026 auf 312 Mio. USD (Vorjahr 284 Mio.), die Nettoschulden auf das 5.4-fache des Betriebsgewinns vor Abschreibungen (vorher 5.2). Je teurer das Geld, desto kleiner der Gewinn aus jedem neu gekauften Gebäude.</li><li>Der Buchgewinn im 2. Quartal (0.37 USD je Aktie) lag wegen einer Wertberichtigung von 54 Mio. USD rund 12 % unter den Erwartungen. Scotiabank stufte im September ab (Kursziel 67 auf 58 USD), mehrere Banken senkten ihre Ziele.</li><li>Rund zwei Drittel der Miete kommen von Firmen ohne gutes Bonitätsrating. Bei hohen Zinsen steigt das Risiko, dass einzelne Mieter nicht mehr zahlen. Die Rückstellungen für Kreditausfälle stiegen im 1. Halbjahr 2026 auf 46 Mio. USD (Vorjahr 20 Mio.).</li></ul><h3 style="margin-top:12px">Was die Sorgen beenden könnte</h3><ul class="clean"><li>Die Zahlen zum 3. Quartal bestätigen die AFFO-Prognose 2026 (4.44 bis 4.45 USD) und eine Vermietungsquote um 98.8 %, ohne neue grosse Mieterausfälle <span class="muted">(Zahlen 3. Quartal, 2.11.2026 (nach US-Börsenschluss))</span></li><li>Die Renditen langfristiger US-Staatsanleihen sinken wieder Richtung 4.5 %. Dann werden Schulden billiger und die Dividendenrendite von 5.8 % wieder attraktiver <span class="muted">(laufend, Entscheide der US-Notenbank bis 2027)</span></li><li>Eine Prognose für 2027 mit wieder mehr Wachstum pro Aktie (über 4 %) und stabiler Verschuldung <span class="muted">(Jahreszahlen, voraussichtlich Februar 2027)</span></li></ul><h3 style="margin-top:12px">Wachstumsschub: Kein grosser Schub in Sicht</h3><ul class="clean"><li><b>Rechenzentren:</b> Am 30.6.2026 gründete Realty Income mit Cloud Capital und einem grossen Investor eine Partnerschaft für grosse Rechenzentren (Startwert über 6 Mrd. USD, Verträge über 15 bis 20 Jahre mit festen Mieterhöhungen). Realty Income will bis 1.4 Mrd. USD investieren. Das ist interessant, aber klein gegenüber einem Gesamtwert der Firma von rund 85 Mrd. USD. <span class="muted">(2026–2028)</span></li><li><b>Europa und eigener Fonds:</b> In Europa findet Realty Income höhere Renditen (2. Quartal: 7.0 % Anfangsrendite), dazu verwaltet die Firma neu einen Fonds mit Geld von anderen Investoren und verdient Gebühren. Beides hilft, ändert aber das Wachstum von rund 3 bis 4 % pro Aktie bisher kaum. <span class="muted">(2026–2027)</span></li></ul><p style="margin:10px 0 0"><b>Woran du es erkennst:</b> Achte auf das AFFO pro Aktie: Steigt es in den Quartalen 2027 um mehr als 5 % gegenüber dem Vorjahr (2026: rund +3.7 %) und bleibt die Verschuldung bei rund 5.4, kommt mehr Wachstum an. Die Prognose 2027 im Februar zeigt das zuerst.</p><p style="margin:10px 0 0"><b>Das Chancen-Szenario:</b> Kein Fall wie Google 2023, eher eine Zins-Wette: Sinken die langfristigen US-Zinsen deutlich, könnte die Börse Realty Income wieder wie früher bewerten (Kurs/AFFO um 15 statt heute 12.8), dazu kommt die monatliche Dividende von rund 5.8 %. Grösstes Risiko: Die Zinsen bleiben über 5 %, dann wird Wachstum teurer, und Mieterausfälle könnten das AFFO drücken.</p><p class="note" style="margin:10px 0 0">Quellen: <a href="https://www.sec.gov/Archives/edgar/data/0000726728/000072672826000044/o-991q22026.htm" target="_blank" rel="noopener">Realty Income: Zahlen 2. Quartal 2026 (SEC 8-K, 5.8.2026)</a>, <a href="https://www.benzinga.com/markets/earnings/26/09/62012377/realty-income-stock-tumbles-as-dividend-giant-hits-rough-patch" target="_blank" rel="noopener">Benzinga: Realty Income Stock Tumbles as Dividend Giant Hits Rough Patch (27.9.2026)</a>, <a href="https://247wallst.com/investing/2026/09/22/realty-income-falls-for-3-months-two-wall-street-pros-say-near-30-gains-lie-ahead-for-the-dividend-powerhouse/" target="_blank" rel="noopener">24/7 Wall St.: Realty Income Falls for 3 Months (22.9.2026)</a>, <a href="https://www.nasdaq.com/press-release/realty-income-forms-programmatic-joint-venture-cloud-capital-and-global-institutional" target="_blank" rel="noopener">Realty Income: Partnerschaft für Rechenzentren mit Cloud Capital (30.6.2026)</a>, <a href="https://www.suredividend.com/wp-content/uploads/2026/08/O-2026-08-11.pdf" target="_blank" rel="noopener">Sure Dividend: Realty Income (11.8.2026)</a></p></div>
+</section>
+
+<section>
+  <h2>Dividende</h2>
+  <div class="card tbl"><table><tr><td style="white-space:nowrap;color:var(--muted)">Wie oft</td><td>12× pro Jahr (monatlich)</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Ex-Tag im</td><td>Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Geld auf dem Konto im</td><td>Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Zahltage</td><td>Jeden Monat um den 15. Der Ex-Tag ist jeweils der letzte Börsentag des Vormonats (z. B. Ex-Tag 30.9.2026, Zahltag 15.10.2026; nächster Ex-Tag 30.10.2026, Zahlung Mitte November).</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Letzte Zahlung</td><td>0.2715 $ pro Aktie</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Rendite</td><td>5.8 %</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">System</td><td>Monatsdividende eines REIT: 12 gleich hohe Zahlungen pro Jahr, seit 1994 136 Mal erhöht, meist einmal pro Quartal um einen kleinen Betrag (zuletzt am 8.9.2026 von 0.2710 auf 0.2715 USD, aufs Jahr 3.258 USD). Bezahlt wird aus dem AFFO (angepasster Mittelzufluss), nicht aus dem Buchgewinn: 2026 rund 73 % des AFFO. Darum wirkt die Ausschüttung gemessen am Gewinn (über 200 %) zu hoch, ist aber gedeckt.</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Form</td><td>Bar in US-Dollar aufs Konto. Die USA ziehen Quellensteuer ab: Mit dem Formular W-8BEN (bei Saxo hinterlegt) 15 % statt 30 %. Diese 15 % kannst du in der Schweizer Steuererklärung mit dem Formular DA-1 zurückfordern bzw. anrechnen lassen, wenn du die Dividende als Einkommen versteuerst.</td></tr></table><p class="note" style="margin:10px 0 0"><b>Ex-Tag:</b> Du bekommst die Dividende nur, wenn du die Aktie am Abend vor dem Ex-Tag besitzt. <b>Zahltag:</b> An diesem Tag kommt das Geld aufs Konto (in der Währung der Aktie, abzüglich Quellensteuer). Die nächsten genauen Termine zeigt die App unter «Termine».</p></div>
+</section>
+
+<section>
+  <h2>Pro und Contra</h2>
+  <div class="two">
+    <div class="card pro"><h3>Spricht dafür</h3><ul class="clean" style="margin-top:8px">
+<li>Sehr breit gestreut: 15'588 Gebäude, 1'798 Mieter, 98.8 % vermietet, Verträge laufen im Schnitt noch 8.6 Jahre.</li>
+<li>Monatliche Dividende, seit 1994 136 Mal erhöht, mit rund 73 % des AFFO gut gedeckt.</li>
+<li>Prognose 2026 im August angehoben: AFFO 4.44 bis 4.45 USD, Kaufvolumen 10 Mrd. USD.</li>
+<li>Kurs/AFFO 12.8 statt üblich rund 15, Dividendenrendite 5.8 %.</li>
+<li>Am Tief vom 8.10. zeigen RSI und Tages-A/D eine bullische Divergenz.</li>
+    </ul></div>
+    <div class="card con"><h3>Spricht dagegen</h3><ul class="clean" style="margin-top:8px">
+<li>Hohe Zinsen: US-Staatsanleihen rentieren um 5 %, das verteuert Schulden und macht Anleihen zur Konkurrenz.</li>
+<li>Hohe Schulden (5.4-mal EBITDAre), Zinskosten steigen (312 statt 284 Mio. USD im Quartal).</li>
+<li>Wenig Wachstum pro Aktie (rund 3 bis 4 % pro Jahr), weil laufend neue Aktien ausgegeben werden.</li>
+<li>Rund zwei Drittel der Miete kommt von Mietern ohne gutes Bonitätsrating (Investment Grade), Ausfälle wären möglich.</li>
+<li>Chart: Abwärtstrend im Tag, Kurs unter allen Durchschnittslinien. Dividende kommt aus den USA (Quellensteuer).</li>
+    </ul></div>
+  </div>
+</section>
+
+<section>
+  <h2>Was jetzt zu tun ist</h2>
+  <div class="zones">
+<div class="zone t"><b>Beobachten</b><span>Alarm bei 57.50 USD (Trigger) und 54.40 USD (oberes Ende Kaufzone 1).</span></div>
+<div class="zone s"><b>Timing grün</b><span>Tagesschluss über 57.50 USD, danach Wochenschluss über 60.10 USD (Wochen-EMAs) mit steigender A/D. Fundamental: Am 2.11. AFFO-Prognose 2026 bestätigt (4.44 bis 4.45 USD) und Vermietungsquote über 98.5 %. Hilfreich wären sinkende Zinsen.</span></div>
+<div class="zone r"><b>Abbruch</b><span>Wochenschluss unter 52.80 USD.</span></div>
+<div class="zone "><b>Nächste Zahlen</b><span>2. November 2026 nach US-Börsenschluss (3. Quartal, bestätigt), Telefonkonferenz 17 Uhr New York (23 Uhr Schweizer Zeit). Dazu die Prognose für 2027, voraussichtlich mit den Jahreszahlen im Februar 2027.</span></div>
+  </div>
+</section>
+
+<footer>
+  <span>Kursdaten und Indikatoren (EMA, RSI 14, A/D) selbst berechnet aus Yahoo-Finance-Tages-, Wochen- und Monatsdaten, Stand 28.10.2026. <a href="https://stockanalysis.com/stocks/o/financials/income-statement/" target="_blank" rel="noopener">StockAnalysis.com</a> (Stand 26.10.2026), <a href="https://www.sec.gov/Archives/edgar/data/0000726728/000072672826000044/o-991q22026.htm" target="_blank" rel="noopener">Realty Income Zahlen 2. Quartal 2026</a>, <a href="https://www.sec.gov/Archives/edgar/data/0000726728/000072672826000028/o-991q12026.htm" target="_blank" rel="noopener">Zahlen 1. Quartal 2026</a>, <a href="https://www.sec.gov/Archives/edgar/data/726728/000072672826000009/o-991q42025.htm" target="_blank" rel="noopener">Jahreszahlen 2025</a>, <a href="https://www.suredividend.com/wp-content/uploads/2026/08/O-2026-08-11.pdf" target="_blank" rel="noopener">Sure Dividend (AFFO-Historie, 11.8.2026)</a>, <a href="https://www.benzinga.com/markets/earnings/26/09/62012377/realty-income-stock-tumbles-as-dividend-giant-hits-rough-patch" target="_blank" rel="noopener">Benzinga (27.9.2026)</a>, <a href="https://finviz.com/news/389807/136th-common-stock-monthly-dividend-increase-declared-by-realty-income" target="_blank" rel="noopener">Dividendenerhöhung (8.9.2026)</a>, <a href="https://finviz.com/news/397989/realty-income-announces-third-quarter-2026-earnings-release-date" target="_blank" rel="noopener">Termin 3. Quartal</a>, <a href="https://www.marketbeat.com/stocks/NYSE/O/insider-trades" target="_blank" rel="noopener">Insider (MarketBeat)</a>. Branchenvergleich der App: Note 2.0 von 5, fairer Wert rund 11 % über dem Kurs (63.30 USD), Unsicherheit mittel.</span>
+  <span>Persönliche Analyse, keine Anlageberatung. Vergangene Kurse und Saisonalität sagen nichts Sicheres über die Zukunft.</span>
+</footer>
+</div>
+
+<script>
+const Q=[["Umsatztrend", "4 von 4 Quartalen über Vorjahr (+10.5, +11.0, +12.2, +9.7 %), Tempo nicht steigend", 12, 15], ["Wachstumstempo", "Umsatz +10.7 %, aber fast nur durch Zukäufe. Pro Aktie (AFFO) rund +3.7 %, gleiche Gebäude rund +1.1 %. Gewertet: 3 bis 6 %", 3, 10], ["Operative Marge", "46.0 % (9 Pkt.), über 5 Jahre etwa stabil (3 Pkt.)", 12, 15], ["Gewinnwachstum (EPS)", "Mit AFFO pro Aktie statt Gewinn: 3.92 USD (2022) auf 4.28 USD (2025), rund +3 % pro Jahr, 2026 rund +3.7 %", 2, 10], ["Free Cashflow", "Mit AFFO und operativem Cashflow: positiv und jedes Jahr seit 2021 gestiegen", 10, 10], ["ROIC", "3.6 % (2 Pkt.), seit 2022 leicht steigend (+1). Für REITs typisch tief", 3, 15], ["Schulden", "Nettoschulden / EBITDAre 5.4 (über 4)", 0, 10], ["Bewertung vs. eigene Historie", "Kurs/AFFO 12.8 statt Ø 15.3 (2021 bis 2025), rund 16 % günstiger", 10, 15]];
+const T=[["Trend Woche (EMA 50/200)", "Kurs unter beiden, EMA 50 nur noch knapp über EMA 200", 5, 20], ["Trend Tag (EMA 50/200)", "Kurs unter beiden, Todeskreuz am 18.9., Kurs aber nur 2 % unter EMA 50", 2, 10], ["Struktur (SMC)", "Bruch nach unten im September, seit dem Tief erste höhere Hochs und Tiefs im Tageschart, Kurs im Discount", 8, 20], ["RSI Tag/Woche", "Tag: bullische Divergenz (Tief 8.10. bei RSI 31 statt 12), Woche dreht aus 29 nach oben", 12, 15], ["A/D Tag/Woche", "Tag: bullische Divergenz am Tief. Woche: fiel mit dem Kurs, steigt jetzt wieder", 11, 20], ["Smart Money", "Start 3, keine Insider-Käufe, kein Rückkauf, ein Insider-Verkauf (nicht gehäuft)", 3, 10], ["Saisonalität", "November bis Januar überwiegend positiv (62 bis 72 %)", 5, 5]];
+const FIN=[["2021", 2082, "+26.4 %", "45.8 %", 3.59, 1322, "2.9 %", "19.9"], ["2022", 3337, "+60.3 %", "39.0 %", 3.92, 2564, "2.8 %", "16.2"], ["2023", 4082, "+22.3 %", "42.3 %", 4.0, 2959, "3.2 %", "14.4"], ["2024", 5279, "+29.3 %", "42.0 %", 4.19, 3573, "3.4 %", "12.7"], ["2025", 5763, "+9.2 %", "44.6 %", 4.28, 3995, "3.5 %", "13.4"], ["Letzte 12 Mt.", 6066, "+10.7 %", "46.0 %", 4.39, 4166, "3.6 %", "12.8"]];
+const HALF=[["Q3 24", 1.33], ["Q4 24", 1.34], ["Q1 25", 1.38], ["Q2 25", 1.41], ["Q3 25", 1.47], ["Q4 25", 1.49], ["Q1 26", 1.55], ["Q2 26", 1.55]];
+const MARGIN=[["2021", 45.8], ["2022", 39.0], ["2023", 42.3], ["2024", 42.0], ["2025", 44.6], ["12 Mt.", 46.0]];
+const SEAS=[2.5, -0.9, 0.5, 2.3, -0.8, 1.2, 1.6, 1.2, -1.2, -0.2, 0.6, 1.3];
+const SEASHIT=[72.0, 47.0, 59.0, 59.0, 44.0, 59.0, 66.0, 62.0, 56.0, 45.0, 62.0, 62.0];
+const MON=["Jan","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"];
+const W=`2024-11-04,57.51,57.93,60.1,46,177.6;2024-11-11,56.54,57.88,60.06,43,164.1;2024-11-18,57.45,57.86,60.04,46,174;2024-11-25,57.89,57.86,60.01,48,173.1;2024-12-02,56.17,57.79,59.98,43,162.6;2024-12-09,55.34,57.7,59.93,41,153.1;2024-12-16,52.79,57.51,59.86,35,135.3;2024-12-23,52.66,57.32,59.79,35,123.3;2024-12-30,53.28,57.16,59.72,37,137.3;2025-01-06,51.67,56.94,59.64,33,115.7;2025-01-13,54.62,56.85,59.59,44,133.1;2025-01-20,54.34,56.75,59.54,43,130;2025-01-27,54.64,56.67,59.49,44,123.3;2025-02-03,54.12,56.57,59.44,43,121;2025-02-10,54.49,56.49,59.39,44,123.4;2025-02-17,57.09,56.51,59.37,53,140.7;2025-02-24,57.03,56.53,59.34,53,164.1;2025-03-03,58.48,56.61,59.33,57,182.1;2025-03-10,56.69,56.61,59.31,51,161.1;2025-03-17,55.8,56.58,59.27,48,139.1;2025-03-24,56.61,56.58,59.25,51,152.2;2025-03-31,55.15,56.52,59.21,46,114.4;2025-04-07,55.22,56.47,59.17,47,162.1;2025-04-14,58.32,56.55,59.16,56,177.8;2025-04-21,56.89,56.56,59.13,52,161.5;2025-04-28,56.96,56.58,59.11,52,153.3;2025-05-05,56.69,56.58,59.09,51,152.2;2025-05-12,56.24,56.57,59.06,49,182.8;2025-05-19,55.53,56.53,59.03,47,183.2;2025-05-26,56.62,56.53,59,51,200.9;2025-06-02,56,56.51,58.97,49,198.4;2025-06-09,57.64,56.55,58.96,54,211.3;2025-06-16,57.18,56.58,58.94,53,186.3;2025-06-23,57.03,56.6,58.92,52,167.3;2025-06-30,57.68,56.64,58.91,54,175.6;2025-07-07,57.16,56.66,58.89,52,171.8;2025-07-14,56.47,56.65,58.87,49,141.1;2025-07-21,57.9,56.7,58.86,55,154.3;2025-07-28,56.57,56.69,58.84,49,144.7;2025-08-04,57.44,56.72,58.82,53,153.3;2025-08-11,58.48,56.79,58.82,56,170.4;2025-08-18,58.92,56.88,58.82,58,168.2;2025-08-25,58.76,56.95,58.82,57,191.2;2025-09-01,59.29,57.04,58.82,59,210.4;2025-09-08,60.41,57.17,58.84,63,228.8;2025-09-15,59.16,57.25,58.84,57,199.5;2025-09-22,60.32,57.37,58.86,61,221.6;2025-09-29,60.4,57.49,58.87,61,225.9;2025-10-06,58.26,57.52,58.87,51,203.6;2025-10-13,59.94,57.62,58.88,57,226.1;2025-10-20,59.99,57.71,58.89,57,215.8;2025-10-27,57.98,57.72,58.88,49,199.1;2025-11-03,56.87,57.69,58.86,45,190.1;2025-11-10,56.8,57.65,58.84,45,188.7;2025-11-17,56.67,57.61,58.82,44,179.3;2025-11-24,57.61,57.61,58.8,48,205.2;2025-12-01,58.48,57.65,58.8,52,221.3;2025-12-08,57.72,57.65,58.79,49,227;2025-12-15,56.33,57.6,58.77,44,185.7;2025-12-22,56.69,57.56,58.75,45,199.4;2025-12-29,57.31,57.55,58.73,48,215.4;2026-01-05,58.17,57.58,58.73,52,232.9;2026-01-12,61.42,57.73,58.75,63,262.7;2026-01-19,60.74,57.85,58.77,60,252.8;2026-01-26,61.16,57.98,58.8,61,280.3;2026-02-02,63.23,58.18,58.84,66,301.4;2026-02-09,65.66,58.47,58.91,72,325.4;2026-02-16,66.14,58.78,58.98,72,334.6;2026-02-23,67,59.1,59.06,74,348.3;2026-03-02,65,59.33,59.12,65,328.8;2026-03-09,64.44,59.53,59.17,62,315;2026-03-16,60.95,59.59,59.19,50,285;2026-03-23,60.69,59.63,59.2,49,281.5;2026-03-30,62.21,59.73,59.23,54,294.2;2026-04-06,63.75,59.89,59.28,58,320.7;2026-04-13,65.09,60.09,59.34,61,340.9;2026-04-20,63.33,60.22,59.38,55,321.2;2026-04-27,63.81,60.36,59.42,56,332.3;2026-05-04,61.92,60.42,59.45,50,309;2026-05-11,61.12,60.45,59.46,48,280.3;2026-05-18,62.02,60.51,59.49,51,285.6;2026-05-25,61.28,60.54,59.51,49,273;2026-06-01,60.84,60.55,59.52,47,284.3;2026-06-08,62.72,60.64,59.55,53,314.6;2026-06-15,60.24,60.62,59.56,46,286.1;2026-06-22,63.12,60.72,59.59,54,316.6;2026-06-29,63.84,60.84,59.64,56,341.4;2026-07-06,63.31,60.94,59.67,54,328.5;2026-07-13,65.71,61.13,59.73,60,336.3;2026-07-20,65.6,61.3,59.79,59,347.6;2026-07-27,63.87,61.4,59.83,54,332.5;2026-08-03,62.51,61.45,59.86,50,312.1;2026-08-10,62.74,61.5,59.89,50,326.6;2026-08-17,62.6,61.54,59.91,50,317.8;2026-08-24,61.98,61.56,59.93,48,304.4;2026-08-31,61.25,61.54,59.95,46,296.2;2026-09-07,59.5,61.46,59.94,41,277.8;2026-09-14,56.66,61.28,59.91,34,229.2;2026-09-21,55.54,61.05,59.87,32,199.6;2026-09-28,54.13,60.78,59.81,29,183.9;2026-10-05,54.18,60.52,59.75,30,211.2;2026-10-12,56.08,60.35,59.72,37,235.2;2026-10-19,56.89,60.21,59.69,40,255.4;2026-10-28,56.23,60.06,59.65,39,255.5`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+const DD=`2025-10-16,59.29,59.01,57.88,-30.6;2025-10-17,59.94,59.04,57.9,-27;2025-10-20,60.64,59.11,57.93,-23.5;2025-10-21,60.03,59.14,57.95,-25.8;2025-10-22,60.27,59.19,57.97,-25;2025-10-23,60.22,59.23,58,-25.1;2025-10-24,59.99,59.26,58.02,-28.8;2025-10-27,60.4,59.3,58.04,-24;2025-10-28,59.21,59.3,58.05,-29.3;2025-10-29,58.36,59.26,58.05,-33.3;2025-10-30,57.91,59.21,58.05,-40.3;2025-10-31,57.98,59.16,58.05,-36.4;2025-11-03,58.2,59.12,58.05,-30.7;2025-11-04,56.14,59.01,58.03,-40;2025-11-05,56.12,58.89,58.02,-47.5;2025-11-06,56.33,58.79,58,-48.3;2025-11-07,56.87,58.72,57.99,-43;2025-11-10,56.38,58.62,57.97,-45;2025-11-11,57.16,58.57,57.96,-41.5;2025-11-12,56.93,58.5,57.95,-42.9;2025-11-13,56.59,58.43,57.94,-49.1;2025-11-14,56.8,58.36,57.93,-49.7;2025-11-17,57,58.31,57.92,-46.1;2025-11-18,57.34,58.27,57.91,-42.3;2025-11-19,56.71,58.21,57.9,-45;2025-11-20,56.3,58.14,57.89,-50.6;2025-11-21,56.67,58.08,57.87,-51.7;2025-11-24,56.49,58.02,57.86,-56.7;2025-11-25,56.72,57.97,57.85,-57.6;2025-11-26,57.14,57.93,57.84,-56.2;2025-11-28,57.61,57.92,57.84,-52.8;2025-12-01,57.43,57.9,57.83,-50.8;2025-12-02,57.5,57.89,57.83,-49.3;2025-12-03,58.09,57.89,57.83,-45.6;2025-12-04,58.21,57.91,57.84,-46.2;2025-12-05,58.48,57.93,57.84,-46.2;2025-12-08,57.32,57.9,57.84,-54.5;2025-12-09,57.05,57.87,57.83,-59.8;2025-12-10,56.67,57.82,57.82,-67.5;2025-12-11,57.22,57.8,57.81,-64.8;2025-12-12,57.72,57.8,57.81,-62.9;2025-12-15,58.08,57.81,57.82,-58.3;2025-12-16,57.44,57.79,57.81,-63.3;2025-12-17,57.76,57.79,57.81,-59.3;2025-12-18,56.77,57.75,57.8,-66.8;2025-12-19,56.33,57.7,57.79,-80.5;2025-12-22,56.67,57.66,57.78,-75.8;2025-12-23,55.93,57.59,57.76,-81.6;2025-12-24,56.67,57.55,57.75,-79.7;2025-12-26,56.69,57.52,57.74,-78.5;2025-12-29,56.81,57.49,57.73,-81.4;2025-12-30,57.03,57.47,57.72,-77.8;2025-12-31,56.37,57.43,57.71,-81.9;2026-01-02,57.31,57.43,57.7,-77.4;2026-01-05,57.85,57.44,57.7,-73.1;2026-01-06,57.42,57.44,57.7,-71.1;2026-01-07,57.35,57.44,57.7,-72.5;2026-01-08,58.29,57.47,57.7,-69;2026-01-09,58.17,57.5,57.71,-71.8;2026-01-12,58.89,57.55,57.72,-68.3;2026-01-13,59.23,57.62,57.73,-65.4;2026-01-14,60.31,57.72,57.76,-58.8;2026-01-15,60.72,57.84,57.79,-52.7;2026-01-16,61.42,57.98,57.83,-47;2026-01-20,61.62,58.12,57.86,-44.1;2026-01-21,61.79,58.27,57.9,-38.8;2026-01-22,60.85,58.37,57.93,-45.2;2026-01-23,60.74,58.46,57.96,-42.8;2026-01-26,60.4,58.54,57.98,-47.5;2026-01-27,60.92,58.63,58.01,-42.1;2026-01-28,60.07,58.69,58.03,-45.8;2026-01-29,60.78,58.77,58.06,-40.5;2026-01-30,61.16,58.86,58.09,-34.4;2026-02-02,60.53,58.93,58.12,-39.3;2026-02-03,61.46,59.03,58.15,-34.8;2026-02-04,62.46,59.16,58.19,-27.1;2026-02-05,63.36,59.33,58.24,-23.8;2026-02-06,63.23,59.48,58.29,-24.1;2026-02-09,63.09,59.62,58.34,-21.4;2026-02-10,63.9,59.79,58.4,-18.1;2026-02-11,64.5,59.97,58.46,-13.1;2026-02-12,64.78,60.16,58.52,-25.1;2026-02-13,65.66,60.38,58.59,-22.4;2026-02-17,66.49,60.62,58.67,-19;2026-02-18,65.07,60.79,58.73,-26.3;2026-02-19,65.5,60.98,58.8,-23.4;2026-02-20,66.14,61.18,58.87,-20.8;2026-02-23,66.68,61.4,58.95,-21;2026-02-24,66.52,61.6,59.03,-22;2026-02-25,65.99,61.77,59.1,-17.8;2026-02-26,66.6,61.96,59.17,-17.3;2026-02-27,67,62.16,59.25,-22.1;2026-03-02,67.56,62.37,59.33,-17.1;2026-03-03,66.56,62.53,59.4,-17.7;2026-03-04,66,62.67,59.47,-16.2;2026-03-05,64.8,62.75,59.52,-19.2;2026-03-06,65,62.84,59.58,-13.9;2026-03-09,64.94,62.92,59.63,-9.2;2026-03-10,64.88,63,59.68,-9.8;2026-03-11,64.71,63.07,59.73,-5.7;2026-03-12,65.03,63.14,59.78,-3.9;2026-03-13,64.44,63.19,59.83,-9.1;2026-03-16,64.92,63.26,59.88,-13.8;2026-03-17,64.09,63.29,59.92,-19.9;2026-03-18,63.04,63.28,59.95,-23.8;2026-03-19,62.64,63.26,59.98,-26.9;2026-03-20,60.95,63.17,59.99,-33.5;2026-03-23,60.85,63.08,60,-39.2;2026-03-24,60.46,62.97,60,-43.1;2026-03-25,60.06,62.86,60,-46.1;2026-03-26,60.27,62.76,60.01,-46.1;2026-03-27,60.69,62.68,60.01,-45.6;2026-03-30,61.15,62.62,60.03,-47.1;2026-03-31,61.18,62.56,60.04,-47.1;2026-04-01,61.88,62.53,60.06,-42.5;2026-04-02,62.21,62.52,60.08,-42.9;2026-04-06,61.83,62.5,60.09,-44.1;2026-04-07,62.23,62.48,60.12,-41.9;2026-04-08,62.79,62.5,60.14,-36.3;2026-04-09,63.2,62.52,60.17,-34.9;2026-04-10,63.75,62.57,60.21,-29.5;2026-04-13,63.32,62.6,60.24,-27.7;2026-04-14,63.81,62.65,60.27,-23.8;2026-04-15,63.96,62.7,60.31,-19.2;2026-04-16,64.64,62.78,60.35,-15.2;2026-04-17,65.09,62.87,60.4,-11.9;2026-04-20,64.92,62.95,60.45,-14.3;2026-04-21,64,62.99,60.48,-20.5;2026-04-22,63.34,63,60.51,-24.2;2026-04-23,64.08,63.04,60.55,-21.1;2026-04-24,63.33,63.06,60.57,-25;2026-04-27,62.75,63.04,60.59,-28.4;2026-04-28,63.55,63.06,60.62,-23.4;2026-04-29,63.29,63.07,60.65,-24.7;2026-04-30,64.24,63.12,60.69,-17.1;2026-05-01,63.81,63.15,60.72,-20.4;2026-05-04,63.45,63.16,60.74,-22.3;2026-05-05,63.57,63.17,60.77,-21.5;2026-05-06,64.01,63.21,60.81,-17.8;2026-05-07,61.79,63.15,60.81,-27.9;2026-05-08,61.92,63.1,60.83,-30.7;2026-05-11,62.36,63.07,60.84,-29.4;2026-05-12,62.53,63.05,60.86,-31.1;2026-05-13,61.52,62.99,60.86,-33.9;2026-05-14,61.96,62.95,60.88,-32;2026-05-15,61.12,62.88,60.88,-37.2;2026-05-18,61.71,62.83,60.89,-32.4;2026-05-19,62.09,62.8,60.9,-31;2026-05-20,62.24,62.78,60.91,-27.4;2026-05-21,62.23,62.76,60.92,-25;2026-05-22,62.02,62.73,60.94,-24.7;2026-05-26,62.45,62.72,60.95,-20.6;2026-05-27,62.19,62.7,60.96,-24.4;2026-05-28,61.69,62.66,60.97,-29.8;2026-05-29,61.28,62.61,60.97,-24.6;2026-06-01,59.55,62.49,60.96,-31.9;2026-06-02,59.91,62.39,60.95,-29.5;2026-06-03,59.72,62.28,60.94,-35.2;2026-06-04,59.75,62.18,60.92,-38.6;2026-06-05,60.84,62.13,60.92,-36.2;2026-06-08,60.01,62.05,60.91,-40.8;2026-06-09,61.25,62.01,60.92,-35.5;2026-06-10,62.11,62.02,60.93,-33.9;2026-06-11,61.91,62.01,60.94,-39.6;2026-06-12,62.72,62.04,60.96,-35.8;2026-06-15,62.14,62.05,60.97,-40.3;2026-06-16,62.17,62.05,60.98,-40.1;2026-06-17,60.57,61.99,60.98,-44.4;2026-06-18,60.24,61.92,60.97,-56.6;2026-06-22,60.58,61.87,60.97,-58;2026-06-23,61.53,61.86,60.97,-54.2;2026-06-24,61.99,61.86,60.98,-53.9;2026-06-25,62.04,61.87,60.99,-51.4;2026-06-26,63.12,61.92,61.01,-45.8;2026-06-29,63.04,61.96,61.03,-41.1;2026-06-30,61.96,61.96,61.04,-48.4;2026-07-01,61.82,61.96,61.05,-53.7;2026-07-02,63.84,62.03,61.08,-47.4;2026-07-06,63.19,62.08,61.1,-48.5;2026-07-07,64.01,62.15,61.13,-50.1;2026-07-08,63.23,62.19,61.15,-55;2026-07-09,63.17,62.23,61.17,-58.3;2026-07-10,63.31,62.28,61.19,-57.6;2026-07-13,64.17,62.35,61.22,-53.4;2026-07-14,63.77,62.41,61.25,-58.6;2026-07-15,63.26,62.44,61.27,-61.8;2026-07-16,65.75,62.57,61.31,-56.8;2026-07-17,65.71,62.69,61.35,-59.9;2026-07-20,65.18,62.79,61.39,-62.3;2026-07-21,64.99,62.88,61.43,-59.1;2026-07-22,65.03,62.96,61.46,-62.5;2026-07-23,64.72,63.03,61.5,-64.1;2026-07-24,65.6,63.13,61.54,-61.6;2026-07-27,65.5,63.22,61.58,-64;2026-07-28,65.73,63.32,61.62,-67.6;2026-07-29,65.54,63.41,61.66,-69;2026-07-30,64.43,63.45,61.68,-70.9;2026-07-31,63.87,63.46,61.71,-68;2026-08-03,63.48,63.47,61.72,-68.6;2026-08-04,62.9,63.44,61.74,-66.5;2026-08-05,62.7,63.41,61.74,-65.2;2026-08-06,62.36,63.37,61.75,-71;2026-08-07,62.51,63.34,61.76,-71.3;2026-08-10,61.89,63.28,61.76,-69.8;2026-08-11,61.89,63.23,61.76,-69.4;2026-08-12,62.59,63.2,61.77,-58.8;2026-08-13,62.95,63.19,61.78,-60.2;2026-08-14,62.74,63.17,61.79,-63.2;2026-08-17,62.4,63.14,61.8,-62.3;2026-08-18,62.21,63.11,61.8,-66.2;2026-08-19,62.95,63.1,61.81,-63.4;2026-08-20,63.17,63.1,61.83,-63.4;2026-08-21,62.6,63.08,61.83,-66.6;2026-08-24,63.17,63.09,61.85,-65.5;2026-08-25,62.83,63.08,61.86,-66.2;2026-08-26,62.26,63.05,61.86,-70.2;2026-08-27,61.8,63,61.86,-72;2026-08-28,61.98,62.96,61.86,-72.5;2026-08-31,61.28,62.89,61.86,-75.9;2026-09-01,61.36,62.83,61.85,-77;2026-09-02,61.5,62.78,61.85,-74.6;2026-09-03,61.74,62.74,61.85,-73.4;2026-09-04,61.25,62.68,61.84,-77;2026-09-08,61.02,62.61,61.83,-81.9;2026-09-09,60.11,62.52,61.81,-87.6;2026-09-10,59.57,62.4,61.79,-92.5;2026-09-11,59.5,62.29,61.77,-92.8;2026-09-14,59.27,62.17,61.74,-101.4;2026-09-15,58.71,62.03,61.71,-105.5;2026-09-16,57.15,61.84,61.67,-114.1;2026-09-17,57.32,61.66,61.63,-114.9;2026-09-18,56.66,61.47,61.58,-126;2026-09-21,56.65,61.28,61.53,-133.6;2026-09-22,56.53,61.09,61.48,-138.9;2026-09-23,55.61,60.88,61.42,-143;2026-09-24,55.41,60.66,61.36,-143.3;2026-09-25,55.54,60.46,61.3,-136.3;2026-09-28,55.35,60.26,61.24,-138.1;2026-09-29,55.14,60.06,61.18,-140.8;2026-09-30,54.3,59.84,61.11,-148.1;2026-10-01,53.53,59.59,61.04,-154.8;2026-10-02,54.13,59.37,60.97,-150.7;2026-10-05,53.77,59.15,60.9,-152.4;2026-10-06,54.25,58.96,60.83,-148.6;2026-10-07,53.35,58.74,60.76,-154.7;2026-10-08,54.17,58.56,60.69,-142.6;2026-10-09,54.18,58.39,60.63,-140.4;2026-10-12,54.7,58.25,60.57,-133.5;2026-10-13,54.99,58.12,60.51,-126.7;2026-10-14,55.17,58,60.46,-124.1;2026-10-15,55.55,57.91,60.41,-131;2026-10-16,56.08,57.83,60.37,-128.2;2026-10-19,55.51,57.74,60.32,-132.4;2026-10-20,56.34,57.69,60.28,-129.3;2026-10-21,55.35,57.6,60.23,-138;2026-10-22,57.06,57.58,60.2,-130.7;2026-10-23,56.89,57.55,60.17,-131.9;2026-10-26,57.16,57.53,60.14,-130.6;2026-10-27,56.82,57.51,60.1,-137.3;2026-10-28,56.23,57.46,60.06,-137.3`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+
+const fmtN=(v,d=2)=>v.toLocaleString("de-CH",{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmtD=s=>{const [y,m,d]=s.split("-");return d+"."+m+"."+y.slice(2)};
+const NS="http://www.w3.org/2000/svg";
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+
+function scoreTable(id,rows){
+  let tot=0,max=0;
+  const html='<thead><tr><th>Kriterium</th><th>Stand</th><th class="num">Punkte</th><th style="width:22%"></th></tr></thead><tbody>'+rows.map(r=>{tot+=r[2];max+=r[3];const p=r[2]/r[3];const c=p>=.75?"var(--good)":p>=.45?"var(--warn)":"var(--bad)";
+    return `<tr><td>${r[0]}</td><td class="muted">${r[1]}</td><td class="num">${r[2]} / ${r[3]}</td><td><div class="bar"><i style="width:${p*100}%;background:${c}"></i></div></td></tr>`}).join("")+`<tr class="total"><td>Total</td><td></td><td class="num">${tot} / ${max}</td><td></td></tr></tbody>`;
+  document.getElementById(id).innerHTML=html;return tot;
+}
+const qs=scoreTable("q-tbl",Q), ts=scoreTable("t-tbl",T);
+document.getElementById("q-val").textContent=qs;document.getElementById("t-val").textContent=ts;
+document.getElementById("q-pin").style.left=qs+"%";document.getElementById("t-pin").style.left=ts+"%";
+
+document.getElementById("fin-rows").innerHTML=FIN.map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1].toLocaleString("de-CH")}</td><td class="num">${r[2]}</td><td class="num">${r[3]}</td><td class="num">${fmtN(r[4])}</td><td class="num">${r[5].toLocaleString("de-CH")}</td><td class="num">${r[6]}</td><td class="num">${r[7]}</td></tr>`).join("");
+
+/* generic line chart */
+function lineChart(host,{dates,series,bands=[],yFmt=v=>fmtN(v),h=300,zero=false,refs=[],pad}){
+  const W_=800,H=h,m={t:12,r:56,b:28,l:8};
+  const all=series.flatMap(s=>s.values).concat(bands.flatMap(b=>[b.from,b.to])).concat(refs.map(r=>r.v));
+  if(zero)all.push(0);
+  let lo=Math.min(...all),hi=Math.max(...all);const sp=(hi-lo)||1;lo-=sp*.06;hi+=sp*.06;
+  if(pad){lo=pad[0];hi=pad[1]}
+  const n=dates.length,x=i=>m.l+i*(W_-m.l-m.r)/(n-1),y=v=>m.t+(hi-v)*(H-m.t-m.b)/(hi-lo);
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  // grid
+  const steps=5;for(let k=0;k<=steps;k++){const v=lo+(hi-lo)*k/steps;el("line",{x1:m.l,x2:W_-m.r,y1:y(v),y2:y(v),stroke:"var(--grid)","stroke-width":1},svg);
+    const t=el("text",{x:W_-m.r+6,y:y(v)+4,"font-size":11,fill:"var(--muted)","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=yFmt(v)}
+  bands.forEach(b=>{el("rect",{x:m.l,width:W_-m.l-m.r,y:y(Math.max(b.from,b.to)),height:Math.abs(y(b.from)-y(b.to)),fill:b.type==="res"?"var(--zone-res)":"var(--zone-sup)"},svg)});
+  refs.forEach(r=>{el("line",{x1:m.l,x2:W_-m.r,y1:y(r.v),y2:y(r.v),stroke:"var(--muted)","stroke-dasharray":"4 4","stroke-width":1},svg);
+    const t=el("text",{x:m.l+4,y:y(r.v)-4,"font-size":11,fill:"var(--muted)"},svg);t.textContent=r.label});
+  if(zero)el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  // x labels
+  const every=Math.ceil(n/6);for(let i=0;i<n;i+=every){const t=el("text",{x:x(i),y:H-8,"font-size":11,fill:"var(--muted)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);const d=dates[i];t.textContent=d.slice(5,7)+"/"+d.slice(2,4)}
+  series.forEach(s=>{const dpath=s.values.map((v,i)=>(i?"L":"M")+x(i).toFixed(1)+","+y(v).toFixed(1)).join("");
+    el("path",{d:dpath,fill:"none",stroke:s.color,"stroke-width":s.w||2,"stroke-linejoin":"round","stroke-linecap":"round"},svg);
+    const lv=s.values[n-1];el("circle",{cx:x(n-1),cy:y(lv),r:3.5,fill:s.color,stroke:"var(--surface)","stroke-width":2},svg)});
+  // hover
+  const cross=el("line",{y1:m.t,y2:H-m.b,stroke:"var(--muted)","stroke-width":1,opacity:0},svg);
+  const ov=el("rect",{x:m.l,y:m.t,width:W_-m.l-m.r,height:H-m.t-m.b,fill:"transparent"},svg);
+  host.appendChild(svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;host.appendChild(tip);
+  function move(ev){const r=svg.getBoundingClientRect();const px=(ev.clientX-r.left)*W_/r.width;let i=Math.round((px-m.l)/((W_-m.l-m.r)/(n-1)));i=Math.max(0,Math.min(n-1,i));
+    cross.setAttribute("x1",x(i));cross.setAttribute("x2",x(i));cross.setAttribute("opacity",1);
+    tip.innerHTML=`<div class="d">${fmtD(dates[i])}</div>`+series.map(s=>`<div><i class="sw" style="background:${s.color}"></i> ${s.name}: <b>${yFmt(s.values[i])}</b></div>`).join("");
+    tip.hidden=false;const hx=x(i)*r.width/W_;tip.style.left=Math.min(Math.max(0,hx+12),r.width-tip.offsetWidth)+"px";tip.style.top="8px"}
+  ov.addEventListener("pointermove",move);ov.addEventListener("pointerleave",()=>{tip.hidden=true;cross.setAttribute("opacity",0)});
+}
+function barChart(host,{labels,values,fmt,h=220,color,neg,tipExtra}){
+  const W_=800,H=h,m={t:18,r:8,b:28,l:8};
+  const hi=Math.max(0,...values),lo=Math.min(0,...values);const lo2=lo<0?lo*1.15:lo,hi2=hi*1.15||1;
+  const y=v=>m.t+(hi2-v)*(H-m.t-m.b)/(hi2-lo2);const n=values.length,bw=(W_-m.l-m.r)/n;
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;
+  values.forEach((v,i)=>{const x0=m.l+i*bw+bw*.18,w=bw*.64,y0=y(Math.max(v,0)),hh=Math.max(1,Math.abs(y(v)-y(0)));
+    const r=el("rect",{x:x0,y:y0,width:w,height:hh,rx:4,fill:v<0?(neg||"var(--s2)"):(color||"var(--s1)")},svg);
+    const t=el("text",{x:x0+w/2,y:v<0?y(v)+13:y0-5,"font-size":11.5,fill:"var(--ink)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=fmt(v);
+    const l=el("text",{x:x0+w/2,y:H-8,"font-size":11.5,fill:"var(--muted)","text-anchor":"middle"},svg);l.textContent=labels[i];
+    const hit=el("rect",{x:m.l+i*bw,y:m.t,width:bw,height:H-m.t-m.b,fill:"transparent"},svg);
+    hit.addEventListener("pointerenter",()=>{tip.innerHTML=`<div class="d">${labels[i]}</div><b>${fmt(v)}</b>${tipExtra?tipExtra(i):""}`;tip.hidden=false;const R=svg.getBoundingClientRect();tip.style.left=Math.min((m.l+i*bw)*R.width/W_,R.width-tip.offsetWidth)+"px";tip.style.top="0px"});
+    hit.addEventListener("pointerleave",()=>tip.hidden=true)});
+  host.appendChild(svg);host.appendChild(tip);
+}
+barChart(document.getElementById("c-rev"),{labels:HALF.map(r=>r[0]),values:HALF.map(r=>r[1]),fmt:v=>fmtN(v,2),h:200});
+barChart(document.getElementById("c-margin"),{labels:MARGIN.map(r=>r[0]),values:MARGIN.map(r=>r[1]),fmt:v=>fmtN(v,1)+" %",h:200});
+barChart(document.getElementById("c-seas"),{labels:MON,values:SEAS,fmt:v=>(v>0?"+":"")+fmtN(v,1),h:220,tipExtra:i=>`<div>${SEASHIT[i]} % der Jahre positiv</div>`});
+const BANDS=[{"from": 61.1, "to": 63.5, "type": "res"}, {"from": 59.5, "to": 60.1, "type": "res"}, {"from": 53.15, "to": 54.4, "type": "sup"}, {"from": 50.7, "to": 51.6, "type": "sup"}], REFS=[{"v": 57.5, "label": "Trigger 57.50"}];
+const wd=W.map(r=>r[0]);
+lineChart(document.getElementById("c-week"),{dates:wd,series:[{name:"Kurs",values:W.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:W.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:W.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,yFmt:v=>fmtN(v,0),h:320});
+lineChart(document.getElementById("c-adw"),{dates:wd,series:[{name:"A/D Woche",values:W.map(r=>r[5]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,zero:true});
+lineChart(document.getElementById("c-rsiw"),{dates:wd,series:[{name:"RSI Woche",values:W.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,refs:[{v:70,label:"70 überkauft"},{v:30,label:"30 überverkauft"}],pad:[10,90]});
+const dd=DD.map(r=>r[0]);
+lineChart(document.getElementById("c-day"),{dates:dd,series:[{name:"Kurs",values:DD.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:DD.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:DD.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,refs:REFS,yFmt:v=>fmtN(v,0),h:260});
+lineChart(document.getElementById("c-add"),{dates:dd,series:[{name:"A/D Tag",values:DD.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:260,zero:true});
+</script>

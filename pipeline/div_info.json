@@ -756,5 +756,72 @@
   "betrag": 0.58,
   "system": "Deutsches System: eine Dividende pro Jahr, beschlossen an der Generalversammlung im Juni. Renk zahlt rund 40 % des bereinigten Gewinns aus. Seit dem Börsengang erhöht: 0.30 € (2023), 0.42 € (2024), 0.58 € (2025). Analysten erwarten für 2026 rund 0.73 €.",
   "form": "Bar in Euro aufs Konto. Deutschland zieht 26.375 % Quellensteuer ab. 15 % kannst du über die Schweizer Steuererklärung anrechnen lassen (Formular DA-1), die restlichen 11.375 % musst du in Deutschland zurückfordern (Bundeszentralamt für Steuern, innert rund 3 Jahren). Lohnt sich erst bei grösseren Beträgen."
+ },
+ "O": {
+  "pro_jahr": 12,
+  "rhythmus": "monatlich",
+  "ex_monate": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12
+  ],
+  "zahl_monate": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12
+  ],
+  "zahl_text": "Jeden Monat um den 15. Der Ex-Tag ist jeweils der letzte Börsentag des Vormonats (z. B. Ex-Tag 30.9.2026, Zahltag 15.10.2026; nächster Ex-Tag 30.10.2026, Zahlung Mitte November).",
+  "abstand_tage": 15,
+  "betrag": 0.2715,
+  "system": "Monatsdividende eines REIT: 12 gleich hohe Zahlungen pro Jahr, seit 1994 136 Mal erhöht, meist einmal pro Quartal um einen kleinen Betrag (zuletzt am 8.9.2026 von 0.2710 auf 0.2715 USD, aufs Jahr 3.258 USD). Bezahlt wird aus dem AFFO (angepasster Mittelzufluss), nicht aus dem Buchgewinn: 2026 rund 73 % des AFFO. Darum wirkt die Ausschüttung gemessen am Gewinn (über 200 %) zu hoch, ist aber gedeckt.",
+  "form": "Bar in US-Dollar aufs Konto. Die USA ziehen Quellensteuer ab: Mit dem Formular W-8BEN (bei Saxo hinterlegt) 15 % statt 30 %. Diese 15 % kannst du in der Schweizer Steuererklärung mit dem Formular DA-1 zurückfordern bzw. anrechnen lassen, wenn du die Dividende als Einkommen versteuerst."
+ },
+ "0700": {
+  "pro_jahr": 1,
+  "rhythmus": "jährlich",
+  "ex_monate": [
+   5
+  ],
+  "zahl_monate": [
+   6
+  ],
+  "zahl_text": "Anfang Juni (2026: Ex-Tag 15.5., Zahltag 1.6.)",
+  "abstand_tage": 17,
+  "betrag": 5.3,
+  "system": "Eine Schlussdividende pro Jahr in Hongkong-Dollar, vom Verwaltungsrat mit den Jahreszahlen im März vorgeschlagen und an der Generalversammlung im Mai genehmigt. Seit 2022 jedes Jahr erhöht: 1.60, 2.40, 3.40, 4.50 und zuletzt 5.30 HKD für 2025 (+18 %). Rendite rund 1.4 %. Tencent gibt den Aktionären mehr Geld über Aktienrückkäufe als über die Dividende.",
+  "form": "Bar in Hongkong-Dollar (HKD), Saxo schreibt den Betrag in HKD oder umgerechnet gut. Laut Dividendenmeldung an der Börse Hongkong wird keine Quellensteuer abgezogen (Tencent ist auf den Cayman Islands registriert). In der Schweiz ist die Dividende als Einkommen zu versteuern."
+ },
+ "1211": {
+  "pro_jahr": 1,
+  "rhythmus": "jährlich",
+  "ex_monate": [
+   6
+  ],
+  "zahl_monate": [
+   7
+  ],
+  "zahl_text": "Einmal pro Jahr, für 2025: Ex-Tag 11.6.2026, Stichtag 18.6.2026, Zahlung am 31.7.2026.",
+  "abstand_tage": 50,
+  "betrag": 0.411,
+  "system": "Eine Schlussdividende pro Jahr, festgelegt in Yuan (für 2025: 0.358 RMB pro Aktie), an der Generalversammlung im Juni beschlossen. Für 2025 schüttete BYD nur rund 10 % des Gewinns aus (2023 und 2024: 30 %), die Dividende sank um rund 73 %.",
+  "form": "Bar in Hongkong-Dollar (für 2025: 0.41141 HKD pro Aktie, Kurs 1 RMB = 1.1492 HKD). BYD ist eine chinesische Firma (H-Aktie): China zieht in der Regel 10 % Quellensteuer ab. Laut Doppelbesteuerungsabkommen Schweiz–China sind 10 % das Maximum, du kannst den Abzug in der Schweizer Steuererklärung anrechnen lassen. Wie Saxo das genau abwickelt, konnte ich nicht prüfen."
  }
 }

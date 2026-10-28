@@ -1827,5 +1827,130 @@
   "pe_typ": "KGV",
   "zahlen": "2026-11-05",
   "artifact": "JVP1LSBEKCvNyEvgTPyvGL"
+ },
+ "O": {
+  "symbol": "O",
+  "name": "Realty Income",
+  "tags": [
+   "Dividende",
+   "Defensiv"
+  ],
+  "land": "USA",
+  "region": "USA",
+  "branche": "Immobilien (REIT, Netto-Mietverträge)",
+  "status": "beobachten",
+  "waehrung": "USD",
+  "kurs": 56.23,
+  "datenstand": "2026-10-28",
+  "kauf": [
+   [
+    53.15,
+    54.4
+   ],
+   [
+    50.7,
+    51.6
+   ]
+  ],
+  "widerstand": [
+   [
+    59.5,
+    60.1
+   ],
+   [
+    61.1,
+    63.5
+   ]
+  ],
+  "trigger": 57.5,
+  "abbruch": 52.8,
+  "pe": 12.8,
+  "pe_avg": 15.3,
+  "pe_typ": "P/AFFO",
+  "zahlen": "2026-11-02",
+  "artifact": "GSHGMEP5en6j2jFTDiCS1Z"
+ },
+ "0700": {
+  "symbol": "0700.HK",
+  "name": "Tencent Holdings",
+  "tags": [
+   "Wachstum",
+   "Qualität"
+  ],
+  "land": "China",
+  "region": "Asien",
+  "branche": "Internet, Games und Werbung",
+  "status": "beobachten",
+  "waehrung": "HKD",
+  "kurs": 387.6,
+  "datenstand": "2026-10-28",
+  "kauf": [
+   [
+    378,
+    392
+   ],
+   [
+    345,
+    365
+   ]
+  ],
+  "widerstand": [
+   [
+    410,
+    432
+   ],
+   [
+    450,
+    472
+   ]
+  ],
+  "trigger": 430.4,
+  "abbruch": 340,
+  "pe": 13.3,
+  "pe_avg": 18.4,
+  "pe_typ": "KGV",
+  "zahlen": "2026-11-18",
+  "artifact": "VaRbYCibjRgyTgdhNtfenr"
+ },
+ "1211": {
+  "symbol": "1211.HK",
+  "name": "BYD",
+  "tags": [
+   "Wachstum"
+  ],
+  "land": "China",
+  "region": "Asien",
+  "branche": "Elektroautos und Batterien",
+  "status": "beobachten",
+  "waehrung": "HKD",
+  "kurs": 70.45,
+  "datenstand": "2026-10-28",
+  "kauf": [
+   [
+    67.0,
+    71.5
+   ],
+   [
+    56.0,
+    60.0
+   ]
+  ],
+  "widerstand": [
+   [
+    77.6,
+    82.0
+   ],
+   [
+    86.6,
+    91.0
+   ]
+  ],
+  "trigger": 77.6,
+  "abbruch": 66.0,
+  "pe": 18.9,
+  "pe_avg": 20.3,
+  "pe_typ": "KGV",
+  "zahlen": "2026-10-29",
+  "artifact": "67CPvTEBNGPKt2Z9J3gq8G"
  }
 }

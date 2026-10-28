@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tencent Holdings Aktien-Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F3F5F7; --surface:#FFFFFF; --ink:#141B24; --muted:#5A6573; --line:#DDE2E8; --grid:#E9EDF1;
+  --accent:#2F45B5; --accent-soft:#E6E9F8; --chip:#EBEEF2;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+  --good:#1D7A4B; --good-bg:#E3F3EA; --warn:#9A6200; --warn-bg:#FBF0DC; --bad:#B2362A; --bad-bg:#FBE6E3;
+  --zone-sup:rgba(29,122,75,.10); --zone-res:rgba(178,54,42,.09);
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+    --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+    --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+    --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+  --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+  --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;padding-inline:16px;padding-block:24px 56px}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+h1,h2,h3{font-family:var(--display);font-stretch:85%;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:clamp(32px,7vw,48px);font-weight:800;line-height:1}
+h2{font-size:24px;font-weight:700}
+h3{font-size:17px;font-weight:700;font-stretch:95%}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+section{display:flex;flex-direction:column;gap:14px}
+.lead{max-width:68ch;color:var(--muted)}
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;align-items:stretch}
+.hero .id{display:flex;flex-direction:column;gap:10px;justify-content:space-between}
+.price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price b{font-family:var(--display);font-size:34px;font-weight:700}
+.meta{font-size:13px;color:var(--muted)}
+.verdict{font-size:15px;padding:12px 14px;border-radius:10px;background:var(--chip)}
+.scales{display:flex;flex-direction:column;gap:18px}
+.scale-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.scale-h span{font-size:13px;color:var(--muted)}
+.scale-h b{font-family:var(--display);font-size:28px;line-height:1}
+.track{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#C8412F 0%,#E0892F 30%,#E3B63A 50%,#8BBF4B 68%,#2E9A5B 100%);margin-top:8px}
+.pin{position:absolute;top:-5px;width:4px;height:22px;border-radius:2px;background:var(--ink);box-shadow:0 0 0 2px var(--surface);transform:translateX(-2px)}
+.ticks{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);font-family:var(--mono);margin-top:6px}
+.state{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;margin-top:8px}
+.st-good{background:var(--good-bg);color:var(--good)}
+.st-warn{background:var(--warn-bg);color:var(--warn)}
+.st-bad{background:var(--bad-bg);color:var(--bad)}
+/* tables */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;color:var(--muted);font-weight:500;font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:700;border-bottom:none}
+.pts{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{height:6px;border-radius:3px;background:var(--chip);min-width:60px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:3px}
+/* grids */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;border-left:4px solid var(--line)}
+.kpi.g{border-left-color:var(--good)}.kpi.w{border-left-color:var(--warn)}.kpi.b{border-left-color:var(--bad)}
+.kpi span{font-size:12px;color:var(--muted)}
+.kpi b{font-family:var(--mono);font-size:19px;font-weight:500;font-variant-numeric:tabular-nums}
+.kpi em{font-style:normal;font-size:12.5px;color:var(--muted)}
+/* charts */
+.chart{position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:14px;height:3px;border-radius:2px;display:inline-block}
+.swb{width:12px;height:10px;border-radius:2px;display:inline-block}
+.tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12.5px;box-shadow:0 4px 14px rgba(0,0,0,.12);white-space:nowrap;z-index:2}
+.tip b{font-family:var(--mono);font-weight:500}
+.tip .d{font-family:var(--mono);color:var(--muted);font-size:11.5px}
+.note{font-size:13.5px;color:var(--muted)}
+ul.clean{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.pro li::marker{color:var(--good)} .con li::marker{color:var(--bad)}
+.zones{display:flex;flex-direction:column;gap:8px}
+.zone{display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:baseline;padding:10px 12px;border-radius:10px;background:var(--chip);font-size:14px}
+.zone b{font-family:var(--mono);font-weight:500}
+.zone.r{border-left:4px solid var(--bad)} .zone.s{border-left:4px solid var(--good)} .zone.t{border-left:4px solid var(--accent)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+summary{cursor:pointer;font-weight:600}
+details p{margin-top:8px;color:var(--muted);max-width:70ch}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+footer{font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:6px;max-width:80ch}
+footer a{color:var(--accent)}
+@media (max-width:760px){.hero,.two{grid-template-columns:1fr}.zone{grid-template-columns:1fr;gap:2px}}
+</style>
+
+<a href="../index.html#/aktie/0700" style="display:inline-block;margin:max(12px,env(safe-area-inset-top)) 0 0 16px;background:#1f3a5f;color:#fff;font:600 14px system-ui;padding:8px 12px;border-radius:20px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">Zurück zur App</a>
+<div class="wrap">
+
+<header class="hero">
+  <div class="card id">
+    <div>
+      <div class="eyebrow">Aktien-Check · 28.10.2026</div>
+      <h1>Tencent Holdings</h1>
+      <p class="meta">Tencent Holdings Ltd. · Hongkong: 0700 (in Hongkong-Dollar, 1 Lot = 100 Aktien) · Internet, Games, Werbung, Bezahldienste · Shenzhen, China</p>
+    </div>
+    <div class="price"><b>387.60 HKD</b><span class="meta">Schluss 28.10.2026 · 52 Wochen: 378 – 664 HKD · 1 Lot (100 Aktien) kostet rund 38'760 HKD, also rund 4'000 CHF</span></div>
+    <p class="verdict"><b>Kurz gesagt:</b> Tencent ist Chinas grösster Internetkonzern (WeChat mit 1.44 Mrd. Nutzern, grösster Spielehersteller der Welt) und verdient sehr gut: Umsatz +11 % im 2. Quartal 2026, operative Marge rund 33 %, mehr Geld als Schulden. Die Aktie ist seit Oktober 2025 aber um rund 42 % gefallen (683 auf 387.60 HKD). Der Grund ist vor allem die Rechnung für künstliche Intelligenz (KI): Im 2. Quartal stiegen die Investitionen um 176 % auf 52.8 Mrd. RMB, der Free Cashflow war erstmals negativ (−13.8 Mrd. RMB) und das Netto-Cash schrumpfte von 146.9 auf 58.2 Mrd. RMB. Dazu kommen ein geplanter Anleihen-Verkauf und gesenkte Gewinnschätzungen. Mit einem KGV von rund 13.3 ist die Aktie rund 28 % günstiger als ihr eigener Schnitt. Qualität hellgrün (72), Timing rot (28): Der Abwärtstrend ist auf beiden Zeitebenen intakt. Achtung Lot-Grösse: In Hongkong kaufst du mindestens 100 Aktien, das sind heute rund 4'000 CHF. Keine Anlageberatung.</p>
+  </div>
+  <div class="card scales">
+    <div>
+      <div class="scale-h"><span>Qualität · Ist die Firma kaufenswert?</span><b id="q-val">72</b></div>
+      <div class="track"><i class="pin" id="q-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-good">● Solide</span>
+    </div>
+    <div>
+      <div class="scale-h"><span>Timing · Ist jetzt der Zeitpunkt?</span><b id="t-val">28</b></div>
+      <div class="track"><i class="pin" id="t-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-bad">▲ Abwarten: Abwärtstrend intakt</span>
+    </div>
+    <p class="note">Skala: unter 30 rot · 30–45 orange · 45–60 gelb · 60–75 hellgrün · ab 75 grün. Beide Werte setzen sich aus festen Kriterien zusammen, siehe unten.</p>
+  </div>
+</header>
+
+<section>
+  <h2>Was die Firma macht</h2>
+  <p class="lead">Tencent aus Shenzhen betreibt WeChat (in China «Weixin»), die App, über die in China fast alles läuft: Nachrichten, Bezahlen (WeChat Pay), Mini-Programme, Videos. 1.439 Mrd. Menschen nutzen sie jeden Monat (Juni 2026). Tencent verdient auf drei Wegen: 1. <b>Spiele und Abos</b> (48 % des Umsatzes im 2. Quartal 2026), zum Beispiel «Honor of Kings» und Beteiligungen an Spielefirmen weltweit. 2. <b>Werbung</b> (21 %) in WeChat und den Video-Apps. 3. <b>Bezahldienste und Cloud</b> (29 %). Dazu hält Tencent viele Beteiligungen an anderen Firmen. Die Aktie wird in Hongkong in Hongkong-Dollar gehandelt, die Firma rechnet aber in chinesischen Yuan (RMB). Eine Handelseinheit («Lot») sind 100 Aktien, kleinere Mengen kannst du an der Börse Hongkong nicht kaufen. Die US-Variante (TCEHY) wird nur ausserbörslich gehandelt.</p>
+  <p class="lead">Die Aktie stieg von 365 HKD (Januar 2025) bis 683 HKD (Wochenschluss Ende September 2025). Seither fällt sie. Erstens ist die KI teuer: Tencent baut eigene KI-Modelle (Hunyuan «Hy3») und Produkte (Yuanbao, CodeBuddy, WorkBuddy). Im 2. Quartal 2026 stieg der Betriebsgewinn ohne diese neuen KI-Produkte um 19 %, mit ihnen nur um 9 %. Die Investitionen sprangen auf 52.8 Mrd. RMB, davon 51.4 Mrd. RMB Vorauszahlungen für Rechenleistung. Bernstein erwartet 2026 über 200 Mrd. RMB. Zweitens: Am 22.7.2026 fiel die Aktie um 7 %, weil Händler einen Rückgang der Handy-Spiele befürchteten. Drittens: Laut Bloomberg prüft Tencent einen Anleihen-Verkauf von bis zu 5 Mrd. USD (8.10.2026). Morgan Stanley senkte das Kursziel am 29.9. von 735 auf 650 HKD. Am 21.10. fiel die Aktie unter 400 HKD, nach einem Reuters-Bericht über grosse Chip-Bestellungen von ByteDance, Alibaba und Tencent. Die Rückkäufe sind 2026 kleiner als 2025. Das Kerngeschäft wächst aber weiter: Werbung +22 %, Spiele im Inland +17 %.</p>
+</section>
+
+<section>
+  <h2>Fundamental: die Zahlen</h2>
+  <div class="kpis">
+<div class="kpi g"><span>Umsatzwachstum</span><b>+12.0 %</b><em>Letzte 12 Monate (bis Juni 2026). 2. Quartal 2026: +11 %, 1. Quartal: +9 %. Für einen so grossen Konzern gutes Tempo.</em></div>
+<div class="kpi g"><span>Operative Marge</span><b>33.3 %</b><em>Von 100 Yuan Umsatz bleiben 33 Yuan Betriebsgewinn (letzte 12 Monate). Sehr hoch und seit 2022 (20 %) stark gestiegen. Die neuen KI-Produkte drücken die Marge aber jetzt.</em></div>
+<div class="kpi w"><span>Gewinn pro Aktie (EPS)</span><b>25.45 RMB</b><em>Letzte 12 Monate, rund 29 HKD. Seit 2022 (19.34 RMB) im Schnitt rund +8 % pro Jahr. Im 2. Quartal 2026 nur +0.7 % beim Reingewinn wegen der KI-Kosten.</em></div>
+<div class="kpi w"><span>ROIC</span><b>14.0 %</b><em>Auf 100 Yuan investiertes Kapital rund 14 Yuan Gewinn. Ordentlich, aber tiefer als 2021 (23.6 %). Die hohen KI-Investitionen müssen sich erst noch auszahlen.</em></div>
+<div class="kpi w"><span>Free Cashflow</span><b>168 Mrd. RMB</b><em>Letzte 12 Monate. 2025 waren es noch 216 Mrd. RMB. Im 2. Quartal 2026 negativ (−13.8 Mrd. RMB) wegen Vorauszahlungen für KI-Chips.</em></div>
+<div class="kpi g"><span>Netto-Cash</span><b>58.2 Mrd. RMB</b><em>Mehr Geld als Schulden (30.6.2026). Aber stark gesunken: Ende März waren es noch 146.9 Mrd. RMB.</em></div>
+<div class="kpi g"><span>KGV</span><b>13.3</b><em>Du zahlst rund 13 Jahresgewinne. Eigener Schnitt 2021 bis 2025: 18.4. Also rund 28 % günstiger als üblich. Mit den bereinigten Gewinnen (ohne Sondereffekte) liegt das KGV bei rund 11.5.</em></div>
+<div class="kpi w"><span>Dividende</span><b>1.4 %</b><em>5.30 HKD pro Aktie, einmal pro Jahr (Ex-Tag 15.5.2026, bezahlt am 1.6.2026). Ein Jahr vorher 4.50 HKD, also +18 %. Laut Börse Hongkong keine Quellensteuer.</em></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>Umsatz pro Quartal (Mrd. RMB)</h3>
+      <p class="note">Alle 4 letzten Quartale über dem Vorjahr (+15, +13, +9 und +11 %). Das Tempo ist 2026 etwas tiefer als Ende 2025.</p>
+      <div class="chart" id="c-rev"></div>
+    </div>
+    <div class="card">
+      <h3>Operative Marge pro Jahr</h3>
+      <p class="note">Betriebsgewinn pro 100 Yuan Umsatz. Von 20 % (2022) auf 33 % gestiegen, weil Werbung und Spiele mit hoher Marge wuchsen und Tencent Kosten senkte.</p>
+      <div class="chart" id="c-margin"></div>
+    </div>
+  </div>
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Jahr</th><th class="num">Umsatz Mio. RMB</th><th class="num">Wachstum</th><th class="num">Op. Marge</th><th class="num">EPS RMB</th><th class="num">Free Cashflow</th><th class="num">ROIC</th><th class="num">KGV</th></tr></thead>
+      <tbody id="fin-rows"></tbody>
+    </table>
+  </div>
+  <p class="note"><b>Hinweis:</b> Zahlen in chinesischen Yuan (RMB), der Kurs in Hongkong-Dollar (1 HKD = rund 0.87 RMB). Umsatz, Marge, EPS und Free Cashflow laut StockAnalysis (Stand 30.6.2026), ROIC laut roic.ai (12 Monate: Branchenvergleich der App), KGV laut Wisesheets (Jahresende). Das EPS 2021 und 2022 enthält grosse Gewinne aus dem Verkauf von Beteiligungen (zum Beispiel JD.com), 2023 Abschreibungen auf Beteiligungen. Darum springt das EPS stärker als das Geschäft. Tencent selbst nennt für 2025 ein bereinigtes EPS von 27.88 RMB.</p>
+</section>
+
+<section>
+  <h2>Qualität: 72 von 100</h2>
+  <div class="card tbl"><table id="q-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Technik: Wochenchart (2 Jahre)</h2>
+  <div class="card">
+    <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span><span><i class="swb" style="background:var(--zone-sup);border:1px solid var(--good)"></i>Unterstützung</span><span><i class="swb" style="background:var(--zone-res);border:1px solid var(--bad)"></i>Widerstand</span></div>
+    <div class="chart" id="c-week"></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>A/D-Linie, Woche</h3>
+      <p class="note">Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Negativ: Die Wochen-A/D fällt seit September 2025 stetig (+894 auf −1'255 Mio.). Sie macht jedes neue Kurstief mit. Es wird also weiter verkauft, ein Boden ist hier nicht zu sehen.</p>
+      <div class="chart" id="c-adw"></div>
+    </div>
+    <div class="card">
+      <h3>RSI, Woche</h3>
+      <p class="note">Unter 30 überverkauft, über 70 überkauft. Positiv: Im Mai 2026 lag der Wochen-RSI bei 27 (Kurs 427 HKD), heute bei 35, obwohl der Kurs tiefer steht (387.60 HKD). Das ist eine bullische Divergenz: Der Verkaufsdruck lässt nach. Bestätigt ist sie erst mit einem höheren Tief im Kurs.</p>
+      <div class="chart" id="c-rsiw"></div>
+    </div>
+  </div>
+
+  <h2>Technik: Tageschart (1 Jahr)</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Kurs, Tag</h3>
+      <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span></div>
+      <div class="chart" id="c-day"></div>
+    </div>
+    <div class="card">
+      <h3>A/D-Linie, Tag</h3>
+      <p class="note">Negativ: Die Tages-A/D fällt weiter mit dem Kurs (−1'056 beim Tief vom 8.10., −1'096 beim Tief vom 23.10., heute −1'109). Seit dem Tief vom 23.10. (378 HKD) bewegt sich der Kurs nur seitwärts zwischen 382 und 391 HKD.</p>
+      <div class="chart" id="c-add"></div>
+    </div>
+  </div>
+
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Indikator</th><th>Tag</th><th>Woche</th><th>Bedeutung</th></tr></thead>
+      <tbody>
+<tr><td>Kurs vs. EMA 50</td><td class="pts">387.60 &lt; 424.85</td><td class="pts">387.60 &lt; 472.31</td><td>Deutlich unter der mittelfristigen Linie, auf beiden Zeitebenen.</td></tr>
+<tr><td>Kurs vs. EMA 200</td><td class="pts">387.60 &lt; 471.83</td><td class="pts">387.60 &lt; 450.64</td><td>Unter der langfristigen Linie, rund 14 % darunter in der Woche.</td></tr>
+<tr><td>EMA 50 vs. EMA 200</td><td class="pts">50 unter 200 (Todeskreuz am 4.3.2026)</td><td class="pts">50 noch über 200, Abstand schrumpft schnell</td><td>Tag klarer Abwärtstrend, Woche kurz vor dem Todeskreuz.</td></tr>
+<tr><td>RSI (14)</td><td class="pts">32.1</td><td class="pts">35.1</td><td>Tag fast überverkauft (22.10.: 27), Woche schwach mit Divergenz.</td></tr>
+<tr><td>A/D</td><td class="pts">fällt mit dem Kurs</td><td class="pts">fällt mit dem Kurs</td><td>Beide Zeitebenen zeigen Verkäufe.</td></tr>
+<tr><td>Volumen</td><td colspan="2">Ø 20 Tage 21.5 Mio. vs. Ø 100 Tage 26.2 Mio. Aktien</td><td>Etwas weniger Handel als üblich, kein Ausverkauf mit hohem Volumen.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Struktur und Zonen (Smart Money Concept)</h2>
+  <p class="lead">Seit dem Hoch Ende September 2025 (683 HKD Wochenschluss) fällt Tencent mit tieferen Hochs und tieferen Tiefen. Wochenhochs: 639 (Januar), 578 (März), 526.50 (April), 497.80 (August) und 463.40 HKD (22.9.). Wochentiefs: 476 (März), 420.40 (Mai), 411 (Juni) und 378 HKD (23.10.2026). Im Tageschart ist das letzte tiefere Hoch 430.40 HKD (12. und 14.10.). Ein Change of Character nach oben wäre ein Tagesschluss darüber. Die Zone 410 bis 420 HKD war im September und Oktober eine Unterstützung und ist jetzt ein Widerstand.</p>
+  <div class="zones">
+<div class="zone r"><b>450–472 HKD</b><span>Widerstand: Wochen-EMA 200 (450.60), Hoch vom 22.9. (463.40), Tages-EMA 200 und Wochen-EMA 50 (rund 472).</span></div>
+<div class="zone r"><b>410–432 HKD</b><span>Widerstand: frühere Tiefs vom September und Oktober (411 bis 419), Tages-EMA 50 (424.85), Hoch vom 12./14.10. (430.40).</span></div>
+<div class="zone t"><b>430.40 HKD</b><span><b>Trigger:</b> Tagesschluss über 430.40 HKD (letztes tieferes Hoch vom 12./14.10.), besser mit steigender Tages-A/D.</span></div>
+<div class="zone s"><b>378–392 HKD</b><span><b>Kaufzone 1:</b> Tief vom 23.10.2026 (378) und Wochentief vom November 2024 (392). Der Kurs steht schon in dieser Zone, aber ohne Bodensignal.</span></div>
+<div class="zone s"><b>345–365 HKD</b><span><b>Kaufzone 2:</b> Tief vom Januar 2025 (364.80 HKD). Laut BigGo Finance (21.10.) ergibt der Bärenfall mit drei Jahren hohen KI-Investitionen einen Wert von 350 bis 400 HKD.</span></div>
+<div class="zone r"><b>340 HKD</b><span>Abbruch: Wochenschluss unter 340 HKD, also klar unter dem Tief von Januar 2025.</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Smart Money, Insider und Saisonalität</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Wer kauft, wer verkauft?</h3>
+      <ul class="clean" style="margin-top:8px">
+<li><b>Rückkäufe:</b> 2025 kaufte Tencent 153.4 Mio. Aktien für rund 80 Mrd. HKD zurück. 2026 deutlich weniger: 1. Quartal 7.6 Mrd. HKD, 2. Quartal 16.9 Mrd. HKD. Hochgerechnet rund 1.4 % des Börsenwerts (rund 3'580 Mrd. HKD am 21.10.) pro Jahr. Das Geld fliesst jetzt in KI.</li>
+<li><b>Insider:</b> Gründer und Chef Ma Huateng hält einen grossen Anteil. Käufe der Führung am Markt in den letzten 6 Monaten habe ich nicht gefunden. Grösste Aktionärin ist Prosus (Naspers), die seit 2022 laufend Tencent-Aktien verkauft, um eigene Rückkäufe zu bezahlen.</li>
+<li><b>Grosse Investoren:</b> Chinesische Fonds reduzierten ihre Tencent-Anteile im 2. Quartal 2026 um rund 18.7 Mrd. RMB (laut Shattered.io). Der Leerverkaufs-Anteil am Umsatz lag am 21.10. bei 18.7 %, Käufe aus Festland-China über Stock Connect brachen ein.</li>
+<li><b>Analysten:</b> 41 Analysten, Kursziel im Schnitt rund 652 HKD, fast alle Kaufen. Aber die Ziele sinken: Morgan Stanley 735 auf 650 HKD (29.9.), UBS 770 auf 740 HKD (Oktober), Haitong 470 HKD (Oktober).</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Saisonalität seit 2004</h3>
+      <p class="note">Durchschnittliche Monatsrendite in %. 22 Jahre Daten (seit 2004). Fast alle Monate im Schnitt positiv. Januar (+5.8 %, 64 %) und April (+5.4 %, 73 %) sind stark. November (+2.7 %, 50 %) ist ein Münzwurf, Dezember (+3.5 %, 59 %) etwas besser.</p>
+      <div class="chart" id="c-seas"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Timing: 28 von 100</h2>
+  <div class="card tbl"><table id="t-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Worauf du achten solltest: Unterbewertung und Wachstumsschub</h2>
+  <div class="card"><h3>Was die Börse befürchtet</h3><p class="note" style="margin:4px 0">Echte Probleme, eher lösbar: Das Kerngeschäft läuft gut (Werbung +22 %, Spiele im Inland +17 %, Marge ohne KI-Produkte 42 %), aber die hohen KI-Ausgaben drücken Cashflow und Gewinn echt, und ob sie sich auszahlen, ist noch offen.</p><ul class="clean"><li>Die Rechnung für künstliche Intelligenz (KI) wird gross: Im 2. Quartal 2026 stiegen die Investitionen um 176 % auf 52.8 Mrd. RMB, der Free Cashflow war mit −13.8 Mrd. RMB negativ und das Netto-Cash fiel von 146.9 auf 58.2 Mrd. RMB. Bernstein erwartet für 2026 Investitionen von über 200 Mrd. RMB.</li><li>Der Gewinn wächst kaum noch: Reingewinn im 2. Quartal 2026 nur +0.7 %, weil die neuen KI-Produkte Geld kosten. Morgan Stanley senkte am 29.09.2026 die Gewinnschätzungen für 2026 und 2027 um 6 bis 7 % und das Kursziel von 735 auf 650 HKD. UBS erwartet für das 3. Quartal 7 % weniger bereinigten Gewinn.</li><li>Laut Bloomberg prüft Tencent einen Anleihen-Verkauf von bis zu 5 Mrd. USD (08.10.2026). Die Aktienrückkäufe sind 2026 viel kleiner als 2025 (80 Mrd. HKD). Am 21.10.2026 fiel die Aktie unter 400 HKD, rund 40 % unter dem Jahreshoch.</li><li>Bei den Spielen gab es Zweifel: Am 22.07.2026 fiel die Aktie um 7 % wegen Gerüchten über schwächere Handy-Spiele. Das internationale Spielegeschäft schrumpfte im 2. Quartal leicht (−0.8 %).</li></ul><h3 style="margin-top:12px">Was die Sorgen beenden könnte</h3><ul class="clean"><li>Die Zahlen zum 3. Quartal zeigen, dass die Investitionen und Vorauszahlungen für Rechenleistung nicht weiter steigen und der Free Cashflow wieder klar positiv ist <span class="muted">(Zahlen 3. Quartal, voraussichtlich 18.11.2026)</span></li><li>Werbung und Spiele wachsen weiter zweistellig, und die KI hilft dabei sichtbar (zum Beispiel bessere Werbe-Treffer, Agent «Xiaowei» in WeChat) <span class="muted">(3. Quartal 2026 und Jahreszahlen, voraussichtlich März 2027)</span></li><li>Tencent nennt für 2027 einen klaren Plan für Investitionen und Aktienrückkäufe, damit die Anleger wissen, wie viel Geld zurückfliesst <span class="muted">(Jahreszahlen, voraussichtlich März 2027)</span></li></ul><h3 style="margin-top:12px">Wachstumsschub: Wachstumsschub möglich</h3><ul class="clean"><li><b>KI in WeChat und in der Werbung:</b> Tencent hat mit 1.44 Mrd. WeChat-Nutzern den grössten Verteiler Chinas für KI. Das Modell Hy3 gehört laut Tencent seit Juli 2026 zu den drei meistgenutzten Modellen auf OpenRouter, und der KI-Agent «Xiaowei» wird in WeChat getestet. Schon heute hilft KI der Werbung (+22 % im 2. Quartal). <span class="muted">(2026 bis 2028)</span></li><li><b>Cloud und KI-Werkzeuge für Firmen:</b> Der Bereich Bezahldienste und Firmenkunden wuchs im 2. Quartal um 9 %. Programme wie CodeBuddy und WorkBuddy wachsen laut Tencent stark. Wenn Firmen dafür zahlen, könnte die Cloud schneller wachsen. Noch ist dieser Teil im Vergleich zum Konzern klein. <span class="muted">(2027 bis 2028)</span></li><li><b>Margen-Hebel, wenn die KI-Kosten abflachen:</b> Ohne die neuen KI-Produkte stieg der bereinigte Betriebsgewinn im 2. Quartal um 19 % und die Marge auf 42 %. Sinken die Anlaufkosten später, kann der Gewinn wieder deutlich schneller wachsen als heute. <span class="muted">(ab 2027)</span></li></ul><p style="margin:10px 0 0"><b>Woran du es erkennst:</b> Achte am 18.11.2026 auf drei Werte: Free Cashflow (sollte wieder deutlich positiv sein), Investitionen (sollten unter 52.8 Mrd. RMB vom 2. Quartal bleiben) und Werbung (sollte um 18 % oder mehr wachsen).</p><p style="margin:10px 0 0"><b>Das Chancen-Szenario:</b> Am ehesten ein Fall wie Google 2023: Die Börse fürchtet, dass die KI-Ausgaben den Gewinn auffressen, während Tencent mit WeChat, eigenen Modellen und dem Werbegeschäft eine starke Basis hat. Zahlt sich die KI über Werbung, Cloud und Agenten in WeChat aus, könnte die Aktie vom heutigen KGV von rund 13 wieder Richtung eigenen Schnitt (rund 18) steigen. Grösstes Risiko: Die Investitionen steigen jahrelang weiter, der Free Cashflow bleibt schwach und dazu kommen China-Risiken (Regeln, Spannungen mit den USA).</p><p class="note" style="margin:10px 0 0">Quellen: <a href="https://en.prnasia.com/releases/apac/tencent-announces-2026-second-quarter-results-543788.shtml" target="_blank" rel="noopener">Tencent: 2026 Second Quarter Results (12.08.2026)</a>, <a href="https://finance.biggo.com/news/0b52ecf7-3aec-4640-bbfd-58571eb3800e" target="_blank" rel="noopener">BigGo Finance: Tencent falls below HK$400 to one-year low (21.10.2026)</a>, <a href="https://finance.biggo.com/news/4a1e7d34-bc04-441d-8476-b8008c12a375" target="_blank" rel="noopener">BigGo Finance: Tencent Q3 Earnings Preview (15.10.2026)</a>, <a href="https://www.investing.com/news/stock-market-news/why-is-tencent-stock-falling-today-93CH-4937958" target="_blank" rel="noopener">Investing.com: Why is Tencent stock falling today? (08.10.2026)</a>, <a href="https://www.ad-hoc-news.de/boerse/news/corporate-news/tencent-holdings-stock-falls-2-27-percent-as-morgan-stanley-cuts-its-target/70225133" target="_blank" rel="noopener">ad-hoc-news: Morgan Stanley senkt Kursziel (02.10.2026)</a></p></div>
+</section>
+
+<section>
+  <h2>Dividende</h2>
+  <div class="card tbl"><table><tr><td style="white-space:nowrap;color:var(--muted)">Wie oft</td><td>1× pro Jahr (jährlich)</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Ex-Tag im</td><td>Mai</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Geld auf dem Konto im</td><td>Juni</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Zahltage</td><td>Anfang Juni (2026: Ex-Tag 15.5., Zahltag 1.6.)</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Letzte Zahlung</td><td>5.30 HKD pro Aktie</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Rendite</td><td>1.4 %</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">System</td><td>Eine Schlussdividende pro Jahr in Hongkong-Dollar, vom Verwaltungsrat mit den Jahreszahlen im März vorgeschlagen und an der Generalversammlung im Mai genehmigt. Seit 2022 jedes Jahr erhöht: 1.60, 2.40, 3.40, 4.50 und zuletzt 5.30 HKD für 2025 (+18 %). Rendite rund 1.4 %. Tencent gibt den Aktionären mehr Geld über Aktienrückkäufe als über die Dividende.</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Form</td><td>Bar in Hongkong-Dollar (HKD), Saxo schreibt den Betrag in HKD oder umgerechnet gut. Laut Dividendenmeldung an der Börse Hongkong wird keine Quellensteuer abgezogen (Tencent ist auf den Cayman Islands registriert). In der Schweiz ist die Dividende als Einkommen zu versteuern.</td></tr></table><p class="note" style="margin:10px 0 0"><b>Ex-Tag:</b> Du bekommst die Dividende nur, wenn du die Aktie am Abend vor dem Ex-Tag besitzt. <b>Zahltag:</b> An diesem Tag kommt das Geld aufs Konto (in der Währung der Aktie, abzüglich Quellensteuer). Die nächsten genauen Termine zeigt die App unter «Termine».</p></div>
+</section>
+
+<section>
+  <h2>Pro und Contra</h2>
+  <div class="two">
+    <div class="card pro"><h3>Spricht dafür</h3><ul class="clean" style="margin-top:8px">
+<li>WeChat ist in China kaum zu ersetzen: 1.44 Mrd. Nutzer, dazu Bezahldienst und Mini-Programme.</li>
+<li>Das Kerngeschäft wächst: Werbung +22 %, Spiele im Inland +17 % im 2. Quartal 2026.</li>
+<li>Sehr hohe Marge (33 %) und mehr Geld als Schulden.</li>
+<li>Günstig bewertet: KGV rund 13.3 statt Ø 18.4, bereinigt rund 11.5.</li>
+<li>Wochen-RSI zeigt eine bullische Divergenz, der Verkaufsdruck lässt etwas nach.</li>
+    </ul></div>
+    <div class="card con"><h3>Spricht dagegen</h3><ul class="clean" style="margin-top:8px">
+<li>KI-Investitionen fressen den Cashflow: Investitionen +176 %, Free Cashflow im 2. Quartal negativ.</li>
+<li>Gewinn wächst 2026 kaum (Reingewinn 2. Quartal +0.7 %), Analysten senken die Schätzungen.</li>
+<li>Rückkäufe deutlich kleiner als 2025, geplanter Anleihen-Verkauf bis 5 Mrd. USD.</li>
+<li>China-Risiko: staatliche Regeln für Spiele und Internet, Spannungen mit den USA, Verkäufe der Grossaktionärin Prosus.</li>
+<li>Abwärtstrend intakt, A/D fällt auf beiden Zeitebenen. Mindestkauf 100 Aktien (rund 4'000 CHF).</li>
+    </ul></div>
+  </div>
+</section>
+
+<section>
+  <h2>Was jetzt zu tun ist</h2>
+  <div class="zones">
+<div class="zone t"><b>Beobachten</b><span>Alarm bei 430.40 HKD (Trigger) und 378 HKD (Tief vom 23.10.).</span></div>
+<div class="zone s"><b>Timing grün</b><span>Tagesschluss über 430.40 HKD mit steigender Tages-A/D, danach Wochenschluss über der Wochen-EMA 200 (rund 450 HKD). Fundamental: Am 18.11. sinkende Vorauszahlungen für KI, Free Cashflow wieder klar positiv und Werbung weiter rund +18 %.</span></div>
+<div class="zone r"><b>Abbruch</b><span>Wochenschluss unter 340 HKD.</span></div>
+<div class="zone "><b>Nächste Zahlen</b><span>Voraussichtlich 18. November 2026 (3. Quartal, laut BigGo Finance, Termin noch nicht offiziell von Tencent bestätigt gefunden). Jahreszahlen voraussichtlich Mitte März 2027.</span></div>
+  </div>
+</section>
+
+<footer>
+  <span>Kursdaten und Indikatoren (EMA, RSI 14, A/D) selbst berechnet aus Yahoo-Finance-Tages-, Wochen- und Monatsdaten, Stand 28.10.2026. <a href="https://stockanalysis.com/quote/otc/TCEHY/financials/" target="_blank" rel="noopener">StockAnalysis.com (Tencent)</a> (Stand 30.6.2026), <a href="https://en.prnasia.com/releases/apac/tencent-announces-2026-second-quarter-results-543788.shtml" target="_blank" rel="noopener">Tencent Zahlen 2. Quartal 2026 (12.8.2026)</a>, <a href="https://en.prnasia.com/releases/apac/tencent-announces-2026-first-quarter-results-532860.shtml" target="_blank" rel="noopener">Tencent Zahlen 1. Quartal 2026</a>, <a href="https://en.prnasia.com/releases/apac/tencent-announces-2025-annual-and-fourth-quarter-results-525781.shtml" target="_blank" rel="noopener">Tencent Jahreszahlen 2025</a>, <a href="https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0318/2026031800476.pdf" target="_blank" rel="noopener">HKEX: Dividende 2025</a>, <a href="https://finance.biggo.com/news/0b52ecf7-3aec-4640-bbfd-58571eb3800e" target="_blank" rel="noopener">BigGo: Tencent unter 400 HKD (21.10.2026)</a>, <a href="https://www.investing.com/news/stock-market-news/why-is-tencent-stock-falling-today-93CH-4937958" target="_blank" rel="noopener">Investing.com: Anleihe (8.10.2026)</a>, <a href="https://www.wisesheets.io/pe-ratio/0700.HK" target="_blank" rel="noopener">KGV-Historie (Wisesheets)</a>, <a href="https://shattered.io/tencent-stock-drop-2026/" target="_blank" rel="noopener">Shattered.io: Kurssturz 22.7.2026</a>, <a href="https://www.roic.ai/quote/0700.HK/classic" target="_blank" rel="noopener">ROIC (roic.ai)</a>. Branchenvergleich der App: Note 3.0 von 5, fairer Wert rund 16 % über dem Kurs (447 HKD), Unsicherheit hoch.</span>
+  <span>Persönliche Analyse, keine Anlageberatung. Vergangene Kurse und Saisonalität sagen nichts Sicheres über die Zukunft.</span>
+</footer>
+</div>
+
+<script>
+const Q=[["Umsatztrend", "4 von 4 Quartalen über Vorjahr (+15, +13, +9, +11 %), Tempo nicht steigend", 12, 15], ["Wachstumstempo", "+12.0 % in 12 Monaten", 8, 10], ["Operative Marge", "33.3 % (9 Pkt.), seit 2022 klar steigend (6 Pkt.)", 15, 15], ["Gewinnwachstum (EPS)", "Rund +8 % pro Jahr seit 2022, 2. Quartal 2026 fast null wegen KI-Kosten", 5, 10], ["Free Cashflow", "Immer positiv, aber schwankend und zuletzt gesunken (KI-Investitionen)", 6, 10], ["ROIC", "14.0 % (6 Pkt.), Trend gemischt (23.6 % 2021, 10.2 % 2023, 16.3 % 2025)", 6, 15], ["Schulden", "Netto-Cash 58.2 Mrd. RMB (30.6.2026), aber schrumpfend", 10, 10], ["Bewertung vs. eigene Historie", "KGV 13.3 statt Ø 18.4, rund 28 % günstiger", 10, 15]];
+const T=[["Trend Woche (EMA 50/200)", "Kurs unter beiden, EMA 50 noch knapp über 200, aber fallend", 4, 20], ["Trend Tag (EMA 50/200)", "Kurs unter beiden, EMA 50 unter 200 seit März", 1, 10], ["Struktur (SMC)", "Tiefere Hochs und tiefere Tiefs, neues Tief am 23.10.", 2, 20], ["RSI Tag/Woche", "Woche: bullische Divergenz (27 im Mai, heute 35 bei tieferem Kurs), Tag 32", 12, 15], ["A/D Tag/Woche", "Beide fallen mit dem Kurs", 3, 20], ["Smart Money", "Start 3, Rückkauf unter 2 % pro Jahr, keine Insider-Käufe gefunden", 3, 10], ["Saisonalität", "November 50 %, Dezember 59 %, Januar 64 % positive Jahre", 3, 5]];
+const FIN=[["2021", 560118, "+16.2 %", "22.1 %", 23.16, 145884, "23.6 %", "14.5"], ["2022", 554552, "−1.0 %", "20.0 %", 19.34, 123412, "18.0 %", "14.2"], ["2023", 609015, "+9.8 %", "26.8 %", 11.89, 200954, "10.2 %", "22.1"], ["2024", 660257, "+8.4 %", "31.5 %", 20.49, 195594, "15.6 %", "18.7"], ["2025", 751766, "+13.9 %", "32.7 %", 24.15, 215570, "16.3 %", "22.3"], ["Letzte 12 Mt.", 788483, "+12.0 %", "33.3 %", 25.45, 168309, "14.0 %", "13.3"]];
+const HALF=[["Q3 24", 167.2], ["Q4 24", 172.4], ["Q1 25", 180.0], ["Q2 25", 184.5], ["Q3 25", 192.9], ["Q4 25", 194.4], ["Q1 26", 196.5], ["Q2 26", 204.8]];
+const MARGIN=[["2021", 22.1], ["2022", 20.0], ["2023", 26.8], ["2024", 31.5], ["2025", 32.7], ["12 Mt.", 33.3]];
+const SEAS=[5.8, 0.5, 2.6, 5.4, 3.7, 1.2, 3.2, 1.6, 2.9, 1.7, 2.7, 3.5];
+const SEASHIT=[64.0, 55.0, 55.0, 73.0, 59.0, 55.0, 65.0, 52.0, 57.0, 58.0, 50.0, 59.0];
+const MON=["Jan","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"];
+const W=`2024-11-04,420.8,367.83,359.25,59,369.7;2024-11-11,401,369.13,359.66,53,300;2024-11-18,400.6,370.36,360.07,53,232.3;2024-11-25,398,371.45,360.45,52,218.3;2024-12-02,412.6,373.06,360.96,56,287.9;2024-12-09,409.8,374.5,361.45,55,213;2024-12-16,426.4,376.54,362.1,59,308.2;2024-12-23,417.4,378.14,362.65,56,281.9;2024-12-30,414.2,379.55,363.16,55,257.4;2025-01-06,369.6,379.16,363.22,42,-30.6;2025-01-13,379.8,379.19,363.39,45,25;2025-01-20,390.6,379.64,363.66,49,104.8;2025-01-27,402,380.51,364.04,52,128.4;2025-02-03,428.2,382.38,364.68,58,241.8;2025-02-10,474.8,386.01,365.78,67,477.9;2025-02-17,517,391.14,367.28,72,808.9;2025-02-24,478.6,394.57,368.39,62,582.2;2025-03-03,533.5,400.02,370.03,69,725;2025-03-10,521.5,404.79,371.54,66,750.4;2025-03-17,511.5,408.97,372.93,64,625.5;2025-03-24,509.5,412.91,374.29,63,628.7;2025-03-31,497.8,416.24,375.52,61,596.8;2025-04-07,443.4,417.31,376.19,49,641.6;2025-04-14,458,418.9,377.01,52,688.6;2025-04-21,478.2,421.23,378.02,55,741.2;2025-04-28,487.8,423.84,379.11,57,788.7;2025-05-05,494.6,426.61,380.26,58,770.8;2025-05-12,508,429.81,381.53,60,708.3;2025-05-19,518,433.26,382.89,62,744.2;2025-05-26,498.2,435.81,384.03,57,667.7;2025-06-02,515,438.92,385.34,60,732.2;2025-06-09,510,441.7,386.58,59,693.6;2025-06-16,505.5,444.21,387.76,57,698.1;2025-06-23,513,446.9,389.01,59,762.2;2025-06-30,496.8,448.86,390.08,54,720.8;2025-07-07,496.6,450.73,391.14,54,680.8;2025-07-14,519,453.41,392.41,59,728.7;2025-07-21,550.5,457.22,393.98,65,799.6;2025-07-28,535,460.27,395.39,60,718;2025-08-04,561,464.22,397.03,65,755.3;2025-08-11,592,469.23,398.97,69,835.2;2025-08-18,600,474.36,400.98,70,872.5;2025-08-25,596.5,479.15,402.92,69,810;2025-09-01,605.5,484.1,404.94,70,836.6;2025-09-08,643.5,490.35,407.31,75,911.5;2025-09-15,642.5,496.32,409.65,75,858.3;2025-09-22,644,502.11,411.98,75,863.5;2025-09-29,673.5,508.83,414.58,78,893.9;2025-10-06,651.5,514.43,416.94,71,853.2;2025-10-13,608,518.1,418.84,59,764.8;2025-10-20,637.5,522.78,421.02,63,798.3;2025-10-27,629,526.94,423.09,61,723.6;2025-11-03,634,531.14,425.19,62,743;2025-11-10,641,535.45,427.33,63,671.6;2025-11-17,610,538.37,429.15,55,605.8;2025-11-24,611.5,541.24,430.97,56,543.6;2025-12-01,610,543.94,432.75,55,514;2025-12-08,616,546.76,434.57,57,589.9;2025-12-15,614,549.4,436.36,56,643.5;2025-12-22,602.5,551.48,438.01,53,617;2025-12-29,623,554.29,439.85,57,660.5;2026-01-05,611,556.51,441.55,54,565.6;2026-01-12,617.5,558.9,443.3,56,478.3;2026-01-19,595,560.32,444.81,49,378.4;2026-01-26,606,562.11,446.42,52,353.3;2026-02-02,547.5,561.54,447.42,39,140;2026-02-09,532,560.38,448.26,37,43.8;2026-02-16,522,558.87,449,35,32.8;2026-02-23,518,557.27,449.68,35,-41.9;2026-03-02,519,555.77,450.37,35,32.7;2026-03-09,547.5,555.45,451.34,43,66.1;2026-03-16,508,553.59,451.9,36,-71.7;2026-03-23,493.4,551.23,452.32,34,-167;2026-03-30,489.2,548.79,452.68,33,-172.2;2026-04-06,504.5,547.06,453.2,38,-156.7;2026-04-13,510.5,545.62,453.77,40,-101.5;2026-04-20,493.4,543.57,454.16,37,-170.3;2026-04-27,467.8,540.6,454.3,32,-256.3;2026-05-04,471.4,537.89,454.47,34,-244.9;2026-05-11,456.4,534.69,454.49,31,-369;2026-05-18,441.4,531.03,454.36,29,-486;2026-05-25,427.2,526.96,454.09,27,-543.3;2026-06-01,453.2,524.07,454.08,36,-581.2;2026-06-08,463.6,521.7,454.17,39,-541.5;2026-06-15,440.2,518.5,454.04,35,-612.3;2026-06-22,411.8,514.32,453.62,31,-778.8;2026-06-29,431.2,511.06,453.39,36,-777;2026-07-06,460.2,509.06,453.46,43,-737.4;2026-07-13,461.6,507.2,453.54,44,-802.7;2026-07-20,434.6,504.36,453.35,39,-950.2;2026-07-27,475.2,503.21,453.57,48,-845.8;2026-08-03,478.8,502.26,453.82,49,-934.4;2026-08-10,440,499.81,453.68,42,-1067.4;2026-08-17,457,498.13,453.72,46,-966.8;2026-08-24,455.2,496.45,453.73,45,-926.3;2026-08-31,442.8,494.35,453.62,43,-942.3;2026-09-07,428.4,491.76,453.37,41,-959.5;2026-09-14,419,488.91,453.03,39,-1050.3;2026-09-21,436.6,486.86,452.87,43,-1094.8;2026-09-28,421.2,484.28,452.55,41,-1162.1;2026-10-05,424.8,481.95,452.27,42,-1120.3;2026-10-12,417.8,479.43,451.93,40,-1166.5;2026-10-19,386,475.77,451.28,35,-1255.3;2026-10-28,387.6,472.31,450.64,35,-1254.5`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+const DD=`2025-10-08,675,614.31,529.69,-25;2025-10-09,675.5,616.71,531.14,-20.8;2025-10-10,651.5,618.08,532.34,-33.3;2025-10-13,639,618.9,533.4,-23.1;2025-10-14,621,618.98,534.27,-41.9;2025-10-15,627,619.29,535.2,-41.2;2025-10-16,620,619.32,536.04,-46;2025-10-17,608,618.88,536.76,-53.2;2025-10-20,627.5,619.22,537.66,-51.8;2025-10-21,630.5,619.66,538.58,-65;2025-10-22,623.5,619.81,539.43,-63.8;2025-10-23,633,620.33,540.36,-55.5;2025-10-24,637.5,621,541.32,-55.5;2025-10-27,656,622.37,542.47,-39.5;2025-10-28,645,623.26,543.49,-47.1;2025-10-30,651,624.35,544.56,-55.1;2025-10-31,629,624.53,545.4,-75.7;2025-11-03,628,624.67,546.22,-76.2;2025-11-04,629,624.84,547.04,-83.9;2025-11-05,629,625,547.86,-74.8;2025-11-06,644,625.74,548.81,-64.2;2025-11-07,634,626.07,549.66,-67.4;2025-11-10,649.5,626.99,550.65,-57.3;2025-11-11,650,627.89,551.64,-59.1;2025-11-12,657,629.03,552.69,-51.8;2025-11-13,656,630.09,553.72,-43.7;2025-11-14,641,630.52,554.59,-61.6;2025-11-17,636.5,630.75,555.4,-65.2;2025-11-18,623.5,630.47,556.08,-78.5;2025-11-19,622.5,630.15,556.74,-85.5;2025-11-20,621,629.8,557.38,-89.2;2025-11-21,610,629.02,557.9,-91.8;2025-11-24,624.5,628.84,558.57,-79.1;2025-11-25,625,628.69,559.23,-84.7;2025-11-26,619.5,628.33,559.83,-95.5;2025-11-27,611.5,627.67,560.34,-104.3;2025-11-28,611.5,627.04,560.85,-108.2;2025-12-01,619.5,626.74,561.43,-104.4;2025-12-02,617,626.36,561.99,-111.7;2025-12-03,611,625.76,562.48,-115.3;2025-12-04,612,625.22,562.97,-103.8;2025-12-05,610,624.62,563.44,-93.4;2025-12-08,605,623.85,563.85,-101.9;2025-12-09,602.5,623.01,564.23,-103.2;2025-12-10,603,622.23,564.62,-88.4;2025-12-11,601.5,621.42,564.99,-96.1;2025-12-12,616,621.2,565.49,-78.3;2025-12-15,603,620.49,565.87,-88.8;2025-12-16,596.5,619.55,566.17,-91.7;2025-12-17,605,618.98,566.56,-79.4;2025-12-18,605,618.43,566.94,-72.2;2025-12-19,614,618.26,567.41,-66.3;2025-12-22,614.5,618.11,567.88,-69.3;2025-12-23,602,617.48,568.22,-83.7;2025-12-24,602.5,616.89,568.56,-83.7;2025-12-29,596.5,616.09,568.84,-101;2025-12-30,600,615.46,569.15,-91.3;2025-12-31,599,614.81,569.44,-91.3;2026-01-02,623,615.14,569.98,-77.1;2026-01-05,624.5,615.5,570.52,-68.3;2026-01-06,632.5,616.17,571.14,-67.3;2026-01-07,624.5,616.5,571.67,-60.7;2026-01-08,616,616.48,572.11,-59;2026-01-09,611,616.26,572.5,-71.7;2026-01-12,623,616.53,573,-61.9;2026-01-13,627.5,616.96,573.54,-71.4;2026-01-14,633,617.59,574.13,-68;2026-01-15,622,617.76,574.61,-81.1;2026-01-16,617.5,617.75,575.03,-91.7;2026-01-19,610,617.44,575.38,-98.3;2026-01-20,601,616.8,575.64,-106.4;2026-01-21,602.5,616.24,575.9,-104.4;2026-01-22,597.5,615.5,576.12,-123;2026-01-23,595,614.7,576.31,-142.2;2026-01-26,599.5,614.1,576.54,-142.2;2026-01-27,607,613.83,576.84,-132.3;2026-01-28,621,614.11,577.28,-114.9;2026-01-29,622,614.42,577.73,-102.9;2026-01-30,606,614.09,578.01,-122.9;2026-02-02,598.5,613.47,578.21,-118.9;2026-02-03,581,612.2,578.24,-119.7;2026-02-04,558,610.08,578.04,-180.1;2026-02-05,558.5,608.05,577.84,-124;2026-02-06,547.5,605.68,577.54,-137.4;2026-02-09,560,603.89,577.37,-121.6;2026-02-10,551,601.81,577.1,-138.5;2026-02-11,548,599.7,576.81,-130.6;2026-02-12,535.5,597.19,576.4,-132.5;2026-02-13,532,594.63,575.96,-119.7;2026-02-16,534.5,592.27,575.55,-119.7;2026-02-20,522,589.52,575.02,-129.7;2026-02-23,538,587.49,574.65,-122.3;2026-02-24,520,584.85,574.1,-142.8;2026-02-25,522.5,582.4,573.59,-162.4;2026-02-26,512,579.64,572.98,-187.9;2026-02-27,518,577.22,572.43,-196;2026-03-02,514,574.75,571.85,-193.6;2026-03-03,510.5,572.23,571.24,-221;2026-03-04,506,569.63,570.59,-224.7;2026-03-05,502,566.98,569.91,-246.9;2026-03-06,519,565.1,569.4,-225.6;2026-03-09,516,563.17,568.87,-200.5;2026-03-10,553.5,562.79,568.72,-152;2026-03-11,552,562.37,568.55,-186.9;2026-03-12,546.5,561.75,568.33,-193.9;2026-03-13,547.5,561.19,568.12,-201.1;2026-03-16,558.5,561.08,568.03,-192.3;2026-03-17,550,560.65,567.85,-212.5;2026-03-18,550.5,560.25,567.68,-197.9;2026-03-19,513,558.4,567.13,-250.5;2026-03-20,508,556.42,566.54,-264.8;2026-03-23,498.4,554.14,565.87,-279.1;2026-03-24,514,552.57,565.35,-267.3;2026-03-25,505.5,550.72,564.75,-291.3;2026-03-26,495.6,548.56,564.07,-311.7;2026-03-27,493.4,546.4,563.36,-309.8;2026-03-30,481.6,543.86,562.55,-305.8;2026-03-31,484,541.51,561.77,-314.4;2026-04-01,496.6,539.75,561.12,-321.7;2026-04-02,489.2,537.77,560.4,-325.7;2026-04-08,508,536.6,559.88,-307.5;2026-04-09,508.5,535.5,559.37,-308.4;2026-04-10,504.5,534.28,558.82,-317.9;2026-04-13,490,532.55,558.14,-332.9;2026-04-14,493.2,531,557.49,-328.5;2026-04-15,499,529.75,556.91,-343.6;2026-04-16,517,529.25,556.51,-321.1;2026-04-17,510.5,528.51,556.06,-323.6;2026-04-20,522.5,528.28,555.72,-308.6;2026-04-21,519,527.91,555.36,-312.6;2026-04-22,504,526.98,554.85,-328.3;2026-04-23,495.2,525.73,554.25,-351.8;2026-04-24,493.4,524.46,553.65,-340.7;2026-04-27,478.6,522.66,552.9,-381.6;2026-04-28,473.8,520.75,552.11,-397.7;2026-04-29,479.2,519.12,551.39,-387.4;2026-04-30,467.8,517.1,550.56,-395.3;2026-05-04,473,515.38,549.78,-402.2;2026-05-05,472.2,513.68,549.01,-390;2026-05-06,463,511.69,548.16,-415.5;2026-05-07,477.4,510.35,547.45,-408.1;2026-05-08,471.4,508.82,546.7,-412.3;2026-05-11,464.4,507.08,545.88,-434.2;2026-05-12,457.2,505.12,544.99,-466.7;2026-05-13,462.6,503.46,544.17,-454.5;2026-05-14,460.2,501.76,543.34,-487.9;2026-05-15,456.4,499.98,542.47,-500.5;2026-05-18,449.2,497.99,541.55,-513.2;2026-05-19,460,496.5,540.73,-508.9;2026-05-20,455.2,494.88,539.88,-521.6;2026-05-21,439,492.69,538.88,-559.1;2026-05-22,441.4,490.68,537.91,-563;2026-05-26,439,488.65,536.93,-544.7;2026-05-27,434.4,486.52,535.91,-565.2;2026-05-28,425,484.11,534.8,-576.1;2026-05-29,427.2,481.88,533.73,-600.7;2026-06-01,436,480.08,532.76,-600.7;2026-06-02,481.6,480.14,532.25,-512.6;2026-06-03,466.4,479.6,531.59,-540.7;2026-06-04,459,478.79,530.87,-552;2026-06-05,453.2,477.79,530.1,-579.2;2026-06-08,446.4,476.56,529.27,-595.8;2026-06-09,453.2,475.64,528.51,-603.5;2026-06-10,465.6,475.25,527.88,-587.6;2026-06-11,457.2,474.54,527.18,-610.1;2026-06-12,463.6,474.11,526.55,-607.8;2026-06-15,459.6,473.54,525.88,-623.8;2026-06-16,447.4,472.52,525.1,-642.4;2026-06-17,445.4,471.45,524.31,-659.4;2026-06-18,440.2,470.23,523.47,-663.4;2026-06-22,433,468.77,522.57,-667.6;2026-06-23,414.8,466.65,521.5,-705.4;2026-06-24,428.8,465.17,520.58,-697.8;2026-06-25,421.4,463.45,519.59,-708.4;2026-06-26,411.8,461.43,518.52,-735.2;2026-06-29,420.2,459.81,517.54,-748.1;2026-06-30,429.8,458.63,516.67,-735.4;2026-07-02,430.2,457.52,515.8,-772.6;2026-07-03,431.2,456.49,514.96,-797.5;2026-07-06,452,456.31,514.34,-760.2;2026-07-07,461.2,456.5,513.81,-795.2;2026-07-08,478.8,457.38,513.46,-759.2;2026-07-09,469.6,457.85,513.02,-790.2;2026-07-10,460.2,457.95,512.5,-822.9;2026-07-13,457.6,457.93,511.95,-843.4;2026-07-14,456.2,457.87,511.4,-830.8;2026-07-15,474,458.5,511.02,-804.8;2026-07-16,484,459.5,510.76,-815.1;2026-07-17,461.6,459.58,510.27,-842.9;2026-07-20,477.8,460.3,509.94,-827.3;2026-07-21,474,460.83,509.59,-843.4;2026-07-22,440.6,460.04,508.9,-909.8;2026-07-23,445.2,459.46,508.27,-908.6;2026-07-24,434.6,458.48,507.53,-914;2026-07-27,443,457.88,506.89,-908.5;2026-07-28,447.2,457.46,506.3,-907.1;2026-07-29,466.4,457.81,505.9,-882.1;2026-07-30,471.8,458.36,505.56,-867;2026-07-31,475.2,459.02,505.26,-852;2026-08-03,490.4,460.25,505.11,-817.8;2026-08-04,487.6,461.32,504.94,-818.5;2026-08-05,492.2,462.53,504.81,-811.2;2026-08-06,479.2,463.18,504.55,-832.3;2026-08-07,478.8,463.8,504.3,-834.4;2026-08-10,481.4,464.49,504.07,-828.4;2026-08-11,470.8,464.73,503.74,-844.6;2026-08-12,461.6,464.61,503.32,-845.1;2026-08-13,441,463.69,502.7,-896.8;2026-08-14,440,462.76,502.08,-900.2;2026-08-17,446.4,462.12,501.52,-900.7;2026-08-18,442.4,461.34,500.93,-898;2026-08-19,447.2,460.79,500.4,-886;2026-08-20,451.4,460.42,499.91,-893.7;2026-08-21,457,460.29,499.48,-872.2;2026-08-24,440,459.49,498.89,-894.2;2026-08-25,442,458.8,498.33,-891.4;2026-08-26,445.4,458.28,497.8,-896.6;2026-08-27,447.8,457.87,497.3,-902.7;2026-08-28,455.2,457.76,496.88,-895.7;2026-08-31,453,457.58,496.45,-888.1;2026-09-01,441.4,456.94,495.9,-903.8;2026-09-02,438.2,456.21,495.32,-903.8;2026-09-03,433,455.3,494.7,-921.2;2026-09-04,442.8,454.81,494.19,-927.5;2026-09-07,438.4,454.16,493.63,-937;2026-09-08,435.4,453.43,493.05,-945.7;2026-09-09,434,452.67,492.47,-955.8;2026-09-10,425.6,451.6,491.8,-973.5;2026-09-11,428.4,450.69,491.17,-964.4;2026-09-14,430.6,449.91,490.57,-962.5;2026-09-15,438.8,449.47,490.05,-958.1;2026-09-16,433.4,448.84,489.49,-967.5;2026-09-17,426,447.94,488.86,-978.3;2026-09-18,419,446.81,488.16,-1007.1;2026-09-21,430,446.15,487.58,-1003.4;2026-09-22,451.6,446.36,487.22,-1010.7;2026-09-23,441,446.15,486.77,-1026.2;2026-09-24,438.4,445.85,486.28,-1018.2;2026-09-25,436.6,445.49,485.79,-1010.9;2026-09-28,439.8,445.26,485.33,-1021.9;2026-09-29,432,444.74,484.8,-1038;2026-09-30,431,444.2,484.27,-1022.4;2026-10-02,421.2,443.3,483.64,-1031.2;2026-10-05,423,442.51,483.03,-1023.9;2026-10-06,428.2,441.95,482.49,-1019.5;2026-10-07,420.6,441.11,481.87,-1026.8;2026-10-08,411.4,439.94,481.17,-1056.1;2026-10-09,424.8,439.35,480.61,-1039.4;2026-10-12,425.8,438.82,480.07,-1043.8;2026-10-13,425.2,438.28,479.52,-1032.8;2026-10-14,423.4,437.7,478.96,-1032.8;2026-10-15,417.8,436.92,478.35,-1035.2;2026-10-16,417.8,436.17,477.75,-1048.2;2026-10-20,410.4,435.16,477.08,-1051.2;2026-10-21,393.8,433.54,476.25,-1089;2026-10-22,382.4,431.53,475.32,-1111.8;2026-10-23,386,429.75,474.43,-1095.8;2026-10-26,386.4,428.05,473.55,-1101.1;2026-10-27,385.2,426.37,472.67,-1109.9;2026-10-28,387.6,424.85,471.83,-1109.1`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+
+const fmtN=(v,d=2)=>v.toLocaleString("de-CH",{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmtD=s=>{const [y,m,d]=s.split("-");return d+"."+m+"."+y.slice(2)};
+const NS="http://www.w3.org/2000/svg";
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+
+function scoreTable(id,rows){
+  let tot=0,max=0;
+  const html='<thead><tr><th>Kriterium</th><th>Stand</th><th class="num">Punkte</th><th style="width:22%"></th></tr></thead><tbody>'+rows.map(r=>{tot+=r[2];max+=r[3];const p=r[2]/r[3];const c=p>=.75?"var(--good)":p>=.45?"var(--warn)":"var(--bad)";
+    return `<tr><td>${r[0]}</td><td class="muted">${r[1]}</td><td class="num">${r[2]} / ${r[3]}</td><td><div class="bar"><i style="width:${p*100}%;background:${c}"></i></div></td></tr>`}).join("")+`<tr class="total"><td>Total</td><td></td><td class="num">${tot} / ${max}</td><td></td></tr></tbody>`;
+  document.getElementById(id).innerHTML=html;return tot;
+}
+const qs=scoreTable("q-tbl",Q), ts=scoreTable("t-tbl",T);
+document.getElementById("q-val").textContent=qs;document.getElementById("t-val").textContent=ts;
+document.getElementById("q-pin").style.left=qs+"%";document.getElementById("t-pin").style.left=ts+"%";
+
+document.getElementById("fin-rows").innerHTML=FIN.map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1].toLocaleString("de-CH")}</td><td class="num">${r[2]}</td><td class="num">${r[3]}</td><td class="num">${fmtN(r[4])}</td><td class="num">${r[5].toLocaleString("de-CH")}</td><td class="num">${r[6]}</td><td class="num">${r[7]}</td></tr>`).join("");
+
+/* generic line chart */
+function lineChart(host,{dates,series,bands=[],yFmt=v=>fmtN(v),h=300,zero=false,refs=[],pad}){
+  const W_=800,H=h,m={t:12,r:56,b:28,l:8};
+  const all=series.flatMap(s=>s.values).concat(bands.flatMap(b=>[b.from,b.to])).concat(refs.map(r=>r.v));
+  if(zero)all.push(0);
+  let lo=Math.min(...all),hi=Math.max(...all);const sp=(hi-lo)||1;lo-=sp*.06;hi+=sp*.06;
+  if(pad){lo=pad[0];hi=pad[1]}
+  const n=dates.length,x=i=>m.l+i*(W_-m.l-m.r)/(n-1),y=v=>m.t+(hi-v)*(H-m.t-m.b)/(hi-lo);
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  // grid
+  const steps=5;for(let k=0;k<=steps;k++){const v=lo+(hi-lo)*k/steps;el("line",{x1:m.l,x2:W_-m.r,y1:y(v),y2:y(v),stroke:"var(--grid)","stroke-width":1},svg);
+    const t=el("text",{x:W_-m.r+6,y:y(v)+4,"font-size":11,fill:"var(--muted)","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=yFmt(v)}
+  bands.forEach(b=>{el("rect",{x:m.l,width:W_-m.l-m.r,y:y(Math.max(b.from,b.to)),height:Math.abs(y(b.from)-y(b.to)),fill:b.type==="res"?"var(--zone-res)":"var(--zone-sup)"},svg)});
+  refs.forEach(r=>{el("line",{x1:m.l,x2:W_-m.r,y1:y(r.v),y2:y(r.v),stroke:"var(--muted)","stroke-dasharray":"4 4","stroke-width":1},svg);
+    const t=el("text",{x:m.l+4,y:y(r.v)-4,"font-size":11,fill:"var(--muted)"},svg);t.textContent=r.label});
+  if(zero)el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  // x labels
+  const every=Math.ceil(n/6);for(let i=0;i<n;i+=every){const t=el("text",{x:x(i),y:H-8,"font-size":11,fill:"var(--muted)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);const d=dates[i];t.textContent=d.slice(5,7)+"/"+d.slice(2,4)}
+  series.forEach(s=>{const dpath=s.values.map((v,i)=>(i?"L":"M")+x(i).toFixed(1)+","+y(v).toFixed(1)).join("");
+    el("path",{d:dpath,fill:"none",stroke:s.color,"stroke-width":s.w||2,"stroke-linejoin":"round","stroke-linecap":"round"},svg);
+    const lv=s.values[n-1];el("circle",{cx:x(n-1),cy:y(lv),r:3.5,fill:s.color,stroke:"var(--surface)","stroke-width":2},svg)});
+  // hover
+  const cross=el("line",{y1:m.t,y2:H-m.b,stroke:"var(--muted)","stroke-width":1,opacity:0},svg);
+  const ov=el("rect",{x:m.l,y:m.t,width:W_-m.l-m.r,height:H-m.t-m.b,fill:"transparent"},svg);
+  host.appendChild(svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;host.appendChild(tip);
+  function move(ev){const r=svg.getBoundingClientRect();const px=(ev.clientX-r.left)*W_/r.width;let i=Math.round((px-m.l)/((W_-m.l-m.r)/(n-1)));i=Math.max(0,Math.min(n-1,i));
+    cross.setAttribute("x1",x(i));cross.setAttribute("x2",x(i));cross.setAttribute("opacity",1);
+    tip.innerHTML=`<div class="d">${fmtD(dates[i])}</div>`+series.map(s=>`<div><i class="sw" style="background:${s.color}"></i> ${s.name}: <b>${yFmt(s.values[i])}</b></div>`).join("");
+    tip.hidden=false;const hx=x(i)*r.width/W_;tip.style.left=Math.min(Math.max(0,hx+12),r.width-tip.offsetWidth)+"px";tip.style.top="8px"}
+  ov.addEventListener("pointermove",move);ov.addEventListener("pointerleave",()=>{tip.hidden=true;cross.setAttribute("opacity",0)});
+}
+function barChart(host,{labels,values,fmt,h=220,color,neg,tipExtra}){
+  const W_=800,H=h,m={t:18,r:8,b:28,l:8};
+  const hi=Math.max(0,...values),lo=Math.min(0,...values);const lo2=lo<0?lo*1.15:lo,hi2=hi*1.15||1;
+  const y=v=>m.t+(hi2-v)*(H-m.t-m.b)/(hi2-lo2);const n=values.length,bw=(W_-m.l-m.r)/n;
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;
+  values.forEach((v,i)=>{const x0=m.l+i*bw+bw*.18,w=bw*.64,y0=y(Math.max(v,0)),hh=Math.max(1,Math.abs(y(v)-y(0)));
+    const r=el("rect",{x:x0,y:y0,width:w,height:hh,rx:4,fill:v<0?(neg||"var(--s2)"):(color||"var(--s1)")},svg);
+    const t=el("text",{x:x0+w/2,y:v<0?y(v)+13:y0-5,"font-size":11.5,fill:"var(--ink)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=fmt(v);
+    const l=el("text",{x:x0+w/2,y:H-8,"font-size":11.5,fill:"var(--muted)","text-anchor":"middle"},svg);l.textContent=labels[i];
+    const hit=el("rect",{x:m.l+i*bw,y:m.t,width:bw,height:H-m.t-m.b,fill:"transparent"},svg);
+    hit.addEventListener("pointerenter",()=>{tip.innerHTML=`<div class="d">${labels[i]}</div><b>${fmt(v)}</b>${tipExtra?tipExtra(i):""}`;tip.hidden=false;const R=svg.getBoundingClientRect();tip.style.left=Math.min((m.l+i*bw)*R.width/W_,R.width-tip.offsetWidth)+"px";tip.style.top="0px"});
+    hit.addEventListener("pointerleave",()=>tip.hidden=true)});
+  host.appendChild(svg);host.appendChild(tip);
+}
+barChart(document.getElementById("c-rev"),{labels:HALF.map(r=>r[0]),values:HALF.map(r=>r[1]),fmt:v=>fmtN(v,1),h:200});
+barChart(document.getElementById("c-margin"),{labels:MARGIN.map(r=>r[0]),values:MARGIN.map(r=>r[1]),fmt:v=>fmtN(v,1)+" %",h:200});
+barChart(document.getElementById("c-seas"),{labels:MON,values:SEAS,fmt:v=>(v>0?"+":"")+fmtN(v,1),h:220,tipExtra:i=>`<div>${SEASHIT[i]} % der Jahre positiv</div>`});
+const BANDS=[{"from": 450, "to": 472, "type": "res"}, {"from": 410, "to": 432, "type": "res"}, {"from": 378, "to": 392, "type": "sup"}, {"from": 345, "to": 365, "type": "sup"}], REFS=[{"v": 430.4, "label": "Trigger 430.40"}];
+const wd=W.map(r=>r[0]);
+lineChart(document.getElementById("c-week"),{dates:wd,series:[{name:"Kurs",values:W.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:W.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:W.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,yFmt:v=>fmtN(v,0),h:320});
+lineChart(document.getElementById("c-adw"),{dates:wd,series:[{name:"A/D Woche",values:W.map(r=>r[5]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,zero:true});
+lineChart(document.getElementById("c-rsiw"),{dates:wd,series:[{name:"RSI Woche",values:W.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,refs:[{v:70,label:"70 überkauft"},{v:30,label:"30 überverkauft"}],pad:[10,90]});
+const dd=DD.map(r=>r[0]);
+lineChart(document.getElementById("c-day"),{dates:dd,series:[{name:"Kurs",values:DD.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:DD.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:DD.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,refs:REFS,yFmt:v=>fmtN(v,0),h:260});
+lineChart(document.getElementById("c-add"),{dates:dd,series:[{name:"A/D Tag",values:DD.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:260,zero:true});
+</script>

@@ -1,0 +1,31 @@
+{
+ "ticker": "0700",
+ "sorgen": [
+  "Die Rechnung für künstliche Intelligenz (KI) wird gross: Im 2. Quartal 2026 stiegen die Investitionen um 176 % auf 52.8 Mrd. RMB, der Free Cashflow war mit −13.8 Mrd. RMB negativ und das Netto-Cash fiel von 146.9 auf 58.2 Mrd. RMB. Bernstein erwartet für 2026 Investitionen von über 200 Mrd. RMB.",
+  "Der Gewinn wächst kaum noch: Reingewinn im 2. Quartal 2026 nur +0.7 %, weil die neuen KI-Produkte Geld kosten. Morgan Stanley senkte am 29.09.2026 die Gewinnschätzungen für 2026 und 2027 um 6 bis 7 % und das Kursziel von 735 auf 650 HKD. UBS erwartet für das 3. Quartal 7 % weniger bereinigten Gewinn.",
+  "Laut Bloomberg prüft Tencent einen Anleihen-Verkauf von bis zu 5 Mrd. USD (08.10.2026). Die Aktienrückkäufe sind 2026 viel kleiner als 2025 (80 Mrd. HKD). Am 21.10.2026 fiel die Aktie unter 400 HKD, rund 40 % unter dem Jahreshoch.",
+  "Bei den Spielen gab es Zweifel: Am 22.07.2026 fiel die Aktie um 7 % wegen Gerüchten über schwächere Handy-Spiele. Das internationale Spielegeschäft schrumpfte im 2. Quartal leicht (−0.8 %)."
+ ],
+ "sorgen_art": "gemischt",
+ "sorgen_art_text": "Das Kerngeschäft läuft gut (Werbung +22 %, Spiele im Inland +17 %, Marge ohne KI-Produkte 42 %), aber die hohen KI-Ausgaben drücken Cashflow und Gewinn echt, und ob sie sich auszahlen, ist noch offen.",
+ "aufloeser": [
+  {"was": "Die Zahlen zum 3. Quartal zeigen, dass die Investitionen und Vorauszahlungen für Rechenleistung nicht weiter steigen und der Free Cashflow wieder klar positiv ist", "wann": "Zahlen 3. Quartal, voraussichtlich 18.11.2026"},
+  {"was": "Werbung und Spiele wachsen weiter zweistellig, und die KI hilft dabei sichtbar (zum Beispiel bessere Werbe-Treffer, Agent «Xiaowei» in WeChat)", "wann": "3. Quartal 2026 und Jahreszahlen, voraussichtlich März 2027"},
+  {"was": "Tencent nennt für 2027 einen klaren Plan für Investitionen und Aktienrückkäufe, damit die Anleger wissen, wie viel Geld zurückfliesst", "wann": "Jahreszahlen, voraussichtlich März 2027"}
+ ],
+ "schub_stufe": "mittel",
+ "schub_treiber": [
+  {"titel": "KI in WeChat und in der Werbung", "text": "Tencent hat mit 1.44 Mrd. WeChat-Nutzern den grössten Verteiler Chinas für KI. Das Modell Hy3 gehört laut Tencent seit Juli 2026 zu den drei meistgenutzten Modellen auf OpenRouter, und der KI-Agent «Xiaowei» wird in WeChat getestet. Schon heute hilft KI der Werbung (+22 % im 2. Quartal).", "wann": "2026 bis 2028"},
+  {"titel": "Cloud und KI-Werkzeuge für Firmen", "text": "Der Bereich Bezahldienste und Firmenkunden wuchs im 2. Quartal um 9 %. Programme wie CodeBuddy und WorkBuddy wachsen laut Tencent stark. Wenn Firmen dafür zahlen, könnte die Cloud schneller wachsen. Noch ist dieser Teil im Vergleich zum Konzern klein.", "wann": "2027 bis 2028"},
+  {"titel": "Margen-Hebel, wenn die KI-Kosten abflachen", "text": "Ohne die neuen KI-Produkte stieg der bereinigte Betriebsgewinn im 2. Quartal um 19 % und die Marge auf 42 %. Sinken die Anlaufkosten später, kann der Gewinn wieder deutlich schneller wachsen als heute.", "wann": "ab 2027"}
+ ],
+ "schub_beweis": "Achte am 18.11.2026 auf drei Werte: Free Cashflow (sollte wieder deutlich positiv sein), Investitionen (sollten unter 52.8 Mrd. RMB vom 2. Quartal bleiben) und Werbung (sollte um 18 % oder mehr wachsen).",
+ "szenario": "Am ehesten ein Fall wie Google 2023: Die Börse fürchtet, dass die KI-Ausgaben den Gewinn auffressen, während Tencent mit WeChat, eigenen Modellen und dem Werbegeschäft eine starke Basis hat. Zahlt sich die KI über Werbung, Cloud und Agenten in WeChat aus, könnte die Aktie vom heutigen KGV von rund 13 wieder Richtung eigenen Schnitt (rund 18) steigen. Grösstes Risiko: Die Investitionen steigen jahrelang weiter, der Free Cashflow bleibt schwach und dazu kommen China-Risiken (Regeln, Spannungen mit den USA).",
+ "quellen": [
+  {"titel": "Tencent: 2026 Second Quarter Results (12.08.2026)", "url": "https://en.prnasia.com/releases/apac/tencent-announces-2026-second-quarter-results-543788.shtml"},
+  {"titel": "BigGo Finance: Tencent falls below HK$400 to one-year low (21.10.2026)", "url": "https://finance.biggo.com/news/0b52ecf7-3aec-4640-bbfd-58571eb3800e"},
+  {"titel": "BigGo Finance: Tencent Q3 Earnings Preview (15.10.2026)", "url": "https://finance.biggo.com/news/4a1e7d34-bc04-441d-8476-b8008c12a375"},
+  {"titel": "Investing.com: Why is Tencent stock falling today? (08.10.2026)", "url": "https://www.investing.com/news/stock-market-news/why-is-tencent-stock-falling-today-93CH-4937958"},
+  {"titel": "ad-hoc-news: Morgan Stanley senkt Kursziel (02.10.2026)", "url": "https://www.ad-hoc-news.de/boerse/news/corporate-news/tencent-holdings-stock-falls-2-27-percent-as-morgan-stanley-cuts-its-target/70225133"}
+ ]
+}

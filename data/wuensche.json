@@ -49,22 +49,25 @@
    "id": "chat-2026-10-28T06:36-O",
    "text": "Realty Income (O)",
    "eingang": "2026-10-28T06:36Z",
-   "status": "offen",
-   "hinweis": "Von Pascal im Chat gewünscht. REIT: Dividende mit AFFO statt Gewinn prüfen, monatliche Zahlung."
+   "status": "fertig",
+   "hinweis": "Von Pascal im Chat gewünscht. REIT: Dividende mit AFFO statt Gewinn prüfen, monatliche Zahlung.",
+   "ticker": "O"
   },
   {
    "id": "chat-2026-10-28T06:37-0700",
    "text": "Tencent Holdings (0700.HK)",
    "eingang": "2026-10-28T06:37Z",
-   "status": "offen",
-   "hinweis": "Von Pascal im Chat gewünscht. Lot-Grösse in Hongkong beachten."
+   "status": "fertig",
+   "hinweis": "Von Pascal im Chat gewünscht. Lot-Grösse in Hongkong beachten.",
+   "ticker": "0700"
   },
   {
    "id": "chat-2026-10-28T06:37-1211",
    "text": "BYD Company (1211.HK)",
    "eingang": "2026-10-28T06:37Z",
-   "status": "offen",
-   "hinweis": "Von Pascal im Chat gewünscht. Lot-Grösse in Hongkong beachten."
+   "status": "fertig",
+   "hinweis": "Von Pascal im Chat gewünscht. Lot-Grösse in Hongkong beachten.",
+   "ticker": "1211"
   },
   {
    "id": "chat-2026-10-28T06:37-1810",

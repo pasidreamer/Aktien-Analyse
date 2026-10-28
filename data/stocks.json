@@ -1,5 +1,5 @@
 {
- "stand": "2026-10-25",
+ "stand": "2026-10-28",
  "aktien": [
   {
    "ticker": "APP",
@@ -16750,6 +16750,1115 @@
    ],
    "cheatsheet": "analysen/R3NK.html",
    "claude": "https://claude.ai/artifact/JVP1LSBEKCvNyEvgTPyvGL"
+  },
+  {
+   "ticker": "O",
+   "symbol": "O",
+   "name": "Realty Income",
+   "tags": [
+    "Dividende",
+    "Defensiv"
+   ],
+   "land": "USA",
+   "region": "USA",
+   "branche": "Immobilien (REIT, Netto-Mietverträge)",
+   "status": "beobachten",
+   "waehrung": "USD",
+   "analyse": {
+    "datenstand": "2026-10-28",
+    "kurs": 56.23,
+    "q": 52,
+    "t": 46
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "4 von 4 Quartalen über Vorjahr (+10.5, +11.0, +12.2, +9.7 %), Tempo nicht steigend",
+     "p": 12,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "Umsatz +10.7 %, aber fast nur durch Zukäufe. Pro Aktie (AFFO) rund +3.7 %, gleiche Gebäude rund +1.1 %. Gewertet: 3 bis 6 %",
+     "p": 3,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "46.0 % (9 Pkt.), über 5 Jahre etwa stabil (3 Pkt.)",
+     "p": 12,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "Mit AFFO pro Aktie statt Gewinn: 3.92 USD (2022) auf 4.28 USD (2025), rund +3 % pro Jahr, 2026 rund +3.7 %",
+     "p": 2,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Mit AFFO und operativem Cashflow: positiv und jedes Jahr seit 2021 gestiegen",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "3.6 % (2 Pkt.), seit 2022 leicht steigend (+1). Für REITs typisch tief",
+     "p": 3,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Nettoschulden / EBITDAre 5.4 (über 4)",
+     "p": 0,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "Kurs/AFFO 12.8 statt Ø 15.3 (2021 bis 2025), rund 16 % günstiger",
+     "p": 10,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs unter beiden, EMA 50 nur noch knapp über EMA 200",
+     "p": 5,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs unter beiden, Todeskreuz am 18.9., Kurs aber nur 2 % unter EMA 50",
+     "p": 2,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Bruch nach unten im September, seit dem Tief erste höhere Hochs und Tiefs im Tageschart, Kurs im Discount",
+     "p": 8,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "Tag: bullische Divergenz (Tief 8.10. bei RSI 31 statt 12), Woche dreht aus 29 nach oben",
+     "p": 12,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Tag: bullische Divergenz am Tief. Woche: fiel mit dem Kurs, steigt jetzt wieder",
+     "p": 11,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Start 3, keine Insider-Käufe, kein Rückkauf, ein Insider-Verkauf (nicht gehäuft)",
+     "p": 3,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "November bis Januar überwiegend positiv (62 bis 72 %)",
+     "p": 5,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 12.8,
+    "schnitt": 15.3,
+    "typ": "P/AFFO"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      53.15,
+      54.4
+     ],
+     [
+      50.7,
+      51.6
+     ]
+    ],
+    "widerstand": [
+     [
+      59.5,
+      60.1
+     ],
+     [
+      61.1,
+      63.5
+     ]
+    ],
+    "trigger": 57.5,
+    "abbruch": 52.8
+   },
+   "zahlen": "2026-11-02",
+   "dividende": "5.8 %",
+   "div_info": {
+    "pro_jahr": 12,
+    "rhythmus": "monatlich",
+    "ex_monate": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12
+    ],
+    "zahl_monate": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12
+    ],
+    "zahl_text": "Jeden Monat um den 15. Der Ex-Tag ist jeweils der letzte Börsentag des Vormonats (z. B. Ex-Tag 30.9.2026, Zahltag 15.10.2026; nächster Ex-Tag 30.10.2026, Zahlung Mitte November).",
+    "abstand_tage": 15,
+    "betrag": 0.2715,
+    "system": "Monatsdividende eines REIT: 12 gleich hohe Zahlungen pro Jahr, seit 1994 136 Mal erhöht, meist einmal pro Quartal um einen kleinen Betrag (zuletzt am 8.9.2026 von 0.2710 auf 0.2715 USD, aufs Jahr 3.258 USD). Bezahlt wird aus dem AFFO (angepasster Mittelzufluss), nicht aus dem Buchgewinn: 2026 rund 73 % des AFFO. Darum wirkt die Ausschüttung gemessen am Gewinn (über 200 %) zu hoch, ist aber gedeckt.",
+    "form": "Bar in US-Dollar aufs Konto. Die USA ziehen Quellensteuer ab: Mit dem Formular W-8BEN (bei Saxo hinterlegt) 15 % statt 30 %. Diese 15 % kannst du in der Schweizer Steuererklärung mit dem Formular DA-1 zurückfordern bzw. anrechnen lassen, wenn du die Dividende als Einkommen versteuerst."
+   },
+   "chance": {
+    "ticker": "O",
+    "sorgen": [
+     "Die Zinsen sind hoch: Die 10-jährige US-Staatsanleihe rentierte im September 2026 über 5 % (bis 5.12 %), so hoch wie seit fast 20 Jahren nicht mehr. Wer Einkommen sucht, bekommt fast gleich viel mit sicheren Anleihen, darum verkaufen Anleger Dividendenaktien wie Realty Income.",
+     "Die Schulden werden teurer: Die Zinskosten stiegen im 2. Quartal 2026 auf 312 Mio. USD (Vorjahr 284 Mio.), die Nettoschulden auf das 5.4-fache des Betriebsgewinns vor Abschreibungen (vorher 5.2). Je teurer das Geld, desto kleiner der Gewinn aus jedem neu gekauften Gebäude.",
+     "Der Buchgewinn im 2. Quartal (0.37 USD je Aktie) lag wegen einer Wertberichtigung von 54 Mio. USD rund 12 % unter den Erwartungen. Scotiabank stufte im September ab (Kursziel 67 auf 58 USD), mehrere Banken senkten ihre Ziele.",
+     "Rund zwei Drittel der Miete kommen von Firmen ohne gutes Bonitätsrating. Bei hohen Zinsen steigt das Risiko, dass einzelne Mieter nicht mehr zahlen. Die Rückstellungen für Kreditausfälle stiegen im 1. Halbjahr 2026 auf 46 Mio. USD (Vorjahr 20 Mio.)."
+    ],
+    "sorgen_art": "gemischt",
+    "sorgen_art_text": "Das Geschäft läuft stabil (98.8 % vermietet, Prognose im August angehoben), der Kurs fällt vor allem wegen der Zinsen; höhere Zinsen bremsen aber das Wachstum von Realty Income echt, solange sie hoch bleiben.",
+    "aufloeser": [
+     {
+      "was": "Die Zahlen zum 3. Quartal bestätigen die AFFO-Prognose 2026 (4.44 bis 4.45 USD) und eine Vermietungsquote um 98.8 %, ohne neue grosse Mieterausfälle",
+      "wann": "Zahlen 3. Quartal, 2.11.2026 (nach US-Börsenschluss)"
+     },
+     {
+      "was": "Die Renditen langfristiger US-Staatsanleihen sinken wieder Richtung 4.5 %. Dann werden Schulden billiger und die Dividendenrendite von 5.8 % wieder attraktiver",
+      "wann": "laufend, Entscheide der US-Notenbank bis 2027"
+     },
+     {
+      "was": "Eine Prognose für 2027 mit wieder mehr Wachstum pro Aktie (über 4 %) und stabiler Verschuldung",
+      "wann": "Jahreszahlen, voraussichtlich Februar 2027"
+     }
+    ],
+    "schub_stufe": "schwach",
+    "schub_treiber": [
+     {
+      "titel": "Rechenzentren",
+      "text": "Am 30.6.2026 gründete Realty Income mit Cloud Capital und einem grossen Investor eine Partnerschaft für grosse Rechenzentren (Startwert über 6 Mrd. USD, Verträge über 15 bis 20 Jahre mit festen Mieterhöhungen). Realty Income will bis 1.4 Mrd. USD investieren. Das ist interessant, aber klein gegenüber einem Gesamtwert der Firma von rund 85 Mrd. USD.",
+      "wann": "2026–2028"
+     },
+     {
+      "titel": "Europa und eigener Fonds",
+      "text": "In Europa findet Realty Income höhere Renditen (2. Quartal: 7.0 % Anfangsrendite), dazu verwaltet die Firma neu einen Fonds mit Geld von anderen Investoren und verdient Gebühren. Beides hilft, ändert aber das Wachstum von rund 3 bis 4 % pro Aktie bisher kaum.",
+      "wann": "2026–2027"
+     }
+    ],
+    "schub_beweis": "Achte auf das AFFO pro Aktie: Steigt es in den Quartalen 2027 um mehr als 5 % gegenüber dem Vorjahr (2026: rund +3.7 %) und bleibt die Verschuldung bei rund 5.4, kommt mehr Wachstum an. Die Prognose 2027 im Februar zeigt das zuerst.",
+    "szenario": "Kein Fall wie Google 2023, eher eine Zins-Wette: Sinken die langfristigen US-Zinsen deutlich, könnte die Börse Realty Income wieder wie früher bewerten (Kurs/AFFO um 15 statt heute 12.8), dazu kommt die monatliche Dividende von rund 5.8 %. Grösstes Risiko: Die Zinsen bleiben über 5 %, dann wird Wachstum teurer, und Mieterausfälle könnten das AFFO drücken.",
+    "quellen": [
+     {
+      "titel": "Realty Income: Zahlen 2. Quartal 2026 (SEC 8-K, 5.8.2026)",
+      "url": "https://www.sec.gov/Archives/edgar/data/0000726728/000072672826000044/o-991q22026.htm"
+     },
+     {
+      "titel": "Benzinga: Realty Income Stock Tumbles as Dividend Giant Hits Rough Patch (27.9.2026)",
+      "url": "https://www.benzinga.com/markets/earnings/26/09/62012377/realty-income-stock-tumbles-as-dividend-giant-hits-rough-patch"
+     },
+     {
+      "titel": "24/7 Wall St.: Realty Income Falls for 3 Months (22.9.2026)",
+      "url": "https://247wallst.com/investing/2026/09/22/realty-income-falls-for-3-months-two-wall-street-pros-say-near-30-gains-lie-ahead-for-the-dividend-powerhouse/"
+     },
+     {
+      "titel": "Realty Income: Partnerschaft für Rechenzentren mit Cloud Capital (30.6.2026)",
+      "url": "https://www.nasdaq.com/press-release/realty-income-forms-programmatic-joint-venture-cloud-capital-and-global-institutional"
+     },
+     {
+      "titel": "Sure Dividend: Realty Income (11.8.2026)",
+      "url": "https://www.suredividend.com/wp-content/uploads/2026/08/O-2026-08-11.pdf"
+     }
+    ]
+   },
+   "fazit": "Realty Income vermietet über 15'500 Läden, Lager und andere Gebäude an rund 1'800 Firmen und zahlt jeden Monat eine Dividende (zurzeit 0.2715 USD, rund 5.8 % Rendite). Das Geschäft läuft stabil: 98.8 % der Gebäude sind vermietet, der Mittelzufluss pro Aktie (AFFO, siehe unten) soll 2026 um rund 3.7 % auf 4.44 bis 4.45 USD steigen. Die Aktie fiel trotzdem von 67.15 USD (Juli) auf 53.15 USD (8.10.2026), vor allem wegen der Zinsen: Die 10-jährige US-Staatsanleihe rentierte im September über 5 %. Dann werden Schulden teurer und Anleihen zur Konkurrenz für Dividendenaktien. Achtung: Bei einem REIT sagen Gewinn und KGV wenig aus, darum bewerte ich mit AFFO und Kurs/AFFO. Qualität gelb (52): sicherer Mieter-Mix, aber viele Schulden, tiefe Kapitalrendite und nur rund 3 bis 4 % Wachstum pro Aktie. Timing gelb (46): Der Kurs erholt sich vom Tief, der Abwärtstrend ist aber noch nicht gebrochen. Keine Anlageberatung.",
+   "about": "Realty Income (gegründet 1969, San Diego) ist ein REIT: eine Immobilienfirma, die mindestens 90 % ihres steuerbaren Gewinns ausschütten muss und dafür kaum Gewinnsteuern zahlt. Sie besitzt 15'588 Gebäude in den USA, Grossbritannien und acht weiteren Ländern Europas, vermietet an 1'798 Firmen aus 92 Branchen (30.6.2026). Typisch sind Läden von Supermärkten, Tankstellen-Shops, Baumärkten und Discountern, dazu Lager, Fabriken und neu Rechenzentren. Fast alles sind Netto-Mietverträge: Der Mieter zahlt Steuern, Versicherung und Unterhalt selbst. Die Verträge laufen im Schnitt noch 8.6 Jahre und haben meist eingebaute Mieterhöhungen. Realty Income nennt sich «The Monthly Dividend Company»: Die Dividende kommt jeden Monat und wurde seit dem Börsengang 1994 schon 136 Mal erhöht. Wachstum kommt vor allem durch den Kauf neuer Gebäude (2026 geplant: rund 10 Mrd. USD), bezahlt mit neuen Schulden und neuen Aktien.",
+   "kpis": [
+    {
+     "ampel": "g",
+     "name": "Umsatzwachstum",
+     "wert": "+10.7 %",
+     "text": "Letzte 12 Monate (bis 30.6.2026). Das kommt vor allem aus Zukäufen. Gleiche Gebäude wie im Vorjahr bringen nur rund 1.1 % mehr Miete (Firmenprognose 2026)."
+    },
+    {
+     "ampel": "g",
+     "name": "Operative Marge",
+     "wert": "46.0 %",
+     "text": "Von 100 USD Miete bleiben 46 USD Betriebsgewinn, nach den hohen Abschreibungen. Ohne Abschreibungen bleibt fast alles, weil die Mieter die Nebenkosten zahlen."
+    },
+    {
+     "ampel": "w",
+     "name": "AFFO pro Aktie",
+     "wert": "4.39 USD",
+     "text": "Letzte 12 Monate, statt Gewinn pro Aktie (Buchgewinn nur 1.37 USD). Prognose 2026: 4.44 bis 4.45 USD, also rund +3.7 %. Seit 2022 nur rund +3 % pro Jahr."
+    },
+    {
+     "ampel": "r",
+     "name": "ROIC",
+     "wert": "3.6 %",
+     "text": "Kapitalrendite laut StockAnalysis. Sehr tief, aber typisch für Immobilien mit hohen Abschreibungen. Neue Käufe bringen laut Firma rund 7.3 % Anfangsrendite (2. Quartal 2026)."
+    },
+    {
+     "ampel": "g",
+     "name": "Operativer Cashflow",
+     "wert": "4.17 Mrd. USD",
+     "text": "Letzte 12 Monate. Seit 2021 jedes Jahr gestiegen (1.32 Mrd.). Klassischer Free Cashflow ist negativ, weil die Firma laufend Gebäude kauft."
+    },
+    {
+     "ampel": "r",
+     "name": "Nettoschulden / EBITDAre",
+     "wert": "5.4",
+     "text": "Schulden von 30.4 Mrd. USD entsprechen 5.4 Jahren Betriebsgewinn vor Abschreibungen (30.6.2026). Für einen REIT üblich, nach unserem Schema aber hoch. Zinskosten steigen."
+    },
+    {
+     "ampel": "g",
+     "name": "Kurs / AFFO",
+     "wert": "12.8",
+     "text": "Du zahlst rund 13 Jahre Mittelzufluss. Eigener Schnitt 2021 bis 2025: 15.3. Also rund 16 % günstiger als üblich. Das normale KGV (rund 41) ist bei REITs nicht aussagekräftig."
+    },
+    {
+     "ampel": "g",
+     "name": "Dividende",
+     "wert": "5.8 %",
+     "text": "0.2715 USD pro Monat, aufs Jahr 3.258 USD. Rund 73 % des AFFO werden ausgeschüttet: gedeckt. Zuletzt erhöht am 8.9.2026, aber nur um 0.2 %."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "61.10–63.50 USD",
+     "text": "Widerstand: Tiefs vom 15.5. und 10.8. (61.11, 61.27), Hoch vom 20.8. (63.54 USD)."
+    },
+    {
+     "art": "r",
+     "wert": "59.50–60.10 USD",
+     "text": "Widerstand: Tages-EMA 200 (60.06), Wochen-EMA 50 und 200 (60.06, 59.65), Tief vom 2.6. (59.48 USD)."
+    },
+    {
+     "art": "t",
+     "wert": "57.50 USD",
+     "text": "Trigger: Tagesschluss über 57.50 USD (Hoch vom 26.10. und Tages-EMA 50), besser mit steigender Tages-A/D."
+    },
+    {
+     "art": "s",
+     "wert": "53.15–54.40 USD",
+     "text": "Kaufzone 1: Tief vom 8.10.2026 (53.15) und Wochentiefs von Februar und Mai 2025 (53.30, 54.38 USD)."
+    },
+    {
+     "art": "s",
+     "wert": "50.70–51.60 USD",
+     "text": "Kaufzone 2: Wochentiefs vom Januar (51.60) und April 2025 (50.71 USD)."
+    },
+    {
+     "art": "r",
+     "wert": "52.80 USD",
+     "text": "Abbruch: Wochenschluss unter 52.80 USD, also unter dem Tief vom Oktober."
+    }
+   ],
+   "pro": [
+    "Sehr breit gestreut: 15'588 Gebäude, 1'798 Mieter, 98.8 % vermietet, Verträge laufen im Schnitt noch 8.6 Jahre.",
+    "Monatliche Dividende, seit 1994 136 Mal erhöht, mit rund 73 % des AFFO gut gedeckt.",
+    "Prognose 2026 im August angehoben: AFFO 4.44 bis 4.45 USD, Kaufvolumen 10 Mrd. USD.",
+    "Kurs/AFFO 12.8 statt üblich rund 15, Dividendenrendite 5.8 %.",
+    "Am Tief vom 8.10. zeigen RSI und Tages-A/D eine bullische Divergenz."
+   ],
+   "contra": [
+    "Hohe Zinsen: US-Staatsanleihen rentieren um 5 %, das verteuert Schulden und macht Anleihen zur Konkurrenz.",
+    "Hohe Schulden (5.4-mal EBITDAre), Zinskosten steigen (312 statt 284 Mio. USD im Quartal).",
+    "Wenig Wachstum pro Aktie (rund 3 bis 4 % pro Jahr), weil laufend neue Aktien ausgegeben werden.",
+    "Rund zwei Drittel der Miete kommt von Mietern ohne gutes Bonitätsrating (Investment Grade), Ausfälle wären möglich.",
+    "Chart: Abwärtstrend im Tag, Kurs unter allen Durchschnittslinien. Dividende kommt aus den USA (Quellensteuer)."
+   ],
+   "smart_money": [
+    "Rückkäufe: Keine. Realty Income gibt laufend neue Aktien aus, um Gebäude zu kaufen: 934.0 Mio. Aktien Ende 2025, 946.2 Mio. am 30.6.2026 (+1.3 % in einem Halbjahr). Das ist bei REITs normal, verwässert aber deinen Anteil.",
+    "Insider: Keine Käufe in den letzten 12 Monaten. Ein Verkauf: Rechtschefin Michelle Bushore, 7'400 Aktien zu 62.42 USD am 2.4.2026 (rund 0.46 Mio. USD). Insider halten nur rund 0.1 % der Aktien.",
+    "Grosse Investoren (13F): Gemischt. Im 2. Quartal 2026 stockten State Street (+3.4 %) und Citadel (+50 %, kleine Position) auf, Envestnet, Allianz und Neuberger Berman reduzierten um 5 bis 8 %.",
+    "Analysten: Mehrheitlich Halten (25 Analysten), Kursziel im Schnitt 64.63 USD (StockAnalysis, 26.10.2026). Höchste Ziele 72 USD (Bank of America, UBS). Scotiabank stufte im September ab (Ziel 58 USD)."
+   ],
+   "cheatsheet": "analysen/O.html",
+   "claude": "https://claude.ai/artifact/GSHGMEP5en6j2jFTDiCS1Z"
+  },
+  {
+   "ticker": "0700",
+   "symbol": "0700.HK",
+   "name": "Tencent Holdings",
+   "tags": [
+    "Wachstum",
+    "Qualität"
+   ],
+   "land": "China",
+   "region": "Asien",
+   "branche": "Internet, Games und Werbung",
+   "status": "beobachten",
+   "waehrung": "HKD",
+   "analyse": {
+    "datenstand": "2026-10-28",
+    "kurs": 387.6,
+    "q": 72,
+    "t": 28
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "4 von 4 Quartalen über Vorjahr (+15, +13, +9, +11 %), Tempo nicht steigend",
+     "p": 12,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "+12.0 % in 12 Monaten",
+     "p": 8,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "33.3 % (9 Pkt.), seit 2022 klar steigend (6 Pkt.)",
+     "p": 15,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "Rund +8 % pro Jahr seit 2022, 2. Quartal 2026 fast null wegen KI-Kosten",
+     "p": 5,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Immer positiv, aber schwankend und zuletzt gesunken (KI-Investitionen)",
+     "p": 6,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "14.0 % (6 Pkt.), Trend gemischt (23.6 % 2021, 10.2 % 2023, 16.3 % 2025)",
+     "p": 6,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Netto-Cash 58.2 Mrd. RMB (30.6.2026), aber schrumpfend",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "KGV 13.3 statt Ø 18.4, rund 28 % günstiger",
+     "p": 10,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs unter beiden, EMA 50 noch knapp über 200, aber fallend",
+     "p": 4,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs unter beiden, EMA 50 unter 200 seit März",
+     "p": 1,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Tiefere Hochs und tiefere Tiefs, neues Tief am 23.10.",
+     "p": 2,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "Woche: bullische Divergenz (27 im Mai, heute 35 bei tieferem Kurs), Tag 32",
+     "p": 12,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Beide fallen mit dem Kurs",
+     "p": 3,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Start 3, Rückkauf unter 2 % pro Jahr, keine Insider-Käufe gefunden",
+     "p": 3,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "November 50 %, Dezember 59 %, Januar 64 % positive Jahre",
+     "p": 3,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 13.3,
+    "schnitt": 18.4,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      378,
+      392
+     ],
+     [
+      345,
+      365
+     ]
+    ],
+    "widerstand": [
+     [
+      410,
+      432
+     ],
+     [
+      450,
+      472
+     ]
+    ],
+    "trigger": 430.4,
+    "abbruch": 340
+   },
+   "zahlen": "2026-11-18",
+   "dividende": "1.4 %",
+   "div_info": {
+    "pro_jahr": 1,
+    "rhythmus": "jährlich",
+    "ex_monate": [
+     5
+    ],
+    "zahl_monate": [
+     6
+    ],
+    "zahl_text": "Anfang Juni (2026: Ex-Tag 15.5., Zahltag 1.6.)",
+    "abstand_tage": 17,
+    "betrag": 5.3,
+    "system": "Eine Schlussdividende pro Jahr in Hongkong-Dollar, vom Verwaltungsrat mit den Jahreszahlen im März vorgeschlagen und an der Generalversammlung im Mai genehmigt. Seit 2022 jedes Jahr erhöht: 1.60, 2.40, 3.40, 4.50 und zuletzt 5.30 HKD für 2025 (+18 %). Rendite rund 1.4 %. Tencent gibt den Aktionären mehr Geld über Aktienrückkäufe als über die Dividende.",
+    "form": "Bar in Hongkong-Dollar (HKD), Saxo schreibt den Betrag in HKD oder umgerechnet gut. Laut Dividendenmeldung an der Börse Hongkong wird keine Quellensteuer abgezogen (Tencent ist auf den Cayman Islands registriert). In der Schweiz ist die Dividende als Einkommen zu versteuern."
+   },
+   "chance": {
+    "ticker": "0700",
+    "sorgen": [
+     "Die Rechnung für künstliche Intelligenz (KI) wird gross: Im 2. Quartal 2026 stiegen die Investitionen um 176 % auf 52.8 Mrd. RMB, der Free Cashflow war mit −13.8 Mrd. RMB negativ und das Netto-Cash fiel von 146.9 auf 58.2 Mrd. RMB. Bernstein erwartet für 2026 Investitionen von über 200 Mrd. RMB.",
+     "Der Gewinn wächst kaum noch: Reingewinn im 2. Quartal 2026 nur +0.7 %, weil die neuen KI-Produkte Geld kosten. Morgan Stanley senkte am 29.09.2026 die Gewinnschätzungen für 2026 und 2027 um 6 bis 7 % und das Kursziel von 735 auf 650 HKD. UBS erwartet für das 3. Quartal 7 % weniger bereinigten Gewinn.",
+     "Laut Bloomberg prüft Tencent einen Anleihen-Verkauf von bis zu 5 Mrd. USD (08.10.2026). Die Aktienrückkäufe sind 2026 viel kleiner als 2025 (80 Mrd. HKD). Am 21.10.2026 fiel die Aktie unter 400 HKD, rund 40 % unter dem Jahreshoch.",
+     "Bei den Spielen gab es Zweifel: Am 22.07.2026 fiel die Aktie um 7 % wegen Gerüchten über schwächere Handy-Spiele. Das internationale Spielegeschäft schrumpfte im 2. Quartal leicht (−0.8 %)."
+    ],
+    "sorgen_art": "gemischt",
+    "sorgen_art_text": "Das Kerngeschäft läuft gut (Werbung +22 %, Spiele im Inland +17 %, Marge ohne KI-Produkte 42 %), aber die hohen KI-Ausgaben drücken Cashflow und Gewinn echt, und ob sie sich auszahlen, ist noch offen.",
+    "aufloeser": [
+     {
+      "was": "Die Zahlen zum 3. Quartal zeigen, dass die Investitionen und Vorauszahlungen für Rechenleistung nicht weiter steigen und der Free Cashflow wieder klar positiv ist",
+      "wann": "Zahlen 3. Quartal, voraussichtlich 18.11.2026"
+     },
+     {
+      "was": "Werbung und Spiele wachsen weiter zweistellig, und die KI hilft dabei sichtbar (zum Beispiel bessere Werbe-Treffer, Agent «Xiaowei» in WeChat)",
+      "wann": "3. Quartal 2026 und Jahreszahlen, voraussichtlich März 2027"
+     },
+     {
+      "was": "Tencent nennt für 2027 einen klaren Plan für Investitionen und Aktienrückkäufe, damit die Anleger wissen, wie viel Geld zurückfliesst",
+      "wann": "Jahreszahlen, voraussichtlich März 2027"
+     }
+    ],
+    "schub_stufe": "mittel",
+    "schub_treiber": [
+     {
+      "titel": "KI in WeChat und in der Werbung",
+      "text": "Tencent hat mit 1.44 Mrd. WeChat-Nutzern den grössten Verteiler Chinas für KI. Das Modell Hy3 gehört laut Tencent seit Juli 2026 zu den drei meistgenutzten Modellen auf OpenRouter, und der KI-Agent «Xiaowei» wird in WeChat getestet. Schon heute hilft KI der Werbung (+22 % im 2. Quartal).",
+      "wann": "2026 bis 2028"
+     },
+     {
+      "titel": "Cloud und KI-Werkzeuge für Firmen",
+      "text": "Der Bereich Bezahldienste und Firmenkunden wuchs im 2. Quartal um 9 %. Programme wie CodeBuddy und WorkBuddy wachsen laut Tencent stark. Wenn Firmen dafür zahlen, könnte die Cloud schneller wachsen. Noch ist dieser Teil im Vergleich zum Konzern klein.",
+      "wann": "2027 bis 2028"
+     },
+     {
+      "titel": "Margen-Hebel, wenn die KI-Kosten abflachen",
+      "text": "Ohne die neuen KI-Produkte stieg der bereinigte Betriebsgewinn im 2. Quartal um 19 % und die Marge auf 42 %. Sinken die Anlaufkosten später, kann der Gewinn wieder deutlich schneller wachsen als heute.",
+      "wann": "ab 2027"
+     }
+    ],
+    "schub_beweis": "Achte am 18.11.2026 auf drei Werte: Free Cashflow (sollte wieder deutlich positiv sein), Investitionen (sollten unter 52.8 Mrd. RMB vom 2. Quartal bleiben) und Werbung (sollte um 18 % oder mehr wachsen).",
+    "szenario": "Am ehesten ein Fall wie Google 2023: Die Börse fürchtet, dass die KI-Ausgaben den Gewinn auffressen, während Tencent mit WeChat, eigenen Modellen und dem Werbegeschäft eine starke Basis hat. Zahlt sich die KI über Werbung, Cloud und Agenten in WeChat aus, könnte die Aktie vom heutigen KGV von rund 13 wieder Richtung eigenen Schnitt (rund 18) steigen. Grösstes Risiko: Die Investitionen steigen jahrelang weiter, der Free Cashflow bleibt schwach und dazu kommen China-Risiken (Regeln, Spannungen mit den USA).",
+    "quellen": [
+     {
+      "titel": "Tencent: 2026 Second Quarter Results (12.08.2026)",
+      "url": "https://en.prnasia.com/releases/apac/tencent-announces-2026-second-quarter-results-543788.shtml"
+     },
+     {
+      "titel": "BigGo Finance: Tencent falls below HK$400 to one-year low (21.10.2026)",
+      "url": "https://finance.biggo.com/news/0b52ecf7-3aec-4640-bbfd-58571eb3800e"
+     },
+     {
+      "titel": "BigGo Finance: Tencent Q3 Earnings Preview (15.10.2026)",
+      "url": "https://finance.biggo.com/news/4a1e7d34-bc04-441d-8476-b8008c12a375"
+     },
+     {
+      "titel": "Investing.com: Why is Tencent stock falling today? (08.10.2026)",
+      "url": "https://www.investing.com/news/stock-market-news/why-is-tencent-stock-falling-today-93CH-4937958"
+     },
+     {
+      "titel": "ad-hoc-news: Morgan Stanley senkt Kursziel (02.10.2026)",
+      "url": "https://www.ad-hoc-news.de/boerse/news/corporate-news/tencent-holdings-stock-falls-2-27-percent-as-morgan-stanley-cuts-its-target/70225133"
+     }
+    ]
+   },
+   "fazit": "Tencent ist Chinas grösster Internetkonzern (WeChat mit 1.44 Mrd. Nutzern, grösster Spielehersteller der Welt) und verdient sehr gut: Umsatz +11 % im 2. Quartal 2026, operative Marge rund 33 %, mehr Geld als Schulden. Die Aktie ist seit Oktober 2025 aber um rund 42 % gefallen (683 auf 387.60 HKD). Der Grund ist vor allem die Rechnung für künstliche Intelligenz (KI): Im 2. Quartal stiegen die Investitionen um 176 % auf 52.8 Mrd. RMB, der Free Cashflow war erstmals negativ (−13.8 Mrd. RMB) und das Netto-Cash schrumpfte von 146.9 auf 58.2 Mrd. RMB. Dazu kommen ein geplanter Anleihen-Verkauf und gesenkte Gewinnschätzungen. Mit einem KGV von rund 13.3 ist die Aktie rund 28 % günstiger als ihr eigener Schnitt. Qualität hellgrün (72), Timing rot (28): Der Abwärtstrend ist auf beiden Zeitebenen intakt. Achtung Lot-Grösse: In Hongkong kaufst du mindestens 100 Aktien, das sind heute rund 4'000 CHF. Keine Anlageberatung.",
+   "about": "Tencent aus Shenzhen betreibt WeChat (in China «Weixin»), die App, über die in China fast alles läuft: Nachrichten, Bezahlen (WeChat Pay), Mini-Programme, Videos. 1.439 Mrd. Menschen nutzen sie jeden Monat (Juni 2026). Tencent verdient auf drei Wegen: 1. Spiele und Abos (48 % des Umsatzes im 2. Quartal 2026), zum Beispiel «Honor of Kings» und Beteiligungen an Spielefirmen weltweit. 2. Werbung (21 %) in WeChat und den Video-Apps. 3. Bezahldienste und Cloud (29 %). Dazu hält Tencent viele Beteiligungen an anderen Firmen. Die Aktie wird in Hongkong in Hongkong-Dollar gehandelt, die Firma rechnet aber in chinesischen Yuan (RMB). Eine Handelseinheit («Lot») sind 100 Aktien, kleinere Mengen kannst du an der Börse Hongkong nicht kaufen. Die US-Variante (TCEHY) wird nur ausserbörslich gehandelt.",
+   "kpis": [
+    {
+     "ampel": "g",
+     "name": "Umsatzwachstum",
+     "wert": "+12.0 %",
+     "text": "Letzte 12 Monate (bis Juni 2026). 2. Quartal 2026: +11 %, 1. Quartal: +9 %. Für einen so grossen Konzern gutes Tempo."
+    },
+    {
+     "ampel": "g",
+     "name": "Operative Marge",
+     "wert": "33.3 %",
+     "text": "Von 100 Yuan Umsatz bleiben 33 Yuan Betriebsgewinn (letzte 12 Monate). Sehr hoch und seit 2022 (20 %) stark gestiegen. Die neuen KI-Produkte drücken die Marge aber jetzt."
+    },
+    {
+     "ampel": "w",
+     "name": "Gewinn pro Aktie (EPS)",
+     "wert": "25.45 RMB",
+     "text": "Letzte 12 Monate, rund 29 HKD. Seit 2022 (19.34 RMB) im Schnitt rund +8 % pro Jahr. Im 2. Quartal 2026 nur +0.7 % beim Reingewinn wegen der KI-Kosten."
+    },
+    {
+     "ampel": "w",
+     "name": "ROIC",
+     "wert": "14.0 %",
+     "text": "Auf 100 Yuan investiertes Kapital rund 14 Yuan Gewinn. Ordentlich, aber tiefer als 2021 (23.6 %). Die hohen KI-Investitionen müssen sich erst noch auszahlen."
+    },
+    {
+     "ampel": "w",
+     "name": "Free Cashflow",
+     "wert": "168 Mrd. RMB",
+     "text": "Letzte 12 Monate. 2025 waren es noch 216 Mrd. RMB. Im 2. Quartal 2026 negativ (−13.8 Mrd. RMB) wegen Vorauszahlungen für KI-Chips."
+    },
+    {
+     "ampel": "g",
+     "name": "Netto-Cash",
+     "wert": "58.2 Mrd. RMB",
+     "text": "Mehr Geld als Schulden (30.6.2026). Aber stark gesunken: Ende März waren es noch 146.9 Mrd. RMB."
+    },
+    {
+     "ampel": "g",
+     "name": "KGV",
+     "wert": "13.3",
+     "text": "Du zahlst rund 13 Jahresgewinne. Eigener Schnitt 2021 bis 2025: 18.4. Also rund 28 % günstiger als üblich. Mit den bereinigten Gewinnen (ohne Sondereffekte) liegt das KGV bei rund 11.5."
+    },
+    {
+     "ampel": "w",
+     "name": "Dividende",
+     "wert": "1.4 %",
+     "text": "5.30 HKD pro Aktie, einmal pro Jahr (Ex-Tag 15.5.2026, bezahlt am 1.6.2026). Ein Jahr vorher 4.50 HKD, also +18 %. Laut Börse Hongkong keine Quellensteuer."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "450–472 HKD",
+     "text": "Widerstand: Wochen-EMA 200 (450.60), Hoch vom 22.9. (463.40), Tages-EMA 200 und Wochen-EMA 50 (rund 472)."
+    },
+    {
+     "art": "r",
+     "wert": "410–432 HKD",
+     "text": "Widerstand: frühere Tiefs vom September und Oktober (411 bis 419), Tages-EMA 50 (424.85), Hoch vom 12./14.10. (430.40)."
+    },
+    {
+     "art": "t",
+     "wert": "430.40 HKD",
+     "text": "Trigger: Tagesschluss über 430.40 HKD (letztes tieferes Hoch vom 12./14.10.), besser mit steigender Tages-A/D."
+    },
+    {
+     "art": "s",
+     "wert": "378–392 HKD",
+     "text": "Kaufzone 1: Tief vom 23.10.2026 (378) und Wochentief vom November 2024 (392). Der Kurs steht schon in dieser Zone, aber ohne Bodensignal."
+    },
+    {
+     "art": "s",
+     "wert": "345–365 HKD",
+     "text": "Kaufzone 2: Tief vom Januar 2025 (364.80 HKD). Laut BigGo Finance (21.10.) ergibt der Bärenfall mit drei Jahren hohen KI-Investitionen einen Wert von 350 bis 400 HKD."
+    },
+    {
+     "art": "r",
+     "wert": "340 HKD",
+     "text": "Abbruch: Wochenschluss unter 340 HKD, also klar unter dem Tief von Januar 2025."
+    }
+   ],
+   "pro": [
+    "WeChat ist in China kaum zu ersetzen: 1.44 Mrd. Nutzer, dazu Bezahldienst und Mini-Programme.",
+    "Das Kerngeschäft wächst: Werbung +22 %, Spiele im Inland +17 % im 2. Quartal 2026.",
+    "Sehr hohe Marge (33 %) und mehr Geld als Schulden.",
+    "Günstig bewertet: KGV rund 13.3 statt Ø 18.4, bereinigt rund 11.5.",
+    "Wochen-RSI zeigt eine bullische Divergenz, der Verkaufsdruck lässt etwas nach."
+   ],
+   "contra": [
+    "KI-Investitionen fressen den Cashflow: Investitionen +176 %, Free Cashflow im 2. Quartal negativ.",
+    "Gewinn wächst 2026 kaum (Reingewinn 2. Quartal +0.7 %), Analysten senken die Schätzungen.",
+    "Rückkäufe deutlich kleiner als 2025, geplanter Anleihen-Verkauf bis 5 Mrd. USD.",
+    "China-Risiko: staatliche Regeln für Spiele und Internet, Spannungen mit den USA, Verkäufe der Grossaktionärin Prosus.",
+    "Abwärtstrend intakt, A/D fällt auf beiden Zeitebenen. Mindestkauf 100 Aktien (rund 4'000 CHF)."
+   ],
+   "smart_money": [
+    "Rückkäufe: 2025 kaufte Tencent 153.4 Mio. Aktien für rund 80 Mrd. HKD zurück. 2026 deutlich weniger: 1. Quartal 7.6 Mrd. HKD, 2. Quartal 16.9 Mrd. HKD. Hochgerechnet rund 1.4 % des Börsenwerts (rund 3'580 Mrd. HKD am 21.10.) pro Jahr. Das Geld fliesst jetzt in KI.",
+    "Insider: Gründer und Chef Ma Huateng hält einen grossen Anteil. Käufe der Führung am Markt in den letzten 6 Monaten habe ich nicht gefunden. Grösste Aktionärin ist Prosus (Naspers), die seit 2022 laufend Tencent-Aktien verkauft, um eigene Rückkäufe zu bezahlen.",
+    "Grosse Investoren: Chinesische Fonds reduzierten ihre Tencent-Anteile im 2. Quartal 2026 um rund 18.7 Mrd. RMB (laut Shattered.io). Der Leerverkaufs-Anteil am Umsatz lag am 21.10. bei 18.7 %, Käufe aus Festland-China über Stock Connect brachen ein.",
+    "Analysten: 41 Analysten, Kursziel im Schnitt rund 652 HKD, fast alle Kaufen. Aber die Ziele sinken: Morgan Stanley 735 auf 650 HKD (29.9.), UBS 770 auf 740 HKD (Oktober), Haitong 470 HKD (Oktober)."
+   ],
+   "cheatsheet": "analysen/0700.html",
+   "claude": "https://claude.ai/artifact/VaRbYCibjRgyTgdhNtfenr"
+  },
+  {
+   "ticker": "1211",
+   "symbol": "1211.HK",
+   "name": "BYD",
+   "tags": [
+    "Wachstum"
+   ],
+   "land": "China",
+   "region": "Asien",
+   "branche": "Elektroautos und Batterien",
+   "status": "beobachten",
+   "waehrung": "HKD",
+   "analyse": {
+    "datenstand": "2026-10-28",
+    "kurs": 70.45,
+    "q": 24,
+    "t": 43
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "0 von 4 Quartalen über Vorjahr (−3 %, −14 %, −12 %, −3 %)",
+     "p": 0,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "−8 % in 12 Monaten bis Juni 2026",
+     "p": 0,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "4.1 % (0 Pkt.), über 5 Jahre gestiegen, seit 2024 gefallen: stabil (3 Pkt.)",
+     "p": 3,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "2025 −22 %, 1. Halbjahr 2026 −21 %. Der Schnitt seit 2022 (+24 % pro Jahr) ist überholt",
+     "p": 0,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "2025 und letzte 12 Monate klar negativ (−98 und −88 Mrd. RMB)",
+     "p": 0,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "Rund 11 % (6 Pkt.), fallend (−1)",
+     "p": 5,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Netto-Cash laut App, mit Leasing rund 0.6 × EBITDA (TipRanks)",
+     "p": 9,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "KGV 18.9 statt Ø 20.3, rund 7 % günstiger: im Bereich ±10 %",
+     "p": 7,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs klar unter beiden, EMA 50 noch knapp über 200, die Linien laufen zusammen",
+     "p": 4,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs unter beiden, EMA 50 unter 200",
+     "p": 1,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Tiefere Hochs und tiefere Tiefs, neues Tief am 22.10.",
+     "p": 2,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "Woche: bullische Divergenz (27 im Juni, heute 34 bei tieferem Kurs), Tag dreht aus 23 nach oben",
+     "p": 12,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Bullische Divergenz auf beiden Zeitebenen",
+     "p": 18,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Start 3, keine Insider-Käufe, kein grosser Rückkauf gefunden",
+     "p": 3,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "November 54 %, Dezember 50 %, Januar 52 % positive Jahre",
+     "p": 3,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 18.9,
+    "schnitt": 20.3,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      67.0,
+      71.5
+     ],
+     [
+      56.0,
+      60.0
+     ]
+    ],
+    "widerstand": [
+     [
+      77.6,
+      82.0
+     ],
+     [
+      86.6,
+      91.0
+     ]
+    ],
+    "trigger": 77.6,
+    "abbruch": 66.0
+   },
+   "zahlen": "2026-10-29",
+   "dividende": "0.6 %",
+   "div_info": {
+    "pro_jahr": 1,
+    "rhythmus": "jährlich",
+    "ex_monate": [
+     6
+    ],
+    "zahl_monate": [
+     7
+    ],
+    "zahl_text": "Einmal pro Jahr, für 2025: Ex-Tag 11.6.2026, Stichtag 18.6.2026, Zahlung am 31.7.2026.",
+    "abstand_tage": 50,
+    "betrag": 0.411,
+    "system": "Eine Schlussdividende pro Jahr, festgelegt in Yuan (für 2025: 0.358 RMB pro Aktie), an der Generalversammlung im Juni beschlossen. Für 2025 schüttete BYD nur rund 10 % des Gewinns aus (2023 und 2024: 30 %), die Dividende sank um rund 73 %.",
+    "form": "Bar in Hongkong-Dollar (für 2025: 0.41141 HKD pro Aktie, Kurs 1 RMB = 1.1492 HKD). BYD ist eine chinesische Firma (H-Aktie): China zieht in der Regel 10 % Quellensteuer ab. Laut Doppelbesteuerungsabkommen Schweiz–China sind 10 % das Maximum, du kannst den Abzug in der Schweizer Steuererklärung anrechnen lassen. Wie Saxo das genau abwickelt, konnte ich nicht prüfen."
+   },
+   "chance": {
+    "ticker": "1211",
+    "sorgen": [
+     "Das Geschäft in China schrumpft: Im 1. Halbjahr 2026 fiel der Umsatz um 7.1 % auf 344.8 Mrd. RMB und der Gewinn um 20.5 % auf 12.3 Mrd. RMB. Im September 2026 verkaufte BYD in China rund 13 % weniger Autos als ein Jahr zuvor.",
+     "Der ganze Automarkt in China ist schwach: Seit Januar 2026 gibt es nur noch die halbe Steuerbefreiung für Elektroautos, und vom 1. bis 18.10.2026 lagen die Verkäufe der Branche an Kunden 26 % unter dem Vorjahr. Dazu kommt der Preiskampf unter den Herstellern.",
+     "BYD verbrennt Geld: 2025 lag der Free Cashflow bei rund −98 Mrd. RMB, weil die Firma sehr viel in neue Fabriken (auch im Ausland) investiert. Die Dividende für 2025 wurde um rund 73 % gekürzt.",
+     "Die Aktie fiel vom Hoch am 16.4.2026 (113.40 HKD) bis auf 67.10 HKD am 22.10.2026. CLSA senkte am 23.10.2026 das Kursziel von 120 auf 104 HKD."
+    ],
+    "sorgen_art": "gemischt",
+    "sorgen_art_text": "Die Schwäche in China und der Preiskampf sind echte Probleme, aber ein Teil ist vorübergehend: der Batterie-Engpass beim Wechsel auf die neue Blade Battery und das Vorziehen von Käufen Ende 2025 wegen der Steueränderung; im 2. Quartal 2026 stieg der Gewinn schon wieder um 30 %.",
+    "aufloeser": [
+     {
+      "was": "Die Zahlen zum 3. Quartal zeigen wieder Umsatzwachstum (Vorjahr 195 Mrd. RMB) und einen klar höheren Gewinn (Vorjahr 7.8 Mrd. RMB), getragen vom Ausland (Juli bis September jeden Monat starkes Wachstum)",
+      "wann": "Zahlen 3. Quartal, 29.10.2026"
+     },
+     {
+      "was": "Die neue Batterie (Blade Battery 2. Generation) ist voll hochgefahren, Lieferzeiten sinken, und laut Firma kehren Produktion, Absatz und Cashflow bis Ende 2026 auf frühere Werte zurück",
+      "wann": "Ende 2026"
+     },
+     {
+      "was": "Der Free Cashflow wird wieder positiv, und die Dividende steigt wieder Richtung 30 % des Gewinns",
+      "wann": "Jahreszahlen 2026, voraussichtlich Ende März 2027"
+     },
+     {
+      "was": "Der Automarkt in China stabilisiert sich und der Staat bremst den Preiskampf",
+      "wann": "2027"
+     }
+    ],
+    "schub_stufe": "mittel",
+    "schub_treiber": [
+     {
+      "titel": "Export und Fabriken im Ausland",
+      "text": "Im September 2026 verkaufte BYD 180'700 Autos im Ausland, 154 % mehr als ein Jahr zuvor. Im 1. Halbjahr 2026 waren es rund 792'000 (+68 %), erstmals kam mehr als die Hälfte des Umsatzes aus dem Ausland. Chef Wang Chuanfu erwartet, das Ziel von 1.5 Mio. Autos im Ausland für 2026 zu übertreffen.",
+      "wann": "2026–2028"
+     },
+     {
+      "titel": "Teurere Marken",
+      "text": "Denza, Fang Cheng Bao und Yangwang verkauften im 1. Halbjahr 2026 rund 228'000 Autos (+61 %), das sind rund 13 % des Absatzes. Der neue Gross-SUV Da Tang erhielt laut Firma in zwei Wochen über 100'000 Vorbestellungen. Teurere Autos heben die Marge.",
+      "wann": "2026–2027"
+     },
+     {
+      "titel": "Schnellladen mit neuer Batterie",
+      "text": "Die zweite Generation der Blade Battery lädt sehr schnell. Sobald genug davon gebaut werden kann, sollen die Lieferzeiten sinken und der Absatz in China zurückkommen. Laut Chef ist der Absatz 2026 vor allem durch die Batterieproduktion begrenzt.",
+      "wann": "Ende 2026"
+     }
+    ],
+    "schub_beweis": "Achte am 29.10.2026 und im März 2027 auf drei Werte: Umsatz wieder über Vorjahr, Bruttomarge über 19 % (2. Quartal 2026: 18.9 %) und den Anteil Ausland am Absatz (1. Halbjahr: rund 44 %). Steigen alle drei, wirkt der Schub.",
+    "szenario": "Kein Fall wie Google 2023, eher eine Erholung aus dem Tal: Wenn das Ausland weiter stark wächst und China sich fängt, könnte der Gewinn 2027 deutlich steigen; Auf den von Analysten erwarteten Gewinn läge das KGV bei rund 10 (Daten der App). Grösstes Risiko: Der Preiskampf in China geht weiter, Zölle in Europa und anderswo bremsen den Export, und der Free Cashflow bleibt negativ, dann bleibt die Aktie trotz hoher Verkaufszahlen liegen.",
+    "quellen": [
+     {
+      "titel": "CnEVPost: BYD H1 2026 earnings (28.08.2026)",
+      "url": "https://cnevpost.com/2026/08/28/byd-h1-2026-earnings/"
+     },
+     {
+      "titel": "CarNewsChina: BYD sees export surge yet H1 2026 sales hit by second-gen Blade Battery shortages (29.08.2026)",
+      "url": "https://carnewschina.com/2026/08/29/byd-sees-export-surge-yet-h1-2026-sales-hit-by-second-gen-blade-battery-shortages/"
+     },
+     {
+      "titel": "ad-hoc-news: BYD Company schedules October 29 results (Oktober 2026)",
+      "url": "https://www.ad-hoc-news.de/boerse/news/corporate-news/byd-company-schedules-october-29-results-byd-company-stock-is-valued-at-eur-74-7-billion/70413161"
+     },
+     {
+      "titel": "ad-hoc-news: BYD's board sets October 29 verdict as a 26% retail slide tests the growth story (22.10.2026)",
+      "url": "https://www.ad-hoc-news.de/boerse/news/unternehmensnachrichten/byd-s-board-sets-october-29-verdict-as-a-26-prozent-retail-slide-tests-the-growth-story/70392902"
+     },
+     {
+      "titel": "moomoo/CnEVPost: BYD chairman urges investor patience (09.06.2026)",
+      "url": "https://www.moomoo.com/community/feed/byd-chairman-urges-investor-patience-as-stock-falls-33-over-116758261006342"
+     }
+    ]
+   },
+   "fazit": "BYD ist der grösste Hersteller von Elektro- und Hybridautos der Welt und baut die Batterien selbst. Das Geschäft schrumpft aber gerade: Umsatz im 1. Halbjahr 2026 −7 %, Gewinn −21 %, in China fiel der Absatz im September um 13 %. Stark wächst nur das Ausland (+154 % im September). 2025 floss wegen hoher Investitionen rund 98 Mrd. Yuan mehr Geld ab als herein (Free Cashflow negativ). Die Marge ist mit rund 4 % dünn. Mit einem KGV von rund 19 ist die Aktie nicht mehr teuer, aber auch nicht billig gegen den eigenen Schnitt (20). Qualität rot (24), Timing orange (43): Der Abwärtstrend seit April ist intakt, erste Zeichen von Käufern gibt es (A/D steigt). Die Zahlen zum 3. Quartal kommen am 29.10.2026. Keine Anlageberatung.",
+   "about": "BYD («Build Your Dreams») aus Shenzhen begann 1995 mit Handy-Akkus. Allein im 1. Halbjahr 2026 verkaufte BYD rund 1.81 Mio. Autos, alle mit Elektro- oder Plug-in-Hybrid-Antrieb, unter den Marken BYD, Denza, Fang Cheng Bao und Yangwang. Rund 80 % des Umsatzes kommen aus Autos, rund 20 % aus Elektronik (Tochter BYD Electronic baut Teile für Handys und andere Geräte). Der grosse Vorteil: BYD macht fast alles selbst, von der Batterie («Blade Battery») über Chips bis zu Elektromotoren, und kann darum günstig bauen. Gründer und Chef Wang Chuanfu ist der grösste Einzelaktionär. Fabriken im Ausland laufen in Thailand an, Indonesien, Brasilien und Ungarn folgen (Stand Juni 2026). Die Aktie wird in Hongkong (1211, in HKD) und in Shenzhen (002594, in Yuan) gehandelt. In Hongkong kauft man in Lots: bei BYD seit 19.9.2025 100 Aktien pro Lot, also heute rund 7'045 HKD (etwa 700 CHF, mit 1 HKD = rund 0.10 CHF). Weniger als 1 Lot kannst du an der Börse Hongkong in der Regel nicht kaufen.",
+   "kpis": [
+    {
+     "ampel": "r",
+     "name": "Umsatzwachstum",
+     "wert": "−8.2 %",
+     "text": "Letzte 12 Monate bis Juni 2026, eigene Rechnung. 1. Halbjahr 2026: −7.1 %. In China sinkt der Absatz, im Ausland steigt er stark (Juli bis September jeden Monat zweistellig)."
+    },
+    {
+     "ampel": "r",
+     "name": "Operative Marge",
+     "wert": "4.1 %",
+     "text": "Von 100 Yuan Umsatz bleiben nur rund 4 Yuan Betriebsgewinn (12 Monate bis März 2026). 2024 waren es 6.4 %. Autobauer haben meist dünne Margen, BYD liegt im Mittelfeld."
+    },
+    {
+     "ampel": "r",
+     "name": "Gewinn pro Aktie (EPS)",
+     "wert": "3.24 RMB",
+     "text": "Letzte 12 Monate bis Juni 2026, eigene Rechnung. 2024: 4.61 RMB, 2025: 3.58 RMB. Der Gewinn sinkt seit zwei Jahren. Im 2. Quartal 2026 stieg er wieder um 30 %."
+    },
+    {
+     "ampel": "w",
+     "name": "ROIC",
+     "wert": "rund 11 %",
+     "text": "Auf 100 Yuan investiertes Kapital rund 11 Yuan Gewinn (Daten der App, TipRanks rechnet 7.4 %). Mittelmässig und sinkend."
+    },
+    {
+     "ampel": "r",
+     "name": "Free Cashflow",
+     "wert": "−88 Mrd. RMB",
+     "text": "Letzte 12 Monate bis März 2026. 2025: −98 Mrd. RMB, weil BYD sehr viel in Fabriken im Ausland investiert und Lieferanten schneller bezahlt. Bis 2024 war der Wert jedes Jahr positiv."
+    },
+    {
+     "ampel": "g",
+     "name": "Schulden",
+     "wert": "gering",
+     "text": "Laut App-Daten mehr Geld als Bankschulden. TipRanks rechnet mit Leasing rund 0.6 Jahres-EBITDA Nettoschulden. Beides ist wenig. Achtung: BYD schuldet den Lieferanten sehr viel Geld (offene Rechnungen)."
+    },
+    {
+     "ampel": "w",
+     "name": "KGV",
+     "wert": "18.9",
+     "text": "Du zahlst rund 19 Jahresgewinne. Eigener Schnitt der letzten 5 Jahre: 20.3. Also etwa normal bewertet. Auf den von Analysten erwarteten Gewinn wäre das KGV rund 10, das setzt aber eine starke Erholung voraus."
+    },
+    {
+     "ampel": "r",
+     "name": "Dividende",
+     "wert": "0.6 %",
+     "text": "Zuletzt 0.358 RMB pro Aktie, ausbezahlt als 0.411 HKD (Ex-Tag 11.6.2026, bezahlt am 31.7.2026). Nur 1 Zahlung pro Jahr, für 2025 um rund 73 % gekürzt (nur noch 10 % des Gewinns)."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "86.60–91.00 HKD",
+     "text": "Widerstand: Tages-EMA 200 (89.51), Wochen-EMAs (89.10 und 90.23) und Tief vom 23.7. (86.60 HKD)."
+    },
+    {
+     "art": "r",
+     "wert": "77.60–82.00 HKD",
+     "text": "Widerstand: Hochs vom 12.10. und 22.9., Tages-EMA 50 (78.24 HKD)."
+    },
+    {
+     "art": "t",
+     "wert": "77.60 HKD",
+     "text": "Trigger: Tagesschluss über 77.60 HKD (letztes tieferes Hoch vom 12.10.), besser mit weiter steigender Tages-A/D."
+    },
+    {
+     "art": "s",
+     "wert": "67.00–71.50 HKD",
+     "text": "Kaufzone 1: 52-Wochen-Tief vom 22.10. (67.10) und Juni-Tief (71.40 HKD). Der Kurs steht heute darin, das Timing ist aber noch nicht bestätigt."
+    },
+    {
+     "art": "s",
+     "wert": "56.00–60.00 HKD",
+     "text": "Kaufzone 2: KGV von rund 15 bis 16 auf den heutigen Gewinn (eigene Rechnung) und Bereich der Tiefs Anfang 2024 (umgerechnet rund 56 HKD, nicht in den Rohdaten, darum unsicher)."
+    },
+    {
+     "art": "r",
+     "wert": "66.00 HKD",
+     "text": "Abbruch: Wochenschluss unter 66 HKD, also klar unter dem 52-Wochen-Tief."
+    }
+   ],
+   "pro": [
+    "Weltgrösster Hersteller von Elektro- und Hybridautos, baut Batterien, Chips und Motoren selbst und kann darum günstig produzieren.",
+    "Ausland wächst stark: September 2026 +154 % (180'700 Autos), im 1. Halbjahr kam erstmals mehr als die Hälfte des Umsatzes aus dem Ausland.",
+    "2. Quartal 2026: Gewinn wieder +30 %, Bruttomarge 18.9 % (höchster Wert seit einem Jahr).",
+    "Kaum Bankschulden, die Aktie ist mit KGV 19 nicht mehr teuer.",
+    "A/D und RSI zeigen auf beiden Zeitebenen erste Zeichen von Käufern."
+   ],
+   "contra": [
+    "Umsatz und Gewinn sinken: 1. Halbjahr 2026 Umsatz −7 %, Gewinn −21 %, in China fällt der Absatz (September −13 %).",
+    "Harter Preiskampf in China, der Automarkt dort ist schwach (Oktober bisher −26 % bei der ganzen Branche).",
+    "Free Cashflow 2025 stark negativ (−98 Mrd. RMB), Dividende um 73 % gekürzt.",
+    "Zölle und Handelsstreit: EU und USA erschweren den Verkauf chinesischer Elektroautos.",
+    "China-Risiko und Hongkong-Lots: mindestens 100 Aktien (rund 700 CHF) pro Kauf, Abwärtstrend im Chart intakt."
+   ],
+   "smart_money": [
+    "Rückkäufe: 2026 habe ich kein grösseres Rückkaufprogramm gefunden. Die Dividende für 2025 wurde um rund 73 % gekürzt.",
+    "Insider: Gründer Wang Chuanfu ist der grösste Einzelaktionär. Käufe der Führung am Markt in den letzten 6 Monaten habe ich nicht gefunden. An der Generalversammlung vom 9.6.2026 sagte Wang, die Aktie sei unterbewertet.",
+    "Grosse Investoren: Berkshire Hathaway (Warren Buffett) hat seine Beteiligung bis 2025 ganz verkauft. Zu Käufen grosser Fonds 2026 habe ich keine verlässlichen Daten gefunden.",
+    "Analysten: Kursziel im Schnitt rund 123 HKD (26 Analysten, mehrheitlich Kaufen, Daten der App vom 24.10.2026). CLSA senkte am 23.10.2026 von 120 auf 104 HKD, Bernstein hält 130 HKD."
+   ],
+   "cheatsheet": "analysen/1211.html",
+   "claude": "https://claude.ai/artifact/67CPvTEBNGPKt2Z9J3gq8G"
   }
  ]
 }

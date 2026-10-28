@@ -1,0 +1,30 @@
+{
+ "ticker": "O",
+ "sorgen": [
+  "Die Zinsen sind hoch: Die 10-jährige US-Staatsanleihe rentierte im September 2026 über 5 % (bis 5.12 %), so hoch wie seit fast 20 Jahren nicht mehr. Wer Einkommen sucht, bekommt fast gleich viel mit sicheren Anleihen, darum verkaufen Anleger Dividendenaktien wie Realty Income.",
+  "Die Schulden werden teurer: Die Zinskosten stiegen im 2. Quartal 2026 auf 312 Mio. USD (Vorjahr 284 Mio.), die Nettoschulden auf das 5.4-fache des Betriebsgewinns vor Abschreibungen (vorher 5.2). Je teurer das Geld, desto kleiner der Gewinn aus jedem neu gekauften Gebäude.",
+  "Der Buchgewinn im 2. Quartal (0.37 USD je Aktie) lag wegen einer Wertberichtigung von 54 Mio. USD rund 12 % unter den Erwartungen. Scotiabank stufte im September ab (Kursziel 67 auf 58 USD), mehrere Banken senkten ihre Ziele.",
+  "Rund zwei Drittel der Miete kommen von Firmen ohne gutes Bonitätsrating. Bei hohen Zinsen steigt das Risiko, dass einzelne Mieter nicht mehr zahlen. Die Rückstellungen für Kreditausfälle stiegen im 1. Halbjahr 2026 auf 46 Mio. USD (Vorjahr 20 Mio.)."
+ ],
+ "sorgen_art": "gemischt",
+ "sorgen_art_text": "Das Geschäft läuft stabil (98.8 % vermietet, Prognose im August angehoben), der Kurs fällt vor allem wegen der Zinsen; höhere Zinsen bremsen aber das Wachstum von Realty Income echt, solange sie hoch bleiben.",
+ "aufloeser": [
+  {"was": "Die Zahlen zum 3. Quartal bestätigen die AFFO-Prognose 2026 (4.44 bis 4.45 USD) und eine Vermietungsquote um 98.8 %, ohne neue grosse Mieterausfälle", "wann": "Zahlen 3. Quartal, 2.11.2026 (nach US-Börsenschluss)"},
+  {"was": "Die Renditen langfristiger US-Staatsanleihen sinken wieder Richtung 4.5 %. Dann werden Schulden billiger und die Dividendenrendite von 5.8 % wieder attraktiver", "wann": "laufend, Entscheide der US-Notenbank bis 2027"},
+  {"was": "Eine Prognose für 2027 mit wieder mehr Wachstum pro Aktie (über 4 %) und stabiler Verschuldung", "wann": "Jahreszahlen, voraussichtlich Februar 2027"}
+ ],
+ "schub_stufe": "schwach",
+ "schub_treiber": [
+  {"titel": "Rechenzentren", "text": "Am 30.6.2026 gründete Realty Income mit Cloud Capital und einem grossen Investor eine Partnerschaft für grosse Rechenzentren (Startwert über 6 Mrd. USD, Verträge über 15 bis 20 Jahre mit festen Mieterhöhungen). Realty Income will bis 1.4 Mrd. USD investieren. Das ist interessant, aber klein gegenüber einem Gesamtwert der Firma von rund 85 Mrd. USD.", "wann": "2026–2028"},
+  {"titel": "Europa und eigener Fonds", "text": "In Europa findet Realty Income höhere Renditen (2. Quartal: 7.0 % Anfangsrendite), dazu verwaltet die Firma neu einen Fonds mit Geld von anderen Investoren und verdient Gebühren. Beides hilft, ändert aber das Wachstum von rund 3 bis 4 % pro Aktie bisher kaum.", "wann": "2026–2027"}
+ ],
+ "schub_beweis": "Achte auf das AFFO pro Aktie: Steigt es in den Quartalen 2027 um mehr als 5 % gegenüber dem Vorjahr (2026: rund +3.7 %) und bleibt die Verschuldung bei rund 5.4, kommt mehr Wachstum an. Die Prognose 2027 im Februar zeigt das zuerst.",
+ "szenario": "Kein Fall wie Google 2023, eher eine Zins-Wette: Sinken die langfristigen US-Zinsen deutlich, könnte die Börse Realty Income wieder wie früher bewerten (Kurs/AFFO um 15 statt heute 12.8), dazu kommt die monatliche Dividende von rund 5.8 %. Grösstes Risiko: Die Zinsen bleiben über 5 %, dann wird Wachstum teurer, und Mieterausfälle könnten das AFFO drücken.",
+ "quellen": [
+  {"titel": "Realty Income: Zahlen 2. Quartal 2026 (SEC 8-K, 5.8.2026)", "url": "https://www.sec.gov/Archives/edgar/data/0000726728/000072672826000044/o-991q22026.htm"},
+  {"titel": "Benzinga: Realty Income Stock Tumbles as Dividend Giant Hits Rough Patch (27.9.2026)", "url": "https://www.benzinga.com/markets/earnings/26/09/62012377/realty-income-stock-tumbles-as-dividend-giant-hits-rough-patch"},
+  {"titel": "24/7 Wall St.: Realty Income Falls for 3 Months (22.9.2026)", "url": "https://247wallst.com/investing/2026/09/22/realty-income-falls-for-3-months-two-wall-street-pros-say-near-30-gains-lie-ahead-for-the-dividend-powerhouse/"},
+  {"titel": "Realty Income: Partnerschaft für Rechenzentren mit Cloud Capital (30.6.2026)", "url": "https://www.nasdaq.com/press-release/realty-income-forms-programmatic-joint-venture-cloud-capital-and-global-institutional"},
+  {"titel": "Sure Dividend: Realty Income (11.8.2026)", "url": "https://www.suredividend.com/wp-content/uploads/2026/08/O-2026-08-11.pdf"}
+ ]
+}

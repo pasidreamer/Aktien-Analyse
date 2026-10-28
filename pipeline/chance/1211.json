@@ -1,0 +1,32 @@
+{
+ "ticker": "1211",
+ "sorgen": [
+  "Das Geschäft in China schrumpft: Im 1. Halbjahr 2026 fiel der Umsatz um 7.1 % auf 344.8 Mrd. RMB und der Gewinn um 20.5 % auf 12.3 Mrd. RMB. Im September 2026 verkaufte BYD in China rund 13 % weniger Autos als ein Jahr zuvor.",
+  "Der ganze Automarkt in China ist schwach: Seit Januar 2026 gibt es nur noch die halbe Steuerbefreiung für Elektroautos, und vom 1. bis 18.10.2026 lagen die Verkäufe der Branche an Kunden 26 % unter dem Vorjahr. Dazu kommt der Preiskampf unter den Herstellern.",
+  "BYD verbrennt Geld: 2025 lag der Free Cashflow bei rund −98 Mrd. RMB, weil die Firma sehr viel in neue Fabriken (auch im Ausland) investiert. Die Dividende für 2025 wurde um rund 73 % gekürzt.",
+  "Die Aktie fiel vom Hoch am 16.4.2026 (113.40 HKD) bis auf 67.10 HKD am 22.10.2026. CLSA senkte am 23.10.2026 das Kursziel von 120 auf 104 HKD."
+ ],
+ "sorgen_art": "gemischt",
+ "sorgen_art_text": "Die Schwäche in China und der Preiskampf sind echte Probleme, aber ein Teil ist vorübergehend: der Batterie-Engpass beim Wechsel auf die neue Blade Battery und das Vorziehen von Käufen Ende 2025 wegen der Steueränderung; im 2. Quartal 2026 stieg der Gewinn schon wieder um 30 %.",
+ "aufloeser": [
+  {"was": "Die Zahlen zum 3. Quartal zeigen wieder Umsatzwachstum (Vorjahr 195 Mrd. RMB) und einen klar höheren Gewinn (Vorjahr 7.8 Mrd. RMB), getragen vom Ausland (Juli bis September jeden Monat starkes Wachstum)", "wann": "Zahlen 3. Quartal, 29.10.2026"},
+  {"was": "Die neue Batterie (Blade Battery 2. Generation) ist voll hochgefahren, Lieferzeiten sinken, und laut Firma kehren Produktion, Absatz und Cashflow bis Ende 2026 auf frühere Werte zurück", "wann": "Ende 2026"},
+  {"was": "Der Free Cashflow wird wieder positiv, und die Dividende steigt wieder Richtung 30 % des Gewinns", "wann": "Jahreszahlen 2026, voraussichtlich Ende März 2027"},
+  {"was": "Der Automarkt in China stabilisiert sich und der Staat bremst den Preiskampf", "wann": "2027"}
+ ],
+ "schub_stufe": "mittel",
+ "schub_treiber": [
+  {"titel": "Export und Fabriken im Ausland", "text": "Im September 2026 verkaufte BYD 180'700 Autos im Ausland, 154 % mehr als ein Jahr zuvor. Im 1. Halbjahr 2026 waren es rund 792'000 (+68 %), erstmals kam mehr als die Hälfte des Umsatzes aus dem Ausland. Chef Wang Chuanfu erwartet, das Ziel von 1.5 Mio. Autos im Ausland für 2026 zu übertreffen.", "wann": "2026–2028"},
+  {"titel": "Teurere Marken", "text": "Denza, Fang Cheng Bao und Yangwang verkauften im 1. Halbjahr 2026 rund 228'000 Autos (+61 %), das sind rund 13 % des Absatzes. Der neue Gross-SUV Da Tang erhielt laut Firma in zwei Wochen über 100'000 Vorbestellungen. Teurere Autos heben die Marge.", "wann": "2026–2027"},
+  {"titel": "Schnellladen mit neuer Batterie", "text": "Die zweite Generation der Blade Battery lädt sehr schnell. Sobald genug davon gebaut werden kann, sollen die Lieferzeiten sinken und der Absatz in China zurückkommen. Laut Chef ist der Absatz 2026 vor allem durch die Batterieproduktion begrenzt.", "wann": "Ende 2026"}
+ ],
+ "schub_beweis": "Achte am 29.10.2026 und im März 2027 auf drei Werte: Umsatz wieder über Vorjahr, Bruttomarge über 19 % (2. Quartal 2026: 18.9 %) und den Anteil Ausland am Absatz (1. Halbjahr: rund 44 %). Steigen alle drei, wirkt der Schub.",
+ "szenario": "Kein Fall wie Google 2023, eher eine Erholung aus dem Tal: Wenn das Ausland weiter stark wächst und China sich fängt, könnte der Gewinn 2027 deutlich steigen; Auf den von Analysten erwarteten Gewinn läge das KGV bei rund 10 (Daten der App). Grösstes Risiko: Der Preiskampf in China geht weiter, Zölle in Europa und anderswo bremsen den Export, und der Free Cashflow bleibt negativ, dann bleibt die Aktie trotz hoher Verkaufszahlen liegen.",
+ "quellen": [
+  {"titel": "CnEVPost: BYD H1 2026 earnings (28.08.2026)", "url": "https://cnevpost.com/2026/08/28/byd-h1-2026-earnings/"},
+  {"titel": "CarNewsChina: BYD sees export surge yet H1 2026 sales hit by second-gen Blade Battery shortages (29.08.2026)", "url": "https://carnewschina.com/2026/08/29/byd-sees-export-surge-yet-h1-2026-sales-hit-by-second-gen-blade-battery-shortages/"},
+  {"titel": "ad-hoc-news: BYD Company schedules October 29 results (Oktober 2026)", "url": "https://www.ad-hoc-news.de/boerse/news/corporate-news/byd-company-schedules-october-29-results-byd-company-stock-is-valued-at-eur-74-7-billion/70413161"},
+  {"titel": "ad-hoc-news: BYD's board sets October 29 verdict as a 26% retail slide tests the growth story (22.10.2026)", "url": "https://www.ad-hoc-news.de/boerse/news/unternehmensnachrichten/byd-s-board-sets-october-29-verdict-as-a-26-prozent-retail-slide-tests-the-growth-story/70392902"},
+  {"titel": "moomoo/CnEVPost: BYD chairman urges investor patience (09.06.2026)", "url": "https://www.moomoo.com/community/feed/byd-chairman-urges-investor-patience-as-stock-falls-33-over-116758261006342"}
+ ]
+}

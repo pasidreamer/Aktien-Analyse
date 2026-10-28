@@ -1,0 +1,402 @@
+<title>BYD Aktien-Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F3F5F7; --surface:#FFFFFF; --ink:#141B24; --muted:#5A6573; --line:#DDE2E8; --grid:#E9EDF1;
+  --accent:#2F45B5; --accent-soft:#E6E9F8; --chip:#EBEEF2;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+  --good:#1D7A4B; --good-bg:#E3F3EA; --warn:#9A6200; --warn-bg:#FBF0DC; --bad:#B2362A; --bad-bg:#FBE6E3;
+  --zone-sup:rgba(29,122,75,.10); --zone-res:rgba(178,54,42,.09);
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+    --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+    --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+    --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+  --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+  --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;padding-inline:16px;padding-block:24px 56px}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+h1,h2,h3{font-family:var(--display);font-stretch:85%;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:clamp(32px,7vw,48px);font-weight:800;line-height:1}
+h2{font-size:24px;font-weight:700}
+h3{font-size:17px;font-weight:700;font-stretch:95%}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+section{display:flex;flex-direction:column;gap:14px}
+.lead{max-width:68ch;color:var(--muted)}
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;align-items:stretch}
+.hero .id{display:flex;flex-direction:column;gap:10px;justify-content:space-between}
+.price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price b{font-family:var(--display);font-size:34px;font-weight:700}
+.meta{font-size:13px;color:var(--muted)}
+.verdict{font-size:15px;padding:12px 14px;border-radius:10px;background:var(--chip)}
+.scales{display:flex;flex-direction:column;gap:18px}
+.scale-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.scale-h span{font-size:13px;color:var(--muted)}
+.scale-h b{font-family:var(--display);font-size:28px;line-height:1}
+.track{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#C8412F 0%,#E0892F 30%,#E3B63A 50%,#8BBF4B 68%,#2E9A5B 100%);margin-top:8px}
+.pin{position:absolute;top:-5px;width:4px;height:22px;border-radius:2px;background:var(--ink);box-shadow:0 0 0 2px var(--surface);transform:translateX(-2px)}
+.ticks{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);font-family:var(--mono);margin-top:6px}
+.state{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;margin-top:8px}
+.st-good{background:var(--good-bg);color:var(--good)}
+.st-warn{background:var(--warn-bg);color:var(--warn)}
+.st-bad{background:var(--bad-bg);color:var(--bad)}
+/* tables */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;color:var(--muted);font-weight:500;font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:700;border-bottom:none}
+.pts{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{height:6px;border-radius:3px;background:var(--chip);min-width:60px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:3px}
+/* grids */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;border-left:4px solid var(--line)}
+.kpi.g{border-left-color:var(--good)}.kpi.w{border-left-color:var(--warn)}.kpi.b{border-left-color:var(--bad)}
+.kpi span{font-size:12px;color:var(--muted)}
+.kpi b{font-family:var(--mono);font-size:19px;font-weight:500;font-variant-numeric:tabular-nums}
+.kpi em{font-style:normal;font-size:12.5px;color:var(--muted)}
+/* charts */
+.chart{position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:14px;height:3px;border-radius:2px;display:inline-block}
+.swb{width:12px;height:10px;border-radius:2px;display:inline-block}
+.tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12.5px;box-shadow:0 4px 14px rgba(0,0,0,.12);white-space:nowrap;z-index:2}
+.tip b{font-family:var(--mono);font-weight:500}
+.tip .d{font-family:var(--mono);color:var(--muted);font-size:11.5px}
+.note{font-size:13.5px;color:var(--muted)}
+ul.clean{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.pro li::marker{color:var(--good)} .con li::marker{color:var(--bad)}
+.zones{display:flex;flex-direction:column;gap:8px}
+.zone{display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:baseline;padding:10px 12px;border-radius:10px;background:var(--chip);font-size:14px}
+.zone b{font-family:var(--mono);font-weight:500}
+.zone.r{border-left:4px solid var(--bad)} .zone.s{border-left:4px solid var(--good)} .zone.t{border-left:4px solid var(--accent)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+summary{cursor:pointer;font-weight:600}
+details p{margin-top:8px;color:var(--muted);max-width:70ch}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+footer{font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:6px;max-width:80ch}
+footer a{color:var(--accent)}
+@media (max-width:760px){.hero,.two{grid-template-columns:1fr}.zone{grid-template-columns:1fr;gap:2px}}
+</style>
+
+<div class="wrap">
+
+<header class="hero">
+  <div class="card id">
+    <div>
+      <div class="eyebrow">Aktien-Check · 28.10.2026</div>
+      <h1>BYD</h1>
+      <p class="meta">BYD Company Limited · Hongkong: 1211 (H-Aktie, in Hongkong-Dollar), auch Shenzhen: 002594 · Elektroautos, Batterien, Elektronik · Shenzhen, China</p>
+    </div>
+    <div class="price"><b>70.45 HKD</b><span class="meta">Schluss 28.10.2026 · 52 Wochen: 67.10 – 113.40 HKD · Hoch Mai 2025: rund 159 HKD (umgerechnet auf heutige Aktienzahl) · 1 Lot = 100 Aktien = rund 7'045 HKD, etwa 700 CHF</span></div>
+    <p class="verdict"><b>Kurz gesagt:</b> BYD ist der grösste Hersteller von Elektro- und Hybridautos der Welt und baut die Batterien selbst. Das Geschäft schrumpft aber gerade: Umsatz im 1. Halbjahr 2026 −7 %, Gewinn −21 %, in China fiel der Absatz im September um 13 %. Stark wächst nur das Ausland (+154 % im September). 2025 floss wegen hoher Investitionen rund 98 Mrd. Yuan mehr Geld ab als herein (Free Cashflow negativ). Die Marge ist mit rund 4 % dünn. Mit einem KGV von rund 19 ist die Aktie nicht mehr teuer, aber auch nicht billig gegen den eigenen Schnitt (20). Qualität rot (24), Timing orange (43): Der Abwärtstrend seit April ist intakt, erste Zeichen von Käufern gibt es (A/D steigt). Die Zahlen zum 3. Quartal kommen am 29.10.2026. Keine Anlageberatung.</p>
+  </div>
+  <div class="card scales">
+    <div>
+      <div class="scale-h"><span>Qualität · Ist die Firma kaufenswert?</span><b id="q-val">24</b></div>
+      <div class="track"><i class="pin" id="q-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-bad">▲ Schwach</span>
+    </div>
+    <div>
+      <div class="scale-h"><span>Timing · Ist jetzt der Zeitpunkt?</span><b id="t-val">43</b></div>
+      <div class="track"><i class="pin" id="t-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-warn">▲ Beobachten: Trigger noch nicht erreicht</span>
+    </div>
+    <p class="note">Skala: unter 30 rot · 30–45 orange · 45–60 gelb · 60–75 hellgrün · ab 75 grün. Beide Werte setzen sich aus festen Kriterien zusammen, siehe unten.</p>
+  </div>
+</header>
+
+<section>
+  <h2>Was die Firma macht</h2>
+  <p class="lead">BYD («Build Your Dreams») aus Shenzhen begann 1995 mit Handy-Akkus. Allein im 1. Halbjahr 2026 verkaufte BYD rund 1.81 Mio. Autos, alle mit Elektro- oder Plug-in-Hybrid-Antrieb, unter den Marken BYD, Denza, Fang Cheng Bao und Yangwang. Rund 80 % des Umsatzes kommen aus Autos, rund 20 % aus Elektronik (Tochter BYD Electronic baut Teile für Handys und andere Geräte). Der grosse Vorteil: BYD macht fast alles selbst, von der Batterie («Blade Battery») über Chips bis zu Elektromotoren, und kann darum günstig bauen. Gründer und Chef Wang Chuanfu ist der grösste Einzelaktionär. Fabriken im Ausland laufen in Thailand an, Indonesien, Brasilien und Ungarn folgen (Stand Juni 2026). Die Aktie wird in Hongkong (1211, in HKD) und in Shenzhen (002594, in Yuan) gehandelt. In Hongkong kauft man in Lots: bei BYD seit 19.9.2025 100 Aktien pro Lot, also heute rund 7'045 HKD (etwa 700 CHF, mit 1 HKD = rund 0.10 CHF). Weniger als 1 Lot kannst du an der Börse Hongkong in der Regel nicht kaufen.</p>
+  <p class="lead">Im Juli 2025 gab BYD pro 10 Aktien 20 neue Aktien gratis aus (8 als Gratisaktien und 12 aus Reserven, Juli 2025), die Zahl der Aktien hat sich also verdreifacht. Alle Kurse und Gewinne pro Aktie auf dieser Seite sind darauf umgerechnet. Die Aktie erreichte im Mai 2025 umgerechnet rund 159 HKD. Danach drückte der Preiskampf in China: BYD senkte die Preise, der Gewinn fiel 2025 um 19 % und im 4. Quartal 2025 um 38 %. Berkshire Hathaway von Warren Buffett hat seine Beteiligung bis 2025 ganz verkauft. Seit Januar 2026 gibt es in China nur noch die halbe Steuerbefreiung für Elektroautos, darum kauften viele Leute schon Ende 2025. Dazu kam ein Engpass bei der neuen Batterie (zweite Generation der Blade Battery), der die Auslieferungen bremste. Im 1. Quartal 2026 fiel der Gewinn um 55 %. Seit April (113.40 HKD) fällt die Aktie wieder, am 22.10.2026 auf 67.10 HKD, auch weil der ganze Automarkt in China schwach ist (Verkäufe an Kunden 1. bis 18.10. −26 %, ganze Branche). Gegenwind ist also echt, aber nicht nur Stimmung: Die Firma verdient weniger und investiert sehr viel.</p>
+</section>
+
+<section>
+  <h2>Fundamental: die Zahlen</h2>
+  <div class="kpis">
+<div class="kpi r"><span>Umsatzwachstum</span><b>−8.2 %</b><em>Letzte 12 Monate bis Juni 2026, eigene Rechnung. 1. Halbjahr 2026: −7.1 %. In China sinkt der Absatz, im Ausland steigt er stark (Juli bis September jeden Monat zweistellig).</em></div>
+<div class="kpi r"><span>Operative Marge</span><b>4.1 %</b><em>Von 100 Yuan Umsatz bleiben nur rund 4 Yuan Betriebsgewinn (12 Monate bis März 2026). 2024 waren es 6.4 %. Autobauer haben meist dünne Margen, BYD liegt im Mittelfeld.</em></div>
+<div class="kpi r"><span>Gewinn pro Aktie (EPS)</span><b>3.24 RMB</b><em>Letzte 12 Monate bis Juni 2026, eigene Rechnung. 2024: 4.61 RMB, 2025: 3.58 RMB. Der Gewinn sinkt seit zwei Jahren. Im 2. Quartal 2026 stieg er wieder um 30 %.</em></div>
+<div class="kpi w"><span>ROIC</span><b>rund 11 %</b><em>Auf 100 Yuan investiertes Kapital rund 11 Yuan Gewinn (Daten der App, TipRanks rechnet 7.4 %). Mittelmässig und sinkend.</em></div>
+<div class="kpi r"><span>Free Cashflow</span><b>−88 Mrd. RMB</b><em>Letzte 12 Monate bis März 2026. 2025: −98 Mrd. RMB, weil BYD sehr viel in Fabriken im Ausland investiert und Lieferanten schneller bezahlt. Bis 2024 war der Wert jedes Jahr positiv.</em></div>
+<div class="kpi g"><span>Schulden</span><b>gering</b><em>Laut App-Daten mehr Geld als Bankschulden. TipRanks rechnet mit Leasing rund 0.6 Jahres-EBITDA Nettoschulden. Beides ist wenig. Achtung: BYD schuldet den Lieferanten sehr viel Geld (offene Rechnungen).</em></div>
+<div class="kpi w"><span>KGV</span><b>18.9</b><em>Du zahlst rund 19 Jahresgewinne. Eigener Schnitt der letzten 5 Jahre: 20.3. Also etwa normal bewertet. Auf den von Analysten erwarteten Gewinn wäre das KGV rund 10, das setzt aber eine starke Erholung voraus.</em></div>
+<div class="kpi r"><span>Dividende</span><b>0.6 %</b><em>Zuletzt 0.358 RMB pro Aktie, ausbezahlt als 0.411 HKD (Ex-Tag 11.6.2026, bezahlt am 31.7.2026). Nur 1 Zahlung pro Jahr, für 2025 um rund 73 % gekürzt (nur noch 10 % des Gewinns).</em></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>Umsatz pro Quartal (Mrd. RMB)</h3>
+      <p class="note">Seit dem 3. Quartal 2025 liegt jedes Quartal unter dem Vorjahr (−3 %, −14 %, −12 %, −3 %). Das 2. Quartal 2026 war fast wieder auf Vorjahreshöhe. Q1 26 und Q2 26: eigene Rechnung aus Halbjahres- und Quartalszahlen.</p>
+      <div class="chart" id="c-rev"></div>
+    </div>
+    <div class="card">
+      <h3>Operative Marge pro Jahr</h3>
+      <p class="note">Betriebsgewinn pro 100 Yuan Umsatz. Von 3 % (2021) auf 6.4 % (2024) gestiegen, dann wegen des Preiskampfs auf rund 4 % gefallen.</p>
+      <div class="chart" id="c-margin"></div>
+    </div>
+  </div>
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Jahr</th><th class="num">Umsatz Mrd. RMB</th><th class="num">Wachstum</th><th class="num">Op. Marge</th><th class="num">EPS RMB</th><th class="num">Free Cashflow</th><th class="num">ROIC</th><th class="num">KGV</th></tr></thead>
+      <tbody id="fin-rows"></tbody>
+    </table>
+  </div>
+  <p class="note"><b>Hinweis:</b> Zahlen in chinesischen Yuan (RMB, Umsatz und Free Cashflow in Mio.), Kurs in Hongkong-Dollar. 1 RMB = rund 1.15 HKD (Juni 2026). EPS auf die heutige Aktienzahl umgerechnet (Gratisaktien Juli 2025). Umsatz, Marge, EPS und Free Cashflow laut StockAnalysis, letzte 12 Monate eigene Rechnung mit den Halbjahreszahlen 2026 (Free Cashflow bis März 2026). ROIC pro Jahr nicht verfügbar. KGV: 2024 und 2025 eigene Rechnung mit dem Jahresendkurs, heute laut App-Daten. 2021 war das KGV über 100, weil der Gewinn fast null war.</p>
+</section>
+
+<section>
+  <h2>Qualität: 24 von 100</h2>
+  <div class="card tbl"><table id="q-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Technik: Wochenchart (2 Jahre)</h2>
+  <div class="card">
+    <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span><span><i class="swb" style="background:var(--zone-sup);border:1px solid var(--good)"></i>Unterstützung</span><span><i class="swb" style="background:var(--zone-res);border:1px solid var(--bad)"></i>Widerstand</span></div>
+    <div class="chart" id="c-week"></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>A/D-Linie, Woche</h3>
+      <p class="note">Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Positiv: Der Kurs schloss im Juni bei 72.65 HKD (Woche ab 22.6.), heute tiefer bei 70.45 HKD. Die Wochen-A/D steht heute aber höher (−275 statt −428). Beim tieferen Kurs wird weniger stark verkauft: eine bullische Divergenz. Seit August fällt die Wochen-A/D allerdings wieder.</p>
+      <div class="chart" id="c-adw"></div>
+    </div>
+    <div class="card">
+      <h3>RSI, Woche</h3>
+      <p class="note">Unter 30 überverkauft, über 70 überkauft. Im Juni bei 27 (überverkauft), heute 34 bei tieferem Kurs. Auch das ist eine bullische Divergenz, aber noch schwach.</p>
+      <div class="chart" id="c-rsiw"></div>
+    </div>
+  </div>
+
+  <h2>Technik: Tageschart (1 Jahr)</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Kurs, Tag</h3>
+      <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span></div>
+      <div class="chart" id="c-day"></div>
+    </div>
+    <div class="card">
+      <h3>A/D-Linie, Tag</h3>
+      <p class="note">Positiv: Am 10.9. schloss BYD bei 79.55 HKD mit Tages-A/D 144, heute bei 70.45 HKD mit A/D 164. Seit dem Tief vom 22.10. (67.10 HKD) stieg die Tages-A/D von 122 auf 164. Käufer greifen bei diesen Kursen zu.</p>
+      <div class="chart" id="c-add"></div>
+    </div>
+  </div>
+
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Indikator</th><th>Tag</th><th>Woche</th><th>Bedeutung</th></tr></thead>
+      <tbody>
+<tr><td>Kurs vs. EMA 50</td><td class="pts">70.45 &lt; 78.24</td><td class="pts">70.45 &lt; 90.23</td><td>Klar unter der mittelfristigen Linie, auf beiden Zeitebenen.</td></tr>
+<tr><td>Kurs vs. EMA 200</td><td class="pts">70.45 &lt; 89.51</td><td class="pts">70.45 &lt; 89.10</td><td>Rund 21 % unter der langfristigen Linie.</td></tr>
+<tr><td>EMA 50 vs. EMA 200</td><td class="pts">50 unter 200 (Todeskreuz am 10.9.2025)</td><td class="pts">50 noch knapp über 200 (90.23 zu 89.10), Abstand schrumpft</td><td>Tag im Abwärtstrend, in der Woche droht ein Todeskreuz.</td></tr>
+<tr><td>RSI (14)</td><td class="pts">37.4</td><td class="pts">33.5</td><td>Beide schwach, nahe überverkauft. Tag drehte aus 23 nach oben.</td></tr>
+<tr><td>A/D</td><td class="pts">steigt seit 22.10.</td><td class="pts">höher als im Juni trotz tieferem Kurs</td><td>Beide Zeitebenen mit bullischer Divergenz.</td></tr>
+<tr><td>Volumen</td><td colspan="2">Ø 20 Tage 19.3 Mio. vs. Ø 100 Tage 21.2 Mio. Aktien</td><td>Etwas weniger Handel als üblich.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Struktur und Zonen (Smart Money Concept)</h2>
+  <p class="lead">Seit dem Hoch vom 16.4.2026 (113.40 HKD) fällt BYD mit tieferen Hochs und tieferen Tiefs: Hochs 109.10 (30.4.), 96.65 (3.8.), 94.85 (25.8.), 82.00 (22.9.) und 77.60 HKD (12.10.), Tiefs 88.80 (28.5.), 71.40 (30.6.), 77.80 (17.9.), 72.75 (5.10.) und 67.10 HKD (22.10.). Das Tief vom 22.10. liegt unter dem Juni-Tief, der Abwärtstrend ist also bestätigt. Ein Change of Character nach oben wäre ein Tagesschluss über 77.60 HKD (letztes tieferes Hoch). Knapp darüber liegt die Tages-EMA 50 (78.24 HKD).</p>
+  <div class="zones">
+<div class="zone r"><b>86.60–91.00 HKD</b><span>Widerstand: Tages-EMA 200 (89.51), Wochen-EMAs (89.10 und 90.23) und Tief vom 23.7. (86.60 HKD).</span></div>
+<div class="zone r"><b>77.60–82.00 HKD</b><span>Widerstand: Hochs vom 12.10. und 22.9., Tages-EMA 50 (78.24 HKD).</span></div>
+<div class="zone t"><b>77.60 HKD</b><span><b>Trigger:</b> Tagesschluss über 77.60 HKD (letztes tieferes Hoch vom 12.10.), besser mit weiter steigender Tages-A/D.</span></div>
+<div class="zone s"><b>67.00–71.50 HKD</b><span><b>Kaufzone 1:</b> 52-Wochen-Tief vom 22.10. (67.10) und Juni-Tief (71.40 HKD). Der Kurs steht heute darin, das Timing ist aber noch nicht bestätigt.</span></div>
+<div class="zone s"><b>56.00–60.00 HKD</b><span><b>Kaufzone 2:</b> KGV von rund 15 bis 16 auf den heutigen Gewinn (eigene Rechnung) und Bereich der Tiefs Anfang 2024 (umgerechnet rund 56 HKD, nicht in den Rohdaten, darum unsicher).</span></div>
+<div class="zone r"><b>66.00 HKD</b><span>Abbruch: Wochenschluss unter 66 HKD, also klar unter dem 52-Wochen-Tief.</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Smart Money, Insider und Saisonalität</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Wer kauft, wer verkauft?</h3>
+      <ul class="clean" style="margin-top:8px">
+<li><b>Rückkäufe:</b> 2026 habe ich kein grösseres Rückkaufprogramm gefunden. Die Dividende für 2025 wurde um rund 73 % gekürzt.</li>
+<li><b>Insider:</b> Gründer Wang Chuanfu ist der grösste Einzelaktionär. Käufe der Führung am Markt in den letzten 6 Monaten habe ich nicht gefunden. An der Generalversammlung vom 9.6.2026 sagte Wang, die Aktie sei unterbewertet.</li>
+<li><b>Grosse Investoren:</b> Berkshire Hathaway (Warren Buffett) hat seine Beteiligung bis 2025 ganz verkauft. Zu Käufen grosser Fonds 2026 habe ich keine verlässlichen Daten gefunden.</li>
+<li><b>Analysten:</b> Kursziel im Schnitt rund 123 HKD (26 Analysten, mehrheitlich Kaufen, Daten der App vom 24.10.2026). CLSA senkte am 23.10.2026 von 120 auf 104 HKD, Bernstein hält 130 HKD.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Saisonalität seit 2002</h3>
+      <p class="note">Durchschnittliche Monatsrendite in %. Daten seit 2002. Februar (+8.3 %, 75 %) und Juli (+4.8 %, 58 %) sind stark, August (−2.1 %, 44 %) und Dezember (−2.0 %, 50 %) schwach. November +0.7 % mit 54 % positiven Jahren.</p>
+      <div class="chart" id="c-seas"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Timing: 43 von 100</h2>
+  <div class="card tbl"><table id="t-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Worauf du achten solltest: Unterbewertung und Wachstumsschub</h2>
+  <div class="card"><h3>Was die Börse befürchtet</h3><p class="note" style="margin:4px 0">Echte Probleme, eher lösbar: Die Schwäche in China und der Preiskampf sind echte Probleme, aber ein Teil ist vorübergehend: der Batterie-Engpass beim Wechsel auf die neue Blade Battery und das Vorziehen von Käufen Ende 2025 wegen der Steueränderung; im 2. Quartal 2026 stieg der Gewinn schon wieder um 30 %.</p><ul class="clean"><li>Das Geschäft in China schrumpft: Im 1. Halbjahr 2026 fiel der Umsatz um 7.1 % auf 344.8 Mrd. RMB und der Gewinn um 20.5 % auf 12.3 Mrd. RMB. Im September 2026 verkaufte BYD in China rund 13 % weniger Autos als ein Jahr zuvor.</li><li>Der ganze Automarkt in China ist schwach: Seit Januar 2026 gibt es nur noch die halbe Steuerbefreiung für Elektroautos, und vom 1. bis 18.10.2026 lagen die Verkäufe der Branche an Kunden 26 % unter dem Vorjahr. Dazu kommt der Preiskampf unter den Herstellern.</li><li>BYD verbrennt Geld: 2025 lag der Free Cashflow bei rund −98 Mrd. RMB, weil die Firma sehr viel in neue Fabriken (auch im Ausland) investiert. Die Dividende für 2025 wurde um rund 73 % gekürzt.</li><li>Die Aktie fiel vom Hoch am 16.4.2026 (113.40 HKD) bis auf 67.10 HKD am 22.10.2026. CLSA senkte am 23.10.2026 das Kursziel von 120 auf 104 HKD.</li></ul><h3 style="margin-top:12px">Was die Sorgen beenden könnte</h3><ul class="clean"><li>Die Zahlen zum 3. Quartal zeigen wieder Umsatzwachstum (Vorjahr 195 Mrd. RMB) und einen klar höheren Gewinn (Vorjahr 7.8 Mrd. RMB), getragen vom Ausland (Juli bis September jeden Monat starkes Wachstum) <span class="muted">(Zahlen 3. Quartal, 29.10.2026)</span></li><li>Die neue Batterie (Blade Battery 2. Generation) ist voll hochgefahren, Lieferzeiten sinken, und laut Firma kehren Produktion, Absatz und Cashflow bis Ende 2026 auf frühere Werte zurück <span class="muted">(Ende 2026)</span></li><li>Der Free Cashflow wird wieder positiv, und die Dividende steigt wieder Richtung 30 % des Gewinns <span class="muted">(Jahreszahlen 2026, voraussichtlich Ende März 2027)</span></li><li>Der Automarkt in China stabilisiert sich und der Staat bremst den Preiskampf <span class="muted">(2027)</span></li></ul><h3 style="margin-top:12px">Wachstumsschub: Wachstumsschub möglich</h3><ul class="clean"><li><b>Export und Fabriken im Ausland:</b> Im September 2026 verkaufte BYD 180'700 Autos im Ausland, 154 % mehr als ein Jahr zuvor. Im 1. Halbjahr 2026 waren es rund 792'000 (+68 %), erstmals kam mehr als die Hälfte des Umsatzes aus dem Ausland. Chef Wang Chuanfu erwartet, das Ziel von 1.5 Mio. Autos im Ausland für 2026 zu übertreffen. <span class="muted">(2026–2028)</span></li><li><b>Teurere Marken:</b> Denza, Fang Cheng Bao und Yangwang verkauften im 1. Halbjahr 2026 rund 228'000 Autos (+61 %), das sind rund 13 % des Absatzes. Der neue Gross-SUV Da Tang erhielt laut Firma in zwei Wochen über 100'000 Vorbestellungen. Teurere Autos heben die Marge. <span class="muted">(2026–2027)</span></li><li><b>Schnellladen mit neuer Batterie:</b> Die zweite Generation der Blade Battery lädt sehr schnell. Sobald genug davon gebaut werden kann, sollen die Lieferzeiten sinken und der Absatz in China zurückkommen. Laut Chef ist der Absatz 2026 vor allem durch die Batterieproduktion begrenzt. <span class="muted">(Ende 2026)</span></li></ul><p style="margin:10px 0 0"><b>Woran du es erkennst:</b> Achte am 29.10.2026 und im März 2027 auf drei Werte: Umsatz wieder über Vorjahr, Bruttomarge über 19 % (2. Quartal 2026: 18.9 %) und den Anteil Ausland am Absatz (1. Halbjahr: rund 44 %). Steigen alle drei, wirkt der Schub.</p><p style="margin:10px 0 0"><b>Das Chancen-Szenario:</b> Kein Fall wie Google 2023, eher eine Erholung aus dem Tal: Wenn das Ausland weiter stark wächst und China sich fängt, könnte der Gewinn 2027 deutlich steigen; Auf den von Analysten erwarteten Gewinn läge das KGV bei rund 10 (Daten der App). Grösstes Risiko: Der Preiskampf in China geht weiter, Zölle in Europa und anderswo bremsen den Export, und der Free Cashflow bleibt negativ, dann bleibt die Aktie trotz hoher Verkaufszahlen liegen.</p><p class="note" style="margin:10px 0 0">Quellen: <a href="https://cnevpost.com/2026/08/28/byd-h1-2026-earnings/" target="_blank" rel="noopener">CnEVPost: BYD H1 2026 earnings (28.08.2026)</a>, <a href="https://carnewschina.com/2026/08/29/byd-sees-export-surge-yet-h1-2026-sales-hit-by-second-gen-blade-battery-shortages/" target="_blank" rel="noopener">CarNewsChina: BYD sees export surge yet H1 2026 sales hit by second-gen Blade Battery shortages (29.08.2026)</a>, <a href="https://www.ad-hoc-news.de/boerse/news/corporate-news/byd-company-schedules-october-29-results-byd-company-stock-is-valued-at-eur-74-7-billion/70413161" target="_blank" rel="noopener">ad-hoc-news: BYD Company schedules October 29 results (Oktober 2026)</a>, <a href="https://www.ad-hoc-news.de/boerse/news/unternehmensnachrichten/byd-s-board-sets-october-29-verdict-as-a-26-prozent-retail-slide-tests-the-growth-story/70392902" target="_blank" rel="noopener">ad-hoc-news: BYD's board sets October 29 verdict as a 26% retail slide tests the growth story (22.10.2026)</a>, <a href="https://www.moomoo.com/community/feed/byd-chairman-urges-investor-patience-as-stock-falls-33-over-116758261006342" target="_blank" rel="noopener">moomoo/CnEVPost: BYD chairman urges investor patience (09.06.2026)</a></p></div>
+</section>
+
+<section>
+  <h2>Dividende</h2>
+  <div class="card tbl"><table><tr><td style="white-space:nowrap;color:var(--muted)">Wie oft</td><td>1× pro Jahr (jährlich)</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Ex-Tag im</td><td>Juni</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Geld auf dem Konto im</td><td>Juli</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Zahltage</td><td>Einmal pro Jahr, für 2025: Ex-Tag 11.6.2026, Stichtag 18.6.2026, Zahlung am 31.7.2026.</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Letzte Zahlung</td><td>0.411 HKD pro Aktie</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Rendite</td><td>0.6 %</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">System</td><td>Eine Schlussdividende pro Jahr, festgelegt in Yuan (für 2025: 0.358 RMB pro Aktie), an der Generalversammlung im Juni beschlossen. Für 2025 schüttete BYD nur rund 10 % des Gewinns aus (2023 und 2024: 30 %), die Dividende sank um rund 73 %.</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Form</td><td>Bar in Hongkong-Dollar (für 2025: 0.41141 HKD pro Aktie, Kurs 1 RMB = 1.1492 HKD). BYD ist eine chinesische Firma (H-Aktie): China zieht in der Regel 10 % Quellensteuer ab. Laut Doppelbesteuerungsabkommen Schweiz–China sind 10 % das Maximum, du kannst den Abzug in der Schweizer Steuererklärung anrechnen lassen. Wie Saxo das genau abwickelt, konnte ich nicht prüfen.</td></tr></table><p class="note" style="margin:10px 0 0"><b>Ex-Tag:</b> Du bekommst die Dividende nur, wenn du die Aktie am Abend vor dem Ex-Tag besitzt. <b>Zahltag:</b> An diesem Tag kommt das Geld aufs Konto (in der Währung der Aktie, abzüglich Quellensteuer). Die nächsten genauen Termine zeigt die App unter «Termine».</p></div>
+</section>
+
+<section>
+  <h2>Pro und Contra</h2>
+  <div class="two">
+    <div class="card pro"><h3>Spricht dafür</h3><ul class="clean" style="margin-top:8px">
+<li>Weltgrösster Hersteller von Elektro- und Hybridautos, baut Batterien, Chips und Motoren selbst und kann darum günstig produzieren.</li>
+<li>Ausland wächst stark: September 2026 +154 % (180'700 Autos), im 1. Halbjahr kam erstmals mehr als die Hälfte des Umsatzes aus dem Ausland.</li>
+<li>2. Quartal 2026: Gewinn wieder +30 %, Bruttomarge 18.9 % (höchster Wert seit einem Jahr).</li>
+<li>Kaum Bankschulden, die Aktie ist mit KGV 19 nicht mehr teuer.</li>
+<li>A/D und RSI zeigen auf beiden Zeitebenen erste Zeichen von Käufern.</li>
+    </ul></div>
+    <div class="card con"><h3>Spricht dagegen</h3><ul class="clean" style="margin-top:8px">
+<li>Umsatz und Gewinn sinken: 1. Halbjahr 2026 Umsatz −7 %, Gewinn −21 %, in China fällt der Absatz (September −13 %).</li>
+<li>Harter Preiskampf in China, der Automarkt dort ist schwach (Oktober bisher −26 % bei der ganzen Branche).</li>
+<li>Free Cashflow 2025 stark negativ (−98 Mrd. RMB), Dividende um 73 % gekürzt.</li>
+<li>Zölle und Handelsstreit: EU und USA erschweren den Verkauf chinesischer Elektroautos.</li>
+<li>China-Risiko und Hongkong-Lots: mindestens 100 Aktien (rund 700 CHF) pro Kauf, Abwärtstrend im Chart intakt.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section>
+  <h2>Was jetzt zu tun ist</h2>
+  <div class="zones">
+<div class="zone t"><b>Beobachten</b><span>Alarm bei 77.60 HKD (Trigger) und 66 HKD (Abbruch).</span></div>
+<div class="zone s"><b>Timing grün</b><span>Tagesschluss über 77.60 HKD, danach über der Tages-EMA 50 halten und Wochenschluss über rund 90 HKD (Wochen-EMAs). Fundamental: Am 29.10. Umsatz im 3. Quartal über Vorjahr (195 Mrd. RMB) und Gewinn klar über 7.8 Mrd. RMB.</span></div>
+<div class="zone r"><b>Abbruch</b><span>Wochenschluss unter 66 HKD.</span></div>
+<div class="zone "><b>Nächste Zahlen</b><span>29. Oktober 2026 (9 Monate und 3. Quartal, Verwaltungsratssitzung bestätigt). Jahreszahlen voraussichtlich Ende März 2027.</span></div>
+  </div>
+</section>
+
+<footer>
+  <span>Kursdaten und Indikatoren (EMA, RSI 14, A/D) selbst berechnet aus Yahoo-Finance-Tages-, Wochen- und Monatsdaten, Stand 28.10.2026. <a href="https://stockanalysis.com/quote/hkg/1211/financials/income-statement/" target="_blank" rel="noopener">StockAnalysis.com (1211)</a> (Stand 28.10.2026), <a href="https://cnevpost.com/2026/08/28/byd-h1-2026-earnings/" target="_blank" rel="noopener">CnEVPost: Halbjahreszahlen 2026</a>, <a href="https://cnevpost.com/2026/04/28/byd-reports-drop-in-q1-2026-net-profit/" target="_blank" rel="noopener">CnEVPost: 1. Quartal 2026</a>, <a href="https://carnewschina.com/2026/08/29/byd-sees-export-surge-yet-h1-2026-sales-hit-by-second-gen-blade-battery-shortages/" target="_blank" rel="noopener">CarNewsChina: Batterie-Engpass</a>, <a href="https://www.itiger.com/news/1130651831" target="_blank" rel="noopener">Jahreszahlen 2025 (Tiger)</a>, <a href="https://www.ad-hoc-news.de/boerse/news/corporate-news/byd-company-schedules-october-29-results-byd-company-stock-is-valued-at-eur-74-7-billion/70413161" target="_blank" rel="noopener">Termin 29.10. und Septemberzahlen</a>, <a href="https://www.ad-hoc-news.de/boerse/news/unternehmensnachrichten/byd-s-board-sets-october-29-verdict-as-a-26-prozent-retail-slide-tests-the-growth-story/70392902" target="_blank" rel="noopener">Automarkt China Oktober</a>, <a href="https://filingreader.com/news-wire/hongkong/2026-06-09/byd-finalizes-2025-dividend-payment-of-rmb-0358-per-share" target="_blank" rel="noopener">Dividende 2025</a>, <a href="https://cnevpost.com/2025/08/29/byd-to-change-h-share-lot-size-100/" target="_blank" rel="noopener">Lot-Grösse 100 Aktien</a>, <a href="https://www.tipranks.com/stocks/hk:1211/statistics" target="_blank" rel="noopener">TipRanks Kennzahlen</a>. Branchenvergleich der App: Note 2.1 von 5, fairer Wert rund 98 HKD (37 % über dem Kurs), Unsicherheit hoch.</span>
+  <span>Persönliche Analyse, keine Anlageberatung. Vergangene Kurse und Saisonalität sagen nichts Sicheres über die Zukunft.</span>
+</footer>
+</div>
+
+<script>
+const Q=[["Umsatztrend", "0 von 4 Quartalen über Vorjahr (−3 %, −14 %, −12 %, −3 %)", 0, 15], ["Wachstumstempo", "−8 % in 12 Monaten bis Juni 2026", 0, 10], ["Operative Marge", "4.1 % (0 Pkt.), über 5 Jahre gestiegen, seit 2024 gefallen: stabil (3 Pkt.)", 3, 15], ["Gewinnwachstum (EPS)", "2025 −22 %, 1. Halbjahr 2026 −21 %. Der Schnitt seit 2022 (+24 % pro Jahr) ist überholt", 0, 10], ["Free Cashflow", "2025 und letzte 12 Monate klar negativ (−98 und −88 Mrd. RMB)", 0, 10], ["ROIC", "Rund 11 % (6 Pkt.), fallend (−1)", 5, 15], ["Schulden", "Netto-Cash laut App, mit Leasing rund 0.6 × EBITDA (TipRanks)", 9, 10], ["Bewertung vs. eigene Historie", "KGV 18.9 statt Ø 20.3, rund 7 % günstiger: im Bereich ±10 %", 7, 15]];
+const T=[["Trend Woche (EMA 50/200)", "Kurs klar unter beiden, EMA 50 noch knapp über 200, die Linien laufen zusammen", 4, 20], ["Trend Tag (EMA 50/200)", "Kurs unter beiden, EMA 50 unter 200", 1, 10], ["Struktur (SMC)", "Tiefere Hochs und tiefere Tiefs, neues Tief am 22.10.", 2, 20], ["RSI Tag/Woche", "Woche: bullische Divergenz (27 im Juni, heute 34 bei tieferem Kurs), Tag dreht aus 23 nach oben", 12, 15], ["A/D Tag/Woche", "Bullische Divergenz auf beiden Zeitebenen", 18, 20], ["Smart Money", "Start 3, keine Insider-Käufe, kein grosser Rückkauf gefunden", 3, 10], ["Saisonalität", "November 54 %, Dezember 50 %, Januar 52 % positive Jahre", 3, 5]];
+const FIN=[["2021", 216142, "+38.0 %", "3.0 %", 0.35, 28123, "–", "über 100"], ["2022", 424061, "+96.2 %", "5.0 %", 1.9, 43381, "–", "–"], ["2023", 602315, "+42.0 %", "5.7 %", 3.44, 47632, "–", "–"], ["2024", 777102, "+29.0 %", "6.4 %", 4.61, 36094, "–", "17.5"], ["2025", 803965, "+3.5 %", "4.2 %", 3.58, -97672, "–", "24.8"], ["Letzte 12 Mt.", 777499, "−8.2 %", "4.1 %", 3.24, -88249, "rund 11 %", "18.9"]];
+const HALF=[["Q3 24", 201.1], ["Q4 24", 274.9], ["Q1 25", 170.4], ["Q2 25", 200.9], ["Q3 25", 195.0], ["Q4 25", 237.7], ["Q1 26", 150.2], ["Q2 26", 194.6]];
+const MARGIN=[["2021", 3.0], ["2022", 5.0], ["2023", 5.7], ["2024", 6.4], ["2025", 4.2], ["12 Mt.", 4.1]];
+const SEAS=[0.8, 8.3, 0.2, 1.6, -1.5, -0.1, 4.8, -2.1, 3.6, 1.2, 0.7, -2.0];
+const SEASHIT=[52.0, 75.0, 42.0, 48.0, 43.0, 50.0, 58.0, 44.0, 43.0, 48.0, 54.0, 50.0];
+const MON=["Jan","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"];
+const W=`2024-11-04,92.93,80.08,70.57,61,590.3;2024-11-11,88,80.39,70.74,54,523.6;2024-11-18,86.2,80.62,70.9,52,477.8;2024-11-25,84.53,80.77,71.03,50,439.3;2024-12-02,88.67,81.08,71.21,55,505.7;2024-12-09,89.53,81.41,71.39,56,447.4;2024-12-16,89,81.71,71.57,55,448.6;2024-12-23,91.2,82.08,71.76,58,458.9;2024-12-30,86,82.24,71.9,50,439.4;2025-01-06,83.8,82.3,72.02,48,383;2025-01-13,87.93,82.52,72.18,53,441.6;2025-01-20,91.47,82.87,72.37,57,441.6;2025-01-27,90.93,83.19,72.56,56,432.9;2025-02-03,110,84.24,72.93,71,617.4;2025-02-10,121.4,85.69,73.41,76,862;2025-02-17,130.8,87.46,73.98,79,1037.9;2025-02-24,123.87,88.89,74.48,72,892;2025-03-03,118.4,90.05,74.92,66,869.2;2025-03-10,128.6,91.56,75.45,71,1111.9;2025-03-17,130.53,93.09,76,71,930.9;2025-03-24,135.6,94.76,76.59,73,1034;2025-03-31,124.93,95.94,77.07,63,940.9;2025-04-07,122.93,97,77.53,62,1278.5;2025-04-14,122,97.98,77.97,61,1218.6;2025-04-21,132.33,99.33,78.51,66,1335.9;2025-04-28,127.47,100.43,79,62,1350;2025-05-05,129,101.55,79.5,63,1350;2025-05-12,144.73,103.24,80.15,70,1524.6;2025-05-19,155.07,105.28,80.89,73,1617.6;2025-05-26,130.93,106.28,81.39,56,1383.9;2025-06-02,134.33,107.38,81.92,58,1514.4;2025-06-09,131.1,108.31,82.4,56,1390.8;2025-06-16,125.8,109,82.84,53,1379;2025-06-23,124.2,109.59,83.25,52,1284.9;2025-06-30,121.5,110.06,83.63,50,1221.7;2025-07-07,120.1,110.45,83.99,49,1213.1;2025-07-14,126.4,111.08,84.41,53,1314.2;2025-07-21,129.6,111.81,84.86,55,1275.2;2025-07-28,116.2,111.98,85.17,47,1119.5;2025-08-04,111.2,111.95,85.43,44,998.7;2025-08-11,112.8,111.98,85.71,45,1000.9;2025-08-18,114.3,112.07,85.99,46,1013.1;2025-08-25,114.4,112.16,86.27,46,952.2;2025-09-01,105.6,111.91,86.47,41,725.3;2025-09-08,104.5,111.62,86.65,40,596.5;2025-09-15,113.5,111.69,86.91,47,749;2025-09-22,106.5,111.49,87.11,43,671.8;2025-09-29,109.4,111.4,87.33,45,646.5;2025-10-06,108.2,111.28,87.54,44,602.2;2025-10-13,103.2,110.96,87.69,41,460.7;2025-10-20,104,110.69,87.85,42,465.4;2025-10-27,100.6,110.29,87.98,40,430.3;2025-11-03,97.9,109.81,88.08,38,447.8;2025-11-10,100.6,109.45,88.2,41,447.8;2025-11-17,92.75,108.79,88.25,36,332.2;2025-11-24,97.5,108.35,88.34,41,372.8;2025-12-01,99.15,107.99,88.45,42,364.7;2025-12-08,98.5,107.62,88.55,42,365.7;2025-12-15,93.7,107.07,88.6,38,304.6;2025-12-22,93.65,106.54,88.65,38,299;2025-12-29,98.75,106.24,88.75,44,339.3;2026-01-05,94.55,105.78,88.81,41,245.9;2026-01-12,99.2,105.52,88.91,45,289.5;2026-01-19,99.6,105.29,89.02,46,305.5;2026-01-26,97.75,104.99,89.11,44,189.4;2026-02-02,92.3,104.5,89.14,40,181.1;2026-02-09,97.75,104.23,89.22,46,204.2;2026-02-16,95.45,103.89,89.29,44,191.7;2026-02-23,94.95,103.54,89.34,43,126.5;2026-03-02,94.7,103.19,89.4,43,76.2;2026-03-09,96.75,102.94,89.47,46,138;2026-03-16,103.8,102.97,89.61,53,205.9;2026-03-23,106.5,103.11,89.78,56,285.9;2026-03-30,103.9,103.14,89.92,53,252.8;2026-04-06,105.1,103.22,90.07,54,293.2;2026-04-13,111.4,103.54,90.28,60,372.3;2026-04-20,101.2,103.45,90.39,49,290.7;2026-04-27,102.5,103.41,90.51,50,183.7;2026-05-04,99.75,103.27,90.6,48,124;2026-05-11,96.45,103,90.66,45,34.6;2026-05-18,91.6,102.55,90.67,40,-22.9;2026-05-25,91.3,102.11,90.68,40,-47.4;2026-06-01,89.7,101.62,90.67,39,-191.5;2026-06-08,86.55,101.03,90.63,36,-197;2026-06-15,80.85,100.24,90.53,32,-280.2;2026-06-22,72.65,99.16,90.35,27,-427.7;2026-06-29,84.1,98.57,90.29,41,-274.5;2026-07-06,84.9,98.03,90.24,42,-221;2026-07-13,88.7,97.67,90.22,45,-176.6;2026-07-20,88.65,97.31,90.2,45,-192.4;2026-07-27,94.15,97.19,90.24,51,-134.1;2026-08-03,90.15,96.91,90.24,47,-186.5;2026-08-10,88.25,96.57,90.22,45,-217;2026-08-17,93.15,96.44,90.25,50,-164.7;2026-08-24,91.95,96.26,90.27,49,-180.4;2026-08-31,86.15,95.87,90.23,44,-249.9;2026-09-07,79.85,95.24,90.13,39,-305.2;2026-09-14,81.5,94.7,90.04,41,-227.8;2026-09-21,78.1,94.05,89.92,38,-256.7;2026-09-28,73.9,93.26,89.76,35,-317.9;2026-10-05,75.6,92.57,89.62,37,-275.6;2026-10-12,73.75,91.83,89.46,36,-303;2026-10-19,71.6,91.03,89.28,34,-278.9;2026-10-28,70.45,90.23,89.1,34,-274.8`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+const DD=`2025-10-08,109.7,112.47,115.01,436.8;2025-10-09,110.2,112.39,114.96,439.3;2025-10-10,108.2,112.22,114.9,421.1;2025-10-13,106.3,111.99,114.81,455.3;2025-10-14,105.4,111.73,114.72,420.7;2025-10-15,108.6,111.61,114.66,434.9;2025-10-16,107.6,111.45,114.59,431.8;2025-10-17,103.2,111.13,114.47,404.1;2025-10-20,104.8,110.88,114.38,397.7;2025-10-21,103.9,110.61,114.27,377.5;2025-10-22,102.9,110.3,114.16,378.5;2025-10-23,103.9,110.05,114.06,389.6;2025-10-24,104,109.81,113.96,384.7;2025-10-27,105.7,109.65,113.87,386.5;2025-10-28,104.8,109.46,113.78,381.4;2025-10-30,104.2,109.26,113.69,370.3;2025-10-31,100.6,108.92,113.56,400.4;2025-11-03,99.1,108.53,113.41,396.4;2025-11-04,97.1,108.08,113.25,365.7;2025-11-05,95.4,107.59,113.08,388.6;2025-11-06,97.65,107.2,112.92,417.5;2025-11-07,97.9,106.83,112.77,419.1;2025-11-10,101.8,106.63,112.66,438.1;2025-11-11,101.3,106.43,112.55,431.1;2025-11-12,100.5,106.19,112.43,432.9;2025-11-13,102.8,106.06,112.33,450.2;2025-11-14,100.6,105.85,112.22,436.7;2025-11-17,100.7,105.64,112.1,442.4;2025-11-18,96.9,105.3,111.95,423.8;2025-11-19,96.05,104.94,111.79,423.3;2025-11-20,95.2,104.56,111.63,419.6;2025-11-21,92.75,104.09,111.44,406;2025-11-24,94.85,103.73,111.28,393.7;2025-11-25,95.75,103.42,111.12,385.5;2025-11-26,98.35,103.22,110.99,393;2025-11-27,97,102.98,110.85,383.9;2025-11-28,97.5,102.76,110.72,384.4;2025-12-01,97.95,102.57,110.59,380.4;2025-12-02,100.1,102.48,110.49,377.6;2025-12-03,98.15,102.31,110.37,367.2;2025-12-04,98.4,102.15,110.25,378.7;2025-12-05,99.15,102.03,110.14,385.1;2025-12-08,99.3,101.93,110.03,380.7;2025-12-09,98,101.77,109.91,371.8;2025-12-10,97.75,101.62,109.79,379;2025-12-11,97.35,101.45,109.67,374.6;2025-12-12,98.5,101.33,109.55,383.5;2025-12-15,96,101.12,109.42,367.8;2025-12-16,94.55,100.87,109.27,359.6;2025-12-17,95.25,100.65,109.13,371;2025-12-18,93.9,100.38,108.98,387.1;2025-12-19,93.7,100.12,108.83,382.1;2025-12-22,93.75,99.87,108.68,376.7;2025-12-23,93.1,99.6,108.52,365.2;2025-12-24,93.65,99.37,108.38,365.2;2025-12-29,97.1,99.28,108.26,338.4;2025-12-30,97.6,99.22,108.16,336.4;2025-12-31,95.1,99.05,108.03,336.4;2026-01-02,98.75,99.04,107.93,350.6;2026-01-05,95.8,98.91,107.81,325.7;2026-01-06,99.2,98.93,107.73,349.6;2026-01-07,95.3,98.78,107.6,319.4;2026-01-08,94.65,98.62,107.48,321.5;2026-01-09,94.55,98.46,107.35,310.9;2026-01-12,95.7,98.35,107.23,319.3;2026-01-13,97.25,98.31,107.13,291.8;2026-01-14,97.6,98.28,107.04,282.2;2026-01-15,99.1,98.31,106.96,286.6;2026-01-16,99.2,98.35,106.88,269.9;2026-01-19,100.7,98.44,106.82,271.3;2026-01-20,97,98.39,106.72,246.2;2026-01-21,99.05,98.41,106.65,259.1;2026-01-22,99.75,98.46,106.58,268.6;2026-01-23,99.6,98.51,106.51,272.4;2026-01-26,98.5,98.51,106.43,269.2;2026-01-27,98.3,98.5,106.35,256.2;2026-01-28,102.8,98.67,106.31,293.2;2026-01-29,101.8,98.79,106.27,293.2;2026-01-30,97.75,98.75,106.18,269.1;2026-02-02,91,98.45,106.03,233.7;2026-02-03,90,98.12,105.87,226.1;2026-02-04,90,97.8,105.71,225.7;2026-02-05,91.25,97.54,105.57,233.1;2026-02-06,92.3,97.33,105.44,237.4;2026-02-09,93.55,97.19,105.32,227.6;2026-02-10,95.8,97.13,105.22,228.8;2026-02-11,99.15,97.21,105.16,239.6;2026-02-12,98.55,97.26,105.1,228.4;2026-02-13,97.75,97.28,105.03,230.9;2026-02-16,97.85,97.3,104.95,230.9;2026-02-20,95.45,97.23,104.86,218.4;2026-02-23,100.1,97.34,104.81,238.2;2026-02-24,99.35,97.42,104.76,252.2;2026-02-25,98.75,97.48,104.7,239.6;2026-02-26,94.95,97.38,104.6,220.9;2026-02-27,94.95,97.28,104.5,226.9;2026-03-02,99.1,97.35,104.45,267.8;2026-03-03,96.2,97.31,104.37,242.4;2026-03-04,95.05,97.22,104.28,264.7;2026-03-05,92.6,97.04,104.16,247.3;2026-03-06,94.7,96.95,104.07,306.4;2026-03-09,98.05,96.99,104.01,357.9;2026-03-10,96.95,96.99,103.94,351.9;2026-03-11,98.15,97.03,103.88,356.7;2026-03-12,98.2,97.08,103.82,363.7;2026-03-13,96.75,97.07,103.75,354.2;2026-03-16,104.3,97.35,103.76,404.7;2026-03-17,104.5,97.63,103.76,384.8;2026-03-18,102.2,97.81,103.75,371.7;2026-03-19,103.2,98.02,103.74,377.7;2026-03-20,103.8,98.25,103.74,363.3;2026-03-23,102.4,98.41,103.73,307.9;2026-03-24,107,98.75,103.76,353.2;2026-03-25,106.4,99.05,103.79,334.9;2026-03-26,102.7,99.19,103.78,313.2;2026-03-27,106.5,99.48,103.81,327.4;2026-03-30,105.8,99.73,103.83,347;2026-03-31,105.8,99.96,103.84,328.8;2026-04-01,104.7,100.15,103.85,330.2;2026-04-02,103.9,100.3,103.85,328.1;2026-04-08,106.8,100.55,103.88,372.4;2026-04-09,101.8,100.6,103.86,345.8;2026-04-10,105.1,100.78,103.87,358.8;2026-04-13,110.3,101.15,103.94,389.5;2026-04-14,109.4,101.47,103.99,395.6;2026-04-15,107.3,101.7,104.03,378;2026-04-16,113.2,102.15,104.12,412.3;2026-04-17,111.4,102.52,104.19,405.8;2026-04-20,110,102.81,104.25,393.9;2026-04-21,109.1,103.06,104.3,386.6;2026-04-22,107,103.21,104.32,373.2;2026-04-23,103.5,103.22,104.31,358;2026-04-24,101.2,103.14,104.28,357.6;2026-04-27,106,103.25,104.3,383.2;2026-04-28,103.7,103.27,104.29,365.5;2026-04-29,108.3,103.47,104.33,405;2026-04-30,102.5,103.43,104.32,372.5;2026-05-04,103,103.41,104.3,364.4;2026-05-05,101,103.32,104.27,368.5;2026-05-06,98.9,103.15,104.22,345.3;2026-05-07,100.7,103.05,104.18,346.4;2026-05-08,99.75,102.92,104.14,331;2026-05-11,101.7,102.87,104.11,351;2026-05-12,99.85,102.75,104.07,339.1;2026-05-13,98.15,102.57,104.01,341;2026-05-14,98.15,102.4,103.95,325.5;2026-05-15,96.45,102.17,103.88,314.6;2026-05-18,93.8,101.84,103.78,306.3;2026-05-19,93.9,101.53,103.68,312.7;2026-05-20,90.2,101.08,103.55,280.8;2026-05-21,90.55,100.67,103.42,262.6;2026-05-22,91.6,100.31,103.3,265.8;2026-05-26,93.65,100.05,103.2,275.7;2026-05-27,90.7,99.69,103.08,253.6;2026-05-28,90.3,99.32,102.95,268.8;2026-05-29,91.3,99,102.84,270.7;2026-06-01,90.75,98.68,102.72,254.5;2026-06-02,96.75,98.6,102.66,290.8;2026-06-03,93.25,98.39,102.56,265.8;2026-06-04,91.8,98.14,102.46,277.1;2026-06-05,89.7,97.81,102.33,252.8;2026-06-08,88.05,97.42,102.19,255.8;2026-06-09,88.4,97.07,102.05,249.5;2026-06-10,86.6,96.66,101.9,264.5;2026-06-11,84.95,96.2,101.73,260.9;2026-06-12,86.55,95.82,101.58,275;2026-06-15,85.6,95.42,101.42,269.2;2026-06-16,84.05,94.97,101.24,261.7;2026-06-17,81.9,94.46,101.05,246.1;2026-06-18,80.85,93.93,100.85,226.4;2026-06-22,78.35,93.32,100.63,223.5;2026-06-23,75.85,92.63,100.38,192.4;2026-06-24,75.95,91.98,100.14,201.1;2026-06-25,76.05,91.35,99.9,201.6;2026-06-26,72.65,90.62,99.63,177.8;2026-06-29,72.9,89.92,99.36,163.3;2026-06-30,72.45,89.24,99.09,157;2026-07-02,78.3,88.81,98.89,181.1;2026-07-03,84.1,88.63,98.74,226.8;2026-07-06,83.8,88.44,98.59,205.2;2026-07-07,83.45,88.24,98.44,189;2026-07-08,85.85,88.15,98.31,207.2;2026-07-09,82.65,87.93,98.16,176.3;2026-07-10,84.9,87.81,98.03,185.3;2026-07-13,83.95,87.66,97.89,175.4;2026-07-14,86.15,87.6,97.77,192;2026-07-15,86.95,87.58,97.66,193.7;2026-07-16,90.95,87.71,97.6,219;2026-07-17,88.7,87.75,97.51,210.8;2026-07-20,90.15,87.84,97.43,205.5;2026-07-21,89.8,87.92,97.36,199;2026-07-22,87.85,87.92,97.26,192.5;2026-07-23,88.65,87.94,97.18,203;2026-07-24,88.65,87.97,97.09,207;2026-07-27,88.55,87.99,97.01,199.8;2026-07-28,89.8,88.07,96.94,200.2;2026-07-29,93.6,88.28,96.9,216;2026-07-30,94.8,88.54,96.88,210;2026-07-31,94.15,88.76,96.85,231.8;2026-08-03,94.9,89,96.83,224.2;2026-08-04,93.45,89.17,96.8,215.2;2026-08-05,93.8,89.36,96.77,220.5;2026-08-06,89.85,89.37,96.7,199.6;2026-08-07,90.15,89.4,96.64,210.2;2026-08-10,92.3,89.52,96.59,217.8;2026-08-11,89.7,89.53,96.53,208.5;2026-08-12,89.6,89.53,96.46,207.1;2026-08-13,88.4,89.48,96.38,196.8;2026-08-14,88.25,89.44,96.3,206.3;2026-08-17,90.05,89.46,96.23,209.3;2026-08-18,90,89.48,96.17,204.7;2026-08-19,89.4,89.48,96.1,208.9;2026-08-20,91.8,89.57,96.06,211.4;2026-08-21,93.15,89.71,96.03,217.1;2026-08-24,92.8,89.83,96,226.7;2026-08-25,93.6,89.98,95.98,234.1;2026-08-26,92.6,90.08,95.94,229;2026-08-27,91.25,90.13,95.9,218.8;2026-08-28,91.95,90.2,95.86,222.2;2026-08-31,87.2,90.08,95.77,201.7;2026-09-01,88.25,90.01,95.7,187;2026-09-02,85.25,89.82,95.59,173.2;2026-09-03,85.7,89.66,95.49,174.5;2026-09-04,86.15,89.52,95.4,174.5;2026-09-07,84.5,89.33,95.29,170.6;2026-09-08,83.85,89.11,95.18,174.2;2026-09-09,81.8,88.82,95.04,156;2026-09-10,79.55,88.46,94.89,144.3;2026-09-11,79.85,88.12,94.74,154.6;2026-09-14,80.2,87.81,94.6,160.6;2026-09-15,79.05,87.47,94.44,150.2;2026-09-16,79.2,87.14,94.29,152.6;2026-09-17,81.15,86.91,94.16,168.5;2026-09-18,81.5,86.7,94.03,188.6;2026-09-21,81.2,86.48,93.91,191.3;2026-09-22,81.35,86.28,93.78,198.6;2026-09-23,80.35,86.05,93.65,191.5;2026-09-24,79.5,85.79,93.51,187.1;2026-09-25,78.1,85.49,93.35,191.8;2026-09-28,77.7,85.18,93.2,183.7;2026-09-29,75.75,84.81,93.02,177.5;2026-09-30,75.6,84.45,92.85,195.5;2026-10-02,73.9,84.04,92.66,191.6;2026-10-05,74.1,83.65,92.48,200.1;2026-10-06,75,83.31,92.3,202.6;2026-10-07,74.55,82.97,92.13,200.7;2026-10-08,72.9,82.57,91.94,184;2026-10-09,75.6,82.3,91.77,194.6;2026-10-12,74.35,81.99,91.6,178.8;2026-10-13,73.25,81.64,91.42,179.5;2026-10-14,72.85,81.3,91.23,173.5;2026-10-15,72.95,80.97,91.05,176.8;2026-10-16,73.75,80.69,90.88,175.7;2026-10-20,73.65,80.41,90.71,171.5;2026-10-21,71.15,80.05,90.51,152;2026-10-22,67.4,79.55,90.28,122.1;2026-10-23,71.6,79.24,90.1,165.2;2026-10-26,70.8,78.91,89.9,170.7;2026-10-27,70.05,78.56,89.71,159.4;2026-10-28,70.45,78.24,89.51,163.5`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+
+const fmtN=(v,d=2)=>v.toLocaleString("de-CH",{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmtD=s=>{const [y,m,d]=s.split("-");return d+"."+m+"."+y.slice(2)};
+const NS="http://www.w3.org/2000/svg";
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+
+function scoreTable(id,rows){
+  let tot=0,max=0;
+  const html='<thead><tr><th>Kriterium</th><th>Stand</th><th class="num">Punkte</th><th style="width:22%"></th></tr></thead><tbody>'+rows.map(r=>{tot+=r[2];max+=r[3];const p=r[2]/r[3];const c=p>=.75?"var(--good)":p>=.45?"var(--warn)":"var(--bad)";
+    return `<tr><td>${r[0]}</td><td class="muted">${r[1]}</td><td class="num">${r[2]} / ${r[3]}</td><td><div class="bar"><i style="width:${p*100}%;background:${c}"></i></div></td></tr>`}).join("")+`<tr class="total"><td>Total</td><td></td><td class="num">${tot} / ${max}</td><td></td></tr></tbody>`;
+  document.getElementById(id).innerHTML=html;return tot;
+}
+const qs=scoreTable("q-tbl",Q), ts=scoreTable("t-tbl",T);
+document.getElementById("q-val").textContent=qs;document.getElementById("t-val").textContent=ts;
+document.getElementById("q-pin").style.left=qs+"%";document.getElementById("t-pin").style.left=ts+"%";
+
+document.getElementById("fin-rows").innerHTML=FIN.map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1].toLocaleString("de-CH")}</td><td class="num">${r[2]}</td><td class="num">${r[3]}</td><td class="num">${fmtN(r[4])}</td><td class="num">${r[5].toLocaleString("de-CH")}</td><td class="num">${r[6]}</td><td class="num">${r[7]}</td></tr>`).join("");
+
+/* generic line chart */
+function lineChart(host,{dates,series,bands=[],yFmt=v=>fmtN(v),h=300,zero=false,refs=[],pad}){
+  const W_=800,H=h,m={t:12,r:56,b:28,l:8};
+  const all=series.flatMap(s=>s.values).concat(bands.flatMap(b=>[b.from,b.to])).concat(refs.map(r=>r.v));
+  if(zero)all.push(0);
+  let lo=Math.min(...all),hi=Math.max(...all);const sp=(hi-lo)||1;lo-=sp*.06;hi+=sp*.06;
+  if(pad){lo=pad[0];hi=pad[1]}
+  const n=dates.length,x=i=>m.l+i*(W_-m.l-m.r)/(n-1),y=v=>m.t+(hi-v)*(H-m.t-m.b)/(hi-lo);
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  // grid
+  const steps=5;for(let k=0;k<=steps;k++){const v=lo+(hi-lo)*k/steps;el("line",{x1:m.l,x2:W_-m.r,y1:y(v),y2:y(v),stroke:"var(--grid)","stroke-width":1},svg);
+    const t=el("text",{x:W_-m.r+6,y:y(v)+4,"font-size":11,fill:"var(--muted)","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=yFmt(v)}
+  bands.forEach(b=>{el("rect",{x:m.l,width:W_-m.l-m.r,y:y(Math.max(b.from,b.to)),height:Math.abs(y(b.from)-y(b.to)),fill:b.type==="res"?"var(--zone-res)":"var(--zone-sup)"},svg)});
+  refs.forEach(r=>{el("line",{x1:m.l,x2:W_-m.r,y1:y(r.v),y2:y(r.v),stroke:"var(--muted)","stroke-dasharray":"4 4","stroke-width":1},svg);
+    const t=el("text",{x:m.l+4,y:y(r.v)-4,"font-size":11,fill:"var(--muted)"},svg);t.textContent=r.label});
+  if(zero)el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  // x labels
+  const every=Math.ceil(n/6);for(let i=0;i<n;i+=every){const t=el("text",{x:x(i),y:H-8,"font-size":11,fill:"var(--muted)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);const d=dates[i];t.textContent=d.slice(5,7)+"/"+d.slice(2,4)}
+  series.forEach(s=>{const dpath=s.values.map((v,i)=>(i?"L":"M")+x(i).toFixed(1)+","+y(v).toFixed(1)).join("");
+    el("path",{d:dpath,fill:"none",stroke:s.color,"stroke-width":s.w||2,"stroke-linejoin":"round","stroke-linecap":"round"},svg);
+    const lv=s.values[n-1];el("circle",{cx:x(n-1),cy:y(lv),r:3.5,fill:s.color,stroke:"var(--surface)","stroke-width":2},svg)});
+  // hover
+  const cross=el("line",{y1:m.t,y2:H-m.b,stroke:"var(--muted)","stroke-width":1,opacity:0},svg);
+  const ov=el("rect",{x:m.l,y:m.t,width:W_-m.l-m.r,height:H-m.t-m.b,fill:"transparent"},svg);
+  host.appendChild(svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;host.appendChild(tip);
+  function move(ev){const r=svg.getBoundingClientRect();const px=(ev.clientX-r.left)*W_/r.width;let i=Math.round((px-m.l)/((W_-m.l-m.r)/(n-1)));i=Math.max(0,Math.min(n-1,i));
+    cross.setAttribute("x1",x(i));cross.setAttribute("x2",x(i));cross.setAttribute("opacity",1);
+    tip.innerHTML=`<div class="d">${fmtD(dates[i])}</div>`+series.map(s=>`<div><i class="sw" style="background:${s.color}"></i> ${s.name}: <b>${yFmt(s.values[i])}</b></div>`).join("");
+    tip.hidden=false;const hx=x(i)*r.width/W_;tip.style.left=Math.min(Math.max(0,hx+12),r.width-tip.offsetWidth)+"px";tip.style.top="8px"}
+  ov.addEventListener("pointermove",move);ov.addEventListener("pointerleave",()=>{tip.hidden=true;cross.setAttribute("opacity",0)});
+}
+function barChart(host,{labels,values,fmt,h=220,color,neg,tipExtra}){
+  const W_=800,H=h,m={t:18,r:8,b:28,l:8};
+  const hi=Math.max(0,...values),lo=Math.min(0,...values);const lo2=lo<0?lo*1.15:lo,hi2=hi*1.15||1;
+  const y=v=>m.t+(hi2-v)*(H-m.t-m.b)/(hi2-lo2);const n=values.length,bw=(W_-m.l-m.r)/n;
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;
+  values.forEach((v,i)=>{const x0=m.l+i*bw+bw*.18,w=bw*.64,y0=y(Math.max(v,0)),hh=Math.max(1,Math.abs(y(v)-y(0)));
+    const r=el("rect",{x:x0,y:y0,width:w,height:hh,rx:4,fill:v<0?(neg||"var(--s2)"):(color||"var(--s1)")},svg);
+    const t=el("text",{x:x0+w/2,y:v<0?y(v)+13:y0-5,"font-size":11.5,fill:"var(--ink)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=fmt(v);
+    const l=el("text",{x:x0+w/2,y:H-8,"font-size":11.5,fill:"var(--muted)","text-anchor":"middle"},svg);l.textContent=labels[i];
+    const hit=el("rect",{x:m.l+i*bw,y:m.t,width:bw,height:H-m.t-m.b,fill:"transparent"},svg);
+    hit.addEventListener("pointerenter",()=>{tip.innerHTML=`<div class="d">${labels[i]}</div><b>${fmt(v)}</b>${tipExtra?tipExtra(i):""}`;tip.hidden=false;const R=svg.getBoundingClientRect();tip.style.left=Math.min((m.l+i*bw)*R.width/W_,R.width-tip.offsetWidth)+"px";tip.style.top="0px"});
+    hit.addEventListener("pointerleave",()=>tip.hidden=true)});
+  host.appendChild(svg);host.appendChild(tip);
+}
+barChart(document.getElementById("c-rev"),{labels:HALF.map(r=>r[0]),values:HALF.map(r=>r[1]),fmt:v=>fmtN(v,1),h:200});
+barChart(document.getElementById("c-margin"),{labels:MARGIN.map(r=>r[0]),values:MARGIN.map(r=>r[1]),fmt:v=>fmtN(v,1)+" %",h:200});
+barChart(document.getElementById("c-seas"),{labels:MON,values:SEAS,fmt:v=>(v>0?"+":"")+fmtN(v,1),h:220,tipExtra:i=>`<div>${SEASHIT[i]} % der Jahre positiv</div>`});
+const BANDS=[{"from": 86.6, "to": 91.0, "type": "res"}, {"from": 77.6, "to": 82.0, "type": "res"}, {"from": 67.0, "to": 71.5, "type": "sup"}, {"from": 56.0, "to": 60.0, "type": "sup"}], REFS=[{"v": 77.6, "label": "Trigger 77.60"}];
+const wd=W.map(r=>r[0]);
+lineChart(document.getElementById("c-week"),{dates:wd,series:[{name:"Kurs",values:W.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:W.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:W.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,yFmt:v=>fmtN(v,0),h:320});
+lineChart(document.getElementById("c-adw"),{dates:wd,series:[{name:"A/D Woche",values:W.map(r=>r[5]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,zero:true});
+lineChart(document.getElementById("c-rsiw"),{dates:wd,series:[{name:"RSI Woche",values:W.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,refs:[{v:70,label:"70 überkauft"},{v:30,label:"30 überverkauft"}],pad:[10,90]});
+const dd=DD.map(r=>r[0]);
+lineChart(document.getElementById("c-day"),{dates:dd,series:[{name:"Kurs",values:DD.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:DD.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:DD.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,refs:REFS,yFmt:v=>fmtN(v,0),h:260});
+lineChart(document.getElementById("c-add"),{dates:dd,series:[{name:"A/D Tag",values:DD.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:260,zero:true});
+</script>
