@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NN Group Aktien-Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F3F5F7; --surface:#FFFFFF; --ink:#141B24; --muted:#5A6573; --line:#DDE2E8; --grid:#E9EDF1;
+  --accent:#2F45B5; --accent-soft:#E6E9F8; --chip:#EBEEF2;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+  --good:#1D7A4B; --good-bg:#E3F3EA; --warn:#9A6200; --warn-bg:#FBF0DC; --bad:#B2362A; --bad-bg:#FBE6E3;
+  --zone-sup:rgba(29,122,75,.10); --zone-res:rgba(178,54,42,.09);
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+    --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+    --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+    --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+  --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+  --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;padding-inline:16px;padding-block:24px 56px}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+h1,h2,h3{font-family:var(--display);font-stretch:85%;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:clamp(32px,7vw,48px);font-weight:800;line-height:1}
+h2{font-size:24px;font-weight:700}
+h3{font-size:17px;font-weight:700;font-stretch:95%}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+section{display:flex;flex-direction:column;gap:14px}
+.lead{max-width:68ch;color:var(--muted)}
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;align-items:stretch}
+.hero .id{display:flex;flex-direction:column;gap:10px;justify-content:space-between}
+.price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price b{font-family:var(--display);font-size:34px;font-weight:700}
+.meta{font-size:13px;color:var(--muted)}
+.verdict{font-size:15px;padding:12px 14px;border-radius:10px;background:var(--chip)}
+.scales{display:flex;flex-direction:column;gap:18px}
+.scale-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.scale-h span{font-size:13px;color:var(--muted)}
+.scale-h b{font-family:var(--display);font-size:28px;line-height:1}
+.track{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#C8412F 0%,#E0892F 30%,#E3B63A 50%,#8BBF4B 68%,#2E9A5B 100%);margin-top:8px}
+.pin{position:absolute;top:-5px;width:4px;height:22px;border-radius:2px;background:var(--ink);box-shadow:0 0 0 2px var(--surface);transform:translateX(-2px)}
+.ticks{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);font-family:var(--mono);margin-top:6px}
+.state{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;margin-top:8px}
+.st-good{background:var(--good-bg);color:var(--good)}
+.st-warn{background:var(--warn-bg);color:var(--warn)}
+.st-bad{background:var(--bad-bg);color:var(--bad)}
+/* tables */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;color:var(--muted);font-weight:500;font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:700;border-bottom:none}
+.pts{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{height:6px;border-radius:3px;background:var(--chip);min-width:60px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:3px}
+/* grids */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;border-left:4px solid var(--line)}
+.kpi.g{border-left-color:var(--good)}.kpi.w{border-left-color:var(--warn)}.kpi.b{border-left-color:var(--bad)}
+.kpi span{font-size:12px;color:var(--muted)}
+.kpi b{font-family:var(--mono);font-size:19px;font-weight:500;font-variant-numeric:tabular-nums}
+.kpi em{font-style:normal;font-size:12.5px;color:var(--muted)}
+/* charts */
+.chart{position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:14px;height:3px;border-radius:2px;display:inline-block}
+.swb{width:12px;height:10px;border-radius:2px;display:inline-block}
+.tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12.5px;box-shadow:0 4px 14px rgba(0,0,0,.12);white-space:nowrap;z-index:2}
+.tip b{font-family:var(--mono);font-weight:500}
+.tip .d{font-family:var(--mono);color:var(--muted);font-size:11.5px}
+.note{font-size:13.5px;color:var(--muted)}
+ul.clean{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.pro li::marker{color:var(--good)} .con li::marker{color:var(--bad)}
+.zones{display:flex;flex-direction:column;gap:8px}
+.zone{display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:baseline;padding:10px 12px;border-radius:10px;background:var(--chip);font-size:14px}
+.zone b{font-family:var(--mono);font-weight:500}
+.zone.r{border-left:4px solid var(--bad)} .zone.s{border-left:4px solid var(--good)} .zone.t{border-left:4px solid var(--accent)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+summary{cursor:pointer;font-weight:600}
+details p{margin-top:8px;color:var(--muted);max-width:70ch}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+footer{font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:6px;max-width:80ch}
+footer a{color:var(--accent)}
+@media (max-width:760px){.hero,.two{grid-template-columns:1fr}.zone{grid-template-columns:1fr;gap:2px}}
+</style>
+
+<a href="../index.html#/aktie/NN" style="display:inline-block;margin:max(12px,env(safe-area-inset-top)) 0 0 16px;background:#1f3a5f;color:#fff;font:600 14px system-ui;padding:8px 12px;border-radius:20px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">Zurück zur App</a>
+<div class="wrap">
+
+<header class="hero">
+  <div class="card id">
+    <div>
+      <div class="eyebrow">Aktien-Check · 29.10.2026</div>
+      <h1>NN Group</h1>
+      <p class="meta">NN Group N.V. · Euronext Amsterdam: NN (in Euro) · Lebens- und Sachversicherung, Pensionen, Bank · Den Haag, Niederlande</p>
+    </div>
+    <div class="price"><b>78.26 €</b><span class="meta">Schluss 29.10.2026 · 52 Wochen: 58.92 – 83.40 € · Rekordhoch 83.40 € (6.8.2026) · Börsenwert rund 20.3 Mrd. € (260 Mio. Aktien)</span></div>
+    <p class="verdict"><b>Kurz gesagt:</b> NN Group ist der grösste Versicherer der Niederlande und verdient vor allem mit Pensionen und Lebensversicherungen. Für einen Versicherer zählt, wie viel freies Kapital entsteht: Die operative Kapitalgenerierung stieg im 1. Halbjahr 2026 um 5 % auf 1'073 Mio. €, die Solvency-II-Quote ist mit 224 % sehr hoch (Pflicht: 100 %). Davon gehen rund 5 % Dividende und 1.7 % Rückkäufe pro Jahr an die Aktionäre. Schwach sind Wachstum und Rendite: Die Prämien wachsen nicht (12 Monate −2 %), die Eigenkapitalrendite liegt unter 10 %, und mit einem KGV von 11.5 ist die Aktie nach dem Anstieg von 42 auf 78 € seit Ende 2024 teurer als im eigenen Schnitt (8.4). Unser Schema ist für Industriefirmen gebaut und passt nur teilweise auf Versicherer, darum Qualität orange (41). Timing hellgrün (72): Aufwärtstrend intakt, Rücksetzer seit August aufgefangen. Nächste Zahlen am 10.2.2027. Keine Anlageberatung.</p>
+  </div>
+  <div class="card scales">
+    <div>
+      <div class="scale-h"><span>Qualität · Ist die Firma kaufenswert?</span><b id="q-val">41</b></div>
+      <div class="track"><i class="pin" id="q-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-warn">▲ Schwach</span>
+    </div>
+    <div>
+      <div class="scale-h"><span>Timing · Ist jetzt der Zeitpunkt?</span><b id="t-val">72</b></div>
+      <div class="track"><i class="pin" id="t-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-good">● Einstieg in Zonen möglich</span>
+    </div>
+    <p class="note">Skala: unter 30 rot · 30–45 orange · 45–60 gelb · 60–75 hellgrün · ab 75 grün. Beide Werte setzen sich aus festen Kriterien zusammen, siehe unten.</p>
+  </div>
+</header>
+
+<section>
+  <h2>Was die Firma macht</h2>
+  <p class="lead">NN Group aus Den Haag entstand aus Nationale-Nederlanden (gegründet 1963 aus zwei Versicherern, einer davon von 1845). Bis 2014 gehörte die Firma zur Bank ING, seit 2014 ist sie an der Börse in Amsterdam. NN verkauft vor allem Pensionen und Lebensversicherungen in den Niederlanden (rund 55 % der Kapitalgenerierung im 1. Halbjahr 2026), dazu Sachversicherungen wie Auto, Haus und Haftpflicht (Niederlande Non-life), Versicherungen in anderen Ländern Europas (Insurance Europe, z. B. Polen, Rumänien, Griechenland, Belgien), Lebensversicherungen für Firmen in Japan und eine eigene Bank für Hypotheken (NN Bank). <b>So verdient ein Versicherer:</b> Kunden zahlen Prämien, NN legt das Geld an und zahlt später Renten und Schäden. Der Gewinn kommt aus der Differenz. Wichtigste Kennzahl ist darum nicht der Umsatz, sondern wie viel Kapital übrig bleibt, nachdem die Aufsicht genug Reserven verlangt hat (Kapitalgenerierung) und wie viel Geld die Töchter an die Holding überweisen (Free Cashflow der Holding). Daraus bezahlt NN Dividende und Rückkäufe.</p>
+  <p class="lead">Die Aktie stieg von 42.54 € (Ende 2024) bis zum Rekord von 83.40 € am 6.8.2026, also fast auf das Doppelte. Gründe: Das operative Ergebnis stieg 2025 um 17 % auf 3'002 Mio. €, die Solvency-II-Quote kletterte von 194 % auf 220 %, und die Dividende wurde 2025 um 13 % erhöht. Nach den Halbjahreszahlen vom 6.8.2026 fiel der Kurs bis auf 75.16 € (9.10.2026), also rund 10 %. Eine schlechte Firmennachricht dazu habe ich nicht gefunden. Die Zahlen waren solide: Kapitalgenerierung +5 %, Free Cashflow der Holding +7 %, Wert des Neugeschäfts +16 %. Kleinere Dämpfer: Die Prämien sanken leicht (−0.2 %), die Solvency-Quote der grössten Tochter NN Life fiel von 223 % auf 213 %, und laut Firma wird der Verkauf über griechische Banken 2027 deutlich schwächer. Der Rücksetzer wirkt eher wie eine Verschnaufpause nach dem starken Anstieg als wie ein echtes Problem.</p>
+</section>
+
+<section>
+  <h2>Fundamental: die Zahlen</h2>
+  <div class="kpis">
+<div class="kpi r"><span>Bruttoprämien</span><b>−1.9 %</b><em>Ersatz für den Umsatz. Prämien der letzten 12 Monate bis Juni 2026: 13'243 Mio. € (eigene Rechnung aus Halbjahren), ein Jahr davor 13'503 Mio. €. 2025: −5.2 %. Das Prämienvolumen wächst nicht.</em></div>
+<div class="kpi w"><span>Kapitalgenerierung (OCG)</span><b>2'142 Mio. €</b><em>Kapital, das in 12 Monaten bis Juni 2026 frei wurde (eigene Rechnung, +8 %). 2021: 1'584 Mio. €. Seit 2021 jedes Jahr gestiegen. Ziel für 2028: 2'200 Mio. €, also nur noch langsames Wachstum.</em></div>
+<div class="kpi g"><span>Free Cashflow Holding</span><b>1'679 Mio. €</b><em>Geld, das die Töchter in 12 Monaten bis Juni 2026 an die Holding überwiesen haben (eigene Rechnung). Damit zahlt NN Dividende (rund 1'050 Mio. €) und Rückkäufe (350 Mio. €). 2023 waren es wegen einer Sonderzahlung nur 470 Mio. €.</em></div>
+<div class="kpi g"><span>Solvency-II-Quote</span><b>224 %</b><em>Kapital im Verhältnis zum Minimum, das die Aufsicht verlangt (30.6.2026). 100 % ist Pflicht, über 150 % gilt als komfortabel. NN hat viel Puffer. Ende 2024 waren es 194 %.</em></div>
+<div class="kpi r"><span>Eigenkapitalrendite</span><b>9.7 %</b><em>Ersatz für den ROIC: Gewinn der letzten 12 Monate (1'863 Mio. €) geteilt durch Eigenkapital (19'254 Mio. €), eigene Rechnung. Auf 100 € Eigenkapital rund 10 € Gewinn. Für einen Versicherer mittelmässig.</em></div>
+<div class="kpi g"><span>Verschuldung</span><b>17.3 %</b><em>Ersatz für Nettoschulden/EBITDA: Anteil der Schulden am Kapital der Holding (Financial Leverage, 30.6.2026). Unter 25 % gilt als wenig. Die Zinsen sind 13.5-mal durch die Gewinne gedeckt.</em></div>
+<div class="kpi r"><span>KGV</span><b>11.5</b><em>Du zahlst rund 11.5 Jahresgewinne (Kurs 78.26 € geteilt durch 6.79 € Gewinn pro Aktie der letzten 12 Monate). Eigener Schnitt der letzten 5 Jahre: 8.4. Also rund 37 % teurer als üblich. Auf den erwarteten Gewinn wäre das KGV 8.3.</em></div>
+<div class="kpi g"><span>Dividende</span><b>5.0 %</b><em>Für 2025 total 3.88 € pro Aktie (+13 %), in 2 Zahlungen: Schlussdividende 2.50 € (Ex-Tag 25.5.2026, bezahlt 2.6.2026) und Zwischendividende 1.55 € für 2026 (Ex-Tag 10.8.2026, bezahlt 18.8.2026, +12 %). Bar in Euro, 15 % niederländische Quellensteuer.</em></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>Bruttoprämien pro Halbjahr (Mrd. €)</h3>
+      <p class="note">Ersatz für den Umsatz. Das 1. Halbjahr ist immer grösser, weil viele Prämien am Jahresanfang fällig werden. Darum nur gleiche Halbjahre vergleichen: Seit dem 1. Halbjahr 2025 liegen alle drei Halbjahre unter dem Vorjahr (−6.0 %, −4.1 %, −0.2 %).</p>
+      <div class="chart" id="c-rev"></div>
+    </div>
+    <div class="card">
+      <h3>Operatives Ergebnis pro 100 € Prämie</h3>
+      <p class="note">Ersatz für die operative Marge: operatives Ergebnis (Gewinn aus dem laufenden Geschäft, ohne Kursschwankungen der Kapitalanlagen) geteilt durch die Bruttoprämien, eigene Rechnung. Erst ab 2023 vergleichbar (neue Rechnungslegung IFRS 17). Von 19 % auf 23 % gestiegen.</p>
+      <div class="chart" id="c-margin"></div>
+    </div>
+  </div>
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Jahr</th><th class="num">Umsatz Prämien Mio. €</th><th class="num">Wachstum</th><th class="num">Op. Marge</th><th class="num">EPS €</th><th class="num">Free Cashflow</th><th class="num">ROIC</th><th class="num">KGV</th></tr></thead>
+      <tbody id="fin-rows"></tbody>
+    </table>
+  </div>
+  <p class="note"><b>Hinweis für Versicherer:</b> Die Spalten der Tabelle sind für Industriefirmen gemacht. Hier gilt: «Umsatz» = Bruttoprämien, «Op. Marge» = operatives Ergebnis geteilt durch Prämien, «Free Cashflow» = Free Cashflow an die Holding (Mio. €), «ROIC» = Eigenkapitalrendite. Zahlen in Euro. Seit 2023 gilt die neue Rechnungslegung IFRS 17, darum sind Prämien und operatives Ergebnis vor 2023 nicht vergleichbar (–). Gewinn pro Aktie laut StockAnalysis, er schwankt stark mit den Kapitalmärkten. Prämien, operatives Ergebnis und Free Cashflow laut Finanzberichten von NN, letzte 12 Monate eigene Rechnung aus den Halbjahren 2H25 und 1H26. KGV 2024 und 2025 eigene Rechnung mit dem Jahresendkurs.</p>
+</section>
+
+<section>
+  <h2>Qualität: 41 von 100</h2>
+  <div class="card tbl"><table id="q-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Technik: Wochenchart (2 Jahre)</h2>
+  <div class="card">
+    <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span><span><i class="swb" style="background:var(--zone-sup);border:1px solid var(--good)"></i>Unterstützung</span><span><i class="swb" style="background:var(--zone-res);border:1px solid var(--bad)"></i>Widerstand</span></div>
+    <div class="chart" id="c-week"></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>A/D-Linie, Woche</h3>
+      <p class="note">Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Positiv: In der Woche ab 17.8. (Tief 75.36 €) stand die Wochen-A/D bei 115.4, in der fast gleich tiefen Woche ab 5.10. (Tief 75.16 €) bei 117.6. Beim zweiten Test wurde weniger verkauft, eine leichte bullische Divergenz. Seit dem Hoch im September (121.6) fiel die A/D mit dem Kurs, heute 118.2.</p>
+      <div class="chart" id="c-adw"></div>
+    </div>
+    <div class="card">
+      <h3>RSI, Woche</h3>
+      <p class="note">Unter 30 überverkauft, über 70 überkauft. Beim Rekordhoch im Juli 75 (überkauft), beim Rücksetzer im Oktober 50, heute 56. Neutral, der Aufwärtstrend hat sich abgekühlt.</p>
+      <div class="chart" id="c-rsiw"></div>
+    </div>
+  </div>
+
+  <h2>Technik: Tageschart (1 Jahr)</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Kurs, Tag</h3>
+      <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span></div>
+      <div class="chart" id="c-day"></div>
+    </div>
+    <div class="card">
+      <h3>A/D-Linie, Tag</h3>
+      <p class="note">Gemischt: Die Tages-A/D fiel vom Rekordhoch am 6.8. (25.7) bis zum Tief vom 9.10. (20.3), stärker als der Kurs. Beim Tief vom 9.10. lag sie tiefer als beim Tief vom 20.8. (22.8) bei fast gleichem Kurs: noch keine Käufer-Divergenz. Seit dem 23.10. steigt sie wieder leicht (heute 21.4).</p>
+      <div class="chart" id="c-add"></div>
+    </div>
+  </div>
+
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Indikator</th><th>Tag</th><th>Woche</th><th>Bedeutung</th></tr></thead>
+      <tbody>
+<tr><td>Kurs vs. EMA 50</td><td class="pts">78.26 &gt; 77.38</td><td class="pts">78.26 &gt; 72.06</td><td>Knapp über der mittelfristigen Linie (Tag), klar darüber (Woche).</td></tr>
+<tr><td>Kurs vs. EMA 200</td><td class="pts">78.26 &gt; 73.58</td><td class="pts">78.26 &gt; 55.99</td><td>Über der langfristigen Linie, in der Woche rund 40 % darüber.</td></tr>
+<tr><td>EMA 50 vs. EMA 200</td><td class="pts">50 über 200 (Golden Cross am 4.3.2025)</td><td class="pts">50 über 200 (Golden Cross Woche 5.5.2024)</td><td>Aufwärtstrend auf beiden Zeitebenen.</td></tr>
+<tr><td>RSI (14)</td><td class="pts">57.0</td><td class="pts">55.9</td><td>Neutral. Tag drehte aus 37 (8.10.) nach oben.</td></tr>
+<tr><td>A/D</td><td class="pts">fiel bis 9.10., steigt seit 23.10. leicht</td><td class="pts">höher als im August bei gleichem Kurs</td><td>Woche leicht positiv, Tag noch schwach.</td></tr>
+<tr><td>Volumen</td><td colspan="2">Ø 20 Tage 0.53 Mio. vs. Ø 100 Tage 0.54 Mio. Aktien</td><td>Normaler Handel.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Struktur und Zonen (Smart Money Concept)</h2>
+  <p class="lead">Seit Anfang 2026 steigt NN mit höheren Hochs und höheren Tiefen: Tiefs 63.70 (9.3.), 70.72 (4.6.) und 75.36 € (20.8.), Hochs 72.78 (12.2.), 77.22 (25.6.) und 83.40 € (6.8., Rekord). Danach bildete sich eine Seitwärtsspanne zwischen rund 75 und 81 €: Hochs 80.52 (4.9.), 81.28 (21.9.) und 76.98 € (15.10.), Tiefs 76.22 (9.9.), 75.16 (9.10.) und 75.20 € (23.10.). Die Tiefs halten bei 75 €. Am 27.10. schloss der Kurs mit 77.62 € über dem letzten tieferen Hoch (76.98 €), ein kleiner Change of Character nach oben auf Tagesbasis. Bestätigt wäre er mit einem Tagesschluss über 81.28 €.</p>
+  <div class="zones">
+<div class="zone r"><b>82.50–83.40 €</b><span>Widerstand: Rekordhoch vom 6.8.2026 (83.40 €).</span></div>
+<div class="zone r"><b>80.50–81.30 €</b><span>Widerstand: Hochs vom 4.9. (80.52) und 21.9. (81.28 €), obere Grenze der Spanne.</span></div>
+<div class="zone t"><b>81.30 €</b><span><b>Trigger:</b> Tagesschluss über 81.30 € (Hoch vom 21.9.), damit wäre die Seitwärtsspanne nach oben verlassen. Der kleinere Trigger (76.98 €) wurde am 27.10. schon überschritten.</span></div>
+<div class="zone s"><b>75.00–76.50 €</b><span><b>Kaufzone 1:</b> Mehrfach gehaltene Tiefs vom 20.8. (75.36), 9.10. (75.16) und 23.10. (75.20 €), knapp unter der Tages-EMA 50 (77.38 €).</span></div>
+<div class="zone s"><b>70.70–73.60 €</b><span><b>Kaufzone 2:</b> Tief vom 4.6. (70.72 €), Wochen-EMA 50 (72.06 €) und Tages-EMA 200 (73.58 €).</span></div>
+<div class="zone r"><b>70.00 €</b><span>Abbruch: Wochenschluss unter 70 €, also unter dem Juni-Tief und der Wochen-EMA 50.</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Smart Money, Insider und Saisonalität</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Wer kauft, wer verkauft?</h3>
+      <ul class="clean" style="margin-top:8px">
+<li><b>Rückkäufe:</b> 350 Mio. € Rückkauf seit 2.3.2026 über 10 Monate, bis 31.7.2026 zu 46 % erledigt (161 Mio. €). Das sind rund 1.7 % des Börsenwerts pro Jahr (eigene Rechnung), knapp unter der Schwelle von 2 %. Ziel bis 2028: jedes Jahr mindestens 350 Mio. €.</li>
+<li><b>Insider:</b> Käufe der Führung am Markt in den letzten 6 Monaten habe ich nicht gefunden. Chef David Knibbe verkaufte 2025 Aktien für rund 0.84 Mio. € zu 55.87 € (Simply Wall St, 21.11.2025). Im Mai 2026 erhielt er Aktien als Lohnbestandteil (AFM-Register).</li>
+<li><b>Grosse Investoren:</b> Zu Käufen grosser Fonds 2026 habe ich keine verlässlichen Daten gefunden.</li>
+<li><b>Analysten:</b> Kursziel im Schnitt 82.42 € (13 Analysten, Stand 5.10.2026), rund 5 % über dem Kurs. Mehrheitlich Kaufen (Daten der App).</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Saisonalität seit 2014</h3>
+      <p class="note">Durchschnittliche Monatsrendite in %. Daten seit 2014 (12 Jahre, Oktober nur 1 Jahr). November ist mit +4.6 % und 67 % positiven Jahren stark, Dezember +0.6 % (58 %), Januar +1.4 % (67 %). Juni ist der stärkste Monat (+4.9 %), April der schwächste (−1.3 %).</p>
+      <div class="chart" id="c-seas"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Timing: 72 von 100</h2>
+  <div class="card tbl"><table id="t-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Worauf du achten solltest: Unterbewertung und Wachstumsschub</h2>
+  <div class="card"><h3>Was die Börse befürchtet</h3><p class="note" style="margin:4px 0">Vor allem Stimmung: Das Geschäft läuft solide (Kapitalgenerierung 1. Halbjahr 2026 +5 %, Free Cashflow der Holding +7 %), der Rücksetzer seit August wirkt wie eine Verschnaufpause nach dem starken Anstieg.</p><ul class="clean"><li>Grosse Sorgen gibt es kaum: Der Kurs liegt am 29.10.2026 mit 78.26 € nur rund 6 % unter dem Rekordhoch vom 6.8.2026 (83.40 €). Nach den Halbjahreszahlen fiel er bis 9.10. auf 75.16 €, ohne klare schlechte Firmennachricht.</li><li>Das Prämienvolumen wächst nicht: In den letzten 12 Monaten bis Juni 2026 sanken die Bruttoprämien um rund 2 %, 2025 um 5.2 %.</li><li>Laut NN wird der Verkauf von Versicherungen über griechische Banken 2027 deutlich schwächer, und die Solvency-Quote der grössten Tochter NN Life sank im 1. Halbjahr 2026 von 223 % auf 213 %.</li><li>Die Aktie ist nach fast einer Verdoppelung seit Ende 2024 nicht mehr billig: KGV 11.5 statt 8.4 im eigenen 5-Jahres-Schnitt.</li></ul><h3 style="margin-top:12px">Was die Sorgen beenden könnte</h3><ul class="clean"><li>Die Kapitalgenerierung 2026 liegt über 2'089 Mio. € (2025), die Solvency-II-Quote bleibt über 200 %, und NN erhöht die Dividende erneut und kündigt einen Rückkauf von mindestens 350 Mio. € für 2027 an <span class="muted">(Jahreszahlen 10.2.2027)</span></li><li>Die Prämien und der Wert des Neugeschäfts wachsen wieder, vor allem in den Niederlanden und bei Insurance Europe <span class="muted">(Halbjahreszahlen August 2027)</span></li><li>Das Sparprogramm «Future Ready» erreicht wie geplant 200 Mio. € Einsparungen pro Jahr (Juni 2026: rund 65 % erreicht) <span class="muted">(2027)</span></li></ul><h3 style="margin-top:12px">Wachstumsschub: Kein grosser Schub in Sicht</h3><ul class="clean"><li><b>Pensionsreform in den Niederlanden:</b> Die Niederlande stellen ihr Pensionssystem um. NN kann damit mehr Pensionsgelder in Sparplänen verwalten: Das Vermögen in solchen beitragsorientierten Plänen stieg im 1. Halbjahr 2026 um 13 % auf 48.2 Mrd. €. Wie viel Gewinn daraus wird, ist noch offen. <span class="muted">(2026–2028)</span></li><li><b>Wachstum in Mittel- und Osteuropa:</b> Insurance Europe (z. B. Polen und Rumänien) steigerte die Kapitalgenerierung im 1. Halbjahr 2026 um 19 % auf 299 Mio. €. Das ist aber nur gut ein Viertel der Gruppe, und Griechenland bremst laut Firma 2027. <span class="muted">(2026–2027)</span></li></ul><p style="margin:10px 0 0"><b>Woran du es erkennst:</b> Achte am 10.2.2027 auf die Kapitalgenerierung (2025: 2'089 Mio. €, Ziel 2028: 2'200 Mio. €) und den Wert des Neugeschäfts (2025: 442 Mio. €). Steigen beide klar um mehr als 5 %, wächst NN schneller als geplant.</p><p style="margin:10px 0 0"><b>Das Chancen-Szenario:</b> Kein Fall wie Google 2023: NN ist eine reife Firma, die vor allem viel Geld ausschüttet (rund 5 % Dividende plus 1.7 % Rückkauf pro Jahr). Geht der Plan auf, wächst die Dividende weiter, und der Kurs folgt langsam. Grösstes Risiko: Ein Einbruch an den Kapitalmärkten oder stark fallende Zinsen drücken die Solvency-Quote und damit die Ausschüttungen.</p><p class="note" style="margin:10px 0 0">Quellen: <a href="https://www.nn-group.com/site/binaries/content/assets/nn-group/financial-results/2026/nn-group-press-release-1h26.pdf" target="_blank" rel="noopener">NN Group: Halbjahreszahlen 2026 (6.8.2026)</a>, <a href="https://www.nn-group.com/site/binaries/content/assets/nn-group/financial-results/2025/nn-group-press-release-fy25.pdf" target="_blank" rel="noopener">NN Group: Jahreszahlen 2025</a>, <a href="https://www.nn-group.com/site/binaries/content/assets/nn-group/financial-results/2025/nn-group-analyst-presentation-fy25.pdf" target="_blank" rel="noopener">NN Group: Analystenpräsentation FY25 (Ziele 2028)</a>, <a href="https://www.ad-hoc-news.de/boerse/news/corporate-news/nn-group-stock-thirteen-analysts-set-eur-82-42-target-for-nn-group-stock/70341966" target="_blank" rel="noopener">ad-hoc-news: Thirteen analysts set EUR 82.42 target (16.10.2026)</a></p></div>
+</section>
+
+<section>
+  <h2>Dividende</h2>
+  <div class="card tbl"><table><tr><td style="white-space:nowrap;color:var(--muted)">Wie oft</td><td>2× pro Jahr (halbjährlich)</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Ex-Tag im</td><td>Mai, August</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Geld auf dem Konto im</td><td>Juni, August</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Zahltage</td><td>Schlussdividende nach der Generalversammlung (für 2025: Ex-Tag 25.5.2026, Zahlung 2.6.2026, 2.50 €), Zwischendividende nach den Halbjahreszahlen (für 2026: Ex-Tag 10.8.2026, Stichtag 11.8.2026, Zahlung 18.8.2026, 1.55 €).</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Letzte Zahlung</td><td>1.55 € pro Aktie</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Rendite</td><td>5.0 %</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">System</td><td>Progressive Dividende: Sie soll jedes Jahr steigen. Zwei Zahlungen pro Jahr, festgelegt in Euro. Die Zwischendividende im August lag zuletzt bei rund 40 % der Vorjahresdividende (eigene Rechnung: 1.55 € zu 3.88 €), der Rest kommt als Schlussdividende im Juni. Dazu jedes Jahr ein Aktienrückkauf von mindestens 350 Mio. €.</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Form</td><td>Bar in Euro, laut NN ganz in bar (keine Wahl zwischen Aktien und Geld). Die Niederlande ziehen 15 % Quellensteuer ab. Laut Doppelbesteuerungsabkommen Schweiz–Niederlande sind 15 % das Maximum, du kannst den Abzug in der Schweizer Steuererklärung anrechnen lassen. Wie Saxo das genau abwickelt, konnte ich nicht prüfen.</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Geschichte</td><td>Dividende pro Aktie: 2021 2.49 €, 2022 2.79 €, 2023 3.20 €, 2024 3.44 €, 2025 3.88 €. Jedes Jahr höher.</td></tr></table><p class="note" style="margin:10px 0 0"><b>Ex-Tag:</b> Du bekommst die Dividende nur, wenn du die Aktie am Abend vor dem Ex-Tag besitzt. <b>Zahltag:</b> An diesem Tag kommt das Geld aufs Konto (in der Währung der Aktie, abzüglich Quellensteuer). Die nächsten genauen Termine zeigt die App unter «Termine».</p></div>
+</section>
+
+<section>
+  <h2>Pro und Contra</h2>
+  <div class="two">
+    <div class="card pro"><h3>Spricht dafür</h3><ul class="clean" style="margin-top:8px">
+<li>Sehr starkes Kapitalpolster: Solvency-II-Quote 224 % (30.6.2026), Schulden mit 17.3 % Financial Leverage tief.</li>
+<li>Kapitalgenerierung seit 2021 jedes Jahr höher (1'584 auf 2'089 Mio. € 2025), Free Cashflow der Holding 1H26 +7 %.</li>
+<li>Hohe Ausschüttung: Dividende rund 5 % (seit 2021 jedes Jahr erhöht) plus mindestens 350 Mio. € Rückkauf pro Jahr.</li>
+<li>Wert des Neugeschäfts 1H26 +16 %, Insurance Europe (Polen, Rumänien und weitere) mit +19 % Kapitalgenerierung.</li>
+<li>Aufwärtstrend im Chart intakt, Tiefs bei 75 € mehrfach gehalten.</li>
+    </ul></div>
+    <div class="card con"><h3>Spricht dagegen</h3><ul class="clean" style="margin-top:8px">
+<li>Kaum Wachstum: Bruttoprämien sinken leicht (12 Monate −1.9 %), Ziel für die Kapitalgenerierung 2028 (2'200 Mio. €) liegt nur rund 5 % über 2025.</li>
+<li>Mit KGV 11.5 rund 37 % teurer als der eigene Schnitt (8.4), die Aktie hat sich seit Ende 2024 fast verdoppelt.</li>
+<li>Eigenkapitalrendite unter 10 %, Gewinn schwankt stark mit Zinsen und Aktienmärkten.</li>
+<li>Abhängig von den Niederlanden (über die Hälfte der Kapitalgenerierung), Pensionsreform dort bringt Chancen, aber auch Unsicherheit.</li>
+<li>Laut Firma wird der Verkauf über griechische Banken 2027 deutlich schwächer, die Solvency-Quote von NN Life sank auf 213 %.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section>
+  <h2>Was jetzt zu tun ist</h2>
+  <div class="zones">
+<div class="zone t"><b>Beobachten</b><span>Alarm bei 76.50 € (oberer Rand Kaufzone 1), 81.30 € (Trigger) und 70 € (Abbruch).</span></div>
+<div class="zone s"><b>Timing grün</b><span>Tagesschluss über 81.30 €, danach neues Hoch über 83.40 € mit steigender Tages-A/D. Fundamental: Kapitalgenerierung 2026 über 2'089 Mio. € und Solvency-II-Quote über 200 %.</span></div>
+<div class="zone r"><b>Abbruch</b><span>Wochenschluss unter 70 €.</span></div>
+<div class="zone "><b>Nächste Zahlen</b><span>10. Februar 2027 (Jahreszahlen 2026, mit Vorschlag zur Schlussdividende). NN veröffentlicht nur Halbjahreszahlen. Generalversammlung 12.5.2027.</span></div>
+  </div>
+</section>
+
+<footer>
+  <span>Kursdaten und Indikatoren (EMA, RSI 14, A/D) selbst berechnet aus Yahoo-Finance-Tages-, Wochen- und Monatsdaten, Stand 29.10.2026. <a href="https://www.nn-group.com/site/binaries/content/assets/nn-group/financial-results/2026/nn-group-press-release-1h26.pdf" target="_blank" rel="noopener">NN Group: Halbjahreszahlen 2026</a>, <a href="https://www.nn-group.com/site/binaries/content/assets/nn-group/financial-results/2026/nn-group-financial-supplement-1h26.pdf" target="_blank" rel="noopener">Financial Supplement 1H26</a>, <a href="https://www.nn-group.com/site/binaries/content/assets/nn-group/financial-results/2025/nn-group-press-release-fy25.pdf" target="_blank" rel="noopener">NN Group: Jahreszahlen 2025</a>, <a href="https://www.nn-group.com/site/binaries/content/assets/nn-group/financial-results/2025/nn-group-financial-supplement-fy25.pdf" target="_blank" rel="noopener">Financial Supplement FY25</a>, <a href="https://www.nn-group.com/site/binaries/content/assets/nn-group/financial-results/2024/nn-group-financial-supplement-2h24.pdf" target="_blank" rel="noopener">Financial Supplement FY24</a>, <a href="https://www.nn-group.com/site/binaries/content/assets/nn-group/financial-results/2025/nn-group-analyst-presentation-fy25.pdf" target="_blank" rel="noopener">Analystenpräsentation FY25 (Ziele 2028)</a>, <a href="https://www.nn-group.com/news/strong-ocg-and-resilient-commercial-performance-for-second-half-and-full-year-2022/" target="_blank" rel="noopener">Jahreszahlen 2022</a>, <a href="https://stockanalysis.com/quote/ams/NN/financials/" target="_blank" rel="noopener">StockAnalysis.com (NN)</a> (Stand 29.10.2026), <a href="https://www.ad-hoc-news.de/boerse/news/corporate-news/nn-group-stock-thirteen-analysts-set-eur-82-42-target-for-nn-group-stock/70341966" target="_blank" rel="noopener">Analysten-Kursziel (ad-hoc-news, 16.10.2026)</a>, <a href="https://simplywall.st/stocks/nl/insurance/ams-nn/nn-group-shares/news/23-of-this-nn-group-insiders-holdings-were-sold" target="_blank" rel="noopener">Insider-Verkauf (Simply Wall St)</a>, <a href="https://www.afm.nl/en/sector/registers/meldingenregisters/bestuurders-commissarissen/details?id=194084" target="_blank" rel="noopener">AFM-Register</a>. Branchenvergleich der App: Note 2.7 von 5, fairer Wert rund 106 € (36 % über dem Kurs), Unsicherheit hoch.</span>
+  <span>Persönliche Analyse, keine Anlageberatung. Vergangene Kurse und Saisonalität sagen nichts Sicheres über die Zukunft.</span>
+</footer>
+</div>
+
+<script>
+const Q=[["Umsatztrend", "Ersatz Bruttoprämien, Halbjahre gegen Vorjahr: nur 1 von 4 höher (2H24 +1.6 %, dann −6.0 %, −4.1 %, −0.2 %). Das operative Ergebnis stieg dagegen 4 von 4 Halbjahren", 0, 15], ["Wachstumstempo", "Firmenangabe: Kapitalgenerierung (OCG) als Wachstumsmass, 12 Monate bis Juni 2026 +8.0 % (eigene Rechnung), 1. Halbjahr 2026 +5.2 %", 6, 10], ["Operative Marge", "Ersatz operatives Ergebnis pro Prämie: 23.2 % (6 Pkt.), seit 2023 von 19.2 % gestiegen (6 Pkt.)", 12, 15], ["Gewinnwachstum (EPS)", "Ersatz operatives Ergebnis, weil der Reingewinn mit den Märkten schwankt: 2023 bis 2025 +9.0 % pro Jahr (2'528 auf 3'002 Mio. €)", 5, 10], ["Free Cashflow", "Ersatz Free Cashflow der Holding: immer positiv, aber schwankend (2023 nur 470 Mio. €, 2025 1'620 Mio. €). Kapitalgenerierung seit 2021 jedes Jahr höher", 6, 10], ["ROIC", "Ersatz Eigenkapitalrendite: 9.7 % in 12 Monaten (eigene Rechnung), unter 10 %. Trend nicht verlässlich messbar", 2, 15], ["Schulden", "Ersatz Financial Leverage 17.3 % und Zinsdeckung 13.5-fach, dazu Solvency-II-Quote 224 %: sehr wenig Schulden, entspricht der Stufe unter 1", 9, 10], ["Bewertung vs. eigene Historie", "KGV 11.5 statt Ø 8.4, rund 37 % teurer", 1, 15]];
+const T=[["Trend Woche (EMA 50/200)", "Kurs über beiden, EMA 50 klar über EMA 200", 18, 20], ["Trend Tag (EMA 50/200)", "Kurs knapp über beiden, EMA 50 über EMA 200, EMA 50 flacht ab", 9, 10], ["Struktur (SMC)", "Höhere Hochs und Tiefs seit März, seit August Spanne 75 bis 81 € mit haltenden Tiefs, kleiner Change of Character am 27.10.", 14, 20], ["RSI Tag/Woche", "Tag dreht aus 37 nach oben, beim Tief vom 23.10. höherer RSI (45) als beim gleich tiefen Kurs am 9.10. (37): bullische Divergenz, Woche neutral (56)", 13, 15], ["A/D Tag/Woche", "Woche leicht bullische Divergenz, Tag noch tiefer als im August", 10, 20], ["Smart Money", "Start 3, keine Insider-Käufe, Rückkauf mit rund 1.7 % unter der Schwelle von 2 %", 3, 10], ["Saisonalität", "November 67 %, Dezember 58 %, Januar 67 % positive Jahre", 5, 5]];
+const FIN=[["2021", "–", "–", "–", 10.41, 1232, "–", "–"], ["2022", "–", "–", "–", 5.33, "–", "–", "–"], ["2023", 13187, "–", "19.2 %", 4.04, 470, "–", "–"], ["2024", 13978, "+6.0 %", "18.4 %", 5.58, 1519, "–", "7.6"], ["2025", 13256, "−5.2 %", "22.6 %", 4.17, 1620, "–", "15.8"], ["Letzte 12 Mt.", 13243, "−1.9 %", "23.2 %", 6.79, 1679, "9.7 %", "11.5"]];
+const HALF=[["1H 23", 7.24], ["2H 23", 5.94], ["1H 24", 7.94], ["2H 24", 6.04], ["1H 25", 7.46], ["2H 25", 5.79], ["1H 26", 7.45]];
+const MARGIN=[["2023", 19.2], ["2024", 18.4], ["2025", 22.6], ["12 Mt.", 23.2]];
+const SEAS=[1.4, 0.1, 1.6, -1.3, -1.2, 4.9, -1.1, 0.6, 1.4, 0.7, 4.6, 0.6];
+const SEASHIT=[67.0, 50.0, 67.0, 25.0, 50.0, 83.0, 38.0, 77.0, 54.0, 100.0, 67.0, 58.0];
+const MON=["Jan","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"];
+const W=`2024-10-20,46.01,42.09,39.39,62,61.8;2024-10-28,45.79,42.24,39.45,60,61.8;2024-11-04,45.13,42.35,39.51,56,60.3;2024-11-11,45.3,42.46,39.57,57,61.9;2024-11-18,44.64,42.55,39.62,53,59.8;2024-11-25,43.97,42.61,39.66,49,59.2;2024-12-02,43.06,42.62,39.7,44,60.6;2024-12-09,42.49,42.62,39.72,41,57.6;2024-12-16,41.38,42.57,39.74,37,56.1;2024-12-23,41.89,42.54,39.76,40,57.4;2024-12-30,42.54,42.54,39.79,44,58.3;2025-01-06,41.41,42.5,39.81,39,55.5;2025-01-13,43.49,42.54,39.84,50,59.7;2025-01-20,42.9,42.55,39.87,48,56.8;2025-01-27,44.37,42.62,39.92,54,59.3;2025-02-03,44.29,42.69,39.96,54,63;2025-02-10,44.8,42.77,40.01,56,63.8;2025-02-17,46.41,42.91,40.07,62,62.7;2025-02-24,48.78,43.14,40.16,69,67.8;2025-03-03,48.12,43.34,40.24,65,67.2;2025-03-10,49.28,43.57,40.33,68,71.1;2025-03-17,50.64,43.85,40.43,72,74.1;2025-03-30,48.56,44.03,40.51,61,71.3;2025-04-06,47.71,44.18,40.58,58,72.7;2025-04-13,50.92,44.44,40.69,66,75.4;2025-04-20,52.92,44.77,40.81,70,78.3;2025-04-27,54.24,45.15,40.94,72,79.6;2025-05-04,55.04,45.53,41.08,73,81.3;2025-05-11,55.54,45.93,41.23,74,84;2025-05-18,53.6,46.23,41.35,66,82.9;2025-05-25,55.42,46.59,41.49,69,86.2;2025-06-01,57.14,47,41.64,72,89.7;2025-06-08,55.2,47.32,41.78,65,87.6;2025-06-15,55.84,47.66,41.92,66,88.9;2025-06-22,56.26,47.99,42.06,67,90.6;2025-06-29,55.92,48.31,42.2,65,88.9;2025-07-06,57.36,48.66,42.35,68,91.1;2025-07-13,57.8,49.02,42.5,69,92.7;2025-07-20,58.24,49.38,42.66,70,93.3;2025-07-27,58.04,49.72,42.81,69,91.8;2025-08-03,62.48,50.22,43.01,77,94.2;2025-08-10,60.78,50.63,43.19,70,93.2;2025-08-17,61.26,51.05,43.37,71,94;2025-08-24,58.82,51.36,43.52,61,92.4;2025-08-31,57.9,51.61,43.66,58,92.7;2025-09-07,59.24,51.91,43.82,61,95.3;2025-09-14,58.58,52.17,43.97,59,96.1;2025-09-21,59.42,52.46,44.12,61,98.1;2025-09-28,59.22,52.72,44.27,60,96.9;2025-10-05,60.4,53.02,44.43,63,98.9;2025-10-12,59.08,53.26,44.58,58,97.3;2025-10-19,59.54,53.51,44.72,59,99.4;2025-10-27,59.38,53.74,44.87,59,98.6;2025-11-03,59.6,53.97,45.02,59,98.2;2025-11-10,61.54,54.26,45.18,65,98.4;2025-11-17,60.62,54.51,45.33,61,98.6;2025-11-24,62.48,54.83,45.51,65,101.2;2025-12-01,62.5,55.13,45.67,65,101.1;2025-12-08,63.2,55.44,45.85,67,101.2;2025-12-15,65.16,55.82,46.04,71,103.9;2025-12-22,65.76,56.21,46.24,73,104.8;2025-12-29,65.98,56.6,46.43,73,105.2;2026-01-05,65.54,56.95,46.62,71,104.4;2026-01-12,66.52,57.32,46.82,73,105.4;2026-01-19,64.84,57.62,47,64,104.4;2026-01-26,66.78,57.98,47.2,69,107.1;2026-02-02,68.52,58.39,47.41,72,109.7;2026-02-09,67.98,58.77,47.61,70,106.6;2026-02-16,70.36,59.22,47.84,74,108.8;2026-02-23,69.3,59.62,48.05,69,107.2;2026-03-02,65.56,59.85,48.23,55,104.9;2026-03-09,66,60.09,48.41,56,105.8;2026-03-16,65.7,60.31,48.58,55,101.9;2026-03-29,69.6,60.68,48.79,64,104.3;2026-04-05,71.4,61.1,49.01,68,106;2026-04-12,73.56,61.58,49.26,71,108.8;2026-04-19,72.98,62.03,49.49,69,107.7;2026-04-26,74.3,62.51,49.74,71,109.6;2026-05-03,74.94,63,49.99,72,110;2026-05-10,75.74,63.5,50.25,73,110.7;2026-05-17,75.84,63.98,50.5,73,113.4;2026-05-24,71.68,64.29,50.71,58,110;2026-05-31,71.32,64.56,50.92,57,110;2026-06-07,73.28,64.9,51.14,61,112.1;2026-06-14,74.88,65.29,51.38,64,114.7;2026-06-21,76.32,65.73,51.62,67,115.4;2026-06-28,75.94,66.13,51.87,66,115;2026-07-05,76.18,66.52,52.11,66,115.2;2026-07-12,78.06,66.97,52.37,70,116.6;2026-07-19,79.88,67.48,52.64,73,117.8;2026-07-26,81.6,68.03,52.93,75,119.5;2026-08-02,80.62,68.53,53.2,71,116.4;2026-08-09,78.76,68.93,53.46,64,117.1;2026-08-16,75.9,69.2,53.68,55,115.4;2026-08-23,78.02,69.55,53.92,60,117.3;2026-08-30,80.28,69.97,54.19,64,119.8;2026-09-06,78.26,70.29,54.42,58,119.8;2026-09-13,80.24,70.68,54.68,62,121.2;2026-09-20,79.96,71.05,54.93,61,121.6;2026-09-27,76.68,71.27,55.15,52,120;2026-10-04,75.4,71.43,55.35,50,117.6;2026-10-11,76.46,71.63,55.56,52,118.4;2026-10-18,76.08,71.8,55.77,51,118.3;2026-10-29,78.26,72.06,55.99,56,118.2`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+const DD=`2025-10-23,58.9,59.15,54.96,16.9;2025-10-24,59.54,59.16,55,17.2;2025-10-27,59.68,59.18,55.05,17.1;2025-10-28,59.94,59.21,55.1,17.4;2025-10-29,59.24,59.21,55.14,17;2025-10-30,59.96,59.24,55.19,17.4;2025-10-31,59.38,59.25,55.23,17.2;2025-11-03,59.8,59.27,55.27,17.4;2025-11-04,59.94,59.3,55.32,17.7;2025-11-05,60.3,59.34,55.37,18;2025-11-06,60.28,59.37,55.42,18;2025-11-07,59.6,59.38,55.46,17.8;2025-11-10,60.82,59.44,55.51,17.8;2025-11-11,60.68,59.49,55.57,18;2025-11-12,61.88,59.58,55.63,18.5;2025-11-13,62.34,59.69,55.7,18.6;2025-11-14,61.54,59.76,55.75,18.6;2025-11-17,61.34,59.82,55.81,18.6;2025-11-18,60.02,59.83,55.85,18.5;2025-11-19,60.2,59.85,55.89,18.7;2025-11-20,60.92,59.89,55.94,18.6;2025-11-21,60.62,59.92,55.99,18.7;2025-11-24,60.46,59.94,56.04,17.3;2025-11-25,61.08,59.98,56.09,17.5;2025-11-26,62.3,60.07,56.15,18.1;2025-11-27,62.56,60.17,56.21,18.2;2025-11-28,62.48,60.26,56.27,18.4;2025-12-01,62.6,60.35,56.34,18.6;2025-12-02,63,60.46,56.4,18.7;2025-12-03,62.04,60.52,56.46,18.4;2025-12-04,62.96,60.62,56.52,19;2025-12-05,62.5,60.69,56.58,18.5;2025-12-08,63.12,60.78,56.65,18.8;2025-12-09,63.76,60.9,56.72,19.2;2025-12-10,63.08,60.99,56.78,18.9;2025-12-11,63.44,61.08,56.85,19;2025-12-12,63.2,61.17,56.91,18.6;2025-12-15,64.16,61.28,56.98,19;2025-12-16,64.18,61.4,57.06,18.8;2025-12-17,64.24,61.51,57.13,18.4;2025-12-18,64.52,61.63,57.2,18.9;2025-12-19,65.16,61.76,57.28,19.6;2025-12-22,65.44,61.91,57.36,20.1;2025-12-23,65.58,62.05,57.44,20.1;2025-12-24,65.76,62.2,57.53,20.2;2025-12-29,65.34,62.32,57.6,19.7;2025-12-30,65.72,62.45,57.68,20;2025-12-31,65.74,62.58,57.76,20;2026-01-02,65.98,62.72,57.85,20;2026-01-05,67.06,62.89,57.94,20.6;2026-01-06,66.66,63.04,58.02,19.9;2026-01-07,64.94,63.11,58.09,19.5;2026-01-08,66.1,63.23,58.17,19.9;2026-01-09,65.54,63.32,58.25,19.7;2026-01-12,65.98,63.42,58.32,20.1;2026-01-13,65.58,63.51,58.4,19.6;2026-01-14,66.32,63.62,58.47,20.1;2026-01-15,66.92,63.75,58.56,20.4;2026-01-16,66.52,63.86,58.64,20.4;2026-01-19,66.6,63.96,58.72,20.9;2026-01-20,64.98,64,58.78,20.6;2026-01-21,64.62,64.03,58.84,20.7;2026-01-22,65.16,64.07,58.9,20.3;2026-01-23,64.84,64.1,58.96,20.2;2026-01-26,65.32,64.15,59.02,20.2;2026-01-27,65.28,64.19,59.08,19.6;2026-01-28,65.96,64.26,59.15,20;2026-01-29,66.22,64.34,59.22,19.9;2026-01-30,66.78,64.44,59.3,20.5;2026-02-02,67.82,64.57,59.38,21;2026-02-03,68.14,64.71,59.47,20.8;2026-02-04,68.18,64.84,59.56,21;2026-02-05,67.34,64.94,59.63,20.4;2026-02-06,68.52,65.08,59.72,21.1;2026-02-09,69.02,65.24,59.82,21.2;2026-02-10,68.32,65.36,59.9,21.1;2026-02-11,68.9,65.5,59.99,21;2026-02-12,70.46,65.69,60.09,20.1;2026-02-13,67.98,65.78,60.17,19.4;2026-02-16,68.26,65.88,60.25,19.6;2026-02-17,68.68,65.99,60.34,19.6;2026-02-18,69,66.11,60.42,19.7;2026-02-19,69,66.22,60.51,19.1;2026-02-20,70.36,66.38,60.61,19.6;2026-02-23,70.2,66.53,60.7,19.3;2026-02-24,69.56,66.65,60.79,19.3;2026-02-25,69.7,66.77,60.88,19.5;2026-02-26,70.84,66.93,60.98,19.9;2026-02-27,69.3,67.02,61.06,19.3;2026-03-02,68.4,67.08,61.13,20;2026-03-03,66.38,67.05,61.19,19.9;2026-03-04,67.26,67.06,61.25,20.3;2026-03-05,66.4,67.03,61.3,19.7;2026-03-06,65.56,66.97,61.34,19.5;2026-03-09,65.24,66.91,61.38,20.1;2026-03-10,66.64,66.9,61.43,19.8;2026-03-11,66.86,66.89,61.49,20;2026-03-12,66.76,66.89,61.54,20.2;2026-03-13,66,66.85,61.58,19.8;2026-03-16,66.18,66.83,61.63,19.7;2026-03-17,67.22,66.84,61.68,20.1;2026-03-18,68.18,66.9,61.75,20.3;2026-03-19,66.34,66.87,61.79,19.8;2026-03-20,65.7,66.83,61.83,18.2;2026-03-23,65.86,66.79,61.87,18.6;2026-03-24,65.62,66.74,61.91,18.6;2026-03-25,66.68,66.74,61.96,18.3;2026-03-26,66.02,66.71,62,17.9;2026-03-27,65.84,66.68,62.04,17.8;2026-03-30,66.34,66.67,62.08,18.3;2026-03-31,67.06,66.68,62.13,18.4;2026-04-01,69.28,66.78,62.2,18.7;2026-04-02,69.6,66.89,62.27,19.2;2026-04-07,69.48,66.99,62.34,18.5;2026-04-08,70.54,67.13,62.43,17.6;2026-04-09,71.44,67.3,62.52,18.2;2026-04-10,71.4,67.46,62.6,18.2;2026-04-13,72.32,67.65,62.7,18.9;2026-04-14,72.8,67.86,62.8,19.7;2026-04-15,72.94,68.06,62.9,19.9;2026-04-16,72.98,68.25,63,19.6;2026-04-17,73.56,68.46,63.11,20.1;2026-04-20,73.38,68.65,63.21,20.7;2026-04-21,73.76,68.85,63.32,20.9;2026-04-22,73.64,69.04,63.42,20.6;2026-04-23,73.34,69.21,63.52,20.9;2026-04-24,72.98,69.35,63.61,20.9;2026-04-27,73.34,69.51,63.71,21.1;2026-04-28,73.78,69.68,63.81,20.9;2026-04-29,73.62,69.83,63.91,21;2026-04-30,74.3,70.01,64.01,21.6;2026-05-04,73.64,70.15,64.1,21.4;2026-05-05,73.96,70.3,64.2,21.5;2026-05-06,75.7,70.51,64.32,21.6;2026-05-07,75.56,70.71,64.43,21.8;2026-05-08,74.94,70.88,64.53,21.7;2026-05-11,76.2,71.08,64.65,22.3;2026-05-12,74.88,71.23,64.75,21.9;2026-05-13,75.58,71.4,64.86,22.3;2026-05-14,76.22,71.59,64.97,22.6;2026-05-15,75.74,71.76,65.08,22.3;2026-05-18,75.96,71.92,65.19,22.5;2026-05-19,74.48,72.02,65.28,21.6;2026-05-20,75.06,72.14,65.38,22.1;2026-05-21,75.52,72.27,65.48,22.4;2026-05-22,75.84,72.41,65.58,22.4;2026-05-25,74.54,72.5,65.67,22.8;2026-05-26,74.76,72.58,65.76,22.4;2026-05-27,73.86,72.63,65.84,22;2026-05-28,72.38,72.62,65.91,21.5;2026-05-29,71.68,72.59,65.96,20.8;2026-06-01,71.68,72.55,66.02,21.2;2026-06-02,71.78,72.52,66.08,21.7;2026-06-03,71.5,72.48,66.13,21.6;2026-06-04,71.2,72.43,66.18,21.6;2026-06-05,71.32,72.39,66.23,21.6;2026-06-08,71.28,72.34,66.28,21.1;2026-06-09,71.46,72.31,66.34,20.7;2026-06-10,71.86,72.29,66.39,21.1;2026-06-11,72.38,72.3,66.45,21.2;2026-06-12,73.28,72.33,66.52,21.4;2026-06-15,73.66,72.39,66.59,21.5;2026-06-16,74.52,72.47,66.67,21.8;2026-06-17,74.3,72.54,66.74,22;2026-06-18,74.08,72.6,66.82,21.8;2026-06-19,74.88,72.69,66.9,22.7;2026-06-22,76.28,72.83,66.99,23.3;2026-06-23,75.96,72.95,67.08,23.5;2026-06-24,75.9,73.07,67.17,24;2026-06-25,76.54,73.21,67.26,23.9;2026-06-26,76.32,73.33,67.35,23.9;2026-06-29,76.04,73.43,67.44,23.8;2026-06-30,76.66,73.56,67.53,23.9;2026-07-01,75.82,73.65,67.61,23.8;2026-07-02,76.12,73.75,67.7,23.9;2026-07-03,75.94,73.83,67.78,24.1;2026-07-06,75.76,73.91,67.86,24.1;2026-07-07,76.1,73.99,67.94,24;2026-07-08,76.24,74.08,68.02,24;2026-07-09,76.44,74.17,68.11,24.1;2026-07-10,76.18,74.25,68.19,23.9;2026-07-13,76.1,74.33,68.27,23.6;2026-07-14,77.48,74.45,68.36,24;2026-07-15,78.08,74.59,68.45,24.3;2026-07-16,78,74.73,68.55,24.7;2026-07-17,78.06,74.86,68.64,24.8;2026-07-20,78.52,75,68.74,25;2026-07-21,79.2,75.16,68.85,25.2;2026-07-22,80.14,75.36,68.96,25.4;2026-07-23,79.34,75.52,69.06,25.1;2026-07-24,79.88,75.69,69.17,25.3;2026-07-27,79.4,75.83,69.27,25;2026-07-28,80,76,69.38,25.4;2026-07-29,80.14,76.16,69.48,25.6;2026-07-30,81.34,76.36,69.6,25.9;2026-07-31,81.6,76.57,69.72,26.2;2026-08-03,81.36,76.76,69.84,26.5;2026-08-04,81.2,76.93,69.95,26.5;2026-08-05,81.2,77.1,70.06,26.6;2026-08-06,81.48,77.27,70.18,25.7;2026-08-07,80.62,77.4,70.28,24.8;2026-08-10,79.14,77.47,70.37,24.5;2026-08-11,77.94,77.49,70.44,24;2026-08-12,78.06,77.51,70.52,24;2026-08-13,78.26,77.54,70.6,23.8;2026-08-14,78.76,77.59,70.68,24.1;2026-08-17,78.56,77.62,70.76,23.9;2026-08-18,77.92,77.64,70.83,23.6;2026-08-19,77.12,77.62,70.89,23.3;2026-08-20,75.62,77.54,70.94,22.8;2026-08-21,75.9,77.47,70.99,22.9;2026-08-24,76.76,77.45,71.04,23.3;2026-08-25,77.4,77.44,71.11,23.4;2026-08-26,77.58,77.45,71.17,23.3;2026-08-27,77.24,77.44,71.23,23.3;2026-08-28,78.02,77.46,71.3,23.6;2026-08-31,77.8,77.48,71.36,22.9;2026-09-01,78.1,77.5,71.43,23.2;2026-09-02,78.32,77.53,71.5,23.4;2026-09-03,79.58,77.61,71.58,23.9;2026-09-04,80.28,77.72,71.67,24.2;2026-09-07,79.7,77.8,71.75,24.1;2026-09-08,79.3,77.85,71.82,24.2;2026-09-09,76.38,77.8,71.87,23.3;2026-09-10,76.78,77.76,71.92,23;2026-09-11,78.26,77.78,71.98,23.5;2026-09-14,78.44,77.8,72.04,23.1;2026-09-15,78.88,77.85,72.11,23.4;2026-09-16,80,77.93,72.19,23.7;2026-09-17,81.1,78.05,72.28,24.2;2026-09-18,80.24,78.14,72.36,23.9;2026-09-21,80.96,78.25,72.44,24.1;2026-09-22,79.84,78.31,72.52,23.7;2026-09-23,79.16,78.35,72.58,23.3;2026-09-24,78.86,78.37,72.65,23.7;2026-09-25,79.96,78.43,72.72,23.7;2026-09-28,79.52,78.47,72.79,23.4;2026-09-29,79.36,78.51,72.85,23.2;2026-09-30,78.02,78.49,72.9,22.6;2026-10-01,76.12,78.39,72.93,21.9;2026-10-02,76.68,78.33,72.97,22.1;2026-10-05,76.94,78.27,73.01,22.1;2026-10-06,77.52,78.24,73.06,21.8;2026-10-07,76.1,78.16,73.09,21.3;2026-10-08,75.28,78.05,73.11,20.6;2026-10-09,75.4,77.94,73.13,20.3;2026-10-12,76.12,77.87,73.16,20.5;2026-10-13,76.12,77.8,73.19,20.4;2026-10-14,76.12,77.74,73.22,20.8;2026-10-15,75.76,77.66,73.25,20.3;2026-10-16,76.46,77.61,73.28,20.5;2026-10-19,75.74,77.54,73.3,20.4;2026-10-20,76.12,77.48,73.33,20.5;2026-10-21,76.8,77.46,73.36,20.7;2026-10-22,75.66,77.39,73.39,20.3;2026-10-23,76.08,77.33,73.41,20.6;2026-10-26,76.92,77.32,73.45,20.8;2026-10-27,77.62,77.33,73.49,21;2026-10-28,77.72,77.35,73.53,21.4;2026-10-29,78.26,77.38,73.58,21.4`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+
+const fmtN=(v,d=2)=>v.toLocaleString("de-CH",{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmtD=s=>{const [y,m,d]=s.split("-");return d+"."+m+"."+y.slice(2)};
+const NS="http://www.w3.org/2000/svg";
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+
+function scoreTable(id,rows){
+  let tot=0,max=0;
+  const html='<thead><tr><th>Kriterium</th><th>Stand</th><th class="num">Punkte</th><th style="width:22%"></th></tr></thead><tbody>'+rows.map(r=>{tot+=r[2];max+=r[3];const p=r[2]/r[3];const c=p>=.75?"var(--good)":p>=.45?"var(--warn)":"var(--bad)";
+    return `<tr><td>${r[0]}</td><td class="muted">${r[1]}</td><td class="num">${r[2]} / ${r[3]}</td><td><div class="bar"><i style="width:${p*100}%;background:${c}"></i></div></td></tr>`}).join("")+`<tr class="total"><td>Total</td><td></td><td class="num">${tot} / ${max}</td><td></td></tr></tbody>`;
+  document.getElementById(id).innerHTML=html;return tot;
+}
+const qs=scoreTable("q-tbl",Q), ts=scoreTable("t-tbl",T);
+document.getElementById("q-val").textContent=qs;document.getElementById("t-val").textContent=ts;
+document.getElementById("q-pin").style.left=qs+"%";document.getElementById("t-pin").style.left=ts+"%";
+
+document.getElementById("fin-rows").innerHTML=FIN.map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1].toLocaleString("de-CH")}</td><td class="num">${r[2]}</td><td class="num">${r[3]}</td><td class="num">${fmtN(r[4])}</td><td class="num">${r[5].toLocaleString("de-CH")}</td><td class="num">${r[6]}</td><td class="num">${r[7]}</td></tr>`).join("");
+
+/* generic line chart */
+function lineChart(host,{dates,series,bands=[],yFmt=v=>fmtN(v),h=300,zero=false,refs=[],pad}){
+  const W_=800,H=h,m={t:12,r:56,b:28,l:8};
+  const all=series.flatMap(s=>s.values).concat(bands.flatMap(b=>[b.from,b.to])).concat(refs.map(r=>r.v));
+  if(zero)all.push(0);
+  let lo=Math.min(...all),hi=Math.max(...all);const sp=(hi-lo)||1;lo-=sp*.06;hi+=sp*.06;
+  if(pad){lo=pad[0];hi=pad[1]}
+  const n=dates.length,x=i=>m.l+i*(W_-m.l-m.r)/(n-1),y=v=>m.t+(hi-v)*(H-m.t-m.b)/(hi-lo);
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  // grid
+  const steps=5;for(let k=0;k<=steps;k++){const v=lo+(hi-lo)*k/steps;el("line",{x1:m.l,x2:W_-m.r,y1:y(v),y2:y(v),stroke:"var(--grid)","stroke-width":1},svg);
+    const t=el("text",{x:W_-m.r+6,y:y(v)+4,"font-size":11,fill:"var(--muted)","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=yFmt(v)}
+  bands.forEach(b=>{el("rect",{x:m.l,width:W_-m.l-m.r,y:y(Math.max(b.from,b.to)),height:Math.abs(y(b.from)-y(b.to)),fill:b.type==="res"?"var(--zone-res)":"var(--zone-sup)"},svg)});
+  refs.forEach(r=>{el("line",{x1:m.l,x2:W_-m.r,y1:y(r.v),y2:y(r.v),stroke:"var(--muted)","stroke-dasharray":"4 4","stroke-width":1},svg);
+    const t=el("text",{x:m.l+4,y:y(r.v)-4,"font-size":11,fill:"var(--muted)"},svg);t.textContent=r.label});
+  if(zero)el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  // x labels
+  const every=Math.ceil(n/6);for(let i=0;i<n;i+=every){const t=el("text",{x:x(i),y:H-8,"font-size":11,fill:"var(--muted)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);const d=dates[i];t.textContent=d.slice(5,7)+"/"+d.slice(2,4)}
+  series.forEach(s=>{const dpath=s.values.map((v,i)=>(i?"L":"M")+x(i).toFixed(1)+","+y(v).toFixed(1)).join("");
+    el("path",{d:dpath,fill:"none",stroke:s.color,"stroke-width":s.w||2,"stroke-linejoin":"round","stroke-linecap":"round"},svg);
+    const lv=s.values[n-1];el("circle",{cx:x(n-1),cy:y(lv),r:3.5,fill:s.color,stroke:"var(--surface)","stroke-width":2},svg)});
+  // hover
+  const cross=el("line",{y1:m.t,y2:H-m.b,stroke:"var(--muted)","stroke-width":1,opacity:0},svg);
+  const ov=el("rect",{x:m.l,y:m.t,width:W_-m.l-m.r,height:H-m.t-m.b,fill:"transparent"},svg);
+  host.appendChild(svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;host.appendChild(tip);
+  function move(ev){const r=svg.getBoundingClientRect();const px=(ev.clientX-r.left)*W_/r.width;let i=Math.round((px-m.l)/((W_-m.l-m.r)/(n-1)));i=Math.max(0,Math.min(n-1,i));
+    cross.setAttribute("x1",x(i));cross.setAttribute("x2",x(i));cross.setAttribute("opacity",1);
+    tip.innerHTML=`<div class="d">${fmtD(dates[i])}</div>`+series.map(s=>`<div><i class="sw" style="background:${s.color}"></i> ${s.name}: <b>${yFmt(s.values[i])}</b></div>`).join("");
+    tip.hidden=false;const hx=x(i)*r.width/W_;tip.style.left=Math.min(Math.max(0,hx+12),r.width-tip.offsetWidth)+"px";tip.style.top="8px"}
+  ov.addEventListener("pointermove",move);ov.addEventListener("pointerleave",()=>{tip.hidden=true;cross.setAttribute("opacity",0)});
+}
+function barChart(host,{labels,values,fmt,h=220,color,neg,tipExtra}){
+  const W_=800,H=h,m={t:18,r:8,b:28,l:8};
+  const hi=Math.max(0,...values),lo=Math.min(0,...values);const lo2=lo<0?lo*1.15:lo,hi2=hi*1.15||1;
+  const y=v=>m.t+(hi2-v)*(H-m.t-m.b)/(hi2-lo2);const n=values.length,bw=(W_-m.l-m.r)/n;
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;
+  values.forEach((v,i)=>{const x0=m.l+i*bw+bw*.18,w=bw*.64,y0=y(Math.max(v,0)),hh=Math.max(1,Math.abs(y(v)-y(0)));
+    const r=el("rect",{x:x0,y:y0,width:w,height:hh,rx:4,fill:v<0?(neg||"var(--s2)"):(color||"var(--s1)")},svg);
+    const t=el("text",{x:x0+w/2,y:v<0?y(v)+13:y0-5,"font-size":11.5,fill:"var(--ink)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=fmt(v);
+    const l=el("text",{x:x0+w/2,y:H-8,"font-size":11.5,fill:"var(--muted)","text-anchor":"middle"},svg);l.textContent=labels[i];
+    const hit=el("rect",{x:m.l+i*bw,y:m.t,width:bw,height:H-m.t-m.b,fill:"transparent"},svg);
+    hit.addEventListener("pointerenter",()=>{tip.innerHTML=`<div class="d">${labels[i]}</div><b>${fmt(v)}</b>${tipExtra?tipExtra(i):""}`;tip.hidden=false;const R=svg.getBoundingClientRect();tip.style.left=Math.min((m.l+i*bw)*R.width/W_,R.width-tip.offsetWidth)+"px";tip.style.top="0px"});
+    hit.addEventListener("pointerleave",()=>tip.hidden=true)});
+  host.appendChild(svg);host.appendChild(tip);
+}
+barChart(document.getElementById("c-rev"),{labels:HALF.map(r=>r[0]),values:HALF.map(r=>r[1]),fmt:v=>fmtN(v,2),h:200});
+barChart(document.getElementById("c-margin"),{labels:MARGIN.map(r=>r[0]),values:MARGIN.map(r=>r[1]),fmt:v=>fmtN(v,1)+" %",h:200});
+barChart(document.getElementById("c-seas"),{labels:MON,values:SEAS,fmt:v=>(v>0?"+":"")+fmtN(v,1),h:220,tipExtra:i=>`<div>${SEASHIT[i]} % der Jahre positiv</div>`});
+const BANDS=[{"from": 82.5, "to": 83.4, "type": "res"}, {"from": 80.5, "to": 81.3, "type": "res"}, {"from": 75.0, "to": 76.5, "type": "sup"}, {"from": 70.7, "to": 73.6, "type": "sup"}], REFS=[{"v": 81.3, "label": "Trigger 81.30"}];
+const wd=W.map(r=>r[0]);
+lineChart(document.getElementById("c-week"),{dates:wd,series:[{name:"Kurs",values:W.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:W.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:W.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,yFmt:v=>fmtN(v,0),h:320});
+lineChart(document.getElementById("c-adw"),{dates:wd,series:[{name:"A/D Woche",values:W.map(r=>r[5]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,zero:true});
+lineChart(document.getElementById("c-rsiw"),{dates:wd,series:[{name:"RSI Woche",values:W.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,refs:[{v:70,label:"70 überkauft"},{v:30,label:"30 überverkauft"}],pad:[10,90]});
+const dd=DD.map(r=>r[0]);
+lineChart(document.getElementById("c-day"),{dates:dd,series:[{name:"Kurs",values:DD.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:DD.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:DD.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,refs:REFS,yFmt:v=>fmtN(v,0),h:260});
+lineChart(document.getElementById("c-add"),{dates:dd,series:[{name:"A/D Tag",values:DD.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:260,zero:true});
+</script>

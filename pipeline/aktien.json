@@ -1952,5 +1952,135 @@
   "pe_typ": "KGV",
   "zahlen": "2026-10-29",
   "artifact": "67CPvTEBNGPKt2Z9J3gq8G"
+ },
+ "1810": {
+  "symbol": "1810.HK",
+  "name": "Xiaomi",
+  "tags": [
+   "Wachstum"
+  ],
+  "land": "China",
+  "region": "Asien",
+  "branche": "Smartphones, Elektronik und Elektroautos",
+  "status": "beobachten",
+  "waehrung": "HKD",
+  "kurs": 25.68,
+  "datenstand": "2026-10-29",
+  "kauf": [
+   [
+    23.5,
+    25.4
+   ],
+   [
+    21.3,
+    22.5
+   ]
+  ],
+  "widerstand": [
+   [
+    26.3,
+    28.2
+   ],
+   [
+    29.1,
+    30.4
+   ],
+   [
+    31.0,
+    32.4
+   ]
+  ],
+  "trigger": 27.76,
+  "abbruch": 21.0,
+  "pe": 17.6,
+  "pe_avg": 24.1,
+  "pe_typ": "KGV",
+  "zahlen": "2026-11-24",
+  "artifact": "6fznoEt2uH12oZp22hDUj8"
+ },
+ "RSG": {
+  "symbol": "RSG",
+  "name": "Republic Services",
+  "tags": [
+   "Qualität",
+   "Defensiv",
+   "Dividende"
+  ],
+  "land": "USA",
+  "region": "USA",
+  "branche": "Abfallentsorgung und Recycling",
+  "status": "beobachten",
+  "waehrung": "USD",
+  "kurs": 236.28,
+  "datenstand": "2026-10-29",
+  "kauf": [
+   [
+    223.0,
+    228.5
+   ],
+   [
+    216.0,
+    220.0
+   ]
+  ],
+  "widerstand": [
+   [
+    240.0,
+    243.5
+   ],
+   [
+    249.0,
+    259.0
+   ]
+  ],
+  "trigger": 243.22,
+  "abbruch": 205.0,
+  "pe": 32.7,
+  "pe_avg": 30.6,
+  "pe_typ": "KGV",
+  "zahlen": "2027-02-16",
+  "artifact": "9y2jC9W8kCuRQV9u3qCWhP"
+ },
+ "NN": {
+  "symbol": "NN.AS",
+  "name": "NN Group",
+  "tags": [
+   "Dividende",
+   "Defensiv"
+  ],
+  "land": "Niederlande",
+  "region": "Europa",
+  "branche": "Versicherung und Pensionen",
+  "status": "beobachten",
+  "waehrung": "EUR",
+  "kurs": 78.26,
+  "datenstand": "2026-10-29",
+  "kauf": [
+   [
+    75.0,
+    76.5
+   ],
+   [
+    70.7,
+    73.6
+   ]
+  ],
+  "widerstand": [
+   [
+    80.5,
+    81.3
+   ],
+   [
+    82.5,
+    83.4
+   ]
+  ],
+  "trigger": 81.3,
+  "abbruch": 70.0,
+  "pe": 11.5,
+  "pe_avg": 8.4,
+  "pe_typ": "KGV",
+  "zahlen": "2027-02-10",
+  "artifact": "ULxTAgjVNLbMMN9pqfsJ1n"
  }
 }

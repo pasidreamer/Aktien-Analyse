@@ -1,0 +1,71 @@
+{
+ "ticker": "1810",
+ "sorgen": [
+  "Teure Speicherchips: Laut Xiaomi kosten DRAM und NAND rund fünfmal so viel wie Anfang 2025. Die Marge der Handy-Sparte fiel im 1. Quartal 2026 auf 10.1 %, der bereinigte Gewinn im 1. Halbjahr 2026 um 43 %.",
+  "Weniger Handys: Im 3. Quartal 2026 verkaufte Xiaomi in China 20.4 % weniger Handys (IDC). Die Firma erwartet für die ganze Branche 2026 mindestens 10 % weniger Geräte.",
+  "Die Auto-Sparte wächst langsamer: Im 3. Quartal 2026 lieferte Xiaomi 101'435 Autos aus, 6.8 % weniger als ein Jahr zuvor. Für das Jahresziel von 550'000 fehlen rund 264'000 Autos im 4. Quartal. Im 1. Quartal machte die Sparte Autos, KI und Neues 3.1 Mrd. Yuan Betriebsverlust.",
+  "Die Aktie fiel vom Wochenhoch im Juni 2025 (61.45 HKD) bis auf 21.30 HKD (26.6.2026). China Renaissance stufte am 9.10.2026 auf Verkaufen ab (Ziel 20.50 HKD)."
+ ],
+ "sorgen_art": "gemischt",
+ "sorgen_art_text": "Die Chippreise und die schwache Nachfrage nach Handys und Autos in China sind echte Probleme, aber die Chippreise sind ein Kostenzyklus und kein Verlust von Marktanteilen; die Bilanz mit Netto-Cash bleibt sehr solide.",
+ "aufloeser": [
+  {
+   "was": "Die Zahlen zum 3. Quartal zeigen eine stabilere Bruttomarge (2. Quartal 2026: 19.8 %) und einen Umsatz nahe am Vorjahr (113.1 Mrd. RMB). Laut Präsident Lu Weibing soll der Anstieg der Chipkosten ab dem 3. Quartal nachlassen.",
+   "wann": "Zahlen 3. Quartal, voraussichtlich 24.11.2026"
+  },
+  {
+   "was": "Die neue SUV-Reihe SkyNomad bringt die Auto-Auslieferungen wieder deutlich über Vorjahr (laut Firma über 70'000 feste Bestellungen in 30 Tagen)",
+   "wann": "Monatszahlen November und Dezember 2026"
+  },
+  {
+   "was": "Die Speicherchip-Preise sinken wieder. Counterpoint rechnet mit Knappheit bis Ende 2027.",
+   "wann": "2027"
+  },
+  {
+   "was": "Der Free Cashflow wird wieder klar positiv",
+   "wann": "Jahreszahlen 2026, voraussichtlich März 2027"
+  }
+ ],
+ "schub_stufe": "mittel",
+ "schub_treiber": [
+  {
+   "titel": "Elektroautos und Europa",
+   "text": "Xiaomi hat bis September 2026 rund 838'000 Autos ausgeliefert. Seit September gibt es die SUV-Reihe SkyNomad, ab dem 2. Halbjahr 2027 sollen Autos auch in Europa verkauft werden. Die Auto-Sparte setzte im 2. Quartal 2026 schon 23.9 Mrd. Yuan um, rund 22 % des Konzernumsatzes.",
+   "wann": "2027–2028"
+  },
+  {
+   "titel": "Teurere Handys",
+   "text": "Xiaomi verkauft mehr teure Geräte: Der Durchschnittspreis pro Handy stieg im 2. Quartal 2026 um 25.9 % auf 1'351 Yuan. 2025 wurden 13.35 Mio. Premium-Geräte verkauft (+24 %). Sinken die Chippreise wieder, kann die Marge stark zurückkommen.",
+   "wann": "2027"
+  },
+  {
+   "titel": "Eigene KI",
+   "text": "Xiaomi entwickelt eigene KI-Modelle (MiMo-V2.5-Pro mit über 1 Billion Parametern) und will sie in Handys, Autos und Haushaltsgeräte bringen sowie als Abo und über Schnittstellen verkaufen. J.P. Morgan sieht darin kurzfristig keinen grossen Treiber.",
+   "wann": "2027 und später"
+  }
+ ],
+ "schub_beweis": "Achte am 24.11.2026 auf drei Werte: Bruttomarge über 20 % (2. Quartal 2026: 19.8 %), Sparte Autos, KI und Neues wieder mit Gewinn, und Auto-Auslieferungen pro Monat klar über 40'000 (September: 40'015).",
+ "szenario": "Ein Fall wie Google 2023 wäre: Die Börse sieht heute nur teure Chips und schwache Handys und übersieht Autos und KI. Sinken die Chippreise 2027 und wächst das Auto-Geschäft mit SkyNomad und Europa, könnte der Gewinn kräftig steigen; die Analysten sehen im Schnitt rund 34 HKD. Grösstes Risiko: Die Chippreise bleiben bis Ende 2027 hoch, der Automarkt in China bleibt schwach und die Auto-Sparte kostet weiter viel Geld.",
+ "quellen": [
+  {
+   "titel": "Tiger: Xiaomi Q2 2026 (18.08.2026)",
+   "url": "https://www.itiger.com/news/1131990081"
+  },
+  {
+   "titel": "The Standard: Xiaomi Q1 profit sinks 43pc, buyback (26.05.2026)",
+   "url": "https://www.thestandard.com.hk/innovation/article/332994/Chinas-Xiaomi-Q1-profit-sinks-43pc-on-higher-memory-chip-costs-launches-20-billion-buyback"
+  },
+  {
+   "titel": "Tiger: Xiaomi Investor Day (28.04.2026)",
+   "url": "https://www.itiger.com/news/1163617478"
+  },
+  {
+   "titel": "CnEVPost: Xiaomi Auto September deliveries (13.10.2026)",
+   "url": "https://cnevpost.com/2026/10/13/xiaomi-auto-sept-2026-deliveries-2/"
+  },
+  {
+   "titel": "ad-hoc-news: Xiaomi's Twin Engines (15.10.2026)",
+   "url": "https://www.ad-hoc-news.de/boerse/news/unternehmensnachrichten/xiaomi-s-twin-engines-auto-deliveries-hit-a-2026-peak-while-phone-shipments-skid-20-4-prozent/70326644"
+  }
+ ]
+}

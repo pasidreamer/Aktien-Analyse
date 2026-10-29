@@ -1,0 +1,58 @@
+{
+ "ticker": "NN",
+ "sorgen": [
+  "Grosse Sorgen gibt es kaum: Der Kurs liegt am 29.10.2026 mit 78.26 € nur rund 6 % unter dem Rekordhoch vom 6.8.2026 (83.40 €). Nach den Halbjahreszahlen fiel er bis 9.10. auf 75.16 €, ohne klare schlechte Firmennachricht.",
+  "Das Prämienvolumen wächst nicht: In den letzten 12 Monaten bis Juni 2026 sanken die Bruttoprämien um rund 2 %, 2025 um 5.2 %.",
+  "Laut NN wird der Verkauf von Versicherungen über griechische Banken 2027 deutlich schwächer, und die Solvency-Quote der grössten Tochter NN Life sank im 1. Halbjahr 2026 von 223 % auf 213 %.",
+  "Die Aktie ist nach fast einer Verdoppelung seit Ende 2024 nicht mehr billig: KGV 11.5 statt 8.4 im eigenen 5-Jahres-Schnitt."
+ ],
+ "sorgen_art": "stimmung",
+ "sorgen_art_text": "Das Geschäft läuft solide (Kapitalgenerierung 1. Halbjahr 2026 +5 %, Free Cashflow der Holding +7 %), der Rücksetzer seit August wirkt wie eine Verschnaufpause nach dem starken Anstieg.",
+ "aufloeser": [
+  {
+   "was": "Die Kapitalgenerierung 2026 liegt über 2'089 Mio. € (2025), die Solvency-II-Quote bleibt über 200 %, und NN erhöht die Dividende erneut und kündigt einen Rückkauf von mindestens 350 Mio. € für 2027 an",
+   "wann": "Jahreszahlen 10.2.2027"
+  },
+  {
+   "was": "Die Prämien und der Wert des Neugeschäfts wachsen wieder, vor allem in den Niederlanden und bei Insurance Europe",
+   "wann": "Halbjahreszahlen August 2027"
+  },
+  {
+   "was": "Das Sparprogramm «Future Ready» erreicht wie geplant 200 Mio. € Einsparungen pro Jahr (Juni 2026: rund 65 % erreicht)",
+   "wann": "2027"
+  }
+ ],
+ "schub_stufe": "schwach",
+ "schub_treiber": [
+  {
+   "titel": "Pensionsreform in den Niederlanden",
+   "text": "Die Niederlande stellen ihr Pensionssystem um. NN kann damit mehr Pensionsgelder in Sparplänen verwalten: Das Vermögen in solchen beitragsorientierten Plänen stieg im 1. Halbjahr 2026 um 13 % auf 48.2 Mrd. €. Wie viel Gewinn daraus wird, ist noch offen.",
+   "wann": "2026–2028"
+  },
+  {
+   "titel": "Wachstum in Mittel- und Osteuropa",
+   "text": "Insurance Europe (z. B. Polen und Rumänien) steigerte die Kapitalgenerierung im 1. Halbjahr 2026 um 19 % auf 299 Mio. €. Das ist aber nur gut ein Viertel der Gruppe, und Griechenland bremst laut Firma 2027.",
+   "wann": "2026–2027"
+  }
+ ],
+ "schub_beweis": "Achte am 10.2.2027 auf die Kapitalgenerierung (2025: 2'089 Mio. €, Ziel 2028: 2'200 Mio. €) und den Wert des Neugeschäfts (2025: 442 Mio. €). Steigen beide klar um mehr als 5 %, wächst NN schneller als geplant.",
+ "szenario": "Kein Fall wie Google 2023: NN ist eine reife Firma, die vor allem viel Geld ausschüttet (rund 5 % Dividende plus 1.7 % Rückkauf pro Jahr). Geht der Plan auf, wächst die Dividende weiter, und der Kurs folgt langsam. Grösstes Risiko: Ein Einbruch an den Kapitalmärkten oder stark fallende Zinsen drücken die Solvency-Quote und damit die Ausschüttungen.",
+ "quellen": [
+  {
+   "titel": "NN Group: Halbjahreszahlen 2026 (6.8.2026)",
+   "url": "https://www.nn-group.com/site/binaries/content/assets/nn-group/financial-results/2026/nn-group-press-release-1h26.pdf"
+  },
+  {
+   "titel": "NN Group: Jahreszahlen 2025",
+   "url": "https://www.nn-group.com/site/binaries/content/assets/nn-group/financial-results/2025/nn-group-press-release-fy25.pdf"
+  },
+  {
+   "titel": "NN Group: Analystenpräsentation FY25 (Ziele 2028)",
+   "url": "https://www.nn-group.com/site/binaries/content/assets/nn-group/financial-results/2025/nn-group-analyst-presentation-fy25.pdf"
+  },
+  {
+   "titel": "ad-hoc-news: Thirteen analysts set EUR 82.42 target (16.10.2026)",
+   "url": "https://www.ad-hoc-news.de/boerse/news/corporate-news/nn-group-stock-thirteen-analysts-set-eur-82-42-target-for-nn-group-stock/70341966"
+  }
+ ]
+}

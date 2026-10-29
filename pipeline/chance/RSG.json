@@ -1,0 +1,57 @@
+{
+ "ticker": "RSG",
+ "sorgen": [
+  "Die Abfallmengen sinken: Im 2. Quartal 2026 drückten tiefere Mengen den Umsatz um 1.6 %, im 3. Quartal um 0.6 %. Bauschutt auf den Deponien fiel im 2. Quartal um 37 %, weil weniger gebaut wird.",
+  "Der Gewinn wächst langsamer: Bereinigt stieg der Gewinn pro Aktie im 3. Quartal 2026 nur um 2.1 % (1.94 $), nach +16 bis +19 % pro Jahr von 2022 bis 2024.",
+  "Die Aktie ist teuer: KGV 32.7 gegen einen eigenen Schnitt von 30.6. Im Oktober 2026 senkten mehrere Banken ihr Kursziel, zum Beispiel Morgan Stanley von 232 auf 219 $ (13.10.2026)."
+ ],
+ "sorgen_art": "stimmung",
+ "sorgen_art_text": "Das Geschäft läuft stabil weiter (Umsatz im 3. Quartal +8.2 %, Free Cashflow steigt jedes Jahr), gedrückt hat vor allem die hohe Bewertung und die schwache Bautätigkeit, die nur einen kleinen Teil des Geschäfts betrifft.",
+ "aufloeser": [
+  {
+   "was": "Die Abfallmengen steigen wieder, vor allem Bauschutt und Container für Firmen",
+   "wann": "Zahlen 4. Quartal, voraussichtlich Mitte Februar 2027"
+  },
+  {
+   "was": "Die Ziele für 2027 zeigen wieder mehr als 5 % Umsatzwachstum und ein schnelleres Gewinnwachstum",
+   "wann": "Februar 2027"
+  },
+  {
+   "was": "Das neue Rückkaufprogramm über 5 Mrd. $ startet und verringert die Zahl der Aktien um rund 2 % pro Jahr",
+   "wann": "2027 bis 2029"
+  }
+ ],
+ "schub_stufe": "schwach",
+ "schub_treiber": [
+  {
+   "titel": "Zukäufe kleiner Abfallfirmen",
+   "text": "Republic Services kauft laufend kleine Konkurrenten, 2026 bis September für rund 1.1 Mrd. $. Das bringt rund 1 bis 1.3 Punkte Umsatzwachstum pro Jahr, aber keinen Sprung.",
+   "wann": "laufend"
+  },
+  {
+   "titel": "Sondermüll und Industrieabfall",
+   "text": "Der Bereich Environmental Solutions wuchs im 3. Quartal 2026 wieder (Beitrag +2.1 %), der Chef nannte ihn als Grund für mehr Zuversicht. Er ist aber klein im Verhältnis zur ganzen Firma und schwankt mit der Industrie.",
+   "wann": "2027"
+  }
+ ],
+ "schub_beweis": "Achte in den Zahlen vom Februar 2027 auf den Beitrag der Mengen (3. Quartal 2026: −0.6 %). Wird er positiv, während die Preise weiter um rund 5 % steigen, zieht das Wachstum an.",
+ "szenario": "Kein Fall wie Google 2023: Republic Services ist eine reife, sehr stabile Firma, die jedes Jahr etwas teurer verkauft und kleine Firmen zukauft. Im guten Fall kommen die Mengen mit dem Bau zurück und der Gewinn wächst wieder um rund 10 % pro Jahr. Grösstes Risiko: Das Wachstum bleibt bei rund 5 %, dann ist ein KGV von über 32 zu hoch und die Aktie kann lange seitwärts laufen.",
+ "quellen": [
+  {
+   "titel": "Republic Services: Third Quarter 2026 Results (29.10.2026)",
+   "url": "https://www.prnewswire.com/news-releases/republic-services-inc-reports-third-quarter-2026-results-302924227.html"
+  },
+  {
+   "titel": "Zacks/Yahoo: RSG Raises 2026 Outlook as Pricing Strength Offsets Softer Volumes (11.08.2026)",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/rsg-raises-2026-outlook-pricing-133100650.html"
+  },
+  {
+   "titel": "TradingKey: Republic Services Q2 2026 earnings (06.08.2026)",
+   "url": "https://www.tradingkey.com/news/earnings/262085755-tradingkey"
+  },
+  {
+   "titel": "MarketBeat: RSG Analysten-Kursziele",
+   "url": "https://www.marketbeat.com/stocks/NYSE/RSG/forecast/"
+  }
+ ]
+}

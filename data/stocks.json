@@ -1,5 +1,5 @@
 {
- "stand": "2026-10-28",
+ "stand": "2026-10-29",
  "aktien": [
   {
    "ticker": "APP",
@@ -17859,6 +17859,1087 @@
    ],
    "cheatsheet": "analysen/1211.html",
    "claude": "https://claude.ai/artifact/67CPvTEBNGPKt2Z9J3gq8G"
+  },
+  {
+   "ticker": "1810",
+   "symbol": "1810.HK",
+   "name": "Xiaomi",
+   "tags": [
+    "Wachstum"
+   ],
+   "land": "China",
+   "region": "Asien",
+   "branche": "Smartphones, Elektronik und Elektroautos",
+   "status": "beobachten",
+   "waehrung": "HKD",
+   "analyse": {
+    "datenstand": "2026-10-29",
+    "kurs": 25.68,
+    "q": 25,
+    "t": 37
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "2 von 4 Quartalen über Vorjahr (+22 %, +7 %, −11 %, −6 %), Tempo bricht ein",
+     "p": 4,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "+2.2 % in 12 Monaten bis Juni 2026, 1. Halbjahr 2026 sogar −8.4 %",
+     "p": 0,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "4.8 % (0 Pkt.), heute tiefer als 2021 (6.1 %) und seit 2025 fallend (0 Pkt.)",
+     "p": 0,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "Aktuell klar negativ: bereinigter Gewinn 1. Halbjahr 2026 −43 %, EPS 12 Monate −21 % gegen 2025",
+     "p": 0,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Letzte 12 Monate negativ (−4.6 Mrd. RMB), vorher 3 Jahre positiv",
+     "p": 0,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "9.0 % (2 Pkt.), klar fallend von 16.7 % (−1)",
+     "p": 1,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Netto-Cash, rund 89 Mrd. HKD mehr Bargeld als Schulden",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "KGV 17.6 statt Ø 24.1 (ohne Ausreisser 2022), rund 27 % günstiger",
+     "p": 10,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs klar unter beiden, EMA 50 noch über 200, die Linien laufen zusammen",
+     "p": 4,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs knapp unter beiden, EMA 50 unter 200, EMA 50 flacht ab",
+     "p": 2,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Seit Juli tiefere Hochs und tiefere Tiefs, das Juni-Tief (21.30) hält aber",
+     "p": 4,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "Tag 48, Woche 43: neutral ohne Signal",
+     "p": 7,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Woche: bullische Divergenz (höhere A/D beim gleichen Kurs), Tag neutral",
+     "p": 11,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Start 3, grosser laufender Rückkauf (rund 2.9 % des Börsenwerts, +3), keine Insider-Käufe in 6 Monaten",
+     "p": 6,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "November 75 %, Dezember 50 %, Januar 38 % positive Jahre: Schnitt rund 54 %",
+     "p": 3,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 17.6,
+    "schnitt": 24.1,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      23.5,
+      25.4
+     ],
+     [
+      21.3,
+      22.5
+     ]
+    ],
+    "widerstand": [
+     [
+      26.3,
+      28.2
+     ],
+     [
+      29.1,
+      30.4
+     ],
+     [
+      31.0,
+      32.4
+     ]
+    ],
+    "trigger": 27.76,
+    "abbruch": 21.0
+   },
+   "zahlen": "2026-11-24",
+   "dividende": "keine",
+   "div_info": {
+    "zahlt": false,
+    "text": "Xiaomi hat noch nie eine Dividende bezahlt. Das Geld fliesst in Elektroautos, KI und Aktienrückkäufe (Programm bis 20 Mrd. HKD seit Mai 2026)."
+   },
+   "chance": {
+    "ticker": "1810",
+    "sorgen": [
+     "Teure Speicherchips: Laut Xiaomi kosten DRAM und NAND rund fünfmal so viel wie Anfang 2025. Die Marge der Handy-Sparte fiel im 1. Quartal 2026 auf 10.1 %, der bereinigte Gewinn im 1. Halbjahr 2026 um 43 %.",
+     "Weniger Handys: Im 3. Quartal 2026 verkaufte Xiaomi in China 20.4 % weniger Handys (IDC). Die Firma erwartet für die ganze Branche 2026 mindestens 10 % weniger Geräte.",
+     "Die Auto-Sparte wächst langsamer: Im 3. Quartal 2026 lieferte Xiaomi 101'435 Autos aus, 6.8 % weniger als ein Jahr zuvor. Für das Jahresziel von 550'000 fehlen rund 264'000 Autos im 4. Quartal. Im 1. Quartal machte die Sparte Autos, KI und Neues 3.1 Mrd. Yuan Betriebsverlust.",
+     "Die Aktie fiel vom Wochenhoch im Juni 2025 (61.45 HKD) bis auf 21.30 HKD (26.6.2026). China Renaissance stufte am 9.10.2026 auf Verkaufen ab (Ziel 20.50 HKD)."
+    ],
+    "sorgen_art": "gemischt",
+    "sorgen_art_text": "Die Chippreise und die schwache Nachfrage nach Handys und Autos in China sind echte Probleme, aber die Chippreise sind ein Kostenzyklus und kein Verlust von Marktanteilen; die Bilanz mit Netto-Cash bleibt sehr solide.",
+    "aufloeser": [
+     {
+      "was": "Die Zahlen zum 3. Quartal zeigen eine stabilere Bruttomarge (2. Quartal 2026: 19.8 %) und einen Umsatz nahe am Vorjahr (113.1 Mrd. RMB). Laut Präsident Lu Weibing soll der Anstieg der Chipkosten ab dem 3. Quartal nachlassen.",
+      "wann": "Zahlen 3. Quartal, voraussichtlich 24.11.2026"
+     },
+     {
+      "was": "Die neue SUV-Reihe SkyNomad bringt die Auto-Auslieferungen wieder deutlich über Vorjahr (laut Firma über 70'000 feste Bestellungen in 30 Tagen)",
+      "wann": "Monatszahlen November und Dezember 2026"
+     },
+     {
+      "was": "Die Speicherchip-Preise sinken wieder. Counterpoint rechnet mit Knappheit bis Ende 2027.",
+      "wann": "2027"
+     },
+     {
+      "was": "Der Free Cashflow wird wieder klar positiv",
+      "wann": "Jahreszahlen 2026, voraussichtlich März 2027"
+     }
+    ],
+    "schub_stufe": "mittel",
+    "schub_treiber": [
+     {
+      "titel": "Elektroautos und Europa",
+      "text": "Xiaomi hat bis September 2026 rund 838'000 Autos ausgeliefert. Seit September gibt es die SUV-Reihe SkyNomad, ab dem 2. Halbjahr 2027 sollen Autos auch in Europa verkauft werden. Die Auto-Sparte setzte im 2. Quartal 2026 schon 23.9 Mrd. Yuan um, rund 22 % des Konzernumsatzes.",
+      "wann": "2027–2028"
+     },
+     {
+      "titel": "Teurere Handys",
+      "text": "Xiaomi verkauft mehr teure Geräte: Der Durchschnittspreis pro Handy stieg im 2. Quartal 2026 um 25.9 % auf 1'351 Yuan. 2025 wurden 13.35 Mio. Premium-Geräte verkauft (+24 %). Sinken die Chippreise wieder, kann die Marge stark zurückkommen.",
+      "wann": "2027"
+     },
+     {
+      "titel": "Eigene KI",
+      "text": "Xiaomi entwickelt eigene KI-Modelle (MiMo-V2.5-Pro mit über 1 Billion Parametern) und will sie in Handys, Autos und Haushaltsgeräte bringen sowie als Abo und über Schnittstellen verkaufen. J.P. Morgan sieht darin kurzfristig keinen grossen Treiber.",
+      "wann": "2027 und später"
+     }
+    ],
+    "schub_beweis": "Achte am 24.11.2026 auf drei Werte: Bruttomarge über 20 % (2. Quartal 2026: 19.8 %), Sparte Autos, KI und Neues wieder mit Gewinn, und Auto-Auslieferungen pro Monat klar über 40'000 (September: 40'015).",
+    "szenario": "Ein Fall wie Google 2023 wäre: Die Börse sieht heute nur teure Chips und schwache Handys und übersieht Autos und KI. Sinken die Chippreise 2027 und wächst das Auto-Geschäft mit SkyNomad und Europa, könnte der Gewinn kräftig steigen; die Analysten sehen im Schnitt rund 34 HKD. Grösstes Risiko: Die Chippreise bleiben bis Ende 2027 hoch, der Automarkt in China bleibt schwach und die Auto-Sparte kostet weiter viel Geld.",
+    "quellen": [
+     {
+      "titel": "Tiger: Xiaomi Q2 2026 (18.08.2026)",
+      "url": "https://www.itiger.com/news/1131990081"
+     },
+     {
+      "titel": "The Standard: Xiaomi Q1 profit sinks 43pc, buyback (26.05.2026)",
+      "url": "https://www.thestandard.com.hk/innovation/article/332994/Chinas-Xiaomi-Q1-profit-sinks-43pc-on-higher-memory-chip-costs-launches-20-billion-buyback"
+     },
+     {
+      "titel": "Tiger: Xiaomi Investor Day (28.04.2026)",
+      "url": "https://www.itiger.com/news/1163617478"
+     },
+     {
+      "titel": "CnEVPost: Xiaomi Auto September deliveries (13.10.2026)",
+      "url": "https://cnevpost.com/2026/10/13/xiaomi-auto-sept-2026-deliveries-2/"
+     },
+     {
+      "titel": "ad-hoc-news: Xiaomi's Twin Engines (15.10.2026)",
+      "url": "https://www.ad-hoc-news.de/boerse/news/unternehmensnachrichten/xiaomi-s-twin-engines-auto-deliveries-hit-a-2026-peak-while-phone-shipments-skid-20-4-prozent/70326644"
+     }
+    ]
+   },
+   "fazit": "Xiaomi ist einer der grössten Handy-Hersteller der Welt und baut seit 2024 auch Elektroautos. Das Geschäft läuft gerade schlecht: Im 1. Halbjahr 2026 fiel der Umsatz um 8.4 %, der bereinigte Gewinn um 43 %. Hauptgrund sind Speicherchips: Sie kosten laut Firma rund fünfmal so viel wie Anfang 2025, das drückt die Handy-Marge. Dazu kommen weniger verkaufte Handys (China im 3. Quartal −20 % laut IDC) und schwächere Auto-Auslieferungen (3. Quartal −7 %). Positiv: Xiaomi hat mehr Bargeld als Schulden und kauft eigene Aktien zurück. Das KGV von rund 18 liegt unter dem eigenen Schnitt, aber der Gewinn sinkt weiter. Qualität rot (25), Timing orange (37): Der Kurs hat sich seit Juni über dem Tief von 21.30 HKD gefangen, ein Aufwärtstrend fehlt aber. Die Zahlen zum 3. Quartal kommen voraussichtlich am 24.11.2026. Keine Anlageberatung.",
+   "about": "Xiaomi aus Peking wurde 2010 von Lei Jun gegründet. Er ist bis heute Chef und hält rund 23 % der Aktien (Stand November 2025). Xiaomi verkauft Smartphones, dazu Fernseher, Staubsauger-Roboter, Klimageräte und viele andere vernetzte Geräte («IoT»). Auf den Geräten verdient Xiaomi zusätzlich mit Werbung und Apps (Internetdienste, Bruttomarge rund 77 %). Seit 2024 baut Xiaomi eigene Elektroautos (SU7, YU7 und seit September 2026 die SUV-Reihe SkyNomad). Bis Ende September 2026 wurden rund 838'000 Autos ausgeliefert, ein Verkauf in Europa ist ab dem 2. Halbjahr 2027 geplant. Dazu entwickelt Xiaomi eigene KI-Modelle (MiMo). Die Aktie wird in Hongkong gehandelt (1810 in HKD, 81810 in Yuan). Du kaufst in Lots von 200 Aktien, heute rund 5'136 HKD (etwa 540 CHF, mit 1 HKD = rund 0.105 CHF). Weniger als 1 Lot kannst du an der Börse Hongkong in der Regel nicht kaufen.",
+   "kpis": [
+    {
+     "ampel": "r",
+     "name": "Umsatzwachstum",
+     "wert": "+2.2 %",
+     "text": "Letzte 12 Monate bis Juni 2026 (StockAnalysis). Das täuscht: Im 1. Halbjahr 2026 fiel der Umsatz um 8.4 %. 2025 war mit +25 % noch ein starkes Jahr."
+    },
+    {
+     "ampel": "r",
+     "name": "Operative Marge",
+     "wert": "4.8 %",
+     "text": "Von 100 Yuan Umsatz bleiben knapp 5 Yuan Betriebsgewinn (12 Monate bis Juni 2026). 2025 waren es 7.1 %. Grund: teure Speicherchips und Verluste bei den neuen Geschäften."
+    },
+    {
+     "ampel": "r",
+     "name": "Gewinn pro Aktie (EPS)",
+     "wert": "1.23 RMB",
+     "text": "Letzte 12 Monate bis Juni 2026. 2025: 1.56 RMB. Der Gewinn sinkt seit Ende 2025. Bereinigter Gewinn im 1. Halbjahr 2026: −43 %."
+    },
+    {
+     "ampel": "r",
+     "name": "ROIC",
+     "wert": "9.0 %",
+     "text": "Auf 100 Yuan investiertes Kapital rund 9 Yuan Gewinn (StockAnalysis, Stand September 2026). 2025 waren es 16.7 %. Unter 10 % ist schwach."
+    },
+    {
+     "ampel": "r",
+     "name": "Free Cashflow",
+     "wert": "−4.6 Mrd. RMB",
+     "text": "Letzte 12 Monate bis Juni 2026. Es floss etwas mehr Geld ab als herein, vor allem wegen Investitionen in Autos und KI. 2023 bis 2025 war der Wert jedes Jahr klar positiv (21 bis 35 Mrd. RMB)."
+    },
+    {
+     "ampel": "g",
+     "name": "Schulden",
+     "wert": "Netto-Cash",
+     "text": "Mehr Bargeld als Schulden: rund 89 Mrd. HKD netto (StockAnalysis, 15.10.2026). Total verfügbare Mittel laut Firma 219 Mrd. RMB (Juni 2026). Sehr solide."
+    },
+    {
+     "ampel": "w",
+     "name": "KGV",
+     "wert": "17.6",
+     "text": "Du zahlst rund 18 Jahresgewinne. Eigener Schnitt der letzten 5 Jahre ohne das Ausreisserjahr 2022: 24.1. Also rund 27 % günstiger. Aber: Analysten erwarten weniger Gewinn, auf den erwarteten Gewinn ist das KGV rund 21 bis 22."
+    },
+    {
+     "ampel": "w",
+     "name": "Dividende",
+     "wert": "keine",
+     "text": "Xiaomi hat noch nie eine Dividende bezahlt. Das Geld fliesst in Autos, KI und in Aktienrückkäufe (Programm bis 20 Mrd. HKD seit Mai 2026)."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "31.00–32.40 HKD",
+     "text": "Widerstand: Wochen-EMA 50 (31.03) und Hoch vom 30.7. (32.40 HKD)."
+    },
+    {
+     "art": "r",
+     "wert": "29.10–30.40 HKD",
+     "text": "Widerstand: Hoch vom 26.8. (29.14), Wochen-EMA 200 (29.70) und Tages-EMA 200 (30.36 HKD)."
+    },
+    {
+     "art": "r",
+     "wert": "26.30–28.20 HKD",
+     "text": "Widerstand: Tages-EMA 50 (26.26) und die Hochs vom 21.10. (27.76) und 22.9. (28.22 HKD)."
+    },
+    {
+     "art": "t",
+     "wert": "27.76 HKD",
+     "text": "Trigger: Tagesschluss über 27.76 HKD (letztes tieferes Hoch vom 21.10.), besser mit steigender Tages-A/D."
+    },
+    {
+     "art": "s",
+     "wert": "23.50–25.40 HKD",
+     "text": "Kaufzone 1: Tiefs vom 8.10. (23.58), 18.8. (25.22) und 28.10. (25.40 HKD). Hier kaufte auch Xiaomi selbst Aktien zurück (Schnitt Juli bis Oktober rund 26.47 HKD)."
+    },
+    {
+     "art": "s",
+     "wert": "21.30–22.50 HKD",
+     "text": "Kaufzone 2: 52-Wochen-Tief vom 26.6.2026 (21.30 HKD). Ein KGV von rund 15 auf den heutigen Gewinn (eigene Rechnung)."
+    },
+    {
+     "art": "r",
+     "wert": "21.00 HKD",
+     "text": "Abbruch: Wochenschluss unter 21 HKD, also unter dem 52-Wochen-Tief."
+    }
+   ],
+   "pro": [
+    "Starke Marke mit riesiger Kundenbasis: Handys, Haushaltsgeräte und Autos sind miteinander vernetzt, das bindet Kunden.",
+    "Sehr solide Bilanz: rund 89 Mrd. HKD mehr Bargeld als Schulden.",
+    "Grosser Aktienrückkauf (bis 20 Mrd. HKD) bei tiefen Kursen.",
+    "Neue Auto-Reihe SkyNomad: laut Firma über 70'000 feste Bestellungen in 30 Tagen. Europa ab 2027 geplant.",
+    "KGV von rund 18 deutlich unter dem eigenen Schnitt, Wochen-A/D zeigt erste Käufer."
+   ],
+   "contra": [
+    "Umsatz und Gewinn sinken: 1. Halbjahr 2026 Umsatz −8.4 %, bereinigter Gewinn −43 %.",
+    "Teure Speicherchips drücken die Handy-Marge, die Knappheit könnte laut Counterpoint bis Ende 2027 dauern.",
+    "Weniger Handys: China im 3. Quartal −20 % (IDC), Branche 2026 laut Firma mindestens −10 %.",
+    "Auto-Auslieferungen im 3. Quartal −7 %, das Jahresziel von 550'000 Autos ist kaum zu schaffen. Die Auto-Sparte kostet viel Geld.",
+    "China-Risiko und Hongkong-Lots: mindestens 200 Aktien (rund 540 CHF) pro Kauf, keine Dividende, Abwärtstrend im Chart."
+   ],
+   "smart_money": [
+    "Rückkäufe: Seit 26.5.2026 läuft ein Rückkaufprogramm über bis zu 20 Mrd. HKD, rund 2.9 % des Börsenwerts. Laut Halbjahresbericht kaufte Xiaomi 2026 bis 13.8. rund 377 Mio. Aktien für 11.7 Mrd. HKD zurück. Zuletzt kaufte die Firma noch am 5.10.2026 (2 Mio. Aktien zu rund 23.80 HKD).",
+    "Insider: Gründer Lei Jun kaufte im November 2025 rund 2.6 Mio. Aktien für über 100 Mio. HKD (rund 38 HKD pro Aktie). In den letzten 6 Monaten habe ich keine Insider-Käufe am Markt gefunden.",
+    "Grosse Investoren: Zu Käufen oder Verkäufen grosser Fonds 2026 habe ich keine verlässlichen Daten gefunden.",
+    "Analysten: Kursziel im Schnitt rund 34 HKD (27 Analysten, mehrheitlich Kaufen, Daten der App). Die Meinungen gehen weit auseinander: Goldman Sachs 41 HKD (Kaufen, April 2026), UOB Kay Hian 27.60 HKD (Halten, Oktober 2026), China Renaissance 20.50 HKD (Verkaufen, 9.10.2026)."
+   ],
+   "cheatsheet": "analysen/1810.html",
+   "claude": "https://claude.ai/artifact/6fznoEt2uH12oZp22hDUj8"
+  },
+  {
+   "ticker": "RSG",
+   "symbol": "RSG",
+   "name": "Republic Services",
+   "tags": [
+    "Qualität",
+    "Defensiv",
+    "Dividende"
+   ],
+   "land": "USA",
+   "region": "USA",
+   "branche": "Abfallentsorgung und Recycling",
+   "status": "beobachten",
+   "waehrung": "USD",
+   "analyse": {
+    "datenstand": "2026-10-29",
+    "kurs": 236.28,
+    "q": 61,
+    "t": 64
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "4 von 4 Quartalen über Vorjahr, Wachstum beschleunigt (+2.2 % bis +8.2 %), aber teils durch Zukäufe und Treibstoff-Zuschläge",
+     "p": 14,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "Ziel 2026 rund +5 %, davon rund 1 Punkt aus Zukäufen: aus eigener Kraft rund 4 %",
+     "p": 3,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "20.1 % (6 Pkt.), seit 2021 leicht gestiegen, seit 2024 flach (4 Pkt.)",
+     "p": 10,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "12 Monate +7.4 %, bereinigt im 3. Quartal nur +2.1 %. Der Schnitt 2023 bis 2025 (+14 %) ist vorbei",
+     "p": 5,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Positiv und jedes Jahr seit 2021 gestiegen",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "11.1 % (6 Pkt.), steigend seit 2021 (+1)",
+     "p": 7,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Nettoschulden/EBITDA 2.7",
+     "p": 5,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "KGV 32.7 statt Ø 30.6, rund 7 % teurer: im Bereich ±10 %",
+     "p": 7,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs über beiden, EMA 50 über 200. Die EMA 50 lief aber lange flach",
+     "p": 18,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs über beiden, Golden Cross am 14.10.2026",
+     "p": 9,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Break of Structure nach oben am 15.10. nach höheren Tiefs, Kurs aber im oberen, teuren Teil der Spanne",
+     "p": 15,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "62 und 62, kein Signal, kurz vorher überkauft (75.6)",
+     "p": 6,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Über das Jahr Verteilung auf beiden Zeitebenen (A/D tiefer bei höherem Kurs), seit 1.10. steigt sie kurzfristig mit",
+     "p": 3,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Start 3, Käufe des Grossaktionärs Cascade am Markt (+4), bekannter Investor baut auf (+1, derselbe Käufer), Rückkauf unter 2 %",
+     "p": 8,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "November 79 %, Dezember 64 % positive Jahre, Januar 50 %",
+     "p": 5,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 32.7,
+    "schnitt": 30.6,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      223.0,
+      228.5
+     ],
+     [
+      216.0,
+      220.0
+     ]
+    ],
+    "widerstand": [
+     [
+      240.0,
+      243.5
+     ],
+     [
+      249.0,
+      259.0
+     ]
+    ],
+    "trigger": 243.22,
+    "abbruch": 205.0
+   },
+   "zahlen": "2027-02-16",
+   "dividende": "1.1 %",
+   "div_info": {
+    "pro_jahr": 4,
+    "rhythmus": "quartalsweise",
+    "ex_monate": [
+     1,
+     4,
+     7,
+     10
+    ],
+    "zahl_monate": [
+     1,
+     4,
+     7,
+     10
+    ],
+    "zahl_text": "jeweils am 15. Januar, April, Juli und Oktober (Ex-Tag jeweils um den 2. des Monats). Nächste Zahlung: 0.67 $ am 15.1.2027.",
+    "abstand_tage": 13,
+    "betrag": 0.67,
+    "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Die Erhöhung wird jeweils Ende Juli angekündigt und gilt ab der Oktober-Zahlung (2025: +7.8 % auf 0.625 $, 2026: +7.2 % auf 0.67 $). Ausgeschüttet werden rund 37 % des Gewinns.",
+    "form": "Bar in US-Dollar. Die USA ziehen mit dem Formular W-8BEN 15 % Quellensteuer ab (ohne Formular 30 %). Die 15 % kannst du in der Schweizer Steuererklärung zurückfordern (DA-1). Wie Saxo das genau abwickelt, konnte ich nicht prüfen."
+   },
+   "chance": {
+    "ticker": "RSG",
+    "sorgen": [
+     "Die Abfallmengen sinken: Im 2. Quartal 2026 drückten tiefere Mengen den Umsatz um 1.6 %, im 3. Quartal um 0.6 %. Bauschutt auf den Deponien fiel im 2. Quartal um 37 %, weil weniger gebaut wird.",
+     "Der Gewinn wächst langsamer: Bereinigt stieg der Gewinn pro Aktie im 3. Quartal 2026 nur um 2.1 % (1.94 $), nach +16 bis +19 % pro Jahr von 2022 bis 2024.",
+     "Die Aktie ist teuer: KGV 32.7 gegen einen eigenen Schnitt von 30.6. Im Oktober 2026 senkten mehrere Banken ihr Kursziel, zum Beispiel Morgan Stanley von 232 auf 219 $ (13.10.2026)."
+    ],
+    "sorgen_art": "stimmung",
+    "sorgen_art_text": "Das Geschäft läuft stabil weiter (Umsatz im 3. Quartal +8.2 %, Free Cashflow steigt jedes Jahr), gedrückt hat vor allem die hohe Bewertung und die schwache Bautätigkeit, die nur einen kleinen Teil des Geschäfts betrifft.",
+    "aufloeser": [
+     {
+      "was": "Die Abfallmengen steigen wieder, vor allem Bauschutt und Container für Firmen",
+      "wann": "Zahlen 4. Quartal, voraussichtlich Mitte Februar 2027"
+     },
+     {
+      "was": "Die Ziele für 2027 zeigen wieder mehr als 5 % Umsatzwachstum und ein schnelleres Gewinnwachstum",
+      "wann": "Februar 2027"
+     },
+     {
+      "was": "Das neue Rückkaufprogramm über 5 Mrd. $ startet und verringert die Zahl der Aktien um rund 2 % pro Jahr",
+      "wann": "2027 bis 2029"
+     }
+    ],
+    "schub_stufe": "schwach",
+    "schub_treiber": [
+     {
+      "titel": "Zukäufe kleiner Abfallfirmen",
+      "text": "Republic Services kauft laufend kleine Konkurrenten, 2026 bis September für rund 1.1 Mrd. $. Das bringt rund 1 bis 1.3 Punkte Umsatzwachstum pro Jahr, aber keinen Sprung.",
+      "wann": "laufend"
+     },
+     {
+      "titel": "Sondermüll und Industrieabfall",
+      "text": "Der Bereich Environmental Solutions wuchs im 3. Quartal 2026 wieder (Beitrag +2.1 %), der Chef nannte ihn als Grund für mehr Zuversicht. Er ist aber klein im Verhältnis zur ganzen Firma und schwankt mit der Industrie.",
+      "wann": "2027"
+     }
+    ],
+    "schub_beweis": "Achte in den Zahlen vom Februar 2027 auf den Beitrag der Mengen (3. Quartal 2026: −0.6 %). Wird er positiv, während die Preise weiter um rund 5 % steigen, zieht das Wachstum an.",
+    "szenario": "Kein Fall wie Google 2023: Republic Services ist eine reife, sehr stabile Firma, die jedes Jahr etwas teurer verkauft und kleine Firmen zukauft. Im guten Fall kommen die Mengen mit dem Bau zurück und der Gewinn wächst wieder um rund 10 % pro Jahr. Grösstes Risiko: Das Wachstum bleibt bei rund 5 %, dann ist ein KGV von über 32 zu hoch und die Aktie kann lange seitwärts laufen.",
+    "quellen": [
+     {
+      "titel": "Republic Services: Third Quarter 2026 Results (29.10.2026)",
+      "url": "https://www.prnewswire.com/news-releases/republic-services-inc-reports-third-quarter-2026-results-302924227.html"
+     },
+     {
+      "titel": "Zacks/Yahoo: RSG Raises 2026 Outlook as Pricing Strength Offsets Softer Volumes (11.08.2026)",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/rsg-raises-2026-outlook-pricing-133100650.html"
+     },
+     {
+      "titel": "TradingKey: Republic Services Q2 2026 earnings (06.08.2026)",
+      "url": "https://www.tradingkey.com/news/earnings/262085755-tradingkey"
+     },
+     {
+      "titel": "MarketBeat: RSG Analysten-Kursziele",
+      "url": "https://www.marketbeat.com/stocks/NYSE/RSG/forecast/"
+     }
+    ]
+   },
+   "fazit": "Republic Services holt in den USA Abfall ab, sortiert ihn und lagert ihn auf eigenen Deponien. Das Geschäft ist sehr stabil: Der Umsatz steigt seit Jahren, der Free Cashflow wuchs jedes Jahr seit 2021 auf zuletzt 2.65 Mrd. $. Das Wachstum kommt aber fast nur aus Preiserhöhungen und Zukäufen, die Mengen sinken leicht (3. Quartal 2026: −0.6 %). Mit einem KGV von 32.7 ist die Aktie etwas teurer als ihr eigener Schnitt (30.6). Qualität hellgrün (61), Timing hellgrün (64): Der Kurs ist im Oktober aus einer langen Seitwärtsphase nach oben ausgebrochen, Grossaktionär Cascade (Bill Gates) kaufte von Mai bis September für rund 1.6 Mrd. $ dazu. Warnzeichen: Die A/D-Linie steigt nicht mit. Die Zahlen zum 3. Quartal vom 29.10.2026 (Umsatz +8.2 %, Ziel 2026 erhöht) kamen erst nach Börsenschluss. Keine Anlageberatung.",
+   "about": "Republic Services aus Phoenix (Arizona) ist nach Waste Management die zweitgrösste Abfallfirma der USA. Sie leert Mülltonnen und Container bei Haushalten, Gemeinden und Firmen, betreibt Umladestationen, Recyclinganlagen und vor allem eigene Deponien. Deponien sind der Burggraben: Neue Bewilligungen sind in den USA sehr schwer zu bekommen, wer sie hat, kann die Preise jedes Jahr erhöhen. Seit dem Kauf von US Ecology (2022) gibt es den Bereich Environmental Solutions für Sondermüll und Industrieabfall. Im 3. Quartal 2026 machte Republic Services 4.56 Mrd. $ Umsatz. Chef ist Jon Vander Ark. Die Firma wächst stark über Zukäufe kleiner Abfallfirmen (2026 bis September rund 1.1 Mrd. $). Abfall fällt auch in einer Rezession an, darum gilt die Aktie als defensiv. Nur das Geschäft mit Bauschutt und Sondermüll schwankt mit der Konjunktur.",
+   "kpis": [
+    {
+     "ampel": "w",
+     "name": "Umsatzwachstum",
+     "wert": "+4.5 %",
+     "text": "Letzte 12 Monate bis September 2026, eigene Rechnung. Im 3. Quartal +8.2 %, davon kamen 1.3 Punkte aus Zukäufen und 1.8 Punkte aus Treibstoff-Zuschlägen. Die Mengen sanken um 0.6 %."
+    },
+    {
+     "ampel": "g",
+     "name": "Operative Marge",
+     "wert": "20.1 %",
+     "text": "Von 100 $ Umsatz bleiben rund 20 $ Betriebsgewinn (12 Monate, eigene Rechnung). Für eine Abfallfirma gut. 2021 waren es 18.7 %, seit 2024 stabil."
+    },
+    {
+     "ampel": "w",
+     "name": "Gewinn pro Aktie (EPS)",
+     "wert": "7.22 $",
+     "text": "Letzte 12 Monate bis September 2026, eigene Rechnung: +7.4 % zum Vorjahr. Bereinigt stieg der Gewinn im 3. Quartal nur um 2.1 % (1.94 $). Von 2022 bis 2024 waren es +16 bis +19 % pro Jahr."
+    },
+    {
+     "ampel": "w",
+     "name": "ROIC",
+     "wert": "11.1 %",
+     "text": "Auf 100 $ investiertes Kapital rund 11 $ Gewinn. Mittelmässig, weil Deponien und Lastwagen viel Kapital brauchen. Leicht steigend (2021: 9.5 %)."
+    },
+    {
+     "ampel": "g",
+     "name": "Free Cashflow",
+     "wert": "2.65 Mrd. $",
+     "text": "Letzte 12 Monate bis Juni 2026. Jedes Jahr seit 2021 gestiegen (damals 1.47 Mrd. $). Ziel 2026: 2.57 bis 2.59 Mrd. $ (bereinigt)."
+    },
+    {
+     "ampel": "w",
+     "name": "Schulden",
+     "wert": "2.7 × EBITDA",
+     "text": "Nettoschulden rund 14.0 Mrd. $. Mit dem Betriebsgewinn vor Abschreibungen (EBITDA) wären sie in rund 2.7 Jahren bezahlt. Für ein so stabiles Geschäft üblich, aber nicht wenig."
+    },
+    {
+     "ampel": "w",
+     "name": "KGV",
+     "wert": "32.7",
+     "text": "Du zahlst rund 33 Jahresgewinne. Eigener Schnitt 2021 bis 2025: 30.6. Also etwa 7 % teurer als üblich. Für eine Firma mit rund 5 % Wachstum ist das viel."
+    },
+    {
+     "ampel": "w",
+     "name": "Dividende",
+     "wert": "1.1 %",
+     "text": "0.67 $ pro Quartal, also 2.68 $ pro Jahr. 4 Zahlungen (15. Januar, April, Juli, Oktober). Im Juli 2026 um 7.2 % erhöht. Es fliessen nur rund 37 % des Gewinns in die Dividende."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "249.00–259.00 $",
+     "text": "Widerstand: Hoch vom März 2025 (249.73) und Allzeithoch vom Juni 2025 (258.75 $, Wochenschluss)."
+    },
+    {
+     "art": "r",
+     "wert": "240.00–243.50 $",
+     "text": "Widerstand: 52-Wochen-Hoch vom 23.10.2026 (243.22 $)."
+    },
+    {
+     "art": "t",
+     "wert": "243.22 $",
+     "text": "Trigger: Tagesschluss über 243.22 $ (neues Hoch), besser mit steigender Tages-A/D."
+    },
+    {
+     "art": "s",
+     "wert": "223.00–228.50 $",
+     "text": "Kaufzone 1: Alte Hochs vom Juli und September (228.22 und 227.32 $), jetzt Unterstützung, dazu Tages-EMA 50 (223.22 $) und Mitte der Spanne (224.50 $)."
+    },
+    {
+     "art": "s",
+     "wert": "216.00–220.00 $",
+     "text": "Kaufzone 2: Wochen-EMA 50 (218.99), Tages-EMA 200 (218.51) und Tief vom 9.9. (219.58 $)."
+    },
+    {
+     "art": "r",
+     "wert": "205.00 $",
+     "text": "Abbruch: Wochenschluss unter 205 $, also unter dem letzten höheren Tief vom 2.10. (205.86 $)."
+    }
+   ],
+   "pro": [
+    "Sehr stabiles Geschäft: Abfall fällt immer an, Deponien sind kaum zu ersetzen, Preise steigen jedes Jahr (3. Quartal 2026: +5.3 % Kernpreis).",
+    "Free Cashflow seit 2021 jedes Jahr gestiegen, von 1.47 auf 2.65 Mrd. $.",
+    "3. Quartal 2026: Umsatz +8.2 % (4.56 Mrd. $, über den Erwartungen), Jahresziel erhöht auf 17.43 bis 17.48 Mrd. $.",
+    "Grossaktionär Cascade (Bill Gates) kaufte 2026 für rund 1.6 Mrd. $ dazu, neues Rückkaufprogramm 5 Mrd. $ ab 2027.",
+    "Chart: Ausbruch aus der Seitwärtsphase, Golden Cross im Tageschart, Saisonalität November und Dezember gut."
+   ],
+   "contra": [
+    "Wachstum fast nur über Preise und Zukäufe, die Abfallmengen sinken (3. Quartal −0.6 %, 9 Monate −1.0 %).",
+    "Bereinigter Gewinn pro Aktie stieg im 3. Quartal nur um 2.1 %.",
+    "Teuer: KGV 32.7 für rund 5 % Wachstum. Der faire Wert im Branchenvergleich der App liegt unter dem Kurs.",
+    "Rund 14 Mrd. $ Schulden (2.7 × EBITDA), höhere Zinsen würden belasten.",
+    "A/D-Linie bestätigt den Ausbruch nicht, Analysten-Kursziel (243.73 $) kaum über dem Kurs. Dividende nur 1.1 %."
+   ],
+   "smart_money": [
+    "Grossaktionär: Cascade Investment (Bill Gates) kaufte laut Pflichtmeldungen vom 11.5. bis 18.5. und vom 10.8. bis 11.9.2026 an fast jedem Börsentag Aktien, zusammen rund 7.2 Mio. Stück für rund 1.6 Mrd. $ zu 197 bis 225 $ (MarketBeat).",
+    "Insider: Verwaltungsrätin Katharine Weymouth kaufte am 9.12.2025 Aktien für 100'000 $. Einziger Verkauf in 12 Monaten: Verwaltungsrätin Sandra Volpe, 1'800 Aktien für 380'000 $ (11.6.2026).",
+    "Rückkäufe: 2026 bis September 848 Mio. $, das sind rund 1.2 % des Börsenwerts (rund 72 Mrd. $). Neu bewilligt: 5 Mrd. $ für 2027 bis 2029, also rund 1.7 Mrd. $ oder 2.3 % pro Jahr.",
+    "Analysten: 22 Analysten, 13 Kaufen und 9 Halten, Kursziel im Schnitt 243.73 $ (MarketBeat, 26.10.2026), nur knapp über dem Kurs. Im Oktober senkten mehrere Banken ihr Ziel, zum Beispiel Morgan Stanley von 232 auf 219 $ (13.10.). Baird erhöhte von 242 auf 245 $ (22.10.)."
+   ],
+   "cheatsheet": "analysen/RSG.html",
+   "claude": "https://claude.ai/artifact/9y2jC9W8kCuRQV9u3qCWhP"
+  },
+  {
+   "ticker": "NN",
+   "symbol": "NN.AS",
+   "name": "NN Group",
+   "tags": [
+    "Dividende",
+    "Defensiv"
+   ],
+   "land": "Niederlande",
+   "region": "Europa",
+   "branche": "Versicherung und Pensionen",
+   "status": "beobachten",
+   "waehrung": "EUR",
+   "analyse": {
+    "datenstand": "2026-10-29",
+    "kurs": 78.26,
+    "q": 41,
+    "t": 72
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "Ersatz Bruttoprämien, Halbjahre gegen Vorjahr: nur 1 von 4 höher (2H24 +1.6 %, dann −6.0 %, −4.1 %, −0.2 %). Das operative Ergebnis stieg dagegen 4 von 4 Halbjahren",
+     "p": 0,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "Firmenangabe: Kapitalgenerierung (OCG) als Wachstumsmass, 12 Monate bis Juni 2026 +8.0 % (eigene Rechnung), 1. Halbjahr 2026 +5.2 %",
+     "p": 6,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "Ersatz operatives Ergebnis pro Prämie: 23.2 % (6 Pkt.), seit 2023 von 19.2 % gestiegen (6 Pkt.)",
+     "p": 12,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "Ersatz operatives Ergebnis, weil der Reingewinn mit den Märkten schwankt: 2023 bis 2025 +9.0 % pro Jahr (2'528 auf 3'002 Mio. €)",
+     "p": 5,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Ersatz Free Cashflow der Holding: immer positiv, aber schwankend (2023 nur 470 Mio. €, 2025 1'620 Mio. €). Kapitalgenerierung seit 2021 jedes Jahr höher",
+     "p": 6,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "Ersatz Eigenkapitalrendite: 9.7 % in 12 Monaten (eigene Rechnung), unter 10 %. Trend nicht verlässlich messbar",
+     "p": 2,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Ersatz Financial Leverage 17.3 % und Zinsdeckung 13.5-fach, dazu Solvency-II-Quote 224 %: sehr wenig Schulden, entspricht der Stufe unter 1",
+     "p": 9,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "KGV 11.5 statt Ø 8.4, rund 37 % teurer",
+     "p": 1,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs über beiden, EMA 50 klar über EMA 200",
+     "p": 18,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs knapp über beiden, EMA 50 über EMA 200, EMA 50 flacht ab",
+     "p": 9,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Höhere Hochs und Tiefs seit März, seit August Spanne 75 bis 81 € mit haltenden Tiefs, kleiner Change of Character am 27.10.",
+     "p": 14,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "Tag dreht aus 37 nach oben, beim Tief vom 23.10. höherer RSI (45) als beim gleich tiefen Kurs am 9.10. (37): bullische Divergenz, Woche neutral (56)",
+     "p": 13,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Woche leicht bullische Divergenz, Tag noch tiefer als im August",
+     "p": 10,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Start 3, keine Insider-Käufe, Rückkauf mit rund 1.7 % unter der Schwelle von 2 %",
+     "p": 3,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "November 67 %, Dezember 58 %, Januar 67 % positive Jahre",
+     "p": 5,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 11.5,
+    "schnitt": 8.4,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      75.0,
+      76.5
+     ],
+     [
+      70.7,
+      73.6
+     ]
+    ],
+    "widerstand": [
+     [
+      80.5,
+      81.3
+     ],
+     [
+      82.5,
+      83.4
+     ]
+    ],
+    "trigger": 81.3,
+    "abbruch": 70.0
+   },
+   "zahlen": "2027-02-10",
+   "dividende": "5.0 %",
+   "div_info": {
+    "pro_jahr": 2,
+    "rhythmus": "halbjährlich",
+    "ex_monate": [
+     5,
+     8
+    ],
+    "zahl_monate": [
+     6,
+     8
+    ],
+    "zahl_text": "Schlussdividende nach der Generalversammlung (für 2025: Ex-Tag 25.5.2026, Zahlung 2.6.2026, 2.50 €), Zwischendividende nach den Halbjahreszahlen (für 2026: Ex-Tag 10.8.2026, Stichtag 11.8.2026, Zahlung 18.8.2026, 1.55 €).",
+    "abstand_tage": 8,
+    "betrag": 1.55,
+    "system": "Progressive Dividende: Sie soll jedes Jahr steigen. Zwei Zahlungen pro Jahr, festgelegt in Euro. Die Zwischendividende im August lag zuletzt bei rund 40 % der Vorjahresdividende (eigene Rechnung: 1.55 € zu 3.88 €), der Rest kommt als Schlussdividende im Juni. Dazu jedes Jahr ein Aktienrückkauf von mindestens 350 Mio. €.",
+    "form": "Bar in Euro, laut NN ganz in bar (keine Wahl zwischen Aktien und Geld). Die Niederlande ziehen 15 % Quellensteuer ab. Laut Doppelbesteuerungsabkommen Schweiz–Niederlande sind 15 % das Maximum, du kannst den Abzug in der Schweizer Steuererklärung anrechnen lassen. Wie Saxo das genau abwickelt, konnte ich nicht prüfen.",
+    "serie": "Dividende pro Aktie: 2021 2.49 €, 2022 2.79 €, 2023 3.20 €, 2024 3.44 €, 2025 3.88 €. Jedes Jahr höher."
+   },
+   "chance": {
+    "ticker": "NN",
+    "sorgen": [
+     "Grosse Sorgen gibt es kaum: Der Kurs liegt am 29.10.2026 mit 78.26 € nur rund 6 % unter dem Rekordhoch vom 6.8.2026 (83.40 €). Nach den Halbjahreszahlen fiel er bis 9.10. auf 75.16 €, ohne klare schlechte Firmennachricht.",
+     "Das Prämienvolumen wächst nicht: In den letzten 12 Monaten bis Juni 2026 sanken die Bruttoprämien um rund 2 %, 2025 um 5.2 %.",
+     "Laut NN wird der Verkauf von Versicherungen über griechische Banken 2027 deutlich schwächer, und die Solvency-Quote der grössten Tochter NN Life sank im 1. Halbjahr 2026 von 223 % auf 213 %.",
+     "Die Aktie ist nach fast einer Verdoppelung seit Ende 2024 nicht mehr billig: KGV 11.5 statt 8.4 im eigenen 5-Jahres-Schnitt."
+    ],
+    "sorgen_art": "stimmung",
+    "sorgen_art_text": "Das Geschäft läuft solide (Kapitalgenerierung 1. Halbjahr 2026 +5 %, Free Cashflow der Holding +7 %), der Rücksetzer seit August wirkt wie eine Verschnaufpause nach dem starken Anstieg.",
+    "aufloeser": [
+     {
+      "was": "Die Kapitalgenerierung 2026 liegt über 2'089 Mio. € (2025), die Solvency-II-Quote bleibt über 200 %, und NN erhöht die Dividende erneut und kündigt einen Rückkauf von mindestens 350 Mio. € für 2027 an",
+      "wann": "Jahreszahlen 10.2.2027"
+     },
+     {
+      "was": "Die Prämien und der Wert des Neugeschäfts wachsen wieder, vor allem in den Niederlanden und bei Insurance Europe",
+      "wann": "Halbjahreszahlen August 2027"
+     },
+     {
+      "was": "Das Sparprogramm «Future Ready» erreicht wie geplant 200 Mio. € Einsparungen pro Jahr (Juni 2026: rund 65 % erreicht)",
+      "wann": "2027"
+     }
+    ],
+    "schub_stufe": "schwach",
+    "schub_treiber": [
+     {
+      "titel": "Pensionsreform in den Niederlanden",
+      "text": "Die Niederlande stellen ihr Pensionssystem um. NN kann damit mehr Pensionsgelder in Sparplänen verwalten: Das Vermögen in solchen beitragsorientierten Plänen stieg im 1. Halbjahr 2026 um 13 % auf 48.2 Mrd. €. Wie viel Gewinn daraus wird, ist noch offen.",
+      "wann": "2026–2028"
+     },
+     {
+      "titel": "Wachstum in Mittel- und Osteuropa",
+      "text": "Insurance Europe (z. B. Polen und Rumänien) steigerte die Kapitalgenerierung im 1. Halbjahr 2026 um 19 % auf 299 Mio. €. Das ist aber nur gut ein Viertel der Gruppe, und Griechenland bremst laut Firma 2027.",
+      "wann": "2026–2027"
+     }
+    ],
+    "schub_beweis": "Achte am 10.2.2027 auf die Kapitalgenerierung (2025: 2'089 Mio. €, Ziel 2028: 2'200 Mio. €) und den Wert des Neugeschäfts (2025: 442 Mio. €). Steigen beide klar um mehr als 5 %, wächst NN schneller als geplant.",
+    "szenario": "Kein Fall wie Google 2023: NN ist eine reife Firma, die vor allem viel Geld ausschüttet (rund 5 % Dividende plus 1.7 % Rückkauf pro Jahr). Geht der Plan auf, wächst die Dividende weiter, und der Kurs folgt langsam. Grösstes Risiko: Ein Einbruch an den Kapitalmärkten oder stark fallende Zinsen drücken die Solvency-Quote und damit die Ausschüttungen.",
+    "quellen": [
+     {
+      "titel": "NN Group: Halbjahreszahlen 2026 (6.8.2026)",
+      "url": "https://www.nn-group.com/site/binaries/content/assets/nn-group/financial-results/2026/nn-group-press-release-1h26.pdf"
+     },
+     {
+      "titel": "NN Group: Jahreszahlen 2025",
+      "url": "https://www.nn-group.com/site/binaries/content/assets/nn-group/financial-results/2025/nn-group-press-release-fy25.pdf"
+     },
+     {
+      "titel": "NN Group: Analystenpräsentation FY25 (Ziele 2028)",
+      "url": "https://www.nn-group.com/site/binaries/content/assets/nn-group/financial-results/2025/nn-group-analyst-presentation-fy25.pdf"
+     },
+     {
+      "titel": "ad-hoc-news: Thirteen analysts set EUR 82.42 target (16.10.2026)",
+      "url": "https://www.ad-hoc-news.de/boerse/news/corporate-news/nn-group-stock-thirteen-analysts-set-eur-82-42-target-for-nn-group-stock/70341966"
+     }
+    ]
+   },
+   "fazit": "NN Group ist der grösste Versicherer der Niederlande und verdient vor allem mit Pensionen und Lebensversicherungen. Für einen Versicherer zählt, wie viel freies Kapital entsteht: Die operative Kapitalgenerierung stieg im 1. Halbjahr 2026 um 5 % auf 1'073 Mio. €, die Solvency-II-Quote ist mit 224 % sehr hoch (Pflicht: 100 %). Davon gehen rund 5 % Dividende und 1.7 % Rückkäufe pro Jahr an die Aktionäre. Schwach sind Wachstum und Rendite: Die Prämien wachsen nicht (12 Monate −2 %), die Eigenkapitalrendite liegt unter 10 %, und mit einem KGV von 11.5 ist die Aktie nach dem Anstieg von 42 auf 78 € seit Ende 2024 teurer als im eigenen Schnitt (8.4). Unser Schema ist für Industriefirmen gebaut und passt nur teilweise auf Versicherer, darum Qualität orange (41). Timing hellgrün (72): Aufwärtstrend intakt, Rücksetzer seit August aufgefangen. Nächste Zahlen am 10.2.2027. Keine Anlageberatung.",
+   "about": "NN Group aus Den Haag entstand aus Nationale-Nederlanden (gegründet 1963 aus zwei Versicherern, einer davon von 1845). Bis 2014 gehörte die Firma zur Bank ING, seit 2014 ist sie an der Börse in Amsterdam. NN verkauft vor allem Pensionen und Lebensversicherungen in den Niederlanden (rund 55 % der Kapitalgenerierung im 1. Halbjahr 2026), dazu Sachversicherungen wie Auto, Haus und Haftpflicht (Niederlande Non-life), Versicherungen in anderen Ländern Europas (Insurance Europe, z. B. Polen, Rumänien, Griechenland, Belgien), Lebensversicherungen für Firmen in Japan und eine eigene Bank für Hypotheken (NN Bank). So verdient ein Versicherer: Kunden zahlen Prämien, NN legt das Geld an und zahlt später Renten und Schäden. Der Gewinn kommt aus der Differenz. Wichtigste Kennzahl ist darum nicht der Umsatz, sondern wie viel Kapital übrig bleibt, nachdem die Aufsicht genug Reserven verlangt hat (Kapitalgenerierung) und wie viel Geld die Töchter an die Holding überweisen (Free Cashflow der Holding). Daraus bezahlt NN Dividende und Rückkäufe.",
+   "kpis": [
+    {
+     "ampel": "r",
+     "name": "Bruttoprämien",
+     "wert": "−1.9 %",
+     "text": "Ersatz für den Umsatz. Prämien der letzten 12 Monate bis Juni 2026: 13'243 Mio. € (eigene Rechnung aus Halbjahren), ein Jahr davor 13'503 Mio. €. 2025: −5.2 %. Das Prämienvolumen wächst nicht."
+    },
+    {
+     "ampel": "w",
+     "name": "Kapitalgenerierung (OCG)",
+     "wert": "2'142 Mio. €",
+     "text": "Kapital, das in 12 Monaten bis Juni 2026 frei wurde (eigene Rechnung, +8 %). 2021: 1'584 Mio. €. Seit 2021 jedes Jahr gestiegen. Ziel für 2028: 2'200 Mio. €, also nur noch langsames Wachstum."
+    },
+    {
+     "ampel": "g",
+     "name": "Free Cashflow Holding",
+     "wert": "1'679 Mio. €",
+     "text": "Geld, das die Töchter in 12 Monaten bis Juni 2026 an die Holding überwiesen haben (eigene Rechnung). Damit zahlt NN Dividende (rund 1'050 Mio. €) und Rückkäufe (350 Mio. €). 2023 waren es wegen einer Sonderzahlung nur 470 Mio. €."
+    },
+    {
+     "ampel": "g",
+     "name": "Solvency-II-Quote",
+     "wert": "224 %",
+     "text": "Kapital im Verhältnis zum Minimum, das die Aufsicht verlangt (30.6.2026). 100 % ist Pflicht, über 150 % gilt als komfortabel. NN hat viel Puffer. Ende 2024 waren es 194 %."
+    },
+    {
+     "ampel": "r",
+     "name": "Eigenkapitalrendite",
+     "wert": "9.7 %",
+     "text": "Ersatz für den ROIC: Gewinn der letzten 12 Monate (1'863 Mio. €) geteilt durch Eigenkapital (19'254 Mio. €), eigene Rechnung. Auf 100 € Eigenkapital rund 10 € Gewinn. Für einen Versicherer mittelmässig."
+    },
+    {
+     "ampel": "g",
+     "name": "Verschuldung",
+     "wert": "17.3 %",
+     "text": "Ersatz für Nettoschulden/EBITDA: Anteil der Schulden am Kapital der Holding (Financial Leverage, 30.6.2026). Unter 25 % gilt als wenig. Die Zinsen sind 13.5-mal durch die Gewinne gedeckt."
+    },
+    {
+     "ampel": "r",
+     "name": "KGV",
+     "wert": "11.5",
+     "text": "Du zahlst rund 11.5 Jahresgewinne (Kurs 78.26 € geteilt durch 6.79 € Gewinn pro Aktie der letzten 12 Monate). Eigener Schnitt der letzten 5 Jahre: 8.4. Also rund 37 % teurer als üblich. Auf den erwarteten Gewinn wäre das KGV 8.3."
+    },
+    {
+     "ampel": "g",
+     "name": "Dividende",
+     "wert": "5.0 %",
+     "text": "Für 2025 total 3.88 € pro Aktie (+13 %), in 2 Zahlungen: Schlussdividende 2.50 € (Ex-Tag 25.5.2026, bezahlt 2.6.2026) und Zwischendividende 1.55 € für 2026 (Ex-Tag 10.8.2026, bezahlt 18.8.2026, +12 %). Bar in Euro, 15 % niederländische Quellensteuer."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "82.50–83.40 €",
+     "text": "Widerstand: Rekordhoch vom 6.8.2026 (83.40 €)."
+    },
+    {
+     "art": "r",
+     "wert": "80.50–81.30 €",
+     "text": "Widerstand: Hochs vom 4.9. (80.52) und 21.9. (81.28 €), obere Grenze der Spanne."
+    },
+    {
+     "art": "t",
+     "wert": "81.30 €",
+     "text": "Trigger: Tagesschluss über 81.30 € (Hoch vom 21.9.), damit wäre die Seitwärtsspanne nach oben verlassen. Der kleinere Trigger (76.98 €) wurde am 27.10. schon überschritten."
+    },
+    {
+     "art": "s",
+     "wert": "75.00–76.50 €",
+     "text": "Kaufzone 1: Mehrfach gehaltene Tiefs vom 20.8. (75.36), 9.10. (75.16) und 23.10. (75.20 €), knapp unter der Tages-EMA 50 (77.38 €)."
+    },
+    {
+     "art": "s",
+     "wert": "70.70–73.60 €",
+     "text": "Kaufzone 2: Tief vom 4.6. (70.72 €), Wochen-EMA 50 (72.06 €) und Tages-EMA 200 (73.58 €)."
+    },
+    {
+     "art": "r",
+     "wert": "70.00 €",
+     "text": "Abbruch: Wochenschluss unter 70 €, also unter dem Juni-Tief und der Wochen-EMA 50."
+    }
+   ],
+   "pro": [
+    "Sehr starkes Kapitalpolster: Solvency-II-Quote 224 % (30.6.2026), Schulden mit 17.3 % Financial Leverage tief.",
+    "Kapitalgenerierung seit 2021 jedes Jahr höher (1'584 auf 2'089 Mio. € 2025), Free Cashflow der Holding 1H26 +7 %.",
+    "Hohe Ausschüttung: Dividende rund 5 % (seit 2021 jedes Jahr erhöht) plus mindestens 350 Mio. € Rückkauf pro Jahr.",
+    "Wert des Neugeschäfts 1H26 +16 %, Insurance Europe (Polen, Rumänien und weitere) mit +19 % Kapitalgenerierung.",
+    "Aufwärtstrend im Chart intakt, Tiefs bei 75 € mehrfach gehalten."
+   ],
+   "contra": [
+    "Kaum Wachstum: Bruttoprämien sinken leicht (12 Monate −1.9 %), Ziel für die Kapitalgenerierung 2028 (2'200 Mio. €) liegt nur rund 5 % über 2025.",
+    "Mit KGV 11.5 rund 37 % teurer als der eigene Schnitt (8.4), die Aktie hat sich seit Ende 2024 fast verdoppelt.",
+    "Eigenkapitalrendite unter 10 %, Gewinn schwankt stark mit Zinsen und Aktienmärkten.",
+    "Abhängig von den Niederlanden (über die Hälfte der Kapitalgenerierung), Pensionsreform dort bringt Chancen, aber auch Unsicherheit.",
+    "Laut Firma wird der Verkauf über griechische Banken 2027 deutlich schwächer, die Solvency-Quote von NN Life sank auf 213 %."
+   ],
+   "smart_money": [
+    "Rückkäufe: 350 Mio. € Rückkauf seit 2.3.2026 über 10 Monate, bis 31.7.2026 zu 46 % erledigt (161 Mio. €). Das sind rund 1.7 % des Börsenwerts pro Jahr (eigene Rechnung), knapp unter der Schwelle von 2 %. Ziel bis 2028: jedes Jahr mindestens 350 Mio. €.",
+    "Insider: Käufe der Führung am Markt in den letzten 6 Monaten habe ich nicht gefunden. Chef David Knibbe verkaufte 2025 Aktien für rund 0.84 Mio. € zu 55.87 € (Simply Wall St, 21.11.2025). Im Mai 2026 erhielt er Aktien als Lohnbestandteil (AFM-Register).",
+    "Grosse Investoren: Zu Käufen grosser Fonds 2026 habe ich keine verlässlichen Daten gefunden.",
+    "Analysten: Kursziel im Schnitt 82.42 € (13 Analysten, Stand 5.10.2026), rund 5 % über dem Kurs. Mehrheitlich Kaufen (Daten der App)."
+   ],
+   "cheatsheet": "analysen/NN.html",
+   "claude": "https://claude.ai/artifact/ULxTAgjVNLbMMN9pqfsJ1n"
   }
  ]
 }

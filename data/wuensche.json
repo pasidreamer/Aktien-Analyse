@@ -73,22 +73,25 @@
    "id": "chat-2026-10-28T06:37-1810",
    "text": "Xiaomi (1810.HK)",
    "eingang": "2026-10-28T06:37Z",
-   "status": "offen",
-   "hinweis": "Von Pascal im Chat gewünscht. Lot-Grösse in Hongkong beachten."
+   "status": "fertig",
+   "hinweis": "Von Pascal im Chat gewünscht. Lot-Grösse in Hongkong beachten.",
+   "ticker": "1810"
   },
   {
    "id": "chat-2026-10-28T10:16-RSG",
    "text": "Republic Services (RSG)",
    "eingang": "2026-10-28T10:16Z",
-   "status": "offen",
-   "hinweis": "Von Pascal im Chat gewünscht."
+   "status": "fertig",
+   "hinweis": "Von Pascal im Chat gewünscht.",
+   "ticker": "RSG"
   },
   {
    "id": "chat-2026-10-28T10:16-NNAS",
    "text": "NN Group (NN.AS)",
    "eingang": "2026-10-28T10:16Z",
-   "status": "offen",
-   "hinweis": "Von Pascal im Chat gewünscht. Versicherer: Solvency-Quote und Kapitalgenerierung statt FCF prüfen."
+   "status": "fertig",
+   "hinweis": "Von Pascal im Chat gewünscht. Versicherer: Solvency-Quote und Kapitalgenerierung statt FCF prüfen.",
+   "ticker": "NN"
   }
  ],
  "stand": "2026-10-28T10:16Z"

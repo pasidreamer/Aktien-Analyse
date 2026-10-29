@@ -823,5 +823,48 @@
   "betrag": 0.411,
   "system": "Eine Schlussdividende pro Jahr, festgelegt in Yuan (für 2025: 0.358 RMB pro Aktie), an der Generalversammlung im Juni beschlossen. Für 2025 schüttete BYD nur rund 10 % des Gewinns aus (2023 und 2024: 30 %), die Dividende sank um rund 73 %.",
   "form": "Bar in Hongkong-Dollar (für 2025: 0.41141 HKD pro Aktie, Kurs 1 RMB = 1.1492 HKD). BYD ist eine chinesische Firma (H-Aktie): China zieht in der Regel 10 % Quellensteuer ab. Laut Doppelbesteuerungsabkommen Schweiz–China sind 10 % das Maximum, du kannst den Abzug in der Schweizer Steuererklärung anrechnen lassen. Wie Saxo das genau abwickelt, konnte ich nicht prüfen."
+ },
+ "1810": {
+  "zahlt": false,
+  "text": "Xiaomi hat noch nie eine Dividende bezahlt. Das Geld fliesst in Elektroautos, KI und Aktienrückkäufe (Programm bis 20 Mrd. HKD seit Mai 2026)."
+ },
+ "RSG": {
+  "pro_jahr": 4,
+  "rhythmus": "quartalsweise",
+  "ex_monate": [
+   1,
+   4,
+   7,
+   10
+  ],
+  "zahl_monate": [
+   1,
+   4,
+   7,
+   10
+  ],
+  "zahl_text": "jeweils am 15. Januar, April, Juli und Oktober (Ex-Tag jeweils um den 2. des Monats). Nächste Zahlung: 0.67 $ am 15.1.2027.",
+  "abstand_tage": 13,
+  "betrag": 0.67,
+  "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Die Erhöhung wird jeweils Ende Juli angekündigt und gilt ab der Oktober-Zahlung (2025: +7.8 % auf 0.625 $, 2026: +7.2 % auf 0.67 $). Ausgeschüttet werden rund 37 % des Gewinns.",
+  "form": "Bar in US-Dollar. Die USA ziehen mit dem Formular W-8BEN 15 % Quellensteuer ab (ohne Formular 30 %). Die 15 % kannst du in der Schweizer Steuererklärung zurückfordern (DA-1). Wie Saxo das genau abwickelt, konnte ich nicht prüfen."
+ },
+ "NN": {
+  "pro_jahr": 2,
+  "rhythmus": "halbjährlich",
+  "ex_monate": [
+   5,
+   8
+  ],
+  "zahl_monate": [
+   6,
+   8
+  ],
+  "zahl_text": "Schlussdividende nach der Generalversammlung (für 2025: Ex-Tag 25.5.2026, Zahlung 2.6.2026, 2.50 €), Zwischendividende nach den Halbjahreszahlen (für 2026: Ex-Tag 10.8.2026, Stichtag 11.8.2026, Zahlung 18.8.2026, 1.55 €).",
+  "abstand_tage": 8,
+  "betrag": 1.55,
+  "system": "Progressive Dividende: Sie soll jedes Jahr steigen. Zwei Zahlungen pro Jahr, festgelegt in Euro. Die Zwischendividende im August lag zuletzt bei rund 40 % der Vorjahresdividende (eigene Rechnung: 1.55 € zu 3.88 €), der Rest kommt als Schlussdividende im Juni. Dazu jedes Jahr ein Aktienrückkauf von mindestens 350 Mio. €.",
+  "form": "Bar in Euro, laut NN ganz in bar (keine Wahl zwischen Aktien und Geld). Die Niederlande ziehen 15 % Quellensteuer ab. Laut Doppelbesteuerungsabkommen Schweiz–Niederlande sind 15 % das Maximum, du kannst den Abzug in der Schweizer Steuererklärung anrechnen lassen. Wie Saxo das genau abwickelt, konnte ich nicht prüfen.",
+  "serie": "Dividende pro Aktie: 2021 2.49 €, 2022 2.79 €, 2023 3.20 €, 2024 3.44 €, 2025 3.88 €. Jedes Jahr höher."
  }
 }

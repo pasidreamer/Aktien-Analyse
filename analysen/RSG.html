@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Republic Services Aktien-Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F3F5F7; --surface:#FFFFFF; --ink:#141B24; --muted:#5A6573; --line:#DDE2E8; --grid:#E9EDF1;
+  --accent:#2F45B5; --accent-soft:#E6E9F8; --chip:#EBEEF2;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+  --good:#1D7A4B; --good-bg:#E3F3EA; --warn:#9A6200; --warn-bg:#FBF0DC; --bad:#B2362A; --bad-bg:#FBE6E3;
+  --zone-sup:rgba(29,122,75,.10); --zone-res:rgba(178,54,42,.09);
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+    --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+    --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+    --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+  --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+  --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;padding-inline:16px;padding-block:24px 56px}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+h1,h2,h3{font-family:var(--display);font-stretch:85%;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:clamp(32px,7vw,48px);font-weight:800;line-height:1}
+h2{font-size:24px;font-weight:700}
+h3{font-size:17px;font-weight:700;font-stretch:95%}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+section{display:flex;flex-direction:column;gap:14px}
+.lead{max-width:68ch;color:var(--muted)}
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;align-items:stretch}
+.hero .id{display:flex;flex-direction:column;gap:10px;justify-content:space-between}
+.price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price b{font-family:var(--display);font-size:34px;font-weight:700}
+.meta{font-size:13px;color:var(--muted)}
+.verdict{font-size:15px;padding:12px 14px;border-radius:10px;background:var(--chip)}
+.scales{display:flex;flex-direction:column;gap:18px}
+.scale-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.scale-h span{font-size:13px;color:var(--muted)}
+.scale-h b{font-family:var(--display);font-size:28px;line-height:1}
+.track{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#C8412F 0%,#E0892F 30%,#E3B63A 50%,#8BBF4B 68%,#2E9A5B 100%);margin-top:8px}
+.pin{position:absolute;top:-5px;width:4px;height:22px;border-radius:2px;background:var(--ink);box-shadow:0 0 0 2px var(--surface);transform:translateX(-2px)}
+.ticks{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);font-family:var(--mono);margin-top:6px}
+.state{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;margin-top:8px}
+.st-good{background:var(--good-bg);color:var(--good)}
+.st-warn{background:var(--warn-bg);color:var(--warn)}
+.st-bad{background:var(--bad-bg);color:var(--bad)}
+/* tables */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;color:var(--muted);font-weight:500;font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:700;border-bottom:none}
+.pts{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{height:6px;border-radius:3px;background:var(--chip);min-width:60px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:3px}
+/* grids */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;border-left:4px solid var(--line)}
+.kpi.g{border-left-color:var(--good)}.kpi.w{border-left-color:var(--warn)}.kpi.b{border-left-color:var(--bad)}
+.kpi span{font-size:12px;color:var(--muted)}
+.kpi b{font-family:var(--mono);font-size:19px;font-weight:500;font-variant-numeric:tabular-nums}
+.kpi em{font-style:normal;font-size:12.5px;color:var(--muted)}
+/* charts */
+.chart{position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:14px;height:3px;border-radius:2px;display:inline-block}
+.swb{width:12px;height:10px;border-radius:2px;display:inline-block}
+.tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12.5px;box-shadow:0 4px 14px rgba(0,0,0,.12);white-space:nowrap;z-index:2}
+.tip b{font-family:var(--mono);font-weight:500}
+.tip .d{font-family:var(--mono);color:var(--muted);font-size:11.5px}
+.note{font-size:13.5px;color:var(--muted)}
+ul.clean{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.pro li::marker{color:var(--good)} .con li::marker{color:var(--bad)}
+.zones{display:flex;flex-direction:column;gap:8px}
+.zone{display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:baseline;padding:10px 12px;border-radius:10px;background:var(--chip);font-size:14px}
+.zone b{font-family:var(--mono);font-weight:500}
+.zone.r{border-left:4px solid var(--bad)} .zone.s{border-left:4px solid var(--good)} .zone.t{border-left:4px solid var(--accent)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+summary{cursor:pointer;font-weight:600}
+details p{margin-top:8px;color:var(--muted);max-width:70ch}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+footer{font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:6px;max-width:80ch}
+footer a{color:var(--accent)}
+@media (max-width:760px){.hero,.two{grid-template-columns:1fr}.zone{grid-template-columns:1fr;gap:2px}}
+</style>
+
+<a href="../index.html#/aktie/RSG" style="display:inline-block;margin:max(12px,env(safe-area-inset-top)) 0 0 16px;background:#1f3a5f;color:#fff;font:600 14px system-ui;padding:8px 12px;border-radius:20px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">Zurück zur App</a>
+<div class="wrap">
+
+<header class="hero">
+  <div class="card id">
+    <div>
+      <div class="eyebrow">Aktien-Check · 29.10.2026</div>
+      <h1>Republic Services</h1>
+      <p class="meta">Republic Services, Inc. · NYSE: RSG · Abfuhr, Recycling, Deponien und Sondermüll · Phoenix, USA</p>
+    </div>
+    <div class="price"><b>236.28 $</b><span class="meta">Schluss 29.10.2026 (vor den Zahlen am Abend) · 52 Wochen: 196.41 – 243.22 $ · Allzeithoch Woche: 258.75 $ im Juni 2025</span></div>
+    <p class="verdict"><b>Kurz gesagt:</b> Republic Services holt in den USA Abfall ab, sortiert ihn und lagert ihn auf eigenen Deponien. Das Geschäft ist sehr stabil: Der Umsatz steigt seit Jahren, der Free Cashflow wuchs jedes Jahr seit 2021 auf zuletzt 2.65 Mrd. $. Das Wachstum kommt aber fast nur aus Preiserhöhungen und Zukäufen, die Mengen sinken leicht (3. Quartal 2026: −0.6 %). Mit einem KGV von 32.7 ist die Aktie etwas teurer als ihr eigener Schnitt (30.6). Qualität hellgrün (61), Timing hellgrün (64): Der Kurs ist im Oktober aus einer langen Seitwärtsphase nach oben ausgebrochen, Grossaktionär Cascade (Bill Gates) kaufte von Mai bis September für rund 1.6 Mrd. $ dazu. Warnzeichen: Die A/D-Linie steigt nicht mit. Die Zahlen zum 3. Quartal vom 29.10.2026 (Umsatz +8.2 %, Ziel 2026 erhöht) kamen erst nach Börsenschluss. Keine Anlageberatung.</p>
+  </div>
+  <div class="card scales">
+    <div>
+      <div class="scale-h"><span>Qualität · Ist die Firma kaufenswert?</span><b id="q-val">61</b></div>
+      <div class="track"><i class="pin" id="q-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-good">● Solide</span>
+    </div>
+    <div>
+      <div class="scale-h"><span>Timing · Ist jetzt der Zeitpunkt?</span><b id="t-val">64</b></div>
+      <div class="track"><i class="pin" id="t-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-good">● Einstieg in Zonen möglich</span>
+    </div>
+    <p class="note">Skala: unter 30 rot · 30–45 orange · 45–60 gelb · 60–75 hellgrün · ab 75 grün. Beide Werte setzen sich aus festen Kriterien zusammen, siehe unten.</p>
+  </div>
+</header>
+
+<section>
+  <h2>Was die Firma macht</h2>
+  <p class="lead">Republic Services aus Phoenix (Arizona) ist nach Waste Management die zweitgrösste Abfallfirma der USA. Sie leert Mülltonnen und Container bei Haushalten, Gemeinden und Firmen, betreibt Umladestationen, Recyclinganlagen und vor allem eigene Deponien. Deponien sind der Burggraben: Neue Bewilligungen sind in den USA sehr schwer zu bekommen, wer sie hat, kann die Preise jedes Jahr erhöhen. Seit dem Kauf von US Ecology (2022) gibt es den Bereich Environmental Solutions für Sondermüll und Industrieabfall. Im 3. Quartal 2026 machte Republic Services 4.56 Mrd. $ Umsatz. Chef ist Jon Vander Ark. Die Firma wächst stark über Zukäufe kleiner Abfallfirmen (2026 bis September rund 1.1 Mrd. $). Abfall fällt auch in einer Rezession an, darum gilt die Aktie als defensiv. Nur das Geschäft mit Bauschutt und Sondermüll schwankt mit der Konjunktur.</p>
+  <p class="lead">Im Juni 2025 erreichte die Aktie ihr Hoch bei 258.75 $ (Wochenschluss). Danach fiel sie bis Mai 2026 auf 196.41 $ (−24 %). Gründe: Die Börse hatte Abfall-Aktien sehr hoch bewertet (KGV über 34), und das Wachstum liess nach: 2025 stieg der Umsatz nur noch um 3.5 %. Die Mengen sinken, weil weniger gebaut wird (Bauschutt auf Deponien im 2. Quartal 2026 −37 %) und Republic Services einige Verträge mit Gemeinden verloren hat (Haushaltsabfuhr −4.3 %). Seit Mai steigt der Kurs wieder: Grossaktionär Cascade Investment (die Beteiligungsfirma von Bill Gates) kaufte im Mai und von August bis September Aktien für rund 1.6 Mrd. $. Am 22.10.2026 stieg RSG um 5 %, weil Konkurrent Waste Connections gute Zahlen meldete. Am 23.10. erreichte die Aktie 243.22 $, das höchste seit Juli 2025. Die Sorgen sind also eher Bewertung und Stimmung, das Geschäft selbst läuft stabil.</p>
+</section>
+
+<section>
+  <h2>Fundamental: die Zahlen</h2>
+  <div class="kpis">
+<div class="kpi w"><span>Umsatzwachstum</span><b>+4.5 %</b><em>Letzte 12 Monate bis September 2026, eigene Rechnung. Im 3. Quartal +8.2 %, davon kamen 1.3 Punkte aus Zukäufen und 1.8 Punkte aus Treibstoff-Zuschlägen. Die Mengen sanken um 0.6 %.</em></div>
+<div class="kpi g"><span>Operative Marge</span><b>20.1 %</b><em>Von 100 $ Umsatz bleiben rund 20 $ Betriebsgewinn (12 Monate, eigene Rechnung). Für eine Abfallfirma gut. 2021 waren es 18.7 %, seit 2024 stabil.</em></div>
+<div class="kpi w"><span>Gewinn pro Aktie (EPS)</span><b>7.22 $</b><em>Letzte 12 Monate bis September 2026, eigene Rechnung: +7.4 % zum Vorjahr. Bereinigt stieg der Gewinn im 3. Quartal nur um 2.1 % (1.94 $). Von 2022 bis 2024 waren es +16 bis +19 % pro Jahr.</em></div>
+<div class="kpi w"><span>ROIC</span><b>11.1 %</b><em>Auf 100 $ investiertes Kapital rund 11 $ Gewinn. Mittelmässig, weil Deponien und Lastwagen viel Kapital brauchen. Leicht steigend (2021: 9.5 %).</em></div>
+<div class="kpi g"><span>Free Cashflow</span><b>2.65 Mrd. $</b><em>Letzte 12 Monate bis Juni 2026. Jedes Jahr seit 2021 gestiegen (damals 1.47 Mrd. $). Ziel 2026: 2.57 bis 2.59 Mrd. $ (bereinigt).</em></div>
+<div class="kpi w"><span>Schulden</span><b>2.7 × EBITDA</b><em>Nettoschulden rund 14.0 Mrd. $. Mit dem Betriebsgewinn vor Abschreibungen (EBITDA) wären sie in rund 2.7 Jahren bezahlt. Für ein so stabiles Geschäft üblich, aber nicht wenig.</em></div>
+<div class="kpi w"><span>KGV</span><b>32.7</b><em>Du zahlst rund 33 Jahresgewinne. Eigener Schnitt 2021 bis 2025: 30.6. Also etwa 7 % teurer als üblich. Für eine Firma mit rund 5 % Wachstum ist das viel.</em></div>
+<div class="kpi w"><span>Dividende</span><b>1.1 %</b><em>0.67 $ pro Quartal, also 2.68 $ pro Jahr. 4 Zahlungen (15. Januar, April, Juli, Oktober). Im Juli 2026 um 7.2 % erhöht. Es fliessen nur rund 37 % des Gewinns in die Dividende.</em></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>Umsatz pro Quartal (Mio. $)</h3>
+      <p class="note">Die letzten 4 Quartale lagen alle über dem Vorjahr, und das Wachstum wurde schneller: +2.2 %, +2.6 %, +4.6 % und +8.2 %. Ein Teil davon kommt aus Zukäufen und höheren Treibstoff-Zuschlägen, nicht aus mehr Abfall.</p>
+      <div class="chart" id="c-rev"></div>
+    </div>
+    <div class="card">
+      <h3>Operative Marge pro Jahr</h3>
+      <p class="note">Betriebsgewinn pro 100 $ Umsatz. Von 17.9 % (2022) auf rund 20 % gestiegen, seit 2024 stabil.</p>
+      <div class="chart" id="c-margin"></div>
+    </div>
+  </div>
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Jahr</th><th class="num">Umsatz Mio. $</th><th class="num">Wachstum</th><th class="num">Op. Marge</th><th class="num">EPS $</th><th class="num">Free Cashflow</th><th class="num">ROIC</th><th class="num">KGV</th></tr></thead>
+      <tbody id="fin-rows"></tbody>
+    </table>
+  </div>
+  <p class="note"><b>Hinweis:</b> Zahlen in Mio. $. Jahre 2021 bis 2025 laut StockAnalysis. Letzte 12 Monate: Umsatz, Marge und EPS eigene Rechnung bis September 2026 mit den Zahlen vom 29.10.2026, Free Cashflow bis Juni 2026. KGV pro Jahr laut StockAnalysis, heute eigene Rechnung (236.28 $ / 7.22 $). Schnitt 2021 bis 2025: 30.6.</p>
+</section>
+
+<section>
+  <h2>Qualität: 61 von 100</h2>
+  <div class="card tbl"><table id="q-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Technik: Wochenchart (2 Jahre)</h2>
+  <div class="card">
+    <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span><span><i class="swb" style="background:var(--zone-sup);border:1px solid var(--good)"></i>Unterstützung</span><span><i class="swb" style="background:var(--zone-res);border:1px solid var(--bad)"></i>Widerstand</span></div>
+    <div class="chart" id="c-week"></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>A/D-Linie, Woche</h3>
+      <p class="note">Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Warnzeichen: Im März 2026 stand die Wochen-A/D bei 339 (Kurs 233 $). Heute ist der Kurs höher (236 $), die A/D aber tiefer (320). Beim Ausbruch im Oktober wird also weniger gekauft als im Frühling. Seit Ende September (305) steigt sie immerhin wieder.</p>
+      <div class="chart" id="c-adw"></div>
+    </div>
+    <div class="card">
+      <h3>RSI, Woche</h3>
+      <p class="note">Unter 30 überverkauft, über 70 überkauft. 62, kräftig, aber noch nicht überkauft. Vor einem Monat 44.</p>
+      <div class="chart" id="c-rsiw"></div>
+    </div>
+  </div>
+
+  <h2>Technik: Tageschart (1 Jahr)</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Kurs, Tag</h3>
+      <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span></div>
+      <div class="chart" id="c-day"></div>
+    </div>
+    <div class="card">
+      <h3>A/D-Linie, Tag</h3>
+      <p class="note">Die Tages-A/D fiel seit Januar 2026 von rund 28 auf rund 1, obwohl der Kurs von 220 auf 236 $ stieg. Das heisst: Über das Jahr wurde eher verkauft. Seit dem Tief vom 1.10. (−3.3) steigt sie wieder mit dem Kurs, am 22.10. auf 1.8, heute 0.7. Kurzfristig kaufen also wieder mehr Leute, die Bestätigung über das Jahr fehlt.</p>
+      <div class="chart" id="c-add"></div>
+    </div>
+  </div>
+
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Indikator</th><th>Tag</th><th>Woche</th><th>Bedeutung</th></tr></thead>
+      <tbody>
+<tr><td>Kurs vs. EMA 50</td><td class="pts">236.28 &gt; 223.22</td><td class="pts">236.28 &gt; 218.99</td><td>Klar über der mittelfristigen Linie, auf beiden Zeitebenen.</td></tr>
+<tr><td>Kurs vs. EMA 200</td><td class="pts">236.28 &gt; 218.51</td><td class="pts">236.28 &gt; 195.98</td><td>Über der langfristigen Linie, in der Woche rund 21 % darüber.</td></tr>
+<tr><td>EMA 50 vs. EMA 200</td><td class="pts">50 über 200 (Golden Cross am 14.10.2026)</td><td class="pts">50 über 200 (seit November 2016)</td><td>Tag und Woche im Aufwärtstrend. Die Wochen-EMA 50 lief aber ein Jahr lang flach.</td></tr>
+<tr><td>RSI (14)</td><td class="pts">62.5</td><td class="pts">62.3</td><td>Kräftig. Am 22.10. war der Tages-RSI mit 75.6 überkauft, jetzt hat er sich abgekühlt.</td></tr>
+<tr><td>A/D</td><td class="pts">steigt seit 1.10., über das Jahr aber gefallen</td><td class="pts">tiefer als im März trotz höherem Kurs</td><td>Kurzfristig positiv, längerfristig Verteilung (Verkäufer).</td></tr>
+<tr><td>Volumen</td><td colspan="2">Ø 20 Tage 1.27 Mio. vs. Ø 100 Tage 1.46 Mio. Aktien</td><td>Der Ausbruch kam mit eher wenig Handel.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Struktur und Zonen (Smart Money Concept)</h2>
+  <p class="lead">Von Mai bis September 2026 lief RSG seitwärts zwischen rund 197 und 228 $: Tiefs 196.41 (11.5.), 197.62 (2.6.), 204.80 (5.8.) und 205.86 $ (2.10.), Hochs 228.22 (17.7.), 225.74 (3.9.) und 227.32 $ (14.9.). Die Tiefs wurden also höher. Am 15.10. schloss der Kurs mit 229.65 $ über dem Juli-Hoch (228.22 $): ein Break of Structure nach oben. Auch in der Woche ist das März-Hoch (233.42 $) überwunden. Neues Hoch am 23.10. bei 243.22 $. Der Kurs steht heute im oberen Teil der Spanne 205.86 bis 243.22 $ (Mitte bei 224.50 $), also eher teuer. Ein Rücksetzer an die Ausbruchszone um 224 bis 228 $ wäre normal.</p>
+  <div class="zones">
+<div class="zone r"><b>249.00–259.00 $</b><span>Widerstand: Hoch vom März 2025 (249.73) und Allzeithoch vom Juni 2025 (258.75 $, Wochenschluss).</span></div>
+<div class="zone r"><b>240.00–243.50 $</b><span>Widerstand: 52-Wochen-Hoch vom 23.10.2026 (243.22 $).</span></div>
+<div class="zone t"><b>243.22 $</b><span><b>Trigger:</b> Tagesschluss über 243.22 $ (neues Hoch), besser mit steigender Tages-A/D.</span></div>
+<div class="zone s"><b>223.00–228.50 $</b><span><b>Kaufzone 1:</b> Alte Hochs vom Juli und September (228.22 und 227.32 $), jetzt Unterstützung, dazu Tages-EMA 50 (223.22 $) und Mitte der Spanne (224.50 $).</span></div>
+<div class="zone s"><b>216.00–220.00 $</b><span><b>Kaufzone 2:</b> Wochen-EMA 50 (218.99), Tages-EMA 200 (218.51) und Tief vom 9.9. (219.58 $).</span></div>
+<div class="zone r"><b>205.00 $</b><span>Abbruch: Wochenschluss unter 205 $, also unter dem letzten höheren Tief vom 2.10. (205.86 $).</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Smart Money, Insider und Saisonalität</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Wer kauft, wer verkauft?</h3>
+      <ul class="clean" style="margin-top:8px">
+<li><b>Grossaktionär:</b> Cascade Investment (Bill Gates) kaufte laut Pflichtmeldungen vom 11.5. bis 18.5. und vom 10.8. bis 11.9.2026 an fast jedem Börsentag Aktien, zusammen rund 7.2 Mio. Stück für rund 1.6 Mrd. $ zu 197 bis 225 $ (MarketBeat).</li>
+<li><b>Insider:</b> Verwaltungsrätin Katharine Weymouth kaufte am 9.12.2025 Aktien für 100'000 $. Einziger Verkauf in 12 Monaten: Verwaltungsrätin Sandra Volpe, 1'800 Aktien für 380'000 $ (11.6.2026).</li>
+<li><b>Rückkäufe:</b> 2026 bis September 848 Mio. $, das sind rund 1.2 % des Börsenwerts (rund 72 Mrd. $). Neu bewilligt: 5 Mrd. $ für 2027 bis 2029, also rund 1.7 Mrd. $ oder 2.3 % pro Jahr.</li>
+<li><b>Analysten:</b> 22 Analysten, 13 Kaufen und 9 Halten, Kursziel im Schnitt 243.73 $ (MarketBeat, 26.10.2026), nur knapp über dem Kurs. Im Oktober senkten mehrere Banken ihr Ziel, zum Beispiel Morgan Stanley von 232 auf 219 $ (13.10.). Baird erhöhte von 242 auf 245 $ (22.10.).</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Saisonalität seit 1998</h3>
+      <p class="note">Durchschnittliche Monatsrendite in %. Daten seit 1998. Stark sind April (+4.8 %, 82 % positive Jahre), November (+2.7 %, 79 %) und Mai (+2.7 %, 68 %). Schwach ist September (−1.4 %, nur 34 %). Dezember +1.8 % (64 %), Januar −0.7 % (50 %).</p>
+      <div class="chart" id="c-seas"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Timing: 64 von 100</h2>
+  <div class="card tbl"><table id="t-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Worauf du achten solltest: Unterbewertung und Wachstumsschub</h2>
+  <div class="card"><h3>Was die Börse befürchtet</h3><p class="note" style="margin:4px 0">Vor allem Stimmung: Das Geschäft läuft stabil weiter (Umsatz im 3. Quartal +8.2 %, Free Cashflow steigt jedes Jahr), gedrückt hat vor allem die hohe Bewertung und die schwache Bautätigkeit, die nur einen kleinen Teil des Geschäfts betrifft.</p><ul class="clean"><li>Die Abfallmengen sinken: Im 2. Quartal 2026 drückten tiefere Mengen den Umsatz um 1.6 %, im 3. Quartal um 0.6 %. Bauschutt auf den Deponien fiel im 2. Quartal um 37 %, weil weniger gebaut wird.</li><li>Der Gewinn wächst langsamer: Bereinigt stieg der Gewinn pro Aktie im 3. Quartal 2026 nur um 2.1 % (1.94 $), nach +16 bis +19 % pro Jahr von 2022 bis 2024.</li><li>Die Aktie ist teuer: KGV 32.7 gegen einen eigenen Schnitt von 30.6. Im Oktober 2026 senkten mehrere Banken ihr Kursziel, zum Beispiel Morgan Stanley von 232 auf 219 $ (13.10.2026).</li></ul><h3 style="margin-top:12px">Was die Sorgen beenden könnte</h3><ul class="clean"><li>Die Abfallmengen steigen wieder, vor allem Bauschutt und Container für Firmen <span class="muted">(Zahlen 4. Quartal, voraussichtlich Mitte Februar 2027)</span></li><li>Die Ziele für 2027 zeigen wieder mehr als 5 % Umsatzwachstum und ein schnelleres Gewinnwachstum <span class="muted">(Februar 2027)</span></li><li>Das neue Rückkaufprogramm über 5 Mrd. $ startet und verringert die Zahl der Aktien um rund 2 % pro Jahr <span class="muted">(2027 bis 2029)</span></li></ul><h3 style="margin-top:12px">Wachstumsschub: Kein grosser Schub in Sicht</h3><ul class="clean"><li><b>Zukäufe kleiner Abfallfirmen:</b> Republic Services kauft laufend kleine Konkurrenten, 2026 bis September für rund 1.1 Mrd. $. Das bringt rund 1 bis 1.3 Punkte Umsatzwachstum pro Jahr, aber keinen Sprung. <span class="muted">(laufend)</span></li><li><b>Sondermüll und Industrieabfall:</b> Der Bereich Environmental Solutions wuchs im 3. Quartal 2026 wieder (Beitrag +2.1 %), der Chef nannte ihn als Grund für mehr Zuversicht. Er ist aber klein im Verhältnis zur ganzen Firma und schwankt mit der Industrie. <span class="muted">(2027)</span></li></ul><p style="margin:10px 0 0"><b>Woran du es erkennst:</b> Achte in den Zahlen vom Februar 2027 auf den Beitrag der Mengen (3. Quartal 2026: −0.6 %). Wird er positiv, während die Preise weiter um rund 5 % steigen, zieht das Wachstum an.</p><p style="margin:10px 0 0"><b>Das Chancen-Szenario:</b> Kein Fall wie Google 2023: Republic Services ist eine reife, sehr stabile Firma, die jedes Jahr etwas teurer verkauft und kleine Firmen zukauft. Im guten Fall kommen die Mengen mit dem Bau zurück und der Gewinn wächst wieder um rund 10 % pro Jahr. Grösstes Risiko: Das Wachstum bleibt bei rund 5 %, dann ist ein KGV von über 32 zu hoch und die Aktie kann lange seitwärts laufen.</p><p class="note" style="margin:10px 0 0">Quellen: <a href="https://www.prnewswire.com/news-releases/republic-services-inc-reports-third-quarter-2026-results-302924227.html" target="_blank" rel="noopener">Republic Services: Third Quarter 2026 Results (29.10.2026)</a>, <a href="https://finance.yahoo.com/markets/stocks/articles/rsg-raises-2026-outlook-pricing-133100650.html" target="_blank" rel="noopener">Zacks/Yahoo: RSG Raises 2026 Outlook as Pricing Strength Offsets Softer Volumes (11.08.2026)</a>, <a href="https://www.tradingkey.com/news/earnings/262085755-tradingkey" target="_blank" rel="noopener">TradingKey: Republic Services Q2 2026 earnings (06.08.2026)</a>, <a href="https://www.marketbeat.com/stocks/NYSE/RSG/forecast/" target="_blank" rel="noopener">MarketBeat: RSG Analysten-Kursziele</a></p></div>
+</section>
+
+<section>
+  <h2>Dividende</h2>
+  <div class="card tbl"><table><tr><td style="white-space:nowrap;color:var(--muted)">Wie oft</td><td>4× pro Jahr (quartalsweise)</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Ex-Tag im</td><td>Januar, April, Juli, Oktober</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Geld auf dem Konto im</td><td>Januar, April, Juli, Oktober</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Zahltage</td><td>jeweils am 15. Januar, April, Juli und Oktober (Ex-Tag jeweils um den 2. des Monats). Nächste Zahlung: 0.67 $ am 15.1.2027.</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Letzte Zahlung</td><td>0.67 $ pro Aktie</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Rendite</td><td>1.1 %</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">System</td><td>US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Die Erhöhung wird jeweils Ende Juli angekündigt und gilt ab der Oktober-Zahlung (2025: +7.8 % auf 0.625 $, 2026: +7.2 % auf 0.67 $). Ausgeschüttet werden rund 37 % des Gewinns.</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Form</td><td>Bar in US-Dollar. Die USA ziehen mit dem Formular W-8BEN 15 % Quellensteuer ab (ohne Formular 30 %). Die 15 % kannst du in der Schweizer Steuererklärung zurückfordern (DA-1). Wie Saxo das genau abwickelt, konnte ich nicht prüfen.</td></tr></table><p class="note" style="margin:10px 0 0"><b>Ex-Tag:</b> Du bekommst die Dividende nur, wenn du die Aktie am Abend vor dem Ex-Tag besitzt. <b>Zahltag:</b> An diesem Tag kommt das Geld aufs Konto (in der Währung der Aktie, abzüglich Quellensteuer). Die nächsten genauen Termine zeigt die App unter «Termine».</p></div>
+</section>
+
+<section>
+  <h2>Pro und Contra</h2>
+  <div class="two">
+    <div class="card pro"><h3>Spricht dafür</h3><ul class="clean" style="margin-top:8px">
+<li>Sehr stabiles Geschäft: Abfall fällt immer an, Deponien sind kaum zu ersetzen, Preise steigen jedes Jahr (3. Quartal 2026: +5.3 % Kernpreis).</li>
+<li>Free Cashflow seit 2021 jedes Jahr gestiegen, von 1.47 auf 2.65 Mrd. $.</li>
+<li>3. Quartal 2026: Umsatz +8.2 % (4.56 Mrd. $, über den Erwartungen), Jahresziel erhöht auf 17.43 bis 17.48 Mrd. $.</li>
+<li>Grossaktionär Cascade (Bill Gates) kaufte 2026 für rund 1.6 Mrd. $ dazu, neues Rückkaufprogramm 5 Mrd. $ ab 2027.</li>
+<li>Chart: Ausbruch aus der Seitwärtsphase, Golden Cross im Tageschart, Saisonalität November und Dezember gut.</li>
+    </ul></div>
+    <div class="card con"><h3>Spricht dagegen</h3><ul class="clean" style="margin-top:8px">
+<li>Wachstum fast nur über Preise und Zukäufe, die Abfallmengen sinken (3. Quartal −0.6 %, 9 Monate −1.0 %).</li>
+<li>Bereinigter Gewinn pro Aktie stieg im 3. Quartal nur um 2.1 %.</li>
+<li>Teuer: KGV 32.7 für rund 5 % Wachstum. Der faire Wert im Branchenvergleich der App liegt unter dem Kurs.</li>
+<li>Rund 14 Mrd. $ Schulden (2.7 × EBITDA), höhere Zinsen würden belasten.</li>
+<li>A/D-Linie bestätigt den Ausbruch nicht, Analysten-Kursziel (243.73 $) kaum über dem Kurs. Dividende nur 1.1 %.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section>
+  <h2>Was jetzt zu tun ist</h2>
+  <div class="zones">
+<div class="zone t"><b>Beobachten</b><span>Alarm bei 243.22 $ (Trigger) und 228 $ (oberes Ende Kaufzone 1).</span></div>
+<div class="zone s"><b>Timing grün</b><span>Rücksetzer in 223 bis 228.50 $, der hält und mit steigender A/D dreht. Oder Tagesschluss über 243.22 $ mit steigender A/D. Fundamental: Mengen wieder positiv und Ziele für 2027 im Februar mit mehr als 5 % Umsatzwachstum.</span></div>
+<div class="zone r"><b>Abbruch</b><span>Wochenschluss unter 205 $.</span></div>
+<div class="zone "><b>Nächste Zahlen</b><span>4. Quartal und Ziele für 2027: voraussichtlich Mitte Februar 2027 (2026 war es der 17.2., noch nicht bestätigt). Die Zahlen zum 3. Quartal kamen am 29.10.2026 nach Börsenschluss, die Kursreaktion ist hier noch nicht drin.</span></div>
+  </div>
+</section>
+
+<footer>
+  <span>Kursdaten und Indikatoren (EMA, RSI 14, A/D) selbst berechnet aus Yahoo-Finance-Tages-, Wochen- und Monatsdaten, Stand 29.10.2026. <a href="https://www.prnewswire.com/news-releases/republic-services-inc-reports-third-quarter-2026-results-302924227.html" target="_blank" rel="noopener">Republic Services: Zahlen 3. Quartal 2026 (29.10.2026)</a>, <a href="https://stockstory.org/us/stocks/nyse/rsg/news/earnings/republic-servicess-nysersg-q3-2026-sales-top-estimates-full-year-outlook-slightly-exceeds-expectations" target="_blank" rel="noopener">StockStory: Q3 gegen Erwartungen</a>, <a href="https://stockanalysis.com/stocks/rsg/financials/" target="_blank" rel="noopener">StockAnalysis.com (RSG)</a> (Finanzen, Kennzahlen, Dividende, Stand 29.10.2026), <a href="https://www.tradingkey.com/news/earnings/262085755-tradingkey" target="_blank" rel="noopener">TradingKey: Zahlen 2. Quartal 2026</a>, <a href="https://finance.yahoo.com/markets/stocks/articles/rsg-raises-2026-outlook-pricing-133100650.html" target="_blank" rel="noopener">Zacks: Mengen und Preise 2. Quartal</a>, <a href="https://www.marketbeat.com/stocks/NYSE/RSG/insider-trades/" target="_blank" rel="noopener">MarketBeat: Insider</a>, <a href="https://www.marketbeat.com/stocks/NYSE/RSG/forecast/" target="_blank" rel="noopener">MarketBeat: Analysten</a>, <a href="https://weissratings.com/en/instant-news-alerts/republic-services-inc-rsg-up-5-0-should-i-acquire-shares-here" target="_blank" rel="noopener">Weiss Ratings: Kurssprung 22.10.2026</a>. Branchenvergleich der App: Note 2.5 von 5, fairer Wert rund 182 $ (24 % unter dem Kurs), Unsicherheit sehr hoch.</span>
+  <span>Persönliche Analyse, keine Anlageberatung. Vergangene Kurse und Saisonalität sagen nichts Sicheres über die Zukunft.</span>
+</footer>
+</div>
+
+<script>
+const Q=[["Umsatztrend", "4 von 4 Quartalen über Vorjahr, Wachstum beschleunigt (+2.2 % bis +8.2 %), aber teils durch Zukäufe und Treibstoff-Zuschläge", 14, 15], ["Wachstumstempo", "Ziel 2026 rund +5 %, davon rund 1 Punkt aus Zukäufen: aus eigener Kraft rund 4 %", 3, 10], ["Operative Marge", "20.1 % (6 Pkt.), seit 2021 leicht gestiegen, seit 2024 flach (4 Pkt.)", 10, 15], ["Gewinnwachstum (EPS)", "12 Monate +7.4 %, bereinigt im 3. Quartal nur +2.1 %. Der Schnitt 2023 bis 2025 (+14 %) ist vorbei", 5, 10], ["Free Cashflow", "Positiv und jedes Jahr seit 2021 gestiegen", 10, 10], ["ROIC", "11.1 % (6 Pkt.), steigend seit 2021 (+1)", 7, 15], ["Schulden", "Nettoschulden/EBITDA 2.7", 5, 10], ["Bewertung vs. eigene Historie", "KGV 32.7 statt Ø 30.6, rund 7 % teurer: im Bereich ±10 %", 7, 15]];
+const T=[["Trend Woche (EMA 50/200)", "Kurs über beiden, EMA 50 über 200. Die EMA 50 lief aber lange flach", 18, 20], ["Trend Tag (EMA 50/200)", "Kurs über beiden, Golden Cross am 14.10.2026", 9, 10], ["Struktur (SMC)", "Break of Structure nach oben am 15.10. nach höheren Tiefs, Kurs aber im oberen, teuren Teil der Spanne", 15, 20], ["RSI Tag/Woche", "62 und 62, kein Signal, kurz vorher überkauft (75.6)", 6, 15], ["A/D Tag/Woche", "Über das Jahr Verteilung auf beiden Zeitebenen (A/D tiefer bei höherem Kurs), seit 1.10. steigt sie kurzfristig mit", 3, 20], ["Smart Money", "Start 3, Käufe des Grossaktionärs Cascade am Markt (+4), bekannter Investor baut auf (+1, derselbe Käufer), Rückkauf unter 2 %", 8, 10], ["Saisonalität", "November 79 %, Dezember 64 % positive Jahre, Januar 50 %", 5, 5]];
+const FIN=[["2021", 11295, "+11.2 %", "18.7 %", 4.04, 1470, "9.5 %", "34.3"], ["2022", 13511, "+19.6 %", "17.9 %", 4.69, 1736, "9.7 %", "27.4"], ["2023", 14965, "+10.8 %", "18.8 %", 5.47, 1987, "9.8 %", "30.0"], ["2024", 16032, "+7.1 %", "20.1 %", 6.49, 2081, "11.4 %", "30.8"], ["2025", 16591, "+3.5 %", "20.0 %", 6.85, 2409, "11.0 %", "30.7"], ["Letzte 12 Mt.", 17237, "+4.5 %", "20.1 %", 7.22, 2653, "11.1 %", "32.7"]];
+const HALF=[["Q4 24", 4046], ["Q1 25", 4009], ["Q2 25", 4235], ["Q3 25", 4212], ["Q4 25", 4135], ["Q1 26", 4113], ["Q2 26", 4430], ["Q3 26", 4559]];
+const MARGIN=[["2021", 18.7], ["2022", 17.9], ["2023", 18.8], ["2024", 20.1], ["2025", 20.0], ["12 Mt.", 20.1]];
+const SEAS=[-0.7, 0.4, 1.6, 4.8, 2.7, 0.7, 1.7, -1.0, -1.4, 1.7, 2.7, 1.8];
+const SEASHIT=[50.0, 57.0, 71.0, 82.0, 68.0, 61.0, 57.0, 50.0, 34.0, 70.0, 79.0, 64.0];
+const MON=["Jan","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"];
+const W=`2024-11-04,211.59,188.17,149.13,64,295;2024-11-11,208.04,188.95,149.71,60,290.9;2024-11-18,216.79,190.04,150.38,66,295.3;2024-11-25,218.3,191.15,151.06,67,295.3;2024-12-02,216.68,192.15,151.71,65,296.6;2024-12-09,208.97,192.81,152.28,56,293;2024-12-16,203.73,193.24,152.79,51,287.4;2024-12-23,202.88,193.62,153.29,50,286.8;2024-12-30,201.04,193.91,153.76,48,286.8;2025-01-06,206.29,194.39,154.29,53,288.6;2025-01-13,213.73,195.15,154.88,59,293.2;2025-01-20,211.83,195.8,155.44,57,290.5;2025-01-27,216.87,196.63,156.06,61,292.1;2025-02-03,221.07,197.59,156.7,64,294.4;2025-02-10,231.37,198.91,157.45,70,298.9;2025-02-17,230.87,200.17,158.18,69,302.3;2025-02-24,237.02,201.61,158.96,72,307.3;2025-03-03,234.18,202.89,159.71,69,308.2;2025-03-10,232.01,204.03,160.43,66,306.7;2025-03-17,233.34,205.18,161.15,67,305.9;2025-03-24,238.54,206.49,161.92,70,308.4;2025-03-31,235.42,207.62,162.66,66,298;2025-04-07,243.92,209.05,163.46,71,307.7;2025-04-14,243.28,210.39,164.26,70,305.2;2025-04-21,243.56,211.69,165.05,70,311.3;2025-04-28,250.52,213.21,165.9,74,315;2025-05-05,248.58,214.6,166.72,71,312.1;2025-05-12,247.79,215.9,167.53,70,320.6;2025-05-19,252.86,217.35,168.38,73,325.5;2025-05-26,257.29,218.92,169.26,75,330.5;2025-06-02,252.97,220.25,170.09,69,326.7;2025-06-09,251.26,221.47,170.9,67,329.7;2025-06-16,248.19,222.52,171.67,63,327.9;2025-06-23,244.37,223.37,172.39,58,323.5;2025-06-30,241.14,224.07,173.08,54,323;2025-07-07,241.21,224.74,173.76,55,326.4;2025-07-14,240.5,225.36,174.42,54,323.8;2025-07-21,245.16,226.14,175.12,58,327.6;2025-07-28,231.21,226.34,175.68,44,320.1;2025-08-04,235.21,226.68,176.27,48,323.2;2025-08-11,232.85,226.93,176.84,46,321;2025-08-18,234.32,227.22,177.41,47,319.6;2025-08-25,233.97,227.48,177.97,47,320.2;2025-09-01,229.73,227.57,178.49,43,318.1;2025-09-08,228.48,227.6,178.98,42,316;2025-09-15,226.94,227.58,179.46,40,315.7;2025-09-22,228.21,227.6,179.95,42,316.9;2025-09-29,224.15,227.47,180.39,38,313.8;2025-10-06,225.16,227.38,180.83,40,317.4;2025-10-13,219.82,227.08,181.22,35,314.8;2025-10-20,223.09,226.92,181.64,40,316.8;2025-10-27,208.24,226.19,181.9,29,309.1;2025-11-03,205.59,225.38,182.14,28,307.9;2025-11-10,209.8,224.77,182.41,33,313.2;2025-11-17,219,224.55,182.78,44,322.1;2025-11-24,217.06,224.25,183.12,42,322.7;2025-12-01,216.53,223.95,183.45,42,323.8;2025-12-08,213.65,223.55,183.75,39,327;2025-12-15,213.14,223.14,184.04,39,322.5;2025-12-22,213.37,222.75,184.33,39,323;2025-12-29,210.2,222.26,184.59,37,320.1;2026-01-05,212.22,221.87,184.87,39,322.1;2026-01-12,210.96,221.44,185.13,38,323.1;2026-01-19,217.61,221.29,185.45,47,328.6;2026-01-26,215.09,221.05,185.74,44,327.6;2026-02-02,219.94,221,186.08,50,331;2026-02-09,223.17,221.09,186.45,54,330;2026-02-16,219.5,221.03,186.78,49,331.8;2026-02-23,229,221.34,187.2,58,338.1;2026-03-02,231.05,221.72,187.64,60,339.2;2026-03-09,224.28,221.82,188,53,337.7;2026-03-16,219.3,221.72,188.31,48,332;2026-03-23,215.83,221.49,188.59,45,331.7;2026-03-30,223.19,221.56,188.93,52,335.2;2026-04-06,214.66,221.29,189.19,45,329.8;2026-04-13,207.66,220.75,189.37,40,323.1;2026-04-20,209.79,220.32,189.58,42,324.2;2026-04-27,206.56,219.78,189.74,40,319.9;2026-05-04,200.02,219.01,189.85,36,313.4;2026-05-11,208.32,218.59,190.03,44,320.1;2026-05-18,208.93,218.21,190.22,44,313.3;2026-05-25,200.44,217.51,190.32,39,305.4;2026-06-01,210.04,217.22,190.52,47,310.6;2026-06-08,209.91,216.93,190.71,47,311.7;2026-06-15,204.94,216.46,190.85,43,307.5;2026-06-22,216.39,216.46,191.11,52,315.5;2026-06-29,217.34,216.49,191.37,53,318.6;2026-07-06,219.2,216.6,191.64,54,319;2026-07-13,222.31,216.82,191.95,56,318.8;2026-07-20,216.91,216.83,192.2,52,316.8;2026-07-27,210.55,216.58,192.38,47,311.4;2026-08-03,214.56,216.5,192.6,50,314.1;2026-08-10,214.71,216.43,192.82,50,313.9;2026-08-17,220.67,216.6,193.1,55,316.4;2026-08-24,222.11,216.81,193.39,56,318;2026-08-31,222.71,217.05,193.68,56,316.7;2026-09-07,222.74,217.27,193.97,56,318.9;2026-09-14,218.07,217.3,194.21,51,311.5;2026-09-21,212.1,217.1,194.39,46,306.3;2026-09-28,209.56,216.8,194.54,44,305.5;2026-10-05,216.88,216.8,194.76,51,309.9;2026-10-12,231.54,217.38,195.12,61,315.6;2026-10-19,240.45,218.29,195.58,66,319.9;2026-10-29,236.28,218.99,195.98,62,319.8`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+const DD=`2025-10-17,219.82,228.59,230.25,23.5;2025-10-20,220.13,228.26,230.14,24;2025-10-21,220.94,227.97,230.05,24.6;2025-10-22,223.28,227.79,229.99,24.8;2025-10-23,223.11,227.6,229.92,25.2;2025-10-24,223.09,227.43,229.85,25.1;2025-10-27,221.04,227.18,229.76,24.6;2025-10-28,217.73,226.8,229.64,24.3;2025-10-29,210.5,226.17,229.45,22.5;2025-10-30,209.92,225.53,229.26,20.2;2025-10-31,208.24,224.85,229.05,19.9;2025-11-03,205.28,224.08,228.81,19.9;2025-11-04,207.74,223.44,228.6,21.1;2025-11-05,206.43,222.77,228.38,20.1;2025-11-06,204.23,222.05,228.14,19;2025-11-07,205.59,221.4,227.92,19.4;2025-11-10,204.12,220.72,227.68,20.2;2025-11-11,207.13,220.19,227.48,21.5;2025-11-12,205.15,219.6,227.25,20.8;2025-11-13,206.02,219.07,227.04,20.5;2025-11-14,209.8,218.71,226.87,21.5;2025-11-17,209.81,218.36,226.7,21.7;2025-11-18,213.96,218.18,226.57,23.1;2025-11-19,217.47,218.16,226.48,24.8;2025-11-20,218.43,218.17,226.4,25.9;2025-11-21,219,218.2,226.33,27;2025-11-24,215.16,218.08,226.22,25.3;2025-11-25,217.09,218.04,226.13,25.8;2025-11-26,217.37,218.02,226.04,25.1;2025-11-28,217.06,217.98,225.95,25.2;2025-12-01,214.07,217.82,225.83,23.8;2025-12-02,212.67,217.62,225.7,22.5;2025-12-03,215.37,217.53,225.6,23.7;2025-12-04,215.12,217.44,225.49,23.1;2025-12-05,216.53,217.4,225.41,24;2025-12-08,211.44,217.17,225.27,22.6;2025-12-09,209.32,216.86,225.11,21.5;2025-12-10,207.56,216.5,224.93,20.3;2025-12-11,211.18,216.29,224.8,20.5;2025-12-12,213.65,216.19,224.69,21.4;2025-12-15,215.33,216.15,224.59,22.1;2025-12-16,214.01,216.07,224.49,21;2025-12-17,214.73,216.02,224.39,21.1;2025-12-18,213.46,215.91,224.28,20;2025-12-19,213.14,215.81,224.17,22.2;2025-12-22,212.92,215.69,224.06,22.8;2025-12-23,213.06,215.59,223.95,22.3;2025-12-24,213.2,215.5,223.84,21.5;2025-12-26,213.37,215.41,223.74,21.3;2025-12-29,214.52,215.38,223.65,21.2;2025-12-30,214.69,215.35,223.56,21.7;2025-12-31,211.93,215.22,223.44,20.9;2026-01-02,210.2,215.02,223.31,21.1;2026-01-05,212.84,214.93,223.21,22.1;2026-01-06,210.93,214.78,223.08,21.5;2026-01-07,209.08,214.55,222.94,20.2;2026-01-08,211.86,214.45,222.83,21.4;2026-01-09,212.22,214.36,222.73,20.9;2026-01-12,210.85,214.22,222.61,20;2026-01-13,209.65,214.04,222.48,20;2026-01-14,210.98,213.92,222.37,20.9;2026-01-15,210.79,213.8,222.25,21.9;2026-01-16,210.96,213.69,222.14,23.2;2026-01-20,210.62,213.57,222.02,24.2;2026-01-21,214.29,213.6,221.95,25.5;2026-01-22,215.75,213.68,221.89,26.1;2026-01-23,217.61,213.84,221.84,27;2026-01-26,219.08,214.04,221.82,27.4;2026-01-27,217.19,214.16,221.77,26.8;2026-01-28,217.6,214.3,221.73,27;2026-01-29,214.75,214.32,221.66,26;2026-01-30,215.09,214.35,221.59,28;2026-02-02,215.73,214.4,221.54,28.5;2026-02-03,213.95,214.38,221.46,28.1;2026-02-04,218.2,214.53,221.43,29;2026-02-05,218.72,214.7,221.4,27.7;2026-02-06,219.94,214.9,221.39,27.6;2026-02-09,224.08,215.26,221.41,29.1;2026-02-10,223.07,215.57,221.43,27.7;2026-02-11,225.97,215.98,221.47,28.2;2026-02-12,220.87,216.17,221.47,26.8;2026-02-13,223.17,216.44,221.49,27.2;2026-02-17,221.19,216.63,221.48,25.4;2026-02-18,216.84,216.64,221.44,26.8;2026-02-19,221.63,216.83,221.44,27;2026-02-20,219.5,216.94,221.42,26.5;2026-02-23,221.19,217.11,221.42,26.9;2026-02-24,220.74,217.25,221.41,26.2;2026-02-25,221.59,217.42,221.41,27.2;2026-02-26,224.59,217.7,221.44,28.3;2026-02-27,229,218.14,221.52,29.5;2026-03-02,230.37,218.62,221.61,29.8;2026-03-03,232.27,219.16,221.71,30.6;2026-03-04,231.57,219.64,221.81,30.9;2026-03-05,231.67,220.12,221.91,32.1;2026-03-06,231.05,220.54,222,32;2026-03-09,230.14,220.92,222.08,32.3;2026-03-10,223.53,221.02,222.09,32.1;2026-03-11,223.79,221.13,222.11,32.3;2026-03-12,225.78,221.31,222.15,32.1;2026-03-13,224.28,221.43,222.17,31.3;2026-03-16,224.13,221.54,222.19,31.3;2026-03-17,224.77,221.66,222.21,30.7;2026-03-18,221.99,221.68,222.21,29.5;2026-03-19,223.02,221.73,222.22,29.6;2026-03-20,219.3,221.63,222.19,27.7;2026-03-23,216.73,221.44,222.14,26;2026-03-24,215.27,221.2,222.07,24.5;2026-03-25,215.55,220.98,222,25.4;2026-03-26,217.27,220.83,221.96,25.4;2026-03-27,215.83,220.64,221.9,24.4;2026-03-30,221.68,220.68,221.89,25.1;2026-03-31,219.02,220.61,221.87,24.1;2026-04-01,220.65,220.61,221.85,24.7;2026-04-02,223.19,220.71,221.87,24.8;2026-04-06,220.86,220.72,221.86,24.4;2026-04-07,220.38,220.71,221.84,24;2026-04-08,216.51,220.54,221.79,23.5;2026-04-09,217,220.4,221.74,23.2;2026-04-10,214.66,220.18,221.67,23.1;2026-04-13,213.48,219.92,221.59,23.3;2026-04-14,211.73,219.59,221.49,23.6;2026-04-15,210.87,219.25,221.39,23.5;2026-04-16,209.66,218.88,221.27,22.6;2026-04-17,207.66,218.44,221.13,22.5;2026-04-20,208.45,218.04,221.01,22.7;2026-04-21,205.3,217.54,220.85,21.1;2026-04-22,205.29,217.06,220.7,20.6;2026-04-23,214.04,216.95,220.63,22.4;2026-04-24,209.79,216.66,220.52,21.6;2026-04-27,206.11,216.25,220.38,20.5;2026-04-28,208.15,215.93,220.26,20.4;2026-04-29,208.31,215.63,220.14,21.4;2026-04-30,209.22,215.38,220.03,22;2026-05-01,206.56,215.04,219.9,20.8;2026-05-04,206.55,214.7,219.76,20.9;2026-05-05,203.88,214.28,219.6,19.8;2026-05-06,199.69,213.71,219.41,17.6;2026-05-07,201.55,213.23,219.23,19.7;2026-05-08,200.02,212.71,219.04,18.4;2026-05-11,197.73,212.13,218.83,17.9;2026-05-12,202.38,211.74,218.66,18.6;2026-05-13,203.67,211.43,218.51,20.5;2026-05-14,208.68,211.32,218.41,22.2;2026-05-15,208.32,211.2,218.31,21;2026-05-18,214.52,211.33,218.28,22.5;2026-05-19,214.97,211.47,218.24,20.6;2026-05-20,212.2,211.5,218.18,19.7;2026-05-21,208.09,211.37,218.08,18.5;2026-05-22,208.93,211.27,217.99,18.9;2026-05-26,207.05,211.11,217.88,18.9;2026-05-27,205.6,210.89,217.76,17.9;2026-05-28,203.69,210.61,217.62,16.7;2026-05-29,200.44,210.21,217.45,13.8;2026-06-01,200.83,209.84,217.28,12.4;2026-06-02,201.67,209.52,217.13,14.1;2026-06-03,204.2,209.31,217,15;2026-06-04,207.91,209.26,216.91,16.1;2026-06-05,210.04,209.29,216.84,15;2026-06-08,204.93,209.12,216.72,13.4;2026-06-09,210.18,209.16,216.66,14.6;2026-06-10,212.59,209.29,216.62,15.7;2026-06-11,208.05,209.25,216.53,14.1;2026-06-12,209.91,209.27,216.47,15.4;2026-06-15,208.09,209.22,216.38,15.4;2026-06-16,209.03,209.22,216.31,15.2;2026-06-17,207.43,209.15,216.22,13.7;2026-06-18,204.94,208.98,216.11,12.9;2026-06-22,204.36,208.8,215.99,12.1;2026-06-23,209.1,208.81,215.92,13.9;2026-06-24,213.58,209,215.9,14.6;2026-06-25,213.5,209.18,215.88,14.5;2026-06-26,216.39,209.46,215.88,14.4;2026-06-29,214.68,209.66,215.87,13.8;2026-06-30,213.08,209.8,215.84,13.4;2026-07-01,214.71,209.99,215.83,13;2026-07-02,217.34,210.28,215.85,13.7;2026-07-06,214.58,210.45,215.83,13.1;2026-07-07,222.46,210.92,215.9,14.5;2026-07-08,220.46,211.29,215.94,13.5;2026-07-09,218.69,211.58,215.97,13.5;2026-07-10,219.2,211.88,216,13.6;2026-07-13,223.38,212.33,216.08,14.3;2026-07-14,220.03,212.63,216.12,13.8;2026-07-15,217.34,212.82,216.13,12.7;2026-07-16,224.51,213.28,216.21,13.6;2026-07-17,222.31,213.63,216.27,12.7;2026-07-20,220.53,213.9,216.32,12.1;2026-07-21,214.63,213.93,216.3,11.4;2026-07-22,216.52,214.03,216.3,11.8;2026-07-23,217.42,214.16,216.31,12.2;2026-07-24,216.91,214.27,216.32,12;2026-07-27,216.9,214.38,216.32,11.2;2026-07-28,216.63,214.46,216.33,9.8;2026-07-29,218.91,214.64,216.35,9.1;2026-07-30,211.33,214.51,216.3,8.3;2026-07-31,210.55,214.35,216.25,8.6;2026-08-03,209.62,214.17,216.18,8;2026-08-04,207.66,213.91,216.09,8.1;2026-08-05,207.02,213.64,216,8.8;2026-08-06,209.59,213.48,215.94,10.1;2026-08-07,214.56,213.53,215.93,9.6;2026-08-10,214.62,213.57,215.91,9.1;2026-08-11,215.08,213.63,215.91,8.9;2026-08-12,214.26,213.65,215.89,8.7;2026-08-13,215.22,213.71,215.88,7.6;2026-08-14,214.71,213.75,215.87,6.7;2026-08-17,215.26,213.81,215.86,7.4;2026-08-18,216.97,213.94,215.88,7.1;2026-08-19,221.04,214.21,215.93,7.5;2026-08-20,219.5,214.42,215.96,6.2;2026-08-21,220.67,214.67,216.01,7;2026-08-24,223.08,215,216.08,7.2;2026-08-25,220.96,215.23,216.13,6.3;2026-08-26,222.18,215.5,216.19,7.3;2026-08-27,219.27,215.65,216.22,6.1;2026-08-28,222.11,215.9,216.28,7.1;2026-08-31,220.92,216.1,216.32,5.2;2026-09-01,223.29,216.38,216.39,5.9;2026-09-02,222.52,216.62,216.45,6;2026-09-03,225.12,216.96,216.54,6.9;2026-09-04,222.71,217.18,216.6,7.1;2026-09-08,221.63,217.36,216.65,7.1;2026-09-09,222.47,217.56,216.71,8.6;2026-09-10,221.08,217.7,216.75,7;2026-09-11,222.74,217.89,216.81,7.4;2026-09-14,225.85,218.21,216.9,7;2026-09-15,223.04,218.39,216.96,6;2026-09-16,219.8,218.45,216.99,4.3;2026-09-17,218.93,218.47,217.01,3.8;2026-09-18,218.07,218.45,217.02,3.8;2026-09-21,213.93,218.28,216.99,1.8;2026-09-22,213.88,218.1,216.96,0.7;2026-09-23,213.1,217.91,216.92,-0.1;2026-09-24,212.72,217.7,216.88,-1.2;2026-09-25,212.1,217.48,216.83,-1.3;2026-09-28,212.93,217.31,216.79,-1.3;2026-09-29,211.92,217.09,216.74,-1.1;2026-09-30,209.87,216.81,216.68,-2;2026-10-01,206.98,216.43,216.58,-3.3;2026-10-02,209.56,216.16,216.51,-2.5;2026-10-05,212.83,216.03,216.47,-1.6;2026-10-06,214.74,215.98,216.46,-1.2;2026-10-07,216.18,215.98,216.45,-1.8;2026-10-08,216.84,216.02,216.46,-1.5;2026-10-09,216.88,216.05,216.46,-1.4;2026-10-12,219.75,216.2,216.49,-0.9;2026-10-13,219.91,216.34,216.53,-1;2026-10-14,224.44,216.66,216.61,0.1;2026-10-15,229.65,217.17,216.74,0.2;2026-10-16,231.54,217.73,216.88,0.9;2026-10-19,229.03,218.18,217.01,0.3;2026-10-20,232.98,218.76,217.16,1.1;2026-10-21,230.32,219.21,217.29,0.5;2026-10-22,241.9,220.1,217.54,1.8;2026-10-23,240.45,220.9,217.77,1.2;2026-10-26,241.31,221.7,218,1.6;2026-10-27,235.66,222.25,218.18,0.8;2026-10-28,233.4,222.68,218.33,0.7;2026-10-29,236.28,223.22,218.51,0.7`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+
+const fmtN=(v,d=2)=>v.toLocaleString("de-CH",{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmtD=s=>{const [y,m,d]=s.split("-");return d+"."+m+"."+y.slice(2)};
+const NS="http://www.w3.org/2000/svg";
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+
+function scoreTable(id,rows){
+  let tot=0,max=0;
+  const html='<thead><tr><th>Kriterium</th><th>Stand</th><th class="num">Punkte</th><th style="width:22%"></th></tr></thead><tbody>'+rows.map(r=>{tot+=r[2];max+=r[3];const p=r[2]/r[3];const c=p>=.75?"var(--good)":p>=.45?"var(--warn)":"var(--bad)";
+    return `<tr><td>${r[0]}</td><td class="muted">${r[1]}</td><td class="num">${r[2]} / ${r[3]}</td><td><div class="bar"><i style="width:${p*100}%;background:${c}"></i></div></td></tr>`}).join("")+`<tr class="total"><td>Total</td><td></td><td class="num">${tot} / ${max}</td><td></td></tr></tbody>`;
+  document.getElementById(id).innerHTML=html;return tot;
+}
+const qs=scoreTable("q-tbl",Q), ts=scoreTable("t-tbl",T);
+document.getElementById("q-val").textContent=qs;document.getElementById("t-val").textContent=ts;
+document.getElementById("q-pin").style.left=qs+"%";document.getElementById("t-pin").style.left=ts+"%";
+
+document.getElementById("fin-rows").innerHTML=FIN.map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1].toLocaleString("de-CH")}</td><td class="num">${r[2]}</td><td class="num">${r[3]}</td><td class="num">${fmtN(r[4])}</td><td class="num">${r[5].toLocaleString("de-CH")}</td><td class="num">${r[6]}</td><td class="num">${r[7]}</td></tr>`).join("");
+
+/* generic line chart */
+function lineChart(host,{dates,series,bands=[],yFmt=v=>fmtN(v),h=300,zero=false,refs=[],pad}){
+  const W_=800,H=h,m={t:12,r:56,b:28,l:8};
+  const all=series.flatMap(s=>s.values).concat(bands.flatMap(b=>[b.from,b.to])).concat(refs.map(r=>r.v));
+  if(zero)all.push(0);
+  let lo=Math.min(...all),hi=Math.max(...all);const sp=(hi-lo)||1;lo-=sp*.06;hi+=sp*.06;
+  if(pad){lo=pad[0];hi=pad[1]}
+  const n=dates.length,x=i=>m.l+i*(W_-m.l-m.r)/(n-1),y=v=>m.t+(hi-v)*(H-m.t-m.b)/(hi-lo);
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  // grid
+  const steps=5;for(let k=0;k<=steps;k++){const v=lo+(hi-lo)*k/steps;el("line",{x1:m.l,x2:W_-m.r,y1:y(v),y2:y(v),stroke:"var(--grid)","stroke-width":1},svg);
+    const t=el("text",{x:W_-m.r+6,y:y(v)+4,"font-size":11,fill:"var(--muted)","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=yFmt(v)}
+  bands.forEach(b=>{el("rect",{x:m.l,width:W_-m.l-m.r,y:y(Math.max(b.from,b.to)),height:Math.abs(y(b.from)-y(b.to)),fill:b.type==="res"?"var(--zone-res)":"var(--zone-sup)"},svg)});
+  refs.forEach(r=>{el("line",{x1:m.l,x2:W_-m.r,y1:y(r.v),y2:y(r.v),stroke:"var(--muted)","stroke-dasharray":"4 4","stroke-width":1},svg);
+    const t=el("text",{x:m.l+4,y:y(r.v)-4,"font-size":11,fill:"var(--muted)"},svg);t.textContent=r.label});
+  if(zero)el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  // x labels
+  const every=Math.ceil(n/6);for(let i=0;i<n;i+=every){const t=el("text",{x:x(i),y:H-8,"font-size":11,fill:"var(--muted)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);const d=dates[i];t.textContent=d.slice(5,7)+"/"+d.slice(2,4)}
+  series.forEach(s=>{const dpath=s.values.map((v,i)=>(i?"L":"M")+x(i).toFixed(1)+","+y(v).toFixed(1)).join("");
+    el("path",{d:dpath,fill:"none",stroke:s.color,"stroke-width":s.w||2,"stroke-linejoin":"round","stroke-linecap":"round"},svg);
+    const lv=s.values[n-1];el("circle",{cx:x(n-1),cy:y(lv),r:3.5,fill:s.color,stroke:"var(--surface)","stroke-width":2},svg)});
+  // hover
+  const cross=el("line",{y1:m.t,y2:H-m.b,stroke:"var(--muted)","stroke-width":1,opacity:0},svg);
+  const ov=el("rect",{x:m.l,y:m.t,width:W_-m.l-m.r,height:H-m.t-m.b,fill:"transparent"},svg);
+  host.appendChild(svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;host.appendChild(tip);
+  function move(ev){const r=svg.getBoundingClientRect();const px=(ev.clientX-r.left)*W_/r.width;let i=Math.round((px-m.l)/((W_-m.l-m.r)/(n-1)));i=Math.max(0,Math.min(n-1,i));
+    cross.setAttribute("x1",x(i));cross.setAttribute("x2",x(i));cross.setAttribute("opacity",1);
+    tip.innerHTML=`<div class="d">${fmtD(dates[i])}</div>`+series.map(s=>`<div><i class="sw" style="background:${s.color}"></i> ${s.name}: <b>${yFmt(s.values[i])}</b></div>`).join("");
+    tip.hidden=false;const hx=x(i)*r.width/W_;tip.style.left=Math.min(Math.max(0,hx+12),r.width-tip.offsetWidth)+"px";tip.style.top="8px"}
+  ov.addEventListener("pointermove",move);ov.addEventListener("pointerleave",()=>{tip.hidden=true;cross.setAttribute("opacity",0)});
+}
+function barChart(host,{labels,values,fmt,h=220,color,neg,tipExtra}){
+  const W_=800,H=h,m={t:18,r:8,b:28,l:8};
+  const hi=Math.max(0,...values),lo=Math.min(0,...values);const lo2=lo<0?lo*1.15:lo,hi2=hi*1.15||1;
+  const y=v=>m.t+(hi2-v)*(H-m.t-m.b)/(hi2-lo2);const n=values.length,bw=(W_-m.l-m.r)/n;
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;
+  values.forEach((v,i)=>{const x0=m.l+i*bw+bw*.18,w=bw*.64,y0=y(Math.max(v,0)),hh=Math.max(1,Math.abs(y(v)-y(0)));
+    const r=el("rect",{x:x0,y:y0,width:w,height:hh,rx:4,fill:v<0?(neg||"var(--s2)"):(color||"var(--s1)")},svg);
+    const t=el("text",{x:x0+w/2,y:v<0?y(v)+13:y0-5,"font-size":11.5,fill:"var(--ink)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=fmt(v);
+    const l=el("text",{x:x0+w/2,y:H-8,"font-size":11.5,fill:"var(--muted)","text-anchor":"middle"},svg);l.textContent=labels[i];
+    const hit=el("rect",{x:m.l+i*bw,y:m.t,width:bw,height:H-m.t-m.b,fill:"transparent"},svg);
+    hit.addEventListener("pointerenter",()=>{tip.innerHTML=`<div class="d">${labels[i]}</div><b>${fmt(v)}</b>${tipExtra?tipExtra(i):""}`;tip.hidden=false;const R=svg.getBoundingClientRect();tip.style.left=Math.min((m.l+i*bw)*R.width/W_,R.width-tip.offsetWidth)+"px";tip.style.top="0px"});
+    hit.addEventListener("pointerleave",()=>tip.hidden=true)});
+  host.appendChild(svg);host.appendChild(tip);
+}
+barChart(document.getElementById("c-rev"),{labels:HALF.map(r=>r[0]),values:HALF.map(r=>r[1]),fmt:v=>fmtN(v,0),h:200});
+barChart(document.getElementById("c-margin"),{labels:MARGIN.map(r=>r[0]),values:MARGIN.map(r=>r[1]),fmt:v=>fmtN(v,1)+" %",h:200});
+barChart(document.getElementById("c-seas"),{labels:MON,values:SEAS,fmt:v=>(v>0?"+":"")+fmtN(v,1),h:220,tipExtra:i=>`<div>${SEASHIT[i]} % der Jahre positiv</div>`});
+const BANDS=[{"from": 249.0, "to": 259.0, "type": "res"}, {"from": 240.0, "to": 243.5, "type": "res"}, {"from": 223.0, "to": 228.5, "type": "sup"}, {"from": 216.0, "to": 220.0, "type": "sup"}], REFS=[{"v": 243.22, "label": "Trigger 243.22"}];
+const wd=W.map(r=>r[0]);
+lineChart(document.getElementById("c-week"),{dates:wd,series:[{name:"Kurs",values:W.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:W.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:W.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,yFmt:v=>fmtN(v,0),h:320});
+lineChart(document.getElementById("c-adw"),{dates:wd,series:[{name:"A/D Woche",values:W.map(r=>r[5]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,zero:true});
+lineChart(document.getElementById("c-rsiw"),{dates:wd,series:[{name:"RSI Woche",values:W.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,refs:[{v:70,label:"70 überkauft"},{v:30,label:"30 überverkauft"}],pad:[10,90]});
+const dd=DD.map(r=>r[0]);
+lineChart(document.getElementById("c-day"),{dates:dd,series:[{name:"Kurs",values:DD.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:DD.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:DD.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,refs:REFS,yFmt:v=>fmtN(v,0),h:260});
+lineChart(document.getElementById("c-add"),{dates:dd,series:[{name:"A/D Tag",values:DD.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:260,zero:true});
+</script>
