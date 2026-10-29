@@ -13,6 +13,7 @@ sich danach mit dem Chart.
 
 Ergebnis: data/live.json und data/verlauf.json
 """
+import re
 import base64, json, math, os, sys, time, datetime as dt
 import urllib.request, urllib.error
 
@@ -380,6 +381,22 @@ def build_alerts(stocks, out, old):
                 msgs.append((f"{name} nähert sich der Kaufzone", f"Nur noch {r['dist_zone']:.1f} % darüber. {info}.", "eyes", 3, t))
         if r["t"] >= 60 > prev.get("t", 0) and r["q"] >= 45:
             msgs.append((f"{name}: Timing jetzt {r['t']}", f"Die Timing-Ampel ist auf hellgrün gesprungen. {info}.", "traffic_light", 3, t))
+        # Zahlen sind raus: erste Meldung nach dem Zahlentag, mit der Kursreaktion seit dem Schluss vor den Zahlen
+        zt = st.get("zahlen") or ""
+        zahlen_neu = bool(re.match(r"\d{4}-\d{2}-\d{2}$", zt)) and prev.get("datum", "") <= zt < r.get("datum", "")
+        if zahlen_neu:
+            ch = r.get("chart") or {}
+            vor = [c for d_, c in zip(ch.get("d", []), ch.get("c", [])) if d_ < zt]
+            reak = (r["kurs"] / vor[-1] - 1) * 100 if vor and vor[-1] else r.get("chg1")
+            stark = reak is not None and abs(reak) >= 5
+            msgs.append((f"{name}: Zahlen sind raus ({reak:+.1f} %)" if reak is not None else f"{name}: Zahlen sind raus",
+                         f"Kursreaktion seit dem Schluss vor den Zahlen: {reak:+.1f} %. {info}. "
+                         + ("Starke Bewegung: Zahlen und Ausblick prüfen, bevor du handelst." if stark else "Ampeln und These kurz prüfen."),
+                         "bar_chart", 4 if stark else 3, t))
+        # Starke Tagesbewegung (ohne Zahlen): ab 7 % an einem Tag
+        elif r.get("chg1") is not None and abs(r["chg1"]) >= 7:
+            msgs.append((f"{name} {'fällt' if r['chg1'] < 0 else 'steigt'} {abs(r['chg1']):.1f} % an einem Tag",
+                         f"{info}. Nachrichten prüfen: Panik oder echte Veränderung?", "zap", 4, t))
     # Zahlen morgen
     tomorrow = (dt.date.today() + dt.timedelta(days=1)).isoformat()
     for st in stocks:
