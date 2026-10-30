@@ -1123,6 +1123,83 @@
      }
     ]
    }
+  ],
+  "CL": [
+   {
+    "datum": "2026-10-30",
+    "zeit": "vor",
+    "quartal": "Q3 2026",
+    "reaktion_quelle": 2.5,
+    "titel": "Gewinn über Erwartung, Prognose angehoben, USA schwach",
+    "kurz": "Colgate hat Umsatz und Gewinn leicht über den Erwartungen gemeldet und die Jahresprognose für den Gewinn angehoben. Die Aktie stieg am Morgen zeitweise über 5 %, später lag sie rund 2.5 % im Plus. Schwach bleibt Nordamerika, dort wurden 3.7 % weniger Produkte verkauft.",
+    "zahlen": [
+     {
+      "k": "Umsatz",
+      "ist": "5.37 Mrd. $ (+4.6 %)",
+      "erw": "5.34 Mrd. $",
+      "urteil": "übertroffen"
+     },
+     {
+      "k": "EPS bereinigt (Gewinn pro Aktie ohne Sondereffekte)",
+      "ist": "0.97 $ (+7 %)",
+      "erw": "0.93 $",
+      "urteil": "übertroffen"
+     },
+     {
+      "k": "Organisches Wachstum (ohne Zukäufe und Währung)",
+      "ist": "+3.6 % (Menge +1.7 %, Preis +2.0 %)",
+      "erw": "",
+      "urteil": "solide"
+     },
+     {
+      "k": "Bruttomarge (Anteil vom Umsatz nach Herstellkosten)",
+      "ist": "60.2 % (+0.8 Prozentpunkte)",
+      "erw": "",
+      "urteil": "besser"
+     },
+     {
+      "k": "Ausblick Gewinn pro Aktie 2026 (bereinigt)",
+      "ist": "+5 bis 7 %",
+      "erw": "vorher mittlerer einstelliger Bereich",
+      "urteil": "angehoben"
+     },
+     {
+      "k": "Ausblick Umsatz 2026",
+      "ist": "+4 bis 5 %",
+      "erw": "vorher +2 bis 6 %",
+      "urteil": "eingeengt"
+     }
+    ],
+    "gut": [
+     "Hill's (Tiernahrung) wuchs organisch 5.7 %, Lateinamerika 6.0 %, Asien-Pazifik 4.6 % mit Indien zweistellig",
+     "Bruttomarge steigt trotz rund 3 Prozentpunkten Teuerung bei Rohstoffen, weil Sparprogramme das fast ganz auffangen",
+     "Free Cashflow (frei verfügbares Geld) nach neun Monaten 2.51 Mrd. $, plus 7 %"
+    ],
+    "sorgen": [
+     "Nordamerika: Umsatz organisch minus 1.6 %, verkaufte Menge minus 3.7 %, Colgate baut dort den Vertrieb um",
+     "Logistik- und Rohstoffkosten bleiben hoch, laut Management auch 2027 ein Gegenwind",
+     "Mexiko schwächer wegen schwieriger Lage der Konsumenten, Prognose für 2027 erst im ersten Quartal 2027"
+    ],
+    "fazit": "Keine Panik und auch keine grosse Wende: Das weltweite Geschäft läuft stabil und die Prognose wurde angehoben, das echte Problem bleibt die schrumpfende Menge in Nordamerika, die man in den nächsten Quartalen beobachten muss.",
+    "quellen": [
+     {
+      "t": "Colgate-Palmolive Q3 2026 Pressemitteilung, Tabellen (SEC 8-K)",
+      "u": "https://www.sec.gov/Archives/edgar/data/0000021665/000002166526000047/q32026pressreleasetables.htm"
+     },
+     {
+      "t": "Colgate-Palmolive lifts earnings outlook as North America weakness persists (FinChannel)",
+      "u": "https://finchannel.com/colgate-palmolive-lifts-earnings-outlook-as-north-america-weakness-persists/140069/american-business-trends/stock-prices/2026/10/"
+     },
+     {
+      "t": "Colgate-Palmolive posts better-than-expected sales in Q3 2026 (StockStory)",
+      "u": "https://stockstory.org/us/stocks/nyse/cl/news/earnings/colgate-palmolive-nysecl-posts-better-than-expected-sales-in-q3-2026-stock-soars"
+     },
+     {
+      "t": "Colgate (CL) Q3 2026 Earnings Call Transcript (Motley Fool)",
+      "u": "https://www.fool.com/earnings/call-transcripts/2026/10/30/colgate-cl-q3-2026-earnings-call-transcript/"
+     }
+    ]
+   }
   ]
  }
 }
