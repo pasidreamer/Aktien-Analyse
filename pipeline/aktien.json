@@ -375,7 +375,7 @@
   "pe": 22.2,
   "pe_avg": 22.4,
   "pe_typ": "KGV",
-  "zahlen": "2026-10-28",
+  "zahlen": "2026-10-21",
   "artifact": "3aNjrc9RWCyrC3NFsncZj6"
  },
  "KO": {
@@ -634,7 +634,7 @@
   "pe": 49,
   "pe_avg": 31,
   "pe_typ": "KUV",
-  "zahlen": "2026-10-29",
+  "zahlen": "2026-11-05",
   "artifact": "9HtvnF91tn24BEo6D2UkuX"
  },
  "ULVR": {
@@ -1043,7 +1043,7 @@
   "pe": 18.3,
   "pe_avg": 20.0,
   "pe_typ": "KGV",
-  "zahlen": "2026-10-27",
+  "zahlen": "2026-10-29",
   "artifact": "UUFVN3mbqSnWd3233tDPi6"
  },
  "GIS": {
@@ -1110,7 +1110,7 @@
   "pe": 11.0,
   "pe_avg": 12.2,
   "pe_typ": "KGV",
-  "zahlen": "2026-10-28",
+  "zahlen": "2026-11-04",
   "artifact": "UhcdpWrRA2qmj59VrY5g2K"
  },
  "RACE": {

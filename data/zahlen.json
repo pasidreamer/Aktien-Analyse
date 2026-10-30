@@ -130,6 +130,999 @@
      }
     ]
    }
+  ],
+  "KO": [
+   {
+    "datum": "2026-10-27",
+    "zeit": "vor",
+    "quartal": "Q3 2026",
+    "reaktion_quelle": -1.6,
+    "titel": "Zahlen stark, Nordamerika flach, Aktie leicht tiefer",
+    "kurz": "Coca-Cola hat Umsatz und Gewinn klar über den Erwartungen gemeldet und die Jahresprognose angehoben. Die Aktie fiel trotzdem um rund 1.6 %, weil das Volumen in Nordamerika stagnierte und das Management keine schnelle Besserung beim US-Konsumenten erwartet.",
+    "zahlen": [
+     {
+      "k": "Umsatz",
+      "ist": "13.4 Mrd. $ (+7 %)",
+      "erw": "12.92 Mrd. $",
+      "urteil": "übertroffen"
+     },
+     {
+      "k": "EPS bereinigt (Gewinn pro Aktie ohne Sondereffekte)",
+      "ist": "0.91 $ (+11 %)",
+      "erw": "0.88 $",
+      "urteil": "übertroffen"
+     },
+     {
+      "k": "Organisches Wachstum (ohne Zukäufe und Währung)",
+      "ist": "+7 %",
+      "erw": "",
+      "urteil": "stark"
+     },
+     {
+      "k": "Verkaufte Getränke (Unit Case Volume)",
+      "ist": "+5 %, Nordamerika flach",
+      "erw": "",
+      "urteil": "gemischt"
+     },
+     {
+      "k": "Ausblick Gewinn pro Aktie 2026",
+      "ist": "mind. +11 %",
+      "erw": "vorher +9 bis 10 %",
+      "urteil": "angehoben"
+     }
+    ],
+    "gut": [
+     "Free Cashflow (frei verfügbares Geld) für 2026 neu bei mind. 13 Mrd. $ statt rund 12.4 Mrd. $",
+     "Operative Marge stieg auf 33.4 % (Vorjahr 32.0 %)",
+     "Coca-Cola Zero Sugar mit +16 % Volumen, Wachstum vor allem in Indien, China, Mexiko und Brasilien"
+    ],
+    "sorgen": [
+     "Volumen in Nordamerika nur flach, Konsumenten und Restaurants stehen unter Druck",
+     "Finanzchef erwartet diesen Druck bis ins Jahr 2027",
+     "Verkauf der Abfüllung in Afrika kostet 2027 rund 8 % beim vergleichbaren Umsatz"
+    ],
+    "fazit": "Das Geschäft läuft weltweit gut, der kleine Kursrückgang ist eher Stimmung nach einem starken Lauf von über 30 % seit Jahresbeginn als ein Bruch im Geschäft.",
+    "quellen": [
+     {
+      "t": "Coca-Cola Reports Third Quarter 2026 Results and Raises Full Year Guidance",
+      "u": "https://investors.coca-colacompany.com/news-events/press-releases/detail/1176/coca-cola-reports-third-quarter-2026-results-and-raises-full-year-guidance"
+     },
+     {
+      "t": "Coca-Cola Stock (KO) Falls After Beat-and-Raise Print (TipRanks)",
+      "u": "https://www.tipranks.com/news/coca-cola-stock-ko-falls-after-beat-and-raise-print-heres-why"
+     },
+     {
+      "t": "Is Coca-Cola a Buy After Its Latest Earnings Report? (Motley Fool)",
+      "u": "https://www.fool.com/investing/2026/10/28/is-coca-cola-a-buy-after-its-latest-earnings-report/"
+     }
+    ]
+   }
+  ],
+  "MDLZ": [
+   {
+    "datum": "2026-10-29",
+    "zeit": "nach",
+    "quartal": "Q3 2026",
+    "reaktion_quelle": 3.2,
+    "titel": "Gewinn klar über Erwartung, Umsatz nur im Plan",
+    "kurz": "Mondelez verdiente pro Aktie deutlich mehr als erwartet, der Umsatz lag genau im Rahmen der Schätzungen. Die Aktie stieg nachbörslich um rund 3.2 %, der Jahresausblick bleibt unverändert.",
+    "zahlen": [
+     {
+      "k": "Umsatz",
+      "ist": "9.97 Mrd. $ (+2.3 %)",
+      "erw": "9.97 bis 9.98 Mrd. $",
+      "urteil": "getroffen"
+     },
+     {
+      "k": "EPS bereinigt (Gewinn pro Aktie ohne Sondereffekte)",
+      "ist": "0.78 $",
+      "erw": "0.71 $",
+      "urteil": "übertroffen"
+     },
+     {
+      "k": "Organisches Wachstum (ohne Zukäufe und Währung)",
+      "ist": "+2.1 % (Menge/Mix +1.8 %, Preis +0.3 %)",
+      "erw": "",
+      "urteil": "knapp verfehlt"
+     },
+     {
+      "k": "Bruttomarge bereinigt",
+      "ist": "34.2 % (+3.8 Prozentpunkte)",
+      "erw": "",
+      "urteil": "stark"
+     },
+     {
+      "k": "Ausblick 2026",
+      "ist": "Umsatz organisch mind. +2 %, EPS 0 bis +5 %, FCF ca. 3 Mrd. $",
+      "erw": "",
+      "urteil": "bestätigt"
+     }
+    ],
+    "gut": [
+     "Wachstum kam diesmal aus der Menge (+1.8 %) und nicht nur aus Preiserhöhungen",
+     "Bruttomarge 3.8 Prozentpunkte höher, Kakao ist wieder deutlich günstiger als 2024",
+     "845 Mio. $ für Aktienrückkäufe in neun Monaten, insgesamt 2.8 Mrd. $ an Aktionäre zurück"
+    ],
+    "sorgen": [
+     "Preise bei Schokolade in Europa sinken noch einige Quartale",
+     "Nordamerika und China bleiben schwach, Argentinien bremst Lateinamerika",
+     "Kein Ausblick auf den Umsatz 2027, Wachstum unter dem eigenen Langfristziel"
+    ],
+    "fazit": "Der Gewinn erholt sich echt, weil der Kakao billiger wird, beim Umsatzwachstum hat sich aber noch wenig verändert.",
+    "quellen": [
+     {
+      "t": "Mondelez Q3 2026 Earnings Release (SEC 8-K)",
+      "u": "https://www.sec.gov/Archives/edgar/data/0001103982/000162828026068233/mdlzearningsreleasecontent.htm"
+     },
+     {
+      "t": "Mondelez climbs on earnings beat (Investing.com)",
+      "u": "https://www.investing.com/news/earnings/mondelez-climbs-on-earnings-beat-4985264"
+     },
+     {
+      "t": "Mondelez posts Q3 2026 sales in line with estimates (StockStory)",
+      "u": "https://stockstory.org/us/stocks/nasdaq/mdlz/news/earnings/mondelez-nasdaqmdlz-posts-q3-2026-sales-in-line-with-estimates-2"
+     }
+    ]
+   }
+  ],
+  "NOVN": [
+   {
+    "datum": "2026-10-27",
+    "zeit": "vor",
+    "quartal": "Q3 2026",
+    "reaktion_quelle": 1.0,
+    "titel": "Kerngewinn schlägt Erwartung, Prognose angehoben",
+    "kurz": "Novartis wuchs wieder und verdiente im Kerngeschäft klar mehr als erwartet, deshalb wurde die Gewinnprognose angehoben. Die Aktie lag zeitweise über 3 % im Plus und schloss rund 1 % höher.",
+    "zahlen": [
+     {
+      "k": "Umsatz",
+      "ist": "14.5 Mrd. $ (+4 %)",
+      "erw": "leicht darunter",
+      "urteil": "übertroffen"
+     },
+     {
+      "k": "Kern-Betriebsgewinn (operativer Gewinn ohne Sondereffekte)",
+      "ist": "6.0 Mrd. $ (+11 %)",
+      "erw": "5.6 Mrd. $",
+      "urteil": "übertroffen"
+     },
+     {
+      "k": "Core EPS (Kerngewinn pro Aktie)",
+      "ist": "2.46 $ (+9 %)",
+      "erw": "rund 7 % tiefer (JPMorgan)",
+      "urteil": "übertroffen"
+     },
+     {
+      "k": "Free Cashflow (frei verfügbares Geld)",
+      "ist": "5.1 Mrd. $ (-18 %)",
+      "erw": "",
+      "urteil": "schwächer"
+     },
+     {
+      "k": "Ausblick Kern-Betriebsgewinn 2026",
+      "ist": "stabil bis leicht steigend",
+      "erw": "vorher leichter Rückgang",
+      "urteil": "angehoben"
+     }
+    ],
+    "gut": [
+     "Kernmarge stieg auf 41.6 % (+2.3 Prozentpunkte)",
+     "Wachstumsmittel stark: Kisqali +37 %, Leqvio +63 %, Scemblix +67 %",
+     "Tiefere Kosten bei Verwaltung und Forschung als erwartet"
+    ],
+    "sorgen": [
+     "Reingewinn brach um 70 % auf 1.2 Mrd. $ ein, wegen 1.9 Mrd. $ Abschreibung auf das gescheiterte Mittel Del-Desiran",
+     "Entresto verliert wegen Generika (Nachahmer) 38 % Umsatz",
+     "Patentabläufe bei Cosentyx (2029), Kisqali und Kesimpta (2031) betreffen fast 40 % des Umsatzes"
+    ],
+    "fazit": "Das laufende Geschäft ist besser als befürchtet, die grossen Fragen zur Pipeline und zu den Patentabläufen bleiben aber offen.",
+    "quellen": [
+     {
+      "t": "Novartis delivered sales growth and core margin expansion in Q3, raised FY core operating income guidance",
+      "u": "https://www.novartis.com/news/media-releases/novartis-delivered-sales-growth-and-core-margin-expansion-q3-raised-fy-core-operating-income-guidance"
+     },
+     {
+      "t": "Börsen-Ticker: SMI ohne Impulse, Novartis und Holcim in Führung (cash.ch)",
+      "u": "https://www.cash.ch/news/top-news/borsen-ticker-smi-ohne-impulse-novartis-und-holcim-in-fuhrung-galderma-und-sandoz-im-verlust-sig-basilea-und-inficon-top-979834"
+     },
+     {
+      "t": "Trotz skeptischer Analysten: Novartis-Titel knapp unter Allzeithoch (cash.ch)",
+      "u": "https://www.cash.ch/news/top-news/stossen-die-novartis-aktien-nach-uberzeugenden-quartalszahlen-auf-ein-neues-allzeithoch-vor-979938"
+     }
+    ]
+   }
+  ],
+  "V": [
+   {
+    "datum": "2026-10-27",
+    "zeit": "nach",
+    "quartal": "Q4 Geschäftsjahr 2026",
+    "reaktion_quelle": -0.3,
+    "titel": "Rekordjahr, aber vorsichtiger Ausblick für 2027",
+    "kurz": "Visa schlug die Erwartungen bei Umsatz und Gewinn knapp und erhöht die Dividende um 16 %. Der Ausblick für 2027 mit nur noch tief zweistelligem Wachstum enttäuschte: nachbörslich bis 2.3 % tiefer, am nächsten Tag schloss die Aktie nur noch 0.3 % im Minus.",
+    "zahlen": [
+     {
+      "k": "Umsatz",
+      "ist": "12.1 Mrd. $ (+13 %)",
+      "erw": "12.09 Mrd. $",
+      "urteil": "knapp übertroffen"
+     },
+     {
+      "k": "EPS bereinigt (Gewinn pro Aktie ohne Sondereffekte)",
+      "ist": "3.48 $ (+17 %)",
+      "erw": "3.44 $",
+      "urteil": "übertroffen"
+     },
+     {
+      "k": "Zahlungsvolumen",
+      "ist": "+9 % (währungsbereinigt)",
+      "erw": "",
+      "urteil": "solide"
+     },
+     {
+      "k": "Grenzüberschreitendes Volumen (ohne innerhalb Europa)",
+      "ist": "+14 %",
+      "erw": "",
+      "urteil": "stark"
+     },
+     {
+      "k": "Ausblick Geschäftsjahr 2027",
+      "ist": "Umsatz tief zweistellig, EPS tief zweistellig bis tiefer Zehnerbereich",
+      "erw": "",
+      "urteil": "vorsichtig"
+     }
+    ],
+    "gut": [
+     "Dividende steigt um 16 % auf 0.78 $ pro Quartal, Auszahlung am 1. Dezember 2026",
+     "5.2 Mrd. $ im Quartal an Aktionäre zurück, davon 4.0 Mrd. $ Aktienrückkäufe",
+     "Ganzes Jahr: Rekordumsatz 46 Mrd. $ (+15 %), Zusatzdienste (Value-added Services) +30 %"
+    ],
+    "sorgen": [
+     "Ausblick 2027 bedeutet langsameres Gewinnwachstum als die 16 % im Jahr 2026",
+     "Rabatte an Banken und Partner (Client Incentives) stiegen um 21 % auf 5.1 Mrd. $",
+     "2027 laufen Verträge für rund 25 % des Zahlungsvolumens aus, das kann weitere Rabatte kosten"
+    ],
+    "fazit": "Das Geschäft wächst weiter stark, die Börse reagiert nur auf etwas weniger Tempo im nächsten Jahr, das ist eher Stimmung als eine echte Verschlechterung.",
+    "quellen": [
+     {
+      "t": "Visa Q4 FY2026 Earnings Release (SEC 8-K)",
+      "u": "https://www.sec.gov/Archives/edgar/data/0001403161/000140316126000126/q42026earningsrelease.htm"
+     },
+     {
+      "t": "Visa shares fall as weak 2027 outlook overshadows fourth-quarter earnings beat (Yahoo Finance)",
+      "u": "https://finance.yahoo.com/markets/stocks/articles/visa-shares-fall-weak-2027-204231023.html"
+     },
+     {
+      "t": "Visa Stock Falls After Q4 2026 Earnings Beat as Investors Weigh 2027 Outlook (KuCoin)",
+      "u": "https://www.kucoin.com/blog/visa-stock-falls-after-q4-2026-earnings-beat-as-investors-weigh-2027-outlook"
+     }
+    ]
+   }
+  ],
+  "BN": [
+   {
+    "datum": "2026-10-28",
+    "zeit": "vor",
+    "quartal": "Q3 2026",
+    "reaktion_quelle": 3.2,
+    "titel": "Preise treiben Wachstum, Mengen fast stagnierend",
+    "kurz": "Danone meldete nur den Umsatz: vergleichbar +4.0 % und damit leicht über den erwarteten 3.7 %, der Jahresausblick wurde bestätigt. Die Aktie stieg im Tagesverlauf um gut 3 %.",
+    "zahlen": [
+     {
+      "k": "Umsatz",
+      "ist": "7.23 Mrd. € (+5.2 %)",
+      "erw": "",
+      "urteil": "solide"
+     },
+     {
+      "k": "Vergleichbares Wachstum (like-for-like, ohne Zukäufe und Währung)",
+      "ist": "+4.0 %",
+      "erw": "+3.7 %",
+      "urteil": "übertroffen"
+     },
+     {
+      "k": "Preis / Menge und Mix",
+      "ist": "Preis +3.6 %, Menge/Mix +0.4 %",
+      "erw": "",
+      "urteil": "schwache Menge"
+     },
+     {
+      "k": "Ausblick 2026",
+      "ist": "Umsatz vergleichbar +3 bis 5 %, Betriebsgewinn wächst schneller",
+      "erw": "",
+      "urteil": "bestätigt"
+     }
+    ],
+    "gut": [
+     "Spezialernährung wuchs vergleichbar um 4.7 %",
+     "Region Amerika mit +4.4 %, getragen von proteinreichen Milchprodukten",
+     "Rückkauf von rund 3.5 Mio. eigenen Aktien bis Ende 2026"
+    ],
+    "sorgen": [
+     "Wachstum fast nur über Preise, Menge in Europa -1.3 % und in China/Nordasien -1.6 %",
+     "Wassermarke Mizone in China kostete rund 1 Prozentpunkt Wachstum",
+     "Aktie seit Jahresbeginn trotzdem rund 18 % im Minus"
+    ],
+    "fazit": "Die Zahlen beruhigen kurzfristig, am Grundproblem mit kaum wachsenden Mengen hat sich aber noch nichts geändert.",
+    "quellen": [
+     {
+      "t": "Danone Q3 2026 Sales (Pressemitteilung)",
+      "u": "https://www.danone.com/content/dam/corp/global/danonecom/investors/en-all-publications/2026/pressreleases/prdanone281026.pdf"
+     },
+     {
+      "t": "Higher prices lift Danone third-quarter sales (RTE)",
+      "u": "https://www.rte.ie/news/business/2026/1028/1597047-danone-quarterly-results/"
+     },
+     {
+      "t": "Danone Aktie: Q3-Umsatz wächst um 4 Prozent, Jahresprognose bestätigt (Goldesel)",
+      "u": "https://goldesel.de/aktien/news/danone-aktie-q3-umsatz-wachst-4-prozent-preise-treiben-wachstum"
+     }
+    ]
+   }
+  ],
+  "BSX": [
+   {
+    "datum": "2026-10-28",
+    "zeit": "vor",
+    "quartal": "Q3 2026",
+    "reaktion_quelle": -5.3,
+    "titel": "Dritte Prognosesenkung, Watchman und EP schrumpfen",
+    "kurz": "Das Quartal selbst lag knapp über den bereits tiefen Erwartungen, aber Boston Scientific senkte die Jahresprognose zum dritten Mal und erwartet für das 4. Quartal sinkende Umsätze. Die Aktie fiel am Nachmittag um 5.3 %, zur Eröffnung sogar fast 7 %.",
+    "zahlen": [
+     {
+      "k": "Umsatz",
+      "ist": "5.14 Mrd. $ (+1.5 %)",
+      "erw": "5.07 Mrd. $",
+      "urteil": "übertroffen"
+     },
+     {
+      "k": "EPS bereinigt (Gewinn pro Aktie ohne Sondereffekte)",
+      "ist": "0.73 $ (Vorjahr 0.75 $)",
+      "erw": "0.72 $",
+      "urteil": "getroffen"
+     },
+     {
+      "k": "Watchman und Elektrophysiologie (EP, Herzrhythmus-Behandlung)",
+      "ist": "Watchman -6 %, EP -5 %",
+      "erw": "",
+      "urteil": "schwach"
+     },
+     {
+      "k": "Ausblick EPS Q4",
+      "ist": "0.77 bis 0.79 $",
+      "erw": "0.83 $",
+      "urteil": "verfehlt"
+     },
+     {
+      "k": "Ausblick EPS 2026",
+      "ist": "3.16 bis 3.18 $",
+      "erw": "vorher 3.28 bis 3.32 $, Analysten 3.23 $",
+      "urteil": "gesenkt"
+     }
+    ],
+    "gut": [
+     "Umsatz und Gewinn zum sechsten Mal in Folge über den Schätzungen",
+     "Herzsparte (Cardiovascular) wuchs noch um 1.9 % auf 3.41 Mrd. $",
+     "Hackerangriff kostete einmalig rund 150 Mio. $ Umsatz, das sollte sich nicht wiederholen"
+    ],
+    "sorgen": [
+     "Die zwei wichtigsten Wachstumstreiber Watchman und Farapulse schrumpfen, die Konkurrenz holt auf",
+     "Finanzchef warnt vor weiterem Druck auf den Umsatz im Jahr 2027, dazu Preisdruck in China",
+     "Übernahme von Penumbra für 14.5 Mrd. $ verzögert sich auf Anfang 2027"
+    ],
+    "fazit": "Das ist eine echte Veränderung im Geschäft: die früheren Wachstumsmotoren schrumpfen, und das Management selbst rechnet nicht mit einer schnellen Wende.",
+    "quellen": [
+     {
+      "t": "Boston Scientific cuts 2026 guidance for third time this year (MedTech Dive)",
+      "u": "https://www.medtechdive.com/news/boston-scientific-cuts-2026-guidance-for-third-time-this-year/873037/"
+     },
+     {
+      "t": "Boston Scientific Q3 2026 (Reuters via WSAU)",
+      "u": "https://wsau.com/?p=1030798"
+     },
+     {
+      "t": "Boston Scientific posts better-than-expected sales in Q3 2026 but quarterly revenue guidance misses (StockStory)",
+      "u": "https://markets.financialcontent.com/stocks/article/stockstory-2026-10-28-boston-scientific-nysebsx-posts-better-than-expected-sales-in-q3-2026-but-quarterly-revenue-guidance-misses-expectations"
+     }
+    ]
+   }
+  ],
+  "CMG": [
+   {
+    "datum": "2026-10-28",
+    "zeit": "nach",
+    "quartal": "Q3 2026",
+    "reaktion_quelle": 8.9,
+    "titel": "Mehr Gäste, aber tiefere Marge",
+    "kurz": "Chipotle steigerte den Umsatz um 9.6 % auf 3.29 Mrd. $, die vergleichbaren Umsätze stiegen um 2.1 % und damit stärker als erwartet. Der Gewinn pro Aktie lag leicht unter der Schätzung, trotzdem stieg die Aktie am Folgetag um rund 9 %.",
+    "zahlen": [
+     {
+      "k": "Umsatz",
+      "ist": "3.29 Mrd. $ (+9.6 %)",
+      "erw": "3.29 Mrd. $",
+      "urteil": "getroffen"
+     },
+     {
+      "k": "EPS bereinigt (Gewinn pro Aktie)",
+      "ist": "0.27 $ (Vorjahr 0.29 $)",
+      "erw": "0.29 $",
+      "urteil": "verfehlt"
+     },
+     {
+      "k": "Vergleichbare Umsätze (bestehende Filialen)",
+      "ist": "+2.1 %",
+      "erw": "+1.5 %",
+      "urteil": "übertroffen"
+     },
+     {
+      "k": "Marge auf Restaurantebene",
+      "ist": "23.3 % (Vorjahr 24.5 %)",
+      "erw": "k. A.",
+      "urteil": "schwächer"
+     },
+     {
+      "k": "Ausblick 2026",
+      "ist": "tiefes einstelliges Wachstum der vergleichbaren Umsätze, 350 bis 370 neue Filialen",
+      "erw": "k. A.",
+      "urteil": "bestätigt"
+     }
+    ],
+    "gut": [
+     "Mehr Bestellungen in bestehenden Filialen (+0.8 %), drittes Quartal in Folge mit mehr Gästen",
+     "84 neue eigene Restaurants eröffnet",
+     "110 Mio. $ für Aktienrückkäufe ausgegeben, 1.6 Mrd. $ Rahmen noch offen"
+    ],
+    "sorgen": [
+     "Betriebsmarge fiel auf 13.7 % von 15.9 %, viele Rabattaktionen",
+     "Anfang Oktober weniger Gäste, für Q4 nur rund +2 % vergleichbare Umsätze erwartet",
+     "Marge auf Restaurantebene im Q4 knapp unter 22 %, rund 1.5 Prozentpunkte unter Vorjahr"
+    ],
+    "fazit": "Eher Erleichterung nach einem schwachen Jahr (Aktie seit Jahresbeginn rund 16 % im Minus): Die Gäste kommen zurück, aber es bleibt weniger Gewinn hängen, das Geschäft hat sich nur leicht verbessert.",
+    "quellen": [
+     {
+      "t": "Chipotle: Third Quarter 2026 Results",
+      "u": "https://newsroom.chipotle.com/2026-10-28-CHIPOTLE-ANNOUNCES-THIRD-QUARTER-2026-RESULTS"
+     },
+     {
+      "t": "24/7 Wall St.: Chipotle Jumps 9% as Same-Store Sales Top Estimates",
+      "u": "https://247wallst.com/investing/2026/10/29/chipotle-jumps-9-as-same-store-sales-top-estimates-mcdonalds-climbs-2-starbucks-edges-higher/"
+     },
+     {
+      "t": "StockStory: Chipotle Q3 2026 results",
+      "u": "https://stockstory.org/us/stocks/nyse/cmg/news/earnings/chipotles-nysecmg-q3-2026-earnings-results-revenue-in-line-with-expectations"
+     }
+    ]
+   }
+  ],
+  "HLI": [
+   {
+    "datum": "2026-10-28",
+    "zeit": "nach",
+    "quartal": "Q2 Geschäftsjahr 2027",
+    "reaktion_quelle": -3.55,
+    "titel": "Klar über Erwartung, Aktie nachbörslich tiefer",
+    "kurz": "Houlihan Lokey steigerte den Umsatz um 5 % auf 692 Mio. $ und verdiente bereinigt 1.85 $ pro Aktie, beides klar über den Schätzungen. Die Aktie fiel nachbörslich um 3.55 %, nachdem sie tagsüber noch um 3.8 % gestiegen war.",
+    "zahlen": [
+     {
+      "k": "Umsatz",
+      "ist": "692 Mio. $ (+5 %)",
+      "erw": "626 Mio. $",
+      "urteil": "übertroffen"
+     },
+     {
+      "k": "EPS bereinigt (Gewinn pro Aktie)",
+      "ist": "1.85 $ (Vorjahr 1.84 $)",
+      "erw": "1.63 $",
+      "urteil": "übertroffen"
+     },
+     {
+      "k": "Corporate Finance (M&A-Beratung)",
+      "ist": "481 Mio. $ (+10 %)",
+      "erw": "k. A.",
+      "urteil": "stark"
+     },
+     {
+      "k": "Restrukturierungsberatung",
+      "ist": "118 Mio. $ (-12 %)",
+      "erw": "k. A.",
+      "urteil": "schwach"
+     },
+     {
+      "k": "Personalkostenquote bereinigt (Löhne im Verhältnis zum Umsatz)",
+      "ist": "61.5 % (Vorjahr 61.5 %)",
+      "erw": "k. A.",
+      "urteil": "stabil"
+     }
+    ],
+    "gut": [
+     "M&A-Beratung +10 % dank höherer Gebühren pro Deal",
+     "Bewertungsberatung +7 % auf 93 Mio. $",
+     "Dividende 0.70 $ pro Quartal (zahlbar 15.12.2026), dazu 397'000 eigene Aktien zurückgekauft"
+    ],
+    "sorgen": [
+     "Abgeschlossene Deals in der M&A-Beratung sanken von 171 auf 142",
+     "Restrukturierung -12 %, nur 27 statt 37 abgeschlossene Mandate",
+     "Übrige Kosten +11 % auf 91 Mio. $, Gewinn pro Aktie nur auf Vorjahreshöhe"
+    ],
+    "fazit": "Eher Stimmung: Die Zahlen lagen klar über den Schätzungen, das Geschäft wächst aber nur langsam und der Gewinn tritt auf der Stelle, der Rückgang folgt zudem auf ein Tagesplus von 3.8 %.",
+    "quellen": [
+     {
+      "t": "Houlihan Lokey Reports Second Quarter Fiscal 2027 Financial Results",
+      "u": "https://hl.com/about-us/newsroom/houlihan-lokey-reports-second-quarter-fiscal-2027-financial-results/"
+     },
+     {
+      "t": "MarketBeat: Houlihan Lokey beats expectations by $0.22 EPS",
+      "u": "https://www.marketbeat.com/instant-alerts/earnings-houlihan-lokey-nyse-hli-releases-earnings-results-beats-expectations-by-022-eps-2026-10-28/"
+     },
+     {
+      "t": "Investing.com: Houlihan Lokey October 2026 slides",
+      "u": "https://www.investing.com/news/company-news/houlihan-lokey-october-2026-slides-show-market-dominance-amid-q2-challenges-93CH-4981044"
+     }
+    ]
+   }
+  ],
+  "META": [
+   {
+    "datum": "2026-10-21",
+    "zeit": "nach",
+    "quartal": "Q3 2026",
+    "reaktion_quelle": -7.0,
+    "titel": "Starke Werbung, KI-Ausgaben drücken den Cashflow",
+    "kurz": "Meta meldete schon am 21. Oktober (nicht am 28.) einen Umsatz von 64.6 Mrd. $ (+26 %), klar über der Erwartung. Weil die KI-Investitionen den Free Cashflow ins Minus drückten, fiel die Aktie am Folgetag um rund 7 % auf 648.85 $.",
+    "zahlen": [
+     {
+      "k": "Umsatz",
+      "ist": "64.6 Mrd. $ (+26 %)",
+      "erw": "63.4 Mrd. $",
+      "urteil": "übertroffen"
+     },
+     {
+      "k": "EPS (Gewinn pro Aktie)",
+      "ist": "3.83 $ (ohne Rechtsfall-Belastung 7.40 $)",
+      "erw": "Quellen uneinheitlich",
+      "urteil": "nicht vergleichbar"
+     },
+     {
+      "k": "Umsatz-Ausblick Q4",
+      "ist": "73 bis 76 Mrd. $",
+      "erw": "73.7 Mrd. $",
+      "urteil": "leicht darüber"
+     },
+     {
+      "k": "Investitionen (Capex) 2026",
+      "ist": "135 bis 145 Mrd. $ (untere Grenze von 130 Mrd. $ angehoben)",
+      "erw": "k. A.",
+      "urteil": "angehoben"
+     },
+     {
+      "k": "Free Cashflow (frei verfügbares Geld) Q3",
+      "ist": "-2.12 Mrd. $",
+      "erw": "k. A.",
+      "urteil": "negativ"
+     }
+    ],
+    "gut": [
+     "Werbeanzeigen +10 %, Preis pro Anzeige +14 %",
+     "3.64 Mrd. Menschen nutzen täglich eine Meta-App (+3 %)",
+     "Ohne Sonderbelastung 7.40 $ Gewinn pro Aktie"
+    ],
+    "sorgen": [
+     "Free Cashflow negativ (-2.12 Mrd. $) wegen teurer KI-Rechenzentren",
+     "9.89 Mrd. $ Belastung für einen Vergleich mit 52 US-Bundesstaaten wegen Jugendschutz",
+     "Neue stimmrechtslose C-Aktien ab Januar 2027 wecken Sorge vor Kapitalbeschaffung"
+    ],
+    "fazit": "Das Werbegeschäft läuft stark, die Börse reagiert auf die riesigen KI-Ausgaben: Das ist eine echte Veränderung beim Geld, das übrig bleibt, aber kein Problem im Kerngeschäft.",
+    "quellen": [
+     {
+      "t": "Yahoo Finance: META Stock Jumps After-Hours After Q3 Revenue Beats",
+      "u": "https://finance.yahoo.com/markets/stocks/articles/meta-stock-jumps-3-hours-212549647.html"
+     },
+     {
+      "t": "Top1Markets: Why Did the Stock Fall 7% Anyway?",
+      "u": "https://www.top1markets.com/news/meta-q3-2026-earnings-free-cash-flow-negative-capex"
+     },
+     {
+      "t": "NewsBytes: Meta reports $65B revenue for Q3",
+      "u": "https://www.newsbytesapp.com/news/business/meta-reports-65b-revenue-for-q3-beats-expectations/story"
+     }
+    ]
+   }
+  ],
+  "NOW": [
+   {
+    "datum": "2026-10-28",
+    "zeit": "nach",
+    "quartal": "Q3 2026",
+    "reaktion_quelle": -26.95,
+    "titel": "Schwacher Ausblick löst Rekord-Kurssturz aus",
+    "kurz": "ServiceNow steigerte die Abo-Umsätze um 21 % auf 3.99 Mrd. $, verfehlte beim Gewinn pro Aktie aber knapp die Schätzung. Der Ausblick fürs Auftragswachstum lag unter den Erwartungen, die Aktie fiel am 29.10. um 26.95 %, der schlechteste Tag ihrer Geschichte.",
+    "zahlen": [
+     {
+      "k": "Umsatz",
+      "ist": "4.11 Mrd. $ (+20.5 %)",
+      "erw": "4.10 Mrd. $",
+      "urteil": "getroffen"
+     },
+     {
+      "k": "EPS bereinigt (Gewinn pro Aktie)",
+      "ist": "1.00 $",
+      "erw": "1.02 $",
+      "urteil": "knapp verfehlt"
+     },
+     {
+      "k": "cRPO (vertraglich gesicherter Umsatz der nächsten 12 Monate)",
+      "ist": "13.65 Mrd. $ (+20.5 %)",
+      "erw": "k. A.",
+      "urteil": "solide"
+     },
+     {
+      "k": "Ausblick cRPO-Wachstum Q4",
+      "ist": "18.5 %",
+      "erw": "19.4 %",
+      "urteil": "verfehlt"
+     },
+     {
+      "k": "Ausblick Abo-Umsatz 2026",
+      "ist": "15.78 bis 15.79 Mrd. $",
+      "erw": "k. A.",
+      "urteil": "leicht angehoben"
+     }
+    ],
+    "gut": [
+     "Free Cashflow 822 Mio. $, Ziel für die FCF-Marge 2026 auf 36 % von 35 % erhöht",
+     "Neue KI-Verträge +65 %, KI-Umsatzziel 2026 auf 1.7 Mrd. $ erhöht",
+     "Bereinigte Betriebsmarge 32.5 %"
+    ],
+    "sorgen": [
+     "Auftragswachstum im Q4 nur 18.5 % statt erwarteter 19.4 %",
+     "Erstmals seit sechs Quartalen Gewinn pro Aktie unter der Schätzung",
+     "Angst, dass KI klassische Software-Abos verdrängt"
+    ],
+    "fazit": "Das Geschäft wächst weiter um rund 20 %, der Absturz ist vor allem Angst vor KI-Konkurrenz und einer leichten Abschwächung; ob daraus eine echte Veränderung wird, zeigen erst die nächsten Quartale.",
+    "quellen": [
+     {
+      "t": "TradingKey: ServiceNow Q3 2026 Earnings",
+      "u": "https://www.tradingkey.com/news/earnings/262248853-tradingkey"
+     },
+     {
+      "t": "Yahoo Finance: ServiceNow stock sinks in worst day ever",
+      "u": "https://finance.yahoo.com/markets/stocks/article/fortinet-drags-down-cybersecurity-stocks-as-the-companys-service-revenue-forecast-misses-estimates-124146969.html"
+     },
+     {
+      "t": "Investing.com: ServiceNow earnings analysis",
+      "u": "https://www.investing.com/news/stock-market-news/servicenow-earnings-analysis-questions-answered-and-next-catalysts-93CH-4984772"
+     }
+    ]
+   }
+  ],
+  "ULVR": [
+   {
+    "datum": "2026-10-28",
+    "zeit": "vor",
+    "quartal": "Q3 2026",
+    "reaktion_quelle": -2.1,
+    "titel": "Besser als erwartet, Food-Sparte bremst",
+    "kurz": "Unilever wuchs organisch (ohne Zukäufe und Währungseffekte) um 5.2 %, mehr als die erwarteten 4.8 %, und hob das Ziel fürs Mengenwachstum an. Die Aktie fiel trotzdem um 2.1 %, weil die Food-Sparte stagnierte.",
+    "zahlen": [
+     {
+      "k": "Umsatz",
+      "ist": "13.3 Mrd. € (+6.7 %)",
+      "erw": "k. A.",
+      "urteil": "solide"
+     },
+     {
+      "k": "Organisches Wachstum (ohne Zukäufe und Währung)",
+      "ist": "5.2 %",
+      "erw": "4.8 %",
+      "urteil": "übertroffen"
+     },
+     {
+      "k": "Mengenwachstum (mehr verkaufte Ware)",
+      "ist": "2.9 %",
+      "erw": "k. A.",
+      "urteil": "über Erwartung"
+     },
+     {
+      "k": "Food-Sparte organisch",
+      "ist": "0.1 %",
+      "erw": "1.3 %",
+      "urteil": "verfehlt"
+     },
+     {
+      "k": "Ausblick Mengenwachstum 2026",
+      "ist": "mindestens 3 % (vorher rund 3 %)",
+      "erw": "k. A.",
+      "urteil": "angehoben"
+     }
+    ],
+    "gut": [
+     "Schwellenländer +9.5 %, Indien +15 %",
+     "Home Care +9.1 % (erwartet 6.7 %)",
+     "Quartalsdividende 0.4664 €, 3.0 % mehr als vor einem Jahr"
+    ],
+    "sorgen": [
+     "Industrieländer -0.9 %, dort Menge -1.7 %",
+     "Food nur +0.1 %, Menge -1.1 %",
+     "Jefferies warnt vor schwierigeren Vergleichswerten in den nächsten Quartalen"
+    ],
+    "fazit": "Eher Stimmung: Das Geschäft läuft gut, vor allem in Schwellenländern, die Börse stört sich an der schwachen Food-Sparte und den Industrieländern.",
+    "quellen": [
+     {
+      "t": "Unilever: Continued strong performance in the third quarter",
+      "u": "https://www.unilever.com/news/press-and-media/press-releases/2026/continued-strong-performance-in-the-third-quarter/"
+     },
+     {
+      "t": "Reuters via AOL: UK's FTSE 100 muted as GSK, Unilever losses temper bank gains",
+      "u": "https://www.aol.com/articles/londons-ftse-100-bogged-down-101650000.html"
+     },
+     {
+      "t": "Yahoo Finance UK: Unilever shares fall despite strong third-quarter beat",
+      "u": "https://uk.finance.yahoo.com/news/unilever-shares-fall-4-despite-085700478.html"
+     }
+    ]
+   }
+  ],
+  "1211": [
+   {
+    "datum": "2026-10-29",
+    "zeit": "nach",
+    "quartal": "Q3 2026",
+    "reaktion_quelle": -0.5,
+    "titel": "Gewinn +28 %, aber klar unter den Schätzungen",
+    "kurz": "BYD steigert den Quartalsgewinn um 28 % auf 10.0 Mrd. Yuan, Analysten hatten aber 11.4 bis 12.95 Mrd. erwartet. In Hongkong fiel die Aktie am Freitag zeitweise 2.4 % und lag zur Mittagspause noch 0.5 % im Minus.",
+    "zahlen": [
+     {
+      "k": "Umsatz",
+      "ist": "221.5 Mrd. Yuan (+13.6 %)",
+      "erw": "keine Schätzung",
+      "urteil": "erstes Plus nach 4 Minus-Quartalen"
+     },
+     {
+      "k": "Reingewinn",
+      "ist": "10.0 Mrd. Yuan (+28 %)",
+      "erw": "11.4 bis 12.95 Mrd. Yuan",
+      "urteil": "verfehlt"
+     },
+     {
+      "k": "Verkaufte Autos",
+      "ist": "1.32 Mio. (+18.7 %)",
+      "erw": "keine Schätzung",
+      "urteil": "gut"
+     },
+     {
+      "k": "Export",
+      "ist": "550'704 Autos (+137 %)",
+      "erw": "keine Schätzung",
+      "urteil": "stark"
+     },
+     {
+      "k": "Gewinn 9 Monate",
+      "ist": "22.3 Mrd. Yuan (-4.2 %)",
+      "erw": "keine Schätzung",
+      "urteil": "schwach"
+     }
+    ],
+    "gut": [
+     "Export mehr als verdoppelt: 550'704 Autos, das sind rund 42 % aller Verkäufe",
+     "Umsatz wächst wieder (+13.6 %) nach vier Quartalen mit Rückgang",
+     "Operativer Cashflow (Geld aus dem laufenden Geschäft) nach 9 Monaten +33 % auf 54.5 Mrd. Yuan"
+    ],
+    "sorgen": [
+     "In China selbst rund 12 % weniger Autos verkauft, der Preiskampf drückt die Marge",
+     "Lager um 60 % auf 221.6 Mrd. Yuan gewachsen: viele Autos stehen noch auf dem Hof",
+     "JPMorgan senkt die Erwartungen wegen des schwachen chinesischen Automarkts"
+    ],
+    "fazit": "Die Börse blieb ruhig, das echte Thema ist aber im Geschäft: BYD wächst nur noch dank Export, während das Heimgeschäft schrumpft und das Lager stark anschwillt.",
+    "quellen": [
+     {
+      "t": "Electrek: BYD Q3 profit jumps 28% on exports, but inventory balloons 60%",
+      "u": "https://electrek.co/2026/10/29/byd-q3-2026-earnings-profit-exports-inventory/"
+     },
+     {
+      "t": "Reuters via TimesLIVE: BYD's Q3 profit growth slows, falling short of forecasts",
+      "u": "https://www.timeslive.co.za/motoring/2026-10-29-byds-q3-profit-growth-slows-falling-short-of-forecasts/"
+     },
+     {
+      "t": "Investing.com via Yahoo: BYD shares dip as Q3 earnings disappoint",
+      "u": "https://au.finance.yahoo.com/news/byd-shares-dip-q3-earnings-054612859.html"
+     }
+    ]
+   }
+  ],
+  "AMZN": [
+   {
+    "datum": "2026-10-29",
+    "zeit": "nach",
+    "quartal": "Q3 2026",
+    "reaktion_quelle": -7,
+    "titel": "AWS +39 %, aber Gewinn verfehlt und Rekord-Ausgaben",
+    "kurz": "Die Cloud-Sparte AWS wuchs mit 39 % so schnell wie seit fast fünf Jahren nicht mehr, der Gewinn pro Aktie lag aber unter der Schätzung. Weil Amazon 2027 noch deutlich mehr als die 220 Mrd. $ von 2026 investieren will, fiel die Aktie nachbörslich um mehr als 7 %.",
+    "zahlen": [
+     {
+      "k": "Umsatz",
+      "ist": "201.9 Mrd. $ (+12 %)",
+      "erw": "202.2 Mrd. $",
+      "urteil": "knapp verfehlt"
+     },
+     {
+      "k": "Gewinn pro Aktie",
+      "ist": "1.89 $",
+      "erw": "1.96 $",
+      "urteil": "verfehlt"
+     },
+     {
+      "k": "AWS Umsatz",
+      "ist": "46.0 Mrd. $ (+39 %)",
+      "erw": "45.3 Mrd. $",
+      "urteil": "übertroffen"
+     },
+     {
+      "k": "Betriebsgewinn",
+      "ist": "28.1 Mrd. $ (Vorjahr 17.4 Mrd.)",
+      "erw": "keine Angabe",
+      "urteil": "Rekordmarge 13.9 %"
+     },
+     {
+      "k": "Ausblick Q4 Umsatz",
+      "ist": "240 bis 247 Mrd. $ (+12 bis 16 %)",
+      "erw": "keine Angabe",
+      "urteil": "solide"
+     }
+    ],
+    "gut": [
+     "AWS wächst 39 % auf 46.0 Mrd. $ und macht allein 17.8 Mrd. $ Betriebsgewinn",
+     "Betriebsmarge 13.9 %, laut Amazon die höchste der Firmengeschichte",
+     "Chef Jassy erwartet für AWS auch 2027 und 2028 über 40 % Wachstum"
+    ],
+    "sorgen": [
+     "Free Cashflow (Geld, das nach allen Investitionen übrig bleibt) der letzten 12 Monate: minus 42.4 Mrd. $, ein Jahr zuvor plus 14.8 Mrd. $",
+     "Investitionen (Capex) 2027 sollen «deutlich mehr» als die rund 220 Mrd. $ von 2026 betragen",
+     "Werbegeschäft wuchs nur 11 % auf 19.6 Mrd. $"
+    ],
+    "fazit": "Das Geschäft läuft stark, die Börse fürchtet aber die riesigen KI-Ausgaben, die den Free Cashflow ins Minus drücken: das ist eine echte Frage für die nächsten Jahre und nicht nur Stimmung.",
+    "quellen": [
+     {
+      "t": "Amazon Q3 2026 Pressemitteilung (SEC 8-K)",
+      "u": "https://www.sec.gov/Archives/edgar/data/0001018724/000101872426000038/amzn-20260930xex991.htm"
+     },
+     {
+      "t": "24/7 Wall St.: Amazon Q3 2026, AWS revenue rose 39% as EPS missed",
+      "u": "https://247wallst.com/cards/amazon-q3-2026-earnings-amzn-01m64mgs2373wqp8ya2hpcgve3"
+     },
+     {
+      "t": "Newscord: Amazon misses earnings, AWS jumps 39% as shares drop more than 7%",
+      "u": "https://newscord.org/article/amazon-misses-earnings-aws-revenue-jumps-39-as-shares-drop-more-than-7--Story_20261029_Amazonreportedboomin5195d6ef"
+     }
+    ]
+   }
+  ],
+  "MA": [
+   {
+    "datum": "2026-10-29",
+    "zeit": "vor",
+    "quartal": "Q3 2026",
+    "reaktion_quelle": 4,
+    "titel": "Gewinn +21 %, klar über den Erwartungen",
+    "kurz": "Mastercard steigerte den Umsatz um 14 % und den bereinigten Gewinn pro Aktie um 21 %, beides über den Schätzungen. Die Aktie lag am Nachmittag mehr als 4 % im Plus.",
+    "zahlen": [
+     {
+      "k": "Umsatz",
+      "ist": "9.8 Mrd. $ (+14 %)",
+      "erw": "rund 9.6 Mrd. $",
+      "urteil": "übertroffen"
+     },
+     {
+      "k": "Gewinn pro Aktie (bereinigt)",
+      "ist": "5.31 $ (+21 %)",
+      "erw": "5.16 $",
+      "urteil": "übertroffen"
+     },
+     {
+      "k": "Zahlungsvolumen (GDV)",
+      "ist": "3.0 Bio. $ (+7 %)",
+      "erw": "keine Angabe",
+      "urteil": "solide"
+     },
+     {
+      "k": "Auslandszahlungen",
+      "ist": "+11 %",
+      "erw": "keine Angabe",
+      "urteil": "etwas langsamer"
+     },
+     {
+      "k": "Ausblick 2026 Umsatz",
+      "ist": "Wachstum oberes Ende «tiefer zweistelliger Bereich»",
+      "erw": "unverändert",
+      "urteil": "bestätigt"
+     }
+    ],
+    "gut": [
+     "Zusatzdienste (Betrugsschutz, Datenanalyse) wachsen 19 % und damit schneller als das Kerngeschäft",
+     "Bereinigte Betriebsmarge 60.5 %, also 0.7 Prozentpunkte höher als im Vorjahr",
+     "3.0 Mrd. $ für Aktienrückkäufe im Quartal, plus 763 Mio. $ Dividende"
+    ],
+    "sorgen": [
+     "Ein Teil des Umsatzes wurde laut Firma aus Q4 vorgezogen und fehlt dort",
+     "Höhere Benzinpreise blähen die Ausgaben auf, dieser Effekt kann wegfallen",
+     "Auslandszahlungen in Europa und Nahost schwächer"
+    ],
+    "fazit": "Echte Stärke im Geschäft: Mastercard wächst zweistellig und sehr profitabel, der kleine Haken ist nur das vorgezogene Geschäft aus dem vierten Quartal.",
+    "quellen": [
+     {
+      "t": "Mastercard Q3 2026 Earnings Release (PDF)",
+      "u": "https://s25.q4cdn.com/479285134/files/content_files/3Q26-Mastercard-Earnings-Release.pdf"
+     },
+     {
+      "t": "BigGo Finance: Mastercard beats profit estimates, shares rise 4%",
+      "u": "https://finance.biggo.com/news/12186f59-a16a-49d6-83c0-05e224e5561b"
+     },
+     {
+      "t": "Zacks via TradingView: Mastercard beats Q3 earnings",
+      "u": "https://www.tradingview.com/news/zacks:3696ff7c1094b:0-mastercard-beats-q3-earnings-on-higher-cross-border-volumes-pricing/"
+     }
+    ]
+   }
+  ],
+  "SYK": [
+   {
+    "datum": "2026-10-29",
+    "zeit": "nach",
+    "quartal": "Q3 2026",
+    "reaktion_quelle": -12,
+    "titel": "Umsatz und Gewinn verfehlt, Ausblick gesenkt",
+    "kurz": "Stryker wuchs organisch 7.7 %, verfehlte aber Umsatz und Gewinn leicht und senkte die Jahresprognose für den Gewinn pro Aktie. Die Aktie fiel nachbörslich um 8.5 % bis 12 %.",
+    "zahlen": [
+     {
+      "k": "Umsatz",
+      "ist": "6.52 Mrd. $ (+7.7 %)",
+      "erw": "6.62 Mrd. $",
+      "urteil": "knapp verfehlt"
+     },
+     {
+      "k": "Gewinn pro Aktie (bereinigt)",
+      "ist": "3.52 $ (+10.3 %)",
+      "erw": "3.55 $",
+      "urteil": "knapp verfehlt"
+     },
+     {
+      "k": "Organisches Wachstum",
+      "ist": "7.7 %",
+      "erw": "keine Angabe",
+      "urteil": "unter eigenem Ziel"
+     },
+     {
+      "k": "Ausblick Gewinn/Aktie 2026",
+      "ist": "14.80 bis 14.90 $",
+      "erw": "vorher 14.95 bis 15.10 $",
+      "urteil": "gesenkt"
+     }
+    ],
+    "gut": [
+     "Sparte Medizintechnik und Neurotechnik wächst 9.2 % auf 3.7 Mrd. $",
+     "Bereinigte Betriebsmarge steigt um 0.6 Prozentpunkte auf 26.2 %",
+     "1.0 Mrd. $ Aktienrückkäufe im Quartal und weitere 3.0 Mrd. $ freigegeben"
+    ],
+    "sorgen": [
+     "Markt für künstliche Hüften und Knie kühlt ab: USA Knie nur +1.3 %, Hüfte -0.6 %",
+     "Lieferengpässe bei Gefässprodukten und Störungen durch Cyberangriff und neues SAP-System",
+     "Goodwill-Abschreibung (Wertberichtigung auf früher teuer gekaufte Firmen) von 293 Mio. $ drückt den ausgewiesenen Gewinn"
+    ],
+    "fazit": "Mehr als nur Stimmung: Stryker wächst weiter, aber langsamer als geplant, weil das wichtige Gelenkgeschäft schwächelt, und das Management sieht 2027 weniger Marktwachstum.",
+    "quellen": [
+     {
+      "t": "Stryker Q3 2026 Pressemitteilung (SEC 8-K)",
+      "u": "https://www.sec.gov/Archives/edgar/data/0000310764/000031076426000059/sykex991earningsq32026.htm"
+     },
+     {
+      "t": "Investing.com: Stryker plunges 12% as Q3 results, guidance disappoint",
+      "u": "https://ca.investing.com/news/stock-market-news/stryker-plunges-12-q3-results-guidance-disappoint-93CH-4915593"
+     },
+     {
+      "t": "StockStory: Stryker misses Q3 2026 sales expectations, stock drops",
+      "u": "https://markets.financialcontent.com/stocks/article/stockstory-2026-10-29-stryker-nysesyk-misses-q3-2026-sales-expectations-stock-drops"
+     }
+    ]
+   }
   ]
  }
 }

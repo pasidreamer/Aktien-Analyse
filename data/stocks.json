@@ -3279,7 +3279,7 @@
     "trigger": null,
     "abbruch": 625
    },
-   "zahlen": "2026-10-28",
+   "zahlen": "2026-10-21",
    "dividende": null,
    "div_info": {
     "pro_jahr": 4,
@@ -5703,7 +5703,7 @@
     "trigger": null,
     "abbruch": 269
    },
-   "zahlen": "2026-10-29",
+   "zahlen": "2026-11-05",
    "dividende": null,
    "div_info": {
     "zahlt": false,
@@ -9526,7 +9526,7 @@
     "trigger": 62.2,
     "abbruch": 55.5
    },
-   "zahlen": "2026-10-27",
+   "zahlen": "2026-10-29",
    "dividende": "3.5 %",
    "div_info": {
     "pro_jahr": 4,
@@ -10204,7 +10204,7 @@
     "trigger": 25.2,
     "abbruch": 20.9
    },
-   "zahlen": "2026-10-28",
+   "zahlen": "2026-11-04",
    "dividende": "7.3 %",
    "div_info": {
     "pro_jahr": 4,
