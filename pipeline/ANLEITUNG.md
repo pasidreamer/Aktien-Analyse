@@ -111,3 +111,20 @@ Arbeitsordner: das geklonte Repo (z. B. /home/claude/aktien-ampel). Alle Pfade u
 - **Neue Person:** In Supabase unter Authentication > Users > Add user > Create new user, mit «Auto Confirm User». Neue Anmeldungen von aussen sind abgeschaltet.
 - **Push bei Vorschlägen:** ntfy-Thema `aa-vorschlag-q7m2xk9fwp4h` abonnieren.
 - **Wach halten:** Der Workflow «Supabase wach halten» pingt die Datenbank zweimal pro Woche, sonst pausiert das Gratis-Projekt nach 7 Tagen.
+
+## Quartalszahlen-Notizen (data/zahlen.json)
+
+Nach Quartalszahlen zeigt die App eine kurze Auswertung: Karte auf der Aktienseite, «Neue Quartalszahlen» in der Übersicht und ein «Z» im Chart am Tag der Kursreaktion. Die Reaktion in Prozent rechnet die App selbst aus den Kursen.
+
+Format pro Aktie (Schlüssel = App-Ticker), neueste Einträge zuerst egal, die App sortiert:
+```json
+{"datum": "2026-10-28", "zeit": "nach", "quartal": "Q3 2026", "reaktion_quelle": -10.0,
+ "titel": "höchstens 60 Zeichen", "kurz": "1 bis 2 Sätze",
+ "zahlen": [{"k": "Umsatz", "ist": "127.6 Mrd. $ (+25 %)", "erw": "128.2 Mrd. $", "urteil": "knapp verfehlt"}],
+ "gut": ["..."], "sorgen": ["..."], "fazit": "Panik oder echte Veränderung? 1 Satz, keine Empfehlung",
+ "quellen": [{"t": "Titel", "u": "https://..."}]}
+```
+- `zeit`: "vor" (vor Börsenbeginn) oder "nach" (nach Börsenschluss).
+- `urteil`: übertroffen, getroffen, knapp verfehlt, verfehlt, angehoben, bestätigt, gesenkt oder kurz frei.
+- Deutsch, Schweizer Schreibweise, Anfängerniveau, Fachbegriffe kurz erklären, nur echte Zahlen mit Quelle.
+- Danach in `pipeline/aktien.json` bei `zahlen` den nächsten Termin eintragen, falls bekannt (sonst leer lassen).

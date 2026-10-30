@@ -124,7 +124,8 @@ async function getJSON(url) {
   return r.json();
 }
 async function load(force) {
-  const [s, l, v, n, f, wu] = await Promise.allSettled([getJSON("data/stocks.json"), getJSON("data/live.json"), getJSON("data/verlauf.json"), loadNotes(), getJSON("data/fcf.json"), getJSON("data/wuensche.json")]);
+  const [s, l, v, n, f, wu, zz] = await Promise.allSettled([getJSON("data/stocks.json"), getJSON("data/live.json"), getJSON("data/verlauf.json"), loadNotes(), getJSON("data/fcf.json"), getJSON("data/wuensche.json"), getJSON("data/zahlen.json")]);
+  STATE.zahlen = zz.status === "fulfilled" ? zz.value.eintraege || {} : {};
   STATE.fcf = f.status === "fulfilled" ? f.value : null;
   STATE.wuensche = wu.status === "fulfilled" ? wu.value.wuensche || [] : [];
   if (s.status !== "fulfilled") throw new Error("stocks.json fehlt");
@@ -212,6 +213,44 @@ function reason(v) {
   if (v.status === "trigger") r.push("Trigger ausgelöst");
   if (v.t >= 60) r.push(`Timing ${ampelName[ampel(v.t)]}`);
   return r.join(", ");
+}
+
+// ---------- Quartalszahlen: kurze Auswertung (data/zahlen.json) ----------
+// Die Reaktion rechnet die App selbst: Schlusskurs vor den Zahlen gegen den ersten Schlusskurs danach.
+function zReaktion(t, e) {
+  const ch = STATE.live?.aktien?.[t]?.chart; if (!ch?.d?.length) return null;
+  const tag = e.zeit === "vor" ? (d => d >= e.datum) : (d => d > e.datum);
+  const i = ch.d.findIndex(tag); if (i < 1) return null;
+  const base = ch.c[i - 1], k = STATE.live.aktien[t].kurs ?? ch.c[ch.c.length - 1];
+  return { tag: ch.d[i], pct: (ch.c[i] / base - 1) * 100, seither: (k / base - 1) * 100 };
+}
+const zahlenVon = t => (STATE.zahlen?.[t] || []).slice().sort((a, b) => b.datum.localeCompare(a.datum));
+const URT = u => /übertroffen|angehoben|stark/i.test(u) ? "up" : /verfehlt|gesenkt/i.test(u) ? "down" : "";
+function zahlenKarte(t) {
+  const e = zahlenVon(t)[0]; if (!e) return "";
+  const alt = (Date.now() - new Date(e.datum + "T12:00:00")) / 864e5 > 60; if (alt) return "";
+  const r = zReaktion(t, e), p = r ? r.pct : e.reaktion_quelle;
+  return `<div class="card zk"><div class="zk-top"><div><span class="zk-l">Neue Quartalszahlen · ${fmtDate(e.datum)}${e.quartal ? " · " + esc(e.quartal) : ""}</span><h3>${esc(e.titel)}</h3></div>
+    ${p != null ? `<span class="zk-p ${p >= 0 ? "up" : "down"}">${pct(p, 1)}<small>${r ? "am Tag danach" : "laut Quelle"}</small></span>` : ""}</div>
+    <p>${esc(e.kurz)}</p>
+    ${e.zahlen?.length ? `<table class="zk-t"><thead><tr><th></th><th>Ist</th><th>Erwartet</th></tr></thead><tbody>${e.zahlen.map(z => `<tr><td>${esc(z.k)}</td><td>${esc(z.ist)}<small class="${URT(z.urteil || "")}">${esc(z.urteil || "")}</small></td><td>${esc(z.erw || "–")}</td></tr>`).join("")}</tbody></table>` : ""}
+    <div class="zk-gs">${e.gut?.length ? `<div><b class="up">Was gut war</b><ul>${e.gut.map(x => `<li>${esc(x)}</li>`).join("")}</ul></div>` : ""}
+      ${e.sorgen?.length ? `<div><b class="down">Was Sorgen macht</b><ul>${e.sorgen.map(x => `<li>${esc(x)}</li>`).join("")}</ul></div>` : ""}</div>
+    ${e.fazit ? `<p class="zk-f"><b>Panik oder echt?</b> ${esc(e.fazit)}</p>` : ""}
+    ${r ? `<p class="dp-note">Seit den Zahlen: ${pct(r.seither, 1)}. Im Chart ist der Tag mit «Z» markiert.</p>` : ""}
+    ${e.quellen?.length ? `<details class="more"><summary>Quellen</summary><ul class="plain">${e.quellen.map(q => `<li><a href="${esc(q.u)}" target="_blank" rel="noopener">${esc(q.t)}</a></li>`).join("")}</ul></details>` : ""}</div>`;
+}
+// Übersicht: Zahlen der letzten 14 Tage
+function zahlenNeuHtml() {
+  const L = [];
+  for (const t of Object.keys(STATE.zahlen || {})) { const s = STATE.stocks.find(x => x.ticker === t), e = zahlenVon(t)[0]; if (!s || !e) continue;
+    if ((Date.now() - new Date(e.datum + "T12:00:00")) / 864e5 <= 14) L.push({ s, e, r: zReaktion(t, e) }); }
+  if (!L.length) return "";
+  L.sort((a, b) => b.e.datum.localeCompare(a.e.datum) || Math.abs(b.r?.pct ?? 0) - Math.abs(a.r?.pct ?? 0));
+  return `<div class="sec"><h2>Neue Quartalszahlen</h2><p>Was rauskam und wie die Börse reagiert hat. Tippe für Details.</p></div>
+    <div class="zn">${L.map(({ s, e, r }) => { const p = r ? r.pct : e.reaktion_quelle;
+      return `<a class="zn-i" href="#/aktie/${encodeURIComponent(s.ticker)}"><div class="zn-h"><b>${esc(s.name)}</b>${p != null ? `<span class="${p >= 0 ? "up" : "down"}">${pct(p, 1)}</span>` : ""}</div>
+        <span class="zn-t">${esc(e.titel)}</span><em>${fmtDate(e.datum)}</em></a>`; }).join("")}</div>`;
 }
 
 // ---------- Bausteine ----------
@@ -320,12 +359,15 @@ function chartHtml(v) {
     ${(s.zonen.widerstand || []).map(z => band(z, "var(--rot-soft)")).join("")}
     ${labels.join("")}
     ${(() => { const tY = s.zonen.trigger && s.zonen.trigger >= lo && s.zonen.trigger <= hi ? Y(s.zonen.trigger) : null, aY = s.zonen.abbruch && s.zonen.abbruch >= lo && s.zonen.abbruch <= hi ? Y(s.zonen.abbruch) : null; const close = tY != null && aY != null && Math.abs(tY - aY) < 11; return hline(s.zonen.trigger, "var(--accent)", "Trigger", close ? -5 : 0) + hline(s.zonen.abbruch, "var(--rot)", "Abbruch", close ? 6 : 0); })()}
+    ${zahlenVon(s.ticker).map(e => { const r = zReaktion(s.ticker, e), tag = r?.tag || e.datum; const i = ch.d.findIndex(d => d >= tag); if (i < 0 || (i === 0 && ch.d[0] > tag)) return "";
+      const x = X(i).toFixed(1), col = r ? (r.pct >= 0 ? "var(--gruen)" : "var(--rot)") : "var(--accent)";
+      return `<line x1="${x}" x2="${x}" y1="${P.t + 12}" y2="${H - P.b}" stroke="${col}" stroke-dasharray="2 3" stroke-width="1.2"/><text class="ax zmark" x="${x}" y="${P.t + 9}" text-anchor="${+x > W - P.r - 24 ? "end" : +x < P.l + 24 ? "start" : "middle"}" fill="${col}">Z${r ? " " + (r.pct >= 0 ? "+" : "−") + nf(Math.abs(r.pct), 0) + "%" : ""}</text>`; }).join("")}
     <path d="${path(ch.e200)}" fill="none" stroke="var(--orange)" stroke-width="1.4"/>
     <path d="${path(ch.e50)}" fill="none" stroke="var(--gelb)" stroke-width="1.4"/>
     <path d="${path(ch.c)}" fill="none" stroke="var(--ink)" stroke-width="${r === "1J" ? 1.8 : 1.4}"/>
     ${ticks}
   </svg>
-  <div class="legend"><span><i style="background:var(--ink)"></i>Kurs</span><span><i style="background:var(--gelb)"></i>EMA 50${e}</span><span><i style="background:var(--orange)"></i>EMA 200${e}</span><span><i style="background:var(--gruen-soft);height:9px"></i>Kaufzone</span><span><i style="background:var(--rot-soft);height:9px"></i>Widerstand</span></div></div>`;
+  <div class="legend"><span><i style="background:var(--ink)"></i>Kurs</span><span><i style="background:var(--gelb)"></i>EMA 50${e}</span><span><i style="background:var(--orange)"></i>EMA 200${e}</span><span><i style="background:var(--gruen-soft);height:9px"></i>Kaufzone</span><span><i style="background:var(--rot-soft);height:9px"></i>Widerstand</span>${zahlenVon(s.ticker).length ? '<span><b style="color:var(--accent)">Z</b> Quartalszahlen</span>' : ""}</div></div>`;
 }
 
 function partsHtml(parts) {
@@ -392,6 +434,7 @@ function renderHome() {
     ${marktHtml()}
 
     <div id="merkslot">${merkListeHtml()}</div>
+    ${zahlenNeuHtml()}
     <div class="sec"><h2>Jetzt interessant</h2><p>Qualität mindestens hellgrün und Kurs in der Zone, Trigger ausgelöst oder Timing mindestens hellgrün.</p></div>
     ${hot.length ? `<div class="hot">${hot.map(v => `<a class="hotcard" href="#/aktie/${encodeURIComponent(v.s.ticker)}">${signal(v.q, v.t)}<div><div class="nm">${esc(v.s.name)}</div><div class="tk">${esc(v.s.ticker)} · ${money(v.kurs, v.s.waehrung)}</div></div><div class="why">${esc(reason(v))}</div></a>`).join("")}</div>`
       : `<div class="empty">Gerade erfüllt keine Aktie diese Bedingungen. Die Karte unten zeigt, wer am nächsten dran ist.</div>`}
@@ -701,6 +744,7 @@ function renderDetail(ticker) {
       <div class="lbl"><div><b>Qualität ${v.q} (${ampelName[ampel(v.q)]}) ${dl(v.dq, "seit Analyse")}</b>Ist die Firma kaufenswert?</div>
         <div><b>Timing ${v.t} (${ampelName[ampel(v.t)]}) ${dl(v.dt, "seit Analyse")}</b>Ist jetzt der Zeitpunkt?</div></div></div>
     ${bannerTxt ? `<div class="banner ${bannerTxt[0]}">${esc(bannerTxt[1])}</div>` : ""}
+    ${zahlenKarte(s.ticker)}
 
     ${merkHtml(s.ticker)}
     <div id="firmaslot">${firmaHtml(s.symbol)}</div>

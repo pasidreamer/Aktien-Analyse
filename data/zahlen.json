@@ -1,0 +1,135 @@
+{
+ "stand": "2026-10-30",
+ "hinweis": "Kurze Auswertung der Quartalszahlen. Reaktion rechnet die App aus den Kursen.",
+ "eintraege": {
+  "GOOGL": [
+   {
+    "datum": "2026-10-28",
+    "zeit": "nach",
+    "quartal": "Q3 2026",
+    "reaktion_quelle": -10.0,
+    "titel": "Cloud verdoppelt, Suche bremst, Geld fliesst ab",
+    "kurz": "Der Umsatz stieg um 25 %, lag aber knapp unter der Erwartung. Die Suche wuchs nur noch 12 % und der Free Cashflow war zum zweiten Mal negativ. Die Aktie fiel rund 10 %, so stark wie noch nie nach Zahlen.",
+    "zahlen": [
+     {
+      "k": "Umsatz",
+      "ist": "127.6 Mrd. $ (+25 %)",
+      "erw": "128.2 Mrd. $",
+      "urteil": "knapp verfehlt"
+     },
+     {
+      "k": "EPS (Gewinn pro Aktie)",
+      "ist": "2.12 $",
+      "erw": "3.02 $",
+      "urteil": "verfehlt"
+     },
+     {
+      "k": "Suche und Werbung",
+      "ist": "63.4 Mrd. $ (+12 %)",
+      "erw": "65.0 Mrd. $",
+      "urteil": "verfehlt"
+     },
+     {
+      "k": "Google Cloud",
+      "ist": "30.7 Mrd. $ (+103 %)",
+      "erw": "",
+      "urteil": "sehr stark"
+     },
+     {
+      "k": "Free Cashflow",
+      "ist": "−9.1 Mrd. $",
+      "erw": "−2.3 Mrd. $",
+      "urteil": "verfehlt"
+     }
+    ],
+    "gut": [
+     "Google Cloud verdoppelt den Umsatz auf 30.7 Mrd. $, die Cloud-Marge steigt auf 36 %.",
+     "Aufträge über 561 Mrd. $ sind schon unterschrieben (Auftragsbestand).",
+     "Der Gewinnrückgang kommt vor allem von einem Buchverlust von 8.7 Mrd. $ auf die SpaceX-Beteiligung, also nicht aus dem Geschäft."
+    ],
+    "sorgen": [
+     "Die Suche wächst nur noch 12 % statt 17 %: der neue KI-Modus bringt weniger Werbegeld pro Suche.",
+     "Free Cashflow (Geld nach allen Investitionen) zweimal negativ, finanziert mit neuen Schulden und neuen Aktien, keine Rückkäufe 2026.",
+     "Die Investitionen in Rechenzentren sollen 2027 nochmals deutlich steigen."
+    ],
+    "fazit": "Nicht nur Panik: Cloud läuft hervorragend, aber Kerngeschäft Suche und freies Geld haben sich echt verschlechtert. Die offene Frage ist, wann die KI-Investitionen Geld zurückbringen.",
+    "quellen": [
+     {
+      "t": "TradingKey: Alphabet Q3, Zahlen und Free Cashflow",
+      "u": "https://www.tradingkey.com/analysis/stocks/us-stocks/262248965-google-earnings-report-q3-services-cloud-search-capital-expenditures-cash-tradingkey"
+     },
+     {
+      "t": "FinanceFeeds: Warum die Suche den Absturz auslöste",
+      "u": "https://financefeeds.com/google-cloud-doubles-but-search-triggers-alphabet/"
+     },
+     {
+      "t": "CNBC: Alphabet fällt 10 %, Microsoft steigt",
+      "u": "https://www.cnbc.com/2026/10/29/alphabet-google-microsoft-msft-shares-today-earnings.html"
+     }
+    ]
+   }
+  ],
+  "MSFT": [
+   {
+    "datum": "2026-10-28",
+    "zeit": "nach",
+    "quartal": "Q1 Geschäftsjahr 2027",
+    "reaktion_quelle": 4.0,
+    "titel": "Azure wächst 48 %, Ausblick über den Erwartungen",
+    "kurz": "Umsatz und Gewinn lagen über der Erwartung, die Cloud Azure wuchs 48 % und Microsoft erwartet fürs nächste Quartal sogar 49 bis 50 %. Die Aktie stieg rund 4 %.",
+    "zahlen": [
+     {
+      "k": "Umsatz",
+      "ist": "92.3 Mrd. $ (+19 %)",
+      "erw": "90.7 Mrd. $",
+      "urteil": "übertroffen"
+     },
+     {
+      "k": "EPS (Gewinn pro Aktie)",
+      "ist": "4.89 $",
+      "erw": "4.73 $",
+      "urteil": "übertroffen"
+     },
+     {
+      "k": "Azure",
+      "ist": "+48 %",
+      "erw": "rund +45 %",
+      "urteil": "übertroffen"
+     },
+     {
+      "k": "Ausblick Azure",
+      "ist": "+49 bis 50 %",
+      "erw": "+45 %",
+      "urteil": "angehoben"
+     },
+     {
+      "k": "Free Cashflow",
+      "ist": "18.6 Mrd. $ (−27 %)",
+      "erw": "",
+      "urteil": "positiv, aber sinkend"
+     }
+    ],
+    "gut": [
+     "Azure wächst schneller als erwartet und Microsoft zeigt den Azure-Umsatz erstmals in Dollar: 33.2 Mrd. $.",
+     "Die Investitionen von 45.2 Mrd. $ waren tiefer als befürchtet (bis 50.7 Mrd. $).",
+     "Microsoft verdient trotz KI-Ausbau weiterhin viel freies Geld."
+    ],
+    "sorgen": [
+     "Der Free Cashflow sinkt um 27 %, weil die Investitionen stark steigen.",
+     "Geräte und Konsumenten schrumpfen um 3 %."
+    ],
+    "fazit": "Echte Stärke im Geschäft: die KI-Investitionen bringen bei Microsoft schon sichtbar Umsatz. Der Kurs liegt nahe am Jahreshoch, also kein Rücksetzer.",
+    "quellen": [
+     {
+      "t": "SiliconANGLE: Microsoft Q1 Geschäftsjahr 2027",
+      "u": "https://siliconangle.com/2026/10/28/microsofts-stock-rises-on-solid-earnings-and-revenue-beat-with-azure-growing-48/"
+     },
+     {
+      "t": "CNBC: Alphabet fällt 10 %, Microsoft steigt",
+      "u": "https://www.cnbc.com/2026/10/29/alphabet-google-microsoft-msft-shares-today-earnings.html"
+     }
+    ]
+   }
+  ]
+ }
+}
