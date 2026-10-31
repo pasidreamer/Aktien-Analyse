@@ -1,5 +1,5 @@
 {
-"stand": "2026-10-24",
+"stand": "2026-10-31",
 "stufe": 2,
 "anzahl": 2281,
 "aktien": [
@@ -2085,11 +2085,12 @@
 },
 {
 "symbol": "6857.T",
-"name": "Advantest Corp.",
+"name": "r 2026[update], the company with the largest influence on the index is Advantest",
 "sektor_quelle": null,
 "region": "Asien",
 "land": "Japan",
 "indizes": [
+"Nikkei 225",
 "Nikkei 225"
 ]
 },
@@ -2505,12 +2506,11 @@
 },
 {
 "symbol": "8035.T",
-"name": "6[update], the company with the largest influence on the index is Tokyo Electron",
+"name": "Tokyo Electron Ltd.",
 "sektor_quelle": null,
 "region": "Asien",
 "land": "Japan",
 "indizes": [
-"Nikkei 225",
 "Nikkei 225"
 ]
 },
@@ -3217,7 +3217,7 @@
 {
 "symbol": "AAF.L",
 "name": "Airtel Africa",
-"sektor_quelle": "Telecommunications services",
+"sektor_quelle": "Telecommunications Service Providers",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -3247,7 +3247,7 @@
 {
 "symbol": "AAL.L",
 "name": "Anglo American plc",
-"sektor_quelle": "Mining",
+"sektor_quelle": "Industrial Metals and Mining",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -3317,7 +3317,7 @@
 {
 "symbol": "ABDN.L",
 "name": "Aberdeen Group",
-"sektor_quelle": "Financial Services",
+"sektor_quelle": "Investment Banking and Brokerage Services",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -3327,7 +3327,7 @@
 {
 "symbol": "ABF.L",
 "name": "Associated British Foods",
-"sektor_quelle": "Food & tobacco",
+"sektor_quelle": "Food Producers",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -3557,7 +3557,7 @@
 {
 "symbol": "ADM.L",
 "name": "Admiral Group",
-"sektor_quelle": "Insurance",
+"sektor_quelle": "Non-life Insurance",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -4118,7 +4118,7 @@
 {
 "symbol": "ALW.L",
 "name": "Alliance Witan",
-"sektor_quelle": "Investment Trusts",
+"sektor_quelle": "Closed End Investments",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -4388,7 +4388,7 @@
 {
 "symbol": "ANTO.L",
 "name": "Antofagasta plc",
-"sektor_quelle": "Mining",
+"sektor_quelle": "Industrial Metals and Mining",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -4888,7 +4888,7 @@
 {
 "symbol": "AUTO.L",
 "name": "Autotrader Group",
-"sektor_quelle": "Media",
+"sektor_quelle": "Software and Computer Services",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -4898,7 +4898,7 @@
 {
 "symbol": "AV.L",
 "name": "Aviva",
-"sektor_quelle": "Life insurance",
+"sektor_quelle": "Life Insurance",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -5078,7 +5078,7 @@
 {
 "symbol": "AZN.L",
 "name": "AstraZeneca",
-"sektor_quelle": "Pharmaceuticals & biotechnology",
+"sektor_quelle": "Pharmaceuticals, Biotechnology and Marijuana Producers",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -5118,7 +5118,7 @@
 {
 "symbol": "BA.L",
 "name": "BAE Systems",
-"sektor_quelle": "Aerospace & defence",
+"sektor_quelle": "Aerospace and Defense",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -5128,7 +5128,7 @@
 {
 "symbol": "BAB.L",
 "name": "Babcock International",
-"sektor_quelle": "Aerospace & defence",
+"sektor_quelle": "Aerospace and Defense",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -5318,7 +5318,7 @@
 {
 "symbol": "BBY.L",
 "name": "Balfour Beatty",
-"sektor_quelle": "Construction & Materials",
+"sektor_quelle": "Construction and Materials",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -5528,7 +5528,7 @@
 {
 "symbol": "BGEO.L",
 "name": "Lion Finance Group",
-"sektor_quelle": "Banking Services",
+"sektor_quelle": "Banks",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -5718,7 +5718,7 @@
 {
 "symbol": "BLND.L",
 "name": "British Land",
-"sektor_quelle": "Real estate",
+"sektor_quelle": "Real Estate Investment Trusts",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -5888,7 +5888,7 @@
 {
 "symbol": "BNZL.L",
 "name": "Bunzl",
-"sektor_quelle": "Support services",
+"sektor_quelle": "General Industrials",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -5948,7 +5948,7 @@
 {
 "symbol": "BP.L",
 "name": "BP",
-"sektor_quelle": "Oil & gas producers",
+"sektor_quelle": "Non-Renewable Energy",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -6008,7 +6008,7 @@
 {
 "symbol": "BRBY.L",
 "name": "Burberry Group",
-"sektor_quelle": "Personal goods",
+"sektor_quelle": "Personal Goods",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -6158,7 +6158,7 @@
 {
 "symbol": "BT-A.L",
 "name": "BT Group",
-"sektor_quelle": "Telecommunications services",
+"sektor_quelle": "Telecommunications Service Providers",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -6168,7 +6168,7 @@
 {
 "symbol": "BTRW.L",
 "name": "Barratt Redrow",
-"sektor_quelle": "Household goods & home construction",
+"sektor_quelle": "Household Goods and Home Construction",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -6608,7 +6608,7 @@
 {
 "symbol": "CCC.L",
 "name": "Computacenter",
-"sektor_quelle": "Software & Computer Services",
+"sektor_quelle": "Software and Computer Services",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -7198,7 +7198,7 @@
 {
 "symbol": "CNA.L",
 "name": "Centrica",
-"sektor_quelle": "Multiline utilities",
+"sektor_quelle": "Gas, Water and Multi-utilities",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -7508,7 +7508,7 @@
 {
 "symbol": "CPG.L",
 "name": "Compass Group",
-"sektor_quelle": "Support services",
+"sektor_quelle": "Consumer Services",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -7798,7 +7798,7 @@
 {
 "symbol": "CTEC.L",
 "name": "Convatec",
-"sektor_quelle": "Health care equipment & supplies",
+"sektor_quelle": "Medical Equipment and Services",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -8128,7 +8128,7 @@
 {
 "symbol": "DCC.L",
 "name": "DCC Energy",
-"sektor_quelle": "Support services",
+"sektor_quelle": "Industrial Support Services",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -8498,7 +8498,7 @@
 {
 "symbol": "DPLM.L",
 "name": "Diploma",
-"sektor_quelle": "Industrial Support services",
+"sektor_quelle": "Industrial Support Services",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -8818,7 +8818,7 @@
 {
 "symbol": "EDV.L",
 "name": "Endeavour Mining",
-"sektor_quelle": "Mining",
+"sektor_quelle": "Precious Metals and Mining",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -9598,7 +9598,7 @@
 {
 "symbol": "EXPN.L",
 "name": "Experian",
-"sektor_quelle": "Support services",
+"sektor_quelle": "Industrial Support Services",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -9748,7 +9748,7 @@
 {
 "symbol": "FCIT.L",
 "name": "F & C Investment Trust",
-"sektor_quelle": "Collective investments",
+"sektor_quelle": "Closed End Investments",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -10319,7 +10319,7 @@
 {
 "symbol": "FRES.L",
 "name": "Fresnillo plc",
-"sektor_quelle": "Mining",
+"sektor_quelle": "Precious Metals and Mining",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -10842,7 +10842,7 @@
 {
 "symbol": "GLEN.L",
 "name": "Glencore",
-"sektor_quelle": "Mining",
+"sektor_quelle": "Industrial Metals and Mining",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -11162,7 +11162,7 @@
 {
 "symbol": "GSK.L",
 "name": "GSK plc",
-"sektor_quelle": "Pharmaceuticals & biotechnology",
+"sektor_quelle": "Pharmaceuticals, Biotechnology and Marijuana Producers",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -11612,7 +11612,7 @@
 {
 "symbol": "HLMA.L",
 "name": "Halma plc",
-"sektor_quelle": "Electronic equipment & parts",
+"sektor_quelle": "Electronic and Electrical Equipment",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -11622,7 +11622,7 @@
 {
 "symbol": "HLN.L",
 "name": "Haleon",
-"sektor_quelle": "Pharmaceuticals & biotechnology",
+"sektor_quelle": "Pharmaceuticals, Biotechnology and Marijuana Producers",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -12012,7 +12012,7 @@
 {
 "symbol": "HWDN.L",
 "name": "Howdens Joinery",
-"sektor_quelle": "Homebuilding & construction supplies",
+"sektor_quelle": "Retailers",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -12062,7 +12062,7 @@
 {
 "symbol": "IAG.L",
 "name": "International Airlines Group",
-"sektor_quelle": "Travel & leisure",
+"sektor_quelle": "Travel and Leisure",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -12142,7 +12142,7 @@
 {
 "symbol": "ICG.L",
 "name": "ICG",
-"sektor_quelle": "Financial services",
+"sektor_quelle": "Investment Banking and Brokerage Services",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -12282,7 +12282,7 @@
 {
 "symbol": "IGG.L",
 "name": "IG Group",
-"sektor_quelle": "Financial services",
+"sektor_quelle": "Investment Banking and Brokerage Services",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -12302,7 +12302,7 @@
 {
 "symbol": "IHG.L",
 "name": "IHG Hotels & Resorts",
-"sektor_quelle": "Travel & leisure",
+"sektor_quelle": "Travel and Leisure",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -12322,7 +12322,7 @@
 {
 "symbol": "III.L",
 "name": "3i",
-"sektor_quelle": "Financial services",
+"sektor_quelle": "Investment Banking and Brokerage Services",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -12382,7 +12382,7 @@
 {
 "symbol": "IMI.L",
 "name": "IMI",
-"sektor_quelle": "Industrial engineering",
+"sektor_quelle": "Electronic and Electrical Equipment",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -12522,7 +12522,7 @@
 {
 "symbol": "INVP.L",
 "name": "Investec",
-"sektor_quelle": "Financial Services",
+"sektor_quelle": "Banks",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -12652,7 +12652,7 @@
 {
 "symbol": "ITH.L",
 "name": "Ithaca Energy",
-"sektor_quelle": "Oil & Gas Producers",
+"sektor_quelle": "Non-Renewable Energy",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -12662,7 +12662,7 @@
 {
 "symbol": "ITRK.L",
 "name": "Intertek",
-"sektor_quelle": "Support services",
+"sektor_quelle": "Industrial Support Services",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -12852,7 +12852,7 @@
 {
 "symbol": "JD.L",
 "name": "JD Sports",
-"sektor_quelle": "General retailers",
+"sektor_quelle": "Retailers",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -13532,7 +13532,7 @@
 {
 "symbol": "LAND.L",
 "name": "Land Securities",
-"sektor_quelle": "Real estate investment trusts",
+"sektor_quelle": "Real Estate Investment Trusts",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -13612,7 +13612,7 @@
 {
 "symbol": "LGEN.L",
 "name": "Legal & General",
-"sektor_quelle": "Life insurance",
+"sektor_quelle": "Life Insurance",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -13922,7 +13922,7 @@
 {
 "symbol": "LSEG.L",
 "name": "London Stock Exchange Group",
-"sektor_quelle": "Financial services",
+"sektor_quelle": "Finance and Credit Services",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -14463,7 +14463,7 @@
 {
 "symbol": "MKS.L",
 "name": "Marks & Spencer",
-"sektor_quelle": "Food & drug retailing",
+"sektor_quelle": "Personal Care, Drug and Grocery Stores",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -14563,7 +14563,7 @@
 {
 "symbol": "MNG.L",
 "name": "M&G",
-"sektor_quelle": "Financial services",
+"sektor_quelle": "Investment Banking and Brokerage Services",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -14833,7 +14833,7 @@
 {
 "symbol": "MRO.L",
 "name": "Melrose Industries",
-"sektor_quelle": "Aerospace & defence",
+"sektor_quelle": "Aerospace and Defense",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -14994,7 +14994,7 @@
 {
 "symbol": "MTLN.L",
 "name": "Metlen Energy & Metals",
-"sektor_quelle": "Multiline utilities",
+"sektor_quelle": "Gas, Water and Multi-utilities",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -15434,7 +15434,7 @@
 {
 "symbol": "NG.L",
 "name": "National Grid plc",
-"sektor_quelle": "Multiline utilities",
+"sektor_quelle": "Gas, Water and Multi-utilities",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -15934,7 +15934,7 @@
 {
 "symbol": "NXT.L",
 "name": "Next plc",
-"sektor_quelle": "General retailers",
+"sektor_quelle": "Retailers",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -16514,7 +16514,7 @@
 {
 "symbol": "PCT.L",
 "name": "Polar Capital Technology Trust",
-"sektor_quelle": "Investment trusts",
+"sektor_quelle": "Closed End Investments",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -17154,7 +17154,7 @@
 {
 "symbol": "PRU.L",
 "name": "Prudential plc",
-"sektor_quelle": "Life insurance",
+"sektor_quelle": "Life Insurance",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -17194,7 +17194,7 @@
 {
 "symbol": "PSH.L",
 "name": "Pershing Square Holdings",
-"sektor_quelle": "Financial services",
+"sektor_quelle": "Closed End Investments",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -17684,7 +17684,7 @@
 {
 "symbol": "REL.L",
 "name": "RELX",
-"sektor_quelle": "Media",
+"sektor_quelle": "Software and Computer Services",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -17844,7 +17844,7 @@
 {
 "symbol": "RIO.L",
 "name": "Rio Tinto",
-"sektor_quelle": "Mining",
+"sektor_quelle": "Industrial Metals and Mining",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -17864,7 +17864,7 @@
 {
 "symbol": "RKT.L",
 "name": "Reckitt",
-"sektor_quelle": "Household goods & home construction",
+"sektor_quelle": "Personal Care, Drug and Grocery Stores",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -18124,7 +18124,7 @@
 {
 "symbol": "RR.L",
 "name": "Rolls-Royce Holdings",
-"sektor_quelle": "Aerospace & defence",
+"sektor_quelle": "Aerospace and Defense",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -18224,7 +18224,7 @@
 {
 "symbol": "RTO.L",
 "name": "Rentokil Initial",
-"sektor_quelle": "Support services",
+"sektor_quelle": "Industrial Support Services",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -18564,7 +18564,7 @@
 {
 "symbol": "SBRY.L",
 "name": "Sainsbury's",
-"sektor_quelle": "Food & drug retailing",
+"sektor_quelle": "Personal Care, Drug and Grocery Stores",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -18674,7 +18674,7 @@
 {
 "symbol": "SDLF.L",
 "name": "Standard Life",
-"sektor_quelle": "Life insurance",
+"sektor_quelle": "Life Insurance",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -18795,7 +18795,7 @@
 {
 "symbol": "SGE.L",
 "name": "Sage Group",
-"sektor_quelle": "Software & computer services",
+"sektor_quelle": "Software and Computer Services",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -18855,7 +18855,7 @@
 {
 "symbol": "SGRO.L",
 "name": "Segro",
-"sektor_quelle": "Real estate investment trusts",
+"sektor_quelle": "Real Estate Investment Trusts",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -18915,7 +18915,7 @@
 {
 "symbol": "SHEL.L",
 "name": "Shell plc",
-"sektor_quelle": "Oil & gas producers",
+"sektor_quelle": "Non-Renewable Energy",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -19084,7 +19084,7 @@
 },
 {
 "symbol": "SKYD",
-"name": "Skydance Corporation",
+"name": "Skydance",
 "sektor_quelle": "Communication Services",
 "region": "USA",
 "land": "USA",
@@ -19185,7 +19185,7 @@
 {
 "symbol": "SMIN.L",
 "name": "Smiths Group",
-"sektor_quelle": "General industrials",
+"sektor_quelle": "General Industrials",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -19205,7 +19205,7 @@
 {
 "symbol": "SMT.L",
 "name": "Scottish Mortgage Investment Trust",
-"sektor_quelle": "Collective investments",
+"sektor_quelle": "Closed End Investments",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -19245,7 +19245,7 @@
 {
 "symbol": "SN.L",
 "name": "Smith & Nephew",
-"sektor_quelle": "Health care equipment & supplies",
+"sektor_quelle": "Medical Equipment and Services",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -19455,7 +19455,7 @@
 {
 "symbol": "SPX.L",
 "name": "Spirax Group",
-"sektor_quelle": "Industrial engineering",
+"sektor_quelle": "Industrial Engineering",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -19565,7 +19565,7 @@
 {
 "symbol": "SSE.L",
 "name": "SSE plc",
-"sektor_quelle": "Electrical utilities & independent power producers",
+"sektor_quelle": "Electricity",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -19655,7 +19655,7 @@
 {
 "symbol": "STJ.L",
 "name": "St. James's Place",
-"sektor_quelle": "Financial services",
+"sektor_quelle": "Investment Banking and Brokerage Services",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -19885,7 +19885,7 @@
 {
 "symbol": "SVT.L",
 "name": "Severn Trent",
-"sektor_quelle": "Multiline utilities",
+"sektor_quelle": "Gas, Water and Multi-utilities",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -20795,7 +20795,7 @@
 {
 "symbol": "TSCO.L",
 "name": "Tesco",
-"sektor_quelle": "Food & drug retailing",
+"sektor_quelle": "Personal Care, Drug and Grocery Stores",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -21185,7 +21185,7 @@
 {
 "symbol": "ULVR.L",
 "name": "Unilever",
-"sektor_quelle": "Personal goods",
+"sektor_quelle": "Personal Care, Drug and Grocery Stores",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -21395,7 +21395,7 @@
 {
 "symbol": "UU.L",
 "name": "United Utilities",
-"sektor_quelle": "Multiline utilities",
+"sektor_quelle": "Gas, Water and Multi-utilities",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -21725,7 +21725,7 @@
 {
 "symbol": "VOD.L",
 "name": "Vodafone Group",
-"sektor_quelle": "Mobile telecommunications",
+"sektor_quelle": "Telecommunications Service Providers",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -22065,7 +22065,7 @@
 {
 "symbol": "WEIR.L",
 "name": "Weir",
-"sektor_quelle": "Industrial goods and services",
+"sektor_quelle": "Industrial Engineering",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
@@ -22425,7 +22425,7 @@
 {
 "symbol": "WTB.L",
 "name": "Whitbread",
-"sektor_quelle": "Retail hospitality",
+"sektor_quelle": "Travel and Leisure",
 "region": "Europa",
 "land": "Grossbritannien",
 "indizes": [
