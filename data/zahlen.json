@@ -1,5 +1,5 @@
 {
- "stand": "2026-10-30",
+ "stand": "2026-11-02",
  "hinweis": "Kurze Auswertung der Quartalszahlen. Reaktion rechnet die App aus den Kursen.",
  "eintraege": {
   "GOOGL": [
@@ -1197,6 +1197,74 @@
      {
       "t": "Colgate (CL) Q3 2026 Earnings Call Transcript (Motley Fool)",
       "u": "https://www.fool.com/earnings/call-transcripts/2026/10/30/colgate-cl-q3-2026-earnings-call-transcript/"
+     }
+    ]
+   }
+  ],
+  "O": [
+   {
+    "datum": "2026-11-02",
+    "zeit": "nach",
+    "quartal": "Q3 2026",
+    "reaktion_quelle": null,
+    "titel": "Solides Quartal, Ausblick leicht angehoben",
+    "kurz": "Der Umsatz stieg um 10 % auf 1.62 Mrd. $ und lag über der Erwartung. Das AFFO pro Aktie, die wichtigste Gewinnzahl bei Immobilienfirmen, stieg um 3.7 % auf 1.12 $ und lag einen Cent über der Schätzung. Die Kursreaktion war bei Redaktionsschluss noch offen, die App rechnet sie aus den Kursen.",
+    "zahlen": [
+     {
+      "k": "Umsatz",
+      "ist": "1.62 Mrd. $ (+10 %)",
+      "erw": "1.58 Mrd. $",
+      "urteil": "übertroffen"
+     },
+     {
+      "k": "AFFO pro Aktie (Mietgewinn nach Unterhalt)",
+      "ist": "1.12 $ (+3.7 %)",
+      "erw": "1.11 $",
+      "urteil": "übertroffen"
+     },
+     {
+      "k": "Vermietungsquote",
+      "ist": "98.8 %",
+      "erw": "",
+      "urteil": "stabil hoch"
+     },
+     {
+      "k": "Neue Investitionen",
+      "ist": "2.6 Mrd. $ zu 6.8 % Anfangsrendite",
+      "erw": "",
+      "urteil": "im Plan"
+     },
+     {
+      "k": "Ausblick AFFO 2026",
+      "ist": "4.45 bis 4.46 $",
+      "erw": "vorher 4.44 bis 4.45 $",
+      "urteil": "angehoben"
+     }
+    ],
+    "gut": [
+     "Fast alle Gebäude sind vermietet: 98.8 % Vermietungsquote, gleich wie im Vorquartal.",
+     "Bei neu vermieteten Gebäuden bekommt Realty Income 103.5 % der alten Miete. Die Mieter zahlen also leicht mehr als vorher.",
+     "Die Dividende ist gut gedeckt: Sie frisst 72.6 % des AFFO. Der Rest bleibt für neue Käufe.",
+     "Der Ausblick für 2026 wurde zum wiederholten Mal leicht angehoben."
+    ],
+    "sorgen": [
+     "Das Wachstum pro Aktie bleibt klein: 3.7 % beim AFFO, die Dividende stieg nur 0.7 % gegenüber dem Vorjahr.",
+     "Die Schulden liegen beim 5.4-Fachen des Betriebsgewinns (EBITDA). Steigen die Zinsen, wird neues Geld teurer und die Spanne zu den 6.8 % Anfangsrendite kleiner.",
+     "Das Investitionsziel für 2026 bleibt bei 10 Mrd. $. Um so viel zu kaufen, braucht die Firma laufend neue Aktien und neue Schulden."
+    ],
+    "fazit": "Keine echte Veränderung: ein ruhiges Quartal wie erwartet, die These einer stabilen Monatsdividende mit langsamem Wachstum bleibt gleich. Keine Anlageberatung.",
+    "quellen": [
+     {
+      "t": "Realty Income: Ergebnisse Q3 2026 (PR Newswire, 2.11.2026)",
+      "u": "https://www.prnewswire.com/news-releases/realty-income-announces-operating-results-for-the-three-and-nine-months-ended-september-30-2026-302926890.html"
+     },
+     {
+      "t": "Zacks-Schätzung vor den Zahlen (TradingView, Okt. 2026)",
+      "u": "https://www.tradingview.com/news/zacks:90021fa30094b:0-should-you-buy-hold-or-sell-realty-income-stock-before-q3-earnings/"
+     },
+     {
+      "t": "Termin: Zahlen am 2.11.2026 nach Börsenschluss (Stock Titan)",
+      "u": "https://www.stocktitan.net/news/O/realty-income-announces-third-quarter-2026-earnings-release-n2yg5v0x6ilu.html"
      }
     ]
    }
