@@ -1,0 +1,136 @@
+{
+ "datum": "2026-11-03",
+ "ticker": "GOOGL",
+ "name": "Alphabet",
+ "thema": "Quartalszahlen",
+ "stand": "02.11.2026",
+ "slides": [
+  {
+   "typ": "hook",
+   "kicker": "ALPHABET · QUARTALSZAHLEN",
+   "titel": "Rekord-Absturz nach den Zahlen: Panik oder Warnsignal?",
+   "text": "Die Cloud wächst um 103 %. Trotzdem hat die Aktie seit den Zahlen 14 % verloren, so viel wie noch nie nach einem Quartalsbericht.",
+   "kpis": [
+    {
+     "label": "KURS",
+     "wert": "278.99 $"
+    },
+    {
+     "label": "SEIT DEN ZAHLEN",
+     "wert": "−14.1 %",
+     "ton": "rot"
+    },
+    {
+     "label": "UNTER DEM HOCH",
+     "wert": "−32 %"
+    }
+   ]
+  },
+  {
+   "typ": "firma",
+   "kicker": "WAS DIE FIRMA MACHT",
+   "titel": "Mehr als nur Google",
+   "text": "Alphabet verdient sein Geld vor allem mit Werbung in der Google-Suche und auf YouTube. Dazu kommen Google Cloud, das Handy-System Android und die Robotaxis von Waymo.",
+   "fakten": [
+    {
+     "label": "Sitz",
+     "wert": "Mountain View, USA"
+    },
+    {
+     "label": "Umsatz pro Jahr",
+     "wert": "über 400 Mrd. $"
+    },
+    {
+     "label": "Grösste Sparte",
+     "wert": "Suche und Werbung"
+    }
+   ]
+  },
+  {
+   "typ": "zahlen",
+   "kicker": "WAS DIE ZAHLEN ZEIGEN",
+   "titel": "Die Cloud boomt, die Suche bremst",
+   "quelle": "Quelle: Quartalsbericht Q3 2026",
+   "zeilen": [
+    {
+     "k": "Umsatz",
+     "sub": "127.6 Mrd. $, knapp unter der Erwartung",
+     "wert": "+25 %"
+    },
+    {
+     "k": "Google Cloud",
+     "sub": "30.7 Mrd. $ in drei Monaten",
+     "wert": "+103 %",
+     "ton": "gruen"
+    },
+    {
+     "k": "Suche und Werbung",
+     "sub": "im Quartal davor noch +17 %",
+     "wert": "+12 %",
+     "ton": "orange"
+    },
+    {
+     "k": "Free Cashflow",
+     "sub": "zweites Minus in Folge",
+     "wert": "−9.1 Mrd. $",
+     "ton": "rot"
+    }
+   ],
+   "erklaerung": "Free Cashflow ist das Geld, das nach allen Investitionen übrig bleibt. Bei Alphabet fliesst es gerade in KI-Rechenzentren."
+  },
+  {
+   "typ": "skala",
+   "kicker": "AMPEL 1: QUALITÄT",
+   "titel": "Das Geschäft ist stark",
+   "name": "Qualität",
+   "wert": 85,
+   "punkte": [
+    "33 % operative Marge: Von 100 $ Umsatz bleiben 33 $ Betriebsgewinn.",
+    "Mehr Bargeld als Schulden. Die Firma kommt auch durch schwache Jahre.",
+    "Cloud-Aufträge über 561 Mrd. $ sind schon unterschrieben."
+   ]
+  },
+  {
+   "typ": "skala",
+   "kicker": "AMPEL 2: TIMING",
+   "titel": "Der Zeitpunkt ist schwach",
+   "name": "Timing",
+   "wert": 43,
+   "punkte": [
+    "Der Kurs liegt unter dem Schnitt der letzten 50 und 200 Tage: kurzfristig ein Abwärtstrend.",
+    "Der RSI steht bei 21. Unter 30 heisst: In kurzer Zeit wurde sehr viel verkauft.",
+    "Langfristig liegt die Aktie noch über dem Schnitt der letzten 200 Wochen."
+   ]
+  },
+  {
+   "typ": "marke",
+   "kicker": "WO ICH HINSCHAUE",
+   "titel": "Das Jahrestief zählt jetzt",
+   "text": "Die alten Kaufzonen zwischen 315 und 331 $ hat der Kurs nach unten durchbrochen. Die nächste wichtige Marke liegt tiefer.",
+   "marke_label": "JAHRESTIEF",
+   "marke": "270.70 $",
+   "signal": "Hält der Kurs dort und dreht der RSI nach oben, wäre das für mich ein erstes Zeichen. Fällt er darunter, ist der Weg nach unten offen."
+  },
+  {
+   "typ": "fazit",
+   "kicker": "MEIN FAZIT",
+   "titel": "Nicht nur Panik",
+   "absaetze": [
+    "Die Suche verdient mit dem neuen KI-Modus weniger pro Anfrage. Und das Geld fliesst in Rechenzentren statt zu den Aktionären.",
+    "Die Firma bleibt stark. Ich warte trotzdem, bis der Kurs eine Basis bildet."
+   ],
+   "frage": "Dip kaufen oder abwarten? Deine Meinung in die Kommentare."
+  }
+ ],
+ "caption": "Alphabet ist nach den Quartalszahlen so stark gefallen wie noch nie. Dabei hat sich die Cloud verdoppelt. Das Problem: Die Google-Suche wächst langsamer, und das freie Geld fliesst komplett in KI-Rechenzentren. Panik oder echtes Warnsignal? Wisch durch, ich zeige dir die Zahlen, beide Ampeln und die Marke, die ich jetzt beobachte.",
+ "hashtags": [
+  "#alphabet",
+  "#google",
+  "#aktien",
+  "#börse",
+  "#quartalszahlen",
+  "#investieren",
+  "#stocks",
+  "#googl"
+ ]
+}

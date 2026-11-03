@@ -128,3 +128,19 @@ Format pro Aktie (Schlüssel = App-Ticker), neueste Einträge zuerst egal, die A
 - `urteil`: übertroffen, getroffen, knapp verfehlt, verfehlt, angehoben, bestätigt, gesenkt oder kurz frei.
 - Deutsch, Schweizer Schreibweise, Anfängerniveau, Fachbegriffe kurz erklären, nur echte Zahlen mit Quelle.
 - Danach in `pipeline/aktien.json` bei `zahlen` den nächsten Termin eintragen, falls bekannt (sonst leer lassen).
+
+## Instagram-Karussell (täglich, Stil «Zeitung»)
+
+Jeden Morgen ein Karussell mit 7 Slides zu einer Aktie, die gerade spannend ist. Ablauf:
+1. **Aktie wählen** (in dieser Reihenfolge):
+   - Aktien aus der App mit Quartalszahlen in den letzten 2 Tagen (data/zahlen.json), stärkste Kursreaktion zuerst.
+   - Neue Signale in data/alle.json (alarme der letzten 2 Tage) mit Qualität ab 65, oder Aktien aus der App, die gestern ihren Trigger ausgelöst haben oder in die Kaufzone gelaufen sind.
+   - Sonst: eine bekannte Aktie aus der App oder aus Entdecken mit starker Bewegung (ab 5 %) oder klarer Unterbewertung.
+   - Keine Aktie, die in den letzten 14 Tagen schon dran war (data/karussell/index.json). Bekannte Namen bevorzugen.
+2. **Recherche:** aktuelle Zahlen und Meldungen mit Quellen. Kurs, Qualität, Timing, RSI und Durchschnitte aus data/live.json (App-Aktien) oder data/scan.json und data/alle.json.
+3. **Inhalt schreiben:** data/karussell/JJJJ-MM-TT.json im Format, das oben in scripts/karussell.py steht. Reihenfolge der 7 Slides: hook, firma, zahlen (oder «Was passiert ist»), skala Qualität, skala Timing, marke, fazit.
+4. **Schreibregeln:** Deutsch, Schweizer Schreibweise (ss, nie ß), keine Gedankenstriche, keine «nicht X, sondern Y»-Muster, keine Dreierreihen, keine Floskeln. Kurze Sätze, konkrete Zahlen, ehrliche Einschätzung. Überschrift höchstens 6 Wörter (Hook darf länger sein). Fachbegriffe in einem Halbsatz erklären.
+5. **Verboten:** persönliche Depotdaten (Stückzahlen, Beträge, Broker, eigene Käufe), Kaufaufforderungen, Kursziele, Renditeversprechen. Erlaubt: «Das beobachte ich», «Das wäre für mich ein Zeichen». Der Hinweis «Persönliche Meinung, keine Anlageberatung» kommt automatisch auf die letzte Slide und in die Caption.
+6. **Caption:** 3 bis 5 Sätze, dazu 6 bis 8 Hashtags (Deutsch und Englisch) im Feld hashtags.
+7. **Hochladen:** Datei committen und pushen. Der Workflow «Instagram-Karussell rendern» macht die Bilder, veröffentlicht sie in der App (Profil > Instagram-Karussells) und meldet Pascal per Push.
+Name und Handle stehen in pipeline/karussell.json.

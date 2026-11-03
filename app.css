@@ -573,3 +573,9 @@ body.login .tabs,body.start .tabs{display:none}
 .zn-t{font-size:14px;line-height:1.35;color:#DAD7E8} .zn-i em{font-style:normal;font-size:12px;color:var(--muted)}
 .zmark{font-weight:700}
 @media (min-width:640px){.zk-gs{grid-template-columns:1fr 1fr}}
+
+/* Karussells */
+.kar{margin-bottom:14px;display:grid;gap:12px} .kar h3{font:600 17px/1.3 var(--font);margin:4px 0 0}
+.kar-r{display:grid;grid-auto-flow:column;grid-auto-columns:42%;gap:8px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.kar-r::-webkit-scrollbar{display:none} .kar-r a{scroll-snap-align:start} .kar-r img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:12px;display:block;background:#F4F1EA}
+.kar-cap{white-space:pre-line;font-size:14px;line-height:1.5;color:#DAD7E8}

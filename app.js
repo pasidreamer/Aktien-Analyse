@@ -1495,7 +1495,7 @@ function renderProfil() {
       <label>Name<span class="tokenrow"><input id="pf-name" maxlength="40" value="${esc(ich.name || "")}" autocomplete="nickname"><button class="btn small" id="pf-name-s" type="button">Speichern</button></span></label>
       <label>Neues Passwort<span class="tokenrow"><input id="pf-pw" type="password" autocomplete="new-password" placeholder="mindestens 8 Zeichen"><button class="btn small" id="pf-pw-s" type="button">Ändern</button></span></label>
       <p id="pf-msg" class="dp-note" role="status"></p></div>
-    <div class="actions"><a class="btn" href="#/info">Anleitung</a><button class="btn" id="pf-out" type="button">Abmelden</button></div>`;
+    <div class="actions">${admin ? '<a class="btn" href="#/karussell">Instagram-Karussells</a>' : ""}<a class="btn" href="#/info">Anleitung</a><button class="btn" id="pf-out" type="button">Abmelden</button></div>`;
   const $ = id => document.getElementById(id), msg = $("pf-msg");
   $("pf-name-s").onclick = async () => { try { await window.SB.name($("pf-name").value); msg.textContent = "Name gespeichert."; renderProfil(); } catch (e) { msg.textContent = e.message; } };
   $("pf-pw-s").onclick = async () => { const v = $("pf-pw").value; if (v.length < 8) { msg.textContent = "Bitte mindestens 8 Zeichen verwenden."; return; }
@@ -1531,10 +1531,38 @@ async function ladeVorschlaege(admin) {
   });
 }
 
+// ---------- Instagram-Karussells (nur Pascal) ----------
+// Bilder rendert GitHub aus data/karussell/<datum>.json, die Liste steht in data/karussell/index.json.
+async function renderKarussell() {
+  if (!istAdmin()) { location.replace("#/profil"); return; }
+  $view.innerHTML = `<a class="back" href="#/profil"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>Profil</a><header class="top"><div><h1>Karussells</h1><div class="stand">Lade …</div></div></header>`;
+  let idx; try { idx = await getJSON("data/karussell/index.json"); } catch { idx = { karussells: [] }; }
+  const L = idx.karussells || [];
+  $view.innerHTML = `<a class="back" href="#/profil"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>Profil</a>
+    <header class="top"><div><h1>Karussells</h1><div class="stand">Jeden Morgen eines, fertig zum Posten auf Instagram</div></div></header>
+    ${L.length ? L.map((k, j) => `<div class="card kar"><div class="kar-h"><div><span class="zk-l">${fmtDate(k.datum)} · ${esc(k.thema || "")}</span><h3>${esc(k.name || "")}: ${esc(k.titel || "")}</h3></div></div>
+      <div class="kar-r">${Array.from({ length: k.bilder || 7 }, (_, i) => `<a href="karussell/${esc(k.datum)}/${i + 1}.png" target="_blank" rel="noopener"><img loading="lazy" src="karussell/${esc(k.datum)}/${i + 1}.png" alt="Slide ${i + 1} von ${k.bilder || 7}"></a>`).join("")}</div>
+      <div class="dp-actions"><button class="btn small primary" type="button" data-teilen="${j}">Bilder teilen oder sichern</button><button class="btn small" type="button" data-cap="${j}">Caption kopieren</button></div>
+      <details class="more"><summary>Caption ansehen</summary><p class="kar-cap">${esc(k.caption || "")}</p></details><p class="dp-note" data-st="${j}" role="status"></p></div>`).join("")
+      : `<div class="empty">Noch kein Karussell. Das erste kommt mit der nächsten Morgen-Aufgabe.</div>`}
+    <p class="dp-note">Auf dem iPhone: «Bilder teilen» öffnet das Teilen-Menü. Dort «Bilder sichern» wählen oder direkt Instagram. Die Bilder sind öffentlich abrufbar, sie enthalten keine Depotdaten.</p>`;
+  const st = j => $view.querySelector(`[data-st="${j}"]`);
+  $view.querySelectorAll("[data-cap]").forEach(b => b.onclick = async () => { const k = L[+b.dataset.cap];
+    try { await navigator.clipboard.writeText(k.caption || ""); st(b.dataset.cap).textContent = "Caption kopiert."; } catch { st(b.dataset.cap).textContent = "Kopieren ging nicht. Öffne «Caption ansehen» und markiere den Text."; } });
+  $view.querySelectorAll("[data-teilen]").forEach(b => b.onclick = async () => { const j = b.dataset.teilen, k = L[+j]; b.disabled = true; st(j).textContent = "Lade Bilder …";
+    try {
+      const files = await Promise.all(Array.from({ length: k.bilder || 7 }, async (_, i) => { const r = await fetch(`karussell/${k.datum}/${i + 1}.png`, { cache: "no-cache" }); return new File([await r.blob()], `${k.datum}-${k.ticker || "aktie"}-${i + 1}.png`, { type: "image/png" }); }));
+      if (navigator.canShare && navigator.canShare({ files })) { await navigator.share({ files, text: k.caption || "" }); st(j).textContent = ""; }
+      else { files.forEach(f => { const a = document.createElement("a"); a.href = URL.createObjectURL(f); a.download = f.name; document.body.appendChild(a); a.click(); a.remove(); }); st(j).textContent = "Bilder heruntergeladen."; }
+    } catch (e) { st(j).textContent = e?.name === "AbortError" ? "" : "Teilen ging nicht. Tippe die Bilder einzeln an und sichere sie."; }
+    b.disabled = false; });
+  scrollTo(0, 0);
+}
+
 // ---------- Routing ----------
 function route() {
   const h = location.hash || "#/";
-  const tab = h.startsWith("#/termine") ? "termine" : h.startsWith("#/info") || h.startsWith("#/profil") ? "profil" : h.startsWith("#/depot") ? "depot" : h.startsWith("#/entdecken") || h.startsWith("#/scan/") || h.startsWith("#/alarme") || h.startsWith("#/strategie/") ? "entdecken" : "home";
+  const tab = h.startsWith("#/termine") ? "termine" : h.startsWith("#/info") || h.startsWith("#/profil") || h.startsWith("#/karussell") ? "profil" : h.startsWith("#/depot") ? "depot" : h.startsWith("#/entdecken") || h.startsWith("#/scan/") || h.startsWith("#/alarme") || h.startsWith("#/strategie/") ? "entdecken" : "home";
   document.querySelectorAll(".tabs a").forEach(a => a.dataset.tab === tab ? a.setAttribute("aria-current", "page") : a.removeAttribute("aria-current"));
   if (h.startsWith("#/aktie/")) renderDetail(decodeURIComponent(h.slice(8)));
   else if (h.startsWith("#/scan/")) renderScanDetail(decodeURIComponent(h.slice(7)));
@@ -1543,13 +1571,14 @@ function route() {
   else if (tab === "entdecken") renderEntdecken();
   else if (tab === "termine") renderTermine();
   else if (h.startsWith("#/info")) renderInfo();
+  else if (h.startsWith("#/karussell")) renderKarussell();
   else if (tab === "profil") renderProfil();
   else if (tab === "depot") window.Depot ? window.Depot.render($view, h.startsWith("#/depot/neu/") ? decodeURIComponent(h.slice(12)) : null) : ($view.innerHTML = '<div class="empty">Das Depot konnte nicht geladen werden.</div>');
   else { renderHome(); const y = store.get("homeScroll", 0); if (y) scrollTo(0, y); }
 }
 let lastHash = location.hash;
 addEventListener("hashchange", () => {
-  if (!lastHash.startsWith("#/aktie/") && !lastHash.startsWith("#/termine") && !lastHash.startsWith("#/info") && !lastHash.startsWith("#/profil") && !lastHash.startsWith("#/depot") && !lastHash.startsWith("#/entdecken") && !lastHash.startsWith("#/scan/") && !lastHash.startsWith("#/alarme") && !lastHash.startsWith("#/strategie/")) store.set("homeScroll", scrollY);
+  if (!lastHash.startsWith("#/aktie/") && !lastHash.startsWith("#/termine") && !lastHash.startsWith("#/info") && !lastHash.startsWith("#/profil") && !lastHash.startsWith("#/karussell") && !lastHash.startsWith("#/depot") && !lastHash.startsWith("#/entdecken") && !lastHash.startsWith("#/scan/") && !lastHash.startsWith("#/alarme") && !lastHash.startsWith("#/strategie/")) store.set("homeScroll", scrollY);
   lastHash = location.hash; route();
 });
 

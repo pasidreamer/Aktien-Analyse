@@ -1,0 +1,72 @@
+name: Instagram-Karussell rendern
+# Sobald Claude eine Inhaltsdatei data/karussell/JJJJ-MM-TT.json hochlädt: 7 Bilder rendern,
+# speichern, App veröffentlichen und Pascal per Push melden.
+on:
+  push:
+    branches: [main]
+    paths: ["data/karussell/2*.json"]
+  workflow_dispatch:
+    inputs:
+      datei:
+        description: "Inhaltsdatei, z. B. data/karussell/2026-11-03.json (leer = neueste)"
+        required: false
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: kurse
+  cancel-in-progress: false
+
+jobs:
+  rendern:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Playwright installieren
+        run: |
+          pip install playwright
+          python -m playwright install --with-deps chromium
+      - name: Bilder rendern
+        id: r
+        run: |
+          f="${{ inputs.datei }}"
+          if [ -z "$f" ]; then f=$(ls data/karussell/2*.json | sort | tail -1); fi
+          python scripts/karussell.py "$f"
+          echo "datei=$f" >> "$GITHUB_OUTPUT"
+          python -c "import json,sys;d=json.load(open('$f'));print('name='+d.get('name',''));print('datum='+d['datum'])" >> "$GITHUB_OUTPUT"
+      - name: Speichern
+        run: |
+          git config user.name "aktien-ampel-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add karussell data/karussell/index.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Karussell ${{ steps.r.outputs.datum }}: ${{ steps.r.outputs.name }}"
+            git pull --rebase -X theirs
+            git push
+          fi
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - id: deploy
+        uses: actions/deploy-pages@v4
+      - name: Pascal melden
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+        run: |
+          [ -z "$NTFY_TOPIC" ] && exit 0
+          curl -s -H "Title: Neues Instagram-Karussell" -H "Tags: camera" \
+            -H "Click: https://pasidreamer.github.io/Aktien-Analyse/#/karussell" \
+            -d "Heute: ${{ steps.r.outputs.name }}. 7 Bilder und Caption sind bereit zum Posten." \
+            "https://ntfy.sh/$NTFY_TOPIC" || true
