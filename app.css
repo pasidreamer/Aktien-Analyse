@@ -579,3 +579,17 @@ body.login .tabs,body.start .tabs{display:none}
 .kar-r{display:grid;grid-auto-flow:column;grid-auto-columns:42%;gap:8px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
 .kar-r::-webkit-scrollbar{display:none} .kar-r a{scroll-snap-align:start} .kar-r img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:12px;display:block;background:#F4F1EA}
 .kar-cap{white-space:pre-line;font-size:14px;line-height:1.5;color:#DAD7E8}
+
+/* Marktstruktur */
+.sk{margin:12px 0} .sk h3{font:600 17px var(--font);margin:0}
+.sk>p{font-size:14.5px;line-height:1.5;color:#DAD7E8;margin:10px 0 0}
+.sk-ph.sk-gruen{background:var(--gruen-soft);color:var(--gruen)} .sk-ph.sk-rot{background:var(--rot-soft);color:var(--rot)} .sk-ph.sk-gelb{background:var(--gelb-soft);color:var(--gelb)} .sk-ph.sk-orange{background:var(--orange-soft);color:var(--orange)}
+.sk-lv{display:grid;gap:0;margin:14px 0 4px;border-top:1px solid var(--line)}
+.sk-lv div{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px}
+.sk-lv span{color:var(--muted)} .sk-lv b{font-variant-numeric:tabular-nums;text-align:right}
+.sk-m b{color:var(--accent);font-size:16px}
+.sk-sz{display:grid;gap:8px;margin:12px 0 6px}
+.sk-sz>div{border-radius:14px;padding:11px 13px;font-size:14px;line-height:1.45} .sk-sz p{margin:3px 0 0;color:#DAD7E8}
+.sk-b{background:var(--rot-soft)} .sk-b b{color:var(--rot)} .sk-h{background:var(--gruen-soft)} .sk-h b{color:var(--gruen)}
+.chart .pvl{font-weight:700;font-size:9px}
+@media (min-width:640px){.sk-sz{grid-template-columns:1fr 1fr}}

@@ -14,6 +14,7 @@ Aufruf:
 import base64, json, os, sys, time, datetime as dt, urllib.request
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import update as U  # noqa: E402
+import marktstruktur as MS  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data")
@@ -32,6 +33,45 @@ def monatlich(wk):
         else:
             out[-1] = dict(x, d=out[-1]["d"])
     return out
+
+
+PH_TXT = {"ausbruch_oben": "Bruch nach oben", "aufwaerts": "Aufwärtsstruktur", "range": "Range (Umverteilung)", "seit": "Seitwärts",
+          "test_tief": "Test eines Strukturtiefs", "abwaerts": "Abwärtsstruktur", "ausbruch_unten": "Strukturtief gebrochen"}
+
+
+def struktur_neu(s):
+    """Struktur-Punkte (max. 20) aus der Marktstruktur."""
+    if not s:
+        return None
+    ph, r = s["ph"], s.get("r") or {}
+    if ph == "ausbruch_oben":
+        p = 18 if not (s.get("b") or {}).get("v") else 15
+    elif ph == "aufwaerts":
+        p = 14
+    elif ph == "range":
+        p = {"akku": 14, "offen": 10, "dist": 6}.get(r.get("deu"), 10)
+    elif ph == "test_tief":
+        p = 7
+    elif ph == "abwaerts":
+        p = 4
+    elif ph == "ausbruch_unten":
+        p = 2
+    else:
+        p = 8
+    txt = PH_TXT.get(ph, ph)
+    if ph == "range" and r.get("deu") == "akku":
+        txt += ", Hinweise auf Akkumulation"
+    elif ph == "range" and r.get("deu") == "dist":
+        txt += ", Hinweise auf Distribution"
+    return p, txt
+
+
+def kompakt(s):
+    if not s:
+        return None
+    b, m, r = s.get("b"), s.get("m"), s.get("r")
+    return {"tr": s["tr"], "ph": s["ph"], "m": m and {k: m[k] for k in ("p", "d", "t", "a")}, "b": b and {k: b[k] for k in ("r", "p", "pd", "d", "v")},
+            "u": s["u"][:2], "o": s["o"][:2], "r": r and {k: r[k] for k in ("lo", "hi", "w", "deu", "sp", "ut", "vt", "pos")}}
 
 
 def struktur(W, j):
@@ -77,7 +117,11 @@ def rechne(sym, x):
     D, W = U.Series(daily), U.Series(wk)
     i, j = len(D.c) - 1, len(W.c) - 1
     seas = U.seasonality(monatlich(wk))
-    st_p, st_t = struktur(W, j)
+    try:
+        ms = MS.analyse(wk, daily[-1]["c"])
+    except Exception:
+        ms = None
+    st_p, st_t = struktur_neu(ms) or struktur(W, j)
     sm_p, sm_t = smart(x)
     teile = [U.trend_pts(W, j), round(U.trend_pts(D, i) / 2), st_p, U.rsi_pts(D, i, W, j), U.ad_pts(D, i, W, j), sm_p, U.saison_pts(seas, D.d[i])]
     pess = U.pessimismus(daily, W)
@@ -85,7 +129,7 @@ def rechne(sym, x):
         "d": D.d[i], "kurs": round(D.c[i], 4), "c1": round((D.c[i] / D.c[i - 1] - 1) * 100, 2),
         "q": qualitaet(x), "t": sum(teile), "tt": teile, "st": st_t, "sm": sm_t,
         "p": pess["wert"], "gcw": W.e50[j] > W.e200[j], "ue50": D.c[i] > D.e50[i], "ue200w": W.c[j] > W.e200[j],
-        "rsid": round(D.rsi[i]), "rsiw": round(W.rsi[j]), "hoch": pess["abstand_hoch"],
+        "rsid": round(D.rsi[i]), "rsiw": round(W.rsi[j]), "hoch": pess["abstand_hoch"], "s": kompakt(ms),
     }
 
 
@@ -119,6 +163,10 @@ def signale(s, r, alt, x):
         out.append(("golden", f"{name}: Golden Cross im Wochenchart", f"Die Wochen-EMA 50 steigt über die EMA 200: langfristiger Aufwärtstrend. Qualität {q}, Timing {t}.", 4 + q / 100))
     if r["p"] >= 60 > (alt.get("p") or 0) and q >= 65:
         out.append(("kontra", f"{name}: viel Angst bei guter Firma", f"Pessimismus {r['p']} von 100, {r['hoch']:.0f} % unter dem Jahreshoch. Qualität {q}. Prüfen, ob die Sorgen echt sind.", 4 + q / 100))
+    sn, sa = r.get("s") or {}, alt.get("s") or {}
+    if sn.get("ph") == "ausbruch_oben" and sa.get("ph") == "range" and q >= 60:
+        rg = sa.get("r") or {}
+        out.append(("struktur", f"{name}: Ausbruch aus der Range", f"Die Seitwärtsphase bis {rg.get('hi')} ist nach oben aufgelöst{', vorher Hinweise auf Akkumulation' if rg.get('deu') == 'akku' else ''}. Qualität {q}, Timing {t}.", 4.6 + q / 100))
     pot = fv.get("potenzial")
     if pot is not None and pot >= 25 and fv.get("unsicher") in ("niedrig", "mittel") and q >= 60 and r["ue50"] and not alt.get("ue50"):
         out.append(("fairwende", f"{name}: unterbewertet und Kurs dreht", f"Fairer Wert {pot:.0f} % über dem Kurs, Tagesschluss jetzt über der EMA 50. Qualität {q}, Timing {t}.", 4.5 + q / 100))

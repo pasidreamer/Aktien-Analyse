@@ -65,6 +65,8 @@ def fetch(symbol, query):
 
 
 import urllib.parse  # noqa: E402
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import marktstruktur as MS  # noqa: E402
 
 
 def weekly(rows):
@@ -379,6 +381,20 @@ def build_alerts(stocks, out, old):
                 msgs.append((f"{name} unter der Abbruch-Marke", f"Tagesschluss unter {money(z.get('abbruch'), w)}. Entscheidend ist der Wochenschluss am Freitag. {info}.", "warning", 3, t))
             elif ns == "nahe_zone" and r["q"] >= 60 and ps not in ("in_zone",):
                 msgs.append((f"{name} nähert sich der Kaufzone", f"Nur noch {r['dist_zone']:.1f} % darüber. {info}.", "eyes", 3, t))
+        # Marktstruktur: Bruch eines Strukturtiefs oder -hochs (Wochenschluss), Ausbruch aus einer Range
+        try:
+            for art, x in MS.ereignisse(r.get("struktur"), prev.get("struktur")):
+                pd_ = x.get("pd", "")
+                if art == "bruch_unten":
+                    msgs.append((f"{name}: Strukturtief gebrochen", f"Wochenschluss unter dem Tief vom {pd_[8:10]}.{pd_[5:7]}.{pd_[:4]} bei {money(x['p'], w)}. Die Struktur zeigt nach unten. {info}.", "chart_with_downwards_trend", 4, t))
+                elif art == "bruch_oben":
+                    msgs.append((f"{name}: Strukturhoch überwunden", f"Wochenschluss über dem Hoch vom {pd_[8:10]}.{pd_[5:7]}.{pd_[:4]} bei {money(x['p'], w)}. {info}.", "chart_with_upwards_trend", 4, t))
+                elif art == "range_oben":
+                    msgs.append((f"{name}: Ausbruch aus der Range nach oben", f"Die Seitwärtsphase zwischen {money(x['lo'], w)} und {money(x['hi'], w)} ist nach oben aufgelöst. Ein Zeichen, dass dort gesammelt wurde. {info}.", "rocket", 4, t))
+                elif art == "range_unten":
+                    msgs.append((f"{name}: Range nach unten verlassen", f"Der Kurs fällt unter die Seitwärtsphase ({money(x['lo'], w)} bis {money(x['hi'], w)}). Dort wurde eher verteilt als gesammelt. {info}.", "warning", 4, t))
+        except Exception as e:
+            print("Struktur-Meldung übersprungen", t, e, file=sys.stderr)
         if r["t"] >= 60 > prev.get("t", 0) and r["q"] >= 45:
             msgs.append((f"{name}: Timing jetzt {r['t']}", f"Die Timing-Ampel ist auf hellgrün gesprungen. {info}.", "traffic_light", 3, t))
         # Zahlen sind raus: erste Meldung nach dem Zahlentag, mit der Kursreaktion seit dem Schluss vor den Zahlen
@@ -552,6 +568,10 @@ def main():
             except Exception:
                 monthly = None
             r = evaluate(st, daily, wk, monthly)
+            try:
+                r["struktur"] = MS.analyse(wk, r["kurs"])
+            except Exception as e:
+                print("Struktur übersprungen", st["ticker"], e, file=sys.stderr)
             try:
                 r["pessimismus"] = pessimismus(daily, Series(wk))
             except Exception as e:
