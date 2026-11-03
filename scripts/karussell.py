@@ -28,7 +28,7 @@ import html, json, os, sys, asyncio
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CFG = json.load(open(os.path.join(ROOT, "pipeline", "karussell.json"))) if os.path.exists(os.path.join(ROOT, "pipeline", "karussell.json")) else {}
 MARKE = CFG.get("marke", "AKTIEN-AMPEL")
-HANDLE = CFG.get("handle", "@[dein_handle]")
+HANDLE = CFG.get("handle", "")
 DISCLAIMER = "Persönliche Meinung, keine Anlageberatung. Mach deine eigene Recherche."
 TON = {"gruen": "#1F6B45", "orange": "#B9500E", "rot": "#B3261E", "": "#121212", None: "#121212"}
 MON = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"]
@@ -63,7 +63,8 @@ def datum_lang(iso):
 
 
 def fuss(i, n, extra=""):
-    return f'<div class="foot"><span>{e(MARKE)} · {e(extra or HANDLE)}</span><b>{i} / {n}</b></div>'
+    zusatz = extra or HANDLE
+    return f'<div class="foot"><span>{e(MARKE)}{" · " + e(zusatz) if zusatz else ""}</span><b>{i} / {n}</b></div>'
 
 
 def ampel_farbe(v):
@@ -87,7 +88,7 @@ def slide(d, s, i, n):
 <h1 class="h" style="margin-top:36px;font-size:{s.get("groesse", 112)}px;line-height:.98">{e(s["titel"])}</h1>
 <p class="p" style="margin-top:44px;font-size:40px;color:#3A3630;max-width:880px">{e(s.get("text"))}</p>
 <div style="margin-top:auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:2px solid #121212;padding-top:30px;gap:24px">{kp}</div>
-<div style="margin-top:40px;display:flex;justify-content:space-between;font-size:26px;color:#4A4640"><span>Stand {e(d.get("stand"))} · {e(HANDLE)}</span><b style="color:#121212">Weiter wischen →</b></div></div>'''
+<div style="margin-top:40px;display:flex;justify-content:space-between;font-size:26px;color:#4A4640"><span>Stand {e(d.get("stand"))}{" · " + e(HANDLE) if HANDLE else ""}</span><b style="color:#121212">Weiter wischen →</b></div></div>'''
     if t == "firma":
         fk = "".join(f'<div style="display:flex;justify-content:space-between;gap:24px;padding:32px 0;border-bottom:1px solid #C9C3B8"><span style="font-size:36px;color:#4A4640">{e(x["label"])}</span><span style="font-size:42px;font-weight:700;text-align:right">{e(x["wert"])}</span></div>' for x in s.get("fakten", []))
         return f'''<div class="s">{k}<h2 class="h">{e(s["titel"])}</h2>
@@ -119,7 +120,7 @@ def slide(d, s, i, n):
 <div style="margin-top:48px;display:flex;flex-direction:column;gap:32px;font-size:42px">{ab}</div>
 <div style="margin-top:52px;background:#121212;color:#F4F1EA;padding:44px 48px"><span style="font-size:50px;font-weight:800;letter-spacing:-.02em;line-height:1.15">{e(s.get("frage"))}</span></div>
 <p style="margin:auto 0 0;font-size:26px;line-height:1.4;color:#4A4640">{DISCLAIMER} Stand {e(d.get("stand"))}.</p>
-<div style="margin-top:20px;display:flex;justify-content:space-between;font-size:26px;color:#4A4640;border-top:2px solid #121212;padding-top:22px"><span>{e(MARKE)} · {e(HANDLE)}</span><b style="color:#121212">{i} / {n}</b></div></div>'''
+<div style="margin-top:20px;display:flex;justify-content:space-between;font-size:26px;color:#4A4640;border-top:2px solid #121212;padding-top:22px"><span>{e(MARKE)}{" · " + e(HANDLE) if HANDLE else ""}</span><b style="color:#121212">{i} / {n}</b></div></div>'''
     raise ValueError("Unbekannter Slide-Typ: " + t)
 
 

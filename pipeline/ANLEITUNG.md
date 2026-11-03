@@ -136,7 +136,8 @@ Jeden Morgen ein Karussell mit 7 Slides zu einer Aktie, die gerade spannend ist.
    - Aktien aus der App mit Quartalszahlen in den letzten 2 Tagen (data/zahlen.json), stärkste Kursreaktion zuerst.
    - Neue Signale in data/alle.json (alarme der letzten 2 Tage) mit Qualität ab 65, oder Aktien aus der App, die gestern ihren Trigger ausgelöst haben oder in die Kaufzone gelaufen sind.
    - Sonst: eine bekannte Aktie aus der App oder aus Entdecken mit starker Bewegung (ab 5 %) oder klarer Unterbewertung.
-   - Keine Aktie, die in den letzten 14 Tagen schon dran war (data/karussell/index.json). Bekannte Namen bevorzugen.
+   - **Pascals feste Regel:** Keine Aktie, die in den letzten 14 Tagen schon dran war (data/karussell/index.json), also nie zweimal in derselben Woche. Ist die beste Kandidatin gesperrt, nimm die nächste.
+   - Für Abwechslung: nicht zwei Tage hintereinander dieselbe Branche. Bekannte Namen bevorzugen.
 2. **Recherche:** aktuelle Zahlen und Meldungen mit Quellen. Kurs, Qualität, Timing, RSI und Durchschnitte aus data/live.json (App-Aktien) oder data/scan.json und data/alle.json.
 3. **Inhalt schreiben:** data/karussell/JJJJ-MM-TT.json im Format, das oben in scripts/karussell.py steht. Reihenfolge der 7 Slides: hook, firma, zahlen (oder «Was passiert ist»), skala Qualität, skala Timing, marke, fazit.
 4. **Schreibregeln:** Deutsch, Schweizer Schreibweise (ss, nie ß), keine Gedankenstriche, keine «nicht X, sondern Y»-Muster, keine Dreierreihen, keine Floskeln. Kurze Sätze, konkrete Zahlen, ehrliche Einschätzung. Überschrift höchstens 6 Wörter (Hook darf länger sein). Fachbegriffe in einem Halbsatz erklären.
