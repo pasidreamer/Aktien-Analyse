@@ -71,7 +71,7 @@ def kompakt(s):
         return None
     b, m, r = s.get("b"), s.get("m"), s.get("r")
     return {"tr": s["tr"], "ph": s["ph"], "m": m and {k: m[k] for k in ("p", "d", "t", "a")}, "b": b and {k: b[k] for k in ("r", "p", "pd", "d", "v")},
-            "u": s["u"][:2], "o": s["o"][:2], "r": r and {k: r[k] for k in ("lo", "hi", "w", "deu", "sp", "ut", "vt", "pos")}}
+            "u": s["u"][:2], "o": s["o"][:2], "zu": s.get("zu", [])[:2], "zo": s.get("zo", [])[:2], "k": s.get("k"), "wd": s.get("wd"), "r": r and {k: r[k] for k in ("lo", "hi", "w", "deu", "sp", "ut", "vt", "pos")}}
 
 
 def struktur(W, j):

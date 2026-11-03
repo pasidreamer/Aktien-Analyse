@@ -271,21 +271,51 @@ function strukturText(s, w) {
       : "Ob hier gesammelt oder verteilt wird, zeigt erst der Ausbruch."));
   if (m) satz.push(m.t === "R" ? `Entscheidend ist die Untergrenze der Range bei ${M(m.p)}. Der Kurs liegt ${nf(m.a, 1)} % darüber.`
     : `Entscheidend ist das Strukturtief vom ${monat(m.d)} bei ${M(m.p)}. Der Kurs liegt ${nf(Math.abs(m.a), 1)} % ${m.a >= 0 ? "darüber" : "darunter"}.`);
-  const u = (s.u || []).map(M).join(" und "), o0 = (s.o || [])[0];
+  const zu = s.zu || [], zo = s.zo || [];
+  const u = (s.u || []).map(M).join(" und "), o0 = zo[0] ? zo[0].lo : (s.o || [])[0];
+  let bruch = `Ein Wochenschluss klar unter ${m ? M(m.p) : ""} bricht diese Marke. `;
+  if (zu.length) {
+    const z = zu[0];
+    bruch += z.t === "R" ? `Erste Haltestelle ist die ${zoneName(z, w, true)}. Dort hat sich der Markt ${z.w} Wochen aufgehalten. Solche Zonen werden oft erneut verteidigt, weil dort viele gekauft haben.${zX(z, w)}`
+      : z.t === "H" ? `Erste Haltestelle ist das alte Hoch vom ${monat(z.d)} bei ${M(z.hi)}. Ein Hoch, das einmal nach oben durchbrochen wurde, wirkt oft als Unterstützung.`
+      : `Erste Haltestelle ist das Tief vom ${monat(z.d)} bei ${M(z.hi)}.`;
+    if (zu[1]) bruch += ` Fällt auch sie, folgt ${zoneName(zu[1], w)}.`;
+  } else bruch += u ? `Die nächsten Strukturmarken liegen bei ${u}.` : "Darunter gibt es wenig Halt aus den letzten Jahren.";
+  const huerde = zo[0] ? (zo[0].t === "R" ? ` Darüber bremst die ${zoneName(zo[0], w, true)}: Wer dort gekauft hat, will oft beim Einstandskurs raus.`
+      : zo[0].t === "T" ? ` Darüber wartet das gebrochene Tief vom ${monat(zo[0].d)} bei ${M(zo[0].lo)}. Was vorher Boden war, wirkt jetzt oft als Deckel.`
+      : ` Die nächste Hürde ist das Hoch vom ${monat(zo[0].d)} bei ${M(zo[0].lo)}.`) : "";
   const sz = m ? {
-    bruch: `Ein Wochenschluss klar unter ${M(m.p)} bricht diese Marke. ${u ? `Die nächsten Strukturmarken liegen bei ${u}.` : "Darunter gibt es wenig Halt aus den letzten Jahren."}`,
+    bruch,
     halten: r && m.t === "R" ? `Hält die Untergrenze, ist ein Ausbruch über ${M(r.hi)} das Zeichen, dass in der Range gesammelt wurde. Dann ist der Boden gemacht.`
-      : s.tr === "auf" ? `Hält die Marke, bleibt die Aufwärtsstruktur intakt.${o0 ? ` Die nächste Hürde ist das Hoch bei ${M(o0)}.` : ""}`
-      : o0 ? `Hält die Marke, kann sich eine Range zwischen ${M(m.p)} und ${M(o0)} bilden. Ein Ausbruch über ${M(o0)} wäre ein erstes Zeichen für einen Boden.` : "Hält die Marke, kann sich hier ein Boden bilden."
+      : s.tr === "auf" ? `Hält die Marke, bleibt die Aufwärtsstruktur intakt.${huerde}`
+      : o0 ? `Hält die Marke, kann sich eine Range zwischen ${M(m.p)} und ${M(o0)} bilden. Ein Ausbruch über ${M(o0)} wäre ein erstes Zeichen für einen Boden.${huerde && zo[0].t !== "H" ? huerde : ""}` : "Hält die Marke, kann sich hier ein Boden bilden."
   } : null;
   return { satz, sz };
+}
+// Zonen aus scripts/marktstruktur.py: R = frühere Range, H = altes Hoch, T = Tief
+const zSpanne = z => z.d2 && z.d.slice(0, 7) !== z.d2.slice(0, 7) ? (z.d.slice(0, 4) === z.d2.slice(0, 4) ? `${MON_L[+z.d.slice(5, 7) - 1]} bis ${monat(z.d2)}` : `${monat(z.d)} bis ${monat(z.d2)}`) : monat(z.d);
+function zoneName(z, w, lang) {
+  const M = v => money(v, w);
+  if (z.t === "R") return lang ? `Range von ${zSpanne(z)} zwischen ${M(z.lo)} und ${M(z.hi)}` : `die Range von ${zSpanne(z)} bei ${M(z.lo)} bis ${M(z.hi)}`;
+  return z.t === "H" ? `das alte Hoch vom ${monat(z.d)} bei ${M(z.hi)}` : `das Tief vom ${monat(z.d)} bei ${M(z.hi)}`;
+}
+const zX = (z, w) => z.x ? ` Im selben Bereich liegt das markante ${z.x[0] === "H" ? "Hoch" : "Tief"} vom ${monat(z.x[1])} bei ${money(z.x[2], w)}.` : "";
+const zKurz = d => `${MON[+d.slice(5, 7) - 1]} ${d.slice(2, 4)}`;
+function zoneZeile(z, w, oben) {
+  const M = v => money(v, w), lbl = z.t === "R" ? `Range ${zKurz(z.d)}${z.d2 && z.d2.slice(0, 7) !== z.d.slice(0, 7) ? "–" + zKurz(z.d2) : ""} · ${z.w} Wo.`
+    : z.t === "H" ? (oben ? `Hoch ${zKurz(z.d)}` : `Altes Hoch ${zKurz(z.d)}, durchbrochen`) : (oben ? `Gebrochenes Tief ${zKurz(z.d)}` : `Tief ${zKurz(z.d)}`);
+  const preis = z.t === "R" ? `${nf(z.lo, z.lo >= 100 ? 0 : 2)}–${M(z.hi)}` : M(z.hi);
+  return `<div class="sk-z sk-${z.t}"><span>${esc(lbl)}</span><b>${preis}</b></div>`;
 }
 function strukturHtml(s, w) {
   if (!s) return "";
   const ph = PHASE[s.ph] || [s.ph, "gelb"], { satz, sz } = strukturText(s, w), M = v => money(v, w);
   return `<div class="card sk"><div class="ch-head"><h3>Marktstruktur</h3><span class="pill p-${ph[1] === "rot" ? "orange" : ph[1]} sk-ph sk-${ph[1]}">${ph[0]}</span></div>
     ${satz.map(x => `<p>${esc(x)}</p>`).join("")}
-    <div class="sk-lv">${(s.o || []).length ? `<div><span>Darüber</span><b>${s.o.slice(0, 3).map(M).join(" · ")}</b></div>` : ""}${s.m ? `<div class="sk-m"><span>Entscheidende Marke</span><b>${M(s.m.p)}</b></div>` : ""}${(s.u || []).length ? `<div><span>Darunter</span><b>${s.u.slice(0, 3).map(M).join(" · ")}</b></div>` : ""}</div>
+    ${s.zu || s.zo ? `<div class="sk-lv"><div class="sk-t">Darüber: Widerstände</div>${(s.zo || []).slice(0, 3).reverse().map(z => zoneZeile(z, w, true)).join("") || '<div><span>Keine aus den letzten Jahren</span></div>'}
+      <div class="sk-m"><span>Kurs ${M(s.k)} · Entscheidende Marke</span><b>${s.m ? M(s.m.p) : "–"}</b></div>
+      <div class="sk-t">Darunter: Haltestellen</div>${(s.zu || []).slice(0, 4).map(z => zoneZeile(z, w)).join("") || '<div><span>Wenig Halt aus den letzten Jahren</span></div>'}</div>`
+    : `<div class="sk-lv">${(s.o || []).length ? `<div><span>Darüber</span><b>${s.o.slice(0, 3).map(M).join(" · ")}</b></div>` : ""}${s.m ? `<div class="sk-m"><span>Entscheidende Marke</span><b>${M(s.m.p)}</b></div>` : ""}${(s.u || []).length ? `<div><span>Darunter</span><b>${s.u.slice(0, 3).map(M).join(" · ")}</b></div>` : ""}</div>`}
     ${sz ? `<div class="sk-sz"><div class="sk-b"><b>Bricht sie</b><p>${esc(sz.bruch)}</p></div><div class="sk-h"><b>Hält sie</b><p>${esc(sz.halten)}</p></div></div>` : ""}
     <p class="dp-note">Automatisch aus den Wochenkerzen${s.wd ? ", Stand " + fmtDate(s.wd) : ""}. Struktur zeigt Wahrscheinlichkeiten, keine Gewissheit.</p></div>`;
 }
@@ -402,6 +432,10 @@ function chartHtml(v) {
     ${(() => { const S = STATE.live?.aktien?.[s.ticker]?.struktur; if (!S) return ""; let o = "";
       const ix = d => { const i = ch.d.findIndex(x => x >= d); return i < 0 ? null : i; };
       if (S.r?.s && S.r.lo >= lo && S.r.hi <= hi) { const i0 = ix(S.r.s); if (i0 != null) o += `<rect x="${X(i0).toFixed(1)}" y="${Y(S.r.hi).toFixed(1)}" width="${(X(n - 1) - X(i0)).toFixed(1)}" height="${(Y(S.r.lo) - Y(S.r.hi)).toFixed(1)}" fill="var(--gelb)" opacity=".12" stroke="var(--gelb)" stroke-opacity=".5" stroke-dasharray="3 3"/>`; }
+      [...(S.zu || []), ...(S.zo || [])].filter(z => z.t === "R" && z.lo >= lo && z.hi <= hi).forEach(z => {
+        const i0 = ch.d[0] > z.d2 ? null : ix(z.d), i1 = ch.d[0] > z.d2 ? null : (ix(z.d2) ?? n - 1), yh = Y(z.hi).toFixed(1), yl = Y(z.lo).toFixed(1), x0 = i0 == null ? P.l : X(i1);
+        if (i0 != null) o += `<rect x="${X(i0).toFixed(1)}" y="${yh}" width="${Math.max(2, X(i1) - X(i0)).toFixed(1)}" height="${(Y(z.lo) - Y(z.hi)).toFixed(1)}" fill="var(--gelb)" opacity=".16"/>`;
+        o += `<rect x="${x0.toFixed(1)}" y="${yh}" width="${(W - P.r - x0).toFixed(1)}" height="${(Y(z.lo) - Y(z.hi)).toFixed(1)}" fill="var(--gelb)" opacity=".06"/>`; });
       if (S.m && S.m.p >= lo && S.m.p <= hi) o += `<line x1="${P.l}" x2="${W - P.r}" y1="${Y(S.m.p).toFixed(1)}" y2="${Y(S.m.p).toFixed(1)}" stroke="var(--accent)" stroke-width="1.6"/><text class="ax" x="${P.l + 2}" y="${(Y(S.m.p) - 4).toFixed(1)}" fill="var(--accent)">Marke ${nf(S.m.p, S.m.p >= 100 ? 0 : 2)}</text>`;
       (S.pv || []).forEach(([t, d, p]) => { const i = ix(d); if (i == null || p < lo || p > hi || (i === 0 && ch.d[0] > d)) return;
         o += `<circle cx="${X(i).toFixed(1)}" cy="${Y(p).toFixed(1)}" r="2.6" fill="${t === "H" ? "var(--rot)" : "var(--gruen)"}"/><text class="ax pvl" x="${X(i).toFixed(1)}" y="${(t === "H" ? Y(p) - 6 : Y(p) + 12).toFixed(1)}" text-anchor="middle" fill="${t === "H" ? "var(--rot)" : "var(--gruen)"}">${t === "H" ? "H" : "T"}</text>`; });
@@ -411,7 +445,7 @@ function chartHtml(v) {
     <path d="${path(ch.c)}" fill="none" stroke="var(--ink)" stroke-width="${r === "1J" ? 1.8 : 1.4}"/>
     ${ticks}
   </svg>
-  <div class="legend"><span><i style="background:var(--ink)"></i>Kurs</span><span><i style="background:var(--gelb)"></i>EMA 50${e}</span><span><i style="background:var(--orange)"></i>EMA 200${e}</span><span><i style="background:var(--gruen-soft);height:9px"></i>Kaufzone</span><span><i style="background:var(--rot-soft);height:9px"></i>Widerstand</span>${zahlenVon(s.ticker).length ? '<span><b style="color:var(--accent)">Z</b> Quartalszahlen</span>' : ""}${STATE.live?.aktien?.[s.ticker]?.struktur ? '<span><b style="color:var(--gruen)">T</b>/<b style="color:var(--rot)">H</b> Strukturtief/-hoch</span><span><i style="background:var(--accent)"></i>Entscheidende Marke</span>' : ""}</div></div>`;
+  <div class="legend"><span><i style="background:var(--ink)"></i>Kurs</span><span><i style="background:var(--gelb)"></i>EMA 50${e}</span><span><i style="background:var(--orange)"></i>EMA 200${e}</span><span><i style="background:var(--gruen-soft);height:9px"></i>Kaufzone</span><span><i style="background:var(--rot-soft);height:9px"></i>Widerstand</span>${zahlenVon(s.ticker).length ? '<span><b style="color:var(--accent)">Z</b> Quartalszahlen</span>' : ""}${STATE.live?.aktien?.[s.ticker]?.struktur ? '<span><b style="color:var(--gruen)">T</b>/<b style="color:var(--rot)">H</b> Strukturtief/-hoch</span><span><i style="background:var(--accent)"></i>Entscheidende Marke</span><span><i style="background:var(--gelb);opacity:.5;height:9px"></i>Frühere Range</span>' : ""}</div></div>`;
 }
 
 function partsHtml(parts) {

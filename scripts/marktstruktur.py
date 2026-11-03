@@ -72,6 +72,64 @@ def _range(rows, med):
     return None
 
 
+def kisten(rows, band, ende):
+    """Frühere kleine Ranges (Haltestellen): mindestens 4 Wochen, in denen die Schlusskurse in einem engen Band blieben.
+    Liefert [(lo, hi, i0, i1)], zeitlich ohne Überlappung, die längsten zuerst ausgewählt."""
+    cs = [x["c"] for x in rows]
+    kand = []
+    for i in range(0, ende):
+        lo = hi = cs[i]
+        j = i
+        while j + 1 < ende:
+            lo2, hi2 = min(lo, cs[j + 1]), max(hi, cs[j + 1])
+            if hi2 / lo2 - 1 > band:
+                break
+            lo, hi, j = lo2, hi2, j + 1
+        if j - i + 1 >= 4:
+            kand.append((j - i + 1, lo, hi, i, j))
+    kand.sort(key=lambda x: (-x[0], -x[3]))
+    out, belegt = [], set()
+    for n, lo, hi, i, j in kand:
+        if any(t in belegt for t in range(i, j + 1)):
+            continue
+        belegt.update(range(i, j + 1))
+        out.append((lo, hi, i, j))
+    return out
+
+
+def haltestellen(rows, P, F, k, band, ende):
+    """Zonen unter und über dem Kurs: frühere Ranges (R), alte Hochs (H) und Tiefs (T).
+    Ein Hoch unter dem Kurs wurde nach oben durchbrochen und wirkt oft als Unterstützung, ein Tief über dem Kurs umgekehrt."""
+    zonen = [{"t": "R", "lo": _r(lo), "hi": _r(hi), "d": rows[i]["d"], "d2": rows[j]["d"], "w": j - i + 1} for lo, hi, i, j in kisten(rows, band, ende)]
+    punkte = {}
+    for t, d, p, i in P + F:
+        punkte.setdefault((t, d), (t, d, p, i, (t, d) in {(q[0], q[1]) for q in P}))
+    for t, d, p, i, gross in sorted(punkte.values(), key=lambda x: x[3]):
+        kiste = next((z for z in zonen if z["t"] == "R" and z["lo"] * 0.985 <= p <= z["hi"] * 1.015), None)
+        if kiste:
+            # markanter Wendepunkt am Rand einer Range: wird zur Range vermerkt (z. B. das alte Hoch als Deckel)
+            if gross and abs(i - next(j for j, r in enumerate(rows) if r["d"] == kiste["d"])) <= kiste["w"] + 8:
+                kiste["x"] = [t, d, _r(p)]
+            continue
+        zonen.append({"t": t, "lo": _r(p), "hi": _r(p), "d": d, "g": gross})
+    def nah(z, y, tol):
+        return z["lo"] <= y["hi"] * (1 + tol) and z["hi"] >= y["lo"] * (1 - tol)
+
+    def ausduennen(zs):
+        # Ranges haben Vorrang (die längere gewinnt), dann grosse vor feinen Wendepunkten
+        out = []
+        for z in sorted(zs, key=lambda z: (z["t"] != "R", -z.get("w", 0), not z.get("g"))):
+            nb = next((y for y in out if nah(z, y, 0.03 if z["t"] != "R" or y["t"] != "R" else 0.01)), None)
+            if not nb:
+                out.append(z)
+            elif z.get("g") and nb["t"] == "R" and "x" not in nb:
+                nb["x"] = [z["t"], z["d"], z["lo"]]
+        return out
+    unten = sorted(ausduennen([z for z in zonen if z["hi"] < k * 0.995]), key=lambda z: -z["hi"])
+    oben = sorted(ausduennen([z for z in zonen if z["lo"] > k * 1.005]), key=lambda z: z["lo"])
+    return unten, oben
+
+
 def analyse(wk, kurs=None):
     rows = [x for x in wk if x.get("c") and x.get("h") and x.get("l")][-160:]
     if len(rows) < 30:
@@ -162,11 +220,16 @@ def analyse(wk, kurs=None):
             p = tiefs_gross[0] if tiefs_gross and k / tiefs_gross[0][2] - 1 <= 0.2 else (tiefs_fein[0] if tiefs_fein else None)
         if p:
             m = {"p": _r(p[2]), "d": p[1], "t": "T", "a": round((k / p[2] - 1) * 100, 1)}
+    # Haltestellen: frühere Ranges und alte Hochs/Tiefs (das laufende Geschehen der letzten Wochen zählt nicht)
+    ende = len(rows) - max(4, rg["w"] if in_range else 0)
+    zu, zo = haltestellen(rows, P, F, k, min(0.12, max(0.06, 1.8 * med)), ende)
     if m:
-        darunter = [x for x in darunter if x < m["p"] * 0.97][:3]
-    else:
-        darunter = darunter[:3]
-    darueber = darueber[:3]
+        zu = [z for z in zu if z["hi"] < m["p"] * 0.985]
+    zu, zo = zu[:4], zo[:3]
+    for z in zu + zo:
+        z.pop("g", None)
+    darunter = [z["hi"] for z in zu][:3] or (darunter[:3] if not m else [x for x in darunter if x < m["p"] * 0.97][:3])
+    darueber = [z["lo"] for z in zo][:3] or darueber[:3]
 
     # Phase
     ph = "aufwaerts" if tr == "auf" else "abwaerts" if tr == "ab" else "seit"
@@ -178,7 +241,7 @@ def analyse(wk, kurs=None):
         ph = "test_tief"
 
     return {"tr": tr, "ph": ph, "pv": [[p[0], p[1], _r(p[2])] for p in P[-8:]], "b": bruch, "m": m,
-            "u": darunter, "o": darueber, "r": rg, "k": _r(k), "wd": rows[-1]["d"], "th": round(th * 100, 1)}
+            "u": darunter, "o": darueber, "zu": zu, "zo": zo, "r": rg, "k": _r(k), "wd": rows[-1]["d"], "th": round(th * 100, 1)}
 
 
 def ereignisse(neu, alt):
