@@ -1009,7 +1009,7 @@
   "pe": 12.1,
   "pe_avg": 12.3,
   "pe_typ": "KGV",
-  "zahlen": "2026-11-03",
+  "zahlen": "",
   "artifact": "SYT4vDpp9Q49W3UBAbeg4i"
  },
  "MDLZ": {
@@ -1151,7 +1151,7 @@
   "pe": 38.5,
   "pe_avg": 43.5,
   "pe_typ": "KGV",
-  "zahlen": "2026-11-03",
+  "zahlen": "",
   "artifact": "YCTHn1Zbh5kEESfCvw6hKQ"
  },
  "ADBE": {
@@ -1262,7 +1262,7 @@
   "pe": 18.3,
   "pe_avg": 28.6,
   "pe_typ": "KGV",
-  "zahlen": "2026-11-03",
+  "zahlen": "",
   "artifact": "6mRA4VugxZDkHLf1Bepsh4"
  },
  "AMZN": {

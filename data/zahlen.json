@@ -1,5 +1,5 @@
 {
- "stand": "2026-11-02",
+ "stand": "2026-11-03",
  "hinweis": "Kurze Auswertung der Quartalszahlen. Reaktion rechnet die App aus den Kursen.",
  "eintraege": {
   "GOOGL": [
@@ -1265,6 +1265,251 @@
      {
       "t": "Termin: Zahlen am 2.11.2026 nach Börsenschluss (Stock Titan)",
       "u": "https://www.stocktitan.net/news/O/realty-income-announces-third-quarter-2026-earnings-release-n2yg5v0x6ilu.html"
+     }
+    ]
+   }
+  ],
+  "BKNG": [
+   {
+    "datum": "2026-11-03",
+    "zeit": "nach",
+    "quartal": "Q3 2026",
+    "reaktion_quelle": -2.0,
+    "titel": "Buchungen stark, Ausblick für Q4 bremst",
+    "kurz": "Die Buchungen und der bereinigte Gewinn lagen über den Erwartungen. Der ausgewiesene Umsatz war wegen einer Rückstellung von 900 Mio. $ für ein Verfahren der US-Wettbewerbsbehörde FTC tiefer als erwartet. Für das vierte Quartal erwartet Booking fast kein Wachstum mehr, die Aktie fiel nachbörslich rund 2 %.",
+    "zahlen": [
+     {
+      "k": "Umsatz (ausgewiesen)",
+      "ist": "8.9 Mrd. $ (−1 %)",
+      "erw": "9.55 Mrd. $",
+      "urteil": "verfehlt"
+     },
+     {
+      "k": "Umsatz bereinigt (ohne FTC-Rückstellung)",
+      "ist": "9.8 Mrd. $ (+9 %)",
+      "erw": "",
+      "urteil": "solide"
+     },
+     {
+      "k": "EPS bereinigt (Gewinn pro Aktie ohne Sondereffekte)",
+      "ist": "4.66 $ (+17 %)",
+      "erw": "4.49 $",
+      "urteil": "übertroffen"
+     },
+     {
+      "k": "Gross Bookings (Wert aller Buchungen)",
+      "ist": "54.5 Mrd. $ (+10 %)",
+      "erw": "52.7 Mrd. $",
+      "urteil": "übertroffen"
+     },
+     {
+      "k": "Übernachtungen (Room Nights)",
+      "ist": "345 Mio. (+7 %)",
+      "erw": "",
+      "urteil": "solide"
+     },
+     {
+      "k": "Ausblick Q4: Übernachtungen",
+      "ist": "+1 bis 3 %",
+      "erw": "",
+      "urteil": "schwach"
+     },
+     {
+      "k": "Ausblick Q4: Umsatz bereinigt",
+      "ist": "0 bis +2 %, Betriebsgewinn etwa gleich",
+      "erw": "",
+      "urteil": "schwach"
+     }
+    ],
+    "gut": [
+     "Der Wert aller Buchungen wuchs 10 % auf 54.5 Mrd. $, klar mehr als erwartet. Die Nachfrage im Sommer war also gut.",
+     "Der bereinigte Gewinn pro Aktie stieg 17 %, auch weil Booking viele eigene Aktien zurückkauft (rund 7.5 % weniger Aktien als vor einem Jahr).",
+     "Fürs ganze Jahr bleibt die Prognose: Buchungen und Umsatz wachsen im hohen einstelligen Bereich, der Gewinn pro Aktie im unteren bis mittleren zehn Prozent Bereich."
+    ],
+    "sorgen": [
+     "Das vierte Quartal wird fast ein Nullwachstum: nur 1 bis 3 % mehr Übernachtungen und 0 bis 2 % mehr Umsatz. Das Reisen kühlt ab.",
+     "Die FTC-Rückstellung von 900 Mio. $ zeigt ein rechtliches Risiko in den USA, das ausgewiesene Ergebnis sinkt dadurch.",
+     "Die Aktie hatte 2026 schon rund 30 % verloren, weil Anleger fürchten, dass KI-Assistenten Reisebuchungen an Booking vorbei lenken. Diese Sorge haben die Zahlen nicht ausgeräumt."
+    ],
+    "fazit": "Eher Vorsicht als Panik: Das laufende Geschäft war gut, aber der schwache Ausblick fürs vierte Quartal ist eine echte Verlangsamung. Ob sie nur vorübergehend ist, zeigen erst die nächsten Quartale.",
+    "quellen": [
+     {
+      "t": "Investing.com: Booking fällt nach Umsatz und Ausblick",
+      "u": "https://www.investing.com/news/earnings/booking-holdings-shares-fall-as-revenue-miss-and-travel-outlook-weigh-on-sentiment-4996454"
+     },
+     {
+      "t": "Motley Fool: Booking sieht Wachstum im Q4 stocken",
+      "u": "https://www.fool.com/investing/2026/11/03/booking-sees-q4-growth-stall-as-travel-cools-rapid-earnings-reaction/"
+     },
+     {
+      "t": "Newsquawk: Booking Q3 2026 gegen Erwartungen",
+      "u": "https://www.newsquawk.com/headlines/booking-holdings-inc-bkng-q3-2026-usd-gross-bookings-545bln-exp-5269bln"
+     },
+     {
+      "t": "investingLive: Umsatz verfehlt, Gewinn und Buchungen besser",
+      "u": "https://investinglive.com/stocks/booking-holdings-shares-slide-as-q3-revenue-misses-despite-earnings-and-bookings-beat/"
+     }
+    ]
+   }
+  ],
+  "RACE": [
+   {
+    "datum": "2026-11-03",
+    "zeit": "vor",
+    "quartal": "Q3 2026",
+    "reaktion_quelle": -4.2,
+    "titel": "Mehr Gewinn mit weniger Autos, Prognose leicht erhöht",
+    "kurz": "Ferrari hat 1 % weniger Autos ausgeliefert, aber 7 % mehr Umsatz und 14 % mehr Gewinn pro Aktie gemacht. Umsatz und Gewinn lagen leicht über der Erwartung und die Jahresprognose wurde etwas angehoben. In Mailand fiel die Aktie trotzdem zeitweise 4.2 %, weil die Erhöhung klein war.",
+    "zahlen": [
+     {
+      "k": "Umsatz",
+      "ist": "1.90 Mrd. € (+7 %, ohne Währung +10 %)",
+      "erw": "1.89 Mrd. €",
+      "urteil": "getroffen"
+     },
+     {
+      "k": "EPS (Gewinn pro Aktie, verwässert)",
+      "ist": "2.44 € (+14 %)",
+      "erw": "2.37 €",
+      "urteil": "übertroffen"
+     },
+     {
+      "k": "EBITDA-Marge (Betriebsgewinn vor Abschreibungen im Verhältnis zum Umsatz)",
+      "ist": "39.7 %",
+      "erw": "",
+      "urteil": "sehr stark"
+     },
+     {
+      "k": "Ausgelieferte Autos",
+      "ist": "3'368 (−1 %)",
+      "erw": "",
+      "urteil": "leicht tiefer"
+     },
+     {
+      "k": "Industrieller Free Cashflow (frei verfügbares Geld)",
+      "ist": "567 Mio. € (+43 %)",
+      "erw": "",
+      "urteil": "sehr stark"
+     },
+     {
+      "k": "Prognose 2026 EBITDA",
+      "ist": "mindestens 3.00 Mrd. €",
+      "erw": "vorher mindestens 2.97 Mrd. €",
+      "urteil": "angehoben"
+     },
+     {
+      "k": "Prognose 2026 EPS bereinigt",
+      "ist": "mindestens 9.85 €",
+      "erw": "vorher mindestens 9.68 €",
+      "urteil": "angehoben"
+     }
+    ],
+    "gut": [
+     "Ferrari verdient mehr pro Auto: teurere Modelle und viele Sonderwünsche der Kunden (Personalisierungen) treiben die Marge auf fast 40 %.",
+     "Laut Chef Benedetto Vigna reicht das Auftragsbuch (schon bestellte Autos) bis ins Jahr 2028.",
+     "Ferrari hat wieder Nettogeld statt Schulden (219 Mio. €) und kauft laufend eigene Aktien zurück, im Q3 für 173 Mio. €."
+    ],
+    "sorgen": [
+     "Es werden weniger Autos ausgeliefert, nach neun Monaten 318 weniger als im Vorjahr. Das Wachstum kommt nur noch über den Preis und die Ausstattung.",
+     "Die Prognose-Erhöhung ist klein, Anleger hatten mehr erhofft. Beim Free Cashflow steht jetzt «bis zu» 1.65 Mrd. € statt «mindestens».",
+     "Ferrari nennt die Krise im Nahen Osten ausdrücklich als Unsicherheit für die Prognose."
+    ],
+    "fazit": "Eher Enttäuschung als echte Veränderung: Die Zahlen waren solide und die Marge stark, die Aktie fällt vor allem, weil die hohen Hoffnungen nicht ganz erfüllt wurden.",
+    "quellen": [
+     {
+      "t": "Ferrari Medienmitteilung Q3 2026 (GlobeNewswire)",
+      "u": "https://www.globenewswire.com/news-release/2026/11/03/3394014/0/en/strong-mix-and-personalizations-sustain-q3-growth-and-further-2026-guidance-upgrade.html"
+     },
+     {
+      "t": "TimesLIVE (Reuters): Ferrari erhöht Prognose, Aktie in Mailand tiefer",
+      "u": "https://www.timeslive.co.za/motoring/2026-11-03-ferrari-raises-full-year-outlook-after-stronger-than-expected-q3-results/"
+     },
+     {
+      "t": "UA.News nach CNBC: Ferrari gegen Erwartungen (LSEG)",
+      "u": "https://ua.news/en/money/ferrari-pidvishchila-prognoz-na-2026-rik-cnbc"
+     }
+    ]
+   }
+  ],
+  "ABF": [
+   {
+    "datum": "2026-11-03",
+    "zeit": "vor",
+    "quartal": "Geschäftsjahr 2026",
+    "reaktion_quelle": -3.5,
+    "titel": "Primark lahmt, Zucker drückt, Gewinn 13 % tiefer",
+    "kurz": "Der Betriebsgewinn sank um 13 % auf 1.51 Mrd. £, vor allem wegen Primark und dem Zuckergeschäft. Für 2027 erwartet ABF nochmals weniger Gewinn. Die Aktie fiel am Morgen rund 3.5 %.",
+    "zahlen": [
+     {
+      "k": "Umsatz",
+      "ist": "19.58 Mrd. £ (+1 %)",
+      "erw": "",
+      "urteil": "stagniert"
+     },
+     {
+      "k": "Betriebsgewinn bereinigt",
+      "ist": "1.51 Mrd. £ (−13 %)",
+      "erw": "Firma im Sept.: wie erwartet",
+      "urteil": "getroffen"
+     },
+     {
+      "k": "EPS bereinigt (Gewinn pro Aktie ohne Sondereffekte)",
+      "ist": "156.0 p (−11 %)",
+      "erw": "",
+      "urteil": "tiefer"
+     },
+     {
+      "k": "Primark Umsatz vergleichbare Läden (Like-for-like)",
+      "ist": "−2.6 % (UK +0.5 %, Europa −4.7 %)",
+      "erw": "−2.6 % (Firma im Sept.)",
+      "urteil": "getroffen"
+     },
+     {
+      "k": "Primark Marge (Betriebsgewinn pro Umsatz)",
+      "ist": "10.2 % (Vorjahr 11.9 %)",
+      "erw": "rund 10 %",
+      "urteil": "getroffen"
+     },
+     {
+      "k": "Dividende pro Jahr",
+      "ist": "63.0 p (20.7 p Zwischen + 42.3 p Schluss)",
+      "erw": "",
+      "urteil": "bestätigt"
+     },
+     {
+      "k": "Ausblick 2027 Gewinn",
+      "ist": "unter 2026, Zucker-Verlust 70 bis 170 Mio. £",
+      "erw": "",
+      "urteil": "gesenkt"
+     }
+    ],
+    "gut": [
+     "Primark wächst in den USA um 13 % und eröffnete 37 neue Läden, darunter die ersten vier im Nahen Osten.",
+     "Der Free Cashflow (frei verfügbares Geld) blieb mit 652 Mio. £ stabil, die Dividende bleibt bei 63 p.",
+     "Die Abspaltung von Primark als eigene Firma ist auf Kurs für Dezember 2027. Das kann den Wert der Teile sichtbarer machen."
+    ],
+    "sorgen": [
+     "In den bestehenden Primark-Läden wird weniger verkauft, in Kontinentaleuropa sogar 4.7 % weniger. Die Marge sank von 11.9 % auf 10.2 %.",
+     "Das Zuckergeschäft macht Verlust (47 Mio. £ im Jahr 2026) und der Verlust soll 2027 noch grösser werden.",
+     "Die Nettoschulden inklusive Mieten stiegen von 2.6 auf 2.8 Mrd. £, die Investitionen bleiben hoch bei rund 1.2 Mrd. £."
+    ],
+    "fazit": "Keine Panik, aber eine echte Schwäche: Die Zahlen waren angekündigt, doch Primark wächst in bestehenden Läden nicht mehr und der Gewinn sinkt 2027 ein weiteres Jahr.",
+    "quellen": [
+     {
+      "t": "Newsquawk: ABF Jahreszahlen 2026 und Ausblick",
+      "u": "https://www.newsquawk.com/headlines/additional-european-equity-news---3rd-november-2026"
+     },
+     {
+      "t": "Investing.com: ABF Präsentation, Gewinn minus 14 %",
+      "u": "https://uk.investing.com/news/stock-market-news/associated-british-foods-fy-2026-slides-profit-falls-14-amid-headwinds-93CH-4952001"
+     },
+     {
+      "t": "Gloom: ABF Telefonkonferenz Jahreszahlen 2026",
+      "u": "https://gloom.sh/stocks/abf:lse/transcripts/fy2026-2026-11-03"
+     },
+     {
+      "t": "ABF Trading Update September 2026",
+      "u": "https://www.abf.co.uk/media/news/2026/trading-update-september-2026"
      }
     ]
    }

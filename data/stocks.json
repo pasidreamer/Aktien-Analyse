@@ -1,5 +1,5 @@
 {
- "stand": "2026-11-02",
+ "stand": "2026-11-03",
  "aktien": [
   {
    "ticker": "APP",
@@ -9189,7 +9189,7 @@
     "trigger": 1900,
     "abbruch": 1700
    },
-   "zahlen": "2026-11-03",
+   "zahlen": "",
    "dividende": "3.4 %",
    "div_info": {
     "pro_jahr": 2,
@@ -10547,7 +10547,7 @@
     "trigger": 403,
     "abbruch": 378
    },
-   "zahlen": "2026-11-03",
+   "zahlen": "",
    "dividende": "1.0 %",
    "div_info": {
     "pro_jahr": 1,
@@ -11596,7 +11596,7 @@
     "trigger": 167,
     "abbruch": 150
    },
-   "zahlen": "2026-11-03",
+   "zahlen": "",
    "dividende": "1.0 %",
    "div_info": {
     "pro_jahr": 4,
