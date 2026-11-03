@@ -8,8 +8,8 @@
   {
    "typ": "hook",
    "kicker": "ALPHABET · QUARTALSZAHLEN",
-   "titel": "Rekord-Absturz nach den Zahlen: Panik oder Warnsignal?",
-   "text": "Die Cloud wächst um 103 %. Trotzdem hat die Aktie seit den Zahlen 14 % verloren, so viel wie noch nie nach einem Quartalsbericht.",
+   "titel": "Rekord-Absturz nach den Zahlen: Wo liegt der Boden?",
+   "text": "Die Cloud wächst um 103 %. Trotzdem hat die Aktie seit den Zahlen 14 % verloren und steht jetzt direkt auf einem entscheidenden Strukturtief.",
    "kpis": [
     {
      "label": "KURS",
@@ -92,44 +92,55 @@
   },
   {
    "typ": "skala",
-   "kicker": "AMPEL 2: TIMING",
-   "titel": "Der Zeitpunkt ist schwach",
+   "kicker": "STRUKTUR IM WOCHENCHART",
+   "titel": "Der Aufwärtstrend ist gebrochen",
    "name": "Timing",
    "wert": 43,
    "punkte": [
-    "Der Kurs liegt unter dem Schnitt der letzten 50 und 200 Tage: kurzfristig ein Abwärtstrend.",
-    "Der RSI steht bei 21. Unter 30 heisst: In kurzer Zeit wurde sehr viel verkauft.",
-    "Langfristig liegt die Aktie noch über dem Schnitt der letzten 200 Wochen."
+    "März bis April 2026: Anstieg von 274 auf 401 $. Danach kamen nur noch tiefere Hochs, zuletzt 352 $ im September.",
+    "Im Oktober bricht der Kurs unter das Juli-Tief bei 320 $. Damit dreht die Struktur nach unten.",
+    "Jetzt steht die Aktie bei 279 $, genau dort, wo der letzte grosse Anstieg begann."
    ]
   },
   {
    "typ": "marke",
-   "kicker": "WO ICH HINSCHAUE",
-   "titel": "Das Jahrestief zählt jetzt",
-   "text": "Die alten Kaufzonen zwischen 315 und 331 $ hat der Kurs nach unten durchbrochen. Die nächste wichtige Marke liegt tiefer.",
-   "marke_label": "JAHRESTIEF",
+   "kicker": "DIE ENTSCHEIDENDE MARKE",
+   "titel": "Hier fällt die Entscheidung",
+   "text": "Das Strukturtief vom März 2026 liegt bei 270.70 $. Von dort startete der Anstieg auf 401 $.",
+   "marke_label": "STRUKTURTIEF",
    "marke": "270.70 $",
-   "signal": "Hält der Kurs dort und dreht der RSI nach oben, wäre das für mich ein erstes Zeichen. Fällt er darunter, ist der Weg nach unten offen."
+   "szenarien": [
+    {
+     "art": "bruch",
+     "titel": "Bricht sie",
+     "text": "Ein Wochenschluss klar unter 270 $ bricht ein markantes Tief. Die nächsten Marken liegen bei 255 und 237 $ vom Herbst 2025."
+    },
+    {
+     "art": "halten",
+     "titel": "Hält sie",
+     "text": "Der Kurs läuft seitwärts zwischen 270 und 320 $. Diese Range ist Umverteilung. Ein Ausbruch nach oben zeigt, dass dort gesammelt wurde."
+    }
+   ]
   },
   {
    "typ": "fazit",
    "kicker": "MEIN FAZIT",
-   "titel": "Nicht nur Panik",
+   "titel": "Firma stark, Chart am Wendepunkt",
    "absaetze": [
-    "Die Suche verdient mit dem neuen KI-Modus weniger pro Anfrage. Und das Geld fliesst in Rechenzentren statt zu den Aktionären.",
-    "Die Firma bleibt stark. Ich warte trotzdem, bis der Kurs eine Basis bildet."
+    "Fundamental bleibt Alphabet stark. Aber die Suche verdient mit dem KI-Modus weniger pro Anfrage, und das Geld fliesst in Rechenzentren.",
+    "Im Chart entscheidet sich an 270 $, ob ein Boden entsteht oder die Abwärtsstruktur weiterläuft. Ich warte, bis der Markt es zeigt."
    ],
-   "frage": "Dip kaufen oder abwarten? Deine Meinung in die Kommentare."
+   "frage": "Hält die 270 oder bricht sie? Deine Meinung in die Kommentare."
   }
  ],
- "caption": "Alphabet ist nach den Quartalszahlen so stark gefallen wie noch nie. Dabei hat sich die Cloud verdoppelt. Das Problem: Die Google-Suche wächst langsamer, und das freie Geld fliesst komplett in KI-Rechenzentren. Panik oder echtes Warnsignal? Wisch durch, ich zeige dir die Zahlen, beide Ampeln und die Marke, die ich jetzt beobachte.",
+ "caption": "Alphabet ist nach den Quartalszahlen so stark gefallen wie noch nie, obwohl sich die Cloud verdoppelt hat. Jetzt steht die Aktie genau auf dem Strukturtief vom März, dem Startpunkt des letzten grossen Anstiegs. Bricht es, sind tiefere Preise offen. Hält es, kann sich eine Range bilden, und genau dort entscheidet sich, ob ein Boden entsteht. Wisch durch für Zahlen, Struktur und beide Szenarien.",
  "hashtags": [
   "#alphabet",
   "#google",
   "#aktien",
   "#börse",
-  "#quartalszahlen",
-  "#investieren",
+  "#marktstruktur",
+  "#chartanalyse",
   "#stocks",
   "#googl"
  ]

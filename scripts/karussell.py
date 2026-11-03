@@ -17,7 +17,8 @@ Inhaltsdatei (alle Texte Deutsch, Schweizer Schreibweise, keine Gedankenstriche)
   {"typ": "zahlen", "titel": "...", "zeilen": [{"k": "Umsatz", "sub": "...", "wert": "+25 %", "ton": "gruen|orange|rot|"}, ...3-4], "erklaerung": "..."},
   {"typ": "skala", "titel": "...", "name": "Qualität", "wert": 85, "punkte": ["...", "...", "..."]},
   {"typ": "skala", "titel": "...", "name": "Timing", "wert": 43, "punkte": ["...", "..."]},
-  {"typ": "marke", "titel": "...", "text": "...", "marke_label": "...", "marke": "270 $", "signal": "..."},
+  {"typ": "marke", "titel": "...", "text": "...", "marke_label": "...", "marke": "270 $", "signal": "...",
+   "szenarien": [{"art": "bruch", "titel": "Bricht sie", "text": "..."}, {"art": "halten", "titel": "Hält sie", "text": "..."}]},  (szenarien statt signal)
   {"typ": "fazit", "titel": "...", "absaetze": ["...", "..."], "frage": "..."}
  ],
  "caption": "...", "hashtags": ["#aktien", ...]
@@ -75,6 +76,15 @@ def ampel_name(v):
     return "grün" if v >= 75 else "hellgrün" if v >= 60 else "gelb" if v >= 45 else "orange" if v >= 30 else "rot"
 
 
+def szen(s):
+    """Zwei Szenarien unter der Marke: Bruch (rot) und Halten (grün)."""
+    farbe = {"bruch": "#B3261E", "halten": "#1F6B45"}
+    teile = "".join(f'<div style="display:flex;flex-direction:column;gap:10px;padding:28px 0;border-bottom:1px solid #C9C3B8">'
+                    f'<span style="font-size:30px;font-weight:800;letter-spacing:.14em;color:{farbe.get(x.get("art"), "#121212")}">{e(x["titel"]).upper()}</span>'
+                    f'<span class="serif" style="font-size:36px;line-height:1.4;color:#2A2620">{e(x["text"])}</span></div>' for x in s["szenarien"][:2])
+    return f'<div style="margin-top:24px">{teile}</div>'
+
+
 def slide(d, s, i, n):
     t = s["typ"]
     k = f'<span class="k">{i:02d} · {e(s.get("kicker") or "")}</span>'
@@ -110,10 +120,10 @@ def slide(d, s, i, n):
 <ul class="pt" style="margin-top:80px">{pt}</ul>{fuss(i, n)}</div>'''
     if t == "marke":
         return f'''<div class="s">{k}<h2 class="h">{e(s["titel"])}</h2>
-<p class="p" style="margin-top:48px;font-size:44px">{e(s.get("text"))}</p>
-<div style="margin-top:64px;border-top:3px solid #121212;border-bottom:3px solid #121212;padding:36px 0;display:flex;justify-content:space-between;align-items:baseline;gap:24px">
+<p class="p" style="margin-top:40px;font-size:{40 if s.get("szenarien") else 44}px">{e(s.get("text"))}</p>
+<div style="margin-top:{40 if s.get("szenarien") else 64}px;border-top:3px solid #121212;border-bottom:3px solid #121212;padding:{26 if s.get("szenarien") else 36}px 0;display:flex;justify-content:space-between;align-items:baseline;gap:24px">
 <span style="font-size:32px;font-weight:700;letter-spacing:.12em;color:#B9500E">{e(s.get("marke_label", "DIE MARKE, DIE ICH BEOBACHTE"))}</span><span style="font-size:96px;font-weight:900;letter-spacing:-.04em">{e(s.get("marke"))}</span></div>
-<p class="p" style="margin-top:56px;font-size:42px;color:#2A2620">{e(s.get("signal"))}</p>{fuss(i, n)}</div>'''
+{szen(s) if s.get("szenarien") else f'<p class="p" style="margin-top:56px;font-size:42px;color:#2A2620">{e(s.get("signal"))}</p>'}{fuss(i, n)}</div>'''
     if t == "fazit":
         ab = "".join(f'<p class="p" style="font-size:42px">{e(a)}</p>' for a in s.get("absaetze", [])[:3])
         return f'''<div class="s">{k}<h2 class="h">{e(s["titel"])}</h2>
