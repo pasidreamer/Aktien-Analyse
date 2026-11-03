@@ -142,6 +142,12 @@ Jeden Morgen ein Karussell mit 7 Slides zu einer Aktie, die gerade spannend ist.
 3. **Inhalt schreiben:** data/karussell/JJJJ-MM-TT.json im Format, das oben in scripts/karussell.py steht. Reihenfolge der 7 Slides: hook, firma, zahlen (oder «Was passiert ist»), skala Qualität, skala Timing, marke, fazit.
 4. **Schreibregeln:** Deutsch, Schweizer Schreibweise (ss, nie ß), keine Gedankenstriche, keine «nicht X, sondern Y»-Muster, keine Dreierreihen, keine Floskeln. Kurze Sätze, konkrete Zahlen, ehrliche Einschätzung. Überschrift höchstens 6 Wörter (Hook darf länger sein). Fachbegriffe in einem Halbsatz erklären.
 5. **Verboten:** persönliche Depotdaten (Stückzahlen, Beträge, Broker, eigene Käufe), Kaufaufforderungen, Kursziele, Renditeversprechen. Erlaubt: «Das beobachte ich», «Das wäre für mich ein Zeichen». Der Hinweis «Persönliche Meinung, keine Anlageberatung» kommt automatisch auf die letzte Slide und in die Caption.
-6. **Caption:** 3 bis 5 Sätze, dazu 6 bis 8 Hashtags (Deutsch und Englisch) im Feld hashtags.
-7. **Hochladen:** Datei committen und pushen. Der Workflow «Instagram-Karussell rendern» macht die Bilder, veröffentlicht sie in der App (Profil > Instagram-Karussells) und meldet Pascal per Push.
+6. **Technik = Marktstruktur (Pascals Wunsch):** RSI und gleitende Durchschnitte höchstens als Nebensatz. Im Mittelpunkt stehen die Struktur im Wochen- und Tageschart:
+   - Trend aus Hochs und Tiefs: höhere Hochs und höhere Tiefs (Aufwärtsstruktur) oder tiefere Hochs und tiefere Tiefs (Abwärtsstruktur), mit Datum und Preis der entscheidenden Punkte.
+   - Bruch der Struktur: Welches markante Hoch oder Tief wurde gebrochen, wann, und was hat es bedeutet?
+   - Range als Umverteilung: Liegt der Kurs in einer Seitwärtsphase (Obergrenze, Untergrenze)? Akkumulation (Boden, Käufer sammeln ein) oder Distribution (Verkäufer geben ab)? Hinweise: Volumen an steigenden gegen fallende Tage, Fehlausbrüche unter die Range, die schnell zurückkommen.
+   - Die entscheidende Marke und zwei Szenarien: Was passiert, wenn sie bricht (nächste Strukturmarken darunter), und was, wenn sie hält (Range bilden, Ausbruch nach oben als Zeichen für Bodenbildung)?
+   Slide 5 heisst dann zum Beispiel «Struktur: entscheidende Marke» (typ skala mit dem Timing-Wert, Punkte in Struktur-Sprache), Slide 6 zeigt die Marke mit beiden Szenarien.
+7. **Caption:** 3 bis 5 Sätze, dazu 6 bis 8 Hashtags (Deutsch und Englisch) im Feld hashtags.
+8. **Hochladen:** Datei committen und pushen. Der Workflow «Instagram-Karussell rendern» macht die Bilder, veröffentlicht sie in der App (Profil > Instagram-Karussells) und meldet Pascal per Push.
 Name und Handle stehen in pipeline/karussell.json.
