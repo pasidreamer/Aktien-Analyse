@@ -279,7 +279,7 @@ function strukturText(s, w) {
     bruch += z.t === "R" ? `Erste Haltestelle ist die ${zoneName(z, w, true)}. Dort hat sich der Markt ${z.w} Wochen aufgehalten. Solche Zonen werden oft erneut verteidigt, weil dort viele gekauft haben.${zX(z, w)}`
       : z.t === "H" ? `Erste Haltestelle ist das alte Hoch vom ${monat(z.d)} bei ${M(z.hi)}. Ein Hoch, das einmal nach oben durchbrochen wurde, wirkt oft als Unterstützung.`
       : `Erste Haltestelle ist das Tief vom ${monat(z.d)} bei ${M(z.hi)}.`;
-    if (zu[1]) bruch += ` Fällt auch sie, folgt ${zoneName(zu[1], w)}.`;
+    if (zu[1]) bruch += ` Fällt auch sie, folgt ${zoneName(zu[1], w)}.${zu[1].x?.[0] === "H" ? ` Den Deckel bildet dort das markante Hoch vom ${monat(zu[1].x[1])} bei ${money(zu[1].x[2], w)}. Es wurde später nach oben durchbrochen und kann jetzt als Unterstützung wirken.` : zX(zu[1], w)}`;
   } else bruch += u ? `Die nächsten Strukturmarken liegen bei ${u}.` : "Darunter gibt es wenig Halt aus den letzten Jahren.";
   const huerde = zo[0] ? (zo[0].t === "R" ? ` Darüber bremst die ${zoneName(zo[0], w, true)}: Wer dort gekauft hat, will oft beim Einstandskurs raus.`
       : zo[0].t === "T" ? ` Darüber wartet das gebrochene Tief vom ${monat(zo[0].d)} bei ${M(zo[0].lo)}. Was vorher Boden war, wirkt jetzt oft als Deckel.`
@@ -302,7 +302,7 @@ function zoneName(z, w, lang) {
 const zX = (z, w) => z.x ? ` Im selben Bereich liegt das markante ${z.x[0] === "H" ? "Hoch" : "Tief"} vom ${monat(z.x[1])} bei ${money(z.x[2], w)}.` : "";
 const zKurz = d => `${MON[+d.slice(5, 7) - 1]} ${d.slice(2, 4)}`;
 function zoneZeile(z, w, oben) {
-  const M = v => money(v, w), lbl = z.t === "R" ? `Range ${zKurz(z.d)}${z.d2 && z.d2.slice(0, 7) !== z.d.slice(0, 7) ? "–" + zKurz(z.d2) : ""} · ${z.w} Wo.`
+  const M = v => money(v, w), lbl = z.t === "R" ? `Range ${zKurz(z.d)}${z.d2 && z.d2.slice(0, 7) !== z.d.slice(0, 7) ? "–" + zKurz(z.d2) : ""} · ${z.w} Wo.${z.x ? ` · ${z.x[0] === "H" ? "Hoch" : "Tief"} ${zKurz(z.x[1])} ${nf(z.x[2], z.x[2] >= 100 ? 0 : 2)}` : ""}`
     : z.t === "H" ? (oben ? `Hoch ${zKurz(z.d)}` : `Altes Hoch ${zKurz(z.d)}, durchbrochen`) : (oben ? `Gebrochenes Tief ${zKurz(z.d)}` : `Tief ${zKurz(z.d)}`);
   const preis = z.t === "R" ? `${nf(z.lo, z.lo >= 100 ? 0 : 2)}–${M(z.hi)}` : M(z.hi);
   return `<div class="sk-z sk-${z.t}"><span>${esc(lbl)}</span><b>${preis}</b></div>`;
