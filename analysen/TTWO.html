@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Take-Two Interactive Aktien-Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F3F5F7; --surface:#FFFFFF; --ink:#141B24; --muted:#5A6573; --line:#DDE2E8; --grid:#E9EDF1;
+  --accent:#2F45B5; --accent-soft:#E6E9F8; --chip:#EBEEF2;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+  --good:#1D7A4B; --good-bg:#E3F3EA; --warn:#9A6200; --warn-bg:#FBF0DC; --bad:#B2362A; --bad-bg:#FBE6E3;
+  --zone-sup:rgba(29,122,75,.10); --zone-res:rgba(178,54,42,.09);
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+    --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+    --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+    --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+  --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+  --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;padding-inline:16px;padding-block:24px 56px}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+h1,h2,h3{font-family:var(--display);font-stretch:85%;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:clamp(32px,7vw,48px);font-weight:800;line-height:1}
+h2{font-size:24px;font-weight:700}
+h3{font-size:17px;font-weight:700;font-stretch:95%}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+section{display:flex;flex-direction:column;gap:14px}
+.lead{max-width:68ch;color:var(--muted)}
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;align-items:stretch}
+.hero .id{display:flex;flex-direction:column;gap:10px;justify-content:space-between}
+.price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price b{font-family:var(--display);font-size:34px;font-weight:700}
+.meta{font-size:13px;color:var(--muted)}
+.verdict{font-size:15px;padding:12px 14px;border-radius:10px;background:var(--chip)}
+.scales{display:flex;flex-direction:column;gap:18px}
+.scale-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.scale-h span{font-size:13px;color:var(--muted)}
+.scale-h b{font-family:var(--display);font-size:28px;line-height:1}
+.track{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#C8412F 0%,#E0892F 30%,#E3B63A 50%,#8BBF4B 68%,#2E9A5B 100%);margin-top:8px}
+.pin{position:absolute;top:-5px;width:4px;height:22px;border-radius:2px;background:var(--ink);box-shadow:0 0 0 2px var(--surface);transform:translateX(-2px)}
+.ticks{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);font-family:var(--mono);margin-top:6px}
+.state{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;margin-top:8px}
+.st-good{background:var(--good-bg);color:var(--good)}
+.st-warn{background:var(--warn-bg);color:var(--warn)}
+.st-bad{background:var(--bad-bg);color:var(--bad)}
+/* tables */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;color:var(--muted);font-weight:500;font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:700;border-bottom:none}
+.pts{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{height:6px;border-radius:3px;background:var(--chip);min-width:60px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:3px}
+/* grids */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;border-left:4px solid var(--line)}
+.kpi.g{border-left-color:var(--good)}.kpi.w{border-left-color:var(--warn)}.kpi.b{border-left-color:var(--bad)}
+.kpi span{font-size:12px;color:var(--muted)}
+.kpi b{font-family:var(--mono);font-size:19px;font-weight:500;font-variant-numeric:tabular-nums}
+.kpi em{font-style:normal;font-size:12.5px;color:var(--muted)}
+/* charts */
+.chart{position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:14px;height:3px;border-radius:2px;display:inline-block}
+.swb{width:12px;height:10px;border-radius:2px;display:inline-block}
+.tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12.5px;box-shadow:0 4px 14px rgba(0,0,0,.12);white-space:nowrap;z-index:2}
+.tip b{font-family:var(--mono);font-weight:500}
+.tip .d{font-family:var(--mono);color:var(--muted);font-size:11.5px}
+.note{font-size:13.5px;color:var(--muted)}
+ul.clean{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.pro li::marker{color:var(--good)} .con li::marker{color:var(--bad)}
+.zones{display:flex;flex-direction:column;gap:8px}
+.zone{display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:baseline;padding:10px 12px;border-radius:10px;background:var(--chip);font-size:14px}
+.zone b{font-family:var(--mono);font-weight:500}
+.zone.r{border-left:4px solid var(--bad)} .zone.s{border-left:4px solid var(--good)} .zone.t{border-left:4px solid var(--accent)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+summary{cursor:pointer;font-weight:600}
+details p{margin-top:8px;color:var(--muted);max-width:70ch}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+footer{font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:6px;max-width:80ch}
+footer a{color:var(--accent)}
+@media (max-width:760px){.hero,.two{grid-template-columns:1fr}.zone{grid-template-columns:1fr;gap:2px}}
+</style>
+
+<a href="../index.html#/aktie/TTWO" style="display:inline-block;margin:max(12px,env(safe-area-inset-top)) 0 0 16px;background:#1f3a5f;color:#fff;font:600 14px system-ui;padding:8px 12px;border-radius:20px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">Zurück zur App</a>
+<div class="wrap">
+
+<header class="hero">
+  <div class="card id">
+    <div>
+      <div class="eyebrow">Aktien-Check · 04.11.2026</div>
+      <h1>Take-Two Interactive</h1>
+      <p class="meta">Take-Two Interactive Software, Inc. · NASDAQ: TTWO · Videospiele (Rockstar Games mit GTA und Red Dead, 2K mit NBA 2K, Zynga für Handyspiele) · New York, USA</p>
+    </div>
+    <div class="price"><b>208.90 $</b><span class="meta">Schluss 4.11.2026 · 52 Wochen: 183.86 bis 265.94 $ · Allzeithoch 265.94 $ am 7.7.2026</span></div>
+    <p class="verdict"><b>Kurz gesagt:</b> Take-Two steht 15 Tage vor dem wohl grössten Spielstart aller Zeiten: GTA VI erscheint am 19.11.2026. Die Firma selbst ist heute aber schwach: Nach den offiziellen Regeln (GAAP) macht sie Verlust (−1.73 $ pro Aktie in 12 Monaten), der Free Cashflow ist mit 299 Mio. $ klein und kleiner als die Löhne in Aktien (rund 350 Mio. $). Die Aktienzahl steigt um 4.5 % pro Jahr. Darum Qualität orange (40). Bezahlt wird fast nur die Hoffnung auf GTA VI: Kurs-Umsatz-Verhältnis 5.8 statt rund 5.1 im eigenen Schnitt. Timing orange (36): Seit Juli tiefere Hochs und Tiefs, am 30.10. ein Fehlausbruch unter die Tiefs vom Februar und März, heute +7.1 % auf 208.90 $. Der Trigger bei 216 $ ist noch nicht erreicht. Insider haben seit Mai für rund 148 Mio. $ verkauft und nichts gekauft.</p>
+  </div>
+  <div class="card scales">
+    <div>
+      <div class="scale-h"><span>Qualität · Ist die Firma kaufenswert?</span><b id="q-val">40</b></div>
+      <div class="track"><i class="pin" id="q-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-warn">▲ Schwach</span>
+    </div>
+    <div>
+      <div class="scale-h"><span>Timing · Ist jetzt der Zeitpunkt?</span><b id="t-val">36</b></div>
+      <div class="track"><i class="pin" id="t-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-warn">▲ Beobachten: Trigger noch nicht erreicht</span>
+    </div>
+    <p class="note">Skala: unter 30 rot · 30–45 orange · 45–60 gelb · 60–75 hellgrün · ab 75 grün. Beide Werte setzen sich aus festen Kriterien zusammen, siehe unten.</p>
+  </div>
+</header>
+
+<section>
+  <h2>Was die Firma macht</h2>
+  <p class="lead">Take-Two verkauft Videospiele. Rockstar Games macht Grand Theft Auto (GTA) und Red Dead Redemption. GTA V hat sich seit 2013 über 230 Mio. Mal verkauft und bringt mit GTA Online bis heute Geld. 2K macht NBA 2K, WWE 2K, Borderlands und Civilization. Zynga (gekauft 2022) macht Handyspiele wie Toon Blast, Words with Friends und Top Eleven. Im Quartal bis Juni 2026 kam die Hälfte des Umsatzes von Handyspielen (50 %), 42 % von Konsolen und 8 % vom PC. 84 % der Net Bookings waren wiederkehrende Ausgaben der Spieler (Spielgeld, Zusatzinhalte, Werbung). Net Bookings sind alle Verkäufe eines Quartals, auch wenn der Umsatz nach den Buchhaltungsregeln erst später verbucht wird. Das Geschäftsjahr endet am 31. März: Geschäftsjahr 2027 = April 2026 bis März 2027.</p>
+  <p class="lead">Die Aktie bewegt sich seit Anfang 2025 zwischen rund 188 und 266 $. Ende Januar 2026 fiel sie in einer Woche um rund 10 %, weil Google mit «Project Genie» eine KI zeigte, die spielbare Welten erzeugt. Am 4.2.2026 folgte ein Minus von rund 5 %: Der Verlust im Weihnachtsquartal war grösser als erwartet. Mit dem Start der Vorbestellungen für GTA VI am 25.6. stieg die Aktie bis 265.94 $ (7.7.2026). Am 7.8. enttäuschte der Ausblick: Take-Two bestätigte nur 8.0 bis 8.2 Mrd. $ Net Bookings fürs Geschäftsjahr (Analysten laut LSEG: 8.86 Mrd. $) und erwartet für das Quartal bis September nur 1.62 bis 1.67 Mrd. $ (Vorjahr 1.96 Mrd. $). Drei Tage später verkaufte Chef Strauss Zelnick 40'000 Aktien für 10.1 Mio. $. Bis zum 30.10. fiel die Aktie auf 183.86 $, ohne eine neue schlechte Firmenmeldung. Am 2.11. meldete Piper Sandler aus einer Umfrage unter rund 9'000 Jugendlichen: 70 % der Besitzer einer neuen Konsole wollen GTA VI kaufen. Sensor Tower schätzt bis 3.11. rund 7.7 Mio. digitale Vorbestellungen. Am 4.11. stieg die Aktie um 7.1 % auf 208.90 $, ebenfalls ohne Firmenmeldung. Fazit: Das Geschäft ist nicht kaputt, aber ohne GTA VI wächst es kaum noch. Die Börse fragt, ob ein Rekordstart schon im Kurs steckt.</p>
+</section>
+
+<section>
+  <h2>Fundamental: die Zahlen</h2>
+  <div class="kpis">
+<div class="kpi w"><span>Umsatzwachstum</span><b>+15.3 %</b><em>Letzte 12 Monate (6.69 Mrd. $). Stark war vor allem Herbst 2025 (+31 % und +25 %). Im Quartal bis Juni 2026 nur noch +2 %, Net Bookings −3 %. Fürs Quartal bis September erwartet Take-Two 17 bis 20 % weniger Umsatz als vor einem Jahr.</em></div>
+<div class="kpi r"><span>Operative Marge</span><b>−1.4 %</b><em>Letzte 12 Monate nach GAAP. Von 100 $ Umsatz bleibt kein Betriebsgewinn. 2021/22 waren es noch +13.5 %. Dazwischen grosse Verluste, vor allem Abschreibungen auf den Zukauf Zynga.</em></div>
+<div class="kpi r"><span>Gewinn pro Aktie (EPS)</span><b>−1.73 $</b><em>Letzte 12 Monate nach GAAP. Für das Geschäftsjahr bis März 2027 erwartet Take-Two +0.55 bis +0.75 $. Analysten rechnen bereinigt mit viel mehr: bereinigtes KGV auf die Schätzung rund 25 (Stockanalysis, 27.10.).</em></div>
+<div class="kpi r"><span>ROIC</span><b>−2.0 %</b><em>Auf 100 $ investiertes Kapital rund 2 $ Verlust. Schwach. Erst ein grosser Erfolg von GTA VI kann das drehen.</em></div>
+<div class="kpi w"><span>Free Cashflow</span><b>299 Mio. $</b><em>Letzte 12 Monate, nur 4.5 % vom Umsatz. In 3 der letzten 5 Geschäftsjahre negativ. Die Löhne in Aktien (rund 350 Mio. $ in 12 Monaten) sind grösser: Ohne sie wäre der FCF negativ. Ziel der Firma: über 1 Mrd. $ operativer Cashflow bis März 2027.</em></div>
+<div class="kpi w"><span>Nettoschulden</span><b>0.69 Mrd. $</b><em>30.6.2026: Schulden 2.52 Mrd. $ minus Bargeld und Anlagen 1.83 Mrd. $. Mit Leasing 1.12 Mrd. $, das ist das 1.5-Fache des EBITDA (Betriebsgewinn vor Abschreibungen). Take-Two will bis März 2027 netto schuldenfrei sein.</em></div>
+<div class="kpi w"><span>KUV</span><b>5.8</b><em>Kurs-Umsatz-Verhältnis: Du zahlst das 5.8-Fache des Jahresumsatzes. Ein KGV gibt es nicht, weil Take-Two Verlust macht. Eigener Schnitt (31.3.2022 bis 2026): 5.1. Also rund 15 % teurer als üblich.</em></div>
+<div class="kpi r"><span>Dividende</span><b>keine</b><em>Take-Two zahlt keine Dividende und kauft keine Aktien zurück. Im Gegenteil: Die Aktienzahl stieg in 12 Monaten um 4.5 % (Löhne in Aktien und neue Aktien für 1.25 Mrd. $ im Geschäftsjahr 2026). Dein Anteil an der Firma wird kleiner.</em></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>Umsatz pro Quartal (Mio. $)</h3>
+      <p class="note">Alle 4 letzten Quartale über dem Vorjahr, das Wachstum fiel aber von +31 % (Juli bis September 2025) auf +2 % (April bis Juni 2026). Das Quartal bis September 2026 wird laut Prognose (1.42 bis 1.47 Mrd. $) unter dem Vorjahr liegen. GTA VI kommt erst ins Quartal bis Dezember.</p>
+      <div class="chart" id="c-rev"></div>
+    </div>
+    <div class="card">
+      <h3>Operative Marge pro Jahr</h3>
+      <p class="note">Operative Marge nach GAAP. 2023 bis 2025 tief negativ wegen Abschreibungen auf Zynga (allein 3.5 Mrd. $ im Geschäftsjahr 2025). Seit 2026 fast bei null.</p>
+      <div class="chart" id="c-margin"></div>
+    </div>
+  </div>
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Jahr</th><th class="num">Umsatz Mio. $</th><th class="num">Wachstum</th><th class="num">Op. Marge</th><th class="num">EPS $</th><th class="num">Free Cashflow</th><th class="num">ROIC</th><th class="num">KGV</th></tr></thead>
+      <tbody id="fin-rows"></tbody>
+    </table>
+  </div>
+  <p class="note"><b>Hinweis:</b> Geschäftsjahr bis 31. März, «2026» = April 2025 bis März 2026. Zynga ist seit Mai 2022 dabei (darum +52.6 % im Jahr 2023). Ein KGV gibt es nur für 2022 (Kurs 31.3.2022: 153.74 $), sonst Verlust. Für die Bewertung nehmen wir das Kurs-Umsatz-Verhältnis (KUV) jeweils am 31. März: 5.1, 3.5, 4.7, 6.4 und 5.5, Schnitt 5.1. ROIC für die einzelnen Jahre nicht verfügbar. Free Cashflow = operativer Cashflow minus Investitionen.</p>
+</section>
+
+<section>
+  <h2>Qualität: 40 von 100</h2>
+  <div class="card tbl"><table id="q-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Technik: Wochenchart (2 Jahre)</h2>
+  <div class="card">
+    <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span><span><i class="swb" style="background:var(--zone-sup);border:1px solid var(--good)"></i>Unterstützung</span><span><i class="swb" style="background:var(--zone-res);border:1px solid var(--bad)"></i>Widerstand</span></div>
+    <div class="chart" id="c-week"></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>A/D-Linie, Woche</h3>
+      <p class="note">Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Klar negativ: Im Juli stand die Wochen-A/D bei 321, heute bei 273. Bei den Tiefs fiel sie jedes Mal tiefer (Februar 312, März 306, Oktober 271). Es wurde mehr verkauft als gekauft, keine Divergenz.</p>
+      <div class="chart" id="c-adw"></div>
+    </div>
+    <div class="card">
+      <h3>RSI, Woche</h3>
+      <p class="note">Unter 30 überverkauft, über 70 überkauft. Bei den drei Tiefs lag der RSI bei 31 (Februar), 34 (März) und 36 (Oktober), obwohl der Kurs im Oktober tiefer fiel: eine kleine bullische Divergenz. Heute 45.9, neutral.</p>
+      <div class="chart" id="c-rsiw"></div>
+    </div>
+  </div>
+
+  <h2>Technik: Tageschart (1 Jahr)</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Kurs, Tag</h3>
+      <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span></div>
+      <div class="chart" id="c-day"></div>
+    </div>
+    <div class="card">
+      <h3>A/D-Linie, Tag</h3>
+      <p class="note">Negativ: Am 20.8. stand die Tages-A/D bei 20.6, am 30.10. bei −8.6. Am 24.9. schloss der Kurs bei 202.98 $ mit einer A/D von −2.4. Heute steht der Kurs höher (208.90 $), die A/D aber tiefer (−7.9). Der heutige Sprung kam also noch nicht mit breitem Kaufdruck, auch wenn die A/D von −9.9 auf −7.9 stieg.</p>
+      <div class="chart" id="c-add"></div>
+    </div>
+  </div>
+
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Indikator</th><th>Tag</th><th>Woche</th><th>Bedeutung</th></tr></thead>
+      <tbody>
+<tr><td>Kurs vs. EMA 50</td><td class="pts">208.9 &lt; 209.1</td><td class="pts">208.9 &lt; 220.5</td><td>Tag genau an der Linie, Woche darunter.</td></tr>
+<tr><td>Kurs vs. EMA 200</td><td class="pts">208.9 &lt; 220.9</td><td class="pts">208.9 &gt; 193.8</td><td>Woche über der langfristigen Linie, Tag darunter.</td></tr>
+<tr><td>EMA 50 vs. EMA 200</td><td class="pts">50 unter 200 (seit 18.9.2026)</td><td class="pts">50 über 200 (seit November 2023)</td><td>Grosser Trend noch aufwärts, kurzer Trend abwärts.</td></tr>
+<tr><td>RSI (14)</td><td class="pts">55.7</td><td class="pts">45.9</td><td>Tag aus 31.6 (30.10.) nach oben gedreht, Woche mit kleiner bullischer Divergenz.</td></tr>
+<tr><td>A/D</td><td class="pts">tiefer bei höherem Kurs</td><td class="pts">fällt seit Juli</td><td>Auf beiden Zeitebenen negativ.</td></tr>
+<tr><td>Volumen</td><td colspan="2">Ø 20 Tage 2.52 Mio. vs. Ø 100 Tage 2.53 Mio. Aktien</td><td>Normal. Am 30.10. aber rund 1.5-mal so viel wie üblich (Verkäufe).</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Struktur und Zonen (Smart Money Concept)</h2>
+  <p class="lead">Seit Anfang 2025 läuft Take-Two seitwärts zwischen rund 188 und 266 $. Das Allzeithoch 265.94 $ (7.7.2026) lag nur knapp über dem Hoch vom Oktober 2025 (264.79 $). Danach kamen tiefere Hochs (256.62 $ am 10.8., 224.26 $ am 14.9., 215.66 $ am 9.10.) und tiefere Tiefs (208.52 $ am 9.9., 199.46 $ am 28.9., 196.30 $ am 13.10.). Seit Anfang September bildet sich eine kleine Range zwischen 190 und 215.50 $ (Wochenschlüsse). Am 30.10. fiel der Kurs auf 183.86 $ und damit unter die Tiefs vom Februar (188.65 $) und März (187.63 $). Dort lagen viele Stop-Loss-Aufträge. Der Wochenschluss lag aber wieder bei 190.17 $, und heute schloss die Aktie bei 208.90 $. Das sieht nach einem Fehlausbruch nach unten aus (Spring): oft ein Zeichen, dass Käufer einsammeln (Akkumulation). Bestätigt ist das erst mit einem Tagesschluss über dem letzten tieferen Hoch (215.66 $). Die A/D-Linie zeigt diese Käufe noch nicht. Darüber warten 220 bis 225 $ (EMA 200 Tag, EMA 50 Woche, Hoch vom 14.9.).</p>
+  <div class="zones">
+<div class="zone r"><b>246 bis 257 $</b><span>Widerstand: Hochs vom Mai und August 2026 (246.25 bis 256.62 $).</span></div>
+<div class="zone r"><b>220 bis 225 $</b><span>Widerstand: Tages-EMA 200 (220.90 $), Wochen-EMA 50 (220.46 $) und Hoch vom 14.9. (224.26 $).</span></div>
+<div class="zone t"><b>216 $</b><span><b>Trigger:</b> Tagesschluss über dem Hoch vom 9.10. (215.66 $), dem letzten tieferen Hoch. Ein Wochenschluss darüber bestätigt den Ausbruch aus der Range.</span></div>
+<div class="zone s"><b>188 bis 195 $</b><span><b>Kaufzone 1:</b> Unterkante der Range: Tiefs vom Februar und März (188.65 und 187.63 $), Wochenschluss 30.10. (190.17 $) und Wochen-EMA 200 (193.78 $).</span></div>
+<div class="zone s"><b>150 bis 167 $</b><span><b>Kaufzone 2:</b> Frühere Range von November 2023 bis Februar 2024 (150.34 bis 167.39 $). Dazwischen nur das Tief vom Januar 2025 (177.35 $).</span></div>
+<div class="zone r"><b>183 $</b><span>Abbruch: Wochenschluss unter dem Tief vom 30.10. (183.86 $). Dann wäre der Fehlausbruch keiner, und die nächste Haltestelle liegt bei 150 bis 167 $.</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Smart Money, Insider und Saisonalität</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Wer kauft, wer verkauft?</h3>
+      <ul class="clean" style="margin-top:8px">
+<li><b>Take-Two selbst:</b> Kein Rückkauf, keine Dividende. Die Aktienzahl stieg in 12 Monaten um 4.5 % auf 187.0 Mio. (30.6.2026). Gründe: Löhne in Aktien (305 Mio. $ im Geschäftsjahr 2026, 4.6 % vom Umsatz, im letzten Quartal 86 Mio. $) und eine Kapitalerhöhung im Geschäftsjahr 2026 (1.25 Mrd. $ aus neuen Aktien).</li>
+<li><b>Insider-Verkäufe:</b> Von Ende Mai bis Mitte Oktober 2026 verkauften Insider für rund 148 Mio. $ und kauften keine einzige Aktie am Markt. Die grössten: Präsident Karl Slatoff 249'327 Aktien zu 225.52 $ (56.2 Mio. $) und Chef Strauss Zelnick 208'969 Aktien zu 227.34 $ (47.5 Mio. $) Anfang Juni, nach der Zuteilung von Leistungsaktien und laut Meldung nach festen Plänen. Zelnick verkaufte zusätzlich 70'000 Aktien am 26.5. (15.6 Mio. $) und 40'000 am 10.8. (10.1 Mio. $). Seit September nur noch kleinere Verkäufe (Verwaltungsrat William Gordon 10'000 Aktien zu 202.39 $).</li>
+<li><b>Analysten:</b> Fast alle positiv. Stockanalysis (27.10.): 29 Analysten, Konsens «Strong Buy», Kursziel im Schnitt 285.13 $. JPMorgan 310 $, Goldman Sachs 285 $ (August). Aber: Die Gewinnschätzungen fürs laufende Jahr sanken in 90 Tagen um 16.3 %. Wenn alle schon positiv sind, gibt es wenige neue Käufer.</li>
+<li><b>Leerverkäufer:</b> 9.3 Mio. Aktien sind leerverkauft, 5.0 % der handelbaren Aktien (Stockanalysis, 27.10.). Leerverkäufer wetten auf fallende Kurse.</li>
+<li><b>Branchenvergleich (Scanner, 31.10.):</b> Note 1.7 von 5. Fairer Wert 60 $, also 68 % unter dem Kurs vom 30.10. (Unsicherheit mittel). Die Modelle rechnen mit dem heutigen kleinen Cashflow, GTA VI steckt darin noch nicht. Sie zeigen, wie viel Erfolg der Kurs schon voraussetzt.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Saisonalität seit 1997</h3>
+      <p class="note">Durchschnittliche Monatsrendite in %. Daten seit 1997. November +2.1 % (64 % positive Jahre, aber nur 11 Jahre Daten), Dezember 0.0 % (52 %), Januar +2.1 % (61 %). Leicht positiv, keine starke Saison.</p>
+      <div class="chart" id="c-seas"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Timing: 36 von 100</h2>
+  <div class="card tbl"><table id="t-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Worauf du achten solltest: Unterbewertung und Wachstumsschub</h2>
+  <div class="card"><h3>Was die Börse befürchtet</h3><p class="note" style="margin:4px 0">Vor allem Stimmung: Das Geschäft ist intakt. Die Sorge ist vor allem, dass GTA VI längst im Kurs steckt und ein Rekordstart nicht mehr reicht.</p><ul class="clean"><li>Die Aktie liegt rund 27 % unter dem Hoch vom Oktober 2025 bei 265 $, obwohl der Starttermin von GTA VI seit einem Jahr feststeht.</li><li>Im Quartal bis Juni 2026 sanken die Net Bookings um 3 %. Net Bookings sind alle verkauften Spiele und Inhalte, auch wenn der Umsatz erst später verbucht wird. Mobile verlor 7 %, PC 22 %.</li><li>Zwischen Juli und Oktober 2026 haben sieben Insider verkauft und keiner gekauft. Chef Strauss Zelnick allein verkaufte im August 40'000 Aktien für über 10 Mio. $.</li><li>Rund 63 % der geplanten Jahres-Net-Bookings sollen im zweiten Halbjahr kommen. Fast alles hängt an einem einzigen Spiel.</li></ul><h3 style="margin-top:12px">Was die Sorgen beenden könnte</h3><ul class="clean"><li>Quartalszahlen: Bestätigt Take-Two die Jahresprognose? <span class="muted">(9.11.2026 nach US-Börsenschluss)</span></li><li>Start von GTA VI und erste Verkaufszahlen <span class="muted">(ab 19.11.2026)</span></li><li>Weihnachtsquartal mit GTA VI in den Zahlen <span class="muted">(Februar 2027)</span></li><li>Netto schuldenfrei, wie von der Firma angekündigt <span class="muted">(bis März 2027)</span></li></ul><h3 style="margin-top:12px">Wachstumsschub: Starker Wachstumsschub möglich</h3><ul class="clean"><li><b>GTA VI:</b> GTA V hat sich über 200 Millionen Mal verkauft und bringt seit 13 Jahren Geld ein. GTA VI dürfte das grösste Spiel aller Zeiten werden. Der Start ist am 19.11.2026 für PS5 und Xbox. <span class="muted">(ab November 2026)</span></li><li><b>GTA Online für GTA VI:</b> Der Online-Teil verkauft über Jahre Spielgeld und Inhalte. Das sind wiederkehrende Einnahmen mit hoher Marge. Take-Two hat am 1.10.2026 klargestellt, dass GTA Online nach dem Start weiterläuft. <span class="muted">(2027 und später)</span></li><li><b>Cashflow dreht ins Plus:</b> Im ersten Quartal war der operative Cashflow mit 169 Mio. $ negativ, weil GTA VI vorfinanziert wird. Fürs Geschäftsjahr bis März 2027 erwartet die Firma über 1 Mrd. $. <span class="muted">(bis März 2027)</span></li></ul><p style="margin:10px 0 0"><b>Woran du es erkennst:</b> Achte auf die Net Bookings im Quartal Oktober bis Dezember 2026 (Zahlen im Februar 2027) und darauf, ob der operative Cashflow wie angekündigt über 1 Mrd. $ steigt.</p><p style="margin:10px 0 0"><b>Das Chancen-Szenario:</b> Läuft GTA VI wie erwartet und kommen danach Jahre mit hohen Online-Einnahmen, kann der Gewinn stark steigen und die heutige hohe Bewertung rechtfertigen. Das grösste Risiko: Der Start ist gut, aber nicht besser als erwartet. Dann verkaufen viele genau am Start, und die Aktie fällt trotz Rekord.</p><p class="note" style="margin:10px 0 0">Quellen: <a href="https://www.heise.de/en/news/GTA-6-is-scheduled-for-release-on-November-19-11303474.html" target="_blank" rel="noopener">heise: GTA 6 erscheint am 19. November</a>, <a href="https://www.techradar.com/gaming/gta-6-is-locked-in-for-november-19-2026-according-to-take-two-interactive-despite-delay-rumors-and-marketing-starts-soon" target="_blank" rel="noopener">TechRadar: Take-Two hält am 19.11.2026 fest</a>, <a href="https://www.ad-hoc-news.de/boerse/news/corporate-news/take-two-interactive-aktie-vor-quartalszahlen-am-9-november/70457254" target="_blank" rel="noopener">ad-hoc-news: Quartalszahlen am 9. November (4.11.2026)</a>, <a href="https://finment.com/boerse-aktien/gaming-aktien/take-two-aktie-prognose/" target="_blank" rel="noopener">FinMent: Take-Two Aktie Prognose 2027 (8.10.2026)</a>, <a href="https://goldesel.de/aktien/news/take-two-meldet-q1-starker-schwacht-q2-gewinnprognose-und-setzt-mit-gta-6-auf-den-19-november" target="_blank" rel="noopener">Goldesel: Take-Two Q1 und Prognose (7.8.2026)</a></p></div>
+</section>
+
+<section>
+  <h2>Dividende</h2>
+  <div class="card tbl"><p style="margin:0">Take-Two zahlt keine Dividende und kauft keine Aktien zurück. Die Aktienzahl steigt sogar (plus 4.5 % in 12 Monaten), vor allem wegen Löhnen in Aktien. Das Geld fliesst in neue Spiele wie GTA VI und in den Schuldenabbau.</p></div>
+</section>
+
+<section>
+  <h2>Pro und Contra</h2>
+  <div class="two">
+    <div class="card pro"><h3>Spricht dafür</h3><ul class="clean" style="margin-top:8px">
+<li>GTA VI startet am 19.11.2026. GTA V hat sich über 230 Mio. Mal verkauft und verdient seit 13 Jahren Geld.</li>
+<li>Starke Signale vor dem Start: rund 7.7 Mio. digitale Vorbestellungen (Schätzung Sensor Tower), 89 % davon für die teure Version zu 99.99 $.</li>
+<li>Take-Two erwartet fürs Geschäftsjahr bis März 2027 rund 20 % mehr Net Bookings, über 1 Mrd. $ operativen Cashflow und netto keine Schulden mehr.</li>
+<li>Wiederkehrende Einnahmen (Spielgeld, Zusatzinhalte) machen rund 80 % der Net Bookings aus. GTA Online für GTA VI kann das über Jahre tragen.</li>
+<li>Charttechnisch: Fehlausbruch unter die Jahrestiefs am 30.10., schnell zurückgeholt, dazu eine bullische RSI-Divergenz im Wochenchart.</li>
+    </ul></div>
+    <div class="card con"><h3>Spricht dagegen</h3><ul class="clean" style="margin-top:8px">
+<li>Ohne GTA VI wächst Take-Two kaum: Net Bookings im Quartal bis Juni −3 %, Handyspiele −7 %, PC −22 %. Das Quartal bis September wird unter dem Vorjahr liegen.</li>
+<li>Heute Verlust nach GAAP, ROIC negativ, Free Cashflow kleiner als die Löhne in Aktien.</li>
+<li>Verwässerung: 4.5 % mehr Aktien in 12 Monaten, keine Rückkäufe, keine Dividende.</li>
+<li>Insider verkauften seit Mai für rund 148 Mio. $ und kauften nichts.</li>
+<li>Sell-the-News-Gefahr: Fast alle Analysten sind positiv, das Ereignis ist seit Jahren bekannt. Ein guter, aber nicht überragender Start kann den Kurs drücken.</li>
+<li>A/D-Linie fällt auf beiden Zeitebenen: Die grossen Verkäufer sind noch nicht weg.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section>
+  <h2>Was jetzt zu tun ist</h2>
+  <div class="zones">
+<div class="zone t"><b>Beobachten</b><span>Alarm bei 216 $ (Trigger) und 195 $ (oberes Ende Kaufzone 1).</span></div>
+<div class="zone s"><b>Timing grün</b><span>Tagesschluss über 216 $ und danach ein Wochenschluss über der Range (215.50 $), am besten mit steigender A/D. Oder ein Rücksetzer in 188 bis 195 $, der über 183 $ hält. Fundamental: Die Zahlen am 9.11. müssen die Jahresprognose (8.0 bis 8.2 Mrd. $ Net Bookings) bestätigen, und GTA VI muss am 19.11. ohne Verschiebung starten.</span></div>
+<div class="zone r"><b>Abbruch</b><span>Wochenschluss unter 183 $. Dann ist die nächste Haltestelle 150 bis 167 $ (Range 2023/24).</span></div>
+<div class="zone "><b>Nächste Zahlen</b><span>2. Quartal des Geschäftsjahres 2027 (Juli bis September 2026): Montag, 9.11.2026 nach US-Börsenschluss. Start GTA VI: 19.11.2026. Die ersten Zahlen mit GTA VI kommen voraussichtlich Anfang Februar 2027.</span></div>
+  </div>
+</section>
+
+<footer>
+  <span>Kursdaten und Indikatoren (EMA, RSI 14, A/D) selbst berechnet aus Yahoo-Finance-Tages-, Wochen- und Monatsdaten, Stand 04.11.2026. <a href="https://www.stockanalysis.com/stocks/ttwo/financials/" target="_blank" rel="noopener">StockAnalysis.com</a> und <a href="https://stockanalysis.com/stocks/ttwo/statistics/" target="_blank" rel="noopener">Statistik</a> (Stand 27.10.2026), <a href="https://www.sec.gov/Archives/edgar/data/0000946581/000162828026054580/ttwo1q27earningsrelease.htm" target="_blank" rel="noopener">Take-Two Q1 GJ 2027 (7.8.2026)</a>, <a href="https://www.sec.gov/Archives/edgar/data/0000946581/000162828026037260/ttwo4q26earningsrelease.htm" target="_blank" rel="noopener">Take-Two Q4 GJ 2026 (21.5.2026)</a>, <a href="https://www.sec.gov/Archives/edgar/data/946581/000162828026005010/ttwo3q26earningsrelease.htm" target="_blank" rel="noopener">Take-Two Q3 GJ 2026 (3.2.2026)</a>, <a href="https://www.nasdaq.com/articles/take-two-interactive-software-q1-earnings-call-highlights" target="_blank" rel="noopener">Nasdaq: Q1-Telefonkonferenz</a>, <a href="https://www.thestreet.com/investing/gta-vi-pre-orders-break-records-investors-need-answer" target="_blank" rel="noopener">TheStreet (10.8.2026)</a>, <a href="https://finance.yahoo.com/markets/stocks/articles/two-shares-rise-1-5-134832141.html" target="_blank" rel="noopener">Yahoo: Piper-Sandler-Umfrage (2.11.2026)</a>, <a href="https://www.ad-hoc-news.de/boerse/news/unternehmensnachrichten/take-two-s-gta-vi-ledger-7-71-million-preorders-a-40-million-sales-bet-and-a-november-reckoning/70455786" target="_blank" rel="noopener">ad-hoc-news: Vorbestellungen (4.11.2026)</a>, <a href="https://247wallst.com/cards/take-two-interactive-ttwo-price-swing-01m6kr4jpkdsbsc8ywet5xsk14" target="_blank" rel="noopener">24/7 Wall St (4.11.2026)</a>, <a href="https://www.trefis.com/stock/ttwo/articles/589221/ttwo-stock-falls-10-with-a-5-day-losing-spree-on-ai-disruption-fears/2026-01-31" target="_blank" rel="noopener">Trefis: Project Genie (31.1.2026)</a>, <a href="https://finance.yahoo.com/news/why-two-ttwo-shares-sliding-203544568.html" target="_blank" rel="noopener">Yahoo (4.2.2026)</a>, <a href="https://quantisnow.com/insiders/TTWO" target="_blank" rel="noopener">Insider (Quantisnow)</a>, <a href="https://macrotrends.net/stocks/charts/TTWO/take-two-interactive-software/price-sales" target="_blank" rel="noopener">Macrotrends: KUV-Historie</a>, Branchenvergleich und fairer Wert aus data/scan.json (31.10.2026).</span>
+  <span>Persönliche Analyse, keine Anlageberatung. Vergangene Kurse und Saisonalität sagen nichts Sicheres über die Zukunft.</span>
+</footer>
+</div>
+
+<script>
+const Q=[["Umsatztrend", "4 von 4 Quartalen über Vorjahr, aber das Wachstum fällt stark (+31, +25, +6, +2 %)", 12, 15], ["Wachstumstempo", "+15.3 % in 12 Monaten und +18 % im Geschäftsjahr 2026, aber 3 Jahre im Schnitt nur +7.6 % und zuletzt +2 %. Darum eine Stufe tiefer", 8, 10], ["Operative Marge", "−1.4 % (0 Pkt.). Trend: seit 2025 klar besser, aber unter 2022 (+13.5 %): stabil (3 Pkt.)", 3, 15], ["Gewinnwachstum (EPS)", "GAAP-Gewinn negativ (−1.73 $). Die Prognose für März 2027 (+0.55 bis +0.75 $) zählt erst, wenn sie da ist", 0, 10], ["Free Cashflow", "Positiv (299 Mio. $), aber kleiner als im Geschäftsjahr 2026 (462 Mio. $) und 3 von 5 Jahren negativ", 3, 10], ["ROIC", "−2.0 %: unter 10 % (2 Pkt.), klar steigender Trend (+1)", 3, 15], ["Schulden", "Nettoschulden mit Leasing 1.12 Mrd. $ gegen EBITDA 0.77 Mrd. $: 1.5. Ohne Leasing 0.9", 7, 10], ["Bewertung vs. eigene Historie", "Verlustfirma: KUV 5.8 gegen eigenen Schnitt 5.1, rund 15 % teurer (4 Pkt., höchstens 7)", 4, 15]];
+const T=[["Trend Woche (EMA 50/200)", "Kurs über EMA 200 (193.8), unter EMA 50 (220.5), EMA 50 über 200 aber fallend: Rücksetzer im Aufwärtstrend", 12, 20], ["Trend Tag (EMA 50/200)", "Kurs knapp unter EMA 50 und unter EMA 200, EMA 50 unter 200 seit 18.9., Abstand klein", 2, 10], ["Struktur (SMC)", "Tiefere Hochs und Tiefs seit Juli. Fehlausbruch unter 187.63 $ am 30.10. zurückgeholt, aber noch kein Change of Character", 4, 20], ["RSI Tag/Woche", "Woche: bullische Divergenz bei 31, 34, 36 im intakten Wochentrend. Tag aus 31.6 auf 55.7 gedreht", 12, 15], ["A/D Tag/Woche", "Beide fallen mit dem Kurs, Tag sogar tiefer bei höherem Kurs", 3, 20], ["Smart Money", "Start 3, gehäufte Insider-Verkäufe (rund 148 Mio. $) −3, kein Rückkauf, Verwässerung 4.5 %", 0, 10], ["Saisonalität", "November bis Januar leicht positiv, Trefferquote 52 bis 64 %", 3, 5]];
+const FIN=[["2022", 3505, "+3.9 %", "13.5 %", 3.58, 99, "n. v.", "42.9"], ["2023", 5350, "+52.6 %", "−21.8 %", -7.03, -203, "n. v.", "neg."], ["2024", 5350, "0.0 %", "−67.1 %", -22.01, -158, "n. v.", "neg."], ["2025", 5634, "+5.3 %", "−77.9 %", -25.58, -215, "n. v.", "neg."], ["2026", 6656, "+18.2 %", "−1.6 %", -1.62, 462, "n. v.", "neg."], ["Letzte 12 Mt.", 6687, "+15.3 %", "−1.4 %", -1.73, 299, "−2.0 %", "neg."]];
+const HALF=[["Sep 24", 1353], ["Dez 24", 1360], ["Mär 25", 1583], ["Jun 25", 1504], ["Sep 25", 1774], ["Dez 25", 1699], ["Mär 26", 1680], ["Jun 26", 1534]];
+const MARGIN=[["2022", 13.5], ["2023", -21.8], ["2024", -67.1], ["2025", -77.9], ["2026", -1.6], ["12 Mt.", -1.4]];
+const SEAS=[2.1, -0.6, 2.8, 2.8, -2.1, 0.7, 3.8, 1.9, 1.2, 0.9, 2.1, 0.0];
+const SEASHIT=[61.0, 43.0, 61.0, 68.0, 43.0, 53.0, 60.0, 52.0, 45.0, 65.0, 64.0, 52.0];
+const MON=["Jan","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"];
+const W=`2024-10-27,163.78,151.54,142.2,60,360.9;2024-11-04,177.9,152.57,142.55,70,369.8;2024-11-11,177.62,153.55,142.9,69,365.2;2024-11-18,188.15,154.91,143.35,74,371.3;2024-11-25,188.38,156.22,143.8,75,372.5;2024-12-02,189.71,157.54,144.26,75,373.3;2024-12-09,185.48,158.63,144.67,69,368.6;2024-12-16,181.97,159.55,145.04,65,364.5;2024-12-23,186.43,160.6,145.45,68,366.1;2024-12-30,188.75,161.71,145.88,69,370.9;2025-01-06,178.61,162.37,146.21,58,365.2;2025-01-13,186.41,163.31,146.61,63,370.3;2025-01-20,185.49,164.18,146.99,62,372;2025-01-27,185.51,165.02,147.38,62,366.4;2025-02-03,208.77,166.73,147.99,74,377.2;2025-02-10,208.76,168.38,148.59,74,372.8;2025-02-17,211.65,170.08,149.22,75,370.1;2025-02-24,211.98,171.72,149.85,75,374.2;2025-03-09,204.57,173.01,150.39,67,378.3;2025-03-16,213.47,174.6,151.02,71,385.3;2025-03-23,210.47,176,151.61,68,379.4;2025-03-30,194.58,176.73,152.04,54,367.9;2025-04-06,212.07,178.12,152.63,63,380.6;2025-04-13,212.77,179.48,153.23,63,380.9;2025-04-20,225.38,181.28,153.95,68,390.3;2025-04-27,219.5,182.78,154.6,64,383.9;2025-05-04,226.55,184.49,155.32,67,385.8;2025-05-11,226.74,186.15,156.03,67,381.5;2025-05-18,224.99,187.67,156.72,65,369.1;2025-05-25,226.28,189.19,157.41,66,367.4;2025-06-01,232.72,190.89,158.16,69,376.5;2025-06-08,230.23,192.44,158.87,66,370;2025-06-15,238.37,194.24,159.66,70,373.2;2025-06-22,241.44,196.09,160.48,71,375.9;2025-06-29,240.11,197.81,161.27,70,374.6;2025-07-06,233.92,199.23,161.99,64,367.5;2025-07-13,231.18,200.48,162.68,61,362.8;2025-07-20,224.75,201.44,163.3,56,357.5;2025-07-27,220.58,202.19,163.87,52,352.1;2025-08-03,217.37,202.78,164.4,50,340.6;2025-08-10,232.18,203.93,165.08,59,344.7;2025-08-17,229.03,204.92,165.71,57,342.8;2025-08-24,233.27,206.03,166.38,59,344.6;2025-08-31,239.68,207.35,167.11,63,347.3;2025-09-07,246.26,208.88,167.9,66,347.8;2025-09-14,250.85,210.52,168.73,68,353;2025-09-21,256.12,212.31,169.6,70,360.8;2025-09-28,257.68,214.09,170.47,71,362.2;2025-10-05,251.97,215.57,171.28,65,357;2025-10-12,261.35,217.37,172.18,70,359.6;2025-10-19,255.12,218.85,173.01,64,354.9;2025-10-26,256.37,220.32,173.84,65,360.6;2025-11-03,232,220.78,174.41,48,350.5;2025-11-10,235.03,221.34,175.02,49,349.3;2025-11-17,235.47,221.89,175.62,50,345.9;2025-11-24,246.07,222.84,176.32,56,350.6;2025-12-01,247.88,223.82,177.03,57,352.1;2025-12-08,241.47,224.51,177.67,52,346.8;2025-12-15,247.4,225.41,178.37,56,351.2;2025-12-22,256.09,226.62,179.14,60,354.2;2025-12-29,251.6,227.59,179.86,57,351.2;2026-01-05,250.71,228.5,180.57,56,347.1;2026-01-12,240.14,228.96,181.16,49,341.7;2026-01-19,245.73,229.62,181.8,53,347.1;2026-01-26,220.3,229.25,182.18,40,339.5;2026-02-02,195.59,227.93,182.32,32,324;2026-02-09,193.67,226.59,182.43,31,312;2026-02-16,199.72,225.53,182.6,35,313.9;2026-02-23,211.48,224.98,182.89,41,322;2026-03-08,208.58,224.34,183.15,40,320.1;2026-03-15,200.63,223.41,183.32,37,313.2;2026-03-22,189.69,222.09,183.38,34,305.9;2026-03-29,199.87,221.22,183.55,40,310;2026-04-05,197.07,220.27,183.68,39,306.9;2026-04-12,212.04,219.95,183.96,46,310.6;2026-04-19,210.75,219.59,184.23,46,307.9;2026-04-26,216.03,219.45,184.55,49,312.1;2026-05-03,220.45,219.49,184.9,51,307.7;2026-05-10,242.44,220.39,185.48,60,315.7;2026-05-17,227.55,220.67,185.9,53,307.6;2026-05-24,224.16,220.8,186.28,51,309.1;2026-05-31,214.39,220.55,186.56,47,299.7;2026-06-07,211.75,220.21,186.81,46,303.3;2026-06-14,239.28,220.95,187.33,57,315.5;2026-06-21,238.53,221.64,187.84,57,310.5;2026-06-28,254.99,222.95,188.51,62,321.3;2026-07-05,243.2,223.75,189.05,57,312;2026-07-12,236.68,224.25,189.52,54,308.6;2026-07-19,231.65,224.54,189.94,52,305.1;2026-07-26,242.92,225.26,190.47,56,304.6;2026-08-02,246.5,226.1,191.03,57,315.7;2026-08-09,246.95,226.91,191.58,57,314.3;2026-08-16,239.62,227.41,192.06,54,313.8;2026-08-23,235.39,227.73,192.49,52,316.6;2026-08-30,214.69,227.21,192.71,43,304.6;2026-09-06,215.47,226.75,192.94,43,306.5;2026-09-13,205.45,225.92,193.07,40,291.7;2026-09-20,201.44,224.96,193.15,38,281.2;2026-09-27,202.73,224.09,193.24,39,277;2026-10-04,213.44,223.67,193.44,45,284.7;2026-10-11,205.28,222.95,193.56,42,284.3;2026-10-18,203.69,222.19,193.66,41,275.6;2026-10-25,190.17,220.94,193.63,36,271.1;2026-11-04,208.9,220.46,193.78,46,273.1`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+const DD=`2025-10-23,254.53,249.29,226.02,39.3;2025-10-24,255.12,249.52,226.31,38.7;2025-10-27,254.27,249.71,226.59,38.5;2025-10-28,251.57,249.78,226.84,37.1;2025-10-29,251.73,249.86,227.08,37.8;2025-10-30,252.78,249.97,227.34,37.7;2025-10-31,256.37,250.22,227.63,38.6;2025-11-03,255.65,250.44,227.91,39.1;2025-11-04,252.43,250.51,228.15,38.6;2025-11-05,254.76,250.68,228.42,39.8;2025-11-06,252.4,250.75,228.66,37;2025-11-07,232,250.01,228.69,34.6;2025-11-10,234.06,249.39,228.74,35.4;2025-11-11,240.7,249.05,228.86,37.1;2025-11-12,240.34,248.71,228.98,37;2025-11-13,237.55,248.27,229.06,35.8;2025-11-14,235.03,247.75,229.12,35;2025-11-17,233.58,247.19,229.16,34.5;2025-11-18,239.09,246.88,229.26,36;2025-11-19,240.46,246.62,229.37,36;2025-11-20,235.37,246.18,229.43,34.6;2025-11-21,235.47,245.76,229.49,34.1;2025-11-24,239.07,245.5,229.59,35.3;2025-11-25,241.84,245.36,229.71,36;2025-11-26,243.63,245.29,229.85,36;2025-11-28,246.07,245.32,230.01,36.4;2025-12-01,249.34,245.48,230.2,37.9;2025-12-02,246.83,245.53,230.37,36.8;2025-12-03,244.95,245.51,230.51,36.8;2025-12-04,247.51,245.59,230.68,37.7;2025-12-05,247.88,245.68,230.85,37;2025-12-08,247.28,245.74,231.02,36.8;2025-12-09,248.73,245.86,231.19,37.6;2025-12-10,246.02,245.86,231.34,36.7;2025-12-11,242.41,245.73,231.45,35.5;2025-12-12,241.47,245.56,231.55,35;2025-12-15,244.56,245.52,231.68,34.8;2025-12-16,244.53,245.48,231.81,34.4;2025-12-17,240.55,245.29,231.9,33;2025-12-18,246.65,245.34,232.04,34.7;2025-12-19,247.4,245.42,232.2,34.7;2025-12-22,248.58,245.55,232.36,34.8;2025-12-23,249.23,245.69,232.53,35.3;2025-12-24,251.6,245.92,232.72,35.7;2025-12-26,256.09,246.32,232.95,36.6;2025-12-29,255.7,246.69,233.18,36.9;2025-12-30,257.91,247.13,233.42,37.2;2025-12-31,256.03,247.48,233.65,36.4;2026-01-02,251.6,247.64,233.82,35.6;2026-01-05,257.31,248.02,234.06,36.3;2026-01-06,254.35,248.27,234.26,35.7;2026-01-07,256.67,248.6,234.48,36.7;2026-01-08,252.38,248.75,234.66,35.9;2026-01-09,250.71,248.82,234.82,35.4;2026-01-12,248.92,248.83,234.96,35.6;2026-01-13,247.49,248.77,235.09,35.6;2026-01-14,245.49,248.64,235.19,36.3;2026-01-15,244.34,248.48,235.28,36.4;2026-01-16,240.14,248.15,235.33,35.3;2026-01-20,240.61,247.85,235.38,35.6;2026-01-21,238.23,247.48,235.41,35.4;2026-01-22,241.1,247.23,235.47,36.9;2026-01-23,245.73,247.17,235.57,38;2026-01-26,245.63,247.11,235.67,38;2026-01-27,245.52,247.04,235.77,38;2026-01-28,243.18,246.89,235.84,36.8;2026-01-29,239.27,246.59,235.87,36.5;2026-01-30,220.3,245.56,235.72,33.6;2026-02-02,221.81,244.63,235.58,30.7;2026-02-03,212.17,243.36,235.35,29.4;2026-02-04,200.76,241.69,235,27;2026-02-05,193.24,239.79,234.59,23.7;2026-02-06,195.59,238.06,234.2,25;2026-02-09,205.03,236.76,233.91,28.6;2026-02-10,210.71,235.74,233.68,27.9;2026-02-11,203.89,234.49,233.38,27.2;2026-02-12,190.36,232.76,232.96,22.9;2026-02-13,193.67,231.23,232.56,24.6;2026-02-17,193.87,229.76,232.18,24.1;2026-02-18,199.13,228.56,231.85,25.5;2026-02-19,201.37,227.49,231.55,25.3;2026-02-20,199.72,226.4,231.23,25;2026-02-23,195.59,225.2,230.88,24.2;2026-02-24,204.19,224.37,230.61,26;2026-02-25,207.31,223.7,230.38,27.8;2026-02-26,213.29,223.29,230.21,29.5;2026-02-27,211.48,222.83,230.02,29.4;2026-03-02,213.88,222.48,229.86,30.2;2026-03-03,217.05,222.27,229.73,31.1;2026-03-04,215.77,222.01,229.59,31.3;2026-03-05,212.53,221.64,229.43,30.6;2026-03-06,211.5,221.24,229.25,31.3;2026-03-09,214.63,220.98,229.1,33.1;2026-03-10,209.08,220.52,228.9,31.8;2026-03-11,211.09,220.15,228.72,33.2;2026-03-12,209.2,219.72,228.53,32.4;2026-03-13,208.58,219.28,228.33,33.2;2026-03-16,207.69,218.83,228.13,31.3;2026-03-17,206.72,218.35,227.91,29.8;2026-03-18,204.22,217.8,227.68,28.6;2026-03-19,201.75,217.17,227.42,28.1;2026-03-20,200.63,216.52,227.15,28.8;2026-03-23,200.84,215.9,226.89,28.4;2026-03-24,191.37,214.94,226.54,26.1;2026-03-25,193.05,214.08,226.2,26.6;2026-03-26,194.72,213.32,225.89,27.1;2026-03-27,189.69,212.4,225.53,26.4;2026-03-30,193.08,211.64,225.21,26.1;2026-03-31,197.5,211.09,224.93,27.4;2026-04-01,198.2,210.58,224.67,27.5;2026-04-02,199.87,210.16,224.42,28.2;2026-04-06,196.69,209.63,224.14,28.1;2026-04-07,198.33,209.19,223.89,29.2;2026-04-08,202.13,208.91,223.67,28.4;2026-04-09,198.05,208.49,223.42,27.3;2026-04-10,197.07,208.04,223.15,27.4;2026-04-13,201.36,207.78,222.94,28.9;2026-04-14,205.1,207.67,222.76,29;2026-04-15,214.15,207.93,222.67,30.4;2026-04-16,213.93,208.16,222.59,29.7;2026-04-17,212.04,208.31,222.48,28.1;2026-04-20,216.85,208.65,222.43,29.5;2026-04-21,217.65,209,222.38,29.4;2026-04-22,218.19,209.36,222.34,29;2026-04-23,209.9,209.38,222.21,28.6;2026-04-24,210.75,209.44,222.1,29.6;2026-04-27,213.77,209.61,222.02,30.1;2026-04-28,213.01,209.74,221.93,29.9;2026-04-29,215.34,209.96,221.86,30.7;2026-04-30,213.76,210.11,221.78,30.9;2026-05-01,216.03,210.34,221.72,31.5;2026-05-04,225.18,210.92,221.76,32.7;2026-05-05,223.11,211.4,221.77,32.1;2026-05-06,222,211.82,221.77,32.1;2026-05-07,223.5,212.27,221.79,31.3;2026-05-08,220.45,212.59,221.78,30.3;2026-05-11,221.47,212.94,221.77,29.9;2026-05-12,225.99,213.45,221.82,30.3;2026-05-13,226.99,213.99,221.87,31.1;2026-05-14,242.41,215.1,222.07,31.8;2026-05-15,242.44,216.17,222.27,31.3;2026-05-18,242.16,217.19,222.47,32.9;2026-05-19,238.14,218.01,222.63,32.4;2026-05-20,236.62,218.74,222.77,33.6;2026-05-21,238.08,219.5,222.92,32.3;2026-05-22,227.55,219.82,222.97,29;2026-05-26,220.67,219.85,222.94,25.8;2026-05-27,218.46,219.8,222.9,24.4;2026-05-28,217.87,219.72,222.85,23.4;2026-05-29,224.16,219.89,222.86,25.1;2026-06-01,226.98,220.17,222.9,24.8;2026-06-02,222.38,220.26,222.9,26.1;2026-06-03,215.8,220.08,222.83,25;2026-06-04,216.65,219.95,222.77,23.3;2026-06-05,214.39,219.73,222.68,22.2;2026-06-08,212.55,219.45,222.58,23.1;2026-06-09,212.05,219.16,222.48,24.1;2026-06-10,210.46,218.82,222.36,23.3;2026-06-11,212.08,218.55,222.25,24.3;2026-06-12,211.75,218.29,222.15,24.8;2026-06-15,216.23,218.21,222.09,25.7;2026-06-16,229.97,218.67,222.17,29;2026-06-17,228.03,219.03,222.23,27.3;2026-06-18,239.28,219.83,222.4,29.9;2026-06-22,239.57,220.6,222.57,27;2026-06-23,242.64,221.47,222.77,26.1;2026-06-24,235.77,222.03,222.9,22.9;2026-06-25,238.72,222.68,223.05,24.5;2026-06-26,238.53,223.3,223.21,26.7;2026-06-29,247.15,224.24,223.45,27.4;2026-06-30,249.98,225.25,223.71,28.6;2026-07-01,250.32,226.23,223.98,28.3;2026-07-02,254.99,227.36,224.28,30.1;2026-07-06,258.41,228.58,224.62,31.9;2026-07-07,257.79,229.72,224.95,30.3;2026-07-08,251.38,230.57,225.22,28.9;2026-07-09,246.1,231.18,225.42,27.4;2026-07-10,243.2,231.65,225.6,25.8;2026-07-13,244.1,232.14,225.79,25.3;2026-07-14,237.04,232.33,225.9,24.3;2026-07-15,243.8,232.78,226.08,25;2026-07-16,239.57,233.05,226.21,24.4;2026-07-17,236.68,233.19,226.31,24.9;2026-07-20,238.98,233.42,226.44,24.8;2026-07-21,235.93,233.52,226.53,23.9;2026-07-22,233.58,233.52,226.6,23.3;2026-07-23,230.25,233.39,226.64,22.9;2026-07-24,231.65,233.32,226.69,22.8;2026-07-27,243.95,233.74,226.86,24.6;2026-07-28,247.62,234.28,227.07,26;2026-07-29,246.43,234.76,227.26,23.9;2026-07-30,247.43,235.26,227.46,26;2026-07-31,242.92,235.56,227.62,26.1;2026-08-03,245.15,235.93,227.79,25.5;2026-08-04,240.22,236.1,227.91,23.8;2026-08-05,234.91,236.05,227.98,22.7;2026-08-06,232.47,235.91,228.03,21;2026-08-07,246.5,236.33,228.21,24.5;2026-08-10,253.57,237.01,228.46,25.8;2026-08-11,250.5,237.53,228.68,25.2;2026-08-12,243,237.75,228.83,23.8;2026-08-13,241.91,237.91,228.96,23.4;2026-08-14,246.95,238.27,229.14,23.9;2026-08-17,241.61,238.4,229.26,22.5;2026-08-18,242.4,238.55,229.39,21;2026-08-19,237.04,238.5,229.47,18.7;2026-08-20,240.15,238.56,229.57,20.6;2026-08-21,239.62,238.6,229.67,19.1;2026-08-24,233.5,238.4,229.71,16.8;2026-08-25,232.93,238.19,229.74,15.5;2026-08-26,233.45,238,229.78,13.8;2026-08-27,233,237.81,229.81,14.7;2026-08-28,235.39,237.71,229.87,13.9;2026-08-31,219.7,237,229.77,9.3;2026-09-01,216.68,236.21,229.64,9.1;2026-09-02,216.14,235.42,229.5,7.7;2026-09-03,214.13,234.59,229.35,5.4;2026-09-04,214.69,233.81,229.2,5.8;2026-09-08,213.29,233,229.04,5.9;2026-09-09,211.14,232.14,228.87,6.1;2026-09-10,216.96,231.55,228.75,7.4;2026-09-11,215.47,230.92,228.62,6.1;2026-09-14,222.91,230.6,228.56,7.7;2026-09-15,211.91,229.87,228.39,5.4;2026-09-16,211.81,229.16,228.23,4.3;2026-09-17,210.62,228.43,228.05,4.3;2026-09-18,205.45,227.53,227.83,-0.9;2026-09-21,209.92,226.84,227.65,1.2;2026-09-22,205.53,226.01,227.43,-0.8;2026-09-23,206.32,225.23,227.22,-0.5;2026-09-24,202.98,224.36,226.98,-2.4;2026-09-25,201.44,223.46,226.72,-3.4;2026-09-28,202.35,222.64,226.48,-2.5;2026-09-29,202.78,221.86,226.25,-1;2026-09-30,207.5,221.29,226.06,-0.3;2026-10-01,203.62,220.6,225.84,-0.7;2026-10-02,202.73,219.9,225.61,-0.9;2026-10-05,203.46,219.26,225.39,-0.4;2026-10-06,202.53,218.6,225.16,-1.4;2026-10-07,204.01,218.03,224.95,-1;2026-10-08,209.37,217.69,224.79,-0.2;2026-10-09,213.44,217.52,224.68,0.3;2026-10-12,208.82,217.18,224.52,-0.6;2026-10-13,200.32,216.52,224.28,-2.6;2026-10-14,201.23,215.92,224.05,-5;2026-10-15,209.38,215.66,223.91,-2.9;2026-10-16,205.28,215.26,223.72,-4.5;2026-10-19,204.92,214.85,223.53,-5;2026-10-20,206.7,214.53,223.37,-4.4;2026-10-21,206.16,214.2,223.2,-4.6;2026-10-22,207.81,213.95,223.04,-5.8;2026-10-23,203.69,213.55,222.85,-7.3;2026-10-26,203.35,213.15,222.66,-6.2;2026-10-27,201.28,212.68,222.44,-6.8;2026-10-28,195.29,212,222.17,-8.7;2026-10-29,193.39,211.27,221.89,-9.3;2026-10-30,190.17,210.44,221.57,-8.6;2026-11-02,192.1,209.72,221.28,-9.7;2026-11-03,194.99,209.15,221.02,-9.9;2026-11-04,208.9,209.14,220.9,-7.9`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+
+const fmtN=(v,d=2)=>v.toLocaleString("de-CH",{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmtD=s=>{const [y,m,d]=s.split("-");return d+"."+m+"."+y.slice(2)};
+const NS="http://www.w3.org/2000/svg";
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+
+function scoreTable(id,rows){
+  let tot=0,max=0;
+  const html='<thead><tr><th>Kriterium</th><th>Stand</th><th class="num">Punkte</th><th style="width:22%"></th></tr></thead><tbody>'+rows.map(r=>{tot+=r[2];max+=r[3];const p=r[2]/r[3];const c=p>=.75?"var(--good)":p>=.45?"var(--warn)":"var(--bad)";
+    return `<tr><td>${r[0]}</td><td class="muted">${r[1]}</td><td class="num">${r[2]} / ${r[3]}</td><td><div class="bar"><i style="width:${p*100}%;background:${c}"></i></div></td></tr>`}).join("")+`<tr class="total"><td>Total</td><td></td><td class="num">${tot} / ${max}</td><td></td></tr></tbody>`;
+  document.getElementById(id).innerHTML=html;return tot;
+}
+const qs=scoreTable("q-tbl",Q), ts=scoreTable("t-tbl",T);
+document.getElementById("q-val").textContent=qs;document.getElementById("t-val").textContent=ts;
+document.getElementById("q-pin").style.left=qs+"%";document.getElementById("t-pin").style.left=ts+"%";
+
+document.getElementById("fin-rows").innerHTML=FIN.map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1].toLocaleString("de-CH")}</td><td class="num">${r[2]}</td><td class="num">${r[3]}</td><td class="num">${fmtN(r[4])}</td><td class="num">${r[5].toLocaleString("de-CH")}</td><td class="num">${r[6]}</td><td class="num">${r[7]}</td></tr>`).join("");
+
+/* generic line chart */
+function lineChart(host,{dates,series,bands=[],yFmt=v=>fmtN(v),h=300,zero=false,refs=[],pad}){
+  const W_=800,H=h,m={t:12,r:56,b:28,l:8};
+  const all=series.flatMap(s=>s.values).concat(bands.flatMap(b=>[b.from,b.to])).concat(refs.map(r=>r.v));
+  if(zero)all.push(0);
+  let lo=Math.min(...all),hi=Math.max(...all);const sp=(hi-lo)||1;lo-=sp*.06;hi+=sp*.06;
+  if(pad){lo=pad[0];hi=pad[1]}
+  const n=dates.length,x=i=>m.l+i*(W_-m.l-m.r)/(n-1),y=v=>m.t+(hi-v)*(H-m.t-m.b)/(hi-lo);
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  // grid
+  const steps=5;for(let k=0;k<=steps;k++){const v=lo+(hi-lo)*k/steps;el("line",{x1:m.l,x2:W_-m.r,y1:y(v),y2:y(v),stroke:"var(--grid)","stroke-width":1},svg);
+    const t=el("text",{x:W_-m.r+6,y:y(v)+4,"font-size":11,fill:"var(--muted)","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=yFmt(v)}
+  bands.forEach(b=>{el("rect",{x:m.l,width:W_-m.l-m.r,y:y(Math.max(b.from,b.to)),height:Math.abs(y(b.from)-y(b.to)),fill:b.type==="res"?"var(--zone-res)":"var(--zone-sup)"},svg)});
+  refs.forEach(r=>{el("line",{x1:m.l,x2:W_-m.r,y1:y(r.v),y2:y(r.v),stroke:"var(--muted)","stroke-dasharray":"4 4","stroke-width":1},svg);
+    const t=el("text",{x:m.l+4,y:y(r.v)-4,"font-size":11,fill:"var(--muted)"},svg);t.textContent=r.label});
+  if(zero)el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  // x labels
+  const every=Math.ceil(n/6);for(let i=0;i<n;i+=every){const t=el("text",{x:x(i),y:H-8,"font-size":11,fill:"var(--muted)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);const d=dates[i];t.textContent=d.slice(5,7)+"/"+d.slice(2,4)}
+  series.forEach(s=>{const dpath=s.values.map((v,i)=>(i?"L":"M")+x(i).toFixed(1)+","+y(v).toFixed(1)).join("");
+    el("path",{d:dpath,fill:"none",stroke:s.color,"stroke-width":s.w||2,"stroke-linejoin":"round","stroke-linecap":"round"},svg);
+    const lv=s.values[n-1];el("circle",{cx:x(n-1),cy:y(lv),r:3.5,fill:s.color,stroke:"var(--surface)","stroke-width":2},svg)});
+  // hover
+  const cross=el("line",{y1:m.t,y2:H-m.b,stroke:"var(--muted)","stroke-width":1,opacity:0},svg);
+  const ov=el("rect",{x:m.l,y:m.t,width:W_-m.l-m.r,height:H-m.t-m.b,fill:"transparent"},svg);
+  host.appendChild(svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;host.appendChild(tip);
+  function move(ev){const r=svg.getBoundingClientRect();const px=(ev.clientX-r.left)*W_/r.width;let i=Math.round((px-m.l)/((W_-m.l-m.r)/(n-1)));i=Math.max(0,Math.min(n-1,i));
+    cross.setAttribute("x1",x(i));cross.setAttribute("x2",x(i));cross.setAttribute("opacity",1);
+    tip.innerHTML=`<div class="d">${fmtD(dates[i])}</div>`+series.map(s=>`<div><i class="sw" style="background:${s.color}"></i> ${s.name}: <b>${yFmt(s.values[i])}</b></div>`).join("");
+    tip.hidden=false;const hx=x(i)*r.width/W_;tip.style.left=Math.min(Math.max(0,hx+12),r.width-tip.offsetWidth)+"px";tip.style.top="8px"}
+  ov.addEventListener("pointermove",move);ov.addEventListener("pointerleave",()=>{tip.hidden=true;cross.setAttribute("opacity",0)});
+}
+function barChart(host,{labels,values,fmt,h=220,color,neg,tipExtra}){
+  const W_=800,H=h,m={t:18,r:8,b:28,l:8};
+  const hi=Math.max(0,...values),lo=Math.min(0,...values);const lo2=lo<0?lo*1.15:lo,hi2=hi*1.15||1;
+  const y=v=>m.t+(hi2-v)*(H-m.t-m.b)/(hi2-lo2);const n=values.length,bw=(W_-m.l-m.r)/n;
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;
+  values.forEach((v,i)=>{const x0=m.l+i*bw+bw*.18,w=bw*.64,y0=y(Math.max(v,0)),hh=Math.max(1,Math.abs(y(v)-y(0)));
+    const r=el("rect",{x:x0,y:y0,width:w,height:hh,rx:4,fill:v<0?(neg||"var(--s2)"):(color||"var(--s1)")},svg);
+    const t=el("text",{x:x0+w/2,y:v<0?y(v)+13:y0-5,"font-size":11.5,fill:"var(--ink)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=fmt(v);
+    const l=el("text",{x:x0+w/2,y:H-8,"font-size":11.5,fill:"var(--muted)","text-anchor":"middle"},svg);l.textContent=labels[i];
+    const hit=el("rect",{x:m.l+i*bw,y:m.t,width:bw,height:H-m.t-m.b,fill:"transparent"},svg);
+    hit.addEventListener("pointerenter",()=>{tip.innerHTML=`<div class="d">${labels[i]}</div><b>${fmt(v)}</b>${tipExtra?tipExtra(i):""}`;tip.hidden=false;const R=svg.getBoundingClientRect();tip.style.left=Math.min((m.l+i*bw)*R.width/W_,R.width-tip.offsetWidth)+"px";tip.style.top="0px"});
+    hit.addEventListener("pointerleave",()=>tip.hidden=true)});
+  host.appendChild(svg);host.appendChild(tip);
+}
+barChart(document.getElementById("c-rev"),{labels:HALF.map(r=>r[0]),values:HALF.map(r=>r[1]),fmt:v=>fmtN(v,0),h:200});
+barChart(document.getElementById("c-margin"),{labels:MARGIN.map(r=>r[0]),values:MARGIN.map(r=>r[1]),fmt:v=>fmtN(v,1)+" %",h:200});
+barChart(document.getElementById("c-seas"),{labels:MON,values:SEAS,fmt:v=>(v>0?"+":"")+fmtN(v,1),h:220,tipExtra:i=>`<div>${SEASHIT[i]} % der Jahre positiv</div>`});
+const BANDS=[{"from": 246, "to": 257, "type": "res"}, {"from": 220, "to": 225, "type": "res"}, {"from": 188, "to": 195, "type": "sup"}, {"from": 150, "to": 167, "type": "sup"}], REFS=[{"v": 216, "label": "Trigger 216"}, {"v": 183, "label": "Abbruch 183"}];
+const wd=W.map(r=>r[0]);
+lineChart(document.getElementById("c-week"),{dates:wd,series:[{name:"Kurs",values:W.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:W.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:W.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,yFmt:v=>fmtN(v,0),h:320});
+lineChart(document.getElementById("c-adw"),{dates:wd,series:[{name:"A/D Woche",values:W.map(r=>r[5]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,zero:true});
+lineChart(document.getElementById("c-rsiw"),{dates:wd,series:[{name:"RSI Woche",values:W.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,refs:[{v:70,label:"70 überkauft"},{v:30,label:"30 überverkauft"}],pad:[10,90]});
+const dd=DD.map(r=>r[0]);
+lineChart(document.getElementById("c-day"),{dates:dd,series:[{name:"Kurs",values:DD.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:DD.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:DD.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,refs:REFS,yFmt:v=>fmtN(v,0),h:260});
+lineChart(document.getElementById("c-add"),{dates:dd,series:[{name:"A/D Tag",values:DD.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:260,zero:true});
+</script>

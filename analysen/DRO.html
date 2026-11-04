@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DroneShield Aktien-Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F3F5F7; --surface:#FFFFFF; --ink:#141B24; --muted:#5A6573; --line:#DDE2E8; --grid:#E9EDF1;
+  --accent:#2F45B5; --accent-soft:#E6E9F8; --chip:#EBEEF2;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+  --good:#1D7A4B; --good-bg:#E3F3EA; --warn:#9A6200; --warn-bg:#FBF0DC; --bad:#B2362A; --bad-bg:#FBE6E3;
+  --zone-sup:rgba(29,122,75,.10); --zone-res:rgba(178,54,42,.09);
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+    --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+    --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+    --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+  --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+  --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;padding-inline:16px;padding-block:24px 56px}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+h1,h2,h3{font-family:var(--display);font-stretch:85%;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:clamp(32px,7vw,48px);font-weight:800;line-height:1}
+h2{font-size:24px;font-weight:700}
+h3{font-size:17px;font-weight:700;font-stretch:95%}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+section{display:flex;flex-direction:column;gap:14px}
+.lead{max-width:68ch;color:var(--muted)}
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;align-items:stretch}
+.hero .id{display:flex;flex-direction:column;gap:10px;justify-content:space-between}
+.price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price b{font-family:var(--display);font-size:34px;font-weight:700}
+.meta{font-size:13px;color:var(--muted)}
+.verdict{font-size:15px;padding:12px 14px;border-radius:10px;background:var(--chip)}
+.scales{display:flex;flex-direction:column;gap:18px}
+.scale-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.scale-h span{font-size:13px;color:var(--muted)}
+.scale-h b{font-family:var(--display);font-size:28px;line-height:1}
+.track{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#C8412F 0%,#E0892F 30%,#E3B63A 50%,#8BBF4B 68%,#2E9A5B 100%);margin-top:8px}
+.pin{position:absolute;top:-5px;width:4px;height:22px;border-radius:2px;background:var(--ink);box-shadow:0 0 0 2px var(--surface);transform:translateX(-2px)}
+.ticks{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);font-family:var(--mono);margin-top:6px}
+.state{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;margin-top:8px}
+.st-good{background:var(--good-bg);color:var(--good)}
+.st-warn{background:var(--warn-bg);color:var(--warn)}
+.st-bad{background:var(--bad-bg);color:var(--bad)}
+/* tables */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;color:var(--muted);font-weight:500;font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:700;border-bottom:none}
+.pts{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{height:6px;border-radius:3px;background:var(--chip);min-width:60px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:3px}
+/* grids */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;border-left:4px solid var(--line)}
+.kpi.g{border-left-color:var(--good)}.kpi.w{border-left-color:var(--warn)}.kpi.b{border-left-color:var(--bad)}
+.kpi span{font-size:12px;color:var(--muted)}
+.kpi b{font-family:var(--mono);font-size:19px;font-weight:500;font-variant-numeric:tabular-nums}
+.kpi em{font-style:normal;font-size:12.5px;color:var(--muted)}
+/* charts */
+.chart{position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:14px;height:3px;border-radius:2px;display:inline-block}
+.swb{width:12px;height:10px;border-radius:2px;display:inline-block}
+.tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12.5px;box-shadow:0 4px 14px rgba(0,0,0,.12);white-space:nowrap;z-index:2}
+.tip b{font-family:var(--mono);font-weight:500}
+.tip .d{font-family:var(--mono);color:var(--muted);font-size:11.5px}
+.note{font-size:13.5px;color:var(--muted)}
+ul.clean{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.pro li::marker{color:var(--good)} .con li::marker{color:var(--bad)}
+.zones{display:flex;flex-direction:column;gap:8px}
+.zone{display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:baseline;padding:10px 12px;border-radius:10px;background:var(--chip);font-size:14px}
+.zone b{font-family:var(--mono);font-weight:500}
+.zone.r{border-left:4px solid var(--bad)} .zone.s{border-left:4px solid var(--good)} .zone.t{border-left:4px solid var(--accent)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+summary{cursor:pointer;font-weight:600}
+details p{margin-top:8px;color:var(--muted);max-width:70ch}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+footer{font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:6px;max-width:80ch}
+footer a{color:var(--accent)}
+@media (max-width:760px){.hero,.two{grid-template-columns:1fr}.zone{grid-template-columns:1fr;gap:2px}}
+</style>
+
+<a href="../index.html#/aktie/DRO" style="display:inline-block;margin:max(12px,env(safe-area-inset-top)) 0 0 16px;background:#1f3a5f;color:#fff;font:600 14px system-ui;padding:8px 12px;border-radius:20px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">Zurück zur App</a>
+<div class="wrap">
+
+<header class="hero">
+  <div class="card id">
+    <div>
+      <div class="eyebrow">Aktien-Check · 04.11.2026</div>
+      <h1>DroneShield</h1>
+      <p class="meta">DroneShield Ltd · ASX: DRO (in Australischen Dollar) · Drohnenabwehr: Geräte zum Erkennen und Stören von Drohnen, dazu Software im Abo · Sydney, Australien</p>
+    </div>
+    <div class="price"><b>1.21 AUD</b><span class="meta">Schluss 04.11.2026 · 52 Wochen: 1.21 bis 4.81 AUD · Allzeithoch rund 6.70 AUD (Oktober 2025) · sehr starke Kursschwankungen</span></div>
+    <p class="verdict"><b>Kurz gesagt:</b> DroneShield wächst schnell: Umsatz 2025 plus 276 % auf 216.5 Mio. AUD, im 1. Halbjahr 2026 plus 74 %. Aber die Firma verdient kein Geld mehr: Im 1. Halbjahr 2026 stand ein Verlust von 32.2 Mio. AUD, und die Kasse schrumpfte in sechs Monaten von 210.6 auf 180 Mio. AUD. Dazu kommen die Aktienverkäufe des früheren Chefs im November 2025 (49.5 Mio. AUD) und eine laufende Untersuchung der Aufsicht ASIC. Die Aktie fiel vom Hoch (rund 6.70 AUD) auf 1.21 AUD, minus 82 %. Qualität orange (39), Timing rot (16). Bewertet nach Umsatz ist sie so günstig wie seit Jahren nicht (KUV rund 4 statt rund 11), der Abwärtstrend ist aber voll intakt.</p>
+  </div>
+  <div class="card scales">
+    <div>
+      <div class="scale-h"><span>Qualität · Ist die Firma kaufenswert?</span><b id="q-val">39</b></div>
+      <div class="track"><i class="pin" id="q-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-warn">▲ Schwach</span>
+    </div>
+    <div>
+      <div class="scale-h"><span>Timing · Ist jetzt der Zeitpunkt?</span><b id="t-val">16</b></div>
+      <div class="track"><i class="pin" id="t-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-bad">▲ Abwarten: Abwärtstrend intakt</span>
+    </div>
+    <p class="note">Skala: unter 30 rot · 30–45 orange · 45–60 gelb · 60–75 hellgrün · ab 75 grün. Beide Werte setzen sich aus festen Kriterien zusammen, siehe unten.</p>
+  </div>
+</header>
+
+<section>
+  <h2>Was die Firma macht</h2>
+  <p class="lead">DroneShield aus Sydney baut Geräte, die feindliche Drohnen erkennen und mit Funkstörung zur Landung oder Umkehr zwingen: tragbare Störsender wie das «DroneGun», Sensoren für Fahrzeuge und feste Anlagen, und die Software «DroneSentry» mit künstlicher Intelligenz. Dazu kommt Software im Abo (SaaS, Updates für die Erkennung neuer Drohnentypen). Kunden sind vor allem Armeen: Im 1. Halbjahr 2026 kamen 85 % des Umsatzes von Militärkunden, 52 % aus Europa und Grossbritannien, 17 % aus den USA, 9 % aus dem Raum Asien-Pazifik. Die Firma hat 519 Mitarbeitende (Ende September 2026) und keine Schulden. Das Geschäft ist sprunghaft: Einzelne Grossaufträge bewegen den Umsatz eines Quartals stark.</p>
+  <p class="lead">2025 stieg die Aktie um rund das Zehnfache, von 0.58 AUD im Februar auf ein Wochenhoch von 6.70 AUD Anfang Oktober. Vom 6. bis 12. November 2025 verkaufte der damalige Chef Oleg Vornik alle seine 14.81 Mio. Aktien für 49.5 Mio. AUD, zusammen mit Präsident Peter James und Verwaltungsrat Jethro Marks waren es fast 70 Mio. AUD. Kurz davor hatte DroneShield eine Meldung falsch als neuen Auftrag bezeichnet. Am 13.11.2025 fiel die Aktie um bis zu 31 %. Im Januar 2026 stieg sie mit dem Krieg im Nahen Osten wieder auf 4.81 AUD. Am 8.4.2026 trat Vornik ab, neuer Chef ist Angus Bean. Im Mai 2026 machte DroneShield publik, dass die Aufsicht ASIC die Meldungen und den Aktienhandel vom November 2025 untersucht. Am 28.7. nannte die Firma eine Umsatzprognose 2026 von 250 bis 270 Mio. AUD, Analysten hatten 323 Mio. erwartet. Am 26.8. folgte ein Halbjahresverlust von 32.2 Mio. AUD und eine tiefere Bruttomarge (60 statt 65 %). Am 15.10. lagen die festen Aufträge für 2026 bei 261 Mio. AUD, also nur in der Mitte der Prognose. Am 2.11. fiel die Aktie auf ein neues Jahrestief, heute schloss sie bei 1.21 AUD (minus 7.6 % zum Vortag). Für den Tagesverlust vom 4.11. habe ich keine Firmenmeldung gefunden.</p>
+</section>
+
+<section>
+  <h2>Fundamental: die Zahlen</h2>
+  <div class="kpis">
+<div class="kpi g"><span>Umsatzwachstum</span><b>+74 %</b><em>1. Halbjahr 2026 (125.8 Mio. AUD). Für das ganze Jahr 2026 erwartet die Firma aber nur 250 bis 270 Mio. AUD, das sind +15 bis 25 %. Das 2. Halbjahr dürfte damit gleich hoch oder tiefer ausfallen als 2025 (144.2 Mio. AUD).</em></div>
+<div class="kpi r"><span>Operative Marge</span><b>negativ</b><em>Die Firma verdient operativ kein Geld. 1. Halbjahr 2026: bereinigter Betriebsgewinn vor Abschreibungen (EBITDA) −12.4 Mio. AUD, Nettoverlust −32.2 Mio. AUD (−26 % vom Umsatz). 2025 lag die operative Marge bei −1.9 %.</em></div>
+<div class="kpi r"><span>Gewinn pro Aktie (EPS)</span><b>−0.03 AUD</b><em>Letzte 12 Monate, selbst gerechnet: rund −30.8 Mio. AUD Verlust geteilt durch rund 0.93 Mrd. Aktien. 2025 waren es knapp +0.004 AUD (Gewinn 3.5 Mio. AUD).</em></div>
+<div class="kpi w"><span>Feste Aufträge</span><b>261 Mio. AUD</b><em>«Committed revenue» für 2026 am 12.10.2026: Aufträge, die unterschrieben sind und 2026 Umsatz werden. Für 2027 sind erst 29 Mio. AUD fest, für später 17 Mio. Die «Pipeline» von rund 2.2 Mrd. AUD (Mai 2026) sind nur Chancen, keine Aufträge.</em></div>
+<div class="kpi w"><span>Netto-Cash</span><b>180 Mio. AUD</b><em>Geld und Festgeld am 30.6.2026, keine Schulden. Aber in sechs Monaten flossen 30.6 Mio. AUD ab (210.6 auf 180 Mio.). Neue Zahlen zur Kasse gibt es erst mit dem Jahresbericht.</em></div>
+<div class="kpi r"><span>Verwässerung</span><b>+130 %</b><em>So viel mehr Aktien gibt es heute (rund 0.92 bis 0.96 Mrd.) als im Schnitt 2021 (398 Mio.). 2024 holte DroneShield über Kapitalerhöhungen rund 220 Mio. AUD, zuletzt 120 Mio. zu 1.15 AUD pro Aktie. Jede Aktie besitzt einen immer kleineren Teil der Firma.</em></div>
+<div class="kpi g"><span>Kurs-Umsatz-Verhältnis (KUV)</span><b>4.2</b><em>Weil es keinen Gewinn gibt, vergleiche ich Börsenwert (rund 1.13 Mrd. AUD) und Jahresumsatz (270 Mio. AUD). Du zahlst also gut 4 Jahresumsätze. Geschätzter Schnitt 2023 bis 2025: rund 11. Also rund 60 % günstiger als üblich.</em></div>
+<div class="kpi w"><span>Dividende</span><b>keine</b><em>DroneShield hat nie eine Dividende bezahlt und plant laut Firma (August 2026) auch keine. Das Geld fliesst ins Wachstum.</em></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>Umsatz pro Quartal (Mio. AUD)</h3>
+      <p class="note">Sehr sprunghaft. Q2 25 und Q2 26 selbst gerechnet aus Halbjahr minus Quartal. Für Q3 26 gibt es keine Zahl: Seit Mai 2026 muss DroneShield keine Quartalsberichte mehr veröffentlichen. Das Rekordquartal Q3 25 (92.9 Mio. AUD) war ein grosser Einzelauftrag.</p>
+      <div class="chart" id="c-rev"></div>
+    </div>
+    <div class="card">
+      <h3>Operative Marge pro Jahr</h3>
+      <p class="note">Operativer Gewinn geteilt durch Umsatz. Nur 2023 positiv. Für das 1. Halbjahr 2026 liegt keine vergleichbare Zahl vor, der Nettoverlust betrug −26 % vom Umsatz.</p>
+      <div class="chart" id="c-margin"></div>
+    </div>
+  </div>
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Jahr</th><th class="num">Umsatz Mio. AUD</th><th class="num">Wachstum</th><th class="num">Op. Marge</th><th class="num">EPS AUD</th><th class="num">Free Cashflow</th><th class="num">ROIC</th><th class="num">KGV</th></tr></thead>
+      <tbody id="fin-rows"></tbody>
+    </table>
+  </div>
+  <p class="note"><b>Hinweis:</b> Geschäftsjahr = Kalenderjahr. Werte 2021 bis 2023 nach StockAnalysis, 2024 und 2025 nach FactSet (finanzen.net) und Firmenmeldungen. «Letzte 12 Mt.» bis 30.6.2026 selbst gerechnet (2025 minus 1. Halbjahr 2025 plus 1. Halbjahr 2026). Free Cashflow 2025 und für die letzten 12 Monate nicht verifiziert (operativer Cashflow 2025: +15.9 Mio. AUD, im 1. Halbjahr 2026 sank die Kasse um 30.6 Mio.). Keine sinnvolle Rendite auf das Kapital (ROIC), weil kaum Gewinn. KUV = Börsenwert geteilt durch Umsatz, Werte geschätzt aus Kurs und ungefährer Aktienzahl (2023: Kurs Ende Februar 2024).</p>
+</section>
+
+<section>
+  <h2>Qualität: 39 von 100</h2>
+  <div class="card tbl"><table id="q-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Technik: Wochenchart (2 Jahre)</h2>
+  <div class="card">
+    <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span><span><i class="swb" style="background:var(--zone-sup);border:1px solid var(--good)"></i>Unterstützung</span><span><i class="swb" style="background:var(--zone-res);border:1px solid var(--bad)"></i>Widerstand</span></div>
+    <div class="chart" id="c-week"></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>A/D-Linie, Woche</h3>
+      <p class="note">Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Die Wochen-A/D fällt seit Juli 2026 mit dem Kurs: Anfang August −408, Ende September −541, heute −601. Kein Zeichen, dass grosse Käufer einsteigen.</p>
+      <div class="chart" id="c-adw"></div>
+    </div>
+    <div class="card">
+      <h3>RSI, Woche</h3>
+      <p class="note">Unter 30 überverkauft, über 70 überkauft. Ende Juli bei 32 (Kurs 1.70 AUD), heute bei 31.6, obwohl der Kurs 29 % tiefer steht. Eine kleine positive Abweichung, aber noch kein Bodensignal.</p>
+      <div class="chart" id="c-rsiw"></div>
+    </div>
+  </div>
+
+  <h2>Technik: Tageschart (1 Jahr)</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Kurs, Tag</h3>
+      <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span></div>
+      <div class="chart" id="c-day"></div>
+    </div>
+    <div class="card">
+      <h3>A/D-Linie, Tag</h3>
+      <p class="note">Negativ. Beim Tief vom 15.10. (1.42 AUD Schluss) stand die Tages-A/D bei −210, heute bei −230. Neue Kurstiefs gehen mit neuen A/D-Tiefs einher: Die Verkäufer bestimmen das Bild.</p>
+      <div class="chart" id="c-add"></div>
+    </div>
+  </div>
+
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Indikator</th><th>Tag</th><th>Woche</th><th>Bedeutung</th></tr></thead>
+      <tbody>
+<tr><td>Kurs vs. EMA 50</td><td class="pts">1.21 &lt; 1.61</td><td class="pts">1.21 &lt; 2.37</td><td>Auf beiden Zeitebenen klar darunter.</td></tr>
+<tr><td>Kurs vs. EMA 200</td><td class="pts">1.21 &lt; 2.32</td><td class="pts">1.21 &lt; 1.79</td><td>Auch unter der langfristigen Linie, Woche rund 32 % darunter.</td></tr>
+<tr><td>EMA 50 vs. EMA 200</td><td class="pts">50 unter 200 (seit 17.6.2026)</td><td class="pts">50 über 200 (seit November 2022), Abstand schrumpft schnell</td><td>Tag klar abwärts, die Woche zeigt noch den alten Aufwärtstrend, kippt aber.</td></tr>
+<tr><td>RSI (14)</td><td class="pts">25.3</td><td class="pts">31.6</td><td>Tag überverkauft ohne Abweichung, Woche knapp über 30 mit kleiner positiver Abweichung.</td></tr>
+<tr><td>A/D</td><td class="pts">fällt mit dem Kurs auf neue Tiefs</td><td class="pts">fällt mit dem Kurs</td><td>Beide Zeitebenen negativ.</td></tr>
+<tr><td>Volumen</td><td colspan="2">Ø 20 Tage 6.7 Mio. vs. Ø 100 Tage 10.4 Mio. Aktien</td><td>Weniger Handel als im Sommer, kein Ausverkauf mit hohem Volumen.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Struktur und Zonen (Smart Money Concept)</h2>
+  <p class="lead">Seit dem Wochenhoch von 6.70 AUD (Anfang Oktober 2025) macht DroneShield tiefere Hochs: 4.81 AUD (Januar 2026), 4.72 AUD (März), 2.34 AUD (6.8.) und 1.86 AUD (2.10.). Auch die Tiefs fallen: 2.88 AUD (Februar), 1.65 AUD (3.8.), 1.54 AUD (28.9.), 1.41 AUD (15.10.). Mit dem Schluss bei 1.21 AUD am 4.11. ist auch das Panik-Tief vom November 2025 (1.62 AUD) deutlich gebrochen. Das ist eine klare Abwärtsstruktur ohne Change of Character. Im Tageschart war das letzte tiefere Hoch am 30.10. bei 1.51 AUD. Die nächste Haltestelle darunter ist der Bereich vom April und Mai 2025 (Wochenschlüsse 1.09 bis 1.21 AUD, Tief 1.16 AUD am 19.5.2025) und der Preis der Kapitalerhöhung vom Juli 2024 (1.15 AUD). Darunter liegt erst wieder die Zone 0.79 bis 0.90 AUD vom März und April 2025.</p>
+  <div class="zones">
+<div class="zone r"><b>1.77 bis 1.86 AUD</b><span>Widerstand: Hochs vom 17.9. (1.77 AUD) und 2.10. (1.86 AUD).</span></div>
+<div class="zone r"><b>1.41 bis 1.52 AUD</b><span>Widerstand: gebrochene Tiefs vom 15./16.10. (1.41 AUD) und Hoch vom 30.10. (1.51 AUD).</span></div>
+<div class="zone t"><b>1.52 AUD</b><span><b>Trigger:</b> Tagesschluss über dem letzten tieferen Hoch vom 30.10. (1.51 AUD). Dann wäre der erste Change of Character im Tageschart da.</span></div>
+<div class="zone s"><b>1.09 bis 1.20 AUD</b><span><b>Kaufzone 1:</b> Wochenschlüsse von März bis Mai 2025, Tief vom 19.5.2025 (1.16 AUD) und Preis der Kapitalerhöhung 2024 (1.15 AUD).</span></div>
+<div class="zone s"><b>0.79 bis 0.90 AUD</b><span><b>Kaufzone 2:</b> Tief vom April 2025 (0.79 AUD) und Wochenschlüsse von März und April 2025 (0.88 bis 0.89 AUD).</span></div>
+<div class="zone r"><b>1.05 AUD</b><span>Abbruch: Wochenschluss unter 1.05 AUD. Dann wäre die Zone vom Frühling 2025 verloren.</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Smart Money, Insider und Saisonalität</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Wer kauft, wer verkauft?</h3>
+      <ul class="clean" style="margin-top:8px">
+<li><b>Insider-Verkäufe:</b> Der frühere Chef Oleg Vornik verkaufte vom 6. bis 12.11.2025 alle 14.81 Mio. Aktien für 49.5 Mio. AUD (rund 3.34 AUD pro Aktie). Mit Präsident Peter James und Verwaltungsrat Jethro Marks zusammen fast 70 Mio. AUD. Die Aufsicht ASIC untersucht diese Tage seit Mai 2026, ein Ergebnis gibt es noch nicht. Vornik ist seit April 2026 nicht mehr Chef, James seit Mai nicht mehr Präsident.</li>
+<li><b>Insider-Käufe:</b> Keine freien Käufe am Markt gefunden. Neue Aktien für Manager kommen nur aus Optionen und Leistungsrechten (zuletzt 250'000 Stück Ende Oktober 2026, ohne Zahlung).</li>
+<li><b>Rückkäufe und Verwässerung:</b> Keine Rückkäufe. Die Aktienzahl stieg seit 2021 um rund 130 %, vor allem durch Kapitalerhöhungen 2024 (rund 100 und 120 Mio. AUD).</li>
+<li><b>Grosse Investoren und Leerverkäufer:</b> JPMorgan meldete Ende Juli 2026 einen Anteil von 6.68 % (61.7 Mio. Aktien). Solche Meldungen grosser Banken hängen oft mit verliehenen Aktien zusammen. DroneShield gehört laut Daten der ASIC zu den am stärksten leerverkauften Aktien Australiens (Leerverkäufer wetten auf fallende Kurse).</li>
+<li><b>Analysten:</b> Im Schnitt «Halten», mittleres Kursziel 1.96 AUD (Spanne 1.25 bis 2.60 AUD, Stand 2.11.2026). Canaccord Genuity Kaufen mit Ziel 2.60 AUD (16.10.), Jefferies Verkaufen mit Ziel 1.25 AUD (Mitte Oktober gesenkt von 1.45 AUD).</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Saisonalität seit 2016</h3>
+      <p class="note">Durchschnittliche Monatsrendite in %. Daten seit 2016, also nur 8 bis 11 Jahre. November (−3.3 %, 36 % positive Jahre) und Dezember (+3.7 %, aber nur 38 % positive Jahre) sind meist schwach, Januar ausgeglichen (+1.6 %, 50 %).</p>
+      <div class="chart" id="c-seas"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Timing: 16 von 100</h2>
+  <div class="card tbl"><table id="t-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Worauf du achten solltest: Unterbewertung und Wachstumsschub</h2>
+  <div class="card"><h3>Was die Börse befürchtet</h3><p class="note" style="margin:4px 0">Echte Probleme, eher lösbar: Die Nachfrage nach Drohnenabwehr ist echt, aber Verlust, schwächeres Wachstum und die Vertrauensfrage sind echte Probleme, die erst gelöst werden müssen.</p><ul class="clean"><li>Die Firma macht wieder Verlust: −32.2 Mio. AUD im 1. Halbjahr 2026 nach +2.1 Mio. ein Jahr davor. Die Kosten stiegen um 122 %, die Bruttomarge fiel von 65 auf 60 %.</li><li>Das Wachstum bremst: Für 2026 erwartet DroneShield 250 bis 270 Mio. AUD Umsatz, Analysten hatten 323 Mio. erwartet. Für 2027 sind erst 29 Mio. AUD Aufträge fest.</li><li>Vertrauen ist beschädigt: Der frühere Chef verkaufte im November 2025 alle Aktien für 49.5 Mio. AUD, die Aufsicht ASIC untersucht seit Mai 2026 Meldungen und Aktienhandel aus dieser Zeit.</li><li>Die Kasse schrumpft (210.6 auf 180 Mio. AUD im 1. Halbjahr 2026), und seit Mai 2026 gibt es keine Quartalsberichte mehr. Anleger fürchten weitere Kapitalerhöhungen.</li></ul><h3 style="margin-top:12px">Was die Sorgen beenden könnte</h3><ul class="clean"><li>Jahreszahlen 2026: Umsatz in der Prognose, kleinerer Verlust im 2. Halbjahr, Kasse stabil <span class="muted">(voraussichtlich Ende Februar 2027 (nicht bestätigt))</span></li><li>Entscheid im grossen europäischen Programm (RE-ARM 2030, mit Anduril, COBBS und Nokia) <span class="muted">(laut Firma 2. Halbjahr 2026)</span></li><li>Abschluss der ASIC-Untersuchung ohne schwere Folgen <span class="muted">(offen, kein Zeitplan)</span></li><li>Deutlich mehr feste Aufträge für 2027 <span class="muted">(laufende Auftragsmeldungen, Schwelle seit Mai 2026: ab 20 Mio. AUD)</span></li></ul><h3 style="margin-top:12px">Wachstumsschub: Wachstumsschub möglich</h3><ul class="clean"><li><b>Grossaufträge aus Europa:</b> Europa und Grossbritannien bringen 52 % des Umsatzes. Die Pipeline lag im Mai 2026 bei 2.2 Mrd. AUD in 312 Projekten, davon 1.1 Mrd. in Europa. Das grösste einzelne Projekt (750 Mio. US-Dollar) ist in Verhandlung, also noch nicht sicher. <span class="muted">(2027)</span></li><li><b>Software im Abo:</b> Wiederkehrende Einnahmen stiegen im 1. Halbjahr 2026 um 229 % auf 11.5 Mio. AUD (9.2 % vom Umsatz). Seit 1.10.2026 gibt es das Abo-Paket «Mission Ready Services». Software hat höhere Margen als Geräte, verfehlte aber im Halbjahr das eigene Ziel (14.2 Mio.). <span class="muted">(2026 bis 2028)</span></li><li><b>Neue Produkte und Werke:</b> Erste Aufträge für das neue Aufklärungsgerät RfRecon, Lieferung bis Ende 2026. Die Fertigung soll bis Ende 2026 auf rund 2.4 Mrd. AUD Jahreskapazität wachsen, dazu Produktion in Europa und den USA. <span class="muted">(ab 2027)</span></li></ul><p style="margin:10px 0 0"><b>Woran du es erkennst:</b> Achte bei den Jahreszahlen auf die festen Aufträge für 2027 (heute 29 Mio. AUD) und darauf, ob der Verlust im 2. Halbjahr 2026 kleiner ist als im 1. Halbjahr (−32.2 Mio. AUD).</p><p style="margin:10px 0 0"><b>Das Chancen-Szenario:</b> Gewinnt DroneShield einen grossen europäischen Auftrag und wird wieder profitabel, kann die stark gefallene Aktie schnell neu bewertet werden, wie 2025, als sie sich verzehnfachte. Das grösste Risiko: Die Aufträge kommen später, der Verlust bleibt, und eine Kapitalerhöhung zu tiefen Kursen verwässert die Aktionäre weiter.</p><p class="note" style="margin:10px 0 0">Quellen: <a href="https://cfotech.co.uk/story/droneshield-posts-record-half-year-revenue-as-losses-grow" target="_blank" rel="noopener">CFOtech: Halbjahr 2026 mit Rekordumsatz und Verlust (26.8.2026)</a>, <a href="https://smallcaps.com.au/article/droneshield-logs-dollar261m-in-committed-revenue-as-counter-drone-business-scales" target="_blank" rel="noopener">Small Caps: feste Aufträge 261 Mio. AUD (15.10.2026)</a>, <a href="https://finance.yahoo.com/markets/stocks/articles/droneshield-ltd-drshf-h1-2026-070100195.html" target="_blank" rel="noopener">Yahoo Finance: Halbjahres-Call 2026 (27.8.2026)</a>, <a href="https://www.investordaily.com.au/droneshield-under-asic-investigation/" target="_blank" rel="noopener">InvestorDaily: ASIC-Untersuchung</a>, <a href="https://www.boerse-express.com/news/articles/droneshield-aktie-us750-millionen-deal-in-verhandlung-900413" target="_blank" rel="noopener">Börse Express: Pipeline und 750-Mio.-Projekt (1.5.2026)</a></p></div>
+</section>
+
+<section>
+  <h2>Dividende</h2>
+  <div class="card tbl"><p style="margin:0">DroneShield hat noch nie eine Dividende bezahlt und plant laut Firma (August 2026) auch keine. Die Firma macht derzeit Verlust und steckt alles Geld in Wachstum, neue Produkte und Werke.</p></div>
+</section>
+
+<section>
+  <h2>Pro und Contra</h2>
+  <div class="two">
+    <div class="card pro"><h3>Spricht dafür</h3><ul class="clean" style="margin-top:8px">
+<li>Starke Nachfrage nach Drohnenabwehr: Umsatz 2025 +276 %, 1. Halbjahr 2026 +74 %, eine Pipeline in über 60 Ländern.</li>
+<li>Keine Schulden und 180 Mio. AUD Geld (Juni 2026). Beim Verbrauch des 1. Halbjahres (30.6 Mio. AUD) reicht das rund drei Jahre (selbst gerechnet).</li>
+<li>Feste Aufträge von 261 Mio. AUD für 2026 decken die Prognose zur Mitte ab. Die Pipeline lag im Mai bei 2.2 Mrd. AUD, darunter ein Projekt über 750 Mio. US-Dollar in Verhandlung.</li>
+<li>Software im Abo wächst schnell (+229 % auf 11.5 Mio. AUD im 1. Halbjahr) und bringt planbare Einnahmen.</li>
+<li>Nach Umsatz bewertet so günstig wie seit Jahren nicht: KUV rund 4 statt rund 11.</li>
+    </ul></div>
+    <div class="card con"><h3>Spricht dagegen</h3><ul class="clean" style="margin-top:8px">
+<li>Verlust statt Gewinn: −32.2 Mio. AUD im 1. Halbjahr 2026, die Kosten stiegen um 122 %, die Kasse schrumpfte um 30.6 Mio. AUD.</li>
+<li>Das Wachstum bremst stark: Prognose 2026 nur +15 bis 25 %, für 2027 sind erst 29 Mio. AUD Aufträge fest.</li>
+<li>Vertrauensfrage: Der frühere Chef verkaufte alle Aktien kurz vor dem Absturz, die Aufsicht ASIC ermittelt, Chef, Präsident und Finanzchef sind neu.</li>
+<li>Starke Verwässerung: rund 130 % mehr Aktien seit 2021. Weitere Kapitalerhöhungen sind möglich, falls das Geld knapp wird.</li>
+<li>Seit Mai 2026 keine Quartalsberichte mehr. Anleger sehen Umsatz und Kasse nur noch zweimal im Jahr, das erhöht die Unsicherheit.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section>
+  <h2>Was jetzt zu tun ist</h2>
+  <div class="zones">
+<div class="zone t"><b>Beobachten</b><span>Alarm bei 1.52 AUD (Trigger) und 1.20 AUD (oberes Ende Kaufzone 1).</span></div>
+<div class="zone s"><b>Timing grün</b><span>Erst ein Tagesschluss über 1.52 AUD mit steigender A/D würde den Abwärtstrend erstmals brechen. Oder eine Bodenbildung in 1.09 bis 1.20 AUD, die über 1.05 AUD hält. Fundamental: Die Jahreszahlen müssen zeigen, dass der Verlust schrumpft und die Kasse nicht weiter fällt. Wichtig sind auch neue feste Aufträge für 2027 und das Ergebnis der ASIC-Untersuchung.</span></div>
+<div class="zone r"><b>Abbruch</b><span>Wochenschluss unter 1.05 AUD. Dann wäre die Kaufzone 2 (0.79 bis 0.90 AUD) das nächste Ziel.</span></div>
+<div class="zone "><b>Nächste Zahlen</b><span>Jahreszahlen 2026 voraussichtlich Ende Februar 2027 (2025: am 25.2.2026), Datum noch nicht bestätigt. Möglich ist ein Zwischenbericht im Januar 2027. Quartalsberichte gibt es seit Mai 2026 nicht mehr.</span></div>
+  </div>
+</section>
+
+<footer>
+  <span>Kursdaten und Indikatoren (EMA, RSI 14, A/D) selbst berechnet aus Yahoo-Finance-Tages-, Wochen- und Monatsdaten, Stand 04.11.2026. <a href="https://stockanalysis.com/quote/fra/DRH/financials" target="_blank" rel="noopener">StockAnalysis.com</a> (Jahre 2020 bis 2024), <a href="https://www.finanzen.net/bilanz_guv/droneshield" target="_blank" rel="noopener">finanzen.net Bilanz (FactSet)</a> (Stand 4.11.2026), <a href="https://www.fool.com.au/2026/02/25/droneshield-share-price-lifts-off-on-367-full-year-profit-surge/" target="_blank" rel="noopener">Motley Fool: Jahreszahlen 2025 (25.2.2026)</a>, <a href="https://cfotech.co.uk/story/droneshield-posts-record-half-year-revenue-as-losses-grow" target="_blank" rel="noopener">CFOtech: Halbjahr 2026 (26.8.2026)</a>, <a href="https://smallcaps.com.au/article/droneshield-logs-dollar261m-in-committed-revenue-as-counter-drone-business-scales" target="_blank" rel="noopener">Small Caps: feste Aufträge 261 Mio. (15.10.2026)</a>, <a href="https://securitybrief.co.uk/story/droneshield-quarterly-revenue-jumps-121-to-aud-74-1m" target="_blank" rel="noopener">SecurityBrief: Q1 2026</a>, <a href="https://www.listcorp.com/asx/dro/droneshield-limited/news/quarterly-activities-appendix-4c-cash-flow-report-3305921.html" target="_blank" rel="noopener">Quartalsbericht Q4 2025 (27.1.2026)</a>, <a href="https://www.boerse-express.com/news/articles/droneshield-aktie-berichtspflichten-entfallen-ab-mai-907669" target="_blank" rel="noopener">Börse Express: keine Quartalsberichte mehr (21.5.2026)</a>, <a href="https://www.fool.com.au/2025/11/13/why-is-the-droneshield-share-price-crashing-31-on-thursday" target="_blank" rel="noopener">Motley Fool: CEO-Verkäufe (13.11.2025)</a>, <a href="https://www.investordaily.com.au/droneshield-under-asic-investigation/" target="_blank" rel="noopener">InvestorDaily: ASIC-Untersuchung</a>, <a href="https://finanzen.net/nachricht/aktien/erwartungen-gegen-margen-droneshield-aktie-warum-selbst-volle-auftragsbuecher-nicht-ueberzeugen-00-16029146" target="_blank" rel="noopener">finanzen.net: Analysten (2.11.2026)</a>, <a href="https://thebull.com.au/news/droneshield-shares-make-new-low-as-pressure-mounts/" target="_blank" rel="noopener">The Bull (3.11.2026)</a>, <a href="https://www.boerse-express.com/news/articles/droneshield-aktie-232-millionen-auftrag-aus-europa-935929" target="_blank" rel="noopener">Börse Express: JPMorgan-Anteil (5.8.2026)</a>, <a href="https://www.boerse-express.com/news/articles/droneshield-aktie-us750-millionen-deal-in-verhandlung-900413" target="_blank" rel="noopener">Börse Express: Pipeline (1.5.2026)</a>.</span>
+  <span>Persönliche Analyse, keine Anlageberatung. Vergangene Kurse und Saisonalität sagen nichts Sicheres über die Zukunft.</span>
+</footer>
+</div>
+
+<script>
+const Q=[["Umsatztrend", "Halbjahre: H1 25, H2 25 und H1 26 klar über Vorjahr. Laut Prognose (250 bis 270 Mio.) liegt H2 26 bei 124 bis 144 Mio. AUD, also gleich oder unter H2 25 (144.2 Mio.). Wachstum bremst stark ab. Q3 26 nicht veröffentlicht", 8, 15], ["Wachstumstempo", "Firmenprognose 2026: +15 bis 25 %", 10, 10], ["Operative Marge", "Negativ (0 Pkt.). Seit 2021 besser geworden, aber 2024 und 2026 wieder tief im Minus: schwankend (2 Pkt.)", 2, 15], ["Gewinnwachstum (EPS)", "Letzte 12 Monate Verlust von rund −0.03 AUD pro Aktie", 0, 10], ["Free Cashflow", "In 4 der letzten 5 Jahre negativ oder nicht belegt, im 1. Halbjahr 2026 sank die Kasse um 30.6 Mio. AUD", 0, 10], ["ROIC", "Wegen Verlusten negativ", 2, 15], ["Schulden", "Keine Schulden, 180 Mio. AUD Geld (Netto-Cash)", 10, 10], ["Bewertung vs. eigene Historie", "Verlustfirma, darum KUV: 4.2 statt geschätzt rund 11 (2023 bis 2025), über 30 % günstiger. Maximal 7 Punkte", 7, 15]];
+const T=[["Trend Woche (EMA 50/200)", "Kurs klar unter beiden (32 % unter EMA 200), EMA 50 noch über 200, fällt aber steil", 3, 20], ["Trend Tag (EMA 50/200)", "Kurs unter beiden, EMA 50 unter 200 seit 17.6.2026", 1, 10], ["Struktur (SMC)", "Tiefere Hochs und tiefere Tiefs, Tief vom November 2025 gebrochen, kein Change of Character", 1, 20], ["RSI Tag/Woche", "Tag 25 ohne Bodenzeichen, Woche 32 mit kleiner positiver Abweichung", 6, 15], ["A/D Tag/Woche", "Beide fallen mit dem Kurs auf neue Tiefs", 3, 20], ["Smart Money", "Start 3, gehäufte Insider-Verkäufe November 2025 (fast 70 Mio. AUD) −2, keine Käufe, kein Rückkauf, viele Leerverkäufer", 1, 10], ["Saisonalität", "November 36 %, Dezember 38 %, Januar 50 % positive Jahre", 1, 5]];
+const FIN=[["2021", 10.6, "+90.7 %", "−61.1 %", "−0.01", -6.8, "–", "–"], ["2022", 16.9, "+59.3 %", "−18.3 %", "−0.00", -2.6, "–", "–"], ["2023", 54.2, "+221 %", "+5.0 %", "0.02", 7.8, "–", "rund 9"], ["2024", 57.5, "+6 %", "−23.5 %", "−0.00", -68.6, "–", "rund 11"], ["2025", 216.5, "+276 %", "−1.9 %", "0.004", "–", "–", "rund 13"], ["Letzte 12 Mt.", 270.0, "–", "negativ", "−0.03", "negativ", "negativ", "4.2"]];
+const HALF=[["Q4 24", 26.4], ["Q1 25", 33.5], ["Q2 25", 38.8], ["Q3 25", 92.9], ["Q4 25", 51.3], ["Q1 26", 74.1], ["Q2 26", 51.7]];
+const MARGIN=[["2021", -61.1], ["2022", -18.3], ["2023", 5.0], ["2024", -23.5], ["2025", -1.9]];
+const SEAS=[1.6, -3.2, -3.5, 7.2, 2.6, -13.3, 0.2, -4.1, 3.9, -6.7, -3.3, 3.7];
+const SEASHIT=[50.0, 44.0, 40.0, 56.0, 30.0, 12.0, 44.0, 18.0, 30.0, 27.0, 36.0, 38.0];
+const MON=["Jan","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"];
+const W=`2024-11-11,0.76,0.99,0.54,38,-137.1;2024-11-18,0.72,0.98,0.54,37,-166.5;2024-11-25,0.78,0.98,0.55,40,-122.3;2024-12-02,0.67,0.96,0.55,37,-162.2;2024-12-09,0.62,0.95,0.55,35,-172.8;2024-12-16,0.62,0.94,0.55,35,-176.9;2024-12-23,0.75,0.93,0.55,41,-147.9;2024-12-30,0.76,0.92,0.55,42,-137.7;2025-01-06,0.76,0.92,0.56,42,-158.9;2025-01-13,0.69,0.91,0.56,39,-182.8;2025-01-20,0.65,0.9,0.56,38,-198.8;2025-01-27,0.67,0.89,0.56,39,-174.4;2025-02-03,0.63,0.88,0.56,38,-189.2;2025-02-10,0.63,0.87,0.56,38,-190.4;2025-02-17,0.8,0.87,0.56,48,-132.6;2025-02-24,0.77,0.86,0.57,46,-242.1;2025-03-03,0.88,0.86,0.57,52,-206.2;2025-03-10,1.09,0.87,0.57,61,-131.6;2025-03-17,1.12,0.88,0.58,62,-119.7;2025-03-24,0.95,0.89,0.58,53,-146;2025-03-31,0.88,0.89,0.59,50,-176.7;2025-04-07,0.89,0.89,0.59,50,-166.6;2025-04-14,1.15,0.9,0.59,60,-112.2;2025-04-21,1.21,0.91,0.6,62,-104.2;2025-04-28,1.32,0.92,0.61,65,-78.8;2025-05-05,1.36,0.94,0.61,66,-42.6;2025-05-12,1.29,0.95,0.62,63,-80.4;2025-05-19,1.21,0.96,0.63,58,-91.7;2025-05-26,1.32,0.98,0.63,62,-63.2;2025-06-02,1.54,1,0.64,68,-25;2025-06-09,1.7,1.03,0.65,72,6.1;2025-06-16,1.91,1.06,0.67,76,63.2;2025-06-23,2.38,1.11,0.68,82,126;2025-06-30,2.35,1.16,0.7,80,99.1;2025-07-07,2.77,1.23,0.72,84,192.7;2025-07-14,3.43,1.31,0.75,88,172.2;2025-07-21,3.03,1.38,0.77,76,97.4;2025-07-28,3.63,1.47,0.8,80,160.4;2025-08-04,3.95,1.57,0.83,82,166.9;2025-08-11,4.09,1.66,0.86,83,145.9;2025-08-18,3.58,1.74,0.89,71,125.5;2025-08-25,3.3,1.8,0.91,65,93.7;2025-09-01,3.03,1.85,0.93,60,55.1;2025-09-08,3.21,1.9,0.96,62,85.5;2025-09-15,3.22,1.95,0.98,62,70.9;2025-09-22,3.73,2.02,1.01,68,121.5;2025-09-29,5.68,2.17,1.05,80,227.1;2025-10-06,6.36,2.33,1.11,82,258.7;2025-10-13,4.59,2.42,1.14,61,184.9;2025-10-20,4.51,2.5,1.17,60,134.4;2025-10-27,3.83,2.55,1.2,54,44.9;2025-11-03,3.22,2.58,1.22,49,-58.1;2025-11-10,2.33,2.57,1.23,43,-181;2025-11-17,1.72,2.54,1.24,40,-361.7;2025-11-24,1.98,2.51,1.24,42,-370.6;2025-12-01,1.9,2.49,1.25,42,-400.6;2025-12-08,2.08,2.47,1.26,43,-405.6;2025-12-15,2.78,2.49,1.27,49,-314.4;2025-12-22,3.29,2.52,1.29,53,-279.5;2025-12-29,3.33,2.55,1.31,53,-229.5;2026-01-05,4.02,2.61,1.34,58,-138.6;2026-01-12,4.4,2.68,1.37,61,-69;2026-01-19,4.47,2.75,1.4,61,-80;2026-01-26,3.32,2.77,1.42,51,-153.2;2026-02-02,2.9,2.78,1.44,48,-227;2026-02-09,3.03,2.79,1.45,49,-270.6;2026-02-16,3.22,2.8,1.47,50,-255.7;2026-02-23,3.62,2.83,1.49,54,-208.1;2026-03-02,4.07,2.88,1.52,57,-134.8;2026-03-09,4.17,2.93,1.54,58,-51.5;2026-03-16,4.15,2.98,1.57,58,-49.9;2026-03-23,3.88,3.02,1.59,55,-99.3;2026-03-30,3.93,3.05,1.62,55,-106;2026-04-06,3.47,3.07,1.63,50,-149.6;2026-04-13,3.61,3.09,1.65,51,-135.1;2026-04-20,3.72,3.11,1.67,53,-147.8;2026-04-27,3.61,3.13,1.69,51,-161.9;2026-05-04,3.63,3.15,1.71,52,-201.8;2026-05-11,3.27,3.16,1.73,47,-204.9;2026-05-18,3.03,3.15,1.74,44,-203.9;2026-05-25,3.39,3.16,1.76,49,-184.1;2026-06-01,2.86,3.15,1.77,43,-243.2;2026-06-08,2.96,3.14,1.78,45,-212.4;2026-06-15,2.74,3.13,1.79,42,-228.9;2026-06-22,2.28,3.09,1.79,38,-266.3;2026-06-29,2.41,3.07,1.8,40,-253.4;2026-07-06,2.29,3.04,1.81,38,-281.4;2026-07-13,2.14,3,1.81,37,-313.7;2026-07-20,2.04,2.96,1.81,36,-344.8;2026-07-27,1.7,2.91,1.81,32,-449.3;2026-08-03,2.18,2.89,1.81,41,-407.8;2026-08-10,1.96,2.85,1.82,38,-460.9;2026-08-17,1.83,2.81,1.82,37,-539.4;2026-08-24,1.75,2.77,1.81,36,-600.9;2026-08-31,1.75,2.73,1.81,36,-578.7;2026-09-07,1.66,2.69,1.81,35,-599.3;2026-09-14,1.72,2.65,1.81,37,-571.7;2026-09-21,1.61,2.61,1.81,35,-591.7;2026-09-28,1.83,2.58,1.81,40,-541.3;2026-10-05,1.57,2.54,1.81,36,-578.4;2026-10-12,1.56,2.5,1.81,36,-553.4;2026-10-19,1.43,2.46,1.8,35,-568.5;2026-10-26,1.37,2.41,1.8,34,-592.5;2026-11-04,1.21,2.37,1.79,32,-601`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+const DD=`2025-10-29,4.17,4.39,2.81,148;2025-10-30,4.07,4.38,2.82,146.3;2025-10-31,3.83,4.36,2.83,128.8;2025-11-03,3.83,4.33,2.84,107.6;2025-11-04,4.16,4.33,2.86,124.4;2025-11-05,3.85,4.31,2.87,119.3;2025-11-06,3.4,4.27,2.87,95.1;2025-11-07,3.22,4.23,2.88,90.1;2025-11-10,3.26,4.19,2.88,76;2025-11-11,3.31,4.16,2.88,68.5;2025-11-12,3.28,4.12,2.89,71.4;2025-11-13,2.25,4.05,2.88,9.4;2025-11-14,2.33,3.98,2.88,39.1;2025-11-17,2.6,3.93,2.87,71.6;2025-11-18,2.45,3.87,2.87,58.5;2025-11-19,1.97,3.8,2.86,17.8;2025-11-20,1.89,3.72,2.85,0.6;2025-11-21,1.72,3.64,2.84,-3;2025-11-24,1.75,3.57,2.83,7;2025-11-25,2,3.51,2.82,41.2;2025-11-26,2.17,3.46,2.81,26.8;2025-11-27,2,3.4,2.8,8.8;2025-11-28,1.98,3.34,2.8,7.9;2025-12-01,1.97,3.29,2.79,-5.9;2025-12-02,1.88,3.23,2.78,-7.4;2025-12-03,1.84,3.18,2.77,-18.9;2025-12-04,1.89,3.13,2.76,-18.3;2025-12-05,1.9,3.08,2.75,-29.6;2025-12-08,1.89,3.03,2.74,-24;2025-12-09,1.95,2.99,2.74,-21.6;2025-12-10,2.26,2.96,2.73,-1.5;2025-12-11,2.11,2.93,2.73,-16.3;2025-12-12,2.08,2.9,2.72,-28.5;2025-12-15,2.3,2.87,2.71,-12.7;2025-12-16,2.81,2.87,2.72,13.6;2025-12-17,2.47,2.85,2.71,-2.3;2025-12-18,2.49,2.84,2.71,2.7;2025-12-19,2.78,2.84,2.71,26.8;2025-12-22,3,2.84,2.71,37.9;2025-12-23,3.27,2.86,2.72,61.2;2025-12-24,3.29,2.88,2.73,45.8;2025-12-29,3.13,2.89,2.73,40.3;2025-12-30,3.12,2.9,2.73,21.1;2025-12-31,3.08,2.9,2.74,18.1;2026-01-02,3.33,2.92,2.74,32;2026-01-05,3.31,2.94,2.75,27.1;2026-01-06,3.92,2.97,2.76,52.4;2026-01-07,3.89,3.01,2.77,54.6;2026-01-08,3.85,3.04,2.78,66.2;2026-01-09,4.02,3.08,2.79,72.8;2026-01-12,3.85,3.11,2.81,62.8;2026-01-13,3.9,3.14,2.82,58.1;2026-01-14,3.97,3.17,2.83,67;2026-01-15,4.08,3.21,2.84,79;2026-01-16,4.4,3.26,2.86,93.6;2026-01-19,4.55,3.31,2.87,105.8;2026-01-20,4.74,3.36,2.89,110.5;2026-01-21,4.32,3.4,2.91,102.3;2026-01-22,4.73,3.45,2.92,116.6;2026-01-23,4.47,3.49,2.94,106;2026-01-27,4.18,3.52,2.95,95;2026-01-28,3.95,3.54,2.96,79.3;2026-01-29,3.59,3.54,2.97,66;2026-01-30,3.32,3.53,2.97,55;2026-02-02,3.45,3.53,2.98,55;2026-02-03,3.72,3.53,2.98,60.1;2026-02-04,3.48,3.53,2.99,50.2;2026-02-05,3.19,3.52,2.99,39.5;2026-02-06,2.9,3.5,2.99,24.6;2026-02-09,3.15,3.48,2.99,16.1;2026-02-10,3.38,3.48,2.99,29.5;2026-02-11,3.29,3.47,3,29.5;2026-02-12,3.07,3.45,3,25;2026-02-13,3.03,3.44,3,23.6;2026-02-16,3.16,3.43,3,30.8;2026-02-17,3.25,3.42,3,40.6;2026-02-18,3.28,3.41,3.01,45.1;2026-02-19,3.16,3.4,3.01,40.3;2026-02-20,3.22,3.4,3.01,42.3;2026-02-23,3.05,3.38,3.01,34.7;2026-02-24,3.01,3.37,3.01,37.9;2026-02-25,3.39,3.37,3.01,52.8;2026-02-26,3.69,3.38,3.02,59.6;2026-02-27,3.62,3.39,3.03,58;2026-03-02,3.86,3.41,3.03,44.6;2026-03-03,3.62,3.42,3.04,36.1;2026-03-04,3.36,3.42,3.04,24.2;2026-03-05,3.7,3.43,3.05,32.9;2026-03-06,4.07,3.45,3.06,53.4;2026-03-09,3.71,3.46,3.07,44.3;2026-03-10,4.02,3.48,3.08,57.1;2026-03-11,4.08,3.51,3.09,68.9;2026-03-12,3.92,3.52,3.09,62.1;2026-03-13,4.17,3.55,3.1,84.9;2026-03-16,4.12,3.57,3.11,75.1;2026-03-17,4.02,3.59,3.12,68;2026-03-18,4.44,3.62,3.14,87.6;2026-03-19,4.21,3.65,3.15,70.7;2026-03-20,4.15,3.67,3.16,107.2;2026-03-23,3.83,3.67,3.16,97;2026-03-24,3.57,3.67,3.17,79.9;2026-03-25,4.26,3.69,3.18,104;2026-03-26,4.48,3.72,3.19,111.4;2026-03-27,3.88,3.73,3.2,90.8;2026-03-30,3.91,3.74,3.21,85.6;2026-03-31,3.81,3.74,3.21,72.2;2026-04-01,3.98,3.75,3.22,71.1;2026-04-02,3.93,3.75,3.23,65.9;2026-04-07,3.99,3.76,3.23,58.8;2026-04-08,3.45,3.75,3.24,63.5;2026-04-09,3.5,3.74,3.24,65.2;2026-04-10,3.47,3.73,3.24,63.4;2026-04-13,3.37,3.72,3.24,60.3;2026-04-14,3.41,3.71,3.24,51.8;2026-04-15,3.72,3.71,3.25,65.2;2026-04-16,3.63,3.7,3.25,58.3;2026-04-17,3.61,3.7,3.26,66.7;2026-04-20,3.61,3.7,3.26,63.2;2026-04-21,3.81,3.7,3.27,64.8;2026-04-22,3.83,3.71,3.27,64.8;2026-04-23,3.72,3.71,3.28,60.6;2026-04-24,3.72,3.71,3.28,63;2026-04-27,3.78,3.71,3.28,65.4;2026-04-28,3.62,3.71,3.29,58.2;2026-04-29,3.63,3.7,3.29,58.9;2026-04-30,3.54,3.7,3.29,57.2;2026-05-01,3.61,3.69,3.3,59.2;2026-05-04,3.75,3.7,3.3,63.3;2026-05-05,3.77,3.7,3.31,58;2026-05-06,3.82,3.7,3.31,58.8;2026-05-07,3.76,3.71,3.32,62.8;2026-05-08,3.63,3.7,3.32,58.7;2026-05-11,3.53,3.7,3.32,61.5;2026-05-12,3.18,3.68,3.32,52.8;2026-05-13,3.22,3.66,3.32,49.9;2026-05-14,3.18,3.64,3.32,49.9;2026-05-15,3.27,3.62,3.32,48;2026-05-18,3.13,3.6,3.32,44.4;2026-05-19,2.94,3.58,3.31,42.1;2026-05-20,2.83,3.55,3.31,40.2;2026-05-21,3,3.53,3.3,42.2;2026-05-22,3.03,3.51,3.3,43.7;2026-05-25,3.13,3.49,3.3,44.9;2026-05-26,3.19,3.48,3.3,45.6;2026-05-27,3.16,3.47,3.3,41.3;2026-05-28,3.19,3.46,3.3,45.9;2026-05-29,3.39,3.46,3.3,38.3;2026-06-01,3.1,3.44,3.29,35.9;2026-06-02,3.21,3.43,3.29,35.3;2026-06-03,3.07,3.42,3.29,28;2026-06-04,2.96,3.4,3.29,23.9;2026-06-05,2.86,3.38,3.28,17.3;2026-06-09,2.78,3.36,3.28,4.5;2026-06-10,2.77,3.33,3.27,-3.3;2026-06-11,2.79,3.31,3.27,0.4;2026-06-12,2.96,3.3,3.27,5.1;2026-06-15,2.92,3.28,3.26,5.1;2026-06-16,2.88,3.27,3.26,-0.2;2026-06-17,2.83,3.25,3.25,-5.2;2026-06-18,2.74,3.23,3.25,-11.8;2026-06-19,2.74,3.21,3.24,-7.1;2026-06-22,2.65,3.19,3.24,-13.9;2026-06-23,2.53,3.16,3.23,-16.1;2026-06-24,2.55,3.14,3.22,-14.9;2026-06-25,2.41,3.11,3.22,-21.6;2026-06-26,2.28,3.08,3.21,-28.9;2026-06-29,2.33,3.05,3.2,-21.9;2026-06-30,2.42,3.02,3.19,-27;2026-07-01,2.39,3,3.18,-30.7;2026-07-02,2.39,2.97,3.17,-35.5;2026-07-03,2.41,2.95,3.17,-32.7;2026-07-06,2.52,2.94,3.16,-31.3;2026-07-07,2.44,2.92,3.15,-26.9;2026-07-08,2.32,2.89,3.15,-27.4;2026-07-09,2.29,2.87,3.14,-30.6;2026-07-10,2.29,2.85,3.13,-30.6;2026-07-13,2.27,2.82,3.12,-33.1;2026-07-14,2.29,2.8,3.11,-30.4;2026-07-15,2.37,2.79,3.1,-27.5;2026-07-16,2.32,2.77,3.1,-30;2026-07-17,2.14,2.74,3.09,-39.1;2026-07-20,2.16,2.72,3.08,-40.1;2026-07-21,2.17,2.7,3.07,-43.1;2026-07-22,2.16,2.68,3.06,-47.9;2026-07-23,2.21,2.66,3.05,-47.9;2026-07-24,2.04,2.63,3.04,-56.6;2026-07-27,2.08,2.61,3.03,-61.1;2026-07-28,1.8,2.58,3.02,-90.6;2026-07-29,1.79,2.55,3.01,-110.1;2026-07-30,1.77,2.52,2.99,-121.2;2026-07-31,1.7,2.49,2.98,-139.6;2026-08-03,1.82,2.46,2.97,-121.9;2026-08-04,2.08,2.45,2.96,-106.5;2026-08-05,2.19,2.44,2.95,-95.3;2026-08-06,2.28,2.43,2.95,-85.2;2026-08-07,2.18,2.42,2.94,-88.5;2026-08-10,2.18,2.41,2.93,-90.4;2026-08-11,2.12,2.4,2.92,-103;2026-08-12,2.04,2.39,2.91,-112.7;2026-08-13,2.01,2.37,2.91,-118.2;2026-08-14,1.96,2.35,2.9,-122.6;2026-08-17,1.96,2.34,2.89,-132;2026-08-18,1.88,2.32,2.88,-141.9;2026-08-19,1.89,2.3,2.87,-143;2026-08-20,1.95,2.29,2.86,-138.9;2026-08-21,1.83,2.27,2.85,-153.1;2026-08-24,1.82,2.25,2.84,-163;2026-08-25,1.95,2.24,2.83,-140.3;2026-08-26,1.74,2.22,2.82,-163.5;2026-08-27,1.79,2.21,2.81,-141.4;2026-08-28,1.75,2.19,2.8,-147.3;2026-08-31,1.76,2.17,2.79,-142.7;2026-09-01,1.76,2.16,2.78,-137.3;2026-09-02,1.72,2.14,2.77,-137.3;2026-09-03,1.66,2.12,2.76,-141.7;2026-09-04,1.75,2.1,2.75,-136.3;2026-09-07,1.75,2.09,2.74,-137.2;2026-09-08,1.75,2.08,2.73,-138.8;2026-09-09,1.73,2.06,2.72,-143.5;2026-09-10,1.7,2.05,2.71,-144.8;2026-09-11,1.66,2.03,2.7,-147;2026-09-14,1.61,2.02,2.68,-154;2026-09-15,1.6,2,2.67,-151.2;2026-09-16,1.62,1.99,2.66,-147.4;2026-09-17,1.74,1.98,2.65,-140.5;2026-09-18,1.72,1.97,2.64,-145.1;2026-09-21,1.71,1.96,2.64,-145.7;2026-09-22,1.66,1.94,2.63,-152.1;2026-09-23,1.62,1.93,2.62,-158.2;2026-09-24,1.62,1.92,2.61,-155.2;2026-09-25,1.61,1.91,2.6,-155.2;2026-09-28,1.58,1.89,2.59,-155.2;2026-09-29,1.62,1.88,2.58,-148.7;2026-09-30,1.7,1.88,2.57,-161.6;2026-10-01,1.72,1.87,2.56,-162.3;2026-10-02,1.83,1.87,2.55,-157.3;2026-10-05,1.8,1.87,2.54,-157.3;2026-10-06,1.73,1.86,2.54,-164.9;2026-10-07,1.69,1.85,2.53,-170.1;2026-10-08,1.62,1.84,2.52,-175.7;2026-10-09,1.57,1.83,2.51,-186.6;2026-10-12,1.53,1.82,2.5,-195;2026-10-13,1.53,1.81,2.49,-196.1;2026-10-14,1.49,1.8,2.48,-203.1;2026-10-15,1.42,1.78,2.47,-209.9;2026-10-16,1.56,1.77,2.46,-202.5;2026-10-19,1.53,1.76,2.45,-203;2026-10-20,1.49,1.75,2.44,-204.4;2026-10-21,1.52,1.74,2.43,-200.6;2026-10-22,1.51,1.74,2.42,-199.9;2026-10-23,1.43,1.72,2.41,-202.9;2026-10-26,1.46,1.71,2.4,-201;2026-10-27,1.47,1.7,2.39,-200.1;2026-10-28,1.46,1.69,2.38,-202.5;2026-10-29,1.45,1.68,2.38,-201;2026-10-30,1.37,1.67,2.37,-209.1;2026-11-02,1.33,1.66,2.36,-208.6;2026-11-03,1.31,1.64,2.34,-212.8;2026-11-04,1.21,1.63,2.33,-221.3;2026-11-04,1.21,1.61,2.32,-229.7`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+
+const fmtN=(v,d=2)=>v.toLocaleString("de-CH",{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmtD=s=>{const [y,m,d]=s.split("-");return d+"."+m+"."+y.slice(2)};
+const NS="http://www.w3.org/2000/svg";
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+
+function scoreTable(id,rows){
+  let tot=0,max=0;
+  const html='<thead><tr><th>Kriterium</th><th>Stand</th><th class="num">Punkte</th><th style="width:22%"></th></tr></thead><tbody>'+rows.map(r=>{tot+=r[2];max+=r[3];const p=r[2]/r[3];const c=p>=.75?"var(--good)":p>=.45?"var(--warn)":"var(--bad)";
+    return `<tr><td>${r[0]}</td><td class="muted">${r[1]}</td><td class="num">${r[2]} / ${r[3]}</td><td><div class="bar"><i style="width:${p*100}%;background:${c}"></i></div></td></tr>`}).join("")+`<tr class="total"><td>Total</td><td></td><td class="num">${tot} / ${max}</td><td></td></tr></tbody>`;
+  document.getElementById(id).innerHTML=html;return tot;
+}
+const qs=scoreTable("q-tbl",Q), ts=scoreTable("t-tbl",T);
+document.getElementById("q-val").textContent=qs;document.getElementById("t-val").textContent=ts;
+document.getElementById("q-pin").style.left=qs+"%";document.getElementById("t-pin").style.left=ts+"%";
+
+document.getElementById("fin-rows").innerHTML=FIN.map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1].toLocaleString("de-CH")}</td><td class="num">${r[2]}</td><td class="num">${r[3]}</td><td class="num">${fmtN(r[4])}</td><td class="num">${r[5].toLocaleString("de-CH")}</td><td class="num">${r[6]}</td><td class="num">${r[7]}</td></tr>`).join("");
+
+/* generic line chart */
+function lineChart(host,{dates,series,bands=[],yFmt=v=>fmtN(v),h=300,zero=false,refs=[],pad}){
+  const W_=800,H=h,m={t:12,r:56,b:28,l:8};
+  const all=series.flatMap(s=>s.values).concat(bands.flatMap(b=>[b.from,b.to])).concat(refs.map(r=>r.v));
+  if(zero)all.push(0);
+  let lo=Math.min(...all),hi=Math.max(...all);const sp=(hi-lo)||1;lo-=sp*.06;hi+=sp*.06;
+  if(pad){lo=pad[0];hi=pad[1]}
+  const n=dates.length,x=i=>m.l+i*(W_-m.l-m.r)/(n-1),y=v=>m.t+(hi-v)*(H-m.t-m.b)/(hi-lo);
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  // grid
+  const steps=5;for(let k=0;k<=steps;k++){const v=lo+(hi-lo)*k/steps;el("line",{x1:m.l,x2:W_-m.r,y1:y(v),y2:y(v),stroke:"var(--grid)","stroke-width":1},svg);
+    const t=el("text",{x:W_-m.r+6,y:y(v)+4,"font-size":11,fill:"var(--muted)","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=yFmt(v)}
+  bands.forEach(b=>{el("rect",{x:m.l,width:W_-m.l-m.r,y:y(Math.max(b.from,b.to)),height:Math.abs(y(b.from)-y(b.to)),fill:b.type==="res"?"var(--zone-res)":"var(--zone-sup)"},svg)});
+  refs.forEach(r=>{el("line",{x1:m.l,x2:W_-m.r,y1:y(r.v),y2:y(r.v),stroke:"var(--muted)","stroke-dasharray":"4 4","stroke-width":1},svg);
+    const t=el("text",{x:m.l+4,y:y(r.v)-4,"font-size":11,fill:"var(--muted)"},svg);t.textContent=r.label});
+  if(zero)el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  // x labels
+  const every=Math.ceil(n/6);for(let i=0;i<n;i+=every){const t=el("text",{x:x(i),y:H-8,"font-size":11,fill:"var(--muted)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);const d=dates[i];t.textContent=d.slice(5,7)+"/"+d.slice(2,4)}
+  series.forEach(s=>{const dpath=s.values.map((v,i)=>(i?"L":"M")+x(i).toFixed(1)+","+y(v).toFixed(1)).join("");
+    el("path",{d:dpath,fill:"none",stroke:s.color,"stroke-width":s.w||2,"stroke-linejoin":"round","stroke-linecap":"round"},svg);
+    const lv=s.values[n-1];el("circle",{cx:x(n-1),cy:y(lv),r:3.5,fill:s.color,stroke:"var(--surface)","stroke-width":2},svg)});
+  // hover
+  const cross=el("line",{y1:m.t,y2:H-m.b,stroke:"var(--muted)","stroke-width":1,opacity:0},svg);
+  const ov=el("rect",{x:m.l,y:m.t,width:W_-m.l-m.r,height:H-m.t-m.b,fill:"transparent"},svg);
+  host.appendChild(svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;host.appendChild(tip);
+  function move(ev){const r=svg.getBoundingClientRect();const px=(ev.clientX-r.left)*W_/r.width;let i=Math.round((px-m.l)/((W_-m.l-m.r)/(n-1)));i=Math.max(0,Math.min(n-1,i));
+    cross.setAttribute("x1",x(i));cross.setAttribute("x2",x(i));cross.setAttribute("opacity",1);
+    tip.innerHTML=`<div class="d">${fmtD(dates[i])}</div>`+series.map(s=>`<div><i class="sw" style="background:${s.color}"></i> ${s.name}: <b>${yFmt(s.values[i])}</b></div>`).join("");
+    tip.hidden=false;const hx=x(i)*r.width/W_;tip.style.left=Math.min(Math.max(0,hx+12),r.width-tip.offsetWidth)+"px";tip.style.top="8px"}
+  ov.addEventListener("pointermove",move);ov.addEventListener("pointerleave",()=>{tip.hidden=true;cross.setAttribute("opacity",0)});
+}
+function barChart(host,{labels,values,fmt,h=220,color,neg,tipExtra}){
+  const W_=800,H=h,m={t:18,r:8,b:28,l:8};
+  const hi=Math.max(0,...values),lo=Math.min(0,...values);const lo2=lo<0?lo*1.15:lo,hi2=hi*1.15||1;
+  const y=v=>m.t+(hi2-v)*(H-m.t-m.b)/(hi2-lo2);const n=values.length,bw=(W_-m.l-m.r)/n;
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;
+  values.forEach((v,i)=>{const x0=m.l+i*bw+bw*.18,w=bw*.64,y0=y(Math.max(v,0)),hh=Math.max(1,Math.abs(y(v)-y(0)));
+    const r=el("rect",{x:x0,y:y0,width:w,height:hh,rx:4,fill:v<0?(neg||"var(--s2)"):(color||"var(--s1)")},svg);
+    const t=el("text",{x:x0+w/2,y:v<0?y(v)+13:y0-5,"font-size":11.5,fill:"var(--ink)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=fmt(v);
+    const l=el("text",{x:x0+w/2,y:H-8,"font-size":11.5,fill:"var(--muted)","text-anchor":"middle"},svg);l.textContent=labels[i];
+    const hit=el("rect",{x:m.l+i*bw,y:m.t,width:bw,height:H-m.t-m.b,fill:"transparent"},svg);
+    hit.addEventListener("pointerenter",()=>{tip.innerHTML=`<div class="d">${labels[i]}</div><b>${fmt(v)}</b>${tipExtra?tipExtra(i):""}`;tip.hidden=false;const R=svg.getBoundingClientRect();tip.style.left=Math.min((m.l+i*bw)*R.width/W_,R.width-tip.offsetWidth)+"px";tip.style.top="0px"});
+    hit.addEventListener("pointerleave",()=>tip.hidden=true)});
+  host.appendChild(svg);host.appendChild(tip);
+}
+barChart(document.getElementById("c-rev"),{labels:HALF.map(r=>r[0]),values:HALF.map(r=>r[1]),fmt:v=>fmtN(v,1),h:200});
+barChart(document.getElementById("c-margin"),{labels:MARGIN.map(r=>r[0]),values:MARGIN.map(r=>r[1]),fmt:v=>fmtN(v,1)+" %",h:200});
+barChart(document.getElementById("c-seas"),{labels:MON,values:SEAS,fmt:v=>(v>0?"+":"")+fmtN(v,1),h:220,tipExtra:i=>`<div>${SEASHIT[i]} % der Jahre positiv</div>`});
+const BANDS=[{"from": 1.77, "to": 1.86, "type": "res"}, {"from": 1.41, "to": 1.52, "type": "res"}, {"from": 1.09, "to": 1.2, "type": "sup"}, {"from": 0.79, "to": 0.9, "type": "sup"}], REFS=[{"v": 1.52, "label": "Trigger 1.52"}];
+const wd=W.map(r=>r[0]);
+lineChart(document.getElementById("c-week"),{dates:wd,series:[{name:"Kurs",values:W.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:W.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:W.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,yFmt:v=>fmtN(v,0),h:320});
+lineChart(document.getElementById("c-adw"),{dates:wd,series:[{name:"A/D Woche",values:W.map(r=>r[5]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,zero:true});
+lineChart(document.getElementById("c-rsiw"),{dates:wd,series:[{name:"RSI Woche",values:W.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,refs:[{v:70,label:"70 überkauft"},{v:30,label:"30 überverkauft"}],pad:[10,90]});
+const dd=DD.map(r=>r[0]);
+lineChart(document.getElementById("c-day"),{dates:dd,series:[{name:"Kurs",values:DD.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:DD.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:DD.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,refs:REFS,yFmt:v=>fmtN(v,0),h:260});
+lineChart(document.getElementById("c-add"),{dates:dd,series:[{name:"A/D Tag",values:DD.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:260,zero:true});
+</script>

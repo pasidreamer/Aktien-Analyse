@@ -1,0 +1,102 @@
+import json, os, sys
+P = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); sys.path.insert(0, P)
+from helpers import L, ADW, RSIW, SEAS
+c = {
+"ticker": "P911", "name": "Porsche AG", "datum": "04.11.2026", "waehrung": "EUR", "land": "Deutschland",
+"meta": "Dr. Ing. h.c. F. Porsche AG · Xetra: P911 (Vorzugsaktie, ohne Stimmrecht) · Sportwagen (911, Cayenne, Macan, Panamera, Taycan), Finanzdienstleistungen · Stuttgart-Zuffenhausen, Deutschland",
+"price": "46.94 €",
+"pricemeta": "Schluss 04.11.2026 · 52 Wochen: 35.62 – 50.66 € · Ausgabepreis beim Börsengang (Sept. 2022): 82.50 € · höchster Wochenschluss 120.80 €",
+"verdict": "Porsche ist eine starke Marke, aber das Geschäft schrumpft: In den ersten neun Monaten 2026 lieferte Porsche 16 % weniger Autos aus, in China sogar 33 % weniger. Der Umsatz lag in den letzten 4 Quartalen jedes Mal unter dem Vorjahr. Die Marge erholt sich zwar von 1.1 % (2025) auf 6.9 % (9 Monate 2026), liegt aber weit unter den 18 % von 2023. Für 2027 hat Porsche schon tieferen Umsatz und Gewinn angekündigt. Stark ist die Kasse: 8.2 Mrd. € Netto-Liquidität in der Autosparte. Qualität rot (17), Timing gelb (46). Die Aktie ist mit einem KGV von 21 nicht billig, obwohl der Gewinn erst auf tiefem Niveau ist.",
+"about": "Porsche baut Sportwagen und sportliche SUV in Zuffenhausen, Leipzig und Bratislava. 2025 lieferte Porsche 279'449 Autos aus. Die wichtigsten Modelle sind Cayenne, Macan und der 911. Dazu kommt eine eigene Bank (Porsche Financial Services) für Leasing und Kredite. An der Börse wird nur die <b>Vorzugsaktie</b> gehandelt: Sie bekommt 1 Cent mehr Dividende, hat aber kein Stimmrecht. Alle Stammaktien mit Stimmrecht liegen bei Volkswagen und der Porsche SE (der Holding der Familien Porsche und Piëch). VW bestimmt also, was passiert. Achtung: Die Porsche SE (Symbol PAH3) ist eine andere Aktie. Seit Januar 2026 führt Michael Leiters die Firma.",
+"why": "Seit dem Börsengang im September 2022 (82.50 €) hat die Aktie fast die Hälfte verloren. Gründe: In China bricht der Absatz ein (9 Monate 2026: −33 % auf 21'493 Autos), weil chinesische Elektroautos günstiger und moderner sind. US-Zölle kosteten 2025 rund 700 Mio. €. Dazu kam die teure Kehrtwende bei der Elektro-Strategie: Elektroautos verkauften sich schlechter als geplant, darum verlängert Porsche Verbrenner und Hybride. Das kostete 2025 rund 2.4 Mrd. € Sonderkosten, die Marge fiel auf 1.1 %. Am 23.3.2026 lag die Aktie bei 35.62 € (Jahrestief, Krieg im Iran). Danach erholte sie sich bis 50.66 € (16.6.). Am Investorentag (7.10.) nannte Porsche Margenziele von 10 bis 15 % «mittelfristig», die Börse blieb skeptisch, am 8.10. fiel der Kurs auf 40.70 €. Die Zahlen vom 27.10. brachten viel Cashflow (2.5 Mrd. € in 9 Monaten), seither stieg die Aktie um rund 13 %. Stimmung oder echtes Problem? Beides: Die Kosten sinken, aber Absatz und Umsatz schrumpfen wirklich.",
+"kpis": [
+ ["r","Umsatzwachstum","−9.6 %","Letzte 12 Monate bis September 2026 (selbst gerechnet: 34.7 statt 38.4 Mrd. €). Im 3. Quartal 2026 −7.5 %. Porsche plant für 2026 nur 35 bis 36 Mrd. € (2024: 40.1 Mrd. €)."],
+ ["r","Operative Marge","6.9 %","9 Monate 2026: Von 100 € Umsatz bleiben 6.90 € Betriebsgewinn. Im 3. Quartal nur 4.8 %. 2023 waren es 18 %, 2025 nur 1.1 %. Unter 8 % gilt als schwach."],
+ ["w","Gewinn pro Aktie (EPS)","rund 2.20 €","Letzte 12 Monate (selbst gerechnet aus 2.0 Mrd. € Gewinn und 911 Mio. Aktien). Darin stecken rund 0.65 € einmaliger Gewinn aus dem Verkauf von Bugatti Rimac. 2023 waren es 5.67 €, 2025 nur 0.48 €."],
+ ["r","ROIC","rund 4 %","Auf 100 € investiertes Kapital nur rund 4 € Gewinn (eigene Schätzung). 2023 waren es 15.8 %. Schwach."],
+ ["w","Free Cashflow (Autos)","2.7 Mrd. €","Netto-Cashflow der Autosparte, letzte 12 Monate (selbst gerechnet). Rund 1 Mrd. € davon kam einmalig aus dem Verkauf der Rimac-Beteiligungen. 2023 waren es 4.0 Mrd. €, 2025 nur 1.5 Mrd. €."],
+ ["g","Netto-Liquidität (Autos)","8.2 Mrd. €","Ende September 2026. Die Autosparte hat mehr Geld als Schulden. Die Schulden im Konzern gehören vor allem zur Porsche-Bank (Leasing)."],
+ ["r","KGV","21.3","Du zahlst 21 Jahresgewinne (Kurs 46.94 € / EPS rund 2.20 €). Eigener Schnitt 2022 bis 2024: 15.4. Also rund 38 % teurer als üblich, obwohl der Gewinn tief ist. 2025 lag das KGV wegen der Sonderkosten bei rund 95."],
+ ["w","Dividende","2.2 %","1.01 € pro Vorzugsaktie, einmal im Jahr nach der Hauptversammlung (Ex-Tag 24.6.2026). Vorher 2.31 €. Porsche will mindestens 50 % des Gewinns ausschütten."]
+],
+"revtitle": "Umsatz pro Quartal (Mio. €)", "revunit": "Mio. €", "epsunit": "€",
+"revnote": "Keines der letzten 4 Quartale über dem Vorjahr. Q4 24 ist selbst gerechnet (Jahr minus 9 Monate), Q2 und Q4 25 ebenso.",
+"marginnote": "Operative Konzernmarge laut Porsche. Von 18 % (2022 und 2023) auf 1.1 % (2025) gefallen, wegen rund 3.9 Mrd. € Sonderkosten. 2026 erholt sie sich auf 6.9 % (9 Monate). Ziel 2026: 5.5 bis 7.5 %.",
+"finnote": "<b>Hinweis:</b> Free Cashflow = Netto-Cashflow der Autosparte laut Porsche (ohne Porsche-Bank). EPS 2021 selbst gerechnet (Gewinn / 911 Mio. Aktien), weil Porsche damals noch nicht an der Börse war. EPS je Vorzugsaktie liegt 1 Cent über der Stammaktie. ROIC 2025 und letzte 12 Monate sind eigene Schätzungen. Die letzten 12 Monate enthalten einen einmaligen Gewinn von 593 Mio. € (Verkauf Bugatti Rimac und Rimac Group, September 2026). KGV 2022 bis 2024 laut StockAnalysis, 2025 selbst gerechnet (Kurs 30.12.2025 45.62 € / 0.48 €).",
+"FIN": [["2021",33138,"+15.5 %","16.0 %",4.43,3676,"–","–"],["2022",37637,"+13.6 %","18.0 %",5.44,3866,"14.4 %","17.4"],["2023",40530,"+7.7 %","18.0 %",5.67,3973,"15.8 %","14.1"],["2024",40083,"−1.1 %","14.1 %",3.94,3730,"10.8 %","14.8"],["2025",36272,"−9.5 %","1.1 %",0.48,1510,"≈1 %","≈95"],["Letzte 12 Mt.",34692,"−9.6 %","6.1 %",2.20,2670,"≈4 %","21.3"]],
+"QREV": [["Q4 24",11523],["Q1 25",8858],["Q2 25",9302],["Q3 25",8700],["Q4 25",9412],["Q1 26",8400],["Q2 26",8829],["Q3 26",8050]],
+"revdec": 0,
+"MARGIN": [["2021",16.0],["2022",18.0],["2023",18.0],["2024",14.1],["2025",1.1],["9M 26",6.9]],
+"Q": [
+ ["Umsatztrend","0 von 4 Quartalen über Vorjahr (Q4 25 bis Q3 26)",0,15],
+ ["Wachstumstempo","Umsatz −9.6 % in 12 Monaten, 2026 erwartet Porsche 35 bis 36 Mrd. €",0,10],
+ ["Operative Marge","6.9 % (unter 8 %: 0 Pkt.), seit 2023 stark fallend (0 Pkt.)",0,15],
+ ["Gewinnwachstum (EPS)","3-Jahres-Schnitt klar negativ (5.67 auf 0.48 €). 2026 Erholung, aber nur von sehr tiefer Basis und mit Einmalgewinn; für 2027 Rückgang angekündigt",2,10],
+ ["Free Cashflow","Positiv, aber seit 2023 gesunken (4.0 auf 1.5 Mrd. €); 2026 höher nur dank Rimac-Verkauf",3,10],
+ ["ROIC","Rund 4 % (unter 10 %: 2 Pkt.), fallend (−1)",1,15],
+ ["Schulden","Autosparte mit Netto-Liquidität 8.2 Mrd. €",10,10],
+ ["Bewertung vs. eigene Historie","KGV 21.3 statt Ø 15.4 (2022 bis 2024), rund 38 % teurer",1,15]
+],
+"adwnote": ADW + "Negativ: Ende Mai stand die Wochen-A/D bei −52.4 (Kurs 46.89 €), heute bei −56.9 bei fast gleichem Kurs (46.94 €). Es wurde unter dem Strich verkauft, nicht gekauft.",
+"rsiwnote": RSIW + "Im März um 34, im Juni 63 (Hoch bei 50.66 €), Anfang Oktober 42, heute 57: neutral, leicht steigend.",
+"addnote": "Die Tages-A/D steigt seit dem 26.10. mit dem Kurs (−23.3 auf −21.3). Sie liegt aber tiefer als am 17.9. (−19.0), als der Kurs ähnlich hoch war (47.58 €). Der Anstieg ist also noch nicht von starken Käufen getragen.",
+"ind": [
+ ["Kurs vs. EMA 50","46.9 &gt; 44.0","46.9 &gt; 44.9","Über der mittelfristigen Linie auf beiden Zeitebenen."],
+ ["Kurs vs. EMA 200","46.9 &gt; 44.3","46.9 &lt; 60.1","Tag: knapp darüber. Woche: weit unter der langfristigen Linie."],
+ ["EMA 50 vs. EMA 200","50 unter 200 (seit 8.10.2026), Abstand nur 0.2","50 unter 200 (seit 12.5.2024)","Tag: Die Linien laufen zusammen, ein Golden Cross ist nahe. Woche: langfristiger Abwärtstrend."],
+ ["RSI (14)","65.3","57.0","Tag: kräftig, aber noch nicht überkauft (über 70). Keine Divergenz."],
+ ["A/D","steigt seit 26.10.","tiefer als im Mai","Tag leicht positiv, Woche negativ."],
+ ["Volumen","Ø 20 Tage 0.55 Mio. vs. Ø 100 Tage 0.52 Mio. Aktien","Etwas mehr Handel als üblich."]
+],
+"smc": "Im Wochenchart läuft Porsche seit März 2026 seitwärts zwischen 35.62 € (Tief 23.3.) und 50.66 € (Hoch 16.6.). Seit Juni gab es tiefere Hochs (50.66 → 48.72 → 47.58 → 46.37 → 43.59 €) und ein tieferes Tief am 8.10. (40.70 €). Am 26.10. hielt der Kurs aber über diesem Tief (41.09 €, höheres Tief). Am 28.10. schloss er über dem letzten tieferen Hoch vom 20.10. (43.59 €): ein Change of Character (Wechsel der Richtung) im Tageschart. Am 30.10. fiel auch das Hoch vom 30.9. (46.37 €). Offen ist noch das Hoch vom 17.9. bei 47.58 €. Erst ein Tagesschluss darüber bestätigt die neue Aufwärtsstruktur. Der Kurs liegt heute im oberen Teil der Spanne, also nicht im Discount (günstiger Bereich). Unterstützung: 43.50 bis 44.30 € (Ausbruchsmarke, Tages-EMA 50 und 200) und 40.70 bis 42.20 € (Tiefs Juni bis Oktober).",
+"zones": [
+ ["r","48.70–50.70 €","Widerstand: Hochs vom 7.7. (48.72 €) und 16.6. (50.66 €, 52-Wochen-Hoch). Darüber erst die Wochen-EMA 200 bei 60 €."],
+ ["r","47.20–47.60 €","Widerstand: Hochs vom 14.5. (47.21 €) und 17.9. (47.58 €)."],
+ ["t","47.60 €","<b>Trigger:</b> Tagesschluss über 47.60 € (letztes tieferes Hoch vom 17.9.). Dann wäre die Abwärtsfolge seit Juni gebrochen."],
+ ["s","43.50–44.30 €","<b>Kaufzone 1:</b> Ausbruchsmarke vom 28.10. (43.59 €), Tages-EMA 50 (44.04 €) und EMA 200 (44.26 €), Tiefs vom September (43.50 und 43.81 €)."],
+ ["s","40.70–42.20 €","<b>Kaufzone 2:</b> Tiefs vom 30.6. (42.22 €), 31.7. (41.90 €), 26.10. (41.09 €) und 8.10. (40.70 €)."],
+ ["r","40.50 €","Abbruch: Wochenschluss unter 40.50 € (unter dem Tief vom 8.10.). Nächste Unterstützung erst bei 35.60 bis 36.20 € (Tiefs vom März)."]
+],
+"smart": [
+ "<b>Insider:</b> Aufsichtsratschef Wolfgang Porsche kaufte am 26.6.2026 an der Börse Frankfurt Aktien für 43'900 € zu 43.90 €. Ein freier Kauf, aber ein kleiner Betrag. Sonst keine Insider-Käufe oder -Verkäufe gefunden.",
+ "<b>Rückkäufe:</b> Keine. Porsche kauft keine eigenen Aktien zurück.",
+ "<b>Grossaktionäre:</b> Volkswagen und die Porsche SE halten alle Stammaktien mit Stimmrecht. Vorzugsaktionäre haben kein Mitspracherecht. VW braucht Geld und hat ein Interesse an hohen Dividenden.",
+ "<b>Analysten:</b> Gemischt. Goldman Sachs Kaufen, Ziel 59 € (23.6.2026). UBS Ziel 60 € (8.6.2026). Barclays Gleichgewichten, Ziel 50 €. LBBW Halten, Ziel 46 € (27.10.2026). JPMorgan lobte am 27.10. den starken Cashflow. Einen verlässlichen Durchschnitt aller Analysten konnte ich nicht prüfen."
+],
+"seasnote": SEAS + "Nur 4 Jahre Daten (Börsengang September 2022), darum wenig aussagekräftig. November −0.5 % (50 %), Dezember −4.2 % (25 %), Januar +2.5 % (50 %).",
+"T": [
+ ["Trend Woche (EMA 50/200)","Kurs über EMA 50 (44.91 €), aber weit unter EMA 200 (60.05 €): mögliche Wende",8,20],
+ ["Trend Tag (EMA 50/200)","Kurs über beiden EMAs, aber EMA 50 noch knapp unter EMA 200",6,10],
+ ["Struktur (SMC)","Change of Character am 28.10., höheres Tief 41.09 €; Trigger 47.60 € offen, Kurs nicht im Discount",12,20],
+ ["RSI Tag/Woche","Tag 65 nach Drehung aus 33 bis 40, Woche 57, keine Divergenz",8,15],
+ ["A/D Tag/Woche","Woche tiefer als im Mai bei gleichem Kurs, Tag steigt seit 26.10. nur leicht",4,20],
+ ["Smart Money","Start 3, freier Insider-Kauf 26.6.2026 +4 (kleiner Betrag), kein Rückkauf",7,10],
+ ["Saisonalität","November 50 %, Dezember 25 %, Januar 50 % positive Jahre (nur 4 Jahre)",1,5]
+],
+"pro": [
+ "Starke Marke mit Preismacht: Der 911 verkauft sich gegen den Trend besser (+12 % in 9 Monaten 2026).",
+ "Viel Geld in der Kasse: 8.2 Mrd. € Netto-Liquidität, Netto-Cashflow 2.5 Mrd. € in 9 Monaten.",
+ "Hartes Sparprogramm: Ziel −25 % Belegschaft mittelfristig, −40 % Management, Gewinnschwelle unter 200'000 Autos.",
+ "Marge erholt sich: 6.9 % in 9 Monaten 2026 nach 0.2 % im Vorjahr. Ziel mittelfristig 10 bis 15 %.",
+ "Change of Character im Tageschart am 28.10., Tages-EMAs kurz vor einem Golden Cross."
+],
+"con": [
+ "China bricht weg (−33 % in 9 Monaten 2026), Porsche rechnet dort dauerhaft mit weniger Geschäft.",
+ "Für 2027 kündigte Porsche tieferen Umsatz und Gewinn an (Auslauf Verbrenner-Macan), dazu rund 400 Mio. € weitere Sonderkosten.",
+ "US-Zölle (rund 700 Mio. € 2025) und kein eigenes Werk in den USA.",
+ "Vorzugsaktie ohne Stimmrecht: VW und Porsche SE entscheiden allein.",
+ "KGV 21 bei tiefem Gewinn, rund 38 % über dem eigenen Schnitt. Wochen-A/D zeigt Verkäufe."
+],
+"todo": [
+ ["t","Beobachten","Alarm bei 47.60 € (Trigger), 44.30 € (Kaufzone 1) und 40.50 € (Abbruch)."],
+ ["s","Timing grün","Tagesschluss über 47.60 € mit steigender A/D und danach ein höheres Tief über 43.50 €. Fundamental: Der Absatz in China muss sich stabilisieren und der Ausblick 2027 darf nicht schlechter ausfallen als angekündigt."],
+ ["r","Abbruch","Wochenschluss unter 40.50 €."],
+ ["","Nächste Zahlen","Auslieferungen 2026: voraussichtlich Mitte Januar 2027. Jahreszahlen 2026 mit Dividendenvorschlag: voraussichtlich März 2027 (2026 war es der 11. März; Termin noch nicht bestätigt). Hauptversammlung 2026 war am 23. Juni."]
+],
+"bands": [{"from":48.7,"to":50.7,"type":"res"},{"from":47.2,"to":47.6,"type":"res"},{"from":43.5,"to":44.3,"type":"sup"},{"from":40.7,"to":42.2,"type":"sup"}],
+"refs": [{"v":47.6,"label":"Trigger 47.60"},{"v":40.5,"label":"Abbruch 40.50"}],
+"sources": L("https://newsroom.porsche.com/de_CH/2026/unternehmen/porsche-finanzen-q3-2026-43585.html","Porsche: Zahlen 9 Monate 2026 (27.10.2026)") + ", " + L("https://newsroom.porsche.com/en/2026/company/porsche-deliveries-third-quarter-2026-43480.html","Porsche: Auslieferungen 9 Monate 2026 (9.10.2026)") + ", " + L("https://newsroom.porsche.com/de_CH/2026/unternehmen/porsche-finanzergebnisse-erstes-halbjahr-2026-42949.html","Porsche: Halbjahr 2026 (29.7.2026)") + ", " + L("https://ir-api.eqs.com/storage/ir/bd1eb3/documents/f150bfe2-763a-40dc-9984-d0f77d06129d/DE000PAG9113-Q1-2026-EQ-D-00.pdf","Porsche: Quartalsmitteilung Q1 2026") + ", " + L("https://newsroom.porsche.com/de_CH/2026/unternehmen/porsche-jahrespressekonferenz-geschaeftsjahr-2025-geschaefts-und-nachhaltigkeitsbericht-41878.html","Porsche: Geschäftsjahr 2025 (11.3.2026)") + ", " + L("https://newsroom.porsche.com/de_CH/2024/unternehmen/porsche-jahrespressekonferenz-geschaeftsjahr-2023-geschaefts-und-nachhaltigkeitsbericht-35495.html","Porsche: Geschäftsjahr 2023") + ", " + L("https://newsroom.porsche.com/de_CH/2023/unternehmen/porsche-jahrespressekonferenz-geschaeftsjahr-2022-geschaefts-und-nachhaltigkeitsbericht-31564.html","Porsche: Geschäftsjahr 2022") + ", " + L("https://www.deraktionaer.de/nachricht/roundup-porsche-schneidet-im-schwierigen-umfeld-robust-ab-aktie-etwas-erholt-561107.html","dpa-AFX: Q3 und Ausblick 2027 (27.10.2026)") + ", " + L("https://www.cash.ch/news/vw-tochter-porsche-will-sparen-und-marge-steigern-aktie-schwank-974809","cash.ch: Strategie und Margenziele (7.10.2026)") + ", " + L("https://www.marketscreener.com/quote/stock/PORSCHE-AG-144458103/calendar/","MarketScreener: Termine und Quartale (23.10.2026)") + ", " + L("https://stockanalysis.com/quote/vie/P911/financials/ratios","StockAnalysis: KGV und ROIC 2022 bis 2024") + ", " + L("https://stockanalysis.com/quote/fra/P911/financials","StockAnalysis: Gewinn 2020 bis 2024") + ", " + L("https://www.boerse-online.de/dpa-afx/eqs-dd-dr-ing-hc-f-porsche-ag-deutsch-535169.html","Insider-Kauf W. Porsche (1.7.2026)") + ", " + L("https://www.boerse-express.com/news/articles/porsche-ag-aktie-goldman-sachs-hebt-ziel-auf-59-euro-920571","Analysten Goldman, UBS, Barclays (23.6.2026)") + ", " + L("https://newsroom.porsche.com/de_CH/2026/unternehmen/porsche-hauptversammlung-dividende-42705.html","Porsche: Hauptversammlung und Dividende (23.6.2026)") + ", " + L("https://www.vermoegenszentrum.ch/wissen/auslaendische-dividenden-so-holen-sich-anleger-die-quellensteuer-zurueck","VZ: Quellensteuer") + "."
+}
+if __name__ == "__main__":
+    json.dump(c, open(os.path.join(P, "config", "P911.json"), "w"), ensure_ascii=False, indent=1)
+    print("ok", sum(r[2] for r in c["Q"]), sum(r[2] for r in c["T"]))

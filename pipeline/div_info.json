@@ -866,5 +866,28 @@
   "system": "Progressive Dividende: Sie soll jedes Jahr steigen. Zwei Zahlungen pro Jahr, festgelegt in Euro. Die Zwischendividende im August lag zuletzt bei rund 40 % der Vorjahresdividende (eigene Rechnung: 1.55 € zu 3.88 €), der Rest kommt als Schlussdividende im Juni. Dazu jedes Jahr ein Aktienrückkauf von mindestens 350 Mio. €.",
   "form": "Bar in Euro, laut NN ganz in bar (keine Wahl zwischen Aktien und Geld). Die Niederlande ziehen 15 % Quellensteuer ab. Laut Doppelbesteuerungsabkommen Schweiz–Niederlande sind 15 % das Maximum, du kannst den Abzug in der Schweizer Steuererklärung anrechnen lassen. Wie Saxo das genau abwickelt, konnte ich nicht prüfen.",
   "serie": "Dividende pro Aktie: 2021 2.49 €, 2022 2.79 €, 2023 3.20 €, 2024 3.44 €, 2025 3.88 €. Jedes Jahr höher."
+ },
+ "P911": {
+  "pro_jahr": 1,
+  "rhythmus": "jährlich",
+  "ex_monate": [
+   6
+  ],
+  "zahl_monate": [
+   6
+  ],
+  "zahl_text": "Einmal im Jahr, wenige Tage nach der Hauptversammlung (2026: Hauptversammlung 23. Juni, Ex-Tag 24. Juni, Zahlung kurz danach; Termin 2027 noch nicht bekannt, bisher Mai oder Juni)",
+  "abstand_tage": 2,
+  "betrag": 1.01,
+  "system": "Deutsches System: eine Dividende pro Jahr, beschlossen an der Hauptversammlung und wenige Tage später ausbezahlt. Die Vorzugsaktie bekommt 1 Cent mehr als die Stammaktie (2026: 1.01 statt 1.00 €), hat dafür kein Stimmrecht. Vorher waren es 2.31 €. Porsche will künftig mindestens 50 % des Gewinns ausschütten. Weil der Gewinn 2026 höher ist als 2025, aber 2027 sinken soll, ist die Höhe für 2027 offen.",
+  "form": "Bar in Euro aufs Konto. Deutschland zieht 26.375 % Quellensteuer ab. 15 % kannst du über die Schweizer Steuererklärung anrechnen lassen (Formular DA-1), die restlichen 11.375 % musst du in Deutschland zurückfordern (Bundeszentralamt für Steuern, innert rund 3 Jahren). Lohnt sich erst bei grösseren Beträgen."
+ },
+ "DRO": {
+  "zahlt": false,
+  "text": "DroneShield hat noch nie eine Dividende bezahlt und plant laut Firma (August 2026) auch keine. Die Firma macht derzeit Verlust und steckt alles Geld in Wachstum, neue Produkte und Werke."
+ },
+ "TTWO": {
+  "zahlt": false,
+  "text": "Take-Two zahlt keine Dividende und kauft keine Aktien zurück. Die Aktienzahl steigt sogar (plus 4.5 % in 12 Monaten), vor allem wegen Löhnen in Aktien. Das Geld fliesst in neue Spiele wie GTA VI und in den Schuldenabbau."
  }
 }

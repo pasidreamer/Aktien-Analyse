@@ -2082,5 +2082,128 @@
   "pe_typ": "KGV",
   "zahlen": "2027-02-10",
   "artifact": "ULxTAgjVNLbMMN9pqfsJ1n"
+ },
+ "P911": {
+  "symbol": "P911.DE",
+  "name": "Porsche AG",
+  "tags": [
+   "Dividende"
+  ],
+  "land": "Deutschland",
+  "region": "Europa",
+  "branche": "Sportwagen",
+  "status": "beobachten",
+  "waehrung": "EUR",
+  "kurs": 46.94,
+  "datenstand": "2026-11-04",
+  "kauf": [
+   [
+    43.5,
+    44.3
+   ],
+   [
+    40.7,
+    42.2
+   ]
+  ],
+  "widerstand": [
+   [
+    47.2,
+    47.6
+   ],
+   [
+    48.7,
+    50.7
+   ]
+  ],
+  "trigger": 47.6,
+  "abbruch": 40.5,
+  "pe": 21.3,
+  "pe_avg": 15.4,
+  "pe_typ": "KGV",
+  "zahlen": "",
+  "artifact": "JkKQ9iBwo1in8DBmnpu77K"
+ },
+ "DRO": {
+  "symbol": "DRO.AX",
+  "name": "DroneShield",
+  "tags": [
+   "Wachstum"
+  ],
+  "land": "Australien",
+  "region": "Asien",
+  "branche": "Rüstung, Drohnenabwehr",
+  "status": "beobachten",
+  "waehrung": "AUD",
+  "kurs": 1.21,
+  "datenstand": "2026-11-04",
+  "kauf": [
+   [
+    1.09,
+    1.2
+   ],
+   [
+    0.79,
+    0.9
+   ]
+  ],
+  "widerstand": [
+   [
+    1.41,
+    1.52
+   ],
+   [
+    1.77,
+    1.86
+   ]
+  ],
+  "trigger": 1.52,
+  "abbruch": 1.05,
+  "pe": 4.2,
+  "pe_avg": 11,
+  "pe_typ": "KUV",
+  "zahlen": "",
+  "artifact": "5BuSbRTGUzoPM9rMfMsryB"
+ },
+ "TTWO": {
+  "symbol": "TTWO",
+  "name": "Take-Two Interactive",
+  "tags": [
+   "Wachstum"
+  ],
+  "land": "USA",
+  "region": "USA",
+  "branche": "Videospiele",
+  "status": "beobachten",
+  "waehrung": "USD",
+  "kurs": 208.9,
+  "datenstand": "2026-11-04",
+  "kauf": [
+   [
+    188,
+    195
+   ],
+   [
+    150,
+    167
+   ]
+  ],
+  "widerstand": [
+   [
+    220,
+    225
+   ],
+   [
+    246,
+    257
+   ]
+  ],
+  "trigger": 216,
+  "abbruch": 183,
+  "pe": 5.8,
+  "pe_avg": 5.1,
+  "pe_typ": "KUV",
+  "zahlen": "2026-11-09",
+  "artifact": "QCp5MWFTAbg3wXjtYnFdj5"
  }
 }

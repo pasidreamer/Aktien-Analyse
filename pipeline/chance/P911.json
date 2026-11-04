@@ -1,0 +1,47 @@
+{
+ "ticker": "P911",
+ "stand": "2026-11-04",
+ "sorgen": [
+  "China bricht weg: In den ersten neun Monaten 2026 lieferte Porsche dort nur noch 21'493 Autos aus, 33 % weniger als im Vorjahr. Porsche rechnet laut Investorentag (7.10.2026) dauerhaft mit weniger Geschäft in China.",
+  "Die Elektro-Wende war teuer: Weil Elektroautos schlechter liefen als geplant, verlängert Porsche Verbrenner und Hybride. Das kostete 2025 rund 2.4 Mrd. €, die Marge fiel auf 1.1 %. 2026 kommen 800 bis 900 Mio. € Sonderkosten dazu, 2027 nochmals rund 400 Mio. €.",
+  "US-Zölle kosteten 2025 rund 700 Mio. €. Ein eigenes Werk in den USA lohnt sich laut Finanzchef Breckner (27.10.2026) vorerst nicht.",
+  "Für 2027 hat Porsche schon tieferen Umsatz und Gewinn angekündigt, weil der Verbrenner-Macan ausläuft."
+ ],
+ "sorgen_art": "gemischt",
+ "sorgen_art_text": "Die Sonderkosten sind zum grossen Teil vorbei und die Kasse ist voll, aber der Absatzverlust in China und die Zölle sind echte, länger dauernde Probleme.",
+ "aufloeser": [
+  {"was": "Auslieferungen 2026: Stoppt der Rückgang in China im vierten Quartal?", "wann": "voraussichtlich Mitte Januar 2027"},
+  {"was": "Jahreszahlen 2026 mit genauer Prognose 2027 und Dividendenvorschlag", "wann": "voraussichtlich März 2027 (2026 war es der 11. März)"},
+  {"was": "Einigung im Zollstreit zwischen der EU und den USA mit tieferen Zöllen für Autos", "wann": "offen"},
+  {"was": "Erste Wirkung des Sparprogramms: Marge auf dem Weg zu 10 bis 15 %", "wann": "2027 bis 2028"}
+ ],
+ "schub_stufe": "mittel",
+ "schub_treiber": [
+  {"titel": "Sparprogramm «Sportwagenschmiede '35»", "text": "Porsche will Entwicklungskosten um bis zu 20 %, Vertriebskosten um 20 % und Materialkosten um rund 10 % senken. Das Management soll um 40 % schrumpfen, die Gewinnschwelle unter 200'000 Autos sinken (2025: 279'449 ausgeliefert). Ziel ist eine Marge von 10 bis 15 % mittelfristig, heute 6.9 %.", "wann": "2027 bis 2030"},
+  {"titel": "Teurere Autos statt mehr Autos", "text": "Der Anteil teurer Fahrzeuge soll von rund einem Drittel auf fast die Hälfte steigen. Die teuersten 10'000 Autos sollen bis 2030 im Schnitt 330'000 statt 270'000 € kosten. Geplant sind ein grosses SUV über dem Cayenne und ein Supersportwagen über dem 911. Der 911 verkauft sich schon heute besser (+12 % in 9 Monaten 2026).", "wann": "ab 2027"},
+  {"titel": "Mehr Geld für Aktionäre", "text": "Mittelfristig sollen 9 bis 12 % des Autoumsatzes als freies Geld übrig bleiben (2025: 4.7 %). Porsche will mindestens 50 % des Gewinns ausschütten. JPMorgan rechnet mit rund 7 Mrd. € operativem Cashflow 2028 nach 3.6 Mrd. € 2025.", "wann": "2028"}
+ ],
+ "schub_beweis": "Achte auf die operative Marge (9 Monate 2026: 6.9 %, Q3 nur 4.8 %) und den Netto-Cashflow der Autosparte ohne Einmaleffekte. Steigt die Marge trotz sinkender Stückzahlen 2027 Richtung 8 bis 10 %, wirkt das Sparprogramm.",
+ "szenario": "Kein Fall wie Google 2023, eher ein Umbau-Fall: Wenn Porsche mit weniger Autos, höheren Preisen und tieferen Kosten wieder 10 bis 15 % Marge schafft, steigt der Gewinn stark und die Dividende mit. Das grösste Risiko: China und Zölle drücken länger, 2027 wird schwächer als erwartet, und die Aktie bleibt mit einem KGV von rund 21 für ein schrumpfendes Geschäft zu teuer.",
+ "ereignis": {
+  "titel": "Jahreszahlen und Ausblick 2027",
+  "art": "offen",
+  "termine": [
+   {"was": "Auslieferungen 2026", "wann": "voraussichtlich Mitte Januar 2027"},
+   {"was": "Jahreszahlen 2026, Prognose 2027, Dividende", "wann": "voraussichtlich März 2027 (Termin noch nicht bestätigt)"}
+  ],
+  "text": "Dass 2027 schwächer wird, hat Porsche am 27.10.2026 schon gesagt. Ein Teil davon ist also im Kurs. Offen ist, wie stark der Rückgang ausfällt. Seit dem Tief vom 8.10. (40.70 €) stieg die Aktie schon um rund 15 %, nach dem guten Cashflow im dritten Quartal. Am Tag der Jahreszahlen bewegte sich die Aktie zuletzt stark: Am 11.3.2026 stieg sie vorbörslich um fast 6 %. Fällt der Ausblick schwach aus, kann der Kurs schnell zurück in die Zone 40.70 bis 44.30 € laufen. Ein Rücksetzer dorthin bei bestätigter Margen-Erholung wäre die Buy-the-Dip-Sicht.",
+  "vorgehen": [
+   {"titel": "Abwarten", "text": "Bis ein Tagesschluss über 47.60 € (Hoch vom 17.9.) die neue Aufwärtsstruktur bestätigt, oder bis die Prognose 2027 im März da ist. Sicherer, aber eventuell teurer."},
+   {"titel": "Rücksetzer in Kaufzone 1", "text": "Bei 43.50 bis 44.30 € (Ausbruchsmarke und Tages-EMAs). Klare Regel: Schliesst eine Woche unter 40.50 €, ist die Idee falsch. Nächste Haltestelle wäre dann 35.60 bis 36.20 € (Tiefs vom März)."},
+   {"titel": "In Tranchen", "text": "Nicht alles vor den Jahreszahlen. Zum Beispiel ein Teil in der Kaufzone, der Rest erst nach der Prognose 2027 im März."}
+  ]
+ },
+ "quellen": [
+  {"titel": "Porsche: Zahlen 9 Monate 2026 (27.10.2026)", "url": "https://newsroom.porsche.com/de_CH/2026/unternehmen/porsche-finanzen-q3-2026-43585.html"},
+  {"titel": "Porsche: Auslieferungen 9 Monate 2026 (9.10.2026)", "url": "https://newsroom.porsche.com/en/2026/company/porsche-deliveries-third-quarter-2026-43480.html"},
+  {"titel": "dpa-AFX: Q3, Sonderkosten und Ausblick 2027 (27.10.2026)", "url": "https://www.deraktionaer.de/nachricht/roundup-porsche-schneidet-im-schwierigen-umfeld-robust-ab-aktie-etwas-erholt-561107.html"},
+  {"titel": "cash.ch: Porsche will sparen und Marge steigern (7.10.2026)", "url": "https://www.cash.ch/news/vw-tochter-porsche-will-sparen-und-marge-steigern-aktie-schwank-974809"},
+  {"titel": "Börsen-Zeitung: Auf und ab am Kapitalmarkttag (7.10.2026)", "url": "https://www.boersen-zeitung.de/kapitalmaerkte/auf-und-ab-an-porsches-kapitalmarkttag"}
+ ]
+}

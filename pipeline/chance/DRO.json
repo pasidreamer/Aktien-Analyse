@@ -1,0 +1,101 @@
+{
+ "ticker": "DRO",
+ "stand": "2026-11-04",
+ "sorgen": [
+  "Die Firma macht wieder Verlust: −32.2 Mio. AUD im 1. Halbjahr 2026 nach +2.1 Mio. ein Jahr davor. Die Kosten stiegen um 122 %, die Bruttomarge fiel von 65 auf 60 %.",
+  "Das Wachstum bremst: Für 2026 erwartet DroneShield 250 bis 270 Mio. AUD Umsatz, Analysten hatten 323 Mio. erwartet. Für 2027 sind erst 29 Mio. AUD Aufträge fest.",
+  "Vertrauen ist beschädigt: Der frühere Chef verkaufte im November 2025 alle Aktien für 49.5 Mio. AUD, die Aufsicht ASIC untersucht seit Mai 2026 Meldungen und Aktienhandel aus dieser Zeit.",
+  "Die Kasse schrumpft (210.6 auf 180 Mio. AUD im 1. Halbjahr 2026), und seit Mai 2026 gibt es keine Quartalsberichte mehr. Anleger fürchten weitere Kapitalerhöhungen."
+ ],
+ "sorgen_art": "gemischt",
+ "sorgen_art_text": "Die Nachfrage nach Drohnenabwehr ist echt, aber Verlust, schwächeres Wachstum und die Vertrauensfrage sind echte Probleme, die erst gelöst werden müssen.",
+ "aufloeser": [
+  {
+   "was": "Jahreszahlen 2026: Umsatz in der Prognose, kleinerer Verlust im 2. Halbjahr, Kasse stabil",
+   "wann": "voraussichtlich Ende Februar 2027 (nicht bestätigt)"
+  },
+  {
+   "was": "Entscheid im grossen europäischen Programm (RE-ARM 2030, mit Anduril, COBBS und Nokia)",
+   "wann": "laut Firma 2. Halbjahr 2026"
+  },
+  {
+   "was": "Abschluss der ASIC-Untersuchung ohne schwere Folgen",
+   "wann": "offen, kein Zeitplan"
+  },
+  {
+   "was": "Deutlich mehr feste Aufträge für 2027",
+   "wann": "laufende Auftragsmeldungen, Schwelle seit Mai 2026: ab 20 Mio. AUD"
+  }
+ ],
+ "schub_stufe": "mittel",
+ "schub_treiber": [
+  {
+   "titel": "Grossaufträge aus Europa",
+   "text": "Europa und Grossbritannien bringen 52 % des Umsatzes. Die Pipeline lag im Mai 2026 bei 2.2 Mrd. AUD in 312 Projekten, davon 1.1 Mrd. in Europa. Das grösste einzelne Projekt (750 Mio. US-Dollar) ist in Verhandlung, also noch nicht sicher.",
+   "wann": "2027"
+  },
+  {
+   "titel": "Software im Abo",
+   "text": "Wiederkehrende Einnahmen stiegen im 1. Halbjahr 2026 um 229 % auf 11.5 Mio. AUD (9.2 % vom Umsatz). Seit 1.10.2026 gibt es das Abo-Paket «Mission Ready Services». Software hat höhere Margen als Geräte, verfehlte aber im Halbjahr das eigene Ziel (14.2 Mio.).",
+   "wann": "2026 bis 2028"
+  },
+  {
+   "titel": "Neue Produkte und Werke",
+   "text": "Erste Aufträge für das neue Aufklärungsgerät RfRecon, Lieferung bis Ende 2026. Die Fertigung soll bis Ende 2026 auf rund 2.4 Mrd. AUD Jahreskapazität wachsen, dazu Produktion in Europa und den USA.",
+   "wann": "ab 2027"
+  }
+ ],
+ "schub_beweis": "Achte bei den Jahreszahlen auf die festen Aufträge für 2027 (heute 29 Mio. AUD) und darauf, ob der Verlust im 2. Halbjahr 2026 kleiner ist als im 1. Halbjahr (−32.2 Mio. AUD).",
+ "szenario": "Gewinnt DroneShield einen grossen europäischen Auftrag und wird wieder profitabel, kann die stark gefallene Aktie schnell neu bewertet werden, wie 2025, als sie sich verzehnfachte. Das grösste Risiko: Die Aufträge kommen später, der Verlust bleibt, und eine Kapitalerhöhung zu tiefen Kursen verwässert die Aktionäre weiter.",
+ "ereignis": {
+  "titel": "Aktie minus 82 % vom Hoch, Jahreszahlen im Februar",
+  "art": "offen",
+  "termine": [
+   {
+    "was": "Entscheid europäisches Programm RE-ARM 2030",
+    "wann": "laut Firma 2. Halbjahr 2026"
+   },
+   {
+    "was": "Jahreszahlen 2026",
+    "wann": "voraussichtlich Ende Februar 2027"
+   }
+  ],
+  "text": "Die Aktie ist vom Hoch bei rund 6.70 AUD auf 1.21 AUD gefallen. Viel Schlechtes ist im Kurs: Verlust, schwächere Prognose, ASIC-Untersuchung. Nach Umsatz ist sie so günstig wie seit Jahren nicht. Für ein klassisches Buy the Dip fehlt aber die intakte Firma: DroneShield macht Verlust und verbrennt Geld. Kleine Werte mit vielen Leerverkäufern können nach guten Nachrichten sehr schnell steigen, weil Leerverkäufer zurückkaufen müssen. Ohne gute Nachrichten fallen sie oft weiter, als man denkt.",
+  "vorgehen": [
+   {
+    "titel": "Abwarten",
+    "text": "Bis ein Tagesschluss über 1.52 AUD den Abwärtstrend erstmals bricht, oder bis die Jahreszahlen im Februar 2027 einen kleineren Verlust zeigen. Teurer, aber sicherer."
+   },
+   {
+    "titel": "Kleine Position in Kaufzone 1",
+    "text": "Im Bereich 1.09 bis 1.20 AUD, nur mit klarer Regel: Schliesst eine Woche unter 1.05 AUD, ist die Idee falsch. Nächste Haltestelle wäre dann 0.79 bis 0.90 AUD."
+   },
+   {
+    "titel": "In Tranchen",
+    "text": "Wegen der starken Schwankungen nicht alles auf einmal: zum Beispiel ein Drittel in Kaufzone 1, der Rest erst nach Trigger oder Jahreszahlen."
+   }
+  ]
+ },
+ "quellen": [
+  {
+   "titel": "CFOtech: Halbjahr 2026 mit Rekordumsatz und Verlust (26.8.2026)",
+   "url": "https://cfotech.co.uk/story/droneshield-posts-record-half-year-revenue-as-losses-grow"
+  },
+  {
+   "titel": "Small Caps: feste Aufträge 261 Mio. AUD (15.10.2026)",
+   "url": "https://smallcaps.com.au/article/droneshield-logs-dollar261m-in-committed-revenue-as-counter-drone-business-scales"
+  },
+  {
+   "titel": "Yahoo Finance: Halbjahres-Call 2026 (27.8.2026)",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/droneshield-ltd-drshf-h1-2026-070100195.html"
+  },
+  {
+   "titel": "InvestorDaily: ASIC-Untersuchung",
+   "url": "https://www.investordaily.com.au/droneshield-under-asic-investigation/"
+  },
+  {
+   "titel": "Börse Express: Pipeline und 750-Mio.-Projekt (1.5.2026)",
+   "url": "https://www.boerse-express.com/news/articles/droneshield-aktie-us750-millionen-deal-in-verhandlung-900413"
+  }
+ ]
+}

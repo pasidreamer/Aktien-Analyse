@@ -1,0 +1,437 @@
+{
+ "ticker": "TTWO",
+ "name": "Take-Two Interactive",
+ "datum": "04.11.2026",
+ "waehrung": "USD",
+ "land": "USA",
+ "meta": "Take-Two Interactive Software, Inc. · NASDAQ: TTWO · Videospiele (Rockstar Games mit GTA und Red Dead, 2K mit NBA 2K, Zynga für Handyspiele) · New York, USA",
+ "price": "208.90 $",
+ "pricemeta": "Schluss 4.11.2026 · 52 Wochen: 183.86 bis 265.94 $ · Allzeithoch 265.94 $ am 7.7.2026",
+ "verdict": "Take-Two steht 15 Tage vor dem wohl grössten Spielstart aller Zeiten: GTA VI erscheint am 19.11.2026. Die Firma selbst ist heute aber schwach: Nach den offiziellen Regeln (GAAP) macht sie Verlust (−1.73 $ pro Aktie in 12 Monaten), der Free Cashflow ist mit 299 Mio. $ klein und kleiner als die Löhne in Aktien (rund 350 Mio. $). Die Aktienzahl steigt um 4.5 % pro Jahr. Darum Qualität orange (40). Bezahlt wird fast nur die Hoffnung auf GTA VI: Kurs-Umsatz-Verhältnis 5.8 statt rund 5.1 im eigenen Schnitt. Timing orange (36): Seit Juli tiefere Hochs und Tiefs, am 30.10. ein Fehlausbruch unter die Tiefs vom Februar und März, heute +7.1 % auf 208.90 $. Der Trigger bei 216 $ ist noch nicht erreicht. Insider haben seit Mai für rund 148 Mio. $ verkauft und nichts gekauft.",
+ "about": "Take-Two verkauft Videospiele. Rockstar Games macht Grand Theft Auto (GTA) und Red Dead Redemption. GTA V hat sich seit 2013 über 230 Mio. Mal verkauft und bringt mit GTA Online bis heute Geld. 2K macht NBA 2K, WWE 2K, Borderlands und Civilization. Zynga (gekauft 2022) macht Handyspiele wie Toon Blast, Words with Friends und Top Eleven. Im Quartal bis Juni 2026 kam die Hälfte des Umsatzes von Handyspielen (50 %), 42 % von Konsolen und 8 % vom PC. 84 % der Net Bookings waren wiederkehrende Ausgaben der Spieler (Spielgeld, Zusatzinhalte, Werbung). Net Bookings sind alle Verkäufe eines Quartals, auch wenn der Umsatz nach den Buchhaltungsregeln erst später verbucht wird. Das Geschäftsjahr endet am 31. März: Geschäftsjahr 2027 = April 2026 bis März 2027.",
+ "why": "Die Aktie bewegt sich seit Anfang 2025 zwischen rund 188 und 266 $. Ende Januar 2026 fiel sie in einer Woche um rund 10 %, weil Google mit «Project Genie» eine KI zeigte, die spielbare Welten erzeugt. Am 4.2.2026 folgte ein Minus von rund 5 %: Der Verlust im Weihnachtsquartal war grösser als erwartet. Mit dem Start der Vorbestellungen für GTA VI am 25.6. stieg die Aktie bis 265.94 $ (7.7.2026). Am 7.8. enttäuschte der Ausblick: Take-Two bestätigte nur 8.0 bis 8.2 Mrd. $ Net Bookings fürs Geschäftsjahr (Analysten laut LSEG: 8.86 Mrd. $) und erwartet für das Quartal bis September nur 1.62 bis 1.67 Mrd. $ (Vorjahr 1.96 Mrd. $). Drei Tage später verkaufte Chef Strauss Zelnick 40'000 Aktien für 10.1 Mio. $. Bis zum 30.10. fiel die Aktie auf 183.86 $, ohne eine neue schlechte Firmenmeldung. Am 2.11. meldete Piper Sandler aus einer Umfrage unter rund 9'000 Jugendlichen: 70 % der Besitzer einer neuen Konsole wollen GTA VI kaufen. Sensor Tower schätzt bis 3.11. rund 7.7 Mio. digitale Vorbestellungen. Am 4.11. stieg die Aktie um 7.1 % auf 208.90 $, ebenfalls ohne Firmenmeldung. Fazit: Das Geschäft ist nicht kaputt, aber ohne GTA VI wächst es kaum noch. Die Börse fragt, ob ein Rekordstart schon im Kurs steckt.",
+ "kpis": [
+  [
+   "w",
+   "Umsatzwachstum",
+   "+15.3 %",
+   "Letzte 12 Monate (6.69 Mrd. $). Stark war vor allem Herbst 2025 (+31 % und +25 %). Im Quartal bis Juni 2026 nur noch +2 %, Net Bookings −3 %. Fürs Quartal bis September erwartet Take-Two 17 bis 20 % weniger Umsatz als vor einem Jahr."
+  ],
+  [
+   "r",
+   "Operative Marge",
+   "−1.4 %",
+   "Letzte 12 Monate nach GAAP. Von 100 $ Umsatz bleibt kein Betriebsgewinn. 2021/22 waren es noch +13.5 %. Dazwischen grosse Verluste, vor allem Abschreibungen auf den Zukauf Zynga."
+  ],
+  [
+   "r",
+   "Gewinn pro Aktie (EPS)",
+   "−1.73 $",
+   "Letzte 12 Monate nach GAAP. Für das Geschäftsjahr bis März 2027 erwartet Take-Two +0.55 bis +0.75 $. Analysten rechnen bereinigt mit viel mehr: bereinigtes KGV auf die Schätzung rund 25 (Stockanalysis, 27.10.)."
+  ],
+  [
+   "r",
+   "ROIC",
+   "−2.0 %",
+   "Auf 100 $ investiertes Kapital rund 2 $ Verlust. Schwach. Erst ein grosser Erfolg von GTA VI kann das drehen."
+  ],
+  [
+   "w",
+   "Free Cashflow",
+   "299 Mio. $",
+   "Letzte 12 Monate, nur 4.5 % vom Umsatz. In 3 der letzten 5 Geschäftsjahre negativ. Die Löhne in Aktien (rund 350 Mio. $ in 12 Monaten) sind grösser: Ohne sie wäre der FCF negativ. Ziel der Firma: über 1 Mrd. $ operativer Cashflow bis März 2027."
+  ],
+  [
+   "w",
+   "Nettoschulden",
+   "0.69 Mrd. $",
+   "30.6.2026: Schulden 2.52 Mrd. $ minus Bargeld und Anlagen 1.83 Mrd. $. Mit Leasing 1.12 Mrd. $, das ist das 1.5-Fache des EBITDA (Betriebsgewinn vor Abschreibungen). Take-Two will bis März 2027 netto schuldenfrei sein."
+  ],
+  [
+   "w",
+   "KUV",
+   "5.8",
+   "Kurs-Umsatz-Verhältnis: Du zahlst das 5.8-Fache des Jahresumsatzes. Ein KGV gibt es nicht, weil Take-Two Verlust macht. Eigener Schnitt (31.3.2022 bis 2026): 5.1. Also rund 15 % teurer als üblich."
+  ],
+  [
+   "r",
+   "Dividende",
+   "keine",
+   "Take-Two zahlt keine Dividende und kauft keine Aktien zurück. Im Gegenteil: Die Aktienzahl stieg in 12 Monaten um 4.5 % (Löhne in Aktien und neue Aktien für 1.25 Mrd. $ im Geschäftsjahr 2026). Dein Anteil an der Firma wird kleiner."
+  ]
+ ],
+ "revtitle": "Umsatz pro Quartal (Mio. $)",
+ "revunit": "Mio. $",
+ "epsunit": "$",
+ "revnote": "Alle 4 letzten Quartale über dem Vorjahr, das Wachstum fiel aber von +31 % (Juli bis September 2025) auf +2 % (April bis Juni 2026). Das Quartal bis September 2026 wird laut Prognose (1.42 bis 1.47 Mrd. $) unter dem Vorjahr liegen. GTA VI kommt erst ins Quartal bis Dezember.",
+ "marginnote": "Operative Marge nach GAAP. 2023 bis 2025 tief negativ wegen Abschreibungen auf Zynga (allein 3.5 Mrd. $ im Geschäftsjahr 2025). Seit 2026 fast bei null.",
+ "finnote": "<b>Hinweis:</b> Geschäftsjahr bis 31. März, «2026» = April 2025 bis März 2026. Zynga ist seit Mai 2022 dabei (darum +52.6 % im Jahr 2023). Ein KGV gibt es nur für 2022 (Kurs 31.3.2022: 153.74 $), sonst Verlust. Für die Bewertung nehmen wir das Kurs-Umsatz-Verhältnis (KUV) jeweils am 31. März: 5.1, 3.5, 4.7, 6.4 und 5.5, Schnitt 5.1. ROIC für die einzelnen Jahre nicht verfügbar. Free Cashflow = operativer Cashflow minus Investitionen.",
+ "FIN": [
+  [
+   "2022",
+   3505,
+   "+3.9 %",
+   "13.5 %",
+   3.58,
+   99,
+   "n. v.",
+   "42.9"
+  ],
+  [
+   "2023",
+   5350,
+   "+52.6 %",
+   "−21.8 %",
+   -7.03,
+   -203,
+   "n. v.",
+   "neg."
+  ],
+  [
+   "2024",
+   5350,
+   "0.0 %",
+   "−67.1 %",
+   -22.01,
+   -158,
+   "n. v.",
+   "neg."
+  ],
+  [
+   "2025",
+   5634,
+   "+5.3 %",
+   "−77.9 %",
+   -25.58,
+   -215,
+   "n. v.",
+   "neg."
+  ],
+  [
+   "2026",
+   6656,
+   "+18.2 %",
+   "−1.6 %",
+   -1.62,
+   462,
+   "n. v.",
+   "neg."
+  ],
+  [
+   "Letzte 12 Mt.",
+   6687,
+   "+15.3 %",
+   "−1.4 %",
+   -1.73,
+   299,
+   "−2.0 %",
+   "neg."
+  ]
+ ],
+ "QREV": [
+  [
+   "Sep 24",
+   1353
+  ],
+  [
+   "Dez 24",
+   1360
+  ],
+  [
+   "Mär 25",
+   1583
+  ],
+  [
+   "Jun 25",
+   1504
+  ],
+  [
+   "Sep 25",
+   1774
+  ],
+  [
+   "Dez 25",
+   1699
+  ],
+  [
+   "Mär 26",
+   1680
+  ],
+  [
+   "Jun 26",
+   1534
+  ]
+ ],
+ "revdec": 0,
+ "MARGIN": [
+  [
+   "2022",
+   13.5
+  ],
+  [
+   "2023",
+   -21.8
+  ],
+  [
+   "2024",
+   -67.1
+  ],
+  [
+   "2025",
+   -77.9
+  ],
+  [
+   "2026",
+   -1.6
+  ],
+  [
+   "12 Mt.",
+   -1.4
+  ]
+ ],
+ "Q": [
+  [
+   "Umsatztrend",
+   "4 von 4 Quartalen über Vorjahr, aber das Wachstum fällt stark (+31, +25, +6, +2 %)",
+   12,
+   15
+  ],
+  [
+   "Wachstumstempo",
+   "+15.3 % in 12 Monaten und +18 % im Geschäftsjahr 2026, aber 3 Jahre im Schnitt nur +7.6 % und zuletzt +2 %. Darum eine Stufe tiefer",
+   8,
+   10
+  ],
+  [
+   "Operative Marge",
+   "−1.4 % (0 Pkt.). Trend: seit 2025 klar besser, aber unter 2022 (+13.5 %): stabil (3 Pkt.)",
+   3,
+   15
+  ],
+  [
+   "Gewinnwachstum (EPS)",
+   "GAAP-Gewinn negativ (−1.73 $). Die Prognose für März 2027 (+0.55 bis +0.75 $) zählt erst, wenn sie da ist",
+   0,
+   10
+  ],
+  [
+   "Free Cashflow",
+   "Positiv (299 Mio. $), aber kleiner als im Geschäftsjahr 2026 (462 Mio. $) und 3 von 5 Jahren negativ",
+   3,
+   10
+  ],
+  [
+   "ROIC",
+   "−2.0 %: unter 10 % (2 Pkt.), klar steigender Trend (+1)",
+   3,
+   15
+  ],
+  [
+   "Schulden",
+   "Nettoschulden mit Leasing 1.12 Mrd. $ gegen EBITDA 0.77 Mrd. $: 1.5. Ohne Leasing 0.9",
+   7,
+   10
+  ],
+  [
+   "Bewertung vs. eigene Historie",
+   "Verlustfirma: KUV 5.8 gegen eigenen Schnitt 5.1, rund 15 % teurer (4 Pkt., höchstens 7)",
+   4,
+   15
+  ]
+ ],
+ "adwnote": "Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Klar negativ: Im Juli stand die Wochen-A/D bei 321, heute bei 273. Bei den Tiefs fiel sie jedes Mal tiefer (Februar 312, März 306, Oktober 271). Es wurde mehr verkauft als gekauft, keine Divergenz.",
+ "rsiwnote": "Unter 30 überverkauft, über 70 überkauft. Bei den drei Tiefs lag der RSI bei 31 (Februar), 34 (März) und 36 (Oktober), obwohl der Kurs im Oktober tiefer fiel: eine kleine bullische Divergenz. Heute 45.9, neutral.",
+ "addnote": "Negativ: Am 20.8. stand die Tages-A/D bei 20.6, am 30.10. bei −8.6. Am 24.9. schloss der Kurs bei 202.98 $ mit einer A/D von −2.4. Heute steht der Kurs höher (208.90 $), die A/D aber tiefer (−7.9). Der heutige Sprung kam also noch nicht mit breitem Kaufdruck, auch wenn die A/D von −9.9 auf −7.9 stieg.",
+ "ind": [
+  [
+   "Kurs vs. EMA 50",
+   "208.9 &lt; 209.1",
+   "208.9 &lt; 220.5",
+   "Tag genau an der Linie, Woche darunter."
+  ],
+  [
+   "Kurs vs. EMA 200",
+   "208.9 &lt; 220.9",
+   "208.9 &gt; 193.8",
+   "Woche über der langfristigen Linie, Tag darunter."
+  ],
+  [
+   "EMA 50 vs. EMA 200",
+   "50 unter 200 (seit 18.9.2026)",
+   "50 über 200 (seit November 2023)",
+   "Grosser Trend noch aufwärts, kurzer Trend abwärts."
+  ],
+  [
+   "RSI (14)",
+   "55.7",
+   "45.9",
+   "Tag aus 31.6 (30.10.) nach oben gedreht, Woche mit kleiner bullischer Divergenz."
+  ],
+  [
+   "A/D",
+   "tiefer bei höherem Kurs",
+   "fällt seit Juli",
+   "Auf beiden Zeitebenen negativ."
+  ],
+  [
+   "Volumen",
+   "Ø 20 Tage 2.52 Mio. vs. Ø 100 Tage 2.53 Mio. Aktien",
+   "Normal. Am 30.10. aber rund 1.5-mal so viel wie üblich (Verkäufe)."
+  ]
+ ],
+ "smc": "Seit Anfang 2025 läuft Take-Two seitwärts zwischen rund 188 und 266 $. Das Allzeithoch 265.94 $ (7.7.2026) lag nur knapp über dem Hoch vom Oktober 2025 (264.79 $). Danach kamen tiefere Hochs (256.62 $ am 10.8., 224.26 $ am 14.9., 215.66 $ am 9.10.) und tiefere Tiefs (208.52 $ am 9.9., 199.46 $ am 28.9., 196.30 $ am 13.10.). Seit Anfang September bildet sich eine kleine Range zwischen 190 und 215.50 $ (Wochenschlüsse). Am 30.10. fiel der Kurs auf 183.86 $ und damit unter die Tiefs vom Februar (188.65 $) und März (187.63 $). Dort lagen viele Stop-Loss-Aufträge. Der Wochenschluss lag aber wieder bei 190.17 $, und heute schloss die Aktie bei 208.90 $. Das sieht nach einem Fehlausbruch nach unten aus (Spring): oft ein Zeichen, dass Käufer einsammeln (Akkumulation). Bestätigt ist das erst mit einem Tagesschluss über dem letzten tieferen Hoch (215.66 $). Die A/D-Linie zeigt diese Käufe noch nicht. Darüber warten 220 bis 225 $ (EMA 200 Tag, EMA 50 Woche, Hoch vom 14.9.).",
+ "zones": [
+  [
+   "r",
+   "246 bis 257 $",
+   "Widerstand: Hochs vom Mai und August 2026 (246.25 bis 256.62 $)."
+  ],
+  [
+   "r",
+   "220 bis 225 $",
+   "Widerstand: Tages-EMA 200 (220.90 $), Wochen-EMA 50 (220.46 $) und Hoch vom 14.9. (224.26 $)."
+  ],
+  [
+   "t",
+   "216 $",
+   "<b>Trigger:</b> Tagesschluss über dem Hoch vom 9.10. (215.66 $), dem letzten tieferen Hoch. Ein Wochenschluss darüber bestätigt den Ausbruch aus der Range."
+  ],
+  [
+   "s",
+   "188 bis 195 $",
+   "<b>Kaufzone 1:</b> Unterkante der Range: Tiefs vom Februar und März (188.65 und 187.63 $), Wochenschluss 30.10. (190.17 $) und Wochen-EMA 200 (193.78 $)."
+  ],
+  [
+   "s",
+   "150 bis 167 $",
+   "<b>Kaufzone 2:</b> Frühere Range von November 2023 bis Februar 2024 (150.34 bis 167.39 $). Dazwischen nur das Tief vom Januar 2025 (177.35 $)."
+  ],
+  [
+   "r",
+   "183 $",
+   "Abbruch: Wochenschluss unter dem Tief vom 30.10. (183.86 $). Dann wäre der Fehlausbruch keiner, und die nächste Haltestelle liegt bei 150 bis 167 $."
+  ]
+ ],
+ "smart": [
+  "<b>Take-Two selbst:</b> Kein Rückkauf, keine Dividende. Die Aktienzahl stieg in 12 Monaten um 4.5 % auf 187.0 Mio. (30.6.2026). Gründe: Löhne in Aktien (305 Mio. $ im Geschäftsjahr 2026, 4.6 % vom Umsatz, im letzten Quartal 86 Mio. $) und eine Kapitalerhöhung im Geschäftsjahr 2026 (1.25 Mrd. $ aus neuen Aktien).",
+  "<b>Insider-Verkäufe:</b> Von Ende Mai bis Mitte Oktober 2026 verkauften Insider für rund 148 Mio. $ und kauften keine einzige Aktie am Markt. Die grössten: Präsident Karl Slatoff 249'327 Aktien zu 225.52 $ (56.2 Mio. $) und Chef Strauss Zelnick 208'969 Aktien zu 227.34 $ (47.5 Mio. $) Anfang Juni, nach der Zuteilung von Leistungsaktien und laut Meldung nach festen Plänen. Zelnick verkaufte zusätzlich 70'000 Aktien am 26.5. (15.6 Mio. $) und 40'000 am 10.8. (10.1 Mio. $). Seit September nur noch kleinere Verkäufe (Verwaltungsrat William Gordon 10'000 Aktien zu 202.39 $).",
+  "<b>Analysten:</b> Fast alle positiv. Stockanalysis (27.10.): 29 Analysten, Konsens «Strong Buy», Kursziel im Schnitt 285.13 $. JPMorgan 310 $, Goldman Sachs 285 $ (August). Aber: Die Gewinnschätzungen fürs laufende Jahr sanken in 90 Tagen um 16.3 %. Wenn alle schon positiv sind, gibt es wenige neue Käufer.",
+  "<b>Leerverkäufer:</b> 9.3 Mio. Aktien sind leerverkauft, 5.0 % der handelbaren Aktien (Stockanalysis, 27.10.). Leerverkäufer wetten auf fallende Kurse.",
+  "<b>Branchenvergleich (Scanner, 31.10.):</b> Note 1.7 von 5. Fairer Wert 60 $, also 68 % unter dem Kurs vom 30.10. (Unsicherheit mittel). Die Modelle rechnen mit dem heutigen kleinen Cashflow, GTA VI steckt darin noch nicht. Sie zeigen, wie viel Erfolg der Kurs schon voraussetzt."
+ ],
+ "seasnote": "Durchschnittliche Monatsrendite in %. Daten seit 1997. November +2.1 % (64 % positive Jahre, aber nur 11 Jahre Daten), Dezember 0.0 % (52 %), Januar +2.1 % (61 %). Leicht positiv, keine starke Saison.",
+ "T": [
+  [
+   "Trend Woche (EMA 50/200)",
+   "Kurs über EMA 200 (193.8), unter EMA 50 (220.5), EMA 50 über 200 aber fallend: Rücksetzer im Aufwärtstrend",
+   12,
+   20
+  ],
+  [
+   "Trend Tag (EMA 50/200)",
+   "Kurs knapp unter EMA 50 und unter EMA 200, EMA 50 unter 200 seit 18.9., Abstand klein",
+   2,
+   10
+  ],
+  [
+   "Struktur (SMC)",
+   "Tiefere Hochs und Tiefs seit Juli. Fehlausbruch unter 187.63 $ am 30.10. zurückgeholt, aber noch kein Change of Character",
+   4,
+   20
+  ],
+  [
+   "RSI Tag/Woche",
+   "Woche: bullische Divergenz bei 31, 34, 36 im intakten Wochentrend. Tag aus 31.6 auf 55.7 gedreht",
+   12,
+   15
+  ],
+  [
+   "A/D Tag/Woche",
+   "Beide fallen mit dem Kurs, Tag sogar tiefer bei höherem Kurs",
+   3,
+   20
+  ],
+  [
+   "Smart Money",
+   "Start 3, gehäufte Insider-Verkäufe (rund 148 Mio. $) −3, kein Rückkauf, Verwässerung 4.5 %",
+   0,
+   10
+  ],
+  [
+   "Saisonalität",
+   "November bis Januar leicht positiv, Trefferquote 52 bis 64 %",
+   3,
+   5
+  ]
+ ],
+ "pro": [
+  "GTA VI startet am 19.11.2026. GTA V hat sich über 230 Mio. Mal verkauft und verdient seit 13 Jahren Geld.",
+  "Starke Signale vor dem Start: rund 7.7 Mio. digitale Vorbestellungen (Schätzung Sensor Tower), 89 % davon für die teure Version zu 99.99 $.",
+  "Take-Two erwartet fürs Geschäftsjahr bis März 2027 rund 20 % mehr Net Bookings, über 1 Mrd. $ operativen Cashflow und netto keine Schulden mehr.",
+  "Wiederkehrende Einnahmen (Spielgeld, Zusatzinhalte) machen rund 80 % der Net Bookings aus. GTA Online für GTA VI kann das über Jahre tragen.",
+  "Charttechnisch: Fehlausbruch unter die Jahrestiefs am 30.10., schnell zurückgeholt, dazu eine bullische RSI-Divergenz im Wochenchart."
+ ],
+ "con": [
+  "Ohne GTA VI wächst Take-Two kaum: Net Bookings im Quartal bis Juni −3 %, Handyspiele −7 %, PC −22 %. Das Quartal bis September wird unter dem Vorjahr liegen.",
+  "Heute Verlust nach GAAP, ROIC negativ, Free Cashflow kleiner als die Löhne in Aktien.",
+  "Verwässerung: 4.5 % mehr Aktien in 12 Monaten, keine Rückkäufe, keine Dividende.",
+  "Insider verkauften seit Mai für rund 148 Mio. $ und kauften nichts.",
+  "Sell-the-News-Gefahr: Fast alle Analysten sind positiv, das Ereignis ist seit Jahren bekannt. Ein guter, aber nicht überragender Start kann den Kurs drücken.",
+  "A/D-Linie fällt auf beiden Zeitebenen: Die grossen Verkäufer sind noch nicht weg."
+ ],
+ "todo": [
+  [
+   "t",
+   "Beobachten",
+   "Alarm bei 216 $ (Trigger) und 195 $ (oberes Ende Kaufzone 1)."
+  ],
+  [
+   "s",
+   "Timing grün",
+   "Tagesschluss über 216 $ und danach ein Wochenschluss über der Range (215.50 $), am besten mit steigender A/D. Oder ein Rücksetzer in 188 bis 195 $, der über 183 $ hält. Fundamental: Die Zahlen am 9.11. müssen die Jahresprognose (8.0 bis 8.2 Mrd. $ Net Bookings) bestätigen, und GTA VI muss am 19.11. ohne Verschiebung starten."
+  ],
+  [
+   "r",
+   "Abbruch",
+   "Wochenschluss unter 183 $. Dann ist die nächste Haltestelle 150 bis 167 $ (Range 2023/24)."
+  ],
+  [
+   "",
+   "Nächste Zahlen",
+   "2. Quartal des Geschäftsjahres 2027 (Juli bis September 2026): Montag, 9.11.2026 nach US-Börsenschluss. Start GTA VI: 19.11.2026. Die ersten Zahlen mit GTA VI kommen voraussichtlich Anfang Februar 2027."
+  ]
+ ],
+ "bands": [
+  {
+   "from": 246,
+   "to": 257,
+   "type": "res"
+  },
+  {
+   "from": 220,
+   "to": 225,
+   "type": "res"
+  },
+  {
+   "from": 188,
+   "to": 195,
+   "type": "sup"
+  },
+  {
+   "from": 150,
+   "to": 167,
+   "type": "sup"
+  }
+ ],
+ "refs": [
+  {
+   "v": 216,
+   "label": "Trigger 216"
+  },
+  {
+   "v": 183,
+   "label": "Abbruch 183"
+  }
+ ],
+ "sources": "<a href=\"https://www.stockanalysis.com/stocks/ttwo/financials/\" target=\"_blank\" rel=\"noopener\">StockAnalysis.com</a> und <a href=\"https://stockanalysis.com/stocks/ttwo/statistics/\" target=\"_blank\" rel=\"noopener\">Statistik</a> (Stand 27.10.2026), <a href=\"https://www.sec.gov/Archives/edgar/data/0000946581/000162828026054580/ttwo1q27earningsrelease.htm\" target=\"_blank\" rel=\"noopener\">Take-Two Q1 GJ 2027 (7.8.2026)</a>, <a href=\"https://www.sec.gov/Archives/edgar/data/0000946581/000162828026037260/ttwo4q26earningsrelease.htm\" target=\"_blank\" rel=\"noopener\">Take-Two Q4 GJ 2026 (21.5.2026)</a>, <a href=\"https://www.sec.gov/Archives/edgar/data/946581/000162828026005010/ttwo3q26earningsrelease.htm\" target=\"_blank\" rel=\"noopener\">Take-Two Q3 GJ 2026 (3.2.2026)</a>, <a href=\"https://www.nasdaq.com/articles/take-two-interactive-software-q1-earnings-call-highlights\" target=\"_blank\" rel=\"noopener\">Nasdaq: Q1-Telefonkonferenz</a>, <a href=\"https://www.thestreet.com/investing/gta-vi-pre-orders-break-records-investors-need-answer\" target=\"_blank\" rel=\"noopener\">TheStreet (10.8.2026)</a>, <a href=\"https://finance.yahoo.com/markets/stocks/articles/two-shares-rise-1-5-134832141.html\" target=\"_blank\" rel=\"noopener\">Yahoo: Piper-Sandler-Umfrage (2.11.2026)</a>, <a href=\"https://www.ad-hoc-news.de/boerse/news/unternehmensnachrichten/take-two-s-gta-vi-ledger-7-71-million-preorders-a-40-million-sales-bet-and-a-november-reckoning/70455786\" target=\"_blank\" rel=\"noopener\">ad-hoc-news: Vorbestellungen (4.11.2026)</a>, <a href=\"https://247wallst.com/cards/take-two-interactive-ttwo-price-swing-01m6kr4jpkdsbsc8ywet5xsk14\" target=\"_blank\" rel=\"noopener\">24/7 Wall St (4.11.2026)</a>, <a href=\"https://www.trefis.com/stock/ttwo/articles/589221/ttwo-stock-falls-10-with-a-5-day-losing-spree-on-ai-disruption-fears/2026-01-31\" target=\"_blank\" rel=\"noopener\">Trefis: Project Genie (31.1.2026)</a>, <a href=\"https://finance.yahoo.com/news/why-two-ttwo-shares-sliding-203544568.html\" target=\"_blank\" rel=\"noopener\">Yahoo (4.2.2026)</a>, <a href=\"https://quantisnow.com/insiders/TTWO\" target=\"_blank\" rel=\"noopener\">Insider (Quantisnow)</a>, <a href=\"https://macrotrends.net/stocks/charts/TTWO/take-two-interactive-software/price-sales\" target=\"_blank\" rel=\"noopener\">Macrotrends: KUV-Historie</a>, Branchenvergleich und fairer Wert aus data/scan.json (31.10.2026)."
+}
