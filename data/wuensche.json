@@ -92,6 +92,20 @@
    "status": "fertig",
    "hinweis": "Von Pascal im Chat gewünscht. Versicherer: Solvency-Quote und Kapitalgenerierung statt FCF prüfen.",
    "ticker": "NN"
+  },
+  {
+   "id": "chat-2026-11-04-P911",
+   "text": "Porsche AG (P911.DE)",
+   "eingang": "2026-11-04T08:28Z",
+   "status": "offen",
+   "hinweis": "Von Pascal im Chat gewünscht. Gemeint ist die Porsche AG (Sportwagen), nicht die Holding Porsche SE (PAH3.DE). Themen: China-Absatz, US-Zölle, Elektro-Strategie, Margenrückgang, Vorzugsaktie, Dividende einmal jährlich nach der Hauptversammlung."
+  },
+  {
+   "id": "chat-2026-11-04-DRO",
+   "text": "DroneShield (DRO.AX)",
+   "eingang": "2026-11-04T08:28Z",
+   "status": "offen",
+   "hinweis": "Von Pascal im Chat gewünscht. Australische Drohnenabwehr, Börse ASX in AUD, kleiner Wert mit starken Kursschwankungen. Auftragsbestand, Cash-Verbrauch und Verwässerung durch Kapitalerhöhungen genau prüfen. Keine Dividende erwartet."
   }
  ],
  "stand": "2026-10-28T10:16Z"
