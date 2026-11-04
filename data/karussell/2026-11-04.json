@@ -1,0 +1,147 @@
+{
+ "datum": "2026-11-04",
+ "ticker": "RACE",
+ "name": "Ferrari",
+ "thema": "Quartalszahlen",
+ "stand": "03.11.2026",
+ "slides": [
+  {
+   "typ": "hook",
+   "kicker": "FERRARI · QUARTALSZAHLEN",
+   "titel": "Weniger Autos, mehr Gewinn: Bricht Ferrari jetzt aus?",
+   "text": "Ferrari liefert 1 % weniger Autos aus und verdient 14 % mehr pro Aktie. In Mailand fiel die Aktie zeitweise 4.2 %, in New York schloss sie 2.9 % höher.",
+   "kpis": [
+    {
+     "label": "KURS",
+     "wert": "414.77 $"
+    },
+    {
+     "label": "AM ZAHLENTAG",
+     "wert": "+2.9 %",
+     "ton": "gruen"
+    },
+    {
+     "label": "UNTER DEM HOCH",
+     "wert": "−5 %"
+    }
+   ]
+  },
+  {
+   "typ": "firma",
+   "kicker": "WAS DIE FIRMA MACHT",
+   "titel": "Luxus auf vier Rädern",
+   "text": "Ferrari baut Sportwagen in Maranello bei Modena. Die Firma liefert mit Absicht weniger Autos aus, als bestellt werden. Das hält die Preise hoch. Dazu kommen die Formel 1 und Einnahmen aus der Marke.",
+   "fakten": [
+    {
+     "label": "Sitz",
+     "wert": "Maranello, Italien"
+    },
+    {
+     "label": "Umsatz pro Jahr",
+     "wert": "rund 7.6 Mrd. €"
+    },
+    {
+     "label": "Autos im Quartal",
+     "wert": "3'368"
+    }
+   ]
+  },
+  {
+   "typ": "zahlen",
+   "kicker": "WAS DIE ZAHLEN ZEIGEN",
+   "titel": "Der Preis schlägt die Menge",
+   "quelle": "Quelle: Quartalsbericht Q3 2026",
+   "zeilen": [
+    {
+     "k": "Umsatz",
+     "sub": "1.90 Mrd. €, ohne Währung +10 %",
+     "wert": "+7 %"
+    },
+    {
+     "k": "Gewinn pro Aktie",
+     "sub": "2.44 €, erwartet waren 2.37 €",
+     "wert": "+14 %",
+     "ton": "gruen"
+    },
+    {
+     "k": "Ausgelieferte Autos",
+     "sub": "nach neun Monaten 318 weniger",
+     "wert": "−1 %",
+     "ton": "orange"
+    },
+    {
+     "k": "Free Cashflow",
+     "sub": "567 Mio. € in drei Monaten",
+     "wert": "+43 %",
+     "ton": "gruen"
+    }
+   ],
+   "erklaerung": "Kunden bestellen teure Sondermodelle und viele Extras. So verdient Ferrari an jedem Auto mehr."
+  },
+  {
+   "typ": "skala",
+   "kicker": "AMPEL 1: QUALITÄT",
+   "titel": "Sehr profitabel, wenig Wachstum",
+   "name": "Qualität",
+   "wert": 80,
+   "punkte": [
+    "39.7 % EBITDA-Marge: Von 100 € Umsatz bleiben fast 40 € Betriebsgewinn vor Abschreibungen.",
+    "Ferrari hat mehr Bargeld als Schulden und kauft laufend eigene Aktien zurück.",
+    "Die Schwachstelle: Es werden weniger Autos verkauft. Das Wachstum hängt an den Preisen."
+   ]
+  },
+  {
+   "typ": "skala",
+   "kicker": "STRUKTUR IM WOCHENCHART",
+   "titel": "Höhere Tiefs, enge Range",
+   "name": "Timing",
+   "wert": 74,
+   "punkte": [
+    "Tief im März bei 312.51 $, im Mai ein höheres Tief bei 319.72 $. Die Aufwärtsstruktur steht.",
+    "Seit Mitte August pendelt der Kurs zwischen 388 und 420 $ (Wochenschluss).",
+    "Steigende Tage haben 1.4-mal so viel Volumen wie fallende. Das spricht für Käufer."
+   ]
+  },
+  {
+   "typ": "marke",
+   "kicker": "DIE ENTSCHEIDENDE MARKE",
+   "titel": "Die Unterkante der Range",
+   "text": "Seit Mitte August hält die Range zwischen 388 und 420 $. Ihre Unterkante vom September liegt bei 388.33 $.",
+   "marke_label": "RANGE-UNTERKANTE",
+   "marke": "388.33 $",
+   "szenarien": [
+    {
+     "art": "bruch",
+     "titel": "Bricht sie",
+     "text": "Ein Wochenschluss unter 388 $ beendet die Range nach unten. Erste Haltestelle ist die alte Range von 335 bis 367 $ aus dem Winter 2023/24, danach 296 bis 312 $ vom Herbst 2023."
+    },
+    {
+     "art": "halten",
+     "titel": "Hält sie",
+     "text": "Dann sammeln Käufer weiter ein. Ein Wochenschluss über 420 $ wäre der Ausbruch. Darüber liegt Widerstand bis 454 $ aus dem Winter 2024/25."
+    }
+   ]
+  },
+  {
+   "typ": "fazit",
+   "kicker": "MEIN FAZIT",
+   "titel": "Starke Firma, Chart vor dem Test",
+   "absaetze": [
+    "Ferrari verdient an jedem Auto mehr. Weil die Stückzahlen sinken, reagiert die Aktie aber empfindlich auf kleine Enttäuschungen, wie am Dienstag in Mailand.",
+    "Im Chart steht der Kurs nahe an der Oberkante der Range. Ein Wochenschluss über 420 $ wäre für mich ein Zeichen. Bis dahin beobachte ich die 388 $."
+   ],
+   "frage": "Schafft Ferrari den Ausbruch über 420 $? Deine Meinung in die Kommentare."
+  }
+ ],
+ "caption": "Ferrari liefert weniger Autos aus und verdient trotzdem 14 % mehr pro Aktie. In Mailand fiel die Aktie nach den Zahlen zeitweise, in New York schloss sie fast 3 % höher. Seit August läuft sie in einer Range zwischen 388 und 420 $ und steht jetzt nahe an der Oberkante. Wisch durch für Zahlen, Struktur und beide Szenarien.",
+ "hashtags": [
+  "#ferrari",
+  "#aktien",
+  "#börse",
+  "#quartalszahlen",
+  "#marktstruktur",
+  "#chartanalyse",
+  "#stocks",
+  "#race"
+ ]
+}
