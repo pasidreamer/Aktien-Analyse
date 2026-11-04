@@ -57,6 +57,13 @@ Arbeitsordner: das geklonte Repo (z. B. /home/claude/aktien-ampel). Alle Pfade u
    - `pipeline/div_info.json`: Dividendenangaben (Vorlage: Eintrag RACE oder V). Zahlt die Firma keine Dividende:
      `{"zahlt": false, "text": "..."}`.
    - `pipeline/chance/TICKER.json`: Unterbewertung und Wachstumsschub nach `pipeline/chance/_auftrag.md`.
+     Existiert die Datei schon (z. B. aus dem Chat mit Pascal), nicht überschreiben, nur ergänzen und Zahlen aktualisieren.
+     **Sell the News oder Buy the Dip (Pascal mag diese Sicht, immer prüfen):** Steht ein grosses, bekanntes Ereignis an
+     (Produktstart, Zulassung, Investorentag, wichtige Zahlen) oder ist die Aktie bei intakter Firma stark gefallen, ein Feld
+     `ereignis` schreiben: {"titel", "art": "sell_the_news" | "buy_the_dip" | "offen", "termine": [{"was", "wann"}],
+     "text" (ist das Ereignis schon im Kurs? was passiert typischerweise am Termin?), "vorgehen": [{"titel", "text"}]
+     (2 bis 3 Wege mit Marken aus der Marktstruktur, z. B. Abwarten bis Bestätigung, Kauf an der Range-Unterkante mit
+     Ausstiegsregel per Wochenschluss, in Tranchen)}. Vorlage: `pipeline/chance/TTWO.json`. Keine Kaufempfehlung.
    - Neue Länder: in `app.js` bei `regionCode` ergänzen.
    - `python3 pipeline/build_data.py` schreibt `data/stocks.json` und `analysen/TICKER.html`.
 10. **Wunsch abschliessen:** In `data/wuensche.json` beim Wunsch `status` auf `fertig` und `ticker` setzen.

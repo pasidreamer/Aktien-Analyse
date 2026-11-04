@@ -598,3 +598,8 @@ body.login .tabs,body.start .tabs{display:none}
 .sk-b{background:var(--rot-soft)} .sk-b b{color:var(--rot)} .sk-h{background:var(--gruen-soft)} .sk-h b{color:var(--gruen)}
 .chart .pvl{font-weight:700;font-size:9px}
 @media (min-width:640px){.sk-sz{grid-template-columns:1fr 1fr}}
+.ev-card p{margin:10px 0 0;line-height:1.5}
+.ev-card h3{margin-top:14px}
+.pill.ev-orange{background:color-mix(in srgb,var(--orange) 18%,transparent);color:var(--orange)}
+.pill.ev-gruen{background:color-mix(in srgb,var(--gruen) 18%,transparent);color:var(--gruen)}
+.pill.ev-gelb{background:color-mix(in srgb,var(--gelb) 18%,transparent);color:var(--gelb)}

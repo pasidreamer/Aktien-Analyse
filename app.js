@@ -627,6 +627,18 @@ function divKpi(s, v) {
     ${esc(divForm(s))} <button type="button" class="jump" data-jump="div-${esc(s.ticker)}">Alle Details</button></em></div>`;
 }
 
+// Grosses bekanntes Ereignis: Sell the News (schon im Kurs) oder Buy the Dip (Rücksetzer bei intakter Firma)
+const EREIGNIS = { sell_the_news: ["Sell the News: schon im Kurs", "orange"], buy_the_dip: ["Buy the Dip: Rücksetzer bei intakter Firma", "gruen"], offen: ["Noch offen", "gelb"] };
+function ereignisHtml(e) {
+  if (!e) return "";
+  const a = EREIGNIS[e.art] || EREIGNIS.offen;
+  return `<div class="card ch-card ev-card"><div class="ch-head"><h3>${esc(e.titel || "Grosses Ereignis")}</h3><span class="pill ev-${a[1]}">${a[0]}</span></div>
+    ${(e.termine || []).length ? `<ul class="plain when">${e.termine.map(x => `<li><span>${esc(x.was)}</span><em>${esc(x.wann || "")}</em></li>`).join("")}</ul>` : ""}
+    ${e.text ? `<p>${esc(e.text)}</p>` : ""}
+    ${(e.vorgehen || []).length ? `<h3>So gehen viele vor</h3><ol class="treiber">${e.vorgehen.map(x => `<li><b>${esc(x.titel)}</b><span>${esc(x.text)}</span></li>`).join("")}</ol>` : ""}
+    <p class="pill-line">Keine Anlageberatung.</p></div>`;
+}
+
 function chanceHtml(v) {
   const s = v.s, c = s.chance, b = v.bew;
   if (!c && !b) return "";
@@ -651,6 +663,7 @@ function chanceHtml(v) {
     <ol class="treiber">${(c.schub_treiber || []).map(x => `<li><b>${esc(x.titel)}</b><span>${esc(x.text)}</span>${x.wann ? `<em>${esc(x.wann)}</em>` : ""}</li>`).join("")}</ol>
     ${c.schub_beweis ? `<p class="beweis"><b>Woran du es erkennst:</b> ${esc(c.schub_beweis)}</p>` : ""}</div>` : "";
   return `<div class="sec"><h2>Worauf du achten solltest</h2><p>Deine zwei Blickwinkel: Ist die Aktie wegen Sorgen zu günstig, und gibt es einen grossen Wachstumsschub?</p></div>
+    ${ereignisHtml(c?.ereignis)}
     <div class="card ch-card"><div class="ch-head"><h3>Unterbewertung</h3></div>${meter}${pess}${sg}${au}${!c ? '<p class="pill-line" style="margin-top:10px">Die Recherche zu Sorgen und Wachstumsschub folgt.</p>' : ""}</div>
     ${schub}
     ${c?.szenario ? `<div class="banner plain szen"><b>Das Chancen-Szenario:</b> ${esc(c.szenario)}</div>` : ""}
