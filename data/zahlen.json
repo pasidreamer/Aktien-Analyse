@@ -1,5 +1,5 @@
 {
- "stand": "2026-11-03",
+ "stand": "2026-11-04",
  "hinweis": "Kurze Auswertung der Quartalszahlen. Reaktion rechnet die App aus den Kursen.",
  "eintraege": {
   "GOOGL": [
@@ -1510,6 +1510,358 @@
      {
       "t": "ABF Trading Update September 2026",
       "u": "https://www.abf.co.uk/media/news/2026/trading-update-september-2026"
+     }
+    ]
+   }
+  ],
+  "APP": [
+   {
+    "datum": "2026-11-04",
+    "zeit": "nach",
+    "quartal": "Q3 2026",
+    "reaktion_quelle": 18.0,
+    "titel": "Umsatz +55 %, starker Ausblick, Aktie springt nachbörslich",
+    "kurz": "AppLovin hat 55 % mehr Umsatz gemacht und die Erwartungen bei Umsatz und Gewinn klar übertroffen. Auch der Ausblick für das vierte Quartal liegt deutlich über den Schätzungen. Nachbörslich stieg die Aktie rund 18 %, nach einem Minus von rund 60 % seit Jahresbeginn.",
+    "zahlen": [
+     {
+      "k": "Umsatz",
+      "ist": "2.19 Mrd. $ (+55 %)",
+      "erw": "2.08 Mrd. $",
+      "urteil": "übertroffen"
+     },
+     {
+      "k": "EPS (Gewinn pro Aktie, verwässert)",
+      "ist": "4.30 $",
+      "erw": "4.04 $",
+      "urteil": "übertroffen"
+     },
+     {
+      "k": "Bereinigtes EBITDA (Betriebsgewinn vor Abschreibungen)",
+      "ist": "1.84 Mrd. $ (+59 %), Marge 84 %",
+      "erw": "",
+      "urteil": "sehr stark"
+     },
+     {
+      "k": "Free Cashflow (frei verfügbares Geld)",
+      "ist": "1.42 Mrd. $",
+      "erw": "",
+      "urteil": "sehr stark"
+     },
+     {
+      "k": "Prognose Umsatz Q4",
+      "ist": "2.37 bis 2.40 Mrd. $",
+      "erw": "2.25 Mrd. $",
+      "urteil": "über Erwartung"
+     }
+    ],
+    "gut": [
+     "Umsatz und Gewinn wachsen weiter sehr schnell, der Reingewinn stieg um 72 % auf 1.44 Mrd. $.",
+     "Von jedem Dollar Umsatz bleiben 84 Cent als Betriebsgewinn vor Abschreibungen. Das ist extrem hoch.",
+     "AppLovin hat im Quartal für rund 1.4 Mrd. $ eigene Aktien zurückgekauft und das Rückkaufprogramm auf 3.6 Mrd. $ erhöht."
+    ],
+    "sorgen": [
+     "Die Vergütung in Aktien (verwässert die Aktionäre) stieg auf 84 Mio. $ nach 34 Mio. $ im Vorjahr.",
+     "AppLovin zeigt keine Aufteilung nach Kundengruppen, zum Beispiel wie viel aus dem neuen Geschäft mit Online-Händlern kommt.",
+     "Die Aktie hat dieses Jahr rund 60 % verloren. Die Schwankungen bleiben gross, ein Tag mit guten Zahlen ändert daran wenig."
+    ],
+    "fazit": "Keine Panik nötig: Die Zahlen bestätigen das starke Geschäft, der grosse Kurssturz dieses Jahr kam nicht aus schwachen Zahlen.",
+    "quellen": [
+     {
+      "t": "AppLovin Medienmitteilung Q3 2026 (Business Wire via Yahoo Finance)",
+      "u": "https://finance.yahoo.com/markets/stocks/articles/applovin-announces-third-quarter-2026-210500321.html"
+     },
+     {
+      "t": "Investing.com: AppLovin übertrifft Gewinn- und Umsatzschätzungen",
+      "u": "https://www.investing.com/news/earnings/applovin-earnings-beat-by-026-revenue-topped-estimates-5001290"
+     },
+     {
+      "t": "Seeking Alpha: AppLovin-Aktie steigt nachbörslich",
+      "u": "https://seekingalpha.com/news/4665578-applovin-shares-rally-as-q3-results-top-estimates-q4-outlook-beats"
+     }
+    ]
+   }
+  ],
+  "UBER": [
+   {
+    "datum": "2026-11-04",
+    "zeit": "vor",
+    "quartal": "Q3 2026",
+    "reaktion_quelle": 7.0,
+    "titel": "Buchungen +20 %, Gewinn wächst schneller als Umsatz",
+    "kurz": "Uber hat 20 % mehr Fahrten und Bestellungen gebucht und den Betriebsgewinn um 31 % gesteigert. Der Umsatz lag knapp über der Erwartung, der Gewinn pro Aktie etwa im Rahmen. Die Aktie stieg am Nachmittag rund 7 % über den Vortagesschluss.",
+    "zahlen": [
+     {
+      "k": "Umsatz",
+      "ist": "14.77 Mrd. $ (+10 %)",
+      "erw": "14.67 Mrd. $",
+      "urteil": "getroffen"
+     },
+     {
+      "k": "EPS bereinigt (Gewinn pro Aktie ohne Sondereffekte)",
+      "ist": "0.88 $ (+35 %)",
+      "erw": "0.86 bis 0.90 $",
+      "urteil": "getroffen"
+     },
+     {
+      "k": "Bruttobuchungen (Wert aller Fahrten und Bestellungen)",
+      "ist": "59.8 Mrd. $ (+20 %)",
+      "erw": "59.3 Mrd. $",
+      "urteil": "übertroffen"
+     },
+     {
+      "k": "Bereinigtes EBITDA (Betriebsgewinn vor Abschreibungen)",
+      "ist": "2.96 Mrd. $ (+31 %)",
+      "erw": "",
+      "urteil": "stark"
+     },
+     {
+      "k": "Free Cashflow (frei verfügbares Geld)",
+      "ist": "2.54 Mrd. $ (+14 %)",
+      "erw": "",
+      "urteil": "stark"
+     },
+     {
+      "k": "Prognose Buchungen Q4",
+      "ist": "63.25 bis 65.25 Mrd. $ (+18 bis 22 %)",
+      "erw": "",
+      "urteil": "stark"
+     }
+    ],
+    "gut": [
+     "Schon das fünfte Quartal in Folge wachsen die Buchungen um 20 % oder mehr. 215 Mio. Menschen nutzen Uber jeden Monat (+14 %).",
+     "Uber verdient pro gebuchtem Dollar mehr: Der Betriebsgewinn liegt bei 3.9 % der Buchungen nach 3.4 % im Vorjahr.",
+     "Für das vierte Quartal erwartet Uber 34 bis 39 % mehr Gewinn pro Aktie und kauft weiter eigene Aktien zurück (750 Mio. $ im Q3)."
+    ],
+    "sorgen": [
+     "Der Umsatz wuchs nur 10 %, weil Uber in einigen Ländern das Geschäftsmodell umgestellt hat. Im Fahrdienst sank der Umsatz sogar um 2 %.",
+     "Der Reingewinn nach Buchhaltungsregeln fiel um 92 %, vor allem wegen eines Bewertungsverlusts von 476 Mio. $ auf Beteiligungen.",
+     "Die langfristigen Schulden stiegen auf 15.7 Mrd. $ (Ende 2025: 10.5 Mrd. $), die Ausgaben für Forschung um rund 48 %."
+    ],
+    "fazit": "Keine echte Veränderung zum Schlechten: Das Geschäft wächst kräftig und profitabel, die Aktie lag vorher nahe am Jahrestief und erholt sich jetzt.",
+    "quellen": [
+     {
+      "t": "Tradingkey: Uber Q3 2026, Buchungen und Betriebsgewinn wachsen schneller als Umsatz",
+      "u": "https://www.tradingkey.com/news/earnings/262273920-"
+     },
+     {
+      "t": "24/7 Wall St.: Uber steigt am Tag der Q3-Zahlen",
+      "u": "https://247wallst.com/cards/uber-uber-price-swing-01m6m193ze6hcs3fdy419461e1"
+     },
+     {
+      "t": "MarketBeat: Uber Q3 2026 Zahlen und Schätzungen",
+      "u": "https://www.marketbeat.com/earnings/reports/2026-11-4-uber-technologies-inc-stock/"
+     },
+     {
+      "t": "Uber Medienmitteilung Q3 2026 (SEC)",
+      "u": "https://www.sec.gov/Archives/edgar/data/0001543151/000154315126000039/uberq326earningspressrelea.htm"
+     }
+    ]
+   }
+  ],
+  "KHC": [
+   {
+    "datum": "2026-11-04",
+    "zeit": "vor",
+    "quartal": "Q3 2026",
+    "reaktion_quelle": 3.1,
+    "titel": "Gewinn klar über Erwartung, Prognose leicht erhöht",
+    "kurz": "Kraft Heinz hat 2 % weniger umgesetzt, aber deutlich mehr verdient als erwartet und die Gewinnprognose für 2026 leicht erhöht. In Nordamerika verkauft die Firma weiterhin weniger. Die Aktie stieg vorbörslich 3.1 %.",
+    "zahlen": [
+     {
+      "k": "Umsatz",
+      "ist": "6.12 Mrd. $ (−2.0 %)",
+      "erw": "6.08 Mrd. $",
+      "urteil": "getroffen"
+     },
+     {
+      "k": "EPS bereinigt (Gewinn pro Aktie ohne Sondereffekte)",
+      "ist": "0.53 $ (−13 %)",
+      "erw": "0.42 $",
+      "urteil": "übertroffen"
+     },
+     {
+      "k": "Organisches Wachstum (ohne Zukäufe, Verkäufe und Währungen)",
+      "ist": "−1.1 %",
+      "erw": "−1.9 %",
+      "urteil": "besser als befürchtet"
+     },
+     {
+      "k": "Bereinigter Betriebsgewinn",
+      "ist": "939 Mio. $ (−15 %)",
+      "erw": "",
+      "urteil": "schwach"
+     },
+     {
+      "k": "Prognose 2026 EPS bereinigt",
+      "ist": "2.07 bis 2.13 $",
+      "erw": "vorher 2.03 bis 2.09 $",
+      "urteil": "angehoben"
+     }
+    ],
+    "gut": [
+     "Der Gewinn pro Aktie lag 26 % über der Erwartung.",
+     "In Schwellenländern wuchs der Umsatz organisch um 15.6 %.",
+     "Kraft Heinz verkauft das Kaffeegeschäft in Nordamerika (behält 30 %) und erzielt viel freies Geld: 2.4 Mrd. $ in neun Monaten."
+    ],
+    "sorgen": [
+     "In Nordamerika, dem wichtigsten Markt, sinkt der Umsatz organisch um 3.2 %. Es werden weniger Produkte verkauft und die Preise sind sogar leicht gesunken.",
+     "Der Betriebsgewinn fällt 2026 um 16 bis 18 %. Ein Teil des guten Quartals ist nur verschoben: Werbung und Rabatte fallen stärker ins vierte Quartal.",
+     "Kraft Heinz rechnet mit rund 6 % höheren Kosten im Q4 und muss wohl die Preise erhöhen. Die Prognose für 2027 kommt erst später."
+    ],
+    "fazit": "Keine echte Wende: Das Quartal war besser als befürchtet, aber die Grundprobleme mit sinkenden Verkäufen in Nordamerika bleiben.",
+    "quellen": [
+     {
+      "t": "Investing.com: Kraft Heinz übertrifft Q3-Schätzungen, Aktie +3.1 %",
+      "u": "https://www.investing.com/news/transcripts/earnings-call-transcript-kraft-heinz-tops-q3-2026-estimates-shares-rise-31-93CH-4998823"
+     },
+     {
+      "t": "Motley Fool: Kraft Heinz Q3 2026 Telefonkonferenz",
+      "u": "https://www.fool.com/earnings/call-transcripts/2026/11/04/kraft-heinz-khc-q3-2026-earnings-call-transcript/"
+     },
+     {
+      "t": "Gokhshtein: Kraft Heinz schlägt Erwartungen, hebt Prognose",
+      "u": "https://gokhshtein.com/news/2026-11-04-kraft-heinz-beats-q3-raises-fy-guidance-on-coffee-divestment"
+     }
+    ]
+   }
+  ],
+  "BMW": [
+   {
+    "datum": "2026-11-04",
+    "zeit": "vor",
+    "quartal": "Q3 2026",
+    "reaktion_quelle": 5.5,
+    "titel": "Zweite Gewinnwarnung, Aktie steigt trotzdem 5.5 %",
+    "kurz": "BMW hat die Margenprognose zum zweiten Mal gesenkt, auf fast null, weil im vierten Quartal Kosten für einen Umbau anfallen. Die Automarge im Q3 lag mit 3.4 % aber über der Erwartung. Die Aktie stieg in Frankfurt 5.5 %, weil Anleger den Umbau als Neuanfang sehen.",
+    "zahlen": [
+     {
+      "k": "Umsatz Konzern",
+      "ist": "30.45 Mrd. € (−5.8 %)",
+      "erw": "rund 30.7 Mrd. €",
+      "urteil": "knapp verfehlt"
+     },
+     {
+      "k": "Gewinn vor Steuern",
+      "ist": "2.08 Mrd. € (−10.6 %)",
+      "erw": "",
+      "urteil": "getroffen"
+     },
+     {
+      "k": "EBIT-Marge Autos (Betriebsgewinn im Verhältnis zum Umsatz)",
+      "ist": "3.4 %",
+      "erw": "3.1 %",
+      "urteil": "übertroffen"
+     },
+     {
+      "k": "Free Cashflow Autos (frei verfügbares Geld)",
+      "ist": "−566 Mio. €",
+      "erw": "+216 Mio. €",
+      "urteil": "verfehlt"
+     },
+     {
+      "k": "Auslieferungen",
+      "ist": "551'075 (−6.3 %)",
+      "erw": "",
+      "urteil": "schwach"
+     },
+     {
+      "k": "Prognose 2026 EBIT-Marge Autos",
+      "ist": "−0.5 bis +0.5 %",
+      "erw": "vorher 1 bis 3 %",
+      "urteil": "gesenkt"
+     }
+    ],
+    "gut": [
+     "Die Automarge lag über der Erwartung. Geholfen hat allerdings ein Vergleich vor Gericht zum Bremssystem (Betrag nicht genannt).",
+     "Ohne die Umbaukosten erwartet BMW weiterhin über 2 % Marge, das Ziel beim Free Cashflow (über 2.5 Mrd. €) bleibt.",
+     "In Europa und den USA hat BMW mehr Autos verkauft als im Vorjahr."
+    ],
+    "sorgen": [
+     "In China sank der Absatz um rund ein Viertel.",
+     "Im Q3 floss Geld ab statt zu. Für das Jahresziel muss BMW im Q4 rund 1.8 Mrd. € freies Geld erwirtschaften (eigene Rechnung).",
+     "Zölle kosten rund 1.25 Prozentpunkte Marge. Umsatz und Auslieferungen sinken weiter."
+    ],
+    "fazit": "Eher echte Veränderung als Panik, aber eine geplante: BMW räumt mit hohen Kosten auf, die Probleme in China und bei den Zöllen sind damit noch nicht gelöst.",
+    "quellen": [
+     {
+      "t": "BMW Quartalsmitteilung zum 30. September 2026 (MarketScreener)",
+      "u": "https://ch.marketscreener.com/boerse-nachrichten/bmw-pressemeldung-quartalsmitteilung-zum-30-september-2026-ce785fded18cf022"
+     },
+     {
+      "t": "aktiencheck.de: Zweite Gewinnwarnung, Marge Richtung null",
+      "u": "https://aktiencheck.de/artikel/bmw-quartalszahlen-zweite-gewinnwarnung-marge-richtung-null-und-trotzdem-springt"
+     },
+     {
+      "t": "JKN: BMW-Aktie legt um 5.5 Prozent zu",
+      "u": "https://news.jkn.co.kr/editions/german/post/1070753"
+     }
+    ]
+   }
+  ],
+  "WKL": [
+   {
+    "datum": "2026-11-04",
+    "zeit": "vor",
+    "quartal": "Q3 2026",
+    "titel": "Wachstum zieht an, Prognose bestätigt",
+    "kurz": "Wolters Kluwer ist nach neun Monaten organisch um 6 % gewachsen, nach 5 % im Halbjahr. Das dritte Quartal war also stärker. Die Jahresprognose bleibt unverändert und die Firma kauft weiter eigene Aktien zurück.",
+    "zahlen": [
+     {
+      "k": "Umsatz 9 Monate",
+      "ist": "+2 % (ohne Währung +4 %)",
+      "erw": "",
+      "urteil": "getroffen"
+     },
+     {
+      "k": "Organisches Wachstum (ohne Zukäufe, Verkäufe und Währungen)",
+      "ist": "6 % (Halbjahr 5 %)",
+      "erw": "",
+      "urteil": "beschleunigt"
+     },
+     {
+      "k": "Wiederkehrende Umsätze (Abos, 85 % vom Umsatz)",
+      "ist": "+7 % organisch",
+      "erw": "",
+      "urteil": "stark"
+     },
+     {
+      "k": "Cloud-Software (24 % vom Umsatz)",
+      "ist": "+15 % organisch",
+      "erw": "",
+      "urteil": "sehr stark"
+     },
+     {
+      "k": "Bereinigter Betriebsgewinn 9 Monate",
+      "ist": "+10 % ohne Währung",
+      "erw": "",
+      "urteil": "stark"
+     },
+     {
+      "k": "Prognose 2026",
+      "ist": "Marge rund 28 %, Free Cashflow 1.30 bis 1.35 Mrd. €",
+      "erw": "",
+      "urteil": "bestätigt"
+     }
+    ],
+    "gut": [
+     "85 % des Umsatzes kommen aus Abos, die jedes Jahr wiederkehren. Das macht das Geschäft gut planbar.",
+     "Die Cloud-Software wächst schnell, im Bereich Steuern und Buchhaltung um 17 %.",
+     "Bis 3. November hat die Firma für 264 Mio. € eigene Aktien gekauft, für Anfang 2027 ist schon ein weiterer Rückkauf von bis zu 75 Mio. € geplant."
+    ],
+    "sorgen": [
+     "Wegen schwacher Währungen und Firmenverkäufen wuchs der Umsatz in Euro nur 2 %.",
+     "Im vierten Quartal steigen die Ausgaben für Produktentwicklung und Umbau deutlich, das drückt die Marge.",
+     "Das Druckgeschäft schrumpft weiter und kostet rund 1 Prozentpunkt Wachstum. Einmalige Umsätze sind nicht gewachsen."
+    ],
+    "fazit": "Keine Panik nötig: Das Geschäft wächst wieder etwas schneller und die Prognose steht, eine echte Verschlechterung zeigen diese Zahlen nicht.",
+    "quellen": [
+     {
+      "t": "Wolters Kluwer 2026 Nine-Month Trading Update (GlobeNewswire)",
+      "u": "https://www.globenewswire.com/news-release/2026/11/04/3395021/0/en/wolters-kluwer-2026-nine-month-trading-update.html"
+     },
+     {
+      "t": "ad-hoc-news: Wolters Kluwer bestätigt Prognose nach 6 % organischem Wachstum",
+      "u": "https://www.ad-hoc-news.de/boerse/news/corporate-news/wolters-kluwer-stock-holds-guidance-after-6-prozent-organic-growth/70455610"
      }
     ]
    }
