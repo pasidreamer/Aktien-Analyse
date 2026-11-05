@@ -1,0 +1,92 @@
+{
+ "datum": "2026-11-05",
+ "ticker": "APP",
+ "name": "AppLovin",
+ "thema": "Quartalszahlen",
+ "stand": "04.11.2026",
+ "slides": [
+  {
+   "typ": "hook",
+   "kicker": "APPLOVIN · QUARTALSZAHLEN",
+   "titel": "Minus 59 % im Jahr, dann der Sprung: Dreht AppLovin?",
+   "text": "AppLovin wächst 55 % und übertrifft alle Schätzungen. Nachbörslich stieg die Aktie um rund 20 %, nachdem sie schon am Tag 10.7 % zugelegt hatte.",
+   "kpis": [
+    {"label": "KURS", "wert": "271.75 $"},
+    {"label": "NACHBÖRSLICH", "wert": "+20 %", "ton": "gruen"},
+    {"label": "SEIT JAHRESBEGINN", "wert": "−59 %", "ton": "rot"}
+   ]
+  },
+  {
+   "typ": "firma",
+   "kicker": "WAS DIE FIRMA MACHT",
+   "titel": "Die Maschine hinter Handy-Werbung",
+   "text": "AppLovin verkauft Software, die Werbung in Handy-Apps platziert. Firmen zahlen dafür, dass ihre Apps und Shops neue Kunden finden. Eine KI namens Axon entscheidet, wer welche Anzeige sieht.",
+   "fakten": [
+    {"label": "Sitz", "wert": "Palo Alto, USA"},
+    {"label": "Umsatz im Quartal", "wert": "2.18 Mrd. $"},
+    {"label": "Aktien im Umlauf", "wert": "331 Mio."}
+   ]
+  },
+  {
+   "typ": "zahlen",
+   "kicker": "WAS DIE ZAHLEN ZEIGEN",
+   "titel": "Besser als erwartet",
+   "quelle": "Quelle: AppLovin Q3 2026, Investing.com",
+   "zeilen": [
+    {"k": "Umsatz", "sub": "2.18 Mrd. $, erwartet 2.08 Mrd. $", "wert": "+55 %", "ton": "gruen"},
+    {"k": "Gewinn pro Aktie", "sub": "erwartet waren 4.04 $", "wert": "4.30 $", "ton": "gruen"},
+    {"k": "EBITDA-Marge", "sub": "Betriebsgewinn 1.84 Mrd. $", "wert": "84 %", "ton": "gruen"},
+    {"k": "Prognose Q4 über Schätzung", "sub": "2.37 bis 2.40 Mrd. $, erwartet 2.25", "wert": "+6 %", "ton": "gruen"}
+   ],
+   "erklaerung": "Die Prognose für das vierte Quartal liegt rund 6 % über dem, was Analysten geschätzt hatten. Das hat die Aktie nachbörslich angetrieben."
+  },
+  {
+   "typ": "skala",
+   "kicker": "AMPEL 1: QUALITÄT",
+   "titel": "Top-Firma, wilde Aktie",
+   "name": "Qualität",
+   "wert": 96,
+   "punkte": [
+    "84 % EBITDA-Marge: Von 100 $ Umsatz bleiben 84 $ Betriebsgewinn vor Abschreibungen.",
+    "Im Quartal flossen 1.4 Mrd. $ in eigene Aktien. Die Schulden sind fast ganz durch Bargeld gedeckt.",
+    "Die Schwachstelle: Lohn in Aktien stieg auf 84 Mio. $ nach 34 Mio. $. Das verwässert die Aktionäre."
+   ]
+  },
+  {
+   "typ": "skala",
+   "kicker": "STRUKTUR IM WOCHENCHART",
+   "titel": "Abwärtstrend mit Fehlausbruch?",
+   "name": "Timing",
+   "wert": 25,
+   "punkte": [
+    "Seit dem Hoch bei 738 $ im Dezember 2025 macht die Aktie tiefere Hochs: 622 $ im Mai, 576 $ im Juni.",
+    "Ende Oktober schloss die Woche bei 228.50 $, unter dem Tief vom März 2025 bei 234.56 $.",
+    "Jetzt steht der Kurs 16 % über dieser Marke. Kommt er so schnell zurück, kann es ein Fehlausbruch sein."
+   ]
+  },
+  {
+   "typ": "marke",
+   "kicker": "DIE ENTSCHEIDENDE MARKE",
+   "titel": "Das Tief vom März 2025",
+   "text": "Ende Oktober schloss die Woche darunter. Jetzt ist die Aktie zurück darüber.",
+   "marke_label": "TIEF VOM MÄRZ 2025",
+   "marke": "234.56 $",
+   "szenarien": [
+    {"art": "bruch", "titel": "Bricht sie", "text": "Ein Wochenschluss darunter bestätigt den Bruch. Haltestellen sind das Oktober-Tief bei 225.19 $ und das Tief von Ende März 2025 bei 200.50 $."},
+    {"art": "halten", "titel": "Hält sie", "text": "Dann war der Oktober ein Fehlausbruch. Erster Widerstand ist die Range von 306 bis 324 $ aus August und September. Dort landet der Kurs nach dem Sprung."}
+   ]
+  },
+  {
+   "typ": "fazit",
+   "kicker": "MEIN FAZIT",
+   "titel": "Starke Zahlen, Trend noch abwärts",
+   "absaetze": [
+    "Das Geschäft läuft sehr gut: 55 % mehr Umsatz bei 84 % Marge. Schwache Zahlen waren für den Absturz in diesem Jahr kein Grund.",
+    "Im Chart ist der Abwärtstrend aber intakt. Ein Wochenschluss über 324 $ wäre für mich ein erstes Zeichen. Bis dahin beobachte ich, ob die 234.56 $ halten."
+   ],
+   "frage": "Fehlausbruch oder nur eine Erholung? Deine Meinung in die Kommentare."
+  }
+ ],
+ "caption": "AppLovin wächst 55 % und übertrifft die Schätzungen klar. Nachbörslich sprang die Aktie rund 20 %, nach einem Minus von 59 % seit Jahresbeginn. Im Chart war Ende Oktober das Tief vom März 2025 gebrochen, jetzt ist der Kurs zurück darüber. Wisch durch für Zahlen, Struktur und beide Szenarien.",
+ "hashtags": ["#applovin", "#aktien", "#börse", "#quartalszahlen", "#marktstruktur", "#chartanalyse", "#stocks", "#app"]
+}
