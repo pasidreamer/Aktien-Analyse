@@ -39,6 +39,8 @@ jobs:
           python -m playwright install --with-deps chromium
       - name: Bilder rendern
         id: r
+        env:
+          DEPOT_SCHLUESSEL: ${{ secrets.DEPOT_SCHLUESSEL }}
         run: |
           f="${{ inputs.datei }}"
           if [ -z "$f" ]; then f=$(ls data/karussell/2*.json | sort | tail -1); fi

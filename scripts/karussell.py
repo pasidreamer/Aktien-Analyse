@@ -27,10 +27,12 @@ Inhaltsdatei (alle Texte Deutsch, Schweizer Schreibweise, keine Gedankenstriche)
 import html, json, os, sys, asyncio
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CFG = json.load(open(os.path.join(ROOT, "pipeline", "karussell.json"))) if os.path.exists(os.path.join(ROOT, "pipeline", "karussell.json")) else {}
+CFG = json.load(open(os.path.join(ROOT, "pipeline", "karussell.json"), encoding="utf-8")) if os.path.exists(os.path.join(ROOT, "pipeline", "karussell.json")) else {}
 MARKE = CFG.get("marke", "AKTIEN-AMPEL")
 HANDLE = CFG.get("handle", "")
 DISCLAIMER = "Persönliche Meinung, keine Anlageberatung. Mach deine eigene Recherche."
+OFFENLEGUNG = "Offenlegung: Ich halte diese Aktie."
+MAX_HASHTAGS = 5  # Instagram erlaubt höchstens 5 Hashtags pro Post
 TON = {"gruen": "#1F6B45", "orange": "#B9500E", "rot": "#B3261E", "": "#121212", None: "#121212"}
 MON = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"]
 TAGE = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"]
@@ -129,7 +131,7 @@ def slide(d, s, i, n):
         return f'''<div class="s">{k}<h2 class="h">{e(s["titel"])}</h2>
 <div style="margin-top:48px;display:flex;flex-direction:column;gap:32px;font-size:42px">{ab}</div>
 <div style="margin-top:52px;background:#121212;color:#F4F1EA;padding:44px 48px"><span style="font-size:50px;font-weight:800;letter-spacing:-.02em;line-height:1.15">{e(s.get("frage"))}</span></div>
-<p style="margin:auto 0 0;font-size:26px;line-height:1.4;color:#4A4640">{DISCLAIMER} Stand {e(d.get("stand"))}.</p>
+<p style="margin:auto 0 0;font-size:26px;line-height:1.4;color:#4A4640">{DISCLAIMER}{" " + OFFENLEGUNG if d.get("eigene_position") else ""} Stand {e(d.get("stand"))}.</p>
 <div style="margin-top:20px;display:flex;justify-content:space-between;font-size:26px;color:#4A4640;border-top:2px solid #121212;padding-top:22px"><span>{e(MARKE)}{" · " + e(HANDLE) if HANDLE else ""}</span><b style="color:#121212">{i} / {n}</b></div></div>'''
     raise ValueError("Unbekannter Slide-Typ: " + t)
 
@@ -149,25 +151,57 @@ async def rendern(d, aus):
         for i, s in enumerate(d["slides"], 1):
             await pg.set_content(seite(slide(d, s, i, n)), wait_until="networkidle")
             await pg.evaluate("document.fonts.ready")
-            await pg.screenshot(path=os.path.join(aus, f"{i}.png"), clip={"x": 0, "y": 0, "width": 1080, "height": 1350})
+            clip = {"x": 0, "y": 0, "width": 1080, "height": 1350}
+            await pg.screenshot(path=os.path.join(aus, f"{i}.png"), clip=clip)
+            # Instagram nimmt über die Schnittstelle nur JPEG an
+            await pg.screenshot(path=os.path.join(aus, f"{i}.jpg"), clip=clip, type="jpeg", quality=92)
         await b.close()
 
 
+def depot_ticker():
+    """Kürzel, die Pascal laut Depot in der App hält (supabase/depot-fuer-karussell.sql).
+    Ohne Secret DEPOT_SCHLUESSEL oder bei einem Fehler: None (dann bleibt die Offenlegung offen)."""
+    import re, urllib.request
+    schluessel = os.environ.get("DEPOT_SCHLUESSEL")
+    if not schluessel:
+        return None
+    auth = open(os.path.join(ROOT, "auth.js"), encoding="utf-8").read()
+    url = re.search(r'const URL = "([^"]+)"', auth).group(1)
+    key = re.search(r'const KEY = "([^"]+)"', auth).group(1)
+    req = urllib.request.Request(f"{url}/rest/v1/rpc/admin_depot_ticker", data=json.dumps({"schluessel": schluessel}).encode(),
+                                 headers={"apikey": key, "Authorization": f"Bearer {key}", "Content-Type": "application/json"})
+    try:
+        with urllib.request.urlopen(req, timeout=30) as r:
+            return {str(t).upper() for t in json.loads(r.read())}
+    except Exception as f:
+        print("Depot nicht lesbar:", f)
+        return None
+
+
 def main(pfad):
-    d = json.load(open(pfad))
+    d = json.load(open(pfad, encoding="utf-8"))
+    if d.get("eigene_position") is None:
+        gehalten = depot_ticker()
+        if gehalten is not None:
+            t = str(d.get("ticker") or "").upper()
+            d["eigene_position"] = t in gehalten or t.split(".")[0] in {x.split(".")[0] for x in gehalten}
+            print("Offenlegung aus dem Depot:", "hält die Aktie" if d["eigene_position"] else "hält sie nicht")
     aus = os.path.join(ROOT, "karussell", d["datum"])
     os.makedirs(aus, exist_ok=True)
     asyncio.run(rendern(d, aus))
-    cap = (d.get("caption", "").strip() + "\n\n" + DISCLAIMER + "\n\n" + " ".join(d.get("hashtags", []))).strip()
-    open(os.path.join(aus, "caption.txt"), "w").write(cap + "\n")
+    hinweis = DISCLAIMER + ("\n" + OFFENLEGUNG if d.get("eigene_position") else "")
+    tags = " ".join(d.get("hashtags", [])[:MAX_HASHTAGS])
+    cap = (d.get("caption", "").strip() + "\n\n" + hinweis + "\n\n" + tags).strip()
+    open(os.path.join(aus, "caption.txt"), "w", encoding="utf-8").write(cap + "\n")
     ip = os.path.join(ROOT, "data", "karussell", "index.json")
-    idx = json.load(open(ip)) if os.path.exists(ip) else {"karussells": []}
+    idx = json.load(open(ip, encoding="utf-8")) if os.path.exists(ip) else {"karussells": []}
     idx["karussells"] = [x for x in idx["karussells"] if x["datum"] != d["datum"]] + [{
         "datum": d["datum"], "ticker": d.get("ticker"), "name": d.get("name"), "thema": d.get("thema"),
-        "titel": d["slides"][0].get("titel"), "bilder": len(d["slides"]), "caption": cap}]
+        "titel": d["slides"][0].get("titel"), "bilder": len(d["slides"]), "caption": cap,
+        "eigene_position": d.get("eigene_position")}]
     idx["karussells"].sort(key=lambda x: x["datum"], reverse=True)
     idx["karussells"] = idx["karussells"][:60]
-    json.dump(idx, open(ip, "w"), ensure_ascii=False, indent=1)
+    json.dump(idx, open(ip, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print("fertig:", aus)
 
 
