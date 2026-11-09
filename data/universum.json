@@ -1,5 +1,5 @@
 {
-"stand": "2026-10-31",
+"stand": "2026-11-07",
 "stufe": 2,
 "anzahl": 2281,
 "aktien": [
@@ -10197,7 +10197,7 @@
 },
 {
 "symbol": "FORM",
-"name": "FormFactor, Inc.",
+"name": "FormFactor",
 "sektor_quelle": "Information Technology",
 "region": "USA",
 "land": "USA",
@@ -10817,6 +10817,16 @@
 "land": "Norwegen",
 "indizes": [
 "OBX"
+]
+},
+{
+"symbol": "GKOS",
+"name": "Glaukos",
+"sektor_quelle": "Health Care",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 400"
 ]
 },
 {
@@ -13470,16 +13480,6 @@
 ]
 },
 {
-"symbol": "KVUE",
-"name": "Kenvue",
-"sektor_quelle": "Consumer Staples",
-"region": "USA",
-"land": "USA",
-"indizes": [
-"S&P 500"
-]
-},
-{
 "symbol": "L",
 "name": "Loews Corporation",
 "sektor_quelle": "Financials",
@@ -16068,7 +16068,7 @@
 "region": "USA",
 "land": "USA",
 "indizes": [
-"S&P 400"
+"S&P 500"
 ]
 },
 {

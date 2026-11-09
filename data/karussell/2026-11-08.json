@@ -1,0 +1,149 @@
+{
+ "datum": "2026-11-08",
+ "ticker": "UBER",
+ "name": "Uber",
+ "thema": "Quartalszahlen",
+ "stand": "06.11.2026",
+ "slides": [
+  {
+   "typ": "hook",
+   "kicker": "UBER · QUARTALSZAHLEN",
+   "titel": "Rekordgeschäft, Aktie am Boden: Was ist los mit Uber?",
+   "text": "Uber wächst seit fünf Quartalen um 20 % oder mehr. Trotzdem liegt die Aktie ein Drittel unter dem Hoch. Schuld ist die Angst vor Robotaxis.",
+   "kpis": [
+    {
+     "label": "KURS",
+     "wert": "68.59 $"
+    },
+    {
+     "label": "BUCHUNGEN Q3",
+     "wert": "+20 %",
+     "ton": "gruen"
+    },
+    {
+     "label": "UNTER DEM HOCH",
+     "wert": "−33 %",
+     "ton": "rot"
+    }
+   ]
+  },
+  {
+   "typ": "firma",
+   "kicker": "WAS DIE FIRMA MACHT",
+   "titel": "Die App für Fahrten und Essen",
+   "text": "Uber vermittelt Fahrten und liefert Essen und Einkäufe aus. Die Firma besitzt kaum Autos und verdient an jeder Buchung über ihre App mit.",
+   "fakten": [
+    {
+     "label": "Sitz",
+     "wert": "San Francisco"
+    },
+    {
+     "label": "Nutzer pro Monat",
+     "wert": "215 Mio."
+    },
+    {
+     "label": "Buchungen Q3",
+     "wert": "59.8 Mrd. $"
+    }
+   ]
+  },
+  {
+   "typ": "zahlen",
+   "kicker": "WAS DIE ZAHLEN ZEIGEN",
+   "titel": "Gewinn wächst schneller als Umsatz",
+   "quelle": "Quelle: Uber Quartalsbericht vom 4.11.2026",
+   "zeilen": [
+    {
+     "k": "Bruttobuchungen",
+     "sub": "Wert aller Fahrten und Bestellungen",
+     "wert": "+20 %",
+     "ton": "gruen"
+    },
+    {
+     "k": "Umsatz",
+     "sub": "14.77 Mrd. $, gebremst durch neue Verträge",
+     "wert": "+10 %",
+     "ton": "orange"
+    },
+    {
+     "k": "Betriebsgewinn",
+     "sub": "1.45 Mrd. $ nach Buchhaltung",
+     "wert": "+30 %",
+     "ton": "gruen"
+    },
+    {
+     "k": "Ausblick Q4",
+     "sub": "Gewinn pro Aktie, bereinigt",
+     "wert": "+34 bis 39 %",
+     "ton": "gruen"
+    }
+   ],
+   "erklaerung": "Der Reingewinn fiel auf 512 Mio. $, vor allem wegen Verlusten auf Beteiligungen."
+  },
+  {
+   "typ": "skala",
+   "kicker": "AMPEL 1: QUALITÄT",
+   "titel": "Starkes Geschäft, fairer Preis",
+   "name": "Qualität",
+   "wert": 85,
+   "punkte": [
+    "Im dritten Quartal blieben 2.54 Mrd. $ als freies Geld übrig, 14 % mehr als vor einem Jahr.",
+    "Für 750 Mio. $ kaufte Uber im Quartal eigene Aktien zurück. Eine Dividende gibt es nicht.",
+    "Das erwartete KGV (Preis im Verhältnis zum Gewinn) liegt bei rund 17. Früher waren es 24 bis 28."
+   ]
+  },
+  {
+   "typ": "skala",
+   "kicker": "STRUKTUR IM WOCHENCHART",
+   "titel": "Seit Februar in einer Range",
+   "name": "Timing",
+   "wert": 39,
+   "punkte": [
+    "Seit dem Hoch von 101.99 $ im September 2025 fallen Hochs und Tiefs. Zuletzt 82.36 $ im August.",
+    "Seit Februar pendelt der Kurs zwischen 65 und 79 $. Ende Oktober rutschte er kurz unter das Juli-Tief von 65.41 $.",
+    "Nach den Zahlen kam er zurück. Das kann ein Fehlausbruch sein."
+   ]
+  },
+  {
+   "typ": "marke",
+   "kicker": "DIE ENTSCHEIDENDE MARKE",
+   "titel": "Der Boden der Range",
+   "text": "Bei 65.25 $ liegt die Unterkante der Range seit Februar. Der Kurs steht 5 % darüber.",
+   "marke_label": "UNTERKANTE DER RANGE",
+   "marke": "65.25 $",
+   "szenarien": [
+    {
+     "art": "bruch",
+     "titel": "Bricht sie",
+     "text": "Ein Wochenschluss darunter öffnet den Weg. Haltestellen: 57 bis 63 $ (Winter 2023/24) und das Tief bei 54.84 $ (Juli 2024)."
+    },
+    {
+     "art": "halten",
+     "titel": "Hält sie",
+     "text": "Dann war der Rutsch im Oktober ein Fehlausbruch. Die Oberkante bei 79 $ wäre die erste grosse Hürde."
+    }
+   ]
+  },
+  {
+   "typ": "fazit",
+   "kicker": "MEIN FAZIT",
+   "titel": "Zahlen stark, Angst bleibt",
+   "absaetze": [
+    "Das heutige Geschäft von Uber läuft sehr gut. Die Sorge vor Robotaxi-Apps von Konkurrenten kann sich frühestens ab 2028 in den Zahlen zeigen.",
+    "Im Chart ist der Boden bei 65 $ das Wichtigste. Ich beobachte, ob er hält. Ein Wochenschluss über 73 $ wäre für mich ein erstes Zeichen."
+   ],
+   "frage": "Bremsen Robotaxis Uber aus oder fahren sie bald über Uber? Deine Meinung in die Kommentare."
+  }
+ ],
+ "caption": "Uber bucht im dritten Quartal 20 % mehr Fahrten und Bestellungen, der Betriebsgewinn steigt um 30 %. Trotzdem liegt die Aktie rund ein Drittel unter dem Hoch von 2025, weil die Börse Robotaxis fürchtet. Jetzt steht sie knapp über dem Boden ihrer Range bei 65 $. Wisch durch für Zahlen, Struktur und beide Szenarien.",
+ "hashtags": [
+  "#uber",
+  "#aktien",
+  "#börse",
+  "#quartalszahlen",
+  "#marktstruktur",
+  "#robotaxi",
+  "#stocks",
+  "#investieren"
+ ]
+}

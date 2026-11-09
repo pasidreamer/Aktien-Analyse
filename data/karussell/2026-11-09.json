@@ -1,0 +1,150 @@
+{
+ "datum": "2026-11-09",
+ "ticker": "TTWO",
+ "name": "Take-Two",
+ "thema": "Vor den Zahlen",
+ "stand": "06.11.2026",
+ "slides": [
+  {
+   "typ": "hook",
+   "kicker": "TAKE-TWO · VOR DEN ZAHLEN",
+   "titel": "Zahlen heute, GTA VI in zehn Tagen: Was nun?",
+   "groesse": 104,
+   "text": "Heute Abend legt Take-Two Quartalszahlen vor. Am 19. November erscheint GTA VI. In einer Woche stieg die Aktie um 13 %.",
+   "kpis": [
+    {
+     "label": "KURS",
+     "wert": "214.87 $"
+    },
+    {
+     "label": "IN 5 TAGEN",
+     "wert": "+13 %",
+     "ton": "gruen"
+    },
+    {
+     "label": "UNTER DEM HOCH",
+     "wert": "−19 %",
+     "ton": "rot"
+    }
+   ]
+  },
+  {
+   "typ": "firma",
+   "kicker": "WAS DIE FIRMA MACHT",
+   "titel": "Die Firma hinter GTA",
+   "text": "Take-Two entwickelt und verkauft Videospiele. Das Studio Rockstar Games macht Grand Theft Auto. Dazu kommen Sportspiele von 2K und Handyspiele von Zynga.",
+   "fakten": [
+    {
+     "label": "Sitz",
+     "wert": "New York"
+    },
+    {
+     "label": "Buchungen 2025/26",
+     "wert": "6.72 Mrd. $"
+    },
+    {
+     "label": "Anteil Käufe im Spiel",
+     "wert": "78 %"
+    }
+   ]
+  },
+  {
+   "typ": "zahlen",
+   "kicker": "WAS HEUTE ABEND ZÄHLT",
+   "titel": "Warten auf GTA VI",
+   "quelle": "Quelle: Take-Two, 7.8.2026",
+   "zeilen": [
+    {
+     "k": "Buchungen Q1",
+     "sub": "April bis Juni, 1.39 Mrd. $",
+     "wert": "−3 %",
+     "ton": "orange"
+    },
+    {
+     "k": "Prognose Q2",
+     "sub": "Prognose Juli bis Sept., Mitte",
+     "wert": "1.65 Mrd. $",
+     "ton": ""
+    },
+    {
+     "k": "Ziel Geschäftsjahr",
+     "sub": "Prognose bis März 2027, Mitte",
+     "wert": "8.1 Mrd. $",
+     "ton": "gruen"
+    },
+    {
+     "k": "Start GTA VI",
+     "sub": "PS5 und Xbox Series X|S",
+     "wert": "19.11.",
+     "ton": "gruen"
+    }
+   ],
+   "erklaerung": "Buchungen sind der Wert aller verkauften Spiele und Käufe im Spiel. Das Jahresziel wäre rund 20 % mehr."
+  },
+  {
+   "typ": "skala",
+   "kicker": "AMPEL 1: QUALITÄT",
+   "titel": "Grosses Spiel, dünner Gewinn",
+   "name": "Qualität",
+   "wert": 40,
+   "punkte": [
+    "Im letzten Geschäftsjahr machte Take-Two 298 Mio. $ Verlust. Das sind 1.62 $ pro Aktie.",
+    "Die Zahl der Aktien stieg in einem Jahr von 177 auf 185 Mio. Das verwässert jeden Anteil.",
+    "Selbst mit GTA VI rechnet die Firma nur mit 0.55 bis 0.75 $ Gewinn pro Aktie. Die Aktie ist damit teuer."
+   ]
+  },
+  {
+   "typ": "skala",
+   "kicker": "STRUKTUR IM WOCHENCHART",
+   "titel": "Tieferes Tief, dann Rückkehr",
+   "name": "Timing",
+   "wert": 44,
+   "punkte": [
+    "Nach dem Hoch von 265.94 $ im Juni fiel der Kurs im Oktober unter das Juni-Tief.",
+    "Das Tief vom 19. Oktober bei 183.86 $ lag unter dem Februar-Tief. Die Struktur zeigt nach unten.",
+    "Jetzt steht der Kurs wieder über 206 $. Der Bruch könnte ein Fehlausbruch gewesen sein."
+   ]
+  },
+  {
+   "typ": "marke",
+   "kicker": "DIE ENTSCHEIDENDE MARKE",
+   "titel": "Das Juni-Tief",
+   "text": "Bei 206 $ lag das Tief vom Juni. Im Oktober wurde es gebrochen, jetzt steht der Kurs 4 % darüber.",
+   "marke_label": "TIEF VOM JUNI 2026",
+   "marke": "206 $",
+   "szenarien": [
+    {
+     "art": "bruch",
+     "titel": "Bricht sie",
+     "text": "Ein Wochenschluss darunter öffnet den Weg zum Oktober-Tief bei 184 $. Haltestellen: 178 bis 190 $ (Winter 2024/25) und 150 bis 167 $ (Winter 2023/24)."
+    },
+    {
+     "art": "halten",
+     "titel": "Hält sie",
+     "text": "Dann war der Oktober ein Fehlausbruch. Die erste Hürde ist die Range von 2025 zwischen 217 und 241 $."
+    }
+   ]
+  },
+  {
+   "typ": "fazit",
+   "kicker": "MEIN FAZIT",
+   "titel": "Ein Spiel trägt die Aktie",
+   "absaetze": [
+    "Take-Two hat das wohl grösste Spiel des Jahres in der Pipeline. Die Zahlen heute zeigen vor allem, ob das Jahresziel von 8 Mrd. $ steht.",
+    "Im Chart beobachte ich die 206 $. Ein Wochenschluss über 217 $ wäre für mich ein erstes Zeichen für einen Boden."
+   ],
+   "frage": "Kaufst du GTA VI am ersten Tag? Schreib es in die Kommentare."
+  }
+ ],
+ "caption": "Take-Two legt heute Abend Quartalszahlen vor, zehn Tage vor dem Start von GTA VI am 19. November. Für das Geschäftsjahr erwartet die Firma Buchungen von 8.0 bis 8.2 Mrd. $, rund 20 % mehr. Die Aktie stieg letzte Woche um 13 % und steht wieder über dem Juni-Tief bei 206 $. Wisch durch für Zahlen, Struktur und beide Szenarien.",
+ "hashtags": [
+  "#taketwo",
+  "#gta6",
+  "#aktien",
+  "#börse",
+  "#marktstruktur",
+  "#gaming",
+  "#stocks",
+  "#investieren"
+ ]
+}

@@ -1,5 +1,5 @@
 {
- "stand": "2026-11-04",
+ "stand": "2026-11-05",
  "hinweis": "Kurze Auswertung der Quartalszahlen. Reaktion rechnet die App aus den Kursen.",
  "eintraege": {
   "GOOGL": [
@@ -1862,6 +1862,381 @@
      {
       "t": "ad-hoc-news: Wolters Kluwer bestätigt Prognose nach 6 % organischem Wachstum",
       "u": "https://www.ad-hoc-news.de/boerse/news/corporate-news/wolters-kluwer-stock-holds-guidance-after-6-prozent-organic-growth/70455610"
+     }
+    ]
+   }
+  ],
+  "NET": [
+   {
+    "datum": "2026-11-05",
+    "zeit": "nach",
+    "quartal": "Q3 2026",
+    "reaktion_quelle": 17.0,
+    "titel": "Bestes Quartal der Firmengeschichte, Ausblick angehoben",
+    "kurz": "Cloudflare ist im dritten Quartal um 39 % gewachsen, so schnell wie seit fast vier Jahren nicht mehr. Umsatz, Gewinn und Ausblick lagen klar über den Erwartungen, die Aktie stieg nachbörslich um rund 17 %.",
+    "zahlen": [
+     {
+      "k": "Umsatz",
+      "ist": "782.5 Mio. $ (+39 %)",
+      "erw": "736.8 Mio. $",
+      "urteil": "übertroffen"
+     },
+     {
+      "k": "Gewinn pro Aktie (bereinigt, ohne Aktienvergütung)",
+      "ist": "0.38 $",
+      "erw": "0.34 $",
+      "urteil": "übertroffen"
+     },
+     {
+      "k": "Betriebsmarge bereinigt (Gewinn aus dem Geschäft im Verhältnis zum Umsatz)",
+      "ist": "17.5 %",
+      "erw": "",
+      "urteil": "stark"
+     },
+     {
+      "k": "Free Cashflow (frei verfügbares Geld)",
+      "ist": "82.1 Mio. $ (rund 10 % vom Umsatz)",
+      "erw": "",
+      "urteil": "schwächer als Vorjahr"
+     },
+     {
+      "k": "Ausblick Umsatz Q4 2026",
+      "ist": "845 bis 846 Mio. $",
+      "erw": "798.2 Mio. $",
+      "urteil": "übertroffen"
+     },
+     {
+      "k": "Ausblick Umsatz Gesamtjahr 2026",
+      "ist": "2'963 bis 2'964 Mio. $",
+      "erw": "vorher 2'864 bis 2'870 Mio. $",
+      "urteil": "angehoben"
+     }
+    ],
+    "gut": [
+     "Das Wachstum hat sich auf 39 % beschleunigt. Auch die fest vereinbarten Aufträge der nächsten 12 Monate (cRPO) wuchsen schneller, um 37 % nach 35 % im Vorquartal.",
+     "Die Firma hat das Jahresziel beim Umsatz um rund 95 Mio. $ angehoben, beim bereinigten Gewinn pro Aktie auf 1.35 $.",
+     "Die bereinigte Betriebsmarge stieg auf 17.5 %. Das Wachstum bringt also auch mehr Gewinn."
+    ],
+    "sorgen": [
+     "Nach den offiziellen Buchhaltungsregeln (GAAP) gab es einen Verlust von 34.1 Mio. $, vor allem wegen 174 Mio. $ Vergütung in Aktien.",
+     "Die Investitionen in Rechenzentren stiegen um 44 %. Dadurch sank die Free-Cashflow-Marge auf rund 10 % nach rund 13 % im Vorjahr.",
+     "Cloudflare hat Wandelanleihen (Schulden, die später in Aktien getauscht werden können) von 4.4 Mrd. $ ausstehend. Die Aktie ist teuer bewertet und schwankt stark: am Tag der Zahlen fiel sie vor der Meldung um rund 10 %."
+    ],
+    "fazit": "Keine Panik: das Geschäft hat sich echt beschleunigt. Ob sie anhält, zeigt sich daran, ob das Wachstum auch bei steigenden Investitionen mehr freies Geld bringt.",
+    "quellen": [
+     {
+      "t": "Cloudflare: Third Quarter 2026 Financial Results (StockTitan, Pressemitteilung)",
+      "u": "https://www.stocktitan.net/news/NET/cloudflare-announces-third-quarter-2026-financial-e4dhao7zi9oi.html"
+     },
+     {
+      "t": "Investing.com: Cloudflare shares soar after-hours on blowout Q3 results",
+      "u": "https://ca.investing.com/news/earnings/cloudflare-shares-soar-afterhours-on-blowout-q3-results-strong-forecast-4936350"
+     },
+     {
+      "t": "StockStory: Cloudflare delivers strong Q3 2026 numbers",
+      "u": "https://stockstory.org/us/stocks/nyse/net/news/earnings/cloudflare-nysenet-delivers-strong-q3-2026-numbers-stock-jumps-182percent"
+     },
+     {
+      "t": "24/7 Wall St: Cloudflare Q3 2026 earnings",
+      "u": "https://247wallst.com/cards/cloudflare-q3-2026-earnings-net-01m6psg0byw1kqkd514aq3zgkb"
+     }
+    ]
+   }
+  ],
+  "SONY": [
+   {
+    "datum": "2026-11-05",
+    "zeit": "vor",
+    "quartal": "Q2 Geschäftsjahr 2026/27",
+    "reaktion_quelle": null,
+    "titel": "Gewinn +45 %, Jahresprognose erneut angehoben",
+    "kurz": "Sony hat im Quartal Juli bis September 45 % mehr Betriebsgewinn erzielt, vor allem dank Spider-Man im Kino und Musik. Die Prognose für das ganze Geschäftsjahr steigt zum zweiten Mal. Gezahlt hat dabei auch der schwache Yen.",
+    "zahlen": [
+     {
+      "k": "Umsatz",
+      "ist": "3'429 Mrd. Yen (+10 %)",
+      "erw": "",
+      "urteil": "stark"
+     },
+     {
+      "k": "Betriebsgewinn (Gewinn aus dem Geschäft)",
+      "ist": "622 Mrd. Yen (+45 %)",
+      "erw": "",
+      "urteil": "stark"
+     },
+     {
+      "k": "Gewinn pro Aktie (verwässert)",
+      "ist": "76.49 Yen (Vorjahr 51.71)",
+      "erw": "",
+      "urteil": "stark"
+     },
+     {
+      "k": "Spiele (PlayStation): Betriebsgewinn",
+      "ist": "220 Mrd. Yen (+83 %)",
+      "erw": "",
+      "urteil": "stark"
+     },
+     {
+      "k": "Bildsensoren: Umsatz",
+      "ist": "578 Mrd. Yen (−6 %)",
+      "erw": "",
+      "urteil": "schwach"
+     },
+     {
+      "k": "Prognose Betriebsgewinn Geschäftsjahr",
+      "ist": "1'870 Mrd. Yen",
+      "erw": "vorher 1'720 Mrd. Yen",
+      "urteil": "angehoben"
+     }
+    ],
+    "gut": [
+     "Die Filmsparte verdiente mit «Spider-Man: Brand New Day» 93 Mrd. Yen nach 14 Mrd. Yen im Vorjahr. Musik wuchs dank Streaming und Konzerten.",
+     "Sony hebt die Jahresprognose an: Umsatz 13'000 statt 12'500 Mrd. Yen, Reingewinn 1'330 statt 1'210 Mrd. Yen.",
+     "Die Dividende für das Jahr soll auf 35 Yen steigen (plus 10 Yen). Im Halbjahr hat Sony für 263 Mrd. Yen eigene Aktien zurückgekauft."
+    ],
+    "sorgen": [
+     "Sony hat weniger PS5-Konsolen verkauft. Der Gewinnsprung bei den Spielen kommt zu einem guten Teil daher, dass im Vorjahr einmalige Abschreibungen (Bungie) anfielen.",
+     "Bildsensoren für Handys verkaufen sich schlechter. Der Gewinn dort stieg nur dank des schwachen Yen.",
+     "Ein schwacher Yen (159 pro Dollar) bläht die Zahlen auf. Wird der Yen stärker, fällt ein Teil des Rückenwinds weg. US-Zölle bleiben ein Risiko."
+    ],
+    "fazit": "Keine Panik: das Geschäft läuft breit gut, ein Teil des Plus kommt aber von Währung und Einmaleffekten, und bei Konsolen und Sensoren lässt die Nachfrage nach.",
+    "quellen": [
+     {
+      "t": "Sony Group Form 6-K: Ergebnisse Q2 Geschäftsjahr 2026 (SEC, 5.11.2026)",
+      "u": "https://www.sec.gov/Archives/edgar/data/0000313838/000110465926122964/tm2628525d5_6k.htm"
+     },
+     {
+      "t": "Sony Group Form 6-K: Finanzübersicht (SEC, 5.11.2026)",
+      "u": "https://www.sec.gov/Archives/edgar/data/0000313838/000110465926122935/tm2628525d4_6k.htm"
+     }
+    ]
+   }
+  ],
+  "RHM": [
+   {
+    "datum": "2026-11-04",
+    "zeit": "nach",
+    "quartal": "Q3 2026",
+    "reaktion_quelle": -11.8,
+    "titel": "Starkes Quartal, aber Jahresziel gesenkt: Aktie −12 %",
+    "kurz": "Rheinmetall ist im Q3 um 32 % gewachsen und hat 62 % mehr operativ verdient. Trotzdem senkt die Firma das Jahresziel, weil der grosse Boxer-Auftrag (Arminius) und Munitionsabnahmen ins Jahr 2027 rutschen. Die Aktie fiel am 5. November rund 12 %.",
+    "zahlen": [
+     {
+      "k": "Umsatz Q3",
+      "ist": "3.15 Mrd. € (+32 %)",
+      "erw": "3.23 Mrd. €",
+      "urteil": "knapp verfehlt"
+     },
+     {
+      "k": "Operatives Ergebnis (Gewinn aus dem Geschäft)",
+      "ist": "553 Mio. € (+62 %)",
+      "erw": "",
+      "urteil": "stark"
+     },
+     {
+      "k": "Operative Marge",
+      "ist": "17.5 % (Vorjahr 14.8 %)",
+      "erw": "",
+      "urteil": "stark"
+     },
+     {
+      "k": "Auftragseingang Q3",
+      "ist": "2.89 Mrd. €",
+      "erw": "",
+      "urteil": "leicht unter Vorjahr"
+     },
+     {
+      "k": "Operativer Free Cashflow (frei verfügbares Geld)",
+      "ist": "−82 Mio. € (Vorjahr −168 Mio. €)",
+      "erw": "",
+      "urteil": "weiter negativ"
+     },
+     {
+      "k": "Prognose Umsatz 2026",
+      "ist": "rund 13.2 Mrd. €",
+      "erw": "vorher 13.7 bis 14.2 Mrd. €",
+      "urteil": "gesenkt"
+     },
+     {
+      "k": "Prognose operative Marge 2026",
+      "ist": "etwa 18.5 %",
+      "erw": "vorher rund 19 %",
+      "urteil": "gesenkt"
+     }
+    ],
+    "gut": [
+     "Umsatz und Gewinn sind im Quartal stark gewachsen, die Marge stieg von 14.8 % auf 17.5 %.",
+     "Die Aufträge gehen nicht verloren, sie kommen später. Citigroup erwartet für 2026 weiterhin über 100 Mrd. € Auftragseingang.",
+     "Der Mittelabfluss im Quartal war halb so gross wie im Vorjahr. Für das Jahr bleibt der operative Free Cashflow laut Firma positiv."
+    ],
+    "sorgen": [
+     "Es ist bereits die zweite Senkung in diesem Jahr (nach dem Wegfall der Fregatte F126). JPMorgan senkt das Kursziel von 1'350 auf 1'150 € und zweifelt an den langfristigen Zielen.",
+     "Das Ziel, mehr als 40 % des Gewinns in Bargeld umzuwandeln (Cash Conversion), bestätigt Rheinmetall nicht mehr, weil die Anzahlungen für Arminius fehlen.",
+     "Auch neue Geschäfte (Zusammenarbeit mit Destinus) bringen 2026 weniger Umsatz als geplant."
+    ],
+    "fazit": "Eher Enttäuschung über das Tempo als eine echte Veränderung: die Nachfrage ist da, aber Rheinmetall hat zweimal zu viel versprochen, und das kostet Vertrauen.",
+    "quellen": [
+     {
+      "t": "wallstreet-online: Rheinmetall senkt Jahresprognose trotz starkem Quartal",
+      "u": "https://www.wallstreet-online.de/nachricht/21642471-rheinmetall-jahresprognose-trotz-starkem-quartal-warum"
+     },
+     {
+      "t": "ntg24: Rheinmetall Prognose für 2026 gesenkt, Q3 deutlich über Vorjahr",
+      "u": "https://www.ntg24.de/Rheinmetall-Prognose-f-r-2026-gesenkt-Q3-deutlich-ber-Vorjahr-04112026-KIR"
+     },
+     {
+      "t": "4investors: Gewinnwarnung, Boxer-Verzögerung sprengt die Jahresprognose",
+      "u": "https://www.4investors.de/nachrichten/boerse.php?sektion=stock&ID=193182"
+     },
+     {
+      "t": "Börse Express: Erwartungen der Analysten zum Q3 und Kurs am 5.11.",
+      "u": "https://www.boerse-express.com/news/articles/rheinmetall-aktie-eilige-prognose-955051"
+     }
+    ]
+   }
+  ],
+  "HAG": [
+   {
+    "datum": "2026-11-05",
+    "zeit": "vor",
+    "quartal": "Q3 2026",
+    "reaktion_quelle": null,
+    "titel": "Marge über Erwartung, Jahresziel leicht angehoben",
+    "kurz": "Hensoldt hat im Q3 deutlich mehr verdient als erwartet und hebt das Umsatzziel leicht an. Die Aufträge sind in neun Monaten um fast 77 % gestiegen. Die Aktie reagierte kaum.",
+    "zahlen": [
+     {
+      "k": "Umsatz 9 Monate",
+      "ist": "1.86 Mrd. € (+21 %)",
+      "erw": "",
+      "urteil": "stark"
+     },
+     {
+      "k": "Bereinigtes EBITDA Q3 (Gewinn vor Zinsen, Steuern und Abschreibungen)",
+      "ist": "144 Mio. € (+38 %), Marge 20.6 %",
+      "erw": "rund 12 % tiefer",
+      "urteil": "übertroffen"
+     },
+     {
+      "k": "Auftragseingang 9 Monate",
+      "ist": "3.56 Mrd. € (+77 %)",
+      "erw": "",
+      "urteil": "stark"
+     },
+     {
+      "k": "Free Cashflow Q3 (frei verfügbares Geld)",
+      "ist": "rund 32 Mio. €",
+      "erw": "rund 38 Mio. €",
+      "urteil": "verfehlt"
+     },
+     {
+      "k": "Prognose Umsatz 2026",
+      "ist": "rund 2.8 Mrd. €",
+      "erw": "vorher rund 2.75 Mrd. €",
+      "urteil": "angehoben"
+     },
+     {
+      "k": "Prognose EBITDA-Marge 2026",
+      "ist": "rund 19 %",
+      "erw": "vorher 18.5 bis 19 %",
+      "urteil": "angehoben"
+     }
+    ],
+    "gut": [
+     "Die Marge wächst schneller als der Umsatz. Die Optik-Sparte wuchs im Q3 um 38 %.",
+     "Der Auftragsbestand liegt mit über 10 Mrd. € auf Rekordhöhe, das sind mehr als drei Jahresumsätze.",
+     "Jefferies hält das Umsatzziel für vorsichtig, weil es im Q4 nur rund 2 % Wachstum voraussetzt."
+    ],
+    "sorgen": [
+     "Das neue Umsatzziel liegt noch rund 1 % unter der Erwartung der Analysten.",
+     "Beim freien Geld lag Hensoldt unter der Erwartung. Vor den Zahlen gab es Berichte über Probleme in der Logistik und bei Lieferungen an die Bundeswehr.",
+     "Die Aktie ist mit einem KGV um 79 (Kurs geteilt durch Gewinn pro Aktie) sehr teuer. Ein Teil der Auftragsziele hängt davon ab, wann der grosse Pegasus-Auftrag kommt."
+    ],
+    "fazit": "Keine Panik und keine Wende: das Geschäft wächst solide wie geplant, die hohe Bewertung lässt aber wenig Raum für Enttäuschungen.",
+    "quellen": [
+     {
+      "t": "Stock-World: Hensoldt Aktie, Marge wächst schneller als Umsatz (5.11.2026)",
+      "u": "https://www.stock-world.de/hensoldt-aktie-marge-waechst-schneller-als-umsatz/"
+     },
+     {
+      "t": "Börse Global: Hensoldt Aktie, Quartalsbericht kommt am 5. November",
+      "u": "https://www.boerse-global.de/hensoldt-aktie-quartalsbericht-kommt-am-5-november/828634"
+     }
+    ]
+   }
+  ],
+  "R3NK": [
+   {
+    "datum": "2026-11-05",
+    "zeit": "vor",
+    "quartal": "Q3 2026",
+    "reaktion_quelle": -3.6,
+    "titel": "Aufträge +34 %, Umsatz wächst nur langsam",
+    "kurz": "Renk hat in neun Monaten ein Drittel mehr Aufträge gewonnen und die Marge verbessert. Der Umsatz wuchs aber nur 5.8 %, weil die Produktion nicht nachkommt. Die Zahlen lagen laut Reuters im Rahmen, die Aktie fiel mit dem ganzen Rüstungssektor.",
+    "zahlen": [
+     {
+      "k": "Auftragseingang 9 Monate",
+      "ist": "1'664 Mio. € (+34 %)",
+      "erw": "",
+      "urteil": "stark"
+     },
+     {
+      "k": "Book-to-Bill (Aufträge geteilt durch Umsatz)",
+      "ist": "1.7",
+      "erw": "",
+      "urteil": "stark"
+     },
+     {
+      "k": "Umsatz 9 Monate",
+      "ist": "982 Mio. € (+5.8 %)",
+      "erw": "zweistelliges Wachstum (mwb)",
+      "urteil": "verfehlt"
+     },
+     {
+      "k": "Bereinigtes EBIT (Gewinn aus dem Geschäft) 9 Monate",
+      "ist": "158.8 Mio. € (+12.7 %)",
+      "erw": "",
+      "urteil": "getroffen"
+     },
+     {
+      "k": "Bereinigte EBIT-Marge",
+      "ist": "16.2 % (Vorjahr 15.2 %)",
+      "erw": "rund +1 Prozentpunkt",
+      "urteil": "getroffen"
+     },
+     {
+      "k": "Prognose 2026 (ohne Gleitlager)",
+      "ist": "Umsatz rund 1.4 Mrd. €, EBIT 240 bis 255 Mio. €",
+      "erw": "bereits am 22.10. gesenkt",
+      "urteil": "bestätigt"
+     }
+    ],
+    "gut": [
+     "Der Auftragsbestand liegt mit 7.6 Mrd. € auf Rekord, Ende 2025 waren es 6.7 Mrd. €.",
+     "Die Sparte für Militärfahrzeuge (VMS) verdient fast 20 % Marge, die Aufträge dort stiegen um 46 %.",
+     "Renk richtet sich stärker auf Rüstung aus: Kauf von David Brown Defence (U-Boot-Antriebe), Verkauf der schwächeren Gleitlager-Sparte."
+    ],
+    "sorgen": [
+     "Der Umsatz hält mit den Aufträgen nicht Schritt. Renk baut die Produktion um und aus, das bremst.",
+     "Die Sparte Marine und Industrie schwächelt: Umsatz −6.3 %, Marge 10.3 %.",
+     "Analysten sind vorsichtiger geworden: BofA stuft auf Neutral ab (Kursziel 42.50 €). Die Aktie liegt nahe am 52-Wochen-Tief und seit Jahresbeginn über 35 % im Minus."
+    ],
+    "fazit": "Eher Stimmung als echte Veränderung: die Aufträge wachsen kräftig, die offene Frage ist, ob Renk sie schnell genug ausliefern kann. Antworten soll das Strategie-Update am 8. Dezember geben.",
+    "quellen": [
+     {
+      "t": "RENK Pressemitteilung 9M 2026 (Presseportal)",
+      "u": "https://www.presseportal.de/en/pm/171595/6384423"
+     },
+     {
+      "t": "Börse Global: Renk Group Aktie im Rheinmetall-Sog",
+      "u": "https://www.boerse-global.de/renk-group-aktie-rheinmetall-sog/839244"
+     },
+     {
+      "t": "Finanztrends: Renk, Ziele fürs Restgeschäft gekappt",
+      "u": "https://www.finanztrends.de/news/renk-group-aktie-ziele-fuers-restgeschaeft-gekappt/"
+     },
+     {
+      "t": "trading-treff: Renk Group Aktie, Tagesveränderung",
+      "u": "https://trading-treff.de/trading/renk-group-aktie-stellex-hat-david-brown-defence-abgegeben"
      }
     ]
    }

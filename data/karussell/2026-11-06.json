@@ -1,0 +1,150 @@
+{
+ "datum": "2026-11-06",
+ "ticker": "RHM",
+ "name": "Rheinmetall",
+ "thema": "Quartalszahlen",
+ "stand": "05.11.2026",
+ "slides": [
+  {
+   "typ": "hook",
+   "kicker": "RHEINMETALL · QUARTALSZAHLEN",
+   "titel": "Minus 16 % an einem Tag: Was ist bei Rheinmetall los?",
+   "groesse": 104,
+   "text": "Der Gewinn steigt um 62 %. Trotzdem fällt die Aktie auf den tiefsten Stand seit Februar 2025, weil grosse Aufträge erst 2027 kommen.",
+   "kpis": [
+    {
+     "label": "KURS",
+     "wert": "841.50 €"
+    },
+    {
+     "label": "AM 5. NOVEMBER",
+     "wert": "−16.1 %",
+     "ton": "rot"
+    },
+    {
+     "label": "UNTER DEM REKORD",
+     "wert": "−58 %",
+     "ton": "rot"
+    }
+   ]
+  },
+  {
+   "typ": "firma",
+   "kicker": "WAS DIE FIRMA MACHT",
+   "titel": "Deutschlands grösster Rüstungskonzern",
+   "text": "Rheinmetall baut Munition, Panzer und Militärfahrzeuge wie den Radpanzer Boxer. Seit dem Krieg in der Ukraine ist die Nachfrage aus Europa stark gestiegen.",
+   "fakten": [
+    {
+     "label": "Sitz",
+     "wert": "Düsseldorf"
+    },
+    {
+     "label": "Umsatz 2025",
+     "wert": "9.94 Mrd. €"
+    },
+    {
+     "label": "Auftragsbestand",
+     "wert": "rund 78 Mrd. €"
+    }
+   ]
+  },
+  {
+   "typ": "zahlen",
+   "kicker": "WAS DIE ZAHLEN ZEIGEN",
+   "titel": "Starkes Quartal, schwächeres Jahr",
+   "quelle": "Quelle: Quartalsmitteilung Q3 2026, dpa-AFX",
+   "zeilen": [
+    {
+     "k": "Umsatz Q3",
+     "sub": "3.15 Mrd. €, erwartet waren 3.3 Mrd. €",
+     "wert": "+32 %",
+     "ton": "orange"
+    },
+    {
+     "k": "Operatives Ergebnis",
+     "sub": "553 Mio. €, Marge 17.5 %",
+     "wert": "+62 %",
+     "ton": "gruen"
+    },
+    {
+     "k": "Free Cashflow Q3",
+     "sub": "Vorjahr −168 Mio. €",
+     "wert": "−82 Mio. €",
+     "ton": "orange"
+    },
+    {
+     "k": "Umsatzziel 2026",
+     "sub": "vorher 13.7 bis 14.2 Mrd. €",
+     "wert": "13.2 Mrd. €",
+     "ton": "rot"
+    }
+   ],
+   "erklaerung": "Der grosse Boxer-Auftrag der Bundeswehr kommt erst 2027. Auch Munition wird später abgenommen."
+  },
+  {
+   "typ": "skala",
+   "kicker": "AMPEL 1: QUALITÄT",
+   "titel": "Gutes Geschäft, wackelige Ziele",
+   "name": "Qualität",
+   "wert": 69,
+   "punkte": [
+    "Die Marge stieg von 14.8 % auf 17.5 %. Von 100 € Umsatz bleiben 17.50 € Betriebsgewinn.",
+    "Der Auftragsbestand von 78 Mrd. € reicht für rund sechs Jahresumsätze.",
+    "Laut JPMorgan ist es die fünfte Umsatz- oder Gewinnwarnung in elf Monaten. Das kostet Vertrauen."
+   ]
+  },
+  {
+   "typ": "skala",
+   "kicker": "STRUKTUR IM WOCHENCHART",
+   "titel": "Die Abwärtsstruktur hält an",
+   "name": "Timing",
+   "wert": 38,
+   "punkte": [
+    "Nach dem Rekord bei 2'008 € im September 2025 kamen nur tiefere Hochs: 1'966 € im Januar, 1'238 € im Juli, 1'097 € im Oktober.",
+    "Auch die Tiefs sinken: 1'410 € im Dezember, 929 € im Juni, 909 € im September.",
+    "Am 5. November fiel der Kurs klar unter 909 €. Der RSI steht mit 28 sehr tief."
+   ]
+  },
+  {
+   "typ": "marke",
+   "kicker": "DIE ENTSCHEIDENDE MARKE",
+   "titel": "Die Lücke vom Februar 2025",
+   "text": "Hier startete im Februar 2025 der Sprung über 900 €. Am 5. November lag das Tief bei 818.70 €.",
+   "marke_label": "START DES SPRUNGS",
+   "marke": "817 €",
+   "szenarien": [
+    {
+     "art": "bruch",
+     "titel": "Bricht sie",
+     "text": "Ein Wochenschluss darunter öffnet den Weg. Haltestellen: 706 € und die Range von 605 bis 658 € (Winter 2024/25)."
+    },
+    {
+     "art": "halten",
+     "titel": "Hält sie",
+     "text": "Dann kann sich eine Range bilden. Erst über 909 € dreht das Bild, danach wartet 939 bis 1'034 €."
+    }
+   ]
+  },
+  {
+   "typ": "fazit",
+   "kicker": "MEIN FAZIT",
+   "titel": "Nachfrage da, Vertrauen weg",
+   "absaetze": [
+    "Das Geschäft wächst stark und die Aufträge sind laut Firma nur verschoben. Aber Rheinmetall hat in diesem Jahr mehrmals zu viel versprochen.",
+    "Im Chart läuft die Abwärtsstruktur weiter. Ich beobachte, ob die 817 € halten. Ein Wochenschluss über 909 € wäre für mich ein erstes Zeichen."
+   ],
+   "frage": "Kaufgelegenheit oder fallendes Messer? Deine Meinung in die Kommentare."
+  }
+ ],
+ "caption": "Rheinmetall verdient im dritten Quartal 62 % mehr, senkt aber zum zweiten Mal die Jahresprognose. Der grosse Boxer-Auftrag kommt erst 2027, die Aktie fiel am 5. November um 16 %. Jetzt steht sie an der Kurslücke vom Februar 2025 bei 817 €. Wisch durch für Zahlen, Struktur und beide Szenarien.",
+ "hashtags": [
+  "#rheinmetall",
+  "#aktien",
+  "#börse",
+  "#quartalszahlen",
+  "#rüstung",
+  "#marktstruktur",
+  "#stocks",
+  "#dax"
+ ]
+}

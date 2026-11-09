@@ -1,0 +1,149 @@
+{
+ "datum": "2026-11-07",
+ "ticker": "NET",
+ "name": "Cloudflare",
+ "thema": "Quartalszahlen",
+ "stand": "06.11.2026",
+ "slides": [
+  {
+   "typ": "hook",
+   "kicker": "CLOUDFLARE · QUARTALSZAHLEN",
+   "titel": "Rekordquartal nach dem Absturz: Dreht Cloudflare jetzt?",
+   "text": "Am Donnerstag fiel die Aktie vor den Zahlen um 8 %. Dann kam das stärkste Wachstum seit fast vier Jahren und am Freitag ein Plus von 10 %.",
+   "kpis": [
+    {
+     "label": "KURS",
+     "wert": "268.75 $"
+    },
+    {
+     "label": "AM 6. NOVEMBER",
+     "wert": "+9.9 %",
+     "ton": "gruen"
+    },
+    {
+     "label": "UNTER DEM HOCH",
+     "wert": "−27 %",
+     "ton": "rot"
+    }
+   ]
+  },
+  {
+   "typ": "firma",
+   "kicker": "WAS DIE FIRMA MACHT",
+   "titel": "Der Türsteher des Internets",
+   "text": "Cloudflare betreibt ein weltweites Netz, über das Websites schneller laden und vor Angriffen geschützt werden. Immer mehr Kunden nutzen es auch für KI-Anwendungen.",
+   "fakten": [
+    {
+     "label": "Sitz",
+     "wert": "San Francisco"
+    },
+    {
+     "label": "Umsatz 2025",
+     "wert": "2.17 Mrd. $"
+    },
+    {
+     "label": "Börsenwert",
+     "wert": "rund 87 Mrd. $"
+    }
+   ]
+  },
+  {
+   "typ": "zahlen",
+   "kicker": "WAS DIE ZAHLEN ZEIGEN",
+   "titel": "Wachstum zieht wieder an",
+   "quelle": "Quelle: Cloudflare, Investing.com",
+   "zeilen": [
+    {
+     "k": "Umsatz Q3",
+     "sub": "782.5 Mio. $, erwartet waren 736.8 Mio. $",
+     "wert": "+39 %",
+     "ton": "gruen"
+    },
+    {
+     "k": "Gewinn pro Aktie",
+     "sub": "bereinigt, erwartet waren 0.34 $",
+     "wert": "0.38 $",
+     "ton": "gruen"
+    },
+    {
+     "k": "Ergebnis nach Buchhaltung",
+     "sub": "wegen 174 Mio. $ Vergütung in Aktien",
+     "wert": "−34 Mio. $",
+     "ton": "orange"
+    },
+    {
+     "k": "Ausblick Q4",
+     "sub": "erwartet waren 798 Mio. $",
+     "wert": "845 Mio. $",
+     "ton": "gruen"
+    }
+   ],
+   "erklaerung": "Die fest vereinbarten Aufträge für die nächsten 12 Monate wuchsen um 37 %."
+  },
+  {
+   "typ": "skala",
+   "kicker": "AMPEL 1: QUALITÄT",
+   "titel": "Starkes Wachstum, hoher Preis",
+   "name": "Qualität",
+   "wert": 58,
+   "punkte": [
+    "Die bereinigte Betriebsmarge stieg auf 17.5 %. Das Wachstum bringt also auch mehr Gewinn.",
+    "Nur rund 10 % vom Umsatz bleiben als freies Geld, weil die Investitionen um 44 % stiegen.",
+    "Die Firma ist an der Börse rund 29 Jahresumsätze wert. Das ist sehr teuer."
+   ]
+  },
+  {
+   "typ": "skala",
+   "kicker": "STRUKTUR IM WOCHENCHART",
+   "titel": "Seit Juli in einer Range",
+   "name": "Timing",
+   "wert": 48,
+   "punkte": [
+    "Bis Herbst stiegen die Tiefs: 160 $ im Februar, 186 $ im Mai. Das Hoch lag bei 370 $.",
+    "Seit Juli pendelt der Kurs zwischen 262 und 361 $. Der Ausbruch auf 370 $ hielt nicht.",
+    "Am 5. November schloss die Aktie bei 244.51 $ unter der Range, einen Tag später wieder darüber."
+   ]
+  },
+  {
+   "typ": "marke",
+   "kicker": "DIE ENTSCHEIDENDE MARKE",
+   "titel": "Der Boden der Range",
+   "text": "Bei 262 $ liegt die Unterkante der Range seit Juli. Der Kurs steht nur 2.5 % darüber.",
+   "marke_label": "UNTERKANTE DER RANGE",
+   "marke": "262 $",
+   "szenarien": [
+    {
+     "art": "bruch",
+     "titel": "Bricht sie",
+     "text": "Ein Wochenschluss darunter öffnet den Weg. Haltestellen: 209 bis 226 $ (Herbst 2025) und 183 bis 202 $ (Winter 2025/26)."
+    },
+    {
+     "art": "halten",
+     "titel": "Hält sie",
+     "text": "Dann war der Rutsch auf 244 $ ein Fehlausbruch. Erste Hürde ist 277 $, danach wartet 332 $."
+    }
+   ]
+  },
+  {
+   "typ": "fazit",
+   "kicker": "MEIN FAZIT",
+   "titel": "Geschäft stark, Chart offen",
+   "absaetze": [
+    "Cloudflare wächst wieder schneller und hebt die Ziele an. Der hohe Preis und das knappe freie Geld bleiben aber ein Risiko.",
+    "Im Chart ist die Range noch intakt. Ich beobachte, ob die 262 $ halten. Ein Wochenschluss über 277 $ wäre für mich ein erstes Zeichen."
+   ],
+   "frage": "Ist Cloudflare die Bewertung wert? Deine Meinung in die Kommentare."
+  }
+ ],
+ "caption": "Cloudflare wächst im dritten Quartal um 39 %, so schnell wie seit fast vier Jahren nicht mehr, und hebt den Ausblick an. Vor den Zahlen fiel die Aktie um 8 %, danach stieg sie um 10 %. Jetzt steht sie knapp über der Unterkante ihrer Range bei 262 $. Wisch durch für Zahlen, Struktur und beide Szenarien.",
+ "hashtags": [
+  "#cloudflare",
+  "#aktien",
+  "#börse",
+  "#quartalszahlen",
+  "#marktstruktur",
+  "#techaktien",
+  "#stocks",
+  "#nyse"
+ ]
+}
