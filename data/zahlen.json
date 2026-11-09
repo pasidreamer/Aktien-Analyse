@@ -1,5 +1,5 @@
 {
- "stand": "2026-11-05",
+ "stand": "2026-11-09",
  "hinweis": "Kurze Auswertung der Quartalszahlen. Reaktion rechnet die App aus den Kursen.",
  "eintraege": {
   "GOOGL": [
@@ -2237,6 +2237,90 @@
      {
       "t": "trading-treff: Renk Group Aktie, Tagesveränderung",
       "u": "https://trading-treff.de/trading/renk-group-aktie-stellex-hat-david-brown-defence-abgegeben"
+     }
+    ]
+   }
+  ],
+  "TTWO": [
+   {
+    "datum": "2026-11-09",
+    "zeit": "nach",
+    "quartal": "Q2 Geschäftsjahr 2027",
+    "reaktion_quelle": null,
+    "titel": "Schwaches Quartal zehn Tage vor dem Start von GTA VI",
+    "kurz": "Take-Two hat im Quartal bis Ende September 18 % weniger Buchungen gemacht und die Erwartungen verfehlt. Der Jahresausblick von 8.0 bis 8.2 Mrd. $ steht, er hängt fast ganz am Start von GTA VI am 19. November. Nachbörslich schwankte die Aktie, Berichte nennen zwischen minus 4 % und plus 4 %.",
+    "zahlen": [
+     {
+      "k": "Net Bookings (Wert aller verkauften Spiele und Käufe im Spiel, die wichtigste Kennzahl)",
+      "ist": "1.60 Mrd. $ (-18 %)",
+      "erw": "1.67 Mrd. $ (eigene Prognose 1.62 bis 1.67 Mrd. $)",
+      "urteil": "verfehlt"
+     },
+     {
+      "k": "Umsatz (nach Buchhaltungsregeln)",
+      "ist": "1.50 Mrd. $ (-16 %)",
+      "erw": "1.62 Mrd. $",
+      "urteil": "verfehlt"
+     },
+     {
+      "k": "Gewinn pro Aktie (nach Buchhaltungsregeln)",
+      "ist": "-0.29 $ (Vorjahr -0.73 $)",
+      "erw": "",
+      "urteil": "Verlust kleiner als im Vorjahr"
+     },
+     {
+      "k": "Wiederkehrende Ausgaben der Spieler (Käufe in laufenden Spielen)",
+      "ist": "1.30 Mrd. $ (-9 %), 81 % der Buchungen",
+      "erw": "",
+      "urteil": "schwächer"
+     },
+     {
+      "k": "Ausblick Net Bookings Q3 (Oktober bis Dezember, mit GTA VI)",
+      "ist": "3.35 bis 3.50 Mrd. $",
+      "erw": "3.51 Mrd. $",
+      "urteil": "unter Erwartung"
+     },
+     {
+      "k": "Ausblick Net Bookings Geschäftsjahr bis März 2027",
+      "ist": "8.0 bis 8.2 Mrd. $",
+      "erw": "",
+      "urteil": "bestätigt"
+     },
+     {
+      "k": "Ausblick Gewinn pro Aktie Geschäftsjahr",
+      "ist": "0.57 bis 0.75 $",
+      "erw": "1.66 $",
+      "urteil": "deutlich darunter"
+     }
+    ],
+    "gut": [
+     "GTA VI kommt wie geplant am 19. November 2026 für PS5 und Xbox Series X|S. Chef Strauss Zelnick spricht von Vorbestellungen auf Rekordhöhe.",
+     "Das Jahresziel von 8.0 bis 8.2 Mrd. $ Buchungen wurde bestätigt. Für die zweite Hälfte des Geschäftsjahres heisst das rund 5 Mrd. $ in sechs Monaten.",
+     "Der Verlust pro Aktie war mit -0.29 $ deutlich kleiner als vor einem Jahr (-0.73 $)."
+    ],
+    "sorgen": [
+     "Die Buchungen lagen sogar unter der eigenen Prognose der Firma. Mobile Spiele (Zynga) gingen um rund 13 % zurück, Konsolen um 18 %.",
+     "Der Ausblick für das Weihnachtsquartal mit GTA VI liegt knapp unter den Schätzungen. Laut Reuters weckt das Zweifel, wie stark die Nachfrage wirklich ist.",
+     "Beim Umsatz für das ganze Jahr erwarteten Analysten 8.5 bis 8.6 Mrd. $, die Firma nennt 7.98 bis 8.18 Mrd. $. Der Gewinnausblick liegt weit unter den Schätzungen.",
+     "In den ersten sechs Monaten flossen 173.5 Mio. $ aus dem Geschäft ab (Vorjahr +83.7 Mio. $). Die kurzfristigen Schulden stiegen seit März von 30 Mio. $ auf 629 Mio. $."
+    ],
+    "fazit": "Keine echte Veränderung: das Quartal vor GTA VI zählt wenig. Entscheidend wird, ob GTA VI nach dem 19. November die 8 Mrd. $ Buchungen wirklich bringt.",
+    "quellen": [
+     {
+      "t": "Take-Two: Results for Fiscal Second Quarter 2027 (Pressemitteilung, SEC, 09.11.2026)",
+      "u": "https://www.sec.gov/Archives/edgar/data/0000946581/000162828026072175/ttwo2q27earningsrelease.htm"
+     },
+     {
+      "t": "Take-Two projects third-quarter bookings below estimates (Reuters via MarketScreener, 09.11.2026)",
+      "u": "https://www.marketscreener.com/news/take-two-projects-third-quarter-bookings-below-estimates-ce785fd3d18bfe2d"
+     },
+     {
+      "t": "Take-Two-Aktie nach Zahlen und Ausblick im Plus (Investing.com, 09.11.2026)",
+      "u": "https://de.investing.com/news/earnings/taketwoaktie-nach-zahlen-und-ausblick-im-plus--releasetermin-von-gta-vi-bekraftigt-3757613"
+     },
+     {
+      "t": "Take-Two to Report Q2 Earnings (Zacks via Yahoo Finance, eigene Prognose der Firma)",
+      "u": "https://finance.yahoo.com/markets/stocks/articles/two-report-q2-earnings-whats-144000140.html"
      }
     ]
    }

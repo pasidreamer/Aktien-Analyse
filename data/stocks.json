@@ -1,5 +1,5 @@
 {
- "stand": "2026-11-05",
+ "stand": "2026-11-09",
  "aktien": [
   {
    "ticker": "APP",
@@ -19894,7 +19894,7 @@
     "trigger": 216,
     "abbruch": 183
    },
-   "zahlen": "2026-11-09",
+   "zahlen": "",
    "dividende": "keine",
    "div_info": {
     "zahlt": false,
