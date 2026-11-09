@@ -55,12 +55,11 @@ def http(methode, url, daten=None, json_body=None, kopf=None):
             roh, status, typ = r.read(), r.status, r.headers.get("Content-Type", "")
     except urllib.error.HTTPError as f:
         roh, status, typ = f.read(), f.code, f.headers.get("Content-Type", "")
-    if "json" in typ:
-        try:
-            return status, json.loads(roh)
-        except ValueError:
-            pass
-    return status, roh.decode("utf-8", "replace")[:500]
+    # Meta antwortet mit «text/javascript», obwohl der Inhalt JSON ist: immer zuerst als JSON versuchen
+    try:
+        return status, json.loads(roh)
+    except ValueError:
+        return status, roh.decode("utf-8", "replace")[:500]
 
 
 def ohne_token(text):
