@@ -16,7 +16,7 @@ Ablauf:
   5. Meldung per ntfy.
 
 Umgebungsvariablen (GitHub-Secrets). Fehlt der Zugang einer Plattform, wird sie übersprungen:
-  IG_USER_ID, IG_TOKEN                                      Instagram (API mit Instagram-Login)
+  IG_USER_ID, IG_TOKEN                                      Instagram (Token des Systemnutzers, läuft nie ab)
   TIKTOK_CLIENT_KEY, TIKTOK_CLIENT_SECRET, TIKTOK_REFRESH_TOKEN
   TIKTOK_MODUS = entwurf (Standard) | direkt                direkt erst nach der TikTok-Prüfung
   GH_SECRETS_TOKEN                                          erlaubt, einen erneuerten TikTok-Token zu speichern
@@ -28,7 +28,7 @@ from zoneinfo import ZoneInfo
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASIS = "https://pasidreamer.github.io/Aktien-Analyse"
 ZONE = ZoneInfo("Europe/Zurich")
-IG_API = "https://graph.instagram.com/" + os.environ.get("IG_API_VERSION", "v23.0")
+IG_API = "https://graph.facebook.com/" + os.environ.get("IG_API_VERSION", "v25.0")  # Token des Systemnutzers (Meta Business)
 TT_API = "https://open.tiktokapis.com/v2"
 DISCLAIMER = "Persönliche Meinung, keine Anlageberatung. Mach deine eigene Recherche."
 MAX_HASHTAGS = 5

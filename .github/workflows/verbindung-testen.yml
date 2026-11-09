@@ -1,0 +1,21 @@
+name: Instagram-Verbindung testen
+# Prüft den Instagram-Zugang und sucht die Konto-ID. Postet nichts.
+on:
+  push:
+    branches: [feature/instagram-posten]
+    paths: ["scripts/verbindung_testen.py", ".github/workflows/verbindung-testen.yml"]
+  workflow_dispatch:
+
+jobs:
+  testen:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Testen
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+        run: python scripts/verbindung_testen.py 1485813424608738
