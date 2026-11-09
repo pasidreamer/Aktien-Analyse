@@ -11,6 +11,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from posten import IG_API, http, ohne_token
 
 BUSINESS_ID = "1447604860076442"  # Business-Portfolio «Aktien-Ampel»
+SEITE_ID = "1345119882027935"  # Facebook-Seite «Aktien-Ampel», verknüpft mit @aktienampel26
 
 
 def abfragen(pfad, **felder):
@@ -28,6 +29,10 @@ def main():
     # Welche Rechte hat der Token, und für welche Konten (target_ids)?
     info = abfragen("debug_token", input_token=os.environ["IG_TOKEN"]) or {}
     ziele = [t for g in (info.get("data") or {}).get("granular_scopes", []) for t in g.get("target_ids", [])]
+    # Instagram-Konto über die verknüpfte Facebook-Seite «Aktien-Ampel»
+    seite = abfragen(SEITE_ID, fields="instagram_business_account{id,username}") or {}
+    ziele += [(seite.get("instagram_business_account") or {}).get("id", "")]
+    abfragen("me/accounts", fields="id,name,instagram_business_account")
     kandidaten = [os.environ.get("IG_USER_ID", "")] + ziele + sys.argv[1:]
     gefunden = None
     for k in filter(None, kandidaten):
