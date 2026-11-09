@@ -41,6 +41,8 @@ def main():
             gefunden = a
     if gefunden:
         print(f"OK: Konto @{gefunden['username']} hat die ID {gefunden['id']}")
+        # Postingrecht prüfen, ohne zu posten: wie viele Posts sind in 24 h noch frei?
+        abfragen(f"{gefunden['id']}/content_publishing_limit", fields="quota_usage,config")
     return 0 if me and gefunden else 1
 
 
