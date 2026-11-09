@@ -25,9 +25,10 @@ def main():
         print("IG_TOKEN fehlt.")
         return 1
     me = abfragen("me", fields="id,name")
-    abfragen(f"{BUSINESS_ID}/owned_instagram_accounts", fields="id,username")
-    abfragen(f"{BUSINESS_ID}/instagram_business_accounts", fields="id,username")
-    kandidaten = [os.environ.get("IG_USER_ID", "")] + sys.argv[1:]
+    # Welche Rechte hat der Token, und für welche Konten (target_ids)?
+    info = abfragen("debug_token", input_token=os.environ["IG_TOKEN"]) or {}
+    ziele = [t for g in (info.get("data") or {}).get("granular_scopes", []) for t in g.get("target_ids", [])]
+    kandidaten = [os.environ.get("IG_USER_ID", "")] + ziele + sys.argv[1:]
     gefunden = None
     for k in filter(None, kandidaten):
         a = abfragen(k, fields="id,username")
