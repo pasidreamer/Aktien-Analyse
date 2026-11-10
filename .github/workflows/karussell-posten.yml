@@ -1,5 +1,7 @@
 name: Karussell posten
-# Jeden Tag um ca. 07:30 Uhr (Zürich) das Karussell von heute auf Instagram (Karussell + Reel) und TikTok posten.
+# Jeden Tag um ca. 07:30 Uhr (Zürich) das Karussell von heute auf Instagram und TikTok posten.
+# Der Reel dazu geht abends um ca. 18:00 raus (Workflow «Reel posten»). Von Hand gestartet (workflow_dispatch)
+# postet dieser Workflow für das gewählte Datum alles, was noch fehlt, auch den Reel.
 #
 # Auslöser, damit es sicher klappt (GitHub lässt geplante Läufe manchmal stundenlang liegen oder ganz aus):
 #  1. Sobald das Karussell gerendert ist (Workflow «Instagram-Karussell rendern»): Lauf wartet bis 07:30 und postet.
@@ -60,10 +62,10 @@ jobs:
               e = json.load(open("data/karussell/gepostet.json", encoding="utf-8"))["posts"].get(heute, {})
           except (OSError, ValueError, KeyError):
               e = {}
-          print("fertig=" + ("ja" if all("id" in e.get(p, {}) for p in ("instagram", "instagram_reel")) else "nein"))
+          print("fertig=" + ("ja" if "id" in e.get("instagram", {}) else "nein"))
           EOF
-      - name: Werkzeuge für den Reel
-        if: steps.offen.outputs.fertig != 'ja' || github.event_name == 'workflow_dispatch'
+      - name: Werkzeuge für den Reel (nur bei Start von Hand)
+        if: github.event_name == 'workflow_dispatch'
         run: |
           pip install numpy playwright
           # Google Chrome ist auf dem GitHub-Rechner vorinstalliert; nur falls nicht, Chromium nachladen
@@ -85,7 +87,7 @@ jobs:
           DATUM: ${{ inputs.datum }}
         run: |
           args=""
-          if [ "${{ github.event_name }}" != "workflow_dispatch" ]; then args="--ab-7-uhr"; fi
+          if [ "${{ github.event_name }}" != "workflow_dispatch" ]; then args="--ab-7-uhr --ohne instagram_reel"; fi
           if [ "$TROCKEN" = "true" ]; then args="$args --trocken"; fi
           if [ -n "$DATUM" ]; then args="$args --datum $DATUM"; fi
           python scripts/posten.py $args

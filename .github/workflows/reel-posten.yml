@@ -1,0 +1,132 @@
+name: Reel posten
+# Jeden Tag um ca. 18:00 Uhr (Zürich) den Motion-Reel zum Karussell von heute auf Instagram posten.
+# Das Karussell selbst geht morgens um ca. 07:30 raus (Workflow «Karussell posten»).
+#
+# Auslöser, damit es sicher klappt (GitHub lässt geplante Läufe manchmal stundenlang liegen oder ganz aus):
+#  1. Sobald das Karussell gerendert ist: Der Lauf wartet in zwei Etappen bis 18:00 und postet dann
+#     (ein einzelner Schritt darf bei GitHub höchstens 6 Stunden laufen, darum zwei Warte-Etappen).
+#  2. Ersatz: Zeitplan alle 30 Minuten am Abend. posten.py postet den Reel nur zwischen 18:00 und 23:00
+#     und nie zweimal (data/karussell/gepostet.json), überzählige Läufe tun also nichts.
+on:
+  workflow_run:
+    workflows: ["Instagram-Karussell rendern"]
+    types: [completed]
+  schedule:
+    - cron: "5,35 16-20 * * *"
+  workflow_dispatch:
+    inputs:
+      trocken:
+        description: "Nur testen, nichts posten (der Reel wird trotzdem gebaut und als Download angehängt)"
+        type: boolean
+        default: true
+      datum:
+        description: "Datum JJJJ-MM-TT (leer = heute)"
+        required: false
+
+permissions:
+  contents: write
+
+jobs:
+  warten:
+    # Erste Etappe: bis 12:30 Uhr warten (nur nach dem Rendern am Morgen)
+    if: github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    steps:
+      - name: Bis 12:30 warten
+        run: |
+          ziel=$(TZ=Europe/Zurich date -d "12:30" +%s)
+          jetzt=$(date +%s)
+          if [ "$jetzt" -lt "$ziel" ]; then
+            echo "Warte $(( (ziel - jetzt) / 60 )) Minuten bis 12:30 Uhr Zürich."
+            sleep $(( ziel - jetzt ))
+          fi
+
+  reel:
+    needs: warten
+    if: always() && (needs.warten.result == 'success' || github.event_name != 'workflow_run')
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    steps:
+      - name: Bis 18:00 warten (nur nach dem Rendern)
+        if: github.event_name == 'workflow_run'
+        run: |
+          ziel=$(TZ=Europe/Zurich date -d "18:00" +%s)
+          jetzt=$(date +%s)
+          if [ "$jetzt" -lt "$ziel" ]; then
+            echo "Warte $(( (ziel - jetzt) / 60 )) Minuten bis 18:00 Uhr Zürich."
+            sleep $(( ziel - jetzt ))
+          fi
+    # Das eigentliche Posten läuft im Job «posten» unten, damit nur dieser kurze Teil auf andere Post-Läufe wartet
+
+  posten:
+    needs: reel
+    if: always() && needs.reel.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    # gleiche Gruppe wie «Karussell posten»: nie zwei Läufe gleichzeitig an gepostet.json
+    concurrency:
+      group: karussell-posten
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Schon gepostet?
+        id: offen
+        run: |
+          python - >> "$GITHUB_OUTPUT" <<'EOF'
+          import datetime, json, os, zoneinfo
+          heute = os.environ.get("DATUM") or datetime.datetime.now(zoneinfo.ZoneInfo("Europe/Zurich")).date().isoformat()
+          try:
+              e = json.load(open("data/karussell/gepostet.json", encoding="utf-8"))["posts"].get(heute, {})
+          except (OSError, ValueError, KeyError):
+              e = {}
+          print("fertig=" + ("ja" if "id" in e.get("instagram_reel", {}) else "nein"))
+          EOF
+        env:
+          DATUM: ${{ inputs.datum }}
+      - name: Werkzeuge für den Reel
+        if: steps.offen.outputs.fertig != 'ja' || github.event_name == 'workflow_dispatch'
+        run: |
+          pip install numpy playwright
+          # Google Chrome ist auf dem GitHub-Rechner vorinstalliert; nur falls nicht, Chromium nachladen
+          if command -v google-chrome >/dev/null; then echo "PW_KANAL=chrome" >> "$GITHUB_ENV"; else python -m playwright install --with-deps chromium; fi
+          command -v ffmpeg || (sudo apt-get update && sudo apt-get install -y ffmpeg)
+      - name: Reel posten
+        if: steps.offen.outputs.fertig != 'ja' || github.event_name == 'workflow_dispatch'
+        env:
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+          REEL: ${{ vars.REEL || 'an' }}
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          TROCKEN: ${{ inputs.trocken }}
+          DATUM: ${{ inputs.datum }}
+        run: |
+          args="--nur instagram_reel"
+          if [ "${{ github.event_name }}" != "workflow_dispatch" ]; then args="$args --fenster 18-23"; fi
+          if [ "$TROCKEN" = "true" ]; then args="$args --trocken"; fi
+          if [ -n "$DATUM" ]; then args="$args --datum $DATUM"; fi
+          python scripts/posten.py $args
+      - name: Reel als Download anhängen
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reel
+          path: karussell/*/reel.mp4
+          if-no-files-found: ignore
+          retention-days: 14
+      - name: Protokoll speichern
+        if: always()
+        run: |
+          git config user.name "aktien-ampel-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/karussell/gepostet.json 2>/dev/null || exit 0
+          if ! git diff --cached --quiet; then
+            git commit -m "Reel gepostet $(TZ=Europe/Zurich date +%F)"
+            git pull --rebase -X theirs
+            git push
+          fi

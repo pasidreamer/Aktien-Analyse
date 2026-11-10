@@ -3,6 +3,8 @@
 Aufruf:
   python scripts/posten.py                 heute posten (Zeitzone Europe/Zurich)
   python scripts/posten.py --ab-7-uhr      nur posten, wenn es in Zürich zwischen 7 und 15 Uhr ist (für den Zeitplan)
+  python scripts/posten.py --ohne instagram_reel --ab-7-uhr          morgens: Karussell (und TikTok)
+  python scripts/posten.py --nur instagram_reel --fenster 18-23      abends: nur der Reel
   python scripts/posten.py --datum 2026-11-05 --trocken
                                            zeigt nur, was gesendet würde (prüft aber die Bilder im Netz)
 
@@ -330,20 +332,27 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--datum", help="JJJJ-MM-TT, Standard: heute in Zürich")
     ap.add_argument("--trocken", action="store_true")
-    ap.add_argument("--ab-7-uhr", action="store_true")
+    ap.add_argument("--ab-7-uhr", action="store_true", help="wie --fenster 7-15")
+    ap.add_argument("--fenster", help="nur posten, wenn es in Zürich zwischen diesen Stunden ist, z. B. 18-23")
+    ap.add_argument("--nur", help="nur diese Plattformen, z. B. instagram_reel")
+    ap.add_argument("--ohne", help="diese Plattformen auslassen, z. B. instagram_reel")
     a = ap.parse_args()
     TROCKEN = a.trocken
     jetzt = dt.datetime.now(ZONE)
-    if a.ab_7_uhr and not 7 <= jetzt.hour < 15:
-        print(f"In Zürich ist es {jetzt:%H:%M}, gepostet wird zwischen 07:00 und 15:00. Nichts zu tun.")
-        return 0
+    fenster = a.fenster or ("7-15" if a.ab_7_uhr else None)
+    if fenster:
+        von, bis = (int(x) for x in fenster.split("-"))
+        if not von <= jetzt.hour < bis:
+            print(f"In Zürich ist es {jetzt:%H:%M}, gepostet wird zwischen {von:02d}:00 und {bis:02d}:00. Nichts zu tun.")
+            return 0
     heute = a.datum or jetzt.date().isoformat()
     log = log_laden()
     erledigt = log["posts"].setdefault(heute, {}) if not TROCKEN else dict(log["posts"].get(heute, {}))
 
-    offen = [p for p, (keys, _) in PLATTFORMEN.items() if "id" not in erledigt.get(p, {})]
+    auswahl = [p for p in PLATTFORMEN if (not a.nur or p in a.nur.split(",")) and p not in (a.ohne or "").split(",")]
+    offen = [p for p in auswahl if "id" not in erledigt.get(p, {})]
     if not offen:
-        print(f"Für {heute} ist schon alles gepostet.")
+        print(f"Für {heute} ist schon alles gepostet ({', '.join(auswahl)}).")
         return 0
     eingerichtet = [p for p in offen if all(os.environ.get(k) for k in PLATTFORMEN[p][0])]
     if not eingerichtet and not TROCKEN:
@@ -410,7 +419,8 @@ def main():
     if probleme:
         teile.append("Fehler: " + "; ".join(probleme))
     if teile:
-        melden("Karussell gepostet" if ergebnisse and not probleme else "Karussell: Problem beim Posten",
+        was = "Reel" if offen == ["instagram_reel"] else "Karussell"
+        melden(f"{was} gepostet" if ergebnisse and not probleme else f"{was}: Problem beim Posten",
                " ".join(teile), "camera" if not probleme else "warning")
     return 1 if probleme else 0
 
