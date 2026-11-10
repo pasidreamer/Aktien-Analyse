@@ -66,7 +66,8 @@ jobs:
         if: steps.offen.outputs.fertig != 'ja' || github.event_name == 'workflow_dispatch'
         run: |
           pip install numpy playwright
-          python -m playwright install --with-deps chromium
+          # Google Chrome ist auf dem GitHub-Rechner vorinstalliert; nur falls nicht, Chromium nachladen
+          if command -v google-chrome >/dev/null; then echo "PW_KANAL=chrome" >> "$GITHUB_ENV"; else python -m playwright install --with-deps chromium; fi
           command -v ffmpeg || (sudo apt-get update && sudo apt-get install -y ffmpeg)
       - name: Posten
         if: steps.offen.outputs.fertig != 'ja' || github.event_name == 'workflow_dispatch'

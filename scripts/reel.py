@@ -203,8 +203,8 @@ const BAU = {
     o.strich = el("i", "", k); Object.assign(o.strich.style, { display: "block", width: "10px", height: "40px", background: D.akzent_dunkel, transformOrigin: "50% 100%" });
     o.kicker = el("span", "kicker", k, D.hook.kicker); o.kicker.style.color = D.akzent_dunkel;
     o.titel = el("div", "a titel", o.innen); o.titel.style.top = "580px"; o.titel.textContent = D.hook.titel;
-    passen(o.titel, 132, 70, 640);
-    o.woerter = woerter(o.titel, D.hook.titel);
+    o.woerter = woerter(o.titel, D.hook.titel);  // erst aufteilen, dann einpassen (Wörter brechen anders um)
+    passen(o.titel, 132, 64, 640);
     const reihe = el("div", "a", o.innen); Object.assign(reihe.style, { top: "1270px", display: "flex", gap: "28px" });
     o.kpis = D.hook.kpis.map(kp => {
       const c = el("div", "", reihe); Object.assign(c.style, { flex: 1, borderTop: "3px solid #3A3630", paddingTop: "22px" });
@@ -303,8 +303,8 @@ const BAU = {
     o.titel = el("div", "titel", kopf, F.titel); o.titel.style.marginTop = "18px"; passen(o.titel, 104, 60, 230);
     o.box = el("div", "a", sz); Object.assign(o.box.style, { top: "600px", background: "#121212", color: "#F4F1EA", padding: "50px 54px" });
     o.frage = el("div", "", o.box, F.frage); Object.assign(o.frage.style, { fontWeight: 800, letterSpacing: "-.02em", lineHeight: 1.15 });
-    passen(o.frage, 62, 36, 380);
     o.woerter = woerter(o.frage, F.frage);
+    passen(o.frage, 62, 34, 380);
     o.cta = el("div", "a", sz); Object.assign(o.cta.style, { top: "1110px", transformOrigin: "0 50%" });
     const l1 = el("div", "", o.cta, "Alle Zahlen und beide Szenarien"); Object.assign(l1.style, { fontSize: "40px", fontWeight: 700, color: "#3A3630" });
     const l2 = el("div", "", o.cta); Object.assign(l2.style, { display: "flex", alignItems: "center", gap: "18px", marginTop: "10px" });
@@ -423,7 +423,8 @@ def aufnehmen(D, wav, aus):
            "-i", wav, "-c:v", "libx264", "-preset", "medium", "-crf", "19", "-pix_fmt", "yuv420p", "-r", str(FPS),
            "-c:a", "aac", "-b:a", "128k", "-ar", "48000", "-ac", "2", "-shortest", "-movflags", "+faststart", aus]
     with sync_playwright() as p:
-        b = p.chromium.launch()
+        # Auf GitHub ist Google Chrome schon installiert (PW_KANAL=chrome), das spart die lange Installation
+        b = p.chromium.launch(channel=os.environ.get("PW_KANAL") or None)
         pg = b.new_page(viewport={"width": BREITE, "height": HOEHE}, device_scale_factor=1)
         pg.set_content(html, wait_until="networkidle")
         pg.evaluate("vorbereiten()")
