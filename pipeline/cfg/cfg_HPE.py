@@ -1,0 +1,102 @@
+import json, os, sys
+P = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); sys.path.insert(0, P)
+from helpers import L, ADW, RSIW, SEAS
+c = {
+"ticker": "HPE", "name": "Hewlett Packard Enterprise", "datum": "10.11.2026", "waehrung": "USD", "land": "USA",
+"meta": "Hewlett Packard Enterprise Company · NYSE: HPE · Server, Netzwerk (Aruba, Juniper), Speicher und KI-Systeme für Firmen · Houston, USA",
+"price": "47.93 $",
+"pricemeta": "Schluss 10.11.2026 · 52 Wochen: 19.84 – 73.56 $ · Allzeithoch Woche: 73.56 $ am 9.10.2026",
+"verdict": "HPE verkauft Server, Netzwerktechnik und Speicher an Firmen und Rechenzentren. 2026 ist das Geschäft explodiert: Im 3. Quartal (bis Juli) stieg der Umsatz um 34 % auf 12.2 Mrd. $, für das 4. Quartal erwartet die Firma 13.9 bis 14.8 Mrd. $. Treiber sind KI-Server, das zugekaufte Juniper-Netzwerkgeschäft und höhere Preise, weil Speicherchips knapp und teuer sind. Die Aktie stieg von 19.84 $ (Februar) auf 73.56 $ (9.10.2026) und fiel danach um 41 % bis auf 43.38 $ (5.11.). Qualität gelb (51): starkes Wachstum, aber dünne Marge (8.1 %), tiefe Kapitalrendite (8.3 %) und viele Schulden. Timing gelb (53): Der Wochentrend steht noch, im Tageschart sind die Hochs und Tiefs aber tiefer geworden. Alle Insider haben in 12 Monaten nur verkauft. Die nächsten Zahlen kommen am 23.11.2026. Keine Anlageberatung.",
+"about": "Hewlett Packard Enterprise (HPE) entstand 2015 aus der Aufteilung des alten Hewlett-Packard. HP Inc. behielt PCs und Drucker, HPE das Geschäft mit Firmenkunden. Sitz ist Houston (Texas), Chef seit 2018 Antonio Neri. Es gibt zwei grosse Bereiche: <b>Cloud & AI</b> (3. Quartal 2026: 9.0 Mrd. $ Umsatz) mit Servern (6.8 Mrd. $), Speichersystemen (1.3 Mrd. $) und Leasing (0.9 Mrd. $). Und <b>Networking</b> (2.9 Mrd. $) mit WLAN und Netzwerken für Büros (Aruba) sowie Routern und Rechenzentrums-Netzwerken von Juniper Networks. Juniper kaufte HPE im Juli 2025, im Geschäftsjahr 2025 flossen dafür 12.3 Mrd. $ bar. Networking bringt heute rund die Hälfte des Betriebsgewinns. Server sind ein hart umkämpftes Geschäft mit kleinen Margen (Konkurrenten Dell, Super Micro, Lenovo). Netzwerke sind deutlich profitabler (Marge rund 22 %). Das Geschäftsjahr endet jeweils am 31. Oktober.",
+"why": "Lange war HPE eine langweilige Aktie mit 2 bis 3 % Wachstum pro Jahr (2021 bis 2024). Im April 2025 fiel sie wegen der US-Zölle bis auf 11.97 $ (Wochentief). Im Mai 2026 wurde bekannt, dass der aktivistische Investor Elliott Management (rund 1.5 Mrd. $) und Irenic Capital Druck auf die Firma machen. Am 1.6.2026 kamen sehr starke Zahlen (Umsatz +40 %), die Aktie sprang am 2.6. bis auf 64.25 $. Am 2.9. folgte das nächste Rekordquartal (+34 %) und eine höhere Prognose für 2026 und 2027. Am 9.10.2026 schloss die Aktie bei 73.56 $, rund 170 % höher als Anfang Jahr. Dann drehte die Stimmung: Evercore stufte am 12.10. ab (zu teuer), Barclays am 14.10. (Serverumsatz steigt vor allem wegen teurer Speicherchips, nicht wegen KI). Dazu kamen höhere Zinsen (10-jährige US-Anleihe 5.28 % am 14.10.) und Anfang November ein Ausverkauf bei KI-Hardware nach den US-Zwischenwahlen. Am 5.11. fiel HPE an einem Tag um 12 %. Das Geschäft selbst hat sich bis zum letzten Bericht nicht verschlechtert. Die Frage ist, wie viel des Wachstums nur von vorübergehend hohen Preisen kommt.",
+"kpis": [
+ ["g","Umsatzwachstum","+26.6 %","Letzte 12 Monate bis Juli 2026 (41.87 Mrd. $). Ein Teil kommt aus dem Kauf von Juniper (seit Juli 2025 dabei). Im 3. Quartal +34 %, das ist schon fast ohne Zukauf-Effekt. Prognose 2027: +13 bis +17 %."],
+ ["w","Operative Marge","8.1 %","Von 100 $ Umsatz bleiben rund 8 $ Betriebsgewinn (12 Monate, laut Rechnungslegung). Das ist wenig. Im 3. Quartal waren es 11.4 %. HPE warnt selbst, dass die Marge wieder sinken dürfte, wenn die Preise für Speicherchips fallen."],
+ ["g","Gewinn pro Aktie (EPS)","1.96 $","Letzte 12 Monate laut Rechnungslegung. Bereinigt (ohne Kosten für Juniper und Umbau) sind es 3.17 $. Im 3. Quartal stieg der bereinigte Gewinn von 0.44 auf 1.11 $. Ziel 2026: 3.75 bis 3.85 $, fast doppelt so viel wie 2025 (1.94 $)."],
+ ["r","ROIC","8.3 %","Auf 100 $ investiertes Kapital rund 8 $ Gewinn. Schwach. Durch den teuren Kauf von Juniper steckt viel Kapital in der Firma. 2021 bis 2024 lag der Wert bei rund 7 %, 2025 bei 4.8 %."],
+ ["w","Free Cashflow","4.16 Mrd. $","Letzte 12 Monate bis Juli 2026, ein Rekord. Das ist das Geld, das nach den Investitionen übrig bleibt. 2025 waren es nur 0.63 Mrd. $. Der Wert schwankt stark. Ziel 2026: mindestens 3.75 Mrd. $, 2027 mindestens 5 Mrd. $."],
+ ["w","Schulden","2.0 × EBITDA","Nettoschulden 14.1 Mrd. $ (20.3 Mrd. $ Schulden minus 6.2 Mrd. $ Cash). Mit dem Betriebsgewinn vor Abschreibungen (EBITDA, 6.9 Mrd. $) wären sie in rund 2 Jahren bezahlt. 2025 lag der Wert noch bei 5."],
+ ["r","KGV","24.5","Du zahlst rund 24 Jahresgewinne (laut Rechnungslegung, 47.93 $ / 1.96 $). Eigener Schnitt 2021 bis 2024: 11.6. Also rund doppelt so teuer. Mit dem bereinigten Gewinn sind es 15.1, mit dem Ziel für 2026 nur 12.6."],
+ ["w","Dividende","1.2 %","0.1425 $ pro Quartal, also 0.57 $ pro Jahr. 4 Zahlungen (Mitte Januar, April, Juli, Oktober). Für 2026 um 9.6 % erhöht. Es fliessen rund 29 % des Gewinns in die Dividende."]
+],
+"revtitle": "Umsatz pro Quartal (Mrd. $)", "revunit": "Mrd. $", "epsunit": "$",
+"revnote": "Alle 4 letzten Quartale lagen über dem Vorjahr: +14 %, +18 %, +40 % und +34 %. Bis Juni 2026 war Juniper nur auf einer Seite im Vergleich, das hat das Wachstum aufgebläht. Das 3. Quartal (+34 %) ist fast echtes Wachstum. Für das 4. Quartal erwartet HPE 13.9 bis 14.8 Mrd. $ (+44 bis +53 %).",
+"marginnote": "Betriebsgewinn pro 100 $ Umsatz (laut Rechnungslegung). 2021 bis 2024 stabil um 8 %, 2025 wegen Kosten für Juniper nur 5.1 %, jetzt wieder 8.1 %. Bereinigt lag die Marge im 3. Quartal bei 16.2 %.",
+"finnote": "<b>Hinweis:</b> Umsatz und FCF in Mio. $. Geschäftsjahr endet am 31. Oktober. Jahre 2021 bis 2025 laut StockAnalysis. Letzte 12 Monate: bis Juli 2026. EPS laut Rechnungslegung (2025 Verlust wegen Kosten für Juniper). KGV pro Jahr laut StockAnalysis, heute eigene Rechnung (47.93 $ / 1.96 $). Schnitt 2021 bis 2024: 11.6 (2025 ohne KGV, weil Verlust).",
+"FIN": [["2021",27784,"+3.0 %","8.1 %",2.58,3369,"7.1 %","5.6"],["2022",28496,"+2.6 %","8.3 %",0.66,1471,"7.6 %","21.2"],["2023",29135,"+2.2 %","8.4 %",1.54,1600,"7.2 %","9.7"],["2024",30127,"+3.4 %","8.3 %",1.93,1974,"7.1 %","9.9"],["2025",34296,"+13.8 %","5.1 %",-0.04,627,"4.8 %","–"],["Letzte 12 Mt.",41871,"+26.6 %","8.1 %",1.96,4156,"8.3 %","24.5"]],
+"QREV": [["Q4 24",8.46],["Q1 25",7.85],["Q2 25",7.63],["Q3 25",9.14],["Q4 25",9.68],["Q1 26",9.30],["Q2 26",10.68],["Q3 26",12.21]],
+"revdec": 2,
+"MARGIN": [["2021",8.1],["2022",8.3],["2023",8.4],["2024",8.3],["2025",5.1],["12 Mt.",8.1]],
+"Q": [
+ ["Umsatztrend","4 von 4 Quartalen über Vorjahr (+14 %, +18 %, +40 %, +34 %), das echte Wachstum hat sich beschleunigt. Teils Zukauf Juniper und höhere Preise für Speicherchips",13,15],
+ ["Wachstumstempo","Ausgewiesen +26.6 %, aber mit Zukauf. Ohne Juniper unklar, Prognose 2027 +13 bis +17 % (Mitte 15 %)",8,10],
+ ["Operative Marge","8.1 % (3 Pkt.), 2021 bis heute um 8 % stabil, 2025 kurz eingebrochen (3 Pkt.)",6,15],
+ ["Gewinnwachstum (EPS)","Bereinigt im 3. Quartal +152 % (1.11 $), Ziel 2026 rund +96 %. Aber 2024 und 2025 sank der bereinigte Gewinn leicht (1.99 und 1.94 $)",10,10],
+ ["Free Cashflow","Immer positiv, aber stark schwankend (0.63 bis 4.16 Mrd. $)",6,10],
+ ["ROIC","8.3 %, unter 10 % (2 Pkt.), seit 2021 kein klarer Trend",2,15],
+ ["Schulden","Nettoschulden/EBITDA 2.0 (14.1 / 6.9 Mrd. $)",5,10],
+ ["Bewertung vs. eigene Historie","KGV 24.5 statt Ø 11.6, über 100 % teurer (bereinigt 15.1, auch das über 30 % teurer)",1,15]
+],
+"adwnote": ADW + "Positiv in der Woche: Ende August stand der Kurs bei 52.00 $ und die A/D bei 1'981. Heute ist der Kurs tiefer (47.93 $), die A/D aber höher (2'114). Beim Absturz seit Oktober wurde also weniger verkauft, als der Kurs vermuten lässt. Vom Hoch im Oktober (2'345) ist sie aber deutlich gefallen.",
+"rsiwnote": RSIW + "48, neutral. Am 9.10.2026 noch 79 (überkauft), im Mai sogar 91.",
+"addnote": "Die Tages-A/D fiel seit dem Hoch vom 9.10. von 392 auf 301 (5.11.), heute 304. Sie fällt also mit dem Kurs. Beim Tief vom 3.9. (Kurs 45.70 $) stand sie bei 357, beim tieferen Tief vom 5.11. (43.38 $) nur bei 301. Kurzfristig sind die Verkäufer klar stärker, eine Bodenbildung zeigt die Tages-A/D noch nicht.",
+"ind": [
+ ["Kurs vs. EMA 50","47.93 &lt; 56.36","47.93 &gt; 42.89","Im Tageschart unter der mittelfristigen Linie, in der Woche noch darüber."],
+ ["Kurs vs. EMA 200","47.93 &gt; 45.41","47.93 &gt; 27.02","Über der langfristigen Linie, im Tageschart aber nur noch 5.5 % darüber."],
+ ["EMA 50 vs. EMA 200","50 über 200 (Golden Cross am 29.7.2025)","50 über 200 (seit Juni 2021)","Beide Zeitebenen im Aufwärtstrend. Die Tages-EMA 50 fällt aber seit Mitte Oktober."],
+ ["RSI (14)","37.4","48.1","Tag schwach, am 5.11. mit 29.6 kurz überverkauft, jetzt leicht erholt. Woche neutral."],
+ ["A/D","fällt seit 9.10. mit dem Kurs","höher als Ende August trotz tieferem Kurs","Tag negativ, Woche positiv (Käufer halten sich besser als der Kurs)."],
+ ["Volumen","Ø 20 Tage 17.5 Mio. vs. Ø 100 Tage 19.9 Mio. Aktien","Der Absturz kam ohne besonders hohen Handel, ausser am 5.11. (rund 28 Mio.)."]
+],
+"smc": "Im Wochenchart lief HPE 2026 in einer klaren Aufwärtsstruktur: Tiefs bei 19.84 (24.2.), 40.72 (2.7.) und 45.70 $ (3.9.), Hochs bei 64.25 (2.6.), 63.44 (13.8.) und 73.56 $ (9.10.). Danach kippte die Struktur im Tageschart: Das Hoch vom 28.10. (62.20 $) blieb unter 73.56 $, und das Tief vom 5.11. (43.38 $) lag unter dem Tief vom 3.9. (45.70 $). Das ist ein Bruch der Struktur nach unten (Wochenschluss 44.77 $ am 6.11.). Seither ist der Kurs wieder über 45.70 $ zurück. Das kann ein Fehlausbruch nach unten sein (Verkäufer werden ausgespült), bestätigt ist es noch nicht. Die Hälfte des Anstiegs von 19.84 auf 73.56 $ liegt bei 46.70 $: Der Kurs steht also nahe der Mitte, darunter beginnt der günstige Bereich (Discount). Das letzte höhere Tief im Wochenchart ist 40.72 $ vom Juli.",
+"zones": [
+ ["r","62.20–64.30 $","Widerstand: Hoch vom 28.10.2026 (62.20 $), Hoch vom 11.9. (62.15 $) und Spitze vom 2.6. (64.25 $). Darüber das Allzeithoch 73.56 $."],
+ ["r","53.90–58.40 $","Widerstand: Tief vom 22.10. (53.91 $), Kurslücke vom 30.10. (55.85 bis 58.43 $) und Tages-EMA 50 (56.36 $)."],
+ ["t","62.20 $","<b>Trigger:</b> Tagesschluss über 62.20 $ (letztes tieferes Hoch vom 28.10.). Ein erstes Zeichen wäre ein Tagesschluss über 56.40 $ (Kurslücke und EMA 50), besser mit steigender Tages-A/D."],
+ ["s","43.30–45.70 $","<b>Kaufzone 1:</b> Tiefs vom 28.7. (43.30 $), 3.9. (45.70 $) und 5.11. (43.38 $), dazu Tages-EMA 200 (45.41 $)."],
+ ["s","40.30–42.90 $","<b>Kaufzone 2:</b> Tief vom 2.7. (40.72 $, letztes höheres Wochentief), Wochen-EMA 50 (42.89 $) und 61.8 % Rücklauf des Anstiegs (40.36 $)."],
+ ["r","40.70 $","Abbruch: Wochenschluss unter 40.70 $, also unter dem letzten höheren Tief im Wochenchart (40.72 $ vom 2.7.2026)."]
+],
+"smart": [
+ "<b>Insider:</b> In 12 Monaten 26 Verkäufe von 12 Insidern für zusammen 70.9 Mio. $, kein einziger Kauf (MarketBeat). Chef Antonio Neri verkaufte am 11.9. und 5.10.2026 je 250'000 Aktien zu 60.44 und 68.31 $ (32.2 Mio. $). Laut Meldungen über vorab festgelegte Verkaufspläne (Rule 10b5-1).",
+ "<b>Aktivisten:</b> Elliott Management hält laut Berichten rund 1.5 Mrd. $ in HPE und wollte 2026 den Chef auswechseln. Das gelang nicht, Elliott durfte stattdessen ein weiteres Mitglied im Verwaltungsrat bestimmen. Auch Irenic Capital ist eingestiegen (Parameter, 14.5.2026).",
+ "<b>Rückkäufe:</b> 547 Mio. $ in 12 Monaten, rund 0.9 % des Börsenwerts. Gleichzeitig stieg die Zahl der Aktien laut StockAnalysis um rund 6 % (Verwässerung). Für das 4. Quartal will HPE mindestens 75 % des Free Cashflows an die Aktionäre geben.",
+ "<b>Analysten:</b> 24 Analysten, Urteil «Kaufen», Kursziel im Schnitt 72.20 $ (StockAnalysis, 8.11.2026). MarketBeat zählt 65.44 $. Abgestuft haben Evercore ISI (12.10., «In-Line», Ziel 65 $) und Barclays (14.10., «Equal Weight», Ziel 77 statt 83 $)."
+],
+"seasnote": SEAS + "Daten seit 2015 (seit der Abspaltung). Stark sind Juni (+3.2 %, 73 % positive Jahre) und August (+3.2 %, 64 %). Schwach ist September (−1.9 %, nur 27 %). Dezember +1.3 % (73 %), Januar −0.3 % (45 %), Februar +1.1 % (36 %). Für November zählt die Datei nur 1 Jahr, das ist nicht aussagekräftig.",
+"T": [
+ ["Trend Woche (EMA 50/200)","Kurs über beiden, EMA 50 über 200 und steigend. Der Abstand zur EMA 50 ist aber auf 12 % geschrumpft",18,20],
+ ["Trend Tag (EMA 50/200)","Kurs unter EMA 50 (56.36), knapp über EMA 200 (45.41): Rücksetzer im Aufwärtstrend",6,10],
+ ["Struktur (SMC)","Tiefere Hochs (62.20) und tieferes Tief (43.38) im Tageschart, Bruch nach unten am 6.11. Kurs ist aber wieder über 45.70 $ und nahe dem Discount",4,20],
+ ["RSI Tag/Woche","Tag dreht aus 29.6 auf 37.4, aber ohne Divergenz und im Tag kein intakter Trend. Woche 48 neutral",9,15],
+ ["A/D Tag/Woche","Woche positiv (A/D höher als im August trotz tieferem Kurs), Tag fällt mit dem Kurs",11,20],
+ ["Smart Money","Start 3, Aktivisten Elliott und Irenic bauen auf (+2), gehäufte Insider-Verkäufe (−3), Rückkauf unter 2 %",2,10],
+ ["Saisonalität","Dezember 73 %, Januar 45 %, Februar 36 % positive Jahre, November ohne genug Daten",3,5]
+],
+"pro": [
+ "Rekordwachstum: Umsatz im 3. Quartal 2026 +34 % (12.2 Mrd. $), Prognose 4. Quartal 13.9 bis 14.8 Mrd. $. Bestellungen wuchsen 3.5-mal schneller als der Umsatz, Rekord-Auftragsbestand.",
+ "Juniper macht HPE zu einem grossen Netzwerk-Anbieter: Routing +270 %, Rechenzentrums-Netzwerke +112 % im 3. Quartal. Ziel für Einsparungen auf 800 Mio. $ pro Jahr bis 2028 erhöht.",
+ "Free Cashflow auf Rekord (4.16 Mrd. $ in 12 Monaten), Ziel 2027 mindestens 5 Mrd. $. Schulden sinken von 5 auf rund 2 × EBITDA.",
+ "Nach dem Absturz um bis zu 41 % ist die Aktie mit dem Ziel-Gewinn 2026 (3.80 $) nur noch rund 12.6-mal bewertet. Analysten-Kursziel 72.20 $ (StockAnalysis).",
+ "Wochen-A/D hält sich besser als der Kurs, Wochentrend noch intakt. Aktivisten (Elliott, Irenic) schauen dem Management auf die Finger."
+],
+"con": [
+ "Ein Teil des Wachstums kommt von sehr teuren Speicherchips (DDR5, NAND), die HPE an Kunden weitergibt. Fallen diese Preise, sinken Umsatz und Marge. HPE erwartet selbst tiefere Margen.",
+ "Dünne Marge (8.1 %) und tiefe Kapitalrendite (8.3 %). Serverbau ist hart umkämpft (Dell, Super Micro, Lenovo).",
+ "Laut Rechnungslegung teuer: KGV 24.5 gegen einen eigenen Schnitt von 11.6. Der faire Wert der App (rund 46.90 $) liegt leicht unter dem Kurs.",
+ "Alle Insider haben in 12 Monaten nur verkauft (70.9 Mio. $), der Chef allein im September und Oktober für 32 Mio. $. Die Zahl der Aktien steigt (rund 6 %).",
+ "Sehr schwankungsreich: 35 Tagesbewegungen über 5 % in einem Jahr. Lagerbestand stieg auf 11.8 Mrd. $. Tagesstruktur nach unten gebrochen."
+],
+"todo": [
+ ["t","Beobachten","Alarm bei 45.70 $ (oberes Ende Kaufzone 1), 56.40 $ (erstes Zeichen) und 62.20 $ (Trigger)."],
+ ["s","Timing grün","Rücksetzer in 43.30 bis 45.70 $, der hält und mit steigender Tages-A/D dreht. Oder Tagesschluss über 62.20 $. Fundamental am 23.11.: Umsatz im Bereich der Prognose (13.9 bis 14.8 Mrd. $), Ziel 2027 bestätigt oder erhöht und eine klare Aussage zu Speicherpreisen und Marge."],
+ ["r","Abbruch","Wochenschluss unter 40.70 $."],
+ ["","Nächste Zahlen","4. Quartal und ganzes Geschäftsjahr 2026: 23.11.2026 nach US-Börsenschluss (laut HPE Investor Relations). Danach Auftritte an Konferenzen von UBS (2.12.) und Barclays (Dezember)."]
+],
+"bands": [{"from":62.2,"to":64.3,"type":"res"},{"from":53.9,"to":58.4,"type":"res"},{"from":43.3,"to":45.7,"type":"sup"},{"from":40.3,"to":42.9,"type":"sup"}],
+"refs": [{"v":62.2,"label":"Trigger 62.20"}],
+"sources": L("https://www.hpe.com/us/en/newsroom/press-release/2026/09/hpe-reports-fiscal-2026-third-quarter-results.html","HPE: Zahlen 3. Quartal 2026 (2.9.2026)") + ", " + L("https://www.fierce-network.com/newswire/hewlett-packard-enterprise-reports-3q-results","Fierce Network: Segmente 3. Quartal") + ", " + L("https://www.hpe.com/us/en/newsroom/press-release/2026/06/hpe-reports-fiscal-2026-second-quarter-results.html","HPE: Zahlen 2. Quartal 2026") + ", " + L("https://www.hpe.com/us/en/newsroom/press-release/2026/03/hpe-reports-fiscal-2026-first-quarter-results.html","HPE: Zahlen 1. Quartal 2026") + ", " + L("https://www.hpe.com/content/dam/hpe/newsroom/2025/12/HPE_Q4FY25_earnings_financial%20_tables.pdf","HPE: Tabellen 4. Quartal 2025") + ", " + L("https://stockanalysis.com/stocks/hpe/financials/","StockAnalysis.com (HPE)") + " (Finanzen, Kennzahlen, Cashflow, Stand 8.11.2026), " + L("https://investors.hpe.com/","HPE Investor Relations (Termin 23.11.2026)") + ", " + L("https://siliconangle.com/2026/09/30/five-takeaways-from-hpes-networking-investor-day/","SiliconANGLE: Networking-Investorentag (30.9.2026)") + ", " + L("https://www.trefis.com/articles/619623/how-much-downside-is-left-in-hpe-stock/2026-10-21","Trefis: Speicher-Engpass und Marge (21.10.2026)") + ", " + L("https://www.webull.com/news/15747022646092800","Barclays-Abstufung (14.10.2026)") + ", " + L("https://stockstory.org/us/stocks/nyse/hpe/news/why-up-down/why-hewlett-packard-enterprise-hpe-shares-are-trading-lower-today-3","Evercore-Abstufung (12.10.2026)") + ", " + L("https://www.dailypolitical.com/2026/11/05/hewlett-packard-enterprise-nysehpe-stock-falls-12-time-to-sell.html","Kurssturz 5.11.2026 und Dividende") + ", " + L("https://parameter.io/hewlett-packard-enterprise-hpe-stock-soars-as-new-activist-investors-enter-the-fray/","Parameter: Elliott und Irenic (14.5.2026)") + ", " + L("https://www.marketbeat.com/stocks/NYSE/HPE/insider-trades/","MarketBeat: Insider") + ". Branchenvergleich der App: Note 2.7 von 5, fairer Wert rund 46.90 $ (4.7 % über dem Kurs vom 6.11., heute rund 2 % darunter), Unsicherheit sehr hoch. Ampeln der App für alle Firmen (9.11.): Qualität 45, Timing 65."
+}
+if __name__ == "__main__":
+    json.dump(c, open(os.path.join(P, "config", "HPE.json"), "w"), ensure_ascii=False, indent=1)
+    print("ok", sum(r[2] for r in c["Q"]), sum(r[2] for r in c["T"]))

@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hewlett Packard Enterprise Aktien-Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F3F5F7; --surface:#FFFFFF; --ink:#141B24; --muted:#5A6573; --line:#DDE2E8; --grid:#E9EDF1;
+  --accent:#2F45B5; --accent-soft:#E6E9F8; --chip:#EBEEF2;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+  --good:#1D7A4B; --good-bg:#E3F3EA; --warn:#9A6200; --warn-bg:#FBF0DC; --bad:#B2362A; --bad-bg:#FBE6E3;
+  --zone-sup:rgba(29,122,75,.10); --zone-res:rgba(178,54,42,.09);
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+    --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+    --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+    --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+  --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+  --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;padding-inline:16px;padding-block:24px 56px}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+h1,h2,h3{font-family:var(--display);font-stretch:85%;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:clamp(32px,7vw,48px);font-weight:800;line-height:1}
+h2{font-size:24px;font-weight:700}
+h3{font-size:17px;font-weight:700;font-stretch:95%}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+section{display:flex;flex-direction:column;gap:14px}
+.lead{max-width:68ch;color:var(--muted)}
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;align-items:stretch}
+.hero .id{display:flex;flex-direction:column;gap:10px;justify-content:space-between}
+.price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price b{font-family:var(--display);font-size:34px;font-weight:700}
+.meta{font-size:13px;color:var(--muted)}
+.verdict{font-size:15px;padding:12px 14px;border-radius:10px;background:var(--chip)}
+.scales{display:flex;flex-direction:column;gap:18px}
+.scale-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.scale-h span{font-size:13px;color:var(--muted)}
+.scale-h b{font-family:var(--display);font-size:28px;line-height:1}
+.track{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#C8412F 0%,#E0892F 30%,#E3B63A 50%,#8BBF4B 68%,#2E9A5B 100%);margin-top:8px}
+.pin{position:absolute;top:-5px;width:4px;height:22px;border-radius:2px;background:var(--ink);box-shadow:0 0 0 2px var(--surface);transform:translateX(-2px)}
+.ticks{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);font-family:var(--mono);margin-top:6px}
+.state{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;margin-top:8px}
+.st-good{background:var(--good-bg);color:var(--good)}
+.st-warn{background:var(--warn-bg);color:var(--warn)}
+.st-bad{background:var(--bad-bg);color:var(--bad)}
+/* tables */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;color:var(--muted);font-weight:500;font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:700;border-bottom:none}
+.pts{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{height:6px;border-radius:3px;background:var(--chip);min-width:60px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:3px}
+/* grids */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;border-left:4px solid var(--line)}
+.kpi.g{border-left-color:var(--good)}.kpi.w{border-left-color:var(--warn)}.kpi.b{border-left-color:var(--bad)}
+.kpi span{font-size:12px;color:var(--muted)}
+.kpi b{font-family:var(--mono);font-size:19px;font-weight:500;font-variant-numeric:tabular-nums}
+.kpi em{font-style:normal;font-size:12.5px;color:var(--muted)}
+/* charts */
+.chart{position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:14px;height:3px;border-radius:2px;display:inline-block}
+.swb{width:12px;height:10px;border-radius:2px;display:inline-block}
+.tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12.5px;box-shadow:0 4px 14px rgba(0,0,0,.12);white-space:nowrap;z-index:2}
+.tip b{font-family:var(--mono);font-weight:500}
+.tip .d{font-family:var(--mono);color:var(--muted);font-size:11.5px}
+.note{font-size:13.5px;color:var(--muted)}
+ul.clean{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.pro li::marker{color:var(--good)} .con li::marker{color:var(--bad)}
+.zones{display:flex;flex-direction:column;gap:8px}
+.zone{display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:baseline;padding:10px 12px;border-radius:10px;background:var(--chip);font-size:14px}
+.zone b{font-family:var(--mono);font-weight:500}
+.zone.r{border-left:4px solid var(--bad)} .zone.s{border-left:4px solid var(--good)} .zone.t{border-left:4px solid var(--accent)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+summary{cursor:pointer;font-weight:600}
+details p{margin-top:8px;color:var(--muted);max-width:70ch}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+footer{font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:6px;max-width:80ch}
+footer a{color:var(--accent)}
+@media (max-width:760px){.hero,.two{grid-template-columns:1fr}.zone{grid-template-columns:1fr;gap:2px}}
+</style>
+
+<a href="../index.html#/aktie/HPE" style="display:inline-block;margin:max(12px,env(safe-area-inset-top)) 0 0 16px;background:#1f3a5f;color:#fff;font:600 14px system-ui;padding:8px 12px;border-radius:20px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">Zurück zur App</a>
+<div class="wrap">
+
+<header class="hero">
+  <div class="card id">
+    <div>
+      <div class="eyebrow">Aktien-Check · 10.11.2026</div>
+      <h1>Hewlett Packard Enterprise</h1>
+      <p class="meta">Hewlett Packard Enterprise Company · NYSE: HPE · Server, Netzwerk (Aruba, Juniper), Speicher und KI-Systeme für Firmen · Houston, USA</p>
+    </div>
+    <div class="price"><b>47.93 $</b><span class="meta">Schluss 10.11.2026 · 52 Wochen: 19.84 – 73.56 $ · Allzeithoch Woche: 73.56 $ am 9.10.2026</span></div>
+    <p class="verdict"><b>Kurz gesagt:</b> HPE verkauft Server, Netzwerktechnik und Speicher an Firmen und Rechenzentren. 2026 ist das Geschäft explodiert: Im 3. Quartal (bis Juli) stieg der Umsatz um 34 % auf 12.2 Mrd. $, für das 4. Quartal erwartet die Firma 13.9 bis 14.8 Mrd. $. Treiber sind KI-Server, das zugekaufte Juniper-Netzwerkgeschäft und höhere Preise, weil Speicherchips knapp und teuer sind. Die Aktie stieg von 19.84 $ (Februar) auf 73.56 $ (9.10.2026) und fiel danach um 41 % bis auf 43.38 $ (5.11.). Qualität gelb (51): starkes Wachstum, aber dünne Marge (8.1 %), tiefe Kapitalrendite (8.3 %) und viele Schulden. Timing gelb (53): Der Wochentrend steht noch, im Tageschart sind die Hochs und Tiefs aber tiefer geworden. Alle Insider haben in 12 Monaten nur verkauft. Die nächsten Zahlen kommen am 23.11.2026. Keine Anlageberatung.</p>
+  </div>
+  <div class="card scales">
+    <div>
+      <div class="scale-h"><span>Qualität · Ist die Firma kaufenswert?</span><b id="q-val">51</b></div>
+      <div class="track"><i class="pin" id="q-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-warn">▲ Gemischt</span>
+    </div>
+    <div>
+      <div class="scale-h"><span>Timing · Ist jetzt der Zeitpunkt?</span><b id="t-val">53</b></div>
+      <div class="track"><i class="pin" id="t-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-warn">▲ Warten auf Bestätigung</span>
+    </div>
+    <p class="note">Skala: unter 30 rot · 30–45 orange · 45–60 gelb · 60–75 hellgrün · ab 75 grün. Beide Werte setzen sich aus festen Kriterien zusammen, siehe unten.</p>
+  </div>
+</header>
+
+<section>
+  <h2>Was die Firma macht</h2>
+  <p class="lead">Hewlett Packard Enterprise (HPE) entstand 2015 aus der Aufteilung des alten Hewlett-Packard. HP Inc. behielt PCs und Drucker, HPE das Geschäft mit Firmenkunden. Sitz ist Houston (Texas), Chef seit 2018 Antonio Neri. Es gibt zwei grosse Bereiche: <b>Cloud & AI</b> (3. Quartal 2026: 9.0 Mrd. $ Umsatz) mit Servern (6.8 Mrd. $), Speichersystemen (1.3 Mrd. $) und Leasing (0.9 Mrd. $). Und <b>Networking</b> (2.9 Mrd. $) mit WLAN und Netzwerken für Büros (Aruba) sowie Routern und Rechenzentrums-Netzwerken von Juniper Networks. Juniper kaufte HPE im Juli 2025, im Geschäftsjahr 2025 flossen dafür 12.3 Mrd. $ bar. Networking bringt heute rund die Hälfte des Betriebsgewinns. Server sind ein hart umkämpftes Geschäft mit kleinen Margen (Konkurrenten Dell, Super Micro, Lenovo). Netzwerke sind deutlich profitabler (Marge rund 22 %). Das Geschäftsjahr endet jeweils am 31. Oktober.</p>
+  <p class="lead">Lange war HPE eine langweilige Aktie mit 2 bis 3 % Wachstum pro Jahr (2021 bis 2024). Im April 2025 fiel sie wegen der US-Zölle bis auf 11.97 $ (Wochentief). Im Mai 2026 wurde bekannt, dass der aktivistische Investor Elliott Management (rund 1.5 Mrd. $) und Irenic Capital Druck auf die Firma machen. Am 1.6.2026 kamen sehr starke Zahlen (Umsatz +40 %), die Aktie sprang am 2.6. bis auf 64.25 $. Am 2.9. folgte das nächste Rekordquartal (+34 %) und eine höhere Prognose für 2026 und 2027. Am 9.10.2026 schloss die Aktie bei 73.56 $, rund 170 % höher als Anfang Jahr. Dann drehte die Stimmung: Evercore stufte am 12.10. ab (zu teuer), Barclays am 14.10. (Serverumsatz steigt vor allem wegen teurer Speicherchips, nicht wegen KI). Dazu kamen höhere Zinsen (10-jährige US-Anleihe 5.28 % am 14.10.) und Anfang November ein Ausverkauf bei KI-Hardware nach den US-Zwischenwahlen. Am 5.11. fiel HPE an einem Tag um 12 %. Das Geschäft selbst hat sich bis zum letzten Bericht nicht verschlechtert. Die Frage ist, wie viel des Wachstums nur von vorübergehend hohen Preisen kommt.</p>
+</section>
+
+<section>
+  <h2>Fundamental: die Zahlen</h2>
+  <div class="kpis">
+<div class="kpi g"><span>Umsatzwachstum</span><b>+26.6 %</b><em>Letzte 12 Monate bis Juli 2026 (41.87 Mrd. $). Ein Teil kommt aus dem Kauf von Juniper (seit Juli 2025 dabei). Im 3. Quartal +34 %, das ist schon fast ohne Zukauf-Effekt. Prognose 2027: +13 bis +17 %.</em></div>
+<div class="kpi w"><span>Operative Marge</span><b>8.1 %</b><em>Von 100 $ Umsatz bleiben rund 8 $ Betriebsgewinn (12 Monate, laut Rechnungslegung). Das ist wenig. Im 3. Quartal waren es 11.4 %. HPE warnt selbst, dass die Marge wieder sinken dürfte, wenn die Preise für Speicherchips fallen.</em></div>
+<div class="kpi g"><span>Gewinn pro Aktie (EPS)</span><b>1.96 $</b><em>Letzte 12 Monate laut Rechnungslegung. Bereinigt (ohne Kosten für Juniper und Umbau) sind es 3.17 $. Im 3. Quartal stieg der bereinigte Gewinn von 0.44 auf 1.11 $. Ziel 2026: 3.75 bis 3.85 $, fast doppelt so viel wie 2025 (1.94 $).</em></div>
+<div class="kpi r"><span>ROIC</span><b>8.3 %</b><em>Auf 100 $ investiertes Kapital rund 8 $ Gewinn. Schwach. Durch den teuren Kauf von Juniper steckt viel Kapital in der Firma. 2021 bis 2024 lag der Wert bei rund 7 %, 2025 bei 4.8 %.</em></div>
+<div class="kpi w"><span>Free Cashflow</span><b>4.16 Mrd. $</b><em>Letzte 12 Monate bis Juli 2026, ein Rekord. Das ist das Geld, das nach den Investitionen übrig bleibt. 2025 waren es nur 0.63 Mrd. $. Der Wert schwankt stark. Ziel 2026: mindestens 3.75 Mrd. $, 2027 mindestens 5 Mrd. $.</em></div>
+<div class="kpi w"><span>Schulden</span><b>2.0 × EBITDA</b><em>Nettoschulden 14.1 Mrd. $ (20.3 Mrd. $ Schulden minus 6.2 Mrd. $ Cash). Mit dem Betriebsgewinn vor Abschreibungen (EBITDA, 6.9 Mrd. $) wären sie in rund 2 Jahren bezahlt. 2025 lag der Wert noch bei 5.</em></div>
+<div class="kpi r"><span>KGV</span><b>24.5</b><em>Du zahlst rund 24 Jahresgewinne (laut Rechnungslegung, 47.93 $ / 1.96 $). Eigener Schnitt 2021 bis 2024: 11.6. Also rund doppelt so teuer. Mit dem bereinigten Gewinn sind es 15.1, mit dem Ziel für 2026 nur 12.6.</em></div>
+<div class="kpi w"><span>Dividende</span><b>1.2 %</b><em>0.1425 $ pro Quartal, also 0.57 $ pro Jahr. 4 Zahlungen (Mitte Januar, April, Juli, Oktober). Für 2026 um 9.6 % erhöht. Es fliessen rund 29 % des Gewinns in die Dividende.</em></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>Umsatz pro Quartal (Mrd. $)</h3>
+      <p class="note">Alle 4 letzten Quartale lagen über dem Vorjahr: +14 %, +18 %, +40 % und +34 %. Bis Juni 2026 war Juniper nur auf einer Seite im Vergleich, das hat das Wachstum aufgebläht. Das 3. Quartal (+34 %) ist fast echtes Wachstum. Für das 4. Quartal erwartet HPE 13.9 bis 14.8 Mrd. $ (+44 bis +53 %).</p>
+      <div class="chart" id="c-rev"></div>
+    </div>
+    <div class="card">
+      <h3>Operative Marge pro Jahr</h3>
+      <p class="note">Betriebsgewinn pro 100 $ Umsatz (laut Rechnungslegung). 2021 bis 2024 stabil um 8 %, 2025 wegen Kosten für Juniper nur 5.1 %, jetzt wieder 8.1 %. Bereinigt lag die Marge im 3. Quartal bei 16.2 %.</p>
+      <div class="chart" id="c-margin"></div>
+    </div>
+  </div>
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Jahr</th><th class="num">Umsatz Mrd. $</th><th class="num">Wachstum</th><th class="num">Op. Marge</th><th class="num">EPS $</th><th class="num">Free Cashflow</th><th class="num">ROIC</th><th class="num">KGV</th></tr></thead>
+      <tbody id="fin-rows"></tbody>
+    </table>
+  </div>
+  <p class="note"><b>Hinweis:</b> Umsatz und FCF in Mio. $. Geschäftsjahr endet am 31. Oktober. Jahre 2021 bis 2025 laut StockAnalysis. Letzte 12 Monate: bis Juli 2026. EPS laut Rechnungslegung (2025 Verlust wegen Kosten für Juniper). KGV pro Jahr laut StockAnalysis, heute eigene Rechnung (47.93 $ / 1.96 $). Schnitt 2021 bis 2024: 11.6 (2025 ohne KGV, weil Verlust).</p>
+</section>
+
+<section>
+  <h2>Qualität: 51 von 100</h2>
+  <div class="card tbl"><table id="q-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Technik: Wochenchart (2 Jahre)</h2>
+  <div class="card">
+    <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span><span><i class="swb" style="background:var(--zone-sup);border:1px solid var(--good)"></i>Unterstützung</span><span><i class="swb" style="background:var(--zone-res);border:1px solid var(--bad)"></i>Widerstand</span></div>
+    <div class="chart" id="c-week"></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>A/D-Linie, Woche</h3>
+      <p class="note">Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Positiv in der Woche: Ende August stand der Kurs bei 52.00 $ und die A/D bei 1'981. Heute ist der Kurs tiefer (47.93 $), die A/D aber höher (2'114). Beim Absturz seit Oktober wurde also weniger verkauft, als der Kurs vermuten lässt. Vom Hoch im Oktober (2'345) ist sie aber deutlich gefallen.</p>
+      <div class="chart" id="c-adw"></div>
+    </div>
+    <div class="card">
+      <h3>RSI, Woche</h3>
+      <p class="note">Unter 30 überverkauft, über 70 überkauft. 48, neutral. Am 9.10.2026 noch 79 (überkauft), im Mai sogar 91.</p>
+      <div class="chart" id="c-rsiw"></div>
+    </div>
+  </div>
+
+  <h2>Technik: Tageschart (1 Jahr)</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Kurs, Tag</h3>
+      <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span></div>
+      <div class="chart" id="c-day"></div>
+    </div>
+    <div class="card">
+      <h3>A/D-Linie, Tag</h3>
+      <p class="note">Die Tages-A/D fiel seit dem Hoch vom 9.10. von 392 auf 301 (5.11.), heute 304. Sie fällt also mit dem Kurs. Beim Tief vom 3.9. (Kurs 45.70 $) stand sie bei 357, beim tieferen Tief vom 5.11. (43.38 $) nur bei 301. Kurzfristig sind die Verkäufer klar stärker, eine Bodenbildung zeigt die Tages-A/D noch nicht.</p>
+      <div class="chart" id="c-add"></div>
+    </div>
+  </div>
+
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Indikator</th><th>Tag</th><th>Woche</th><th>Bedeutung</th></tr></thead>
+      <tbody>
+<tr><td>Kurs vs. EMA 50</td><td class="pts">47.93 &lt; 56.36</td><td class="pts">47.93 &gt; 42.89</td><td>Im Tageschart unter der mittelfristigen Linie, in der Woche noch darüber.</td></tr>
+<tr><td>Kurs vs. EMA 200</td><td class="pts">47.93 &gt; 45.41</td><td class="pts">47.93 &gt; 27.02</td><td>Über der langfristigen Linie, im Tageschart aber nur noch 5.5 % darüber.</td></tr>
+<tr><td>EMA 50 vs. EMA 200</td><td class="pts">50 über 200 (Golden Cross am 29.7.2025)</td><td class="pts">50 über 200 (seit Juni 2021)</td><td>Beide Zeitebenen im Aufwärtstrend. Die Tages-EMA 50 fällt aber seit Mitte Oktober.</td></tr>
+<tr><td>RSI (14)</td><td class="pts">37.4</td><td class="pts">48.1</td><td>Tag schwach, am 5.11. mit 29.6 kurz überverkauft, jetzt leicht erholt. Woche neutral.</td></tr>
+<tr><td>A/D</td><td class="pts">fällt seit 9.10. mit dem Kurs</td><td class="pts">höher als Ende August trotz tieferem Kurs</td><td>Tag negativ, Woche positiv (Käufer halten sich besser als der Kurs).</td></tr>
+<tr><td>Volumen</td><td colspan="2">Ø 20 Tage 17.5 Mio. vs. Ø 100 Tage 19.9 Mio. Aktien</td><td>Der Absturz kam ohne besonders hohen Handel, ausser am 5.11. (rund 28 Mio.).</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Struktur und Zonen (Smart Money Concept)</h2>
+  <p class="lead">Im Wochenchart lief HPE 2026 in einer klaren Aufwärtsstruktur: Tiefs bei 19.84 (24.2.), 40.72 (2.7.) und 45.70 $ (3.9.), Hochs bei 64.25 (2.6.), 63.44 (13.8.) und 73.56 $ (9.10.). Danach kippte die Struktur im Tageschart: Das Hoch vom 28.10. (62.20 $) blieb unter 73.56 $, und das Tief vom 5.11. (43.38 $) lag unter dem Tief vom 3.9. (45.70 $). Das ist ein Bruch der Struktur nach unten (Wochenschluss 44.77 $ am 6.11.). Seither ist der Kurs wieder über 45.70 $ zurück. Das kann ein Fehlausbruch nach unten sein (Verkäufer werden ausgespült), bestätigt ist es noch nicht. Die Hälfte des Anstiegs von 19.84 auf 73.56 $ liegt bei 46.70 $: Der Kurs steht also nahe der Mitte, darunter beginnt der günstige Bereich (Discount). Das letzte höhere Tief im Wochenchart ist 40.72 $ vom Juli.</p>
+  <div class="zones">
+<div class="zone r"><b>62.20–64.30 $</b><span>Widerstand: Hoch vom 28.10.2026 (62.20 $), Hoch vom 11.9. (62.15 $) und Spitze vom 2.6. (64.25 $). Darüber das Allzeithoch 73.56 $.</span></div>
+<div class="zone r"><b>53.90–58.40 $</b><span>Widerstand: Tief vom 22.10. (53.91 $), Kurslücke vom 30.10. (55.85 bis 58.43 $) und Tages-EMA 50 (56.36 $).</span></div>
+<div class="zone t"><b>62.20 $</b><span><b>Trigger:</b> Tagesschluss über 62.20 $ (letztes tieferes Hoch vom 28.10.). Ein erstes Zeichen wäre ein Tagesschluss über 56.40 $ (Kurslücke und EMA 50), besser mit steigender Tages-A/D.</span></div>
+<div class="zone s"><b>43.30–45.70 $</b><span><b>Kaufzone 1:</b> Tiefs vom 28.7. (43.30 $), 3.9. (45.70 $) und 5.11. (43.38 $), dazu Tages-EMA 200 (45.41 $).</span></div>
+<div class="zone s"><b>40.30–42.90 $</b><span><b>Kaufzone 2:</b> Tief vom 2.7. (40.72 $, letztes höheres Wochentief), Wochen-EMA 50 (42.89 $) und 61.8 % Rücklauf des Anstiegs (40.36 $).</span></div>
+<div class="zone r"><b>40.70 $</b><span>Abbruch: Wochenschluss unter 40.70 $, also unter dem letzten höheren Tief im Wochenchart (40.72 $ vom 2.7.2026).</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Smart Money, Insider und Saisonalität</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Wer kauft, wer verkauft?</h3>
+      <ul class="clean" style="margin-top:8px">
+<li><b>Insider:</b> In 12 Monaten 26 Verkäufe von 12 Insidern für zusammen 70.9 Mio. $, kein einziger Kauf (MarketBeat). Chef Antonio Neri verkaufte am 11.9. und 5.10.2026 je 250'000 Aktien zu 60.44 und 68.31 $ (32.2 Mio. $). Laut Meldungen über vorab festgelegte Verkaufspläne (Rule 10b5-1).</li>
+<li><b>Aktivisten:</b> Elliott Management hält laut Berichten rund 1.5 Mrd. $ in HPE und wollte 2026 den Chef auswechseln. Das gelang nicht, Elliott durfte stattdessen ein weiteres Mitglied im Verwaltungsrat bestimmen. Auch Irenic Capital ist eingestiegen (Parameter, 14.5.2026).</li>
+<li><b>Rückkäufe:</b> 547 Mio. $ in 12 Monaten, rund 0.9 % des Börsenwerts. Gleichzeitig stieg die Zahl der Aktien laut StockAnalysis um rund 6 % (Verwässerung). Für das 4. Quartal will HPE mindestens 75 % des Free Cashflows an die Aktionäre geben.</li>
+<li><b>Analysten:</b> 24 Analysten, Urteil «Kaufen», Kursziel im Schnitt 72.20 $ (StockAnalysis, 8.11.2026). MarketBeat zählt 65.44 $. Abgestuft haben Evercore ISI (12.10., «In-Line», Ziel 65 $) und Barclays (14.10., «Equal Weight», Ziel 77 statt 83 $).</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Saisonalität seit 2015</h3>
+      <p class="note">Durchschnittliche Monatsrendite in %. Daten seit 2015 (seit der Abspaltung). Stark sind Juni (+3.2 %, 73 % positive Jahre) und August (+3.2 %, 64 %). Schwach ist September (−1.9 %, nur 27 %). Dezember +1.3 % (73 %), Januar −0.3 % (45 %), Februar +1.1 % (36 %). Für November zählt die Datei nur 1 Jahr, das ist nicht aussagekräftig.</p>
+      <div class="chart" id="c-seas"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Timing: 53 von 100</h2>
+  <div class="card tbl"><table id="t-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Worauf du achten solltest: Unterbewertung und Wachstumsschub</h2>
+  <div class="card"><h3>Was die Börse befürchtet</h3><p class="note" style="margin:4px 0">Echte Probleme, eher lösbar: Das Geschäft wächst laut letztem Bericht stark und die Prognosen wurden zweimal erhöht. Die Sorge, dass ein Teil davon nur von vorübergehend hohen Chip-Preisen kommt, ist aber berechtigt und noch nicht widerlegt.</p><ul class="clean"><li>Ein Teil des Umsatzsprungs kommt von sehr teuren Speicherchips, die HPE an die Kunden weitergibt. Barclays schrieb am 14.10.2026, der Serverumsatz steige vor allem wegen höherer Bauteilkosten, ein echter KI-Schub fehle noch.</li><li>HPE erwartet selbst, dass die Bruttomarge (3. Quartal: Rekord 40.1 %) wieder Richtung früherer Werte sinkt, wenn sich die Serverpreise normalisieren. Der Lagerbestand stieg auf 11.8 Mrd. $.</li><li>Nach +170 % seit Jahresbeginn galt die Aktie als zu teuer: Evercore (12.10.) und Barclays (14.10.) stuften ab. Anfang November kam ein Ausverkauf bei KI-Hardware dazu, am 5.11. fiel HPE um 12 %. Vom Hoch (73.56 $) bis zum Tief (43.38 $) waren es 41 %.</li><li>Alle Insider haben in 12 Monaten nur verkauft (70.9 Mio. $), Chef Antonio Neri allein im September und Oktober 500'000 Aktien.</li></ul><h3 style="margin-top:12px">Was die Sorgen beenden könnte</h3><ul class="clean"><li>Zahlen 4. Quartal: Umsatz im Bereich 13.9 bis 14.8 Mrd. $ und bereinigter Gewinn pro Aktie 1.20 bis 1.30 $, dazu eine Aussage zur Marge trotz Speicherpreisen <span class="muted">(23.11.2026 nach US-Börsenschluss)</span></li><li>Ziel für 2027 bestätigt oder erhöht (bisher Umsatz +13 bis +17 %, Gewinn pro Aktie +16 bis +20 %, Free Cashflow mindestens 5 Mrd. $) <span class="muted">(23.11.2026)</span></li><li>Netzwerk-Geschäft wächst weiter stark, ohne dass die Server die Zahlen tragen müssen <span class="muted">(Zahlen 1. Quartal 2027, voraussichtlich Anfang März 2027)</span></li></ul><h3 style="margin-top:12px">Wachstumsschub: Wachstumsschub möglich</h3><ul class="clean"><li><b>Netzwerk für KI-Rechenzentren (Juniper):</b> Im 3. Quartal 2026 wuchs das Routing um 270 % und die Rechenzentrums-Netzwerke um 112 %. HPE erwartet für Networking 2027 ein Wachstum im hohen Zehner- bis tiefen Zwanzigerbereich und eine Marge im mittleren bis hohen Zwanzigerbereich. Networking bringt schon rund die Hälfte des Betriebsgewinns. <span class="muted">(2027 bis 2029)</span></li><li><b>Einsparungen aus dem Juniper-Kauf:</b> Das Ziel für jährliche Einsparungen wurde am 30.9.2026 auf 800 Mio. $ bis Ende 2028 erhöht (ursprünglich 450 Mio. $). Das hebt den Gewinn auch ohne mehr Umsatz. <span class="muted">(bis Ende Geschäftsjahr 2028)</span></li><li><b>Grosse KI-Aufträge:</b> Rekord-Auftragsbestand, erster Auftrag für AMD-Helios-Systeme über 1.2 Mrd. $ (Vultr, 30.9.2026) und ein Netzwerk-Auftrag für die KI-Rechenzentren von Oracle. Die Lieferung ist aber durch knappe Speicherchips begrenzt. <span class="muted">(2027)</span></li></ul><p style="margin:10px 0 0"><b>Woran du es erkennst:</b> Achte am 23.11. auf das Ziel für 2027 und auf die operative Marge im Networking (3. Quartal: 22.0 %). Steigt das Networking weiter um 20 % oder mehr, während die Marge hält, trägt das Wachstum auch ohne teure Speicherchips.</p><p style="margin:10px 0 0"><b>Das Chancen-Szenario:</b> Im guten Fall wird HPE vom Serverbauer zu einem Netzwerk-Konzern mit höheren Margen. Dann wäre ein KGV von rund 12.6 auf den Ziel-Gewinn 2026 günstig. Das grösste Risiko: Die Speicherpreise fallen, die Serverumsätze schrumpfen 2027 wieder, und die Firma steht mit dünner Marge und 14 Mrd. $ Nettoschulden da. Weil das Wachstum 2027 laut eigener Prognose langsamer wird als heute, ist der Schub nur «mittel».</p><p class="note" style="margin:10px 0 0">Quellen: <a href="https://www.hpe.com/us/en/newsroom/press-release/2026/09/hpe-reports-fiscal-2026-third-quarter-results.html" target="_blank" rel="noopener">HPE: Zahlen 3. Quartal 2026 und Prognosen (2.9.2026)</a>, <a href="https://siliconangle.com/2026/09/30/five-takeaways-from-hpes-networking-investor-day/" target="_blank" rel="noopener">SiliconANGLE: Fünf Erkenntnisse vom Networking-Investorentag (30.9.2026)</a>, <a href="https://www.webull.com/news/15747022646092800" target="_blank" rel="noopener">Webull/StockStory: Barclays stuft HPE ab (14.10.2026)</a>, <a href="https://www.trefis.com/articles/619623/how-much-downside-is-left-in-hpe-stock/2026-10-21" target="_blank" rel="noopener">Trefis: How Much Downside Is Left In HPE Stock? (21.10.2026)</a>, <a href="https://www.dailypolitical.com/2026/11/05/hewlett-packard-enterprise-nysehpe-stock-falls-12-time-to-sell.html" target="_blank" rel="noopener">DailyPolitical: HPE fällt um 12 % (5.11.2026)</a></p></div>
+</section>
+
+<section>
+  <h2>Dividende</h2>
+  <div class="card tbl"><table><tr><td style="white-space:nowrap;color:var(--muted)">Wie oft</td><td>4× pro Jahr (quartalsweise)</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Ex-Tag im</td><td>März, Juni, September, Dezember</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Geld auf dem Konto im</td><td>Januar, April, Juli, Oktober</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Zahltage</td><td>jeweils Mitte Januar, April, Juli und Oktober (Stichtag rund 4 Wochen vorher, 2026: 24.3., 16.6., 17.9.). Letzte Zahlung: 0.1425 $ am 16.10.2026. Die nächste Dividende wird üblicherweise mit den Jahreszahlen angekündigt (Vorjahr: Stichtag 19.12.2025, Zahlung 16.1.2026).</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Letzte Zahlung</td><td>0.1425 $ pro Aktie</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Rendite</td><td>1.2 %</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">System</td><td>US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Für das Geschäftsjahr 2026 um 9.6 % erhöht (von 0.13 auf 0.1425 $, angekündigt im Oktober 2025). Ob es für 2027 eine Erhöhung gibt, war am 10.11.2026 noch nicht bekannt. Ausgeschüttet werden rund 29 % des Gewinns.</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Form</td><td>Bar in US-Dollar. Die USA ziehen mit dem Formular W-8BEN 15 % Quellensteuer ab (ohne Formular 30 %). Die 15 % kannst du in der Schweizer Steuererklärung zurückfordern (DA-1). Wie Saxo das genau abwickelt, konnte ich nicht prüfen.</td></tr></table><p class="note" style="margin:10px 0 0"><b>Ex-Tag:</b> Du bekommst die Dividende nur, wenn du die Aktie am Abend vor dem Ex-Tag besitzt. <b>Zahltag:</b> An diesem Tag kommt das Geld aufs Konto (in der Währung der Aktie, abzüglich Quellensteuer). Die nächsten genauen Termine zeigt die App unter «Termine».</p></div>
+</section>
+
+<section>
+  <h2>Pro und Contra</h2>
+  <div class="two">
+    <div class="card pro"><h3>Spricht dafür</h3><ul class="clean" style="margin-top:8px">
+<li>Rekordwachstum: Umsatz im 3. Quartal 2026 +34 % (12.2 Mrd. $), Prognose 4. Quartal 13.9 bis 14.8 Mrd. $. Bestellungen wuchsen 3.5-mal schneller als der Umsatz, Rekord-Auftragsbestand.</li>
+<li>Juniper macht HPE zu einem grossen Netzwerk-Anbieter: Routing +270 %, Rechenzentrums-Netzwerke +112 % im 3. Quartal. Ziel für Einsparungen auf 800 Mio. $ pro Jahr bis 2028 erhöht.</li>
+<li>Free Cashflow auf Rekord (4.16 Mrd. $ in 12 Monaten), Ziel 2027 mindestens 5 Mrd. $. Schulden sinken von 5 auf rund 2 × EBITDA.</li>
+<li>Nach dem Absturz um bis zu 41 % ist die Aktie mit dem Ziel-Gewinn 2026 (3.80 $) nur noch rund 12.6-mal bewertet. Analysten-Kursziel 72.20 $ (StockAnalysis).</li>
+<li>Wochen-A/D hält sich besser als der Kurs, Wochentrend noch intakt. Aktivisten (Elliott, Irenic) schauen dem Management auf die Finger.</li>
+    </ul></div>
+    <div class="card con"><h3>Spricht dagegen</h3><ul class="clean" style="margin-top:8px">
+<li>Ein Teil des Wachstums kommt von sehr teuren Speicherchips (DDR5, NAND), die HPE an Kunden weitergibt. Fallen diese Preise, sinken Umsatz und Marge. HPE erwartet selbst tiefere Margen.</li>
+<li>Dünne Marge (8.1 %) und tiefe Kapitalrendite (8.3 %). Serverbau ist hart umkämpft (Dell, Super Micro, Lenovo).</li>
+<li>Laut Rechnungslegung teuer: KGV 24.5 gegen einen eigenen Schnitt von 11.6. Der faire Wert der App (rund 46.90 $) liegt leicht unter dem Kurs.</li>
+<li>Alle Insider haben in 12 Monaten nur verkauft (70.9 Mio. $), der Chef allein im September und Oktober für 32 Mio. $. Die Zahl der Aktien steigt (rund 6 %).</li>
+<li>Sehr schwankungsreich: 35 Tagesbewegungen über 5 % in einem Jahr. Lagerbestand stieg auf 11.8 Mrd. $. Tagesstruktur nach unten gebrochen.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section>
+  <h2>Was jetzt zu tun ist</h2>
+  <div class="zones">
+<div class="zone t"><b>Beobachten</b><span>Alarm bei 45.70 $ (oberes Ende Kaufzone 1), 56.40 $ (erstes Zeichen) und 62.20 $ (Trigger).</span></div>
+<div class="zone s"><b>Timing grün</b><span>Rücksetzer in 43.30 bis 45.70 $, der hält und mit steigender Tages-A/D dreht. Oder Tagesschluss über 62.20 $. Fundamental am 23.11.: Umsatz im Bereich der Prognose (13.9 bis 14.8 Mrd. $), Ziel 2027 bestätigt oder erhöht und eine klare Aussage zu Speicherpreisen und Marge.</span></div>
+<div class="zone r"><b>Abbruch</b><span>Wochenschluss unter 40.70 $.</span></div>
+<div class="zone "><b>Nächste Zahlen</b><span>4. Quartal und ganzes Geschäftsjahr 2026: 23.11.2026 nach US-Börsenschluss (laut HPE Investor Relations). Danach Auftritte an Konferenzen von UBS (2.12.) und Barclays (Dezember).</span></div>
+  </div>
+</section>
+
+<footer>
+  <span>Kursdaten und Indikatoren (EMA, RSI 14, A/D) selbst berechnet aus Yahoo-Finance-Tages-, Wochen- und Monatsdaten, Stand 10.11.2026. <a href="https://www.hpe.com/us/en/newsroom/press-release/2026/09/hpe-reports-fiscal-2026-third-quarter-results.html" target="_blank" rel="noopener">HPE: Zahlen 3. Quartal 2026 (2.9.2026)</a>, <a href="https://www.fierce-network.com/newswire/hewlett-packard-enterprise-reports-3q-results" target="_blank" rel="noopener">Fierce Network: Segmente 3. Quartal</a>, <a href="https://www.hpe.com/us/en/newsroom/press-release/2026/06/hpe-reports-fiscal-2026-second-quarter-results.html" target="_blank" rel="noopener">HPE: Zahlen 2. Quartal 2026</a>, <a href="https://www.hpe.com/us/en/newsroom/press-release/2026/03/hpe-reports-fiscal-2026-first-quarter-results.html" target="_blank" rel="noopener">HPE: Zahlen 1. Quartal 2026</a>, <a href="https://www.hpe.com/content/dam/hpe/newsroom/2025/12/HPE_Q4FY25_earnings_financial%20_tables.pdf" target="_blank" rel="noopener">HPE: Tabellen 4. Quartal 2025</a>, <a href="https://stockanalysis.com/stocks/hpe/financials/" target="_blank" rel="noopener">StockAnalysis.com (HPE)</a> (Finanzen, Kennzahlen, Cashflow, Stand 8.11.2026), <a href="https://investors.hpe.com/" target="_blank" rel="noopener">HPE Investor Relations (Termin 23.11.2026)</a>, <a href="https://siliconangle.com/2026/09/30/five-takeaways-from-hpes-networking-investor-day/" target="_blank" rel="noopener">SiliconANGLE: Networking-Investorentag (30.9.2026)</a>, <a href="https://www.trefis.com/articles/619623/how-much-downside-is-left-in-hpe-stock/2026-10-21" target="_blank" rel="noopener">Trefis: Speicher-Engpass und Marge (21.10.2026)</a>, <a href="https://www.webull.com/news/15747022646092800" target="_blank" rel="noopener">Barclays-Abstufung (14.10.2026)</a>, <a href="https://stockstory.org/us/stocks/nyse/hpe/news/why-up-down/why-hewlett-packard-enterprise-hpe-shares-are-trading-lower-today-3" target="_blank" rel="noopener">Evercore-Abstufung (12.10.2026)</a>, <a href="https://www.dailypolitical.com/2026/11/05/hewlett-packard-enterprise-nysehpe-stock-falls-12-time-to-sell.html" target="_blank" rel="noopener">Kurssturz 5.11.2026 und Dividende</a>, <a href="https://parameter.io/hewlett-packard-enterprise-hpe-stock-soars-as-new-activist-investors-enter-the-fray/" target="_blank" rel="noopener">Parameter: Elliott und Irenic (14.5.2026)</a>, <a href="https://www.marketbeat.com/stocks/NYSE/HPE/insider-trades/" target="_blank" rel="noopener">MarketBeat: Insider</a>. Branchenvergleich der App: Note 2.7 von 5, fairer Wert rund 46.90 $ (4.7 % über dem Kurs vom 6.11., heute rund 2 % darunter), Unsicherheit sehr hoch. Ampeln der App für alle Firmen (9.11.): Qualität 45, Timing 65.</span>
+  <span>Persönliche Analyse, keine Anlageberatung. Vergangene Kurse und Saisonalität sagen nichts Sicheres über die Zukunft.</span>
+</footer>
+</div>
+
+<script>
+const Q=[["Umsatztrend", "4 von 4 Quartalen über Vorjahr (+14 %, +18 %, +40 %, +34 %), das echte Wachstum hat sich beschleunigt. Teils Zukauf Juniper und höhere Preise für Speicherchips", 13, 15], ["Wachstumstempo", "Ausgewiesen +26.6 %, aber mit Zukauf. Ohne Juniper unklar, Prognose 2027 +13 bis +17 % (Mitte 15 %)", 8, 10], ["Operative Marge", "8.1 % (3 Pkt.), 2021 bis heute um 8 % stabil, 2025 kurz eingebrochen (3 Pkt.)", 6, 15], ["Gewinnwachstum (EPS)", "Bereinigt im 3. Quartal +152 % (1.11 $), Ziel 2026 rund +96 %. Aber 2024 und 2025 sank der bereinigte Gewinn leicht (1.99 und 1.94 $)", 10, 10], ["Free Cashflow", "Immer positiv, aber stark schwankend (0.63 bis 4.16 Mrd. $)", 6, 10], ["ROIC", "8.3 %, unter 10 % (2 Pkt.), seit 2021 kein klarer Trend", 2, 15], ["Schulden", "Nettoschulden/EBITDA 2.0 (14.1 / 6.9 Mrd. $)", 5, 10], ["Bewertung vs. eigene Historie", "KGV 24.5 statt Ø 11.6, über 100 % teurer (bereinigt 15.1, auch das über 30 % teurer)", 1, 15]];
+const T=[["Trend Woche (EMA 50/200)", "Kurs über beiden, EMA 50 über 200 und steigend. Der Abstand zur EMA 50 ist aber auf 12 % geschrumpft", 18, 20], ["Trend Tag (EMA 50/200)", "Kurs unter EMA 50 (56.36), knapp über EMA 200 (45.41): Rücksetzer im Aufwärtstrend", 6, 10], ["Struktur (SMC)", "Tiefere Hochs (62.20) und tieferes Tief (43.38) im Tageschart, Bruch nach unten am 6.11. Kurs ist aber wieder über 45.70 $ und nahe dem Discount", 4, 20], ["RSI Tag/Woche", "Tag dreht aus 29.6 auf 37.4, aber ohne Divergenz und im Tag kein intakter Trend. Woche 48 neutral", 9, 15], ["A/D Tag/Woche", "Woche positiv (A/D höher als im August trotz tieferem Kurs), Tag fällt mit dem Kurs", 11, 20], ["Smart Money", "Start 3, Aktivisten Elliott und Irenic bauen auf (+2), gehäufte Insider-Verkäufe (−3), Rückkauf unter 2 %", 2, 10], ["Saisonalität", "Dezember 73 %, Januar 45 %, Februar 36 % positive Jahre, November ohne genug Daten", 3, 5]];
+const FIN=[["2021", 27784, "+3.0 %", "8.1 %", 2.58, 3369, "7.1 %", "5.6"], ["2022", 28496, "+2.6 %", "8.3 %", 0.66, 1471, "7.6 %", "21.2"], ["2023", 29135, "+2.2 %", "8.4 %", 1.54, 1600, "7.2 %", "9.7"], ["2024", 30127, "+3.4 %", "8.3 %", 1.93, 1974, "7.1 %", "9.9"], ["2025", 34296, "+13.8 %", "5.1 %", -0.04, 627, "4.8 %", "–"], ["Letzte 12 Mt.", 41871, "+26.6 %", "8.1 %", 1.96, 4156, "8.3 %", "24.5"]];
+const HALF=[["Q4 24", 8.46], ["Q1 25", 7.85], ["Q2 25", 7.63], ["Q3 25", 9.14], ["Q4 25", 9.68], ["Q1 26", 9.3], ["Q2 26", 10.68], ["Q3 26", 12.21]];
+const MARGIN=[["2021", 8.1], ["2022", 8.3], ["2023", 8.4], ["2024", 8.3], ["2025", 5.1], ["12 Mt.", 8.1]];
+const SEAS=[-0.3, 1.1, 1.4, -0.4, 2.6, 3.2, 2.0, 3.2, -1.9, 2.9, 7.1, 1.3];
+const SEASHIT=[45.0, 36.0, 59.0, 60.0, 55.0, 73.0, 55.0, 64.0, 27.0, 58.0, 100.0, 73.0];
+const MON=["Jan","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"];
+const W=`2024-11-04,22.04,18.5,16.27,63,1506.8;2024-11-11,21.07,18.6,16.32,57,1463.6;2024-11-18,22.1,18.74,16.38,61,1507.6;2024-11-25,21.22,18.84,16.42,57,1485.7;2024-12-02,23.95,19.04,16.5,65,1565.9;2024-12-09,21.83,19.15,16.55,56,1521.7;2024-12-16,21.61,19.24,16.6,55,1569.4;2024-12-23,21.65,19.34,16.65,55,1562.6;2024-12-30,21.82,19.43,16.7,56,1594.5;2025-01-06,22.08,19.54,16.76,57,1576.3;2025-01-13,23.14,19.68,16.82,61,1621.8;2025-01-20,24.37,19.86,16.9,64,1649.8;2025-01-27,21.19,19.92,16.94,51,1599.8;2025-02-03,21.27,19.97,16.98,51,1622.3;2025-02-10,21.71,20.04,17.03,52,1665.2;2025-02-17,21.14,20.08,17.07,50,1635;2025-02-24,19.81,20.07,17.1,45,1607.9;2025-03-09,15.62,19.89,17.08,34,1736.1;2025-03-16,16.05,19.74,17.07,35,1729.8;2025-03-23,15.79,19.59,17.06,35,1677.1;2025-03-30,12.79,19.32,17.02,29,1587.8;2025-04-06,14.14,19.12,16.99,34,1684.1;2025-04-13,15.14,18.96,16.97,38,1732.9;2025-04-20,16.24,18.86,16.96,42,1807.1;2025-04-27,16.86,18.78,16.96,45,1866.3;2025-05-04,16.89,18.7,16.96,45,1899.8;2025-05-11,17.75,18.67,16.97,48,1887;2025-05-18,17.42,18.62,16.97,47,1867.8;2025-05-25,17.28,18.57,16.98,46,1827.6;2025-06-01,18.11,18.55,16.99,50,1827.4;2025-06-08,17.65,18.51,16.99,48,1777.3;2025-06-15,17.96,18.49,17,49,1770.9;2025-06-22,18.41,18.49,17.02,51,1821.8;2025-06-29,21.34,18.6,17.06,62,1924.3;2025-07-06,20.72,18.68,17.1,59,1837.5;2025-07-13,21.11,18.78,17.14,60,1900.5;2025-07-20,20.73,18.85,17.17,58,1903.8;2025-07-27,19.81,18.89,17.2,54,1839.5;2025-08-03,20.81,18.97,17.24,58,1893.8;2025-08-10,21.16,19.05,17.27,59,1893.2;2025-08-17,22.45,19.19,17.33,63,1955.8;2025-08-24,22.57,19.32,17.38,63,1916.5;2025-08-31,23.52,19.48,17.44,66,1978.8;2025-09-07,24.73,19.69,17.51,70,2042;2025-09-14,24.99,19.9,17.59,70,2083.5;2025-09-21,24,20.06,17.65,64,1984.6;2025-09-28,24.43,20.23,17.72,66,1949.5;2025-10-05,24.4,20.39,17.78,66,1828;2025-10-12,22.96,20.49,17.84,57,1670.4;2025-10-19,23.5,20.61,17.89,59,1836.3;2025-10-26,24.42,20.76,17.96,63,1882.4;2025-11-03,23.45,20.87,18.01,57,1836.7;2025-11-10,22.83,20.94,18.06,54,1744.7;2025-11-17,20.52,20.93,18.08,44,1665.4;2025-11-24,21.87,20.96,18.12,50,1741.2;2025-12-01,23.33,21.06,18.17,55,1861.7;2025-12-08,23.87,21.17,18.23,57,1806.9;2025-12-15,24.43,21.29,18.29,59,1903.5;2025-12-22,24.49,21.42,18.35,59,1885;2025-12-29,24.17,21.53,18.41,58,1884.6;2026-01-05,22.17,21.55,18.45,48,1808.1;2026-01-12,21.44,21.55,18.48,46,1739.7;2026-01-19,21.05,21.53,18.5,44,1743.1;2026-01-26,21.52,21.53,18.53,46,1743.8;2026-02-02,23.61,21.61,18.58,55,1832.5;2026-02-09,22.69,21.65,18.63,51,1802.3;2026-02-16,21.37,21.64,18.65,46,1766.4;2026-02-23,21.47,21.63,18.68,46,1824.6;2026-03-08,21.58,21.63,18.71,47,1859.9;2026-03-15,21.69,21.64,18.74,48,1840.4;2026-03-22,23.94,21.73,18.79,57,1829.2;2026-03-29,24.61,21.84,18.85,59,1889;2026-04-05,24.89,21.96,18.91,60,1884.9;2026-04-12,26.44,22.13,18.98,65,1954;2026-04-19,28.16,22.37,19.08,70,1962.4;2026-04-26,28.57,22.61,19.17,71,1993.6;2026-05-03,31.35,22.96,19.29,77,2063.3;2026-05-10,33.1,23.35,19.43,79,2103.6;2026-05-17,37.58,23.91,19.61,84,2179.8;2026-05-24,43.04,24.66,19.84,88,2268.4;2026-05-31,49.2,25.62,20.13,91,2090.9;2026-06-07,48.17,26.51,20.41,87,2107.5;2026-06-14,47.41,27.33,20.68,85,2006.1;2026-06-21,43.71,27.97,20.91,73,1898.5;2026-06-28,41.23,28.49,21.11,66,1839.5;2026-07-05,48.54,29.28,21.39,74,1885.1;2026-07-12,45.82,29.93,21.63,68,1850.1;2026-07-19,47.69,30.62,21.89,70,1865;2026-07-26,47.9,31.3,22.15,70,1898.5;2026-08-02,53.22,32.16,22.46,75,1959;2026-08-09,58.71,33.2,22.82,78,1970;2026-08-16,53.45,33.99,23.12,68,1935.6;2026-08-23,52.31,34.71,23.41,66,1902.1;2026-08-30,52,35.39,23.7,65,1981.4;2026-09-06,62.09,36.44,24.08,73,2096.6;2026-09-13,60.76,37.39,24.44,71,2176.8;2026-09-20,62.94,38.39,24.83,73,2175.6;2026-09-27,69.33,39.61,25.27,77,2260.1;2026-10-04,73.46,40.93,25.75,79,2345.4;2026-10-11,55.13,41.49,26.04,55,2216.6;2026-10-18,56.69,42.09,26.35,56,2216.1;2026-10-25,55.09,42.6,26.63,54,2180.8;2026-11-02,44.77,42.68,26.81,45,2105.4;2026-11-10,47.93,42.89,27.02,48,2114`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+const DD=`2025-10-29,24.27,23.54,21.31,155.3;2025-10-30,24.41,23.57,21.34,157.1;2025-10-31,24.42,23.6,21.37,144;2025-11-03,24.5,23.64,21.4,148.7;2025-11-04,23.56,23.64,21.42,127;2025-11-05,23.71,23.64,21.45,127;2025-11-06,23.4,23.63,21.47,120.4;2025-11-07,23.45,23.62,21.49,137.8;2025-11-10,23.88,23.63,21.51,128.4;2025-11-11,22.89,23.6,21.52,106.9;2025-11-12,23.48,23.6,21.54,121.2;2025-11-13,22.93,23.57,21.56,104;2025-11-14,22.83,23.54,21.57,101;2025-11-17,21.23,23.45,21.57,84.9;2025-11-18,20.9,23.35,21.56,62.8;2025-11-19,20.6,23.24,21.55,38.9;2025-11-20,20.02,23.12,21.53,17.9;2025-11-21,20.52,23.02,21.52,25.9;2025-11-24,21.09,22.94,21.52,42.4;2025-11-25,21.36,22.88,21.52,56.4;2025-11-26,21.53,22.83,21.52,69.9;2025-11-28,21.87,22.79,21.52,75;2025-12-01,21.94,22.75,21.53,92;2025-12-02,21.92,22.72,21.53,81.6;2025-12-03,22.26,22.7,21.54,90.9;2025-12-04,22.9,22.71,21.55,108.4;2025-12-05,23.33,22.74,21.57,148.6;2025-12-08,23.86,22.78,21.59,154.7;2025-12-09,24.77,22.86,21.62,184;2025-12-10,25.26,22.95,21.66,209.9;2025-12-11,24.54,23.01,21.69,214.9;2025-12-12,23.87,23.05,21.71,189.8;2025-12-15,24.05,23.09,21.73,217.9;2025-12-16,24.3,23.13,21.76,231.3;2025-12-17,24.02,23.17,21.78,213.4;2025-12-18,23.92,23.2,21.8,221.2;2025-12-19,24.43,23.25,21.83,238.1;2025-12-22,24.7,23.3,21.86,247.7;2025-12-23,24.58,23.35,21.88,242.9;2025-12-24,24.44,23.4,21.91,237.7;2025-12-26,24.49,23.44,21.94,242;2025-12-29,24.33,23.47,21.96,242.2;2025-12-30,24.07,23.5,21.98,232.6;2025-12-31,24.02,23.52,22,231.1;2026-01-02,24.17,23.54,22.02,233.7;2026-01-05,24.13,23.57,22.04,236.9;2026-01-06,23.79,23.58,22.06,220.5;2026-01-07,22.43,23.53,22.06,197.2;2026-01-08,22.02,23.47,22.06,192.3;2026-01-09,22.17,23.42,22.06,199.9;2026-01-12,22.1,23.37,22.07,198;2026-01-13,22.29,23.33,22.07,189.3;2026-01-14,22.09,23.28,22.07,183.5;2026-01-15,21.95,23.23,22.07,169.1;2026-01-16,21.44,23.16,22.06,154.6;2026-01-20,20.39,23.05,22.04,144.3;2026-01-21,21.02,22.97,22.03,160.3;2026-01-22,21.36,22.9,22.03,148.3;2026-01-23,21.05,22.83,22.02,143.4;2026-01-26,21.37,22.77,22.01,151.6;2026-01-27,21.6,22.73,22.01,149.9;2026-01-28,21.71,22.69,22,148.3;2026-01-29,22.01,22.66,22,163.5;2026-01-30,21.52,22.62,22,162.6;2026-02-02,22.01,22.59,22,175.6;2026-02-03,21.78,22.56,22,160.8;2026-02-04,23.24,22.59,22.01,188.8;2026-02-05,22.71,22.59,22.02,192.7;2026-02-06,23.61,22.63,22.03,200.7;2026-02-09,23.91,22.68,22.05,209;2026-02-10,23.97,22.73,22.07,200.9;2026-02-11,23.81,22.78,22.09,200.2;2026-02-12,22.2,22.75,22.09,184.2;2026-02-13,22.69,22.75,22.09,190.2;2026-02-17,21.97,22.72,22.09,179.1;2026-02-18,21.55,22.67,22.09,167.2;2026-02-19,21.39,22.62,22.08,164.7;2026-02-20,21.37,22.57,22.07,156;2026-02-23,20,22.47,22.05,142.4;2026-02-24,20.25,22.39,22.03,148.4;2026-02-25,20.63,22.32,22.02,155.4;2026-02-26,20.84,22.26,22.01,161.7;2026-02-27,21.47,22.23,22,168.3;2026-03-02,22.13,22.22,22.01,183.2;2026-03-03,21.64,22.2,22,194.2;2026-03-04,21.55,22.18,22,184.8;2026-03-05,21.47,22.15,21.99,181.9;2026-03-06,21.13,22.11,21.98,179.5;2026-03-09,21.81,22.1,21.98,212;2026-03-10,21.1,22.06,21.97,180.7;2026-03-11,21.43,22.03,21.97,173;2026-03-12,21.58,22.02,21.96,182.7;2026-03-13,21.58,22,21.96,178.6;2026-03-16,21.85,21.99,21.96,176.4;2026-03-17,21.67,21.98,21.96,162.3;2026-03-18,21.53,21.96,21.95,155.1;2026-03-19,22.12,21.97,21.95,164.3;2026-03-20,21.69,21.96,21.95,149.8;2026-03-23,22.32,21.97,21.95,156.9;2026-03-24,23.9,22.05,21.97,184.9;2026-03-25,25.78,22.19,22.01,208.1;2026-03-26,25.07,22.31,22.04,190.5;2026-03-27,23.94,22.37,22.06,169.9;2026-03-30,22.61,22.38,22.07,153.4;2026-03-31,23.81,22.44,22.08,172.5;2026-04-01,23.98,22.5,22.1,168;2026-04-02,24.61,22.58,22.13,176.2;2026-04-06,24.58,22.66,22.15,173;2026-04-07,24.63,22.74,22.18,180;2026-04-08,24.98,22.82,22.2,174.6;2026-04-09,24.83,22.9,22.23,175.6;2026-04-10,24.89,22.98,22.26,177.9;2026-04-13,24.81,23.05,22.28,185.2;2026-04-14,24.47,23.11,22.3,187.5;2026-04-15,24.62,23.17,22.33,192.8;2026-04-16,25.89,23.27,22.36,207.9;2026-04-17,26.44,23.4,22.4,219.4;2026-04-20,27.81,23.57,22.46,237.4;2026-04-21,28.76,23.77,22.52,236.4;2026-04-22,28.51,23.96,22.58,227.1;2026-04-23,27.93,24.12,22.63,226.4;2026-04-24,28.16,24.27,22.69,232.3;2026-04-27,28.62,24.44,22.75,232.7;2026-04-28,27.95,24.58,22.8,236.9;2026-04-29,28.3,24.73,22.85,244.5;2026-04-30,28.77,24.89,22.91,260.8;2026-05-01,28.57,25.03,22.97,257.6;2026-05-04,28.71,25.18,23.03,254.2;2026-05-05,30.04,25.37,23.1,263.6;2026-05-06,30.37,25.56,23.17,275.1;2026-05-07,29.7,25.72,23.23,275.9;2026-05-08,31.35,25.95,23.31,293.4;2026-05-11,30.87,26.14,23.39,285.1;2026-05-12,30.21,26.3,23.46,288.7;2026-05-13,32.07,26.52,23.54,305.5;2026-05-14,34.13,26.82,23.65,313.2;2026-05-15,33.1,27.07,23.74,310.1;2026-05-18,33,27.3,23.83,308.4;2026-05-19,32.62,27.51,23.92,311.2;2026-05-20,33.8,27.76,24.02,319.2;2026-05-21,33.97,28,24.12,330.3;2026-05-22,37.58,28.38,24.25,357.9;2026-05-26,38.06,28.76,24.39,360.7;2026-05-27,37.2,29.09,24.52,357.6;2026-05-28,38.21,29.44,24.65,377.1;2026-05-29,43.04,29.98,24.84,376.7;2026-06-01,47,30.65,25.06,443.2;2026-06-02,56.15,31.65,25.37,366.2;2026-06-03,55.15,32.57,25.66,394.8;2026-06-04,53.69,33.4,25.94,404.9;2026-06-05,49.2,34.02,26.17,378.2;2026-06-08,49.87,34.64,26.41,377.6;2026-06-09,48.27,35.17,26.63,379.5;2026-06-10,45.49,35.58,26.81,358.8;2026-06-11,46.8,36.02,27.01,383.3;2026-06-12,48.17,36.49,27.22,387;2026-06-15,49.02,36.98,27.44,393.9;2026-06-16,48.38,37.43,27.65,377.8;2026-06-17,48.2,37.85,27.85,352.8;2026-06-18,47.41,38.23,28.05,318.6;2026-06-22,48.4,38.63,28.25,312.1;2026-06-23,48.92,39.03,28.46,324.2;2026-06-24,48.75,39.41,28.66,321.4;2026-06-25,46.72,39.7,28.84,310.6;2026-06-26,43.71,39.86,28.99,292.9;2026-06-29,44.41,40.03,29.14,304.6;2026-06-30,45.11,40.23,29.3,321.9;2026-07-01,43.95,40.38,29.44,328.8;2026-07-02,41.23,40.41,29.56,315.9;2026-07-06,43.15,40.52,29.7,322.6;2026-07-07,43.47,40.64,29.83,324.1;2026-07-08,44.67,40.79,29.98,332;2026-07-09,49.11,41.12,30.17,355.4;2026-07-10,48.54,41.41,30.35,338.7;2026-07-13,47.24,41.64,30.52,334.6;2026-07-14,49.56,41.95,30.71,340.3;2026-07-15,47.39,42.16,30.88,336.1;2026-07-16,45.13,42.28,31.02,316.1;2026-07-17,45.82,42.42,31.17,321.4;2026-07-20,44.56,42.5,31.3,310.7;2026-07-21,46.72,42.67,31.45,318.9;2026-07-22,48.13,42.88,31.62,316.6;2026-07-23,47.64,43.07,31.78,307.7;2026-07-24,47.69,43.25,31.94,300.6;2026-07-27,48.19,43.44,32.1,305.1;2026-07-28,45.59,43.53,32.23,314.1;2026-07-29,44.44,43.56,32.35,304.4;2026-07-30,47.14,43.7,32.5,322.3;2026-07-31,47.9,43.87,32.65,317.1;2026-08-03,50.24,44.12,32.83,331.6;2026-08-04,52.39,44.44,33.02,339.9;2026-08-05,53.22,44.79,33.23,340.6;2026-08-06,52.43,45.09,33.42,351.3;2026-08-07,53.22,45.41,33.61,362;2026-08-10,54.68,45.77,33.82,353.2;2026-08-11,54.38,46.11,34.03,359;2026-08-12,58.79,46.6,34.27,380.1;2026-08-13,59.82,47.12,34.53,355.9;2026-08-14,58.71,47.58,34.77,345.5;2026-08-17,57.61,47.97,35,339.9;2026-08-18,55.69,48.27,35.2,330.4;2026-08-19,53.13,48.46,35.38,325.3;2026-08-20,52.89,48.64,35.55,319.3;2026-08-21,53.45,48.83,35.73,319.6;2026-08-24,52.43,48.97,35.9,316.3;2026-08-25,53.44,49.14,36.07,311;2026-08-26,55.23,49.38,36.26,319.1;2026-08-27,54.41,49.58,36.44,309.9;2026-08-28,52.31,49.69,36.6,300.2;2026-08-31,52.24,49.79,36.76,271.1;2026-09-01,50.87,49.83,36.9,260;2026-09-02,51.83,49.91,37.05,291.3;2026-09-03,54.44,50.08,37.22,356.5;2026-09-04,52,50.16,37.37,336.1;2026-09-08,56.03,50.39,37.55,361.9;2026-09-09,58.9,50.72,37.77,391.5;2026-09-10,55.22,50.9,37.94,373;2026-09-11,62.09,51.34,38.18,411.2;2026-09-14,55.41,51.5,38.35,387.6;2026-09-15,55.88,51.67,38.52,372.4;2026-09-16,56.68,51.87,38.71,374;2026-09-17,61.04,52.23,38.93,388.7;2026-09-18,60.76,52.56,39.15,389.9;2026-09-21,61.75,52.92,39.37,386.1;2026-09-22,61.03,53.24,39.59,377;2026-09-23,62.33,53.6,39.81,377;2026-09-24,63.52,53.99,40.05,381.4;2026-09-25,62.94,54.34,40.28,366.5;2026-09-28,62.63,54.66,40.5,372.1;2026-09-29,61.49,54.93,40.71,366.4;2026-09-30,63.89,55.28,40.94,339.2;2026-10-01,64.58,55.65,41.17,344.1;2026-10-02,69.33,56.18,41.45,360.2;2026-10-05,68.36,56.66,41.72,365.1;2026-10-06,70.48,57.2,42.01,372.5;2026-10-07,72.09,57.79,42.31,380.7;2026-10-08,71,58.3,42.59,379.3;2026-10-09,73.46,58.9,42.9,392;2026-10-12,70.33,59.35,43.17,381.9;2026-10-13,68.81,59.72,43.43,378.4;2026-10-14,63.11,59.85,43.62,360;2026-10-15,58.63,59.8,43.77,364.1;2026-10-16,55.13,59.62,43.89,340.5;2026-10-19,55.87,59.47,44,327.4;2026-10-20,56.09,59.34,44.12,336.1;2026-10-21,58.17,59.29,44.26,334.5;2026-10-22,55.47,59.14,44.38,335.7;2026-10-23,56.69,59.05,44.5,339.4;2026-10-26,58.72,59.03,44.64,344;2026-10-27,60.84,59.11,44.8,350.3;2026-10-28,60.33,59.15,44.96,342.6;2026-10-29,58.87,59.14,45.09,337.1;2026-10-30,55.09,58.98,45.19,343.3;2026-11-02,51.19,58.68,45.25,329.3;2026-11-03,53.1,58.46,45.33,329.6;2026-11-04,50.09,58.13,45.38,318.8;2026-11-05,44.16,57.58,45.37,300.6;2026-11-06,44.77,57.08,45.36,291.9;2026-11-09,47.54,56.71,45.38,295.4;2026-11-10,47.93,56.36,45.41,304`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+
+const fmtN=(v,d=2)=>v.toLocaleString("de-CH",{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmtD=s=>{const [y,m,d]=s.split("-");return d+"."+m+"."+y.slice(2)};
+const NS="http://www.w3.org/2000/svg";
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+
+function scoreTable(id,rows){
+  let tot=0,max=0;
+  const html='<thead><tr><th>Kriterium</th><th>Stand</th><th class="num">Punkte</th><th style="width:22%"></th></tr></thead><tbody>'+rows.map(r=>{tot+=r[2];max+=r[3];const p=r[2]/r[3];const c=p>=.75?"var(--good)":p>=.45?"var(--warn)":"var(--bad)";
+    return `<tr><td>${r[0]}</td><td class="muted">${r[1]}</td><td class="num">${r[2]} / ${r[3]}</td><td><div class="bar"><i style="width:${p*100}%;background:${c}"></i></div></td></tr>`}).join("")+`<tr class="total"><td>Total</td><td></td><td class="num">${tot} / ${max}</td><td></td></tr></tbody>`;
+  document.getElementById(id).innerHTML=html;return tot;
+}
+const qs=scoreTable("q-tbl",Q), ts=scoreTable("t-tbl",T);
+document.getElementById("q-val").textContent=qs;document.getElementById("t-val").textContent=ts;
+document.getElementById("q-pin").style.left=qs+"%";document.getElementById("t-pin").style.left=ts+"%";
+
+document.getElementById("fin-rows").innerHTML=FIN.map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1].toLocaleString("de-CH")}</td><td class="num">${r[2]}</td><td class="num">${r[3]}</td><td class="num">${fmtN(r[4])}</td><td class="num">${r[5].toLocaleString("de-CH")}</td><td class="num">${r[6]}</td><td class="num">${r[7]}</td></tr>`).join("");
+
+/* generic line chart */
+function lineChart(host,{dates,series,bands=[],yFmt=v=>fmtN(v),h=300,zero=false,refs=[],pad}){
+  const W_=800,H=h,m={t:12,r:56,b:28,l:8};
+  const all=series.flatMap(s=>s.values).concat(bands.flatMap(b=>[b.from,b.to])).concat(refs.map(r=>r.v));
+  if(zero)all.push(0);
+  let lo=Math.min(...all),hi=Math.max(...all);const sp=(hi-lo)||1;lo-=sp*.06;hi+=sp*.06;
+  if(pad){lo=pad[0];hi=pad[1]}
+  const n=dates.length,x=i=>m.l+i*(W_-m.l-m.r)/(n-1),y=v=>m.t+(hi-v)*(H-m.t-m.b)/(hi-lo);
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  // grid
+  const steps=5;for(let k=0;k<=steps;k++){const v=lo+(hi-lo)*k/steps;el("line",{x1:m.l,x2:W_-m.r,y1:y(v),y2:y(v),stroke:"var(--grid)","stroke-width":1},svg);
+    const t=el("text",{x:W_-m.r+6,y:y(v)+4,"font-size":11,fill:"var(--muted)","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=yFmt(v)}
+  bands.forEach(b=>{el("rect",{x:m.l,width:W_-m.l-m.r,y:y(Math.max(b.from,b.to)),height:Math.abs(y(b.from)-y(b.to)),fill:b.type==="res"?"var(--zone-res)":"var(--zone-sup)"},svg)});
+  refs.forEach(r=>{el("line",{x1:m.l,x2:W_-m.r,y1:y(r.v),y2:y(r.v),stroke:"var(--muted)","stroke-dasharray":"4 4","stroke-width":1},svg);
+    const t=el("text",{x:m.l+4,y:y(r.v)-4,"font-size":11,fill:"var(--muted)"},svg);t.textContent=r.label});
+  if(zero)el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  // x labels
+  const every=Math.ceil(n/6);for(let i=0;i<n;i+=every){const t=el("text",{x:x(i),y:H-8,"font-size":11,fill:"var(--muted)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);const d=dates[i];t.textContent=d.slice(5,7)+"/"+d.slice(2,4)}
+  series.forEach(s=>{const dpath=s.values.map((v,i)=>(i?"L":"M")+x(i).toFixed(1)+","+y(v).toFixed(1)).join("");
+    el("path",{d:dpath,fill:"none",stroke:s.color,"stroke-width":s.w||2,"stroke-linejoin":"round","stroke-linecap":"round"},svg);
+    const lv=s.values[n-1];el("circle",{cx:x(n-1),cy:y(lv),r:3.5,fill:s.color,stroke:"var(--surface)","stroke-width":2},svg)});
+  // hover
+  const cross=el("line",{y1:m.t,y2:H-m.b,stroke:"var(--muted)","stroke-width":1,opacity:0},svg);
+  const ov=el("rect",{x:m.l,y:m.t,width:W_-m.l-m.r,height:H-m.t-m.b,fill:"transparent"},svg);
+  host.appendChild(svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;host.appendChild(tip);
+  function move(ev){const r=svg.getBoundingClientRect();const px=(ev.clientX-r.left)*W_/r.width;let i=Math.round((px-m.l)/((W_-m.l-m.r)/(n-1)));i=Math.max(0,Math.min(n-1,i));
+    cross.setAttribute("x1",x(i));cross.setAttribute("x2",x(i));cross.setAttribute("opacity",1);
+    tip.innerHTML=`<div class="d">${fmtD(dates[i])}</div>`+series.map(s=>`<div><i class="sw" style="background:${s.color}"></i> ${s.name}: <b>${yFmt(s.values[i])}</b></div>`).join("");
+    tip.hidden=false;const hx=x(i)*r.width/W_;tip.style.left=Math.min(Math.max(0,hx+12),r.width-tip.offsetWidth)+"px";tip.style.top="8px"}
+  ov.addEventListener("pointermove",move);ov.addEventListener("pointerleave",()=>{tip.hidden=true;cross.setAttribute("opacity",0)});
+}
+function barChart(host,{labels,values,fmt,h=220,color,neg,tipExtra}){
+  const W_=800,H=h,m={t:18,r:8,b:28,l:8};
+  const hi=Math.max(0,...values),lo=Math.min(0,...values);const lo2=lo<0?lo*1.15:lo,hi2=hi*1.15||1;
+  const y=v=>m.t+(hi2-v)*(H-m.t-m.b)/(hi2-lo2);const n=values.length,bw=(W_-m.l-m.r)/n;
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;
+  values.forEach((v,i)=>{const x0=m.l+i*bw+bw*.18,w=bw*.64,y0=y(Math.max(v,0)),hh=Math.max(1,Math.abs(y(v)-y(0)));
+    const r=el("rect",{x:x0,y:y0,width:w,height:hh,rx:4,fill:v<0?(neg||"var(--s2)"):(color||"var(--s1)")},svg);
+    const t=el("text",{x:x0+w/2,y:v<0?y(v)+13:y0-5,"font-size":11.5,fill:"var(--ink)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=fmt(v);
+    const l=el("text",{x:x0+w/2,y:H-8,"font-size":11.5,fill:"var(--muted)","text-anchor":"middle"},svg);l.textContent=labels[i];
+    const hit=el("rect",{x:m.l+i*bw,y:m.t,width:bw,height:H-m.t-m.b,fill:"transparent"},svg);
+    hit.addEventListener("pointerenter",()=>{tip.innerHTML=`<div class="d">${labels[i]}</div><b>${fmt(v)}</b>${tipExtra?tipExtra(i):""}`;tip.hidden=false;const R=svg.getBoundingClientRect();tip.style.left=Math.min((m.l+i*bw)*R.width/W_,R.width-tip.offsetWidth)+"px";tip.style.top="0px"});
+    hit.addEventListener("pointerleave",()=>tip.hidden=true)});
+  host.appendChild(svg);host.appendChild(tip);
+}
+barChart(document.getElementById("c-rev"),{labels:HALF.map(r=>r[0]),values:HALF.map(r=>r[1]),fmt:v=>fmtN(v,2),h:200});
+barChart(document.getElementById("c-margin"),{labels:MARGIN.map(r=>r[0]),values:MARGIN.map(r=>r[1]),fmt:v=>fmtN(v,1)+" %",h:200});
+barChart(document.getElementById("c-seas"),{labels:MON,values:SEAS,fmt:v=>(v>0?"+":"")+fmtN(v,1),h:220,tipExtra:i=>`<div>${SEASHIT[i]} % der Jahre positiv</div>`});
+const BANDS=[{"from": 62.2, "to": 64.3, "type": "res"}, {"from": 53.9, "to": 58.4, "type": "res"}, {"from": 43.3, "to": 45.7, "type": "sup"}, {"from": 40.3, "to": 42.9, "type": "sup"}], REFS=[{"v": 62.2, "label": "Trigger 62.20"}];
+const wd=W.map(r=>r[0]);
+lineChart(document.getElementById("c-week"),{dates:wd,series:[{name:"Kurs",values:W.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:W.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:W.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,yFmt:v=>fmtN(v,0),h:320});
+lineChart(document.getElementById("c-adw"),{dates:wd,series:[{name:"A/D Woche",values:W.map(r=>r[5]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,zero:true});
+lineChart(document.getElementById("c-rsiw"),{dates:wd,series:[{name:"RSI Woche",values:W.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,refs:[{v:70,label:"70 überkauft"},{v:30,label:"30 überverkauft"}],pad:[10,90]});
+const dd=DD.map(r=>r[0]);
+lineChart(document.getElementById("c-day"),{dates:dd,series:[{name:"Kurs",values:DD.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:DD.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:DD.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,refs:REFS,yFmt:v=>fmtN(v,0),h:260});
+lineChart(document.getElementById("c-add"),{dates:dd,series:[{name:"A/D Tag",values:DD.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:260,zero:true});
+</script>

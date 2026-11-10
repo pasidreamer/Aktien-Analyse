@@ -1,0 +1,45 @@
+{
+ "ticker": "INTC",
+ "stand": "2026-11-10",
+ "sorgen": [
+  "Der Ausblick für das 4. Quartal 2026 enttäuschte stark: 15.0 bis 16.0 Mrd. $ Umsatz statt rund 17.1 Mrd. $ erwartet, bereinigter Gewinn 0.25 $ statt 0.43 $. Am 30.10.2026 fiel die Aktie um 28.6 %.",
+  "Das PC-Geschäft, rund die Hälfte des Umsatzes, schwächelt. Der Finanzchef erwartet das mindestens bis Mitte 2027. Laut Morningstar belasten zudem teurere Speicherchips. Die Bruttomarge soll von 44.1 % auf 38 % sinken.",
+  "Die Foundry hat noch keinen grossen, offiziell bestätigten Kunden für die neueste Technik. Apple und Google sind bisher nur Medienberichte.",
+  "Intel schreibt unter dem Strich Verlust (−2.37 $ pro Aktie in 12 Monaten), hat 17 % mehr Aktien als vor einem Jahr und erwartet für 2027 «wahrscheinlich» keinen positiven Free Cashflow."
+ ],
+ "sorgen_art": "gemischt",
+ "sorgen_art_text": "Das PC-Geschäft und die Marge verschlechtern sich wirklich, das Server-Geschäft wächst aber stark (+78 %), und ob die Foundry Kunden gewinnt, ist offen und noch nicht entschieden.",
+ "aufloeser": [
+  {"was": "Intel nennt einen grossen Foundry-Kunden mit Namen, wie vom Chef für die nächsten zwei Quartale angekündigt", "wann": "bis etwa Mitte 2027"},
+  {"was": "Zahlen 4. Quartal und Ausblick 2027: Hält die Bruttomarge bei rund 38 % und erholt sich danach?", "wann": "voraussichtlich 28.1.2027 (nicht bestätigt)"},
+  {"was": "Der PC-Markt stabilisiert sich, die Speicherpreise sinken", "wann": "zweites Halbjahr 2027"}
+ ],
+ "schub_stufe": "mittel",
+ "schub_treiber": [
+  {"titel": "Prozessoren für KI-Rechenzentren", "text": "Der Bereich Data Center and AI wuchs im 3. Quartal 2026 um 78 % auf 7.3 Mrd. $. KI-Programme, die Antworten erzeugen, brauchen viele klassische Prozessoren. Google will laut Berichten mehrere Generationen von Xeon-Chips einsetzen. Dieser Treiber ist schon in den Zahlen sichtbar.", "wann": "laufend"},
+  {"titel": "Auftragsfertigung für fremde Firmen (Foundry)", "text": "Intel hat laut Berichten Zusagen über 15 Mrd. $ von Kunden wie Microsoft und Amazon. Medien berichteten über Apple (einfache M-Chips ab Ende 2027) und einen Google-Auftrag für über 3 Mio. KI-Chips ab 2028. Bestätigt sind diese Aufträge von den Firmen nicht, und im 1. Quartal 2026 kamen nur 174 Mio. $ Foundry-Umsatz von fremden Kunden.", "wann": "2027 bis 2028"}
+ ],
+ "schub_beweis": "Achte auf den Umsatz der Foundry mit fremden Kunden (1. Quartal 2026: 174 Mio. $) und auf die Bruttomarge. Steigt die Marge nach dem 4. Quartal wieder über 40 % und nennt Intel grosse Kunden mit Namen, kommt der Schub.",
+ "szenario": "Im guten Fall wird Intel ein zweites TSMC für amerikanische Kunden, und die Server-Chips wachsen mit KI weiter. Dann wäre der Kurs von heute ein Rücksetzer wie bei Google 2023. Grösstes Risiko: Die Kunden bleiben aus, die Fabriken verschlingen weiter Geld, und Intel muss wieder neue Aktien ausgeben. Dann ist auch ein Kurs-Umsatz-Verhältnis von 5 zu hoch.",
+ "ereignis": {
+  "titel": "Absturz nach dem Ausblick vom 29.10.2026",
+  "art": "offen",
+  "termine": [
+   {"was": "Zahlen 4. Quartal und Ausblick 2027", "wann": "voraussichtlich 28.1.2027 nach US-Börsenschluss"},
+   {"was": "Angekündigte Foundry-Kunden", "wann": "laut Chef in den nächsten zwei Quartalen"}
+  ],
+  "text": "Die Aktie fiel von 95.53 $ (28.10.) bis auf 51.51 $ (5.11.), ein Minus von 46 % in sechs Handelstagen. Das sieht nach Buy the Dip aus. Anders als bei einem reinen Stimmungsrückgang hat sich aber das Geschäft verschlechtert: tiefere Marge, schwache PCs, kein positiver Free Cashflow 2027. Darum ist offen, ob die Firma intakt ist. Nach so einem Sturz bildet eine Aktie oft erst eine Seitwärtsphase, bevor sie dreht. Am nächsten Zahlentermin kann sich der Kurs wieder um 10 % oder mehr bewegen, in beide Richtungen.",
+  "vorgehen": [
+   {"titel": "Abwarten", "text": "Bis ein höheres Tief über 51.51 $ steht und ein Tagesschluss über 62.59 $ folgt, besser über 68.77 $ (Unterkante der Kurslücke). Sicherer, aber teurer."},
+   {"titel": "Kauf in Kaufzone 1", "text": "Zwischen 50 und 52.50 $ (Tief vom 5.11. und Wochen-EMA 200), mit klarer Regel: Schliesst eine Woche unter 50 $, ist die Idee falsch und du steigst aus. Nächste Haltestelle wäre dann 41.50 bis 44.50 $."},
+   {"titel": "In Tranchen", "text": "Nicht alles auf einmal. Zum Beispiel ein Drittel in Kaufzone 1, ein Drittel nach den Zahlen Ende Januar 2027 und den Rest erst, wenn ein Foundry-Kunde bestätigt ist."}
+  ]
+ },
+ "quellen": [
+  {"titel": "Intel: Third-Quarter 2026 Financial Results (29.10.2026)", "url": "https://www.intc.com/news-events/press-releases/detail/1786/intel-reports-third-quarter-2026-financial-results"},
+  {"titel": "Finviz: Intel shares plunge 25% as weak fourth quarter outlook overshadows strong Q3 (30.10.2026)", "url": "https://finviz.com/news/412405/intel-shares-plunge-25-as-weak-fourth-quarter-outlook-overshadows-strong-q3-earnings"},
+  {"titel": "24/7 Wall St.: Intel has lost more than half its value since its peak (3.11.2026)", "url": "https://247wallst.com/investing/2026/11/03/intel-has-lost-more-than-half-its-value-since-its-peak/"},
+  {"titel": "INDmoney: Why is Intel stock rising? (Juni 2026)", "url": "https://www.indmoney.com/blog/us-stocks/why-is-intel-stock-rising-growth-bet-or-recovery-trap"},
+  {"titel": "Parameter: Bericht über Google-Auftrag (9.6.2026)", "url": "https://parameter.io/intel-intc-stock-soars-11-following-major-google-tpu-contract-and-cadence-partnership/"}
+ ]
+}

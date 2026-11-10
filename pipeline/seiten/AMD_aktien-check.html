@@ -1,0 +1,403 @@
+<title>AMD Aktien-Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F3F5F7; --surface:#FFFFFF; --ink:#141B24; --muted:#5A6573; --line:#DDE2E8; --grid:#E9EDF1;
+  --accent:#2F45B5; --accent-soft:#E6E9F8; --chip:#EBEEF2;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+  --good:#1D7A4B; --good-bg:#E3F3EA; --warn:#9A6200; --warn-bg:#FBF0DC; --bad:#B2362A; --bad-bg:#FBE6E3;
+  --zone-sup:rgba(29,122,75,.10); --zone-res:rgba(178,54,42,.09);
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+    --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+    --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+    --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+  --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+  --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;padding-inline:16px;padding-block:24px 56px}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+h1,h2,h3{font-family:var(--display);font-stretch:85%;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:clamp(32px,7vw,48px);font-weight:800;line-height:1}
+h2{font-size:24px;font-weight:700}
+h3{font-size:17px;font-weight:700;font-stretch:95%}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+section{display:flex;flex-direction:column;gap:14px}
+.lead{max-width:68ch;color:var(--muted)}
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;align-items:stretch}
+.hero .id{display:flex;flex-direction:column;gap:10px;justify-content:space-between}
+.price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price b{font-family:var(--display);font-size:34px;font-weight:700}
+.meta{font-size:13px;color:var(--muted)}
+.verdict{font-size:15px;padding:12px 14px;border-radius:10px;background:var(--chip)}
+.scales{display:flex;flex-direction:column;gap:18px}
+.scale-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.scale-h span{font-size:13px;color:var(--muted)}
+.scale-h b{font-family:var(--display);font-size:28px;line-height:1}
+.track{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#C8412F 0%,#E0892F 30%,#E3B63A 50%,#8BBF4B 68%,#2E9A5B 100%);margin-top:8px}
+.pin{position:absolute;top:-5px;width:4px;height:22px;border-radius:2px;background:var(--ink);box-shadow:0 0 0 2px var(--surface);transform:translateX(-2px)}
+.ticks{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);font-family:var(--mono);margin-top:6px}
+.state{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;margin-top:8px}
+.st-good{background:var(--good-bg);color:var(--good)}
+.st-warn{background:var(--warn-bg);color:var(--warn)}
+.st-bad{background:var(--bad-bg);color:var(--bad)}
+/* tables */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;color:var(--muted);font-weight:500;font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:700;border-bottom:none}
+.pts{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{height:6px;border-radius:3px;background:var(--chip);min-width:60px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:3px}
+/* grids */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;border-left:4px solid var(--line)}
+.kpi.g{border-left-color:var(--good)}.kpi.w{border-left-color:var(--warn)}.kpi.b{border-left-color:var(--bad)}
+.kpi span{font-size:12px;color:var(--muted)}
+.kpi b{font-family:var(--mono);font-size:19px;font-weight:500;font-variant-numeric:tabular-nums}
+.kpi em{font-style:normal;font-size:12.5px;color:var(--muted)}
+/* charts */
+.chart{position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:14px;height:3px;border-radius:2px;display:inline-block}
+.swb{width:12px;height:10px;border-radius:2px;display:inline-block}
+.tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12.5px;box-shadow:0 4px 14px rgba(0,0,0,.12);white-space:nowrap;z-index:2}
+.tip b{font-family:var(--mono);font-weight:500}
+.tip .d{font-family:var(--mono);color:var(--muted);font-size:11.5px}
+.note{font-size:13.5px;color:var(--muted)}
+ul.clean{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.pro li::marker{color:var(--good)} .con li::marker{color:var(--bad)}
+.zones{display:flex;flex-direction:column;gap:8px}
+.zone{display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:baseline;padding:10px 12px;border-radius:10px;background:var(--chip);font-size:14px}
+.zone b{font-family:var(--mono);font-weight:500}
+.zone.r{border-left:4px solid var(--bad)} .zone.s{border-left:4px solid var(--good)} .zone.t{border-left:4px solid var(--accent)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+summary{cursor:pointer;font-weight:600}
+details p{margin-top:8px;color:var(--muted);max-width:70ch}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+footer{font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:6px;max-width:80ch}
+footer a{color:var(--accent)}
+@media (max-width:760px){.hero,.two{grid-template-columns:1fr}.zone{grid-template-columns:1fr;gap:2px}}
+</style>
+
+<div class="wrap">
+
+<header class="hero">
+  <div class="card id">
+    <div>
+      <div class="eyebrow">Aktien-Check · 10.11.2026</div>
+      <h1>AMD</h1>
+      <p class="meta">Advanced Micro Devices, Inc. · NASDAQ: AMD · Prozessoren, Grafikchips und KI-Beschleuniger · Santa Clara, USA</p>
+    </div>
+    <div class="price"><b>515.21 $</b><span class="meta">Schluss 10.11.2026 · 52 Wochen: 188.22 – 658.52 $ · Allzeithoch: 658.52 $ am 6.10.2026</span></div>
+    <p class="verdict"><b>Kurz gesagt:</b> AMD baut Prozessoren für Server und PCs und KI-Chips für Rechenzentren. Das Geschäft wächst sehr schnell: Im 3. Quartal 2026 stieg der Umsatz um 45 % auf 13.4 Mrd. $, das Rechenzentrum fast um das Doppelte (+97 %). Für das 4. Quartal erwartet AMD rund 17 Mrd. $ (+66 %), für 2027 mehr als 80 % Wachstum. Die Aktie ist aber sehr teuer: KGV 111.8 auf den ausgewiesenen Gewinn, rund 34 auf den erwarteten Gewinn der nächsten 12 Monate. Qualität hellgrün (71), Timing gelb (50): Nach dem Allzeithoch von 658.52 $ (6.10.) fiel der Kurs bis 402.10 $ (5.11.), seither stieg er wieder auf 515 $. Im Tageschart gibt es tiefere Hochs und tiefere Tiefs, der Wochentrend ist intakt. Insider verkaufen laufend, Rückkäufe gibt es kaum. Keine Anlageberatung.</p>
+  </div>
+  <div class="card scales">
+    <div>
+      <div class="scale-h"><span>Qualität · Ist die Firma kaufenswert?</span><b id="q-val">71</b></div>
+      <div class="track"><i class="pin" id="q-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-good">● Solide</span>
+    </div>
+    <div>
+      <div class="scale-h"><span>Timing · Ist jetzt der Zeitpunkt?</span><b id="t-val">50</b></div>
+      <div class="track"><i class="pin" id="t-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-warn">▲ Warten auf Bestätigung</span>
+    </div>
+    <p class="note">Skala: unter 30 rot · 30–45 orange · 45–60 gelb · 60–75 hellgrün · ab 75 grün. Beide Werte setzen sich aus festen Kriterien zusammen, siehe unten.</p>
+  </div>
+</header>
+
+<section>
+  <h2>Was die Firma macht</h2>
+  <p class="lead">AMD (Advanced Micro Devices) aus Santa Clara (Kalifornien) entwickelt Chips, baut sie aber nicht selbst: Gefertigt wird vor allem bei TSMC in Taiwan. Es gibt drei Bereiche. Data Center: Server-Prozessoren (EPYC) und KI-Beschleuniger (Instinct, zum Beispiel MI450), die mit Nvidia konkurrieren. Im 3. Quartal 2026 waren das 8.5 Mrd. $ oder 64 % des Umsatzes. Client und Gaming: Prozessoren für PCs (Ryzen) und Grafikchips für Spielkonsolen und PCs, zusammen 3.7 Mrd. $. Embedded: Chips für Industrie, Autos und Netzwerke aus dem Kauf von Xilinx (2022), 1.1 Mrd. $. Chefin ist seit 2014 Lisa Su. Mit OpenAI (Oktober 2025) und Meta (Februar 2026) hat AMD je eine Vereinbarung über bis zu 6 Gigawatt KI-Rechenleistung. Mit dem Rack-System Helios verkauft AMD neu ganze Serverschränke statt nur einzelne Chips.</p>
+  <p class="lead">Von Februar bis März 2026 lag AMD um 190 bis 220 $. Im April stieg der Kurs laut S&P Global um 74 %, getrieben vom Meta-Vertrag (24.2.2026) und der Aussage von Lisa Su, dass die KI-Nachfrage nach Prozessoren unterschätzt sei. Bis zum 6.10.2026 lief die Aktie auf 658.52 $. Danach kamen Gewinnmitnahmen. Die Zahlen vom 3.11.2026 waren klar besser als erwartet (Umsatz 13.38 statt 13.09 Mrd. $, Ziel 4. Quartal 17 statt 16.23 Mrd. $), nachbörslich stieg die Aktie um rund 8 %. Am 5.11. fiel sie aber um 17.3 % auf 404.40 $. Gründe laut Motley Fool und INDmoney: Nach den Zwischenwahlen in den USA fürchtet die Börse strengere Regeln für KI und Baustopps für Rechenzentren in Texas und Georgia, der ganze Halbleitersektor fiel. Dazu sinkt das PC- und Spielegeschäft (Gaming −40 %). Ein Auftrag wurde nicht storniert. Am 9.11. stieg AMD um 13.3 %. Die Sorge ist also vor allem Stimmung und Bewertung, das Geschäft wächst stark.</p>
+</section>
+
+<section>
+  <h2>Fundamental: die Zahlen</h2>
+  <div class="kpis">
+<div class="kpi g"><span>Umsatzwachstum</span><b>+41.9 %</b><em>Letzte 12 Monate bis September 2026, eigene Rechnung (45.4 Mrd. $). Im 3. Quartal +45 %, für das 4. Quartal erwartet AMD rund +66 %. Getrieben fast nur vom Rechenzentrum.</em></div>
+<div class="kpi w"><span>Operative Marge</span><b>17.8 %</b><em>Von 100 $ Umsatz bleiben rund 18 $ Betriebsgewinn (12 Monate, StockAnalysis). Bereinigt um Abschreibungen auf den Xilinx-Kauf und Aktienlöhne waren es im 3. Quartal 29 %. 2021 lag die Marge noch bei 22.2 %, 2023 nur bei 1.8 %.</em></div>
+<div class="kpi g"><span>Gewinn pro Aktie (EPS)</span><b>4.61 $</b><em>Letzte 12 Monate, eigene Rechnung: 2025 waren es 2.65 $, 2024 nur 1.00 $. Bereinigt stieg der Gewinn im 3. Quartal um 74 % auf 2.09 $.</em></div>
+<div class="kpi w"><span>ROIC</span><b>12.8 %</b><em>Auf 100 $ investiertes Kapital rund 13 $ Gewinn (StockAnalysis). Mittelmässig, weil der Kauf von Xilinx viel Kapital gebunden hat. Klar steigend: 2023 waren es 0.8 %, 2025 6.7 %.</em></div>
+<div class="kpi w"><span>Free Cashflow</span><b>7.06 Mrd. $</b><em>Letzte 12 Monate (StockAnalysis). Im 3. Quartal 2026 aber nur 554 Mio. $, weil AMD für 3 Mrd. $ mehr Lager aufbaute (für den Start von Helios). 2023 waren es nur 1.12 Mrd. $, der Verlauf schwankt.</em></div>
+<div class="kpi g"><span>Schulden</span><b>Netto-Cash</b><em>15.8 Mrd. $ Bargeld und kurzfristige Anlagen gegen 9.2 Mrd. $ Schulden und Leasing (StockAnalysis). Es bleiben netto 6.6 Mrd. $ mehr Geld als Schulden.</em></div>
+<div class="kpi r"><span>KGV</span><b>111.8</b><em>Du zahlst rund 112 Jahresgewinne (515.21 $ / 4.61 $). Eigener Schnitt 2021 bis 2025: 123.7, aber nur wegen 2023 (278.9). Ohne 2023 liegt der Schnitt bei 84.9. Auf den erwarteten Gewinn der nächsten 12 Monate rund 34.</em></div>
+<div class="kpi r"><span>Dividende</span><b>keine</b><em>AMD zahlt keine Dividende. Aktien kaufte AMD 2026 bis September nur für 221 Mio. $ zurück. Die Aktienzahl stieg in 12 Monaten um 1.4 %, vor allem wegen Aktienlöhnen. Dein Anteil an der Firma wird kleiner.</em></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>Umsatz pro Quartal (Mio. $)</h3>
+      <p class="note">Die letzten 4 Quartale lagen alle deutlich über dem Vorjahr: +34 %, +38 %, +50 % und +45 %. Im 3. Quartal wuchs AMD etwas langsamer als im 2., das Ziel für das 4. Quartal (rund 17'000 Mio. $) wäre aber ein neuer Sprung.</p>
+      <div class="chart" id="c-rev"></div>
+    </div>
+    <div class="card">
+      <h3>Operative Marge pro Jahr</h3>
+      <p class="note">Betriebsgewinn pro 100 $ Umsatz (ausgewiesen). Nach dem Xilinx-Kauf 2022 brach die Marge wegen hoher Abschreibungen ein, seit 2023 steigt sie jedes Jahr.</p>
+      <div class="chart" id="c-margin"></div>
+    </div>
+  </div>
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Jahr</th><th class="num">Umsatz Mio. $</th><th class="num">Wachstum</th><th class="num">Op. Marge</th><th class="num">EPS $</th><th class="num">Free Cashflow</th><th class="num">ROIC</th><th class="num">KGV</th></tr></thead>
+      <tbody id="fin-rows"></tbody>
+    </table>
+  </div>
+  <p class="note"><b>Hinweis:</b> Zahlen in Mio. $. Jahre 2021 bis 2025 laut StockAnalysis. Letzte 12 Monate bis September 2026: Umsatz und EPS eigene Rechnung mit den Zahlen vom 3.11.2026, Marge, ROIC und Free Cashflow laut StockAnalysis (Stand 7.11.2026). KGV pro Jahr laut StockAnalysis, heute eigene Rechnung (515.21 $ / 4.61 $). Schnitt 2021 bis 2025: 123.7. Das EPS seit 2022 ist durch hohe Abschreibungen auf den Xilinx-Kauf gedrückt, darum sind die KGV-Werte so hoch.</p>
+</section>
+
+<section>
+  <h2>Qualität: 71 von 100</h2>
+  <div class="card tbl"><table id="q-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Technik: Wochenchart (2 Jahre)</h2>
+  <div class="card">
+    <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span><span><i class="swb" style="background:var(--zone-sup);border:1px solid var(--good)"></i>Unterstützung</span><span><i class="swb" style="background:var(--zone-res);border:1px solid var(--bad)"></i>Widerstand</span></div>
+    <div class="chart" id="c-week"></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>A/D-Linie, Woche</h3>
+      <p class="note">Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Die Wochen-A/D stieg von 2'265 (Januar 2026, Kurs 260 $) auf 3'011 (Ende September, Kurs 634 $). Seither fiel sie auf 2'654. Im Juli stand sie bei 2'651, damals lag der Kurs bei 476 $. Heute ist der Kurs höher (515 $), die A/D aber gleich. Beim Rückgang wurde also nicht panisch verkauft, beim Anstieg seit dem 5.11. aber auch nicht stark gekauft.</p>
+      <div class="chart" id="c-adw"></div>
+    </div>
+    <div class="card">
+      <h3>RSI, Woche</h3>
+      <p class="note">Unter 30 überverkauft, über 70 überkauft. 53, neutral. Ende September war er mit 71 überkauft, in der Woche vom 2.11. lag er bei 46.</p>
+      <div class="chart" id="c-rsiw"></div>
+    </div>
+  </div>
+
+  <h2>Technik: Tageschart (1 Jahr)</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Kurs, Tag</h3>
+      <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span></div>
+      <div class="chart" id="c-day"></div>
+    </div>
+    <div class="card">
+      <h3>A/D-Linie, Tag</h3>
+      <p class="note">Die Tages-A/D stieg im Jahr 2026 stark, von −337 (5.2.) auf 541 (28.10.). Am 28.10. lag sie höher als beim Allzeithoch am 6.10. (528), obwohl der Kurs tiefer war: ein gutes Zeichen. Beim Einbruch am 5.11. fiel sie auf 415, heute steht sie bei 456. Das ist tiefer als beim Tief vom 22.10. (495), obwohl der Kurs ähnlich hoch ist. Kurzfristig fehlt also die Bestätigung durch Käufer.</p>
+      <div class="chart" id="c-add"></div>
+    </div>
+  </div>
+
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Indikator</th><th>Tag</th><th>Woche</th><th>Bedeutung</th></tr></thead>
+      <tbody>
+<tr><td>Kurs vs. EMA 50</td><td class="pts">515.21 &lt; 531.46</td><td class="pts">515.21 &gt; 416.24</td><td>Im Tageschart knapp unter der mittelfristigen Linie, in der Woche klar darüber.</td></tr>
+<tr><td>Kurs vs. EMA 200</td><td class="pts">515.21 &gt; 439.96</td><td class="pts">515.21 &gt; 237.50</td><td>Klar über der langfristigen Linie, in der Woche mehr als doppelt so hoch. Das zeigt, wie stark der Anstieg 2026 war.</td></tr>
+<tr><td>EMA 50 vs. EMA 200</td><td class="pts">50 über 200 (Golden Cross am 8.7.2025)</td><td class="pts">50 über 200 (seit November 2016)</td><td>Tag und Woche im Aufwärtstrend.</td></tr>
+<tr><td>RSI (14)</td><td class="pts">48.6</td><td class="pts">53.4</td><td>Neutral. Am 5.11. war der Tages-RSI mit 29.7 überverkauft, seither dreht er nach oben.</td></tr>
+<tr><td>A/D</td><td class="pts">über das Jahr stark gestiegen, seit 28.10. gefallen</td><td class="pts">seit Ende September gefallen, über das Jahr gestiegen</td><td>Langfristig Käufer, kurzfristig fehlt die Bestätigung.</td></tr>
+<tr><td>Volumen</td><td colspan="2">Ø 20 Tage 30.8 Mio. vs. Ø 100 Tage 25.4 Mio. Aktien</td><td>Mehr Handel als üblich, vor allem am 5.11. beim Einbruch.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Struktur und Zonen (Smart Money Concept)</h2>
+  <p class="lead">Im Tageschart gibt es seit dem Allzeithoch tiefere Hochs und tiefere Tiefs: Hoch 658.52 $ (6.10.), Tief 502.60 $ (22.10.), tieferes Hoch 579.18 $ (28.10.), tieferes Tief 402.10 $ (5.11.). Das ist eine Abwärtsstruktur. In der Woche sieht es besser aus: Die Tiefs vom Juli (424.03 $) und August (440.50 $) wurden am 5.11. zwar kurz unterschritten, die Woche schloss aber bei 449.04 $, also über 424 $. Seither stieg der Kurs um 28 % auf 515 $ und steht jetzt im Widerstand der Spanne vom Juni (511.57 bis 557.89 $) und unter der Tages-EMA 50 (531.46 $). Die Spanne 402.10 bis 658.52 $ hat ihre Mitte bei 530.31 $: Der Kurs steht knapp im unteren, günstigeren Teil. Bestätigt wäre eine Wende im Tageschart erst mit einem Schluss über 579.18 $.</p>
+  <div class="zones">
+<div class="zone r"><b>639.00–659.00 $</b><span>Widerstand: Hochs vom 25.9. (639.00) und Allzeithoch vom 6.10.2026 (658.52 $).</span></div>
+<div class="zone r"><b>579.00–585.00 $</b><span>Widerstand: letztes tieferes Hoch vom 28.10. (579.18) und Hoch vom 30.6.2026 (584.73 $).</span></div>
+<div class="zone r"><b>531.00–558.00 $</b><span>Widerstand: Tages-EMA 50 (531.46 $) und Spanne vom Juni 2026 (Wochenschlüsse 511.57 bis 557.89 $).</span></div>
+<div class="zone t"><b>579.18 $</b><span><b>Trigger:</b> Tagesschluss über 579.18 $ (letztes tieferes Hoch), besser mit steigender Tages-A/D.</span></div>
+<div class="zone s"><b>440.00–465.00 $</b><span><b>Kaufzone 1:</b> Tages-EMA 200 (439.96 $), Tiefs vom 3.9. (440.50), 24.8. (451.00) und 11.8. (463.21 $), Wochenschluss vom 6.11. (449.04 $).</span></div>
+<div class="zone s"><b>402.00–425.00 $</b><span><b>Kaufzone 2:</b> Tief vom 5.11. (402.10 $), Wochen-EMA 50 (416.24 $) und Tief vom 29.7. (424.03 $).</span></div>
+<div class="zone r"><b>400.00 $</b><span>Abbruch: Wochenschluss unter 400 $, also unter dem Tief vom 5.11.2026 (402.10 $). Nächste grössere Marke wäre erst das alte Hoch vom Oktober 2025 bei 267 $.</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Smart Money, Insider und Saisonalität</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Wer kauft, wer verkauft?</h3>
+      <ul class="clean" style="margin-top:8px">
+<li><b>Insider:</b> Chefin Lisa Su verkaufte 2026 laut MarketBeat und InsiderTrades mehrmals je 125'000 Aktien, zum Beispiel am 13.5. (Ø 445.51 $, 55.7 Mio. $) und am 10.6. (Ø 460.69 $, 57.6 Mio. $). Im August verkauften auch Finanzchefin Jean Hu (15'000 Aktien, 7.1 Mio. $) und Forrest Norrod (7.9 Mio. $). Alles über vorab festgelegte Verkaufspläne (10b5-1). Käufe von Insidern am Markt fand ich keine.</li>
+<li><b>Rückkäufe:</b> 2026 bis September nur 221 Mio. $, im 2. und 3. Quartal gar keine. Das sind weniger als 0.1 % des Börsenwerts (rund 845 Mrd. $). Die Aktienzahl steigt sogar (+1.4 % in 12 Monaten).</li>
+<li><b>OpenAI-Optionen:</b> OpenAI kann laut Vertrag vom Oktober 2025 rund 10 % der AMD-Aktien über Optionen erhalten, wenn Liefer- und Kursziele erreicht werden. Das würde den Anteil der heutigen Aktionäre verwässern.</li>
+<li><b>Analysten:</b> 53 Analysten, Kursziel im Schnitt 656.24 $, Bewertung «Strong Buy» (StockAnalysis, 7.11.2026). Nach den Zahlen erhöhten zum Beispiel Stifel von 700 auf 725 $ und Truist von 594 auf 605 $ (Finbold, 4.11.2026). Institutionelle Anleger halten rund 71 % der Aktien (MarketBeat).</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Saisonalität seit 1985</h3>
+      <p class="note">Durchschnittliche Monatsrendite in %. Daten seit 1985 (Monate mit mehr als 40 % Bewegung nicht gezählt). Stark sind November (+6.6 %, 62 % positive Jahre), Oktober (+5.1 %, 53 %) und Januar (+3.6 %, 56 %). Schwach sind Mai (−3.6 %, 39 %), Juni (−4.0 %, 39 %) und August (−4.4 %, nur 32 %). Dezember +1.2 % (51 %). AMD schwankt sehr stark, die Durchschnitte sind darum wenig verlässlich.</p>
+      <div class="chart" id="c-seas"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Timing: 50 von 100</h2>
+  <div class="card tbl"><table id="t-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Worauf du achten solltest: Unterbewertung und Wachstumsschub</h2>
+  <div class="card"><h3>Was die Börse befürchtet</h3><p class="note" style="margin:4px 0">Vor allem Stimmung: Die Zahlen lagen klar über den Erwartungen und kein Auftrag wurde storniert. Gefallen ist der Kurs wegen Politik, Bewertung und der Sorge um KI-Ausgaben.</p><ul class="clean"><li>Am 5.11.2026 fiel AMD um 17.3 % auf 404.40 $, zwei Tage nach sehr guten Zahlen. Nach den US-Zwischenwahlen fürchtet die Börse strengere Regeln für KI und Baustopps für Rechenzentren in Texas und Georgia.</li><li>Die Aktie ist sehr teuer: KGV 111.8 auf den Gewinn der letzten 12 Monate. Fast der ganze Kurs hängt daran, dass die KI-Kunden weiter so viel investieren.</li><li>Das PC- und Spielegeschäft schrumpft: Gaming im 3. Quartal 2026 −40 %, für das 4. Quartal erwartet AMD in diesem Bereich mehr als 20 % weniger als im 3. Quartal, für 2027 einen zweistelligen Rückgang der PC-Verkäufe.</li><li>Im 3. Quartal blieb nur 554 Mio. $ Free Cashflow, weil das Lager um 3 Mrd. $ stieg. Ein Engpass bei Speicherchips (HBM) kann die KI-Lieferungen bremsen.</li></ul><h3 style="margin-top:12px">Was die Sorgen beenden könnte</h3><ul class="clean"><li>Umsatz im 4. Quartal bei rund 17 Mrd. $ und Bestätigung von mehr als 80 % Wachstum für 2027 <span class="muted">(Zahlen 4. Quartal, voraussichtlich Anfang Februar 2027)</span></li><li>Die grossen KI-Kunden (Microsoft, Meta, Oracle, OpenAI) bestätigen ihre Investitionspläne für 2027 <span class="muted">(Ende Januar bis Februar 2027)</span></li><li>Klarheit, ob Bundesstaaten den Bau von Rechenzentren wirklich bremsen <span class="muted">(2027, nach Amtsantritt der neuen Gouverneure)</span></li><li>Helios-Systeme mit MI450 werden in grosser Menge ausgeliefert, das Lager wird zu Umsatz <span class="muted">(4. Quartal 2026 bis Mitte 2027)</span></li></ul><h3 style="margin-top:12px">Wachstumsschub: Starker Wachstumsschub möglich</h3><ul class="clean"><li><b>Helios und MI450:</b> AMD verkauft neu ganze Serverschränke mit KI-Chips (MI450) und Server-Prozessoren (EPYC Venice). Anthropic, Meta, Microsoft, OpenAI und Oracle testen die ersten Systeme. Das Rechenzentrum wuchs im 3. Quartal um 97 % auf 8.5 Mrd. $. <span class="muted">(ab 4. Quartal 2026)</span></li><li><b>Verträge mit OpenAI und Meta:</b> OpenAI (Oktober 2025) und Meta (Februar 2026) wollen je bis zu 6 Gigawatt Rechenleistung mit AMD-Chips aufbauen, das erste Gigawatt ab dem 2. Halbjahr 2026. Laut Finanzchefin Jean Hu bringt ein Gigawatt «zweistellige Milliarden Dollar» Umsatz. <span class="muted">(2026 bis 2029)</span></li><li><b>Server-Prozessoren für KI:</b> Lisa Su sagt, die Nachfrage nach Server-Prozessoren für KI sei unterschätzt worden. Sie erwartet, dass sich der Server-Umsatz 2027 etwa verdoppelt. <span class="muted">(2027)</span></li></ul><p style="margin:10px 0 0"><b>Woran du es erkennst:</b> Achte im Februar 2027 auf den Umsatz im Rechenzentrum (3. Quartal 2026: 8.5 Mrd. $, +97 %) und auf den Free Cashflow. Steigt der Free Cashflow wieder deutlich über 1.5 Mrd. $ pro Quartal, wird das Lager wirklich verkauft.</p><p style="margin:10px 0 0"><b>Das Chancen-Szenario:</b> Ähnlich wie Google 2023 hat AMD die Basis schon gelegt: eigene KI-Chips, ganze Serverschränke und Verträge mit den grössten KI-Firmen. Wächst der Umsatz 2027 wirklich um mehr als 80 %, kann der Gewinn so stark steigen, dass das hohe KGV schnell sinkt. Anders als Google 2023 ist die Aktie aber nicht günstig: Sie hat sich 2026 mehr als verdoppelt. Grösstes Risiko: Die KI-Kunden investieren weniger oder Rechenzentren werden gebremst, dann kann die Aktie wie am 5.11. sehr schnell 20 % oder mehr verlieren.</p><p class="note" style="margin:10px 0 0">Quellen: <a href="https://ir.amd.com/news-events/press-releases/detail/1303/amd-reports-third-quarter-2026-financial-results" target="_blank" rel="noopener">AMD: Third Quarter 2026 Financial Results (3.11.2026)</a>, <a href="https://www.thestar.com.my/tech/tech-news/2026/11/04/amd-forecasts-quarterly-revenue-above-estimates-as-data-center-growth-accelerates" target="_blank" rel="noopener">Reuters/The Star: AMD forecast eases AI spending fears (4.11.2026)</a>, <a href="https://www.fool.com/investing/2026/11/05/why-amd-stock-is-down-today/" target="_blank" rel="noopener">Motley Fool: Why AMD stock is down today (5.11.2026)</a>, <a href="https://www.indmoney.com/blog/us-stocks/qualcomm-amd-stock-falling" target="_blank" rel="noopener">INDmoney: Why are Qualcomm and AMD stocks crashing</a>, <a href="https://www.tikr.com/blog/amd-stock-surged-74-in-april-q1-2026-earnings-could-tell-us-if-the-run-is-just-getting-started?" target="_blank" rel="noopener">TIKR: AMD stock surged 74% in April (5.5.2026)</a></p></div>
+</section>
+
+<section>
+  <h2>Dividende</h2>
+  <div class="card tbl"><p style="margin:0">AMD zahlt keine Dividende und steckt das Geld in neue Chips und KI-Systeme. Aktien kauft AMD nur wenig zurück (2026 bis September 221 Mio. $), die Aktienzahl steigt sogar leicht.</p></div>
+</section>
+
+<section>
+  <h2>Pro und Contra</h2>
+  <div class="two">
+    <div class="card pro"><h3>Spricht dafür</h3><ul class="clean" style="margin-top:8px">
+<li>Sehr starkes Wachstum: 3. Quartal 2026 Umsatz +45 % auf 13.4 Mrd. $, Rechenzentrum +97 %, beides über den Erwartungen.</li>
+<li>Ziel 4. Quartal rund 17 Mrd. $ (+66 %), deutlich über den erwarteten 16.23 Mrd. $. Für 2027 erwartet AMD mehr als 80 % Wachstum.</li>
+<li>Grosse Verträge mit OpenAI und Meta über je bis zu 6 Gigawatt. Anthropic, Meta, Microsoft, OpenAI und Oracle testen die ersten Helios-Systeme.</li>
+<li>Netto mehr Bargeld als Schulden (6.6 Mrd. $), Margen und ROIC steigen seit 2023 jedes Jahr.</li>
+<li>Chart: Wochentrend intakt, der Einbruch am 5.11. wurde in der Woche schnell zurückgekauft, Analysten-Kursziel (656 $) weit über dem Kurs.</li>
+    </ul></div>
+    <div class="card con"><h3>Spricht dagegen</h3><ul class="clean" style="margin-top:8px">
+<li>Sehr teuer: KGV 111.8, Kurs-Umsatz-Verhältnis rund 19. Der faire Wert im Branchenvergleich der App liegt weit unter dem Kurs.</li>
+<li>Abhängig von wenigen KI-Kunden und deren Ausgaben für Rechenzentren. Nach den US-Wahlen drohen Baustopps für Rechenzentren in einzelnen Staaten.</li>
+<li>PC- und Spielegeschäft schwach: Gaming −40 % im 3. Quartal, für 2027 erwartet AMD einen zweistelligen Rückgang der PC-Verkäufe.</li>
+<li>Free Cashflow im 3. Quartal nur 554 Mio. $, Lager stieg auf 11.5 Mrd. $. Engpass bei Speicherchips (HBM) kann Lieferungen bremsen.</li>
+<li>Insider verkaufen laufend, keine Dividende, kaum Rückkäufe. Sehr hohe Schwankung (Beta 2.5): −17 % an einem Tag (5.11.2026).</li>
+    </ul></div>
+  </div>
+</section>
+
+<section>
+  <h2>Was jetzt zu tun ist</h2>
+  <div class="zones">
+<div class="zone t"><b>Beobachten</b><span>Alarm bei 579.18 $ (Trigger) und 465 $ (oberes Ende Kaufzone 1).</span></div>
+<div class="zone s"><b>Timing grün</b><span>Rücksetzer in 440 bis 465 $, der hält und mit steigender Tages-A/D dreht. Oder Tagesschluss über 579.18 $ mit steigender A/D. Fundamental: Umsatz im 4. Quartal bei rund 17 Mrd. $ und Bestätigung der mehr als 80 % Wachstum für 2027.</span></div>
+<div class="zone r"><b>Abbruch</b><span>Wochenschluss unter 400 $.</span></div>
+<div class="zone "><b>Nächste Zahlen</b><span>4. Quartal 2026: voraussichtlich Anfang Februar 2027 (Wall Street Horizon schätzt den 2.2.2027, 2026 war es der 3.2., noch nicht bestätigt).</span></div>
+  </div>
+</section>
+
+<footer>
+  <span>Kursdaten und Indikatoren (EMA, RSI 14, A/D) selbst berechnet aus Yahoo-Finance-Tages-, Wochen- und Monatsdaten, Stand 10.11.2026. <a href="https://ir.amd.com/news-events/press-releases/detail/1303/amd-reports-third-quarter-2026-financial-results" target="_blank" rel="noopener">AMD: Zahlen 3. Quartal 2026 (3.11.2026)</a>, <a href="https://www.sec.gov/Archives/edgar/data/0000002488/000000248826000121/q22026991.htm" target="_blank" rel="noopener">AMD: Zahlen 2. Quartal 2026 (SEC, 4.8.2026)</a>, <a href="https://www.thestar.com.my/tech/tech-news/2026/11/04/amd-forecasts-quarterly-revenue-above-estimates-as-data-center-growth-accelerates" target="_blank" rel="noopener">Reuters: Ausblick über den Erwartungen (4.11.2026)</a>, <a href="https://www.newsquawk.com/headlines/advanced-micro-devices-inc-amd-q3-2026-usd-adj-eps-209-exp-195-revenue-134bln-exp-131bln" target="_blank" rel="noopener">Newsquawk: Q3 gegen Erwartungen</a>, <a href="https://stockanalysis.com/stocks/amd/financials" target="_blank" rel="noopener">StockAnalysis.com (AMD)</a> (Finanzen, Kennzahlen, Statistik, Stand 7.11.2026), <a href="https://www.fool.com/investing/2026/11/05/why-amd-stock-is-down-today/" target="_blank" rel="noopener">Motley Fool: Kurssturz 5.11.2026</a>, <a href="https://www.indmoney.com/blog/us-stocks/qualcomm-amd-stock-falling" target="_blank" rel="noopener">INDmoney: Gründe für den Einbruch</a>, <a href="https://www.tikr.com/blog/amd-stock-surged-74-in-april-q1-2026-earnings-could-tell-us-if-the-run-is-just-getting-started?" target="_blank" rel="noopener">TIKR: Anstieg im April 2026</a>, <a href="https://www.marketbeat.com/instant-alerts/insider-selling-advanced-micro-devices-nasdaqamd-ceo-sells-125000-shares-of-stock-2026-06-12/" target="_blank" rel="noopener">MarketBeat: Insider</a>, <a href="https://finbold.com/6-wall-street-analysts-set-amd-stock-price-target-after-q3-earnings/" target="_blank" rel="noopener">Finbold: Kursziele nach Q3 (4.11.2026)</a>, <a href="https://wallstreethorizon.com/amd-earnings-calendar" target="_blank" rel="noopener">Wall Street Horizon: Termine</a>. Branchenvergleich der App: Note 2.8 von 5, fairer Wert rund 199 $ (61 % unter dem heutigen Kurs), Unsicherheit hoch.</span>
+  <span>Persönliche Analyse, keine Anlageberatung. Vergangene Kurse und Saisonalität sagen nichts Sicheres über die Zukunft.</span>
+</footer>
+</div>
+
+<script>
+const Q=[["Umsatztrend", "4 von 4 Quartalen klar über Vorjahr (+34 % bis +50 %), Ziel 4. Quartal +66 %. Das 3. Quartal wuchs aber etwas langsamer als das 2.", 14, 15], ["Wachstumstempo", "12 Monate +41.9 %, für 2027 erwartet AMD mehr als 80 %", 10, 10], ["Operative Marge", "17.8 % (6 Pkt.), seit 2023 jedes Jahr gestiegen, aber noch unter 2021 (22.2 %), darum nur 4 statt 6 Pkt. für den Trend", 10, 15], ["Gewinnwachstum (EPS)", "2025 +165 %, 12 Monate rund +125 %, bereinigt im 3. Quartal +74 %", 10, 10], ["Free Cashflow", "Positiv, aber schwankend (2023: 1.12 Mrd. $, 2025: 6.74 Mrd. $), im 3. Quartal 2026 nur 554 Mio. $", 6, 10], ["ROIC", "12.8 % (6 Pkt.), klar steigend seit 2023 (+1)", 7, 15], ["Schulden", "Netto-Cash 6.6 Mrd. $", 10, 10], ["Bewertung vs. eigene Historie", "KGV 111.8 gegen Ø 123.7, rund 10 % günstiger. Der Schnitt ist aber vom Ausreisser 2023 (278.9) verzerrt. Ohne 2023 (Ø 84.9) wäre die Aktie 32 % teurer (1 Pkt.). Darum Mittelwert", 4, 15]];
+const T=[["Trend Woche (EMA 50/200)", "Kurs über beiden, EMA 50 über 200. Der Abstand zur EMA 200 ist aber sehr gross (Kurs mehr als doppelt so hoch)", 18, 20], ["Trend Tag (EMA 50/200)", "Kurs über EMA 200, aber unter EMA 50: Rücksetzer im Aufwärtstrend", 6, 10], ["Struktur (SMC)", "Tageschart mit tieferen Hochs und tieferen Tiefen seit 6.10., in der Woche hielt der Schluss über dem Juli-Tief (424.03 $). Kein Bruch nach oben", 6, 20], ["RSI Tag/Woche", "Tages-RSI dreht aus 29.7 (5.11.) auf 48.6, Woche 53. Keine Divergenz, Trend Tag angeschlagen", 11, 15], ["A/D Tag/Woche", "Über das Jahr auf beiden Zeitebenen gestiegen, seit Oktober fällt sie mit dem Kurs und bestätigt die Erholung noch nicht", 6, 20], ["Smart Money", "Start 3, gehäufte Insider-Verkäufe (−3), kaum Rückkäufe, Aktienzahl steigt", 0, 10], ["Saisonalität", "November 62 %, Dezember 51 %, Januar 56 % positive Jahre", 3, 5]];
+const FIN=[["2021", 16434, "+68.3 %", "22.2 %", 2.57, 3220, "72.8 %", "55.8"], ["2022", 23601, "+43.6 %", "5.4 %", 0.84, 3115, "4.5 %", "79.1"], ["2023", 22680, "−3.9 %", "1.8 %", 0.53, 1121, "0.8 %", "278.9"], ["2024", 25785, "+13.7 %", "8.1 %", 1.0, 2405, "3.1 %", "123.8"], ["2025", 34639, "+34.3 %", "10.8 %", 2.65, 6735, "6.7 %", "80.7"], ["Letzte 12 Mt.", 45436, "+41.9 %", "17.8 %", 4.61, 7060, "12.8 %", "111.8"]];
+const HALF=[["Q4 24", 7658], ["Q1 25", 7438], ["Q2 25", 7685], ["Q3 25", 9246], ["Q4 25", 10270], ["Q1 26", 10253], ["Q2 26", 11536], ["Q3 26", 13377]];
+const MARGIN=[["2021", 22.2], ["2022", 5.4], ["2023", 1.8], ["2024", 8.1], ["2025", 10.8], ["12 Mt.", 17.8]];
+const SEAS=[3.6, 3.4, 2.6, 2.9, -3.6, -4.0, 2.2, -4.4, -2.2, 5.1, 6.6, 1.2];
+const SEASHIT=[56.0, 55.0, 58.0, 54.0, 39.0, 39.0, 55.0, 32.0, 37.0, 53.0, 62.0, 51.0];
+const MON=["Jan","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"];
+const W=`2024-11-04,147.95,149.35,113.08,47,2362.4;2024-11-11,134.9,148.78,113.29,42,2217.1;2024-11-18,138.35,148.37,113.54,44,2237.8;2024-11-25,137.18,147.93,113.78,43,2222.2;2024-12-02,138.59,147.56,114.02,44,2128.7;2024-12-09,126.91,146.75,114.15,39,1980;2024-12-16,119.21,145.67,114.2,36,1807.5;2024-12-23,125.19,144.87,114.31,40,1852;2024-12-30,125.37,144.11,114.42,40,1975.6;2025-01-06,116.04,143.01,114.44,36,1817.8;2025-01-13,121.46,142.16,114.51,40,1942.2;2025-01-20,122.84,141.4,114.59,41,1927.5;2025-01-27,115.95,140.41,114.6,38,1890.3;2025-02-03,107.56,139.12,114.53,34,1628.8;2025-02-10,113.1,138.1,114.52,38,1717.8;2025-02-17,110.84,137.03,114.48,37,1606;2025-02-24,99.86,135.57,114.34,33,1450.5;2025-03-09,100.97,134.21,114.21,34,1576.4;2025-03-16,106.44,133.12,114.13,38,1644.3;2025-03-23,103.22,131.95,114.02,36,1478.7;2025-03-30,85.76,130.14,113.74,30,1326.3;2025-04-06,93.4,128.7,113.54,35,1535.5;2025-04-13,87.5,127.08,113.28,33,1433.2;2025-04-20,96.65,125.89,113.11,39,1594;2025-04-27,98.8,124.83,112.97,41,1690.1;2025-05-04,102.84,123.97,112.87,43,1795.3;2025-05-11,117.17,123.7,112.91,52,1882.5;2025-05-18,110.31,123.17,112.89,48,1818.8;2025-05-25,110.73,122.69,112.86,48,1767.3;2025-06-01,116.19,122.43,112.9,51,1808.1;2025-06-08,116.16,122.19,112.93,51,1644.3;2025-06-15,128.24,122.42,113.08,58,1768.6;2025-06-22,143.81,123.26,113.39,65,1979.6;2025-06-29,137.91,123.84,113.63,61,1898.7;2025-07-06,146.42,124.72,113.96,64,2089.1;2025-07-13,156.99,125.99,114.39,68,2239;2025-07-20,166.47,127.57,114.9,71,2452;2025-07-27,171.7,129.31,115.47,72,2305.4;2025-08-03,172.76,131.01,116.04,72,2517.3;2025-08-10,177.51,132.83,116.65,74,2514.8;2025-08-17,167.76,134.2,117.16,66,2496.7;2025-08-24,162.63,135.32,117.61,63,2336.7;2025-08-31,151.14,135.94,117.95,56,2180.6;2025-09-07,158.57,136.83,118.35,59,2231.1;2025-09-14,157.39,137.63,118.74,58,2283.2;2025-09-21,159.46,138.49,119.14,59,2265.4;2025-09-28,164.67,139.51,119.6,62,2246.8;2025-10-05,214.9,142.47,120.54,76,1982.2;2025-10-12,233.08,146.02,121.66,79,2123.1;2025-10-19,252.92,150.22,122.97,82,2387.8;2025-10-26,256.12,154.37,124.3,82,2322.8;2025-11-03,233.54,157.47,125.38,70,2181;2025-11-10,246.81,160.98,126.59,73,2130.1;2025-11-17,203.78,162.66,127.36,56,1948.7;2025-11-24,217.53,164.81,128.26,60,2115.7;2025-12-01,217.97,166.89,129.15,60,2095.4;2025-12-08,210.78,168.61,129.96,57,1980.4;2025-12-15,213.43,170.37,130.79,58,2113.9;2025-12-22,214.99,172.12,131.63,58,2092.3;2025-12-29,223.47,174.13,132.54,61,2145.8;2026-01-05,203.17,175.27,133.25,53,1993.4;2026-01-12,231.83,177.49,134.23,61,2140.6;2026-01-19,259.68,180.71,135.47,66,2265.4;2026-01-26,236.73,182.91,136.48,59,2136.3;2026-02-02,208.44,183.91,137.2,51,2002.3;2026-02-09,207.32,184.83,137.9,51,1914.5;2026-02-16,200.15,185.43,138.52,49,1916.6;2026-02-23,200.21,186.01,139.13,49,1814.6;2026-03-08,193.39,186.3,139.67,47,1730.9;2026-03-15,201.33,186.89,140.28,49,1770.5;2026-03-22,201.99,187.48,140.9,50,1652.1;2026-03-29,217.5,188.66,141.66,54,1811.2;2026-04-05,245.04,190.87,142.69,61,1926;2026-04-12,278.39,194.3,144.04,68,2075.9;2026-04-19,347.81,200.32,146.07,77,2294;2026-04-26,360.54,206.6,148.2,78,2490.4;2026-05-03,455.19,216.35,151.25,84,2781.8;2026-05-10,424.1,224.5,153.97,76,2616.4;2026-05-17,467.51,234.03,157.09,79,2729.6;2026-05-24,516.1,245.09,160.66,82,2797.2;2026-05-31,466.38,253.77,163.7,72,2643.8;2026-06-07,511.57,263.88,167.16,75,2759.9;2026-06-14,537.37,274.6,170.85,76,2783.6;2026-06-21,521.58,284.29,174.34,73,2723.2;2026-06-28,517.82,293.45,177.76,73,2664.7;2026-07-05,557.89,303.82,181.54,76,2744.4;2026-07-12,495.76,311.35,184.66,64,2695;2026-07-19,521.95,319.6,188.02,67,2650.6;2026-07-26,476.15,325.74,190.89,60,2651.1;2026-08-02,483.36,331.92,193.8,60,2607.6;2026-08-09,514.39,339.08,196.99,63,2707.2;2026-08-16,473.25,344.34,199.74,57,2656.8;2026-08-23,465.58,349.1,202.38,56,2634.4;2026-08-30,477.57,354.13,205.12,57,2704.6;2026-09-06,516.13,360.49,208.21,62,2744.7;2026-09-13,559.82,368.3,211.71,66,2869.1;2026-09-20,630.63,378.59,215.88,71,2962.2;2026-09-27,633.91,388.6,220.04,71,3011.3;2026-10-04,608.1,397.21,223.9,67,2925.1;2026-10-11,528.75,402.37,226.94,56,2823.2;2026-10-18,516.79,406.86,229.82,54,2777.2;2026-10-25,504.8,410.7,232.56,53,2697.1;2026-11-02,449.04,412.2,234.71,46,2658.1;2026-11-10,515.21,416.24,237.5,53,2654`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+const DD=`2025-10-29,264.33,199.43,156.32,-87;2025-10-30,254.84,201.6,157.3,-112.5;2025-10-31,256.12,203.74,158.29,-125.5;2025-11-03,259.65,205.93,159.3,-102.2;2025-11-04,250.05,207.66,160.2,-128.6;2025-11-05,256.33,209.57,161.15,-87.8;2025-11-06,237.7,210.67,161.92,-139.3;2025-11-07,233.54,211.57,162.63,-108.8;2025-11-10,243.98,212.84,163.44,-116.2;2025-11-11,237.52,213.81,164.18,-152;2025-11-12,258.89,215.58,165.12,-117.5;2025-11-13,247.96,216.85,165.94,-163;2025-11-14,246.81,218.02,166.75,-149.8;2025-11-17,240.52,218.9,167.48,-165.7;2025-11-18,230.29,219.35,168.11,-173;2025-11-19,223.55,219.51,168.66,-199.4;2025-11-20,206.02,218.99,169.03,-259.1;2025-11-21,203.78,218.39,169.38,-240.9;2025-11-24,215.05,218.26,169.83,-211.4;2025-11-25,206.13,217.78,170.19,-146.8;2025-11-26,214.24,217.64,170.63,-117.1;2025-11-28,217.53,217.64,171.1,-105.1;2025-12-01,219.76,217.72,171.58,-84.4;2025-12-02,215.24,217.63,172.01,-120.2;2025-12-03,217.6,217.62,172.47,-97;2025-12-04,215.98,217.56,172.9,-103.4;2025-12-05,217.97,217.58,173.35,-121.1;2025-12-08,221.11,217.71,173.82,-120.3;2025-12-09,221.62,217.87,174.3,-118.5;2025-12-10,221.42,218.01,174.77,-109.3;2025-12-11,221.43,218.14,175.23,-79;2025-12-12,210.78,217.85,175.59,-106.5;2025-12-15,207.58,217.45,175.91,-127.6;2025-12-16,209.17,217.12,176.24,-113.7;2025-12-17,198.11,216.38,176.45,-142.7;2025-12-18,201.06,215.78,176.7,-166.8;2025-12-19,213.43,215.69,177.06,-126.9;2025-12-22,214.95,215.66,177.44,-140;2025-12-23,214.9,215.63,177.81,-137.9;2025-12-24,215.04,215.6,178.18,-139.2;2025-12-26,214.99,215.58,178.55,-138.7;2025-12-29,215.61,215.58,178.92,-121;2025-12-30,215.34,215.57,179.28,-124.1;2025-12-31,214.16,215.52,179.63,-138.4;2026-01-02,223.47,215.83,180.07,-134.5;2026-01-05,221.08,216.03,180.47,-163.6;2026-01-06,214.35,215.97,180.81,-182.3;2026-01-07,210.02,215.74,181.1,-177.9;2026-01-08,204.68,215.3,181.34,-195.6;2026-01-09,203.17,214.83,181.55,-218.7;2026-01-12,207.69,214.55,181.81,-203.3;2026-01-13,220.97,214.8,182.2,-176.3;2026-01-14,223.6,215.14,182.61,-140.3;2026-01-15,227.92,215.64,183.07,-188.6;2026-01-16,231.83,216.28,183.55,-186.3;2026-01-20,231.92,216.89,184.03,-189.6;2026-01-21,249.8,218.18,184.69,-149.8;2026-01-22,253.73,219.58,185.37,-130.8;2026-01-23,259.68,221.15,186.11,-147.9;2026-01-26,251.31,222.33,186.76,-170.8;2026-01-27,252.03,223.5,187.41,-168.9;2026-01-28,252.74,224.64,188.06,-176.9;2026-01-29,252.18,225.72,188.7,-172.2;2026-01-30,236.73,226.16,189.18,-195.9;2026-02-02,246.27,226.94,189.74,-177.6;2026-02-03,242.11,227.54,190.27,-196.2;2026-02-04,200.19,226.47,190.36,-291.9;2026-02-05,192.5,225.13,190.39,-337.4;2026-02-06,208.44,224.48,190.57,-290;2026-02-09,216,224.15,190.82,-260.4;2026-02-10,213.57,223.73,191.05,-282.2;2026-02-11,213.58,223.33,191.27,-287.6;2026-02-12,205.94,222.65,191.42,-315.9;2026-02-13,207.32,222.05,191.57,-312.9;2026-02-17,203.08,221.31,191.69,-293.5;2026-02-18,200.12,220.48,191.77,-284.6;2026-02-19,203.37,219.81,191.89,-265.3;2026-02-20,200.15,219.03,191.97,-283.3;2026-02-23,196.6,218.15,192.02,-285.1;2026-02-24,213.84,217.99,192.23,-249.5;2026-02-25,210.86,217.71,192.42,-286.6;2026-02-26,203.68,217.16,192.53,-303;2026-02-27,200.21,216.49,192.61,-297;2026-03-02,198.62,215.79,192.67,-263.8;2026-03-03,190.95,214.82,192.65,-263.6;2026-03-04,202.07,214.32,192.74,-225;2026-03-05,199.45,213.73,192.81,-224.1;2026-03-06,192.43,212.9,192.81,-249.1;2026-03-09,202.68,212.5,192.9,-211.9;2026-03-10,203.23,212.13,193.01,-227.3;2026-03-11,204.83,211.85,193.12,-240.5;2026-03-12,197.74,211.29,193.17,-260.5;2026-03-13,193.39,210.59,193.17,-279.7;2026-03-16,196.58,210.04,193.21,-289.9;2026-03-17,196.31,209.5,193.24,-300.6;2026-03-18,199.46,209.11,193.3,-299.3;2026-03-19,205.27,208.96,193.42,-270.1;2026-03-20,201.33,208.66,193.5,-278.9;2026-03-23,202.68,208.43,193.59,-302.4;2026-03-24,205.37,208.31,193.71,-284.3;2026-03-25,220.27,208.78,193.97,-246.3;2026-03-26,203.77,208.58,194.07,-293.6;2026-03-27,201.99,208.32,194.15,-277.8;2026-03-30,196.04,207.84,194.17,-302.1;2026-03-31,203.43,207.67,194.26,-266.2;2026-04-01,210.21,207.77,194.42,-262.3;2026-04-02,217.5,208.15,194.65,-225.1;2026-04-06,220.18,208.62,194.9,-238.3;2026-04-07,221.53,209.13,195.17,-216.3;2026-04-08,231.82,210.02,195.53,-203.2;2026-04-09,236.64,211.06,195.94,-180.1;2026-04-10,245.04,212.39,196.43,-174.8;2026-04-13,246.83,213.74,196.93,-156.4;2026-04-14,255.07,215.36,197.51,-132.7;2026-04-15,258.12,217.04,198.11,-108.5;2026-04-16,278.26,219.44,198.91,-51.5;2026-04-17,278.39,221.75,199.7,-43.3;2026-04-20,274.95,223.84,200.45,-65;2026-04-21,284.49,226.22,201.28,-39.9;2026-04-22,303.46,229.25,202.3,4.9;2026-04-23,305.33,232.23,203.33,7.8;2026-04-24,347.81,236.76,204.76,43.6;2026-04-27,334.63,240.6,206.06,21.9;2026-04-28,323.21,243.84,207.22,43.8;2026-04-29,337.11,247.5,208.51,75.7;2026-04-30,354.49,251.69,209.97,116;2026-05-01,360.54,255.96,211.46,138.9;2026-05-04,341.54,259.32,212.76,107.2;2026-05-05,355.26,263.08,214.18,133.8;2026-05-06,421.39,269.29,216.24,164.9;2026-05-07,408.46,274.75,218.15,152.1;2026-05-08,455.19,281.82,220.51,206.9;2026-05-11,458.79,288.76,222.88,200.6;2026-05-12,448.29,295.02,225.12,214.5;2026-05-13,445.5,300.92,227.32,213.2;2026-05-14,449.7,306.75,229.53,228.7;2026-05-15,424.1,311.36,231.47,202.3;2026-05-18,420.99,315.66,233.35,194.7;2026-05-19,414.05,319.51,235.15,201.2;2026-05-20,447.58,324.54,237.26,231.8;2026-05-21,449.59,329.44,239.38,254.5;2026-05-22,467.51,334.85,241.65,240.2;2026-05-26,503.89,341.48,244.25,269.9;2026-05-27,495.54,347.53,246.76,263.1;2026-05-28,518.09,354.21,249.46,277.5;2026-05-29,516.1,360.56,252.11,288.8;2026-06-01,510.13,366.43,254.68,306.1;2026-06-02,521.54,372.51,257.33,328.2;2026-06-03,542.52,379.18,260.17,347.2;2026-06-04,523.2,384.83,262.79,360.1;2026-06-05,466.38,388.02,264.81,318.7;2026-06-08,490.33,392.04,267.06,330.3;2026-06-09,475.51,395.31,269.13,335.2;2026-06-10,452.4,397.55,270.95,315.2;2026-06-11,488.45,401.11,273.12,341.9;2026-06-12,511.57,405.44,275.49,350.3;2026-06-15,547.26,411.01,278.19,357.1;2026-06-16,507.29,414.78,280.47,328.8;2026-06-17,512.48,418.61,282.78,312.8;2026-06-18,537.37,423.27,285.32,341.4;2026-06-22,551.63,428.3,287.97,345.8;2026-06-23,519.85,431.89,290.27,351.9;2026-06-24,519.74,435.34,292.56,365.5;2026-06-25,532.57,439.15,294.94,370;2026-06-26,521.58,442.38,297.2,406.2;2026-06-29,539.49,446.19,299.61,429.8;2026-06-30,580.91,451.48,302.41,457.5;2026-07-01,540.88,454.98,304.78,434;2026-07-02,517.82,457.45,306.9,421.8;2026-07-06,552.05,461.16,309.34,424.9;2026-07-07,516.11,463.31,311.4,430.4;2026-07-08,517.41,465.43,313.45,443.5;2026-07-09,546.72,468.62,315.77,442.2;2026-07-10,557.89,472.12,318.18,458;2026-07-13,534.39,474.56,320.33,448.8;2026-07-14,548.13,477.45,322.6,429.7;2026-07-15,529.14,479.47,324.65,424;2026-07-16,500.94,480.32,326.41,415.3;2026-07-17,495.76,480.92,328.09,433.1;2026-07-20,503.57,481.81,329.84,412.5;2026-07-21,544.43,484.27,331.97,433.1;2026-07-22,552.33,486.94,334.17,444.9;2026-07-23,539.69,489,336.21,443.1;2026-07-24,521.95,490.3,338.06,422.8;2026-07-27,494.95,490.48,339.62,413.5;2026-07-28,454.62,489.07,340.76,406.6;2026-07-29,429.56,486.74,341.65,385;2026-07-30,485.39,486.69,343.08,398.6;2026-07-31,476.15,486.27,344.4,372.5;2026-08-03,484.64,486.21,345.8,388.3;2026-08-04,518.58,487.48,347.52,396.7;2026-08-05,482.05,487.27,348.85,363.1;2026-08-06,489.28,487.34,350.25,374.3;2026-08-07,483.36,487.19,351.58,364.6;2026-08-10,469.56,486.5,352.75,345.7;2026-08-11,474.32,486.02,353.96,359.1;2026-08-12,482.93,485.9,355.24,347.5;2026-08-13,483.01,485.78,356.51,333.2;2026-08-14,514.39,486.91,358.09,358.3;2026-08-17,506,487.66,359.56,342.9;2026-08-18,484.39,487.53,360.8,345.7;2026-08-19,466.42,486.7,361.85,332.5;2026-08-20,469.46,486.02,362.92,335.6;2026-08-21,473.25,485.52,364.02,342.3;2026-08-24,456.75,484.39,364.94,336.5;2026-08-25,479.18,484.19,366.08,348.5;2026-08-26,480.93,484.06,367.22,345.1;2026-08-27,476.67,483.77,368.31,346;2026-08-28,465.58,483.06,369.28,331.3;2026-08-31,470.72,482.57,370.29,333.3;2026-09-01,459.61,481.67,371.18,342.8;2026-09-02,457.06,480.71,372.03,342.3;2026-09-03,456.16,479.75,372.87,351.6;2026-09-04,477.57,479.66,373.91,368.9;2026-09-08,505.74,480.68,375.22,382.6;2026-09-09,521.1,482.27,376.67,392.4;2026-09-10,503.6,483.11,377.94,378.3;2026-09-11,516.13,484.4,379.31,387.8;2026-09-14,493.41,484.75,380.45,398.9;2026-09-15,504.2,485.52,381.68,396;2026-09-16,512.5,486.57,382.98,387.2;2026-09-17,545.09,488.87,384.59,400.6;2026-09-18,559.82,491.65,386.34,432.1;2026-09-21,615.52,496.51,388.62,473.6;2026-09-22,623.77,501.5,390.96,499.5;2026-09-23,614.61,505.94,393.18,496;2026-09-24,629.26,510.77,395.53,518.9;2026-09-25,630.63,515.47,397.87,514.6;2026-09-28,607.87,519.1,399.96,508;2026-09-29,607.57,522.56,402.03,495.6;2026-09-30,611.76,526.06,404.11,504.7;2026-10-01,615.73,529.58,406.22,515;2026-10-02,633.91,533.67,408.48,507.7;2026-10-05,631.75,537.52,410.71,517.9;2026-10-06,649.42,541.91,413.08,527.7;2026-10-07,645.86,545.98,415.4,539.9;2026-10-08,620.68,548.91,417.44,527.7;2026-10-09,608.1,551.23,419.34,516.7;2026-10-12,594.24,552.92,421.08,516.8;2026-10-13,605.53,554.98,422.91,534.1;2026-10-14,570.82,555.6,424.38,518.6;2026-10-15,562.23,555.86,425.76,537.9;2026-10-16,528.75,554.8,426.78,518.9;2026-10-19,538.05,554.14,427.89,503.8;2026-10-20,534.74,553.38,428.95,501.8;2026-10-21,552.72,553.36,430.18,512.2;2026-10-22,507.93,551.57,430.96,495.1;2026-10-23,516.79,550.21,431.81,496.4;2026-10-26,531.28,549.47,432.8,509.4;2026-10-27,560.26,549.89,434.07,524;2026-10-28,578.44,551.01,435.5,541.4;2026-10-29,566.42,551.62,436.81,538.1;2026-10-30,504.8,549.78,437.48,533.9;2026-11-02,466.84,546.53,437.78,502.8;2026-11-03,483.9,544.07,438.23,498.1;2026-11-04,488.78,541.9,438.74,480;2026-11-05,404.4,536.51,438.4,414.8;2026-11-06,449.04,533.08,438.5,423.4;2026-11-09,508.58,532.12,439.2,460.3;2026-11-10,515.21,531.46,439.96,456.2`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+
+const fmtN=(v,d=2)=>v.toLocaleString("de-CH",{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmtD=s=>{const [y,m,d]=s.split("-");return d+"."+m+"."+y.slice(2)};
+const NS="http://www.w3.org/2000/svg";
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+
+function scoreTable(id,rows){
+  let tot=0,max=0;
+  const html='<thead><tr><th>Kriterium</th><th>Stand</th><th class="num">Punkte</th><th style="width:22%"></th></tr></thead><tbody>'+rows.map(r=>{tot+=r[2];max+=r[3];const p=r[2]/r[3];const c=p>=.75?"var(--good)":p>=.45?"var(--warn)":"var(--bad)";
+    return `<tr><td>${r[0]}</td><td class="muted">${r[1]}</td><td class="num">${r[2]} / ${r[3]}</td><td><div class="bar"><i style="width:${p*100}%;background:${c}"></i></div></td></tr>`}).join("")+`<tr class="total"><td>Total</td><td></td><td class="num">${tot} / ${max}</td><td></td></tr></tbody>`;
+  document.getElementById(id).innerHTML=html;return tot;
+}
+const qs=scoreTable("q-tbl",Q), ts=scoreTable("t-tbl",T);
+document.getElementById("q-val").textContent=qs;document.getElementById("t-val").textContent=ts;
+document.getElementById("q-pin").style.left=qs+"%";document.getElementById("t-pin").style.left=ts+"%";
+
+document.getElementById("fin-rows").innerHTML=FIN.map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1].toLocaleString("de-CH")}</td><td class="num">${r[2]}</td><td class="num">${r[3]}</td><td class="num">${fmtN(r[4])}</td><td class="num">${r[5].toLocaleString("de-CH")}</td><td class="num">${r[6]}</td><td class="num">${r[7]}</td></tr>`).join("");
+
+/* generic line chart */
+function lineChart(host,{dates,series,bands=[],yFmt=v=>fmtN(v),h=300,zero=false,refs=[],pad}){
+  const W_=800,H=h,m={t:12,r:56,b:28,l:8};
+  const all=series.flatMap(s=>s.values).concat(bands.flatMap(b=>[b.from,b.to])).concat(refs.map(r=>r.v));
+  if(zero)all.push(0);
+  let lo=Math.min(...all),hi=Math.max(...all);const sp=(hi-lo)||1;lo-=sp*.06;hi+=sp*.06;
+  if(pad){lo=pad[0];hi=pad[1]}
+  const n=dates.length,x=i=>m.l+i*(W_-m.l-m.r)/(n-1),y=v=>m.t+(hi-v)*(H-m.t-m.b)/(hi-lo);
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  // grid
+  const steps=5;for(let k=0;k<=steps;k++){const v=lo+(hi-lo)*k/steps;el("line",{x1:m.l,x2:W_-m.r,y1:y(v),y2:y(v),stroke:"var(--grid)","stroke-width":1},svg);
+    const t=el("text",{x:W_-m.r+6,y:y(v)+4,"font-size":11,fill:"var(--muted)","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=yFmt(v)}
+  bands.forEach(b=>{el("rect",{x:m.l,width:W_-m.l-m.r,y:y(Math.max(b.from,b.to)),height:Math.abs(y(b.from)-y(b.to)),fill:b.type==="res"?"var(--zone-res)":"var(--zone-sup)"},svg)});
+  refs.forEach(r=>{el("line",{x1:m.l,x2:W_-m.r,y1:y(r.v),y2:y(r.v),stroke:"var(--muted)","stroke-dasharray":"4 4","stroke-width":1},svg);
+    const t=el("text",{x:m.l+4,y:y(r.v)-4,"font-size":11,fill:"var(--muted)"},svg);t.textContent=r.label});
+  if(zero)el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  // x labels
+  const every=Math.ceil(n/6);for(let i=0;i<n;i+=every){const t=el("text",{x:x(i),y:H-8,"font-size":11,fill:"var(--muted)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);const d=dates[i];t.textContent=d.slice(5,7)+"/"+d.slice(2,4)}
+  series.forEach(s=>{const dpath=s.values.map((v,i)=>(i?"L":"M")+x(i).toFixed(1)+","+y(v).toFixed(1)).join("");
+    el("path",{d:dpath,fill:"none",stroke:s.color,"stroke-width":s.w||2,"stroke-linejoin":"round","stroke-linecap":"round"},svg);
+    const lv=s.values[n-1];el("circle",{cx:x(n-1),cy:y(lv),r:3.5,fill:s.color,stroke:"var(--surface)","stroke-width":2},svg)});
+  // hover
+  const cross=el("line",{y1:m.t,y2:H-m.b,stroke:"var(--muted)","stroke-width":1,opacity:0},svg);
+  const ov=el("rect",{x:m.l,y:m.t,width:W_-m.l-m.r,height:H-m.t-m.b,fill:"transparent"},svg);
+  host.appendChild(svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;host.appendChild(tip);
+  function move(ev){const r=svg.getBoundingClientRect();const px=(ev.clientX-r.left)*W_/r.width;let i=Math.round((px-m.l)/((W_-m.l-m.r)/(n-1)));i=Math.max(0,Math.min(n-1,i));
+    cross.setAttribute("x1",x(i));cross.setAttribute("x2",x(i));cross.setAttribute("opacity",1);
+    tip.innerHTML=`<div class="d">${fmtD(dates[i])}</div>`+series.map(s=>`<div><i class="sw" style="background:${s.color}"></i> ${s.name}: <b>${yFmt(s.values[i])}</b></div>`).join("");
+    tip.hidden=false;const hx=x(i)*r.width/W_;tip.style.left=Math.min(Math.max(0,hx+12),r.width-tip.offsetWidth)+"px";tip.style.top="8px"}
+  ov.addEventListener("pointermove",move);ov.addEventListener("pointerleave",()=>{tip.hidden=true;cross.setAttribute("opacity",0)});
+}
+function barChart(host,{labels,values,fmt,h=220,color,neg,tipExtra}){
+  const W_=800,H=h,m={t:18,r:8,b:28,l:8};
+  const hi=Math.max(0,...values),lo=Math.min(0,...values);const lo2=lo<0?lo*1.15:lo,hi2=hi*1.15||1;
+  const y=v=>m.t+(hi2-v)*(H-m.t-m.b)/(hi2-lo2);const n=values.length,bw=(W_-m.l-m.r)/n;
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;
+  values.forEach((v,i)=>{const x0=m.l+i*bw+bw*.18,w=bw*.64,y0=y(Math.max(v,0)),hh=Math.max(1,Math.abs(y(v)-y(0)));
+    const r=el("rect",{x:x0,y:y0,width:w,height:hh,rx:4,fill:v<0?(neg||"var(--s2)"):(color||"var(--s1)")},svg);
+    const t=el("text",{x:x0+w/2,y:v<0?y(v)+13:y0-5,"font-size":11.5,fill:"var(--ink)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=fmt(v);
+    const l=el("text",{x:x0+w/2,y:H-8,"font-size":11.5,fill:"var(--muted)","text-anchor":"middle"},svg);l.textContent=labels[i];
+    const hit=el("rect",{x:m.l+i*bw,y:m.t,width:bw,height:H-m.t-m.b,fill:"transparent"},svg);
+    hit.addEventListener("pointerenter",()=>{tip.innerHTML=`<div class="d">${labels[i]}</div><b>${fmt(v)}</b>${tipExtra?tipExtra(i):""}`;tip.hidden=false;const R=svg.getBoundingClientRect();tip.style.left=Math.min((m.l+i*bw)*R.width/W_,R.width-tip.offsetWidth)+"px";tip.style.top="0px"});
+    hit.addEventListener("pointerleave",()=>tip.hidden=true)});
+  host.appendChild(svg);host.appendChild(tip);
+}
+barChart(document.getElementById("c-rev"),{labels:HALF.map(r=>r[0]),values:HALF.map(r=>r[1]),fmt:v=>fmtN(v,0),h:200});
+barChart(document.getElementById("c-margin"),{labels:MARGIN.map(r=>r[0]),values:MARGIN.map(r=>r[1]),fmt:v=>fmtN(v,1)+" %",h:200});
+barChart(document.getElementById("c-seas"),{labels:MON,values:SEAS,fmt:v=>(v>0?"+":"")+fmtN(v,1),h:220,tipExtra:i=>`<div>${SEASHIT[i]} % der Jahre positiv</div>`});
+const BANDS=[{"from": 639.0, "to": 659.0, "type": "res"}, {"from": 579.0, "to": 585.0, "type": "res"}, {"from": 531.0, "to": 558.0, "type": "res"}, {"from": 440.0, "to": 465.0, "type": "sup"}, {"from": 402.0, "to": 425.0, "type": "sup"}], REFS=[{"v": 579.18, "label": "Trigger 579.18"}, {"v": 400.0, "label": "Abbruch 400"}];
+const wd=W.map(r=>r[0]);
+lineChart(document.getElementById("c-week"),{dates:wd,series:[{name:"Kurs",values:W.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:W.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:W.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,yFmt:v=>fmtN(v,0),h:320});
+lineChart(document.getElementById("c-adw"),{dates:wd,series:[{name:"A/D Woche",values:W.map(r=>r[5]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,zero:true});
+lineChart(document.getElementById("c-rsiw"),{dates:wd,series:[{name:"RSI Woche",values:W.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,refs:[{v:70,label:"70 überkauft"},{v:30,label:"30 überverkauft"}],pad:[10,90]});
+const dd=DD.map(r=>r[0]);
+lineChart(document.getElementById("c-day"),{dates:dd,series:[{name:"Kurs",values:DD.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:DD.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:DD.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,refs:REFS,yFmt:v=>fmtN(v,0),h:260});
+lineChart(document.getElementById("c-add"),{dates:dd,series:[{name:"A/D Tag",values:DD.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:260,zero:true});
+</script>

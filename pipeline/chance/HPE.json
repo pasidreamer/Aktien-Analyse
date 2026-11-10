@@ -1,0 +1,47 @@
+{
+ "ticker": "HPE",
+ "stand": "2026-11-10",
+ "sorgen": [
+  "Ein Teil des Umsatzsprungs kommt von sehr teuren Speicherchips, die HPE an die Kunden weitergibt. Barclays schrieb am 14.10.2026, der Serverumsatz steige vor allem wegen höherer Bauteilkosten, ein echter KI-Schub fehle noch.",
+  "HPE erwartet selbst, dass die Bruttomarge (3. Quartal: Rekord 40.1 %) wieder Richtung früherer Werte sinkt, wenn sich die Serverpreise normalisieren. Der Lagerbestand stieg auf 11.8 Mrd. $.",
+  "Nach +170 % seit Jahresbeginn galt die Aktie als zu teuer: Evercore (12.10.) und Barclays (14.10.) stuften ab. Anfang November kam ein Ausverkauf bei KI-Hardware dazu, am 5.11. fiel HPE um 12 %. Vom Hoch (73.56 $) bis zum Tief (43.38 $) waren es 41 %.",
+  "Alle Insider haben in 12 Monaten nur verkauft (70.9 Mio. $), Chef Antonio Neri allein im September und Oktober 500'000 Aktien."
+ ],
+ "sorgen_art": "gemischt",
+ "sorgen_art_text": "Das Geschäft wächst laut letztem Bericht stark und die Prognosen wurden zweimal erhöht. Die Sorge, dass ein Teil davon nur von vorübergehend hohen Chip-Preisen kommt, ist aber berechtigt und noch nicht widerlegt.",
+ "aufloeser": [
+  {"was": "Zahlen 4. Quartal: Umsatz im Bereich 13.9 bis 14.8 Mrd. $ und bereinigter Gewinn pro Aktie 1.20 bis 1.30 $, dazu eine Aussage zur Marge trotz Speicherpreisen", "wann": "23.11.2026 nach US-Börsenschluss"},
+  {"was": "Ziel für 2027 bestätigt oder erhöht (bisher Umsatz +13 bis +17 %, Gewinn pro Aktie +16 bis +20 %, Free Cashflow mindestens 5 Mrd. $)", "wann": "23.11.2026"},
+  {"was": "Netzwerk-Geschäft wächst weiter stark, ohne dass die Server die Zahlen tragen müssen", "wann": "Zahlen 1. Quartal 2027, voraussichtlich Anfang März 2027"}
+ ],
+ "schub_stufe": "mittel",
+ "schub_treiber": [
+  {"titel": "Netzwerk für KI-Rechenzentren (Juniper)", "text": "Im 3. Quartal 2026 wuchs das Routing um 270 % und die Rechenzentrums-Netzwerke um 112 %. HPE erwartet für Networking 2027 ein Wachstum im hohen Zehner- bis tiefen Zwanzigerbereich und eine Marge im mittleren bis hohen Zwanzigerbereich. Networking bringt schon rund die Hälfte des Betriebsgewinns.", "wann": "2027 bis 2029"},
+  {"titel": "Einsparungen aus dem Juniper-Kauf", "text": "Das Ziel für jährliche Einsparungen wurde am 30.9.2026 auf 800 Mio. $ bis Ende 2028 erhöht (ursprünglich 450 Mio. $). Das hebt den Gewinn auch ohne mehr Umsatz.", "wann": "bis Ende Geschäftsjahr 2028"},
+  {"titel": "Grosse KI-Aufträge", "text": "Rekord-Auftragsbestand, erster Auftrag für AMD-Helios-Systeme über 1.2 Mrd. $ (Vultr, 30.9.2026) und ein Netzwerk-Auftrag für die KI-Rechenzentren von Oracle. Die Lieferung ist aber durch knappe Speicherchips begrenzt.", "wann": "2027"}
+ ],
+ "schub_beweis": "Achte am 23.11. auf das Ziel für 2027 und auf die operative Marge im Networking (3. Quartal: 22.0 %). Steigt das Networking weiter um 20 % oder mehr, während die Marge hält, trägt das Wachstum auch ohne teure Speicherchips.",
+ "szenario": "Im guten Fall wird HPE vom Serverbauer zu einem Netzwerk-Konzern mit höheren Margen. Dann wäre ein KGV von rund 12.6 auf den Ziel-Gewinn 2026 günstig. Das grösste Risiko: Die Speicherpreise fallen, die Serverumsätze schrumpfen 2027 wieder, und die Firma steht mit dünner Marge und 14 Mrd. $ Nettoschulden da. Weil das Wachstum 2027 laut eigener Prognose langsamer wird als heute, ist der Schub nur «mittel».",
+ "ereignis": {
+  "titel": "Zahlen zum Geschäftsjahr 2026 am 23.11.2026",
+  "art": "buy_the_dip",
+  "termine": [
+   {"was": "Zahlen 4. Quartal und Ziel 2027", "wann": "23.11.2026, nach US-Börsenschluss"},
+   {"was": "UBS-Technologiekonferenz", "wann": "2.12.2026"},
+   {"was": "Barclays-Technologiekonferenz", "wann": "Dezember 2026"}
+  ],
+  "text": "Die Aktie ist seit dem Hoch vom 9.10. um bis zu 41 % gefallen, obwohl HPE seither keine schlechten Zahlen gemeldet hat. Gefallen ist sie wegen Abstufungen, höheren Zinsen und einem Ausverkauf bei allen KI-Hardware-Aktien. Das spricht für einen Rücksetzer bei einer intakten Firma (Buy the Dip). Die Prognose für das 4. Quartal ist bekannt und hoch, darum zählen am 23.11. vor allem das Ziel für 2027 und die Aussagen zur Marge. HPE bewegte sich in einem Jahr 35-mal um mehr als 5 % an einem Tag. Am 3.9.2026 fiel die Aktie trotz Rekordzahlen am Morgen um 6 %, drehte aber noch am selben Tag. Ausschläge von 10 % in beide Richtungen sind am Termin möglich.",
+  "vorgehen": [
+   {"titel": "Abwarten", "text": "Bis die Zahlen am 23.11. da sind und ein Tagesschluss über 56.40 $ (Kurslücke vom 30.10. und Tages-EMA 50) zeigt, dass die Käufer zurück sind. Sicherer, aber teurer."},
+   {"titel": "Kauf in der Kaufzone 43.30 bis 45.70 $", "text": "An den Tiefs vom Juli, September und November, mit klarer Regel: Schliesst eine Woche unter 40.70 $, ist die Idee falsch und du steigst aus. Nächste Haltestelle wäre dann um 34 bis 38 $ (Kursbereich Mitte Mai 2026)."},
+   {"titel": "In Tranchen", "text": "Nicht alles vor dem 23.11. kaufen. Zum Beispiel ein Drittel in Kaufzone 1, ein Drittel nach den Zahlen und den Rest erst bei einem Tagesschluss über 62.20 $."}
+  ]
+ },
+ "quellen": [
+  {"titel": "HPE: Zahlen 3. Quartal 2026 und Prognosen (2.9.2026)", "url": "https://www.hpe.com/us/en/newsroom/press-release/2026/09/hpe-reports-fiscal-2026-third-quarter-results.html"},
+  {"titel": "SiliconANGLE: Fünf Erkenntnisse vom Networking-Investorentag (30.9.2026)", "url": "https://siliconangle.com/2026/09/30/five-takeaways-from-hpes-networking-investor-day/"},
+  {"titel": "Webull/StockStory: Barclays stuft HPE ab (14.10.2026)", "url": "https://www.webull.com/news/15747022646092800"},
+  {"titel": "Trefis: How Much Downside Is Left In HPE Stock? (21.10.2026)", "url": "https://www.trefis.com/articles/619623/how-much-downside-is-left-in-hpe-stock/2026-10-21"},
+  {"titel": "DailyPolitical: HPE fällt um 12 % (5.11.2026)", "url": "https://www.dailypolitical.com/2026/11/05/hewlett-packard-enterprise-nysehpe-stock-falls-12-time-to-sell.html"}
+ ]
+}

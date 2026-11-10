@@ -121,19 +121,22 @@
    "id": "EcaprO1ClEwq",
    "text": "Advanced Micro Devices, Inc. (AMD)",
    "eingang": "2026-11-10T21:45Z",
-   "status": "offen"
+   "status": "fertig",
+   "ticker": "AMD"
   },
   {
    "id": "hVs8fSX1yHQh",
    "text": "Intel Corporation (INTC)",
    "eingang": "2026-11-10T21:49Z",
-   "status": "offen"
+   "status": "fertig",
+   "ticker": "INTC"
   },
   {
    "id": "fEBn93HDO5PZ",
    "text": "Hewlett Packard Enterprise Company (HPE)",
    "eingang": "2026-11-10T21:50Z",
-   "status": "offen"
+   "status": "fertig",
+   "ticker": "HPE"
   }
  ],
  "stand": "2026-11-10T21:51Z"

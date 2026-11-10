@@ -1,0 +1,432 @@
+{
+ "ticker": "INTC",
+ "name": "Intel",
+ "datum": "10.11.2026",
+ "waehrung": "USD",
+ "land": "USA",
+ "meta": "Intel Corporation · Nasdaq: INTC · Prozessoren für PCs und Server, Auftragsfertigung von Chips (Foundry) · Santa Clara, USA",
+ "price": "58.13 $",
+ "pricemeta": "Schluss 10.11.2026 · 52 Wochen: 32.89 – 142.35 $ · Rekordhoch: 142.35 $ am 30.6.2026 (Tageshoch), Schluss 2025: 36.90 $",
+ "verdict": "Intel baut Prozessoren für PCs und Server und will mit eigenen Fabriken Chips für andere Firmen herstellen (Foundry). 2026 stieg die Aktie von 36.90 $ auf ein Rekordhoch von 142.35 $ (30.6.). Treiber waren das starke Server-Geschäft (3. Quartal +78 %) und Berichte über Apple und Google als mögliche Foundry-Kunden. Am 30.10.2026 kippte die Stimmung: Der Ausblick für das 4. Quartal lag rund 9 % unter den Erwartungen, die Aktie fiel an einem Tag um 28.6 %. Heute steht sie bei 58.13 $, 59 % unter dem Hoch. Unter dem Strich schreibt Intel weiter Verlust (−2.37 $ pro Aktie in 12 Monaten), die Rendite auf das eingesetzte Kapital liegt bei rund 3 %, und die Zahl der Aktien stieg in einem Jahr um 17 %. Mit einem Kurs-Umsatz-Verhältnis von 5.2 ist die Aktie trotz Absturz doppelt so teuer wie im eigenen Schnitt (2.6). Qualität orange (41), Timing orange (34): Abwärtsstruktur, Kurs unter den Tageslinien, die A/D-Linie fällt mit. Keine Anlageberatung.",
+ "about": "Intel aus Santa Clara (Kalifornien) ist der älteste grosse Chiphersteller der Welt. Er hat zwei Teile. Intel Products verkauft Prozessoren für PCs und Laptops (Client, 3. Quartal 2026: 8.1 Mrd. $ Umsatz) und für Rechenzentren und KI-Server (Data Center and AI, 7.3 Mrd. $). Intel Foundry betreibt die Fabriken in den USA, Irland und Israel. Sie fertigen heute fast nur für Intel selbst: Im 1. Quartal 2026 kamen von 5.4 Mrd. $ Foundry-Umsatz nur 174 Mio. $ von fremden Kunden. Die neueste Fertigungstechnik heisst 18A und läuft seit Januar 2026 in Arizona in Serie. Chef ist seit 2025 Lip-Bu Tan. Grosse Aktionäre sind der US-Staat (433 Mio. Aktien seit August 2025, heute rund 8 %), Nvidia (215 Mio. Aktien seit Dezember 2025, rund 4 %) und SoftBank (2 Mrd. $ im Jahr 2025). Die Hauptkonkurrenten sind AMD bei Prozessoren und TSMC bei der Auftragsfertigung.",
+ "why": "Ende 2025 kostete Intel 36.90 $. Bis Juni 2026 vervierfachte sich der Kurs. Gründe: Der Staat als Aktionär gilt als Absicherung, die 18A-Fertigung lief an, das Server-Geschäft wuchs dank KI stark, und im Mai und Juni berichteten Medien über Gespräche mit Apple. Im Juni 2026 meldete Barron's einen Auftrag von Google für über 3 Mio. KI-Chips ab 2028. Keiner dieser Kunden ist von den Firmen selbst bestätigt. Im August verkaufte Intel neue Aktien für 23 Mrd. $ zu 95 $. Am 29.10.2026 kamen die Zahlen zum 3. Quartal: Umsatz +21 % auf 16.5 Mrd. $, bereinigter Gewinn 0.52 $ statt erwartet 0.40 $. Der Ausblick enttäuschte aber stark: 15.0 bis 16.0 Mrd. $ Umsatz statt rund 17.1 Mrd. $, Gewinn 0.25 $ statt 0.43 $, Bruttomarge 38 % statt 44.1 %. Der Finanzchef erwartet schwache PC-Verkäufe mindestens bis Mitte 2027 und 2027 «wahrscheinlich keinen» positiven Free Cashflow. Dazu kam eine Explosion im Werk Kiryat Gat in Israel am 14.10.2026. Am 30.10. fiel die Aktie um 28.6 % auf 65.76 $, am 5.11. bis 51.51 $. Das ist mehr als Stimmung: Die Hoffnung war sehr hoch bewertet, und das PC-Geschäft, rund die Hälfte des Umsatzes, schwächelt wirklich.",
+ "kpis": [
+  [
+   "g",
+   "Umsatzwachstum",
+   "+12.1 %",
+   "Letzte 12 Monate bis September 2026 (59.9 Mrd. $), eigene Rechnung aus den Firmenzahlen. Im 2. Quartal +25 %, im 3. Quartal +21 %. Für das 4. Quartal erwartet Intel 15.0 bis 16.0 Mrd. $, weniger als im 3. Quartal."
+  ],
+  [
+   "w",
+   "Operative Marge",
+   "10.3 %",
+   "Von 100 $ Umsatz bleiben rund 10 $ Betriebsgewinn (12 Monate, StockAnalysis, ohne Umbau- und Abschreibungskosten). Mit allen Kosten (GAAP) sind es nur 2.9 % (eigene Rechnung). 2021 waren es noch 27.9 %."
+  ],
+  [
+   "r",
+   "Gewinn pro Aktie (EPS)",
+   "−2.37 $",
+   "Unter dem Strich Verlust in den letzten 12 Monaten (StockAnalysis). Bereinigt um Sonderposten rechnet Intel 1.38 $ (eigene Summe der 4 Quartale). Der Unterschied ist sehr gross, darum Vorsicht."
+  ],
+  [
+   "r",
+   "ROIC",
+   "rund 3 %",
+   "Auf 100 $ investiertes Kapital nur rund 3 $ Gewinn (StockAnalysis 3.4 %, Branchenvergleich der App 2.8 %). Sehr schwach. Die Fabriken haben in 5 Jahren rund 108 Mrd. $ gekostet."
+  ],
+  [
+   "w",
+   "Free Cashflow",
+   "3.77 Mrd. $",
+   "Letzte 12 Monate bis September 2026 (StockAnalysis). Erstmals seit 2021 wieder positiv, von 2022 bis 2025 jedes Jahr negativ (2024: −15.7 Mrd. $). Für 2027 erwartet der Finanzchef «wahrscheinlich» wieder ein Minus."
+  ],
+  [
+   "g",
+   "Schulden",
+   "Netto-Cash 3.9 Mrd. $",
+   "Schulden 50.1 Mrd. $, flüssige Mittel 54.0 Mrd. $ (26.9.2026, eigene Rechnung). Das Polster kommt aber vor allem aus dem Verkauf neuer Aktien für 23 Mrd. $ im August 2026."
+  ],
+  [
+   "r",
+   "Kurs-Umsatz-Verhältnis",
+   "5.2",
+   "Ein KGV gibt es nicht, weil Intel Verlust macht. Darum Börsenwert (rund 309 Mrd. $) geteilt durch Jahresumsatz (59.9 Mrd. $), eigene Rechnung. Eigener Schnitt 2021 bis 2025: 2.6. Also rund doppelt so teuer wie üblich."
+  ],
+  [
+   "r",
+   "Dividende",
+   "keine",
+   "Intel hat die Dividende Ende 2024 gestrichen, um Geld für die Fabriken zu sparen. Bis heute gibt es keine Ankündigung, sie wieder einzuführen."
+  ]
+ ],
+ "revtitle": "Umsatz pro Quartal (Mio. $)",
+ "revunit": "Mio. $",
+ "epsunit": "$",
+ "pecol": "KUV",
+ "revnote": "3 der letzten 4 Quartale lagen über dem Vorjahr: 4. Quartal 2025 −4.1 %, dann +7.2 %, +25.4 % und +20.9 %. Getragen vom Server-Geschäft (3. Quartal +78 %), das PC-Geschäft schrumpfte im 3. Quartal um 5 %. Der Ausblick für das 4. Quartal (Mitte 15.5 Mrd. $) liegt unter dem 3. Quartal.",
+ "marginnote": "Betriebsgewinn pro 100 $ Umsatz ohne Umbau- und Abschreibungskosten (StockAnalysis). Absturz von 27.9 % (2021) auf −2.7 % (2024), seither Erholung auf 10.3 %. Für das 4. Quartal erwartet Intel eine tiefere Bruttomarge (38 % statt 44.1 %).",
+ "finnote": "<b>Hinweis:</b> Zahlen in Mio. $. Jahre 2021 bis 2025 und letzte 12 Monate bis September 2026 laut StockAnalysis (Ansicht «Trailing», Stand 10.11.2026). Die Marge rechnet StockAnalysis ohne Umbau- und Abschreibungskosten, mit allen Kosten liegt sie in den letzten 12 Monaten bei 2.9 % (eigene Rechnung aus den Firmenzahlen). EPS = Gewinn pro Aktie unter dem Strich (GAAP). Bereinigt meldet Intel für 2025 0.42 $, für die letzten 12 Monate 1.38 $ (eigene Summe). ROIC bis 2025 laut StockAnalysis, heute Branchenvergleich der App. Weil Intel Verlust macht, steht statt KGV das Kurs-Umsatz-Verhältnis (KUV) am Jahresende laut StockAnalysis, heute eigene Rechnung (rund 309 Mrd. $ Börsenwert bei 5.31 Mrd. Aktien / 59.9 Mrd. $ Umsatz). Schnitt 2021 bis 2025: 2.6.",
+ "FIN": [
+  [
+   "2021",
+   79024,
+   "+1.5 %",
+   "27.9 %",
+   4.86,
+   9127,
+   "20.4 %",
+   "2.6"
+  ],
+  [
+   "2022",
+   63054,
+   "−20.2 %",
+   "6.2 %",
+   1.94,
+   -9411,
+   "3.5 %",
+   "1.7"
+  ],
+  [
+   "2023",
+   54228,
+   "−14.0 %",
+   "0.1 %",
+   0.4,
+   -14279,
+   "0.0 %",
+   "3.9"
+  ],
+  [
+   "2024",
+   53101,
+   "−2.1 %",
+   "−2.7 %",
+   -4.38,
+   -15656,
+   "−1.1 %",
+   "1.7"
+  ],
+  [
+   "2025",
+   52853,
+   "−0.5 %",
+   "1.8 %",
+   -0.06,
+   -4949,
+   "0.0 %",
+   "3.3"
+  ],
+  [
+   "Letzte 12 Mt.",
+   59892,
+   "+12.1 %",
+   "10.3 %",
+   -2.37,
+   3768,
+   "2.8 %",
+   "5.2"
+  ]
+ ],
+ "QREV": [
+  [
+   "Q4 24",
+   14260
+  ],
+  [
+   "Q1 25",
+   12667
+  ],
+  [
+   "Q2 25",
+   12859
+  ],
+  [
+   "Q3 25",
+   13653
+  ],
+  [
+   "Q4 25",
+   13674
+  ],
+  [
+   "Q1 26",
+   13577
+  ],
+  [
+   "Q2 26",
+   16128
+  ],
+  [
+   "Q3 26",
+   16513
+  ]
+ ],
+ "revdec": 0,
+ "MARGIN": [
+  [
+   "2021",
+   27.9
+  ],
+  [
+   "2022",
+   6.2
+  ],
+  [
+   "2023",
+   0.1
+  ],
+  [
+   "2024",
+   -2.7
+  ],
+  [
+   "2025",
+   1.8
+  ],
+  [
+   "12 Mt.",
+   10.3
+  ]
+ ],
+ "Q": [
+  [
+   "Umsatztrend",
+   "3 von 4 Quartalen über Vorjahr (4. Quartal 2025 −4.1 %, danach +7.2 %, +25.4 %, +20.9 %)",
+   8,
+   15
+  ],
+  [
+   "Wachstumstempo",
+   "12 Monate +12.1 %, getragen von Servern. PC-Geschäft schrumpft, Ausblick 4. Quartal unter dem 3. Quartal",
+   8,
+   10
+  ],
+  [
+   "Operative Marge",
+   "10.3 % ohne Umbaukosten (3 Pkt.), mit allen Kosten 2.9 %. Über 5 Jahre klar gefallen (27.9 % 2021), seit 2024 steigend (1 Pkt.)",
+   4,
+   15
+  ],
+  [
+   "Gewinnwachstum (EPS)",
+   "Unter dem Strich Verlust (−2.37 $). Bereinigt starker Anstieg von −0.13 $ (2024) auf 1.38 $, aber von sehr tiefer Basis, und der Ausblick 4. Quartal (0.25 $) liegt unter dem 3. Quartal (0.52 $)",
+   5,
+   10
+  ],
+  [
+   "Free Cashflow",
+   "12 Monate erstmals seit 2021 positiv (3.77 Mrd. $), davor 4 Jahre negativ. Für 2027 erwartet die Firma eher wieder ein Minus",
+   3,
+   10
+  ],
+  [
+   "ROIC",
+   "Rund 3 %, weit unter 10 % (2 Pkt.). Leichte Erholung, über 5 Jahre aber stark gefallen (20.4 % 2021)",
+   2,
+   15
+  ],
+  [
+   "Schulden",
+   "Netto-Cash 3.9 Mrd. $ (54.0 Mrd. $ Mittel gegen 50.1 Mrd. $ Schulden), möglich durch die Kapitalerhöhung über 23 Mrd. $",
+   10,
+   10
+  ],
+  [
+   "Bewertung vs. eigene Historie",
+   "Verlustfirma: KUV 5.2 gegen eigenen Schnitt 2.6, rund 97 % teurer (1 Pkt., höchstens 7)",
+   1,
+   15
+  ]
+ ],
+ "adwnote": "Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Beim Rekordhoch im Juni 2026 stand die Wochen-A/D bei −68. Heute liegt sie bei −3'189, fast so tief wie im Juli 2025 (−3'380), als die Aktie 19 $ kostete. Die ganze Kaufkraft des Anstiegs ist also wieder weg. Seit dem 5.11. dreht sie im Tageschart leicht nach oben, das ist noch keine Wende.",
+ "rsiwnote": "Unter 30 überverkauft, über 70 überkauft. 36.6, schwach, aber noch nicht überverkauft. Im Mai 2026 lag er bei 91, also extrem überkauft.",
+ "addnote": "Die Tages-A/D fiel vom Hoch am 24.9.2026 (−7) auf −944 am 5.11.2026, genau mit dem Kurs. Es gibt also keine Divergenz: Die Verkäufer bestimmen. Seit dem Tief steigt sie leicht auf −832 (10.11.). Das zeigt erste Käufe nach dem Absturz, mehr nicht.",
+ "ind": [
+  [
+   "Kurs vs. EMA 50",
+   "58.13 &lt; 89.46",
+   "58.13 &lt; 79.66",
+   "Weit unter der mittelfristigen Linie, im Tageschart 35 % darunter."
+  ],
+  [
+   "Kurs vs. EMA 200",
+   "58.13 &lt; 85.24",
+   "58.13 &gt; 51.94",
+   "Im Tageschart unter der langfristigen Linie, in der Woche noch knapp darüber (12 %)."
+  ],
+  [
+   "EMA 50 vs. EMA 200",
+   "50 über 200 (Golden Cross am 26.8.2025)",
+   "50 über 200 (Golden Cross am 16.2.2026)",
+   "Die Linien zeigen noch Aufwärtstrend, aber nur weil sie dem Absturz hinterherlaufen. Die Tages-EMA 50 fällt bereits stark."
+  ],
+  [
+   "RSI (14)",
+   "28.9",
+   "36.6",
+   "Tag überverkauft. Tief am 5.11. bei 20.6, seither leicht erholt. Noch keine Divergenz, weil kein neues Kurstief folgte."
+  ],
+  [
+   "A/D",
+   "fällt seit 24.9. mit dem Kurs, seit 5.11. leicht höher",
+   "so tief wie im Juli 2025",
+   "Beide Zeitebenen bestätigen die Verkäufe."
+  ],
+  [
+   "Volumen",
+   "Ø 20 Tage 148 Mio. vs. Ø 100 Tage 115 Mio. Aktien",
+   "Beim Absturz wurde deutlich mehr gehandelt als üblich."
+  ]
+ ],
+ "smc": "Im Wochenchart ist die Struktur seit dem Hoch vom 30.6.2026 (142.35 $) abwärts: tiefere Hochs bei 107.57 (13.8.) und 127.44 $ (24.9.), Tiefs bei 98.33 (5.6.), 81.79 (29.7.) und 85.14 $ (24.8.). Am 30.10. fiel der Kurs mit einer grossen Kurslücke (von 90.84 auf 68.77 $) unter das Juli-Tief von 81.79 $: ein Bruch der Struktur nach unten. Neues Tief am 5.11. bei 51.51 $. Seither hält der Kurs knapp darüber, die Tageshochs sinken aber weiter (65.72 am 2.11., 62.59 am 3.11., 60.20 $ am 4.11.). Darunter liegen alte Haltestellen: die Wochen-EMA 200 (51.94 $), eine kleine Seitwärtsphase von Dezember 2023 bis Januar 2024 (46.16 bis 50.25 $) und die Tiefs vom Februar und März 2026 (42.88 und 41.64 $). Kurslücken nach oben werden oft später wieder gefüllt, das wäre 68.77 bis 90.84 $. Darauf verlassen kann man sich nicht.",
+ "zones": [
+  [
+   "r",
+   "81.50–91.00 $",
+   "Widerstand: alte Tiefs vom Juli, August und Oktober (81.79, 85.14, 84.65 $), Tages-EMA 200 (85.24) und 50 (89.46), Oberkante der Kurslücke (90.84 $)."
+  ],
+  [
+   "r",
+   "65.50–69.00 $",
+   "Widerstand: Hochs vom 30.10. (68.77) und 2.11.2026 (65.72 $), Unterkante der Kurslücke."
+  ],
+  [
+   "t",
+   "62.59 $",
+   "<b>Trigger:</b> Tagesschluss über 62.59 $ (Hoch vom 3.11., letztes tieferes Hoch vor dem Tief), besser mit steigender Tages-A/D. Stärker wäre ein Schluss über 68.77 $."
+  ],
+  [
+   "s",
+   "50.00–52.50 $",
+   "<b>Kaufzone 1:</b> Tief vom 5.11.2026 (51.51 $), Wochen-EMA 200 (51.94 $), Hoch vom 3.2.2026 (51.49 $) und Oberkante der Seitwärtsphase 2023/24 (50.25 $)."
+  ],
+  [
+   "s",
+   "41.50–44.50 $",
+   "<b>Kaufzone 2:</b> Tiefs vom 20.2. (42.88) und 9.3.2026 (41.64 $), Seitwärtsphase Januar bis März 2024 (42.57 bis 44.17 $)."
+  ],
+  [
+   "r",
+   "40.00 $",
+   "Abbruch: Wochenschluss unter 40 $, also unter dem Tief vom 30.3.2026 (40.63 $). Dann wäre fast der ganze Anstieg von 2026 weg."
+  ]
+ ],
+ "smart": [
+  "<b>Grossaktionäre:</b> Der US-Staat kaufte im August 2025 433.3 Mio. Aktien zu 20.47 $ (damals 9.9 %, heute rund 8 %). Nvidia kaufte am 26.12.2025 214.8 Mio. Aktien zu 23.28 $ (rund 4 %), SoftBank 2025 für 2 Mrd. $. Neue Käufe dieser Aktionäre seit dem Absturz sind mir nicht bekannt.",
+  "<b>Insider:</b> Chef Lip-Bu Tan kaufte am 11.8.2026 105'263 Aktien zu 95 $ für 10 Mio. $, zum Preis der Kapitalerhöhung (InsiderTrades). Im Februar 2026 verkaufte ein Geschäftsleitungsmitglied 20'000 Aktien. Eine vollständige Insider-Liste konnte ich nicht abrufen.",
+  "<b>Rückkäufe:</b> Keine. Im Gegenteil: Die verwässerte Aktienzahl stieg von 4.53 Mrd. (3. Quartal 2025) auf 5.31 Mrd. (3. Quartal 2026), +17 %. Dein Anteil an der Firma wird kleiner.",
+  "<b>Analysten:</b> 49 Analysten, 1 Stark Kaufen, 14 Kaufen, 32 Halten, 1 Verkaufen, 1 Stark Verkaufen. Kursziel im Schnitt 101.02 $ (24/7 Wall St., 3.11.2026), viele Ziele sind nach dem Absturz noch nicht angepasst. Nach den Zahlen stufte Bank of America auf Neutral ab, Bernstein senkte das Ziel von 110 auf 75 $."
+ ],
+ "seasnote": "Durchschnittliche Monatsrendite in %. Daten seit 1985. Stark sind November (+4.0 %, 74 % positive Jahre) und Januar (+4.3 %, 62 %). Dezember +0.8 % (56 %). Schwach sind Mai und Juli (je −0.2 %, unter 50 %). Saisonalität ist bei einem Kurssturz wie jetzt ein schwaches Argument.",
+ "T": [
+  [
+   "Trend Woche (EMA 50/200)",
+   "Kurs unter EMA 50, knapp über EMA 200, EMA 50 noch über 200. Formal Rücksetzer im Aufwärtstrend, aber sehr tief",
+   12,
+   20
+  ],
+  [
+   "Trend Tag (EMA 50/200)",
+   "Kurs weit unter beiden Linien, nur die EMA 50 liegt noch über der EMA 200",
+   2,
+   10
+  ],
+  [
+   "Struktur (SMC)",
+   "Tiefere Hochs und tiefere Tiefs, Bruch nach unten am 30.10. mit Kurslücke, noch kein höheres Tief",
+   2,
+   20
+  ],
+  [
+   "RSI Tag/Woche",
+   "Tag 28.9 überverkauft, Woche 36.6. Kein Bodenzeichen und keine Divergenz",
+   5,
+   15
+  ],
+  [
+   "A/D Tag/Woche",
+   "Beide fallen mit dem Kurs, Woche fast so tief wie im Juli 2025",
+   3,
+   20
+  ],
+  [
+   "Smart Money",
+   "Start 3, Kauf des Chefs im August 2026 zum Preis der Kapitalerhöhung (+2, nicht frei am Markt), kein Rückkauf, Aktienzahl +17 %",
+   5,
+   10
+  ],
+  [
+   "Saisonalität",
+   "November 74 %, Dezember 56 %, Januar 62 % positive Jahre",
+   5,
+   5
+  ]
+ ],
+ "pro": [
+  "Das Server-Geschäft wächst stark: 3. Quartal 2026 +78 % auf 7.3 Mrd. $, Google will mehrere Generationen von Xeon-Prozessoren für KI einsetzen.",
+  "Umsatz der letzten 12 Monate +12.1 % nach vier Jahren Schrumpfen. Bereinigter Gewinn im 3. Quartal 0.52 $ statt erwartet 0.40 $.",
+  "Kein Netto-Schuldenberg: 54.0 Mrd. $ flüssige Mittel gegen 50.1 Mrd. $ Schulden.",
+  "Starke Partner: US-Staat, Nvidia und SoftBank sind Aktionäre. Chef Lip-Bu Tan kündigte Foundry-Kunden für die nächsten zwei Quartale an.",
+  "Nach −59 % ist viel Pessimismus im Kurs, der Tages-RSI ist überverkauft."
+ ],
+ "con": [
+  "Ausblick 4. Quartal klar unter den Erwartungen: 15.0 bis 16.0 Mrd. $ statt 17.1 Mrd. $, Bruttomarge 38 % statt 44.1 %. PC-Schwäche mindestens bis Mitte 2027.",
+  "Unter dem Strich Verlust (−2.37 $ pro Aktie), ROIC rund 3 %, Free Cashflow 2027 laut Finanzchef «wahrscheinlich» wieder negativ.",
+  "Verwässerung: 17 % mehr Aktien in einem Jahr, keine Dividende, keine Rückkäufe.",
+  "Foundry hat noch keinen grossen bestätigten Kunden für die neueste Technik. Apple und Google sind nur Medienberichte.",
+  "Trotz Absturz teuer: KUV 5.2 gegen eigenen Schnitt 2.6. Der faire Wert im Branchenvergleich der App liegt weit unter dem Kurs. Chart: Abwärtsstruktur, A/D fällt."
+ ],
+ "todo": [
+  [
+   "t",
+   "Beobachten",
+   "Alarm bei 62.59 $ (Trigger) und 52.50 $ (oberes Ende Kaufzone 1)."
+  ],
+  [
+   "s",
+   "Timing grün",
+   "Höheres Tief über 51.51 $ und Tagesschluss über 62.59 $ mit steigender A/D, besser die Lücke ab 68.77 $ zurückerobert. Fundamental: ein namentlich bestätigter grosser Foundry-Kunde und eine Bruttomarge, die nach dem 4. Quartal wieder über 40 % steigt."
+  ],
+  [
+   "r",
+   "Abbruch",
+   "Wochenschluss unter 40 $."
+  ],
+  [
+   "",
+   "Nächste Zahlen",
+   "4. Quartal 2026 und Ausblick 2027: voraussichtlich 28.1.2027 nach US-Börsenschluss (Schätzung von Wall Street Horizon, von Intel noch nicht bestätigt)."
+  ]
+ ],
+ "bands": [
+  {
+   "from": 81.5,
+   "to": 91.0,
+   "type": "res"
+  },
+  {
+   "from": 65.5,
+   "to": 69.0,
+   "type": "res"
+  },
+  {
+   "from": 50.0,
+   "to": 52.5,
+   "type": "sup"
+  },
+  {
+   "from": 41.5,
+   "to": 44.5,
+   "type": "sup"
+  }
+ ],
+ "refs": [
+  {
+   "v": 62.59,
+   "label": "Trigger 62.59"
+  }
+ ],
+ "sources": "<a href=\"https://www.intc.com/news-events/press-releases/detail/1786/intel-reports-third-quarter-2026-financial-results\" target=\"_blank\" rel=\"noopener\">Intel: Zahlen 3. Quartal 2026 (29.10.2026)</a>, <a href=\"https://www.sec.gov/Archives/edgar/data/0000050863/000005086326000188/q326earningsrelease.htm\" target=\"_blank\" rel=\"noopener\">SEC 8-K 3. Quartal 2026 (Bilanz, Cashflow, Aktienzahl)</a>, <a href=\"https://www.intc.com/news-events/press-releases/detail/1776/intel-reports-second-quarter-2026-financial-results\" target=\"_blank\" rel=\"noopener\">Intel: Zahlen 2. Quartal 2026 (23.7.2026)</a>, <a href=\"https://www.intc.com/news-events/press-releases/detail/1767/intel-reports-first-quarter-2026-financial-results/\" target=\"_blank\" rel=\"noopener\">Intel: Zahlen 1. Quartal 2026 (23.4.2026)</a>, <a href=\"https://www.intc.com/news-events/press-releases/detail/1759/intel-reports-fourth-quarter-and-full-year-2025-financial-results\" target=\"_blank\" rel=\"noopener\">Intel: Zahlen 2025 (22.1.2026)</a>, <a href=\"https://stockanalysis.com/stocks/intc/financials/?p=trailing\" target=\"_blank\" rel=\"noopener\">StockAnalysis.com (INTC)</a> (Finanzen und Kennzahlen, Stand 10.11.2026), <a href=\"https://finviz.com/news/412405/intel-shares-plunge-25-as-weak-fourth-quarter-outlook-overshadows-strong-q3-earnings\" target=\"_blank\" rel=\"noopener\">Finviz: Ausblick gegen Erwartungen (30.10.2026)</a>, <a href=\"https://tech-insider.org/intel-stock-falls-28-6-percent-65-76-buy-the-dip-2026/\" target=\"_blank\" rel=\"noopener\">Tech Insider: Absturz und Analysten</a>, <a href=\"https://247wallst.com/investing/2026/11/03/intel-has-lost-more-than-half-its-value-since-its-peak/\" target=\"_blank\" rel=\"noopener\">24/7 Wall St.: Analysten und Finanzchef (3.11.2026)</a>, <a href=\"https://www.money365.market/articles/intel-q3-2026-earnings-analysis\" target=\"_blank\" rel=\"noopener\">Money365: Kapitalerhöhung und Kiryat Gat</a>, <a href=\"https://www.indmoney.com/blog/us-stocks/why-is-intel-stock-rising-growth-bet-or-recovery-trap\" target=\"_blank\" rel=\"noopener\">INDmoney: Gründe für den Anstieg 2026</a>, <a href=\"https://parameter.io/intel-intc-stock-soars-11-following-major-google-tpu-contract-and-cadence-partnership/\" target=\"_blank\" rel=\"noopener\">Parameter: Bericht über Google-Auftrag (9.6.2026)</a>, <a href=\"https://fintool.com/news/nvidia-intel-5-billion-stake-closes\" target=\"_blank\" rel=\"noopener\">Fintool: Nvidia-Beteiligung</a>, <a href=\"https://www.insidertrades.com/alerts/nasdaq-intc-insider-buying-and-selling-2026-08-15/\" target=\"_blank\" rel=\"noopener\">InsiderTrades: Kauf des Chefs</a>, <a href=\"https://www.israelhayom.com/2026/10/14/intel-plant-explosion-kiryat-gat-3-injured/\" target=\"_blank\" rel=\"noopener\">Israel Hayom: Explosion Kiryat Gat (14.10.2026)</a>, <a href=\"https://www.wallstreethorizon.com/intel-earnings-calendar\" target=\"_blank\" rel=\"noopener\">Wall Street Horizon: nächster Termin</a>. Branchenvergleich der App (Stand 7.11.2026): Note 0.8 von 5, fairer Wert nach den Modellen rund 9 bis 11 $, weit unter dem Kurs, aber zu wenige Modelle für eine verlässliche Aussage. Analystenziel dort 91.12 $ (43 Analysten, Halten). Entdecken (10.11.2026): Qualität 10, Timing 34."
+}

@@ -2205,5 +2205,132 @@
   "pe_typ": "KUV",
   "zahlen": "",
   "artifact": "QCp5MWFTAbg3wXjtYnFdj5"
+ },
+ "AMD": {
+  "symbol": "AMD",
+  "name": "AMD",
+  "tags": [
+   "Wachstum"
+  ],
+  "land": "USA",
+  "region": "USA",
+  "branche": "Halbleiter (Prozessoren und KI-Chips)",
+  "status": "beobachten",
+  "waehrung": "USD",
+  "kurs": 515.21,
+  "datenstand": "2026-11-10",
+  "kauf": [
+   [
+    440.0,
+    465.0
+   ],
+   [
+    402.0,
+    425.0
+   ]
+  ],
+  "widerstand": [
+   [
+    531.0,
+    558.0
+   ],
+   [
+    579.0,
+    585.0
+   ],
+   [
+    639.0,
+    659.0
+   ]
+  ],
+  "trigger": 579.18,
+  "abbruch": 400.0,
+  "pe": 111.8,
+  "pe_avg": 123.7,
+  "pe_typ": "KGV",
+  "zahlen": "2027-02-02",
+  "artifact": "AfUbanshLvs86sppGSptZc"
+ },
+ "INTC": {
+  "symbol": "INTC",
+  "name": "Intel",
+  "tags": [
+   "Wachstum"
+  ],
+  "land": "USA",
+  "region": "USA",
+  "branche": "Halbleiter (Prozessoren und Auftragsfertigung)",
+  "status": "beobachten",
+  "waehrung": "USD",
+  "kurs": 58.13,
+  "datenstand": "2026-11-10",
+  "kauf": [
+   [
+    50.0,
+    52.5
+   ],
+   [
+    41.5,
+    44.5
+   ]
+  ],
+  "widerstand": [
+   [
+    65.5,
+    69.0
+   ],
+   [
+    81.5,
+    91.0
+   ]
+  ],
+  "trigger": 62.59,
+  "abbruch": 40.0,
+  "pe": 5.2,
+  "pe_avg": 2.6,
+  "pe_typ": "KUV",
+  "zahlen": "2027-01-28",
+  "artifact": "HVsLAJCGuLgrEAfdF5qJLo"
+ },
+ "HPE": {
+  "symbol": "HPE",
+  "name": "Hewlett Packard Enterprise",
+  "tags": [
+   "Wachstum"
+  ],
+  "land": "USA",
+  "region": "USA",
+  "branche": "Server, Netzwerk und Speicher für Firmen",
+  "status": "beobachten",
+  "waehrung": "USD",
+  "kurs": 47.93,
+  "datenstand": "2026-11-10",
+  "kauf": [
+   [
+    43.3,
+    45.7
+   ],
+   [
+    40.3,
+    42.9
+   ]
+  ],
+  "widerstand": [
+   [
+    53.9,
+    58.4
+   ],
+   [
+    62.2,
+    64.3
+   ]
+  ],
+  "trigger": 62.2,
+  "abbruch": 40.7,
+  "pe": 24.5,
+  "pe_avg": 11.6,
+  "pe_typ": "KGV",
+  "zahlen": "2026-11-23",
+  "artifact": "EEaoqK2YhdgvZZbmqh1Rbt"
  }
 }
