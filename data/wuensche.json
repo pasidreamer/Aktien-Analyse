@@ -116,7 +116,25 @@
    "status": "fertig",
    "hinweis": "Von Pascal im Chat gewünscht. pipeline/chance/TTWO.json mit der Einschätzung aus dem Chat (Sell the News, Termine, drei Vorgehensweisen) existiert schon: genau so übernehmen, nicht überschreiben. Zahlen am 9.11.2026 nach US-Börsenschluss, GTA VI am 19.11.2026. Insiderverkäufe, Verwässerung durch Aktienvergütung, Netto-Schulden, Free Cashflow nach dem GTA-Start. Keine Dividende.",
    "ticker": "TTWO"
+  },
+  {
+   "id": "EcaprO1ClEwq",
+   "text": "Advanced Micro Devices, Inc. (AMD)",
+   "eingang": "2026-11-10T21:45Z",
+   "status": "offen"
+  },
+  {
+   "id": "hVs8fSX1yHQh",
+   "text": "Intel Corporation (INTC)",
+   "eingang": "2026-11-10T21:49Z",
+   "status": "offen"
+  },
+  {
+   "id": "fEBn93HDO5PZ",
+   "text": "Hewlett Packard Enterprise Company (HPE)",
+   "eingang": "2026-11-10T21:50Z",
+   "status": "offen"
   }
  ],
- "stand": "2026-10-28T10:16Z"
+ "stand": "2026-11-10T21:51Z"
 }
