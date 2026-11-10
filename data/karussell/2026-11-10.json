@@ -1,0 +1,146 @@
+{
+ "datum": "2026-11-10",
+ "ticker": "HAG",
+ "name": "Hensoldt",
+ "thema": "Kursbewegung",
+ "stand": "09.11.2026",
+ "slides": [
+  {
+   "typ": "hook",
+   "kicker": "HENSOLDT · KURSBEWEGUNG",
+   "titel": "Plus 6.9 % vor dem Kapitalmarkttag",
+   "text": "Am Montag stieg Hensoldt auf 82.80 €. Der deutsche Markt erholte sich, Rüstungswerte gehörten zu den Gewinnern. Heute zeigt die Firma in London ihre Pläne.",
+   "kpis": [
+    {
+     "label": "KURS",
+     "wert": "82.80 €"
+    },
+    {
+     "label": "AM MONTAG",
+     "wert": "+6.9 %",
+     "ton": "gruen"
+    },
+    {
+     "label": "UNTER DEM HOCH",
+     "wert": "−14 %",
+     "ton": "rot"
+    }
+   ]
+  },
+  {
+   "typ": "firma",
+   "kicker": "WAS DIE FIRMA MACHT",
+   "titel": "Sensoren für das Militär",
+   "text": "Hensoldt baut Radare und Sensoren für Kampfjets und Schiffe. Die Sparte Optronik liefert Zielgeräte und Nachtsicht. Die Aktie ist im MDAX.",
+   "fakten": [
+    {
+     "label": "Sitz",
+     "wert": "Taufkirchen bei München"
+    },
+    {
+     "label": "Mitarbeitende",
+     "wert": "rund 10 000"
+    },
+    {
+     "label": "Umsatz 2025",
+     "wert": "2.46 Mrd. €"
+    }
+   ]
+  },
+  {
+   "typ": "zahlen",
+   "kicker": "WAS DIE ZAHLEN ZEIGEN",
+   "titel": "Aufträge wachsen schneller",
+   "quelle": "Quelle: Hensoldt, 9-Monatszahlen vom 5.11.2026",
+   "zeilen": [
+    {
+     "k": "Umsatz",
+     "sub": "Januar bis September, 1.86 Mrd. €",
+     "wert": "+21 %",
+     "ton": "gruen"
+    },
+    {
+     "k": "Auftragseingang",
+     "sub": "Januar bis September, 3.56 Mrd. €",
+     "wert": "+77 %",
+     "ton": "gruen"
+    },
+    {
+     "k": "Auftragsbestand",
+     "sub": "Rekord, Ende September",
+     "wert": "10.4 Mrd. €",
+     "ton": "gruen"
+    },
+    {
+     "k": "Freier Cashflow",
+     "sub": "Januar bis September, bereinigt",
+     "wert": "−104 Mio. €",
+     "ton": "orange"
+    }
+   ],
+   "erklaerung": "Der Auftragsbestand reicht für rund 3.7 Jahresumsätze. Für 2026 erwartet Hensoldt jetzt rund 2.8 Mrd. € Umsatz, vorher waren es 2.75 Mrd. €."
+  },
+  {
+   "typ": "skala",
+   "kicker": "AMPEL 1: QUALITÄT",
+   "titel": "Starkes Wachstum, teure Aktie",
+   "name": "Qualität",
+   "wert": 51,
+   "punkte": [
+    "Der bereinigte Betriebsgewinn (EBITDA) stieg in neun Monaten um 33 %, schneller als der Umsatz.",
+    "Nach neun Monaten ist der freie Cashflow negativ. Das meiste Geld fliesst erst im vierten Quartal.",
+    "Gemessen am Gewinn ist die Aktie sehr teuer."
+   ]
+  },
+  {
+   "typ": "skala",
+   "kicker": "STRUKTUR IM WOCHENCHART",
+   "titel": "Seitwärts seit einem Jahr",
+   "name": "Timing",
+   "wert": 62,
+   "punkte": [
+    "Seit Ende 2025 pendelt der Kurs zwischen rund 63 und 97 €. Am Hoch drehte er im Januar und im August.",
+    "Seit August läuft eine engere Range von 75.86 bis 89.30 €. Ein Fehlausbruch im September kam schnell zurück.",
+    "An fallenden Tagen war das Volumen kleiner. Das deutet auf Einsammeln hin (Akkumulation)."
+   ]
+  },
+  {
+   "typ": "marke",
+   "kicker": "DIE ENTSCHEIDENDE MARKE",
+   "titel": "Der Boden der Range",
+   "text": "Bei 75.86 € liegt die Unterkante der Range seit August. Der Kurs steht jetzt 9 % darüber.",
+   "marke_label": "RANGE-UNTERKANTE",
+   "marke": "75.86 €",
+   "szenarien": [
+    {
+     "art": "bruch",
+     "titel": "Bricht sie",
+     "text": "Ein Wochenschluss darunter öffnet den Weg zu den Tiefs von Dezember und Juni bei 63 bis 65 €. Darunter liegt 61.10 € (März 2025)."
+    },
+    {
+     "art": "halten",
+     "titel": "Hält sie",
+     "text": "Dann bleibt die Range intakt. Ein Ausbruch über 89.30 € wäre ein Zeichen für die Käufer. Danach wartet das Doppelhoch bei 96.70 €."
+    }
+   ]
+  },
+  {
+   "typ": "fazit",
+   "kicker": "MEIN FAZIT",
+   "titel": "Volle Bücher, hoher Preis",
+   "absaetze": [
+    "Hensoldt hat so viele Aufträge wie nie. Das Geld dafür kommt aber erst später herein, und die Aktie ist schon teuer bewertet.",
+    "Im Chart beobachte ich die Range zwischen 75.86 und 89.30 €. Spannend wird, ob der Kapitalmarkttag heute einen Ausbruch nach oben anstösst."
+   ],
+   "frage": "Trägt der Rüstungsboom noch viele Jahre? Deine Meinung in die Kommentare."
+  }
+ ],
+ "caption": "Hensoldt stieg am Montag um 6.9 % und hat Aufträge über 10 Mrd. € in den Büchern. Heute stellt die Firma in London ihre Pläne vor. Im Chart läuft die Aktie seit August in einer Range zwischen 75.86 und 89.30 €. Wisch durch für Zahlen, Struktur und beide Szenarien.",
+ "hashtags": [
+  "#hensoldt",
+  "#aktien",
+  "#börse",
+  "#kursbewegung",
+  "#hag"
+ ]
+}
