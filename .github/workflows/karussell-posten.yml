@@ -1,14 +1,20 @@
 name: Karussell posten
-# Jeden Tag um ca. 07:30 Uhr (Zürich) das Karussell von heute auf Instagram und TikTok posten.
-# Zwei Startzeiten in UTC, damit es bei Sommer- und Winterzeit stimmt; posten.py postet nur ab 7 Uhr
-# und nie zweimal (data/karussell/gepostet.json). GitHub startet geplante Läufe teils einige Minuten später.
+# Jeden Tag um ca. 07:30 Uhr (Zürich) das Karussell von heute auf Instagram (Karussell + Reel) und TikTok posten.
+#
+# Auslöser, damit es sicher klappt (GitHub lässt geplante Läufe manchmal stundenlang liegen oder ganz aus):
+#  1. Sobald das Karussell gerendert ist (Workflow «Instagram-Karussell rendern»): Lauf wartet bis 07:30 und postet.
+#  2. Ersatz: Zeitplan alle 30 Minuten zwischen ca. 06:30 und 12:00 Uhr. posten.py postet nur zwischen 07:00 und
+#     15:00 Uhr und nie zweimal (data/karussell/gepostet.json), überzählige Läufe tun also nichts.
 on:
+  workflow_run:
+    workflows: ["Instagram-Karussell rendern"]
+    types: [completed]
   schedule:
-    - cron: "20 5,6 * * *"
+    - cron: "29,59 5-10 * * *"
   workflow_dispatch:
     inputs:
       trocken:
-        description: "Nur testen, nichts posten"
+        description: "Nur testen, nichts posten (der Reel wird trotzdem gebaut und als Download angehängt)"
         type: boolean
         default: true
       datum:
@@ -24,7 +30,9 @@ concurrency:
 
 jobs:
   posten:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
+    timeout-minutes: 240
     steps:
       - uses: actions/checkout@v4
         with:
@@ -32,7 +40,36 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Bis 07:30 warten (nur nach dem Rendern)
+        if: github.event_name == 'workflow_run'
+        run: |
+          ziel=$(TZ=Europe/Zurich date -d "07:30" +%s)
+          jetzt=$(date +%s)
+          if [ "$jetzt" -lt "$ziel" ]; then
+            echo "Warte $(( (ziel - jetzt) / 60 )) Minuten bis 07:30 Uhr Zürich."
+            sleep $(( ziel - jetzt ))
+          fi
+          git pull -q origin main
+      - name: Schon gepostet?
+        id: offen
+        run: |
+          python - >> "$GITHUB_OUTPUT" <<'EOF'
+          import datetime, json, zoneinfo
+          heute = datetime.datetime.now(zoneinfo.ZoneInfo("Europe/Zurich")).date().isoformat()
+          try:
+              e = json.load(open("data/karussell/gepostet.json", encoding="utf-8"))["posts"].get(heute, {})
+          except (OSError, ValueError, KeyError):
+              e = {}
+          print("fertig=" + ("ja" if all("id" in e.get(p, {}) for p in ("instagram", "instagram_reel")) else "nein"))
+          EOF
+      - name: Werkzeuge für den Reel
+        if: steps.offen.outputs.fertig != 'ja' || github.event_name == 'workflow_dispatch'
+        run: |
+          pip install numpy playwright
+          python -m playwright install --with-deps chromium
+          command -v ffmpeg || (sudo apt-get update && sudo apt-get install -y ffmpeg)
       - name: Posten
+        if: steps.offen.outputs.fertig != 'ja' || github.event_name == 'workflow_dispatch'
         env:
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           IG_TOKEN: ${{ secrets.IG_TOKEN }}
@@ -40,16 +77,25 @@ jobs:
           TIKTOK_CLIENT_SECRET: ${{ secrets.TIKTOK_CLIENT_SECRET }}
           TIKTOK_REFRESH_TOKEN: ${{ secrets.TIKTOK_REFRESH_TOKEN }}
           TIKTOK_MODUS: ${{ vars.TIKTOK_MODUS || 'entwurf' }}
+          REEL: ${{ vars.REEL || 'an' }}
           GH_SECRETS_TOKEN: ${{ secrets.GH_SECRETS_TOKEN }}
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
           TROCKEN: ${{ inputs.trocken }}
           DATUM: ${{ inputs.datum }}
         run: |
           args=""
-          if [ "${{ github.event_name }}" = "schedule" ]; then args="--ab-7-uhr"; fi
+          if [ "${{ github.event_name }}" != "workflow_dispatch" ]; then args="--ab-7-uhr"; fi
           if [ "$TROCKEN" = "true" ]; then args="$args --trocken"; fi
           if [ -n "$DATUM" ]; then args="$args --datum $DATUM"; fi
           python scripts/posten.py $args
+      - name: Reel als Download anhängen
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reel
+          path: karussell/*/reel.mp4
+          if-no-files-found: ignore
+          retention-days: 14
       - name: Protokoll speichern
         if: always()
         run: |

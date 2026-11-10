@@ -2,7 +2,7 @@
 
 Aufruf:
   python scripts/posten.py                 heute posten (Zeitzone Europe/Zurich)
-  python scripts/posten.py --ab-7-uhr      nur posten, wenn es in Zürich zwischen 7 und 12 Uhr ist (für den Zeitplan)
+  python scripts/posten.py --ab-7-uhr      nur posten, wenn es in Zürich zwischen 7 und 15 Uhr ist (für den Zeitplan)
   python scripts/posten.py --datum 2026-11-05 --trocken
                                            zeigt nur, was gesendet würde (prüft aber die Bilder im Netz)
 
@@ -11,24 +11,28 @@ Ablauf:
      «keine Anlageberatung», höchstens 5 Hashtags, Offenlegung gesetzt). Fällt eine Prüfung durch,
      springt ein Reserve-Post aus karussell/reserve/ ein.
   2. Instagram: pro Bild ein Container, dann der Karussell-Container mit Caption, dann veröffentlichen.
-  3. TikTok: Foto-Post über die Content Posting API (Entwurf im Posteingang oder Direkt-Post).
-  4. Ergebnis in data/karussell/gepostet.json. Was dort für ein Datum steht, wird nie ein zweites Mal gepostet.
-  5. Meldung per ntfy.
+  3. Instagram-Reel: eigenes Motion-Video mit eigener Musik (scripts/reel.py), erscheint nur im Reels-Tab.
+     Wird direkt zu Instagram hochgeladen (resumable upload), braucht also kein Hosting.
+  4. TikTok: Foto-Post über die Content Posting API (Entwurf im Posteingang oder Direkt-Post).
+  5. Ergebnis in data/karussell/gepostet.json. Was dort für ein Datum steht, wird nie ein zweites Mal gepostet.
+  6. Meldung per ntfy.
 
 Umgebungsvariablen (GitHub-Secrets). Fehlt der Zugang einer Plattform, wird sie übersprungen:
   IG_USER_ID, IG_TOKEN                                      Instagram (Token des Systemnutzers, läuft nie ab)
   TIKTOK_CLIENT_KEY, TIKTOK_CLIENT_SECRET, TIKTOK_REFRESH_TOKEN
   TIKTOK_MODUS = entwurf (Standard) | direkt                direkt erst nach der TikTok-Prüfung
   GH_SECRETS_TOKEN                                          erlaubt, einen erneuerten TikTok-Token zu speichern
+  REEL = aus                                                schaltet den Reel ab (Standard: an)
   NTFY_TOPIC
 """
-import argparse, datetime as dt, json, os, re, subprocess, sys, time, urllib.error, urllib.parse, urllib.request
+import argparse, datetime as dt, json, os, re, subprocess, sys, tempfile, time, urllib.error, urllib.parse, urllib.request
 from zoneinfo import ZoneInfo
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASIS = "https://pasidreamer.github.io/Aktien-Analyse"
 ZONE = ZoneInfo("Europe/Zurich")
-IG_API = "https://graph.facebook.com/" + os.environ.get("IG_API_VERSION", "v25.0")  # Token des Systemnutzers (Meta Business)
+IG_VERSION = os.environ.get("IG_API_VERSION", "v25.0")
+IG_API = "https://graph.facebook.com/" + IG_VERSION  # Token des Systemnutzers (Meta Business)
 TT_API = "https://open.tiktokapis.com/v2"
 DISCLAIMER = "Persönliche Meinung, keine Anlageberatung. Mach deine eigene Recherche."
 MAX_HASHTAGS = 5
@@ -39,11 +43,14 @@ TROCKEN = False
 
 # ---------- Hilfen ----------
 
-def http(methode, url, daten=None, json_body=None, kopf=None):
+def http(methode, url, daten=None, json_body=None, kopf=None, roh_body=None, timeout=60):
     """Kleiner HTTP-Aufruf ohne Fremdpakete. Gibt (status, json|text) zurück."""
     kopf = dict(kopf or {})
     body = None
-    if json_body is not None:
+    if roh_body is not None:
+        body = roh_body
+        kopf.setdefault("Content-Type", "application/octet-stream")
+    elif json_body is not None:
         body = json.dumps(json_body).encode()
         kopf["Content-Type"] = "application/json; charset=UTF-8"
     elif daten is not None:
@@ -51,7 +58,7 @@ def http(methode, url, daten=None, json_body=None, kopf=None):
         kopf["Content-Type"] = "application/x-www-form-urlencoded"
     req = urllib.request.Request(url, data=body, headers=kopf, method=methode)
     try:
-        with urllib.request.urlopen(req, timeout=60) as r:
+        with urllib.request.urlopen(req, timeout=timeout) as r:
             roh, status, typ = r.read(), r.status, r.headers.get("Content-Type", "")
     except urllib.error.HTTPError as f:
         roh, status, typ = f.read(), f.code, f.headers.get("Content-Type", "")
@@ -235,6 +242,40 @@ def instagram_posten(post):
     return ig_aufruf("POST", f"{nutzer}/media_publish", creation_id=karussell)["id"]
 
 
+def reel_caption(caption):
+    """Die Karussell-Caption passt, nur «Wisch durch …» stimmt im Video nicht."""
+    return re.sub(r"Wisch durch[^.\n]*\.", "Alle Folien zum Nachlesen im Karussell auf dem Profil.", caption)
+
+
+def instagram_reel_posten(post):
+    """Motion-Reel bauen und direkt zu Instagram hochladen (nur Reels-Tab, nicht im Raster)."""
+    if os.environ.get("REEL", "an") == "aus":
+        return "aus"
+    if post["art"] != "karussell":
+        return "keiner (Reserve-Post)"
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import reel
+    datei = os.path.join(ROOT, "karussell", post["datum"], "reel.mp4")
+    reel.bauen(post["datum"], datei)
+    caption = reel_caption(post["caption"])
+    if TROCKEN:
+        print(f"[trocken] Instagram-Reel: {os.path.getsize(datei) / 1e6:.1f} MB hochladen, Caption {len(caption)} Zeichen, nur Reels-Tab")
+        return "trocken"
+    nutzer = os.environ["IG_USER_ID"]
+    c = ig_aufruf("POST", f"{nutzer}/media", media_type="REELS", upload_type="resumable", caption=caption,
+                  share_to_feed="false", thumb_offset="3600")
+    cid = c["id"]
+    uri = c.get("uri") or f"https://rupload.facebook.com/ig-api-upload/{IG_VERSION}/{cid}"
+    with open(datei, "rb") as f:
+        inhalt = f.read()
+    status, antwort = http("POST", uri, roh_body=inhalt, timeout=300, kopf={
+        "Authorization": f"OAuth {os.environ['IG_TOKEN']}", "offset": "0", "file_size": str(len(inhalt))})
+    if status != 200 or not (isinstance(antwort, dict) and antwort.get("success")):
+        raise RuntimeError(ohne_token(f"Reel-Upload: {status} {antwort}"))
+    ig_warten(cid, versuche=60)
+    return ig_aufruf("POST", f"{nutzer}/media_publish", creation_id=cid)["id"]
+
+
 # ---------- TikTok ----------
 
 def tiktok_token():
@@ -276,9 +317,10 @@ def tiktok_posten(post):
 
 # ---------- Ablauf ----------
 
-NAMEN = {"instagram": "Instagram", "tiktok": "TikTok"}
+NAMEN = {"instagram": "Instagram", "instagram_reel": "Instagram-Reel", "tiktok": "TikTok"}
 PLATTFORMEN = {
     "instagram": (("IG_USER_ID", "IG_TOKEN"), instagram_posten),
+    "instagram_reel": (("IG_USER_ID", "IG_TOKEN"), instagram_reel_posten),
     "tiktok": (("TIKTOK_CLIENT_KEY", "TIKTOK_CLIENT_SECRET", "TIKTOK_REFRESH_TOKEN"), tiktok_posten),
 }
 
@@ -292,8 +334,8 @@ def main():
     a = ap.parse_args()
     TROCKEN = a.trocken
     jetzt = dt.datetime.now(ZONE)
-    if a.ab_7_uhr and not 7 <= jetzt.hour < 12:
-        print(f"In Zürich ist es {jetzt:%H:%M}, gepostet wird zwischen 07:00 und 12:00. Nichts zu tun.")
+    if a.ab_7_uhr and not 7 <= jetzt.hour < 15:
+        print(f"In Zürich ist es {jetzt:%H:%M}, gepostet wird zwischen 07:00 und 15:00. Nichts zu tun.")
         return 0
     heute = a.datum or jetzt.date().isoformat()
     log = log_laden()
