@@ -4035,6 +4035,142 @@
     "nachhaltig": 8
    },
    "score": 43
+  },
+  "GS": {
+   "waehrung": "USD",
+   "jahre": [
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+   ],
+   "fcf": [
+    4.96,
+    -14.9,
+    -15.3,
+    -47.22
+   ],
+   "umsatz": [
+    47.37,
+    46.25,
+    53.51,
+    58.28
+   ],
+   "fcf_ttm": -39.98,
+   "umsatz_ttm": 69.7,
+   "aktien_mio": [
+    358.1,
+    345.8,
+    333.6,
+    317.6
+   ],
+   "netto_schulden": 221.89,
+   "schulden": 386.15,
+   "cash": 164.26,
+   "boersenwert_chf": 228.8,
+   "k": {
+    "wachstum": null,
+    "steigende_jahre": 0,
+    "jahre_n": 3,
+    "marge": -57.4,
+    "rendite": -14.55,
+    "schulden_jahre": null,
+    "aktien_pa": -3.92,
+    "rueckgabe": 1018.0,
+    "abbau": 0.0,
+    "verlustjahre": 3,
+    "sbc": 248.0,
+    "deckung": -1.41
+   },
+   "verwendung": [
+    [
+     "Aktienrückkäufe",
+     662
+    ],
+    [
+     "Dividenden",
+     356
+    ],
+    [
+     "zusätzlich neue Schulden aufgenommen",
+     978
+    ]
+   ],
+   "p": {
+    "wachstum": 0,
+    "marge": 0,
+    "rendite": 0,
+    "schulden": 0,
+    "verwendung": 15,
+    "nachhaltig": 0
+   },
+   "score": 15
+  },
+  "NVDA": {
+   "waehrung": "USD",
+   "jahre": [
+    "2023",
+    "2024",
+    "2025",
+    "2026"
+   ],
+   "fcf": [
+    3.81,
+    27.02,
+    60.85,
+    96.68
+   ],
+   "umsatz": [
+    26.97,
+    60.92,
+    130.5,
+    215.94
+   ],
+   "fcf_ttm": 127.01,
+   "umsatz_ttm": 302.97,
+   "aktien_mio": [
+    25070.0,
+    24940.0,
+    24804.0,
+    24514.0
+   ],
+   "netto_schulden": -51.52,
+   "schulden": 11.04,
+   "cash": 62.56,
+   "boersenwert_chf": 3516.4,
+   "k": {
+    "wachstum": 193.9,
+    "steigende_jahre": 3,
+    "jahre_n": 3,
+    "marge": 41.9,
+    "rendite": 3.01,
+    "schulden_jahre": 0,
+    "aktien_pa": -0.74,
+    "rueckgabe": 51.0,
+    "abbau": 1.0,
+    "verlustjahre": 0,
+    "sbc": 9.0,
+    "deckung": 0.83
+   },
+   "verwendung": [
+    [
+     "Aktienrückkäufe",
+     50
+    ],
+    [
+     "Dividenden",
+     1
+    ]
+   ],
+   "p": {
+    "wachstum": 20,
+    "marge": 20,
+    "rendite": 8,
+    "schulden": 20,
+    "verwendung": 9,
+    "nachhaltig": 10
+   },
+   "score": 87
   }
  },
  "stand": "2026-11-11"
