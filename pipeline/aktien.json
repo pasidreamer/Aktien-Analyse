@@ -2332,5 +2332,88 @@
   "pe_typ": "KGV",
   "zahlen": "2026-11-23",
   "artifact": "EEaoqK2YhdgvZZbmqh1Rbt"
+ },
+ "GS": {
+  "symbol": "GS",
+  "name": "Goldman Sachs",
+  "tags": [
+   "Dividende"
+  ],
+  "land": "USA",
+  "region": "USA",
+  "branche": "Investmentbank und Vermögensverwaltung",
+  "status": "beobachten",
+  "waehrung": "USD",
+  "kurs": 926.81,
+  "datenstand": "2026-11-11",
+  "kauf": [
+   [
+    854,
+    870
+   ],
+   [
+    780,
+    825
+   ]
+  ],
+  "widerstand": [
+   [
+    935,
+    940
+   ],
+   [
+    997,
+    1045
+   ]
+  ],
+  "trigger": 940,
+  "abbruch": 850,
+  "pe": 13.3,
+  "pe_avg": 12.7,
+  "pe_typ": "KGV",
+  "zahlen": "2027-01-19",
+  "artifact": "F6ocwK5AeKPcrk1Y5pRJAo"
+ },
+ "NVDA": {
+  "symbol": "NVDA",
+  "name": "NVIDIA",
+  "tags": [
+   "Wachstum",
+   "Qualität"
+  ],
+  "land": "USA",
+  "region": "USA",
+  "branche": "Halbleiter (KI-Chips)",
+  "status": "beobachten",
+  "waehrung": "USD",
+  "kurs": 173.73,
+  "datenstand": "2026-11-11",
+  "kauf": [
+   [
+    164,
+    171
+   ],
+   [
+    137,
+    153
+   ]
+  ],
+  "widerstand": [
+   [
+    196,
+    200
+   ],
+   [
+    204,
+    211
+   ]
+  ],
+  "trigger": 200,
+  "abbruch": 160,
+  "pe": 22.0,
+  "pe_avg": 50.7,
+  "pe_typ": "KGV",
+  "zahlen": "2026-11-17",
+  "artifact": "12NCT8EPt4cGxy57FdGV7g"
  }
 }

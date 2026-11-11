@@ -918,5 +918,45 @@
   "betrag": 0.1425,
   "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Für das Geschäftsjahr 2026 um 9.6 % erhöht (von 0.13 auf 0.1425 $, angekündigt im Oktober 2025). Ob es für 2027 eine Erhöhung gibt, war am 10.11.2026 noch nicht bekannt. Ausgeschüttet werden rund 29 % des Gewinns.",
   "form": "Bar in US-Dollar. Die USA ziehen mit dem Formular W-8BEN 15 % Quellensteuer ab (ohne Formular 30 %). Die 15 % kannst du in der Schweizer Steuererklärung zurückfordern (DA-1). Wie Saxo das genau abwickelt, konnte ich nicht prüfen."
+ },
+ "GS": {
+  "pro_jahr": 4,
+  "rhythmus": "quartalsweise",
+  "ex_monate": [
+   3,
+   6,
+   9,
+   12
+  ],
+  "zahl_monate": [
+   3,
+   6,
+   9,
+   12
+  ],
+  "zahl_text": "jeweils Ende März, Juni, September und Dezember (nächste: Ex-Tag 2.12.2026, Zahltag 30.12.2026)",
+  "abstand_tage": 28,
+  "betrag": 5.0,
+  "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Die Erhöhung kommt einmal im Jahr nach dem Stresstest der US-Notenbank im Sommer (2026: +11 % auf 5.00 $). In USD, 15 % US-Quellensteuer mit W-8BEN."
+ },
+ "NVDA": {
+  "pro_jahr": 4,
+  "rhythmus": "quartalsweise",
+  "ex_monate": [
+   3,
+   6,
+   9,
+   12
+  ],
+  "zahl_monate": [
+   4,
+   6,
+   10,
+   12
+  ],
+  "zahl_text": "2026: Ex-Tag 4.6., Zahltag 26.6.; Ex-Tag 10.9., Zahltag 1.10. Der nächste Termin wird mit den Zahlen am 17.11.2026 bekanntgegeben.",
+  "abstand_tage": 21,
+  "betrag": 0.25,
+  "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Im Mai 2026 von 0.01 $ auf 0.25 $ pro Quartal erhöht. Die Dividende ist klein (0.6 %), NVIDIA gibt das meiste Geld über Aktienrückkäufe zurück. In USD, 15 % US-Quellensteuer mit W-8BEN."
  }
 }

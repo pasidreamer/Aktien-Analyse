@@ -1,0 +1,391 @@
+<title>Goldman Sachs Aktien-Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F3F5F7; --surface:#FFFFFF; --ink:#141B24; --muted:#5A6573; --line:#DDE2E8; --grid:#E9EDF1;
+  --accent:#2F45B5; --accent-soft:#E6E9F8; --chip:#EBEEF2;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+  --good:#1D7A4B; --good-bg:#E3F3EA; --warn:#9A6200; --warn-bg:#FBF0DC; --bad:#B2362A; --bad-bg:#FBE6E3;
+  --zone-sup:rgba(29,122,75,.10); --zone-res:rgba(178,54,42,.09);
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+    --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+    --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+    --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+  --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+  --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;padding-inline:16px;padding-block:24px 56px}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+h1,h2,h3{font-family:var(--display);font-stretch:85%;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:clamp(32px,7vw,48px);font-weight:800;line-height:1}
+h2{font-size:24px;font-weight:700}
+h3{font-size:17px;font-weight:700;font-stretch:95%}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+section{display:flex;flex-direction:column;gap:14px}
+.lead{max-width:68ch;color:var(--muted)}
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;align-items:stretch}
+.hero .id{display:flex;flex-direction:column;gap:10px;justify-content:space-between}
+.price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price b{font-family:var(--display);font-size:34px;font-weight:700}
+.meta{font-size:13px;color:var(--muted)}
+.verdict{font-size:15px;padding:12px 14px;border-radius:10px;background:var(--chip)}
+.scales{display:flex;flex-direction:column;gap:18px}
+.scale-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.scale-h span{font-size:13px;color:var(--muted)}
+.scale-h b{font-family:var(--display);font-size:28px;line-height:1}
+.track{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#C8412F 0%,#E0892F 30%,#E3B63A 50%,#8BBF4B 68%,#2E9A5B 100%);margin-top:8px}
+.pin{position:absolute;top:-5px;width:4px;height:22px;border-radius:2px;background:var(--ink);box-shadow:0 0 0 2px var(--surface);transform:translateX(-2px)}
+.ticks{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);font-family:var(--mono);margin-top:6px}
+.state{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;margin-top:8px}
+.st-good{background:var(--good-bg);color:var(--good)}
+.st-warn{background:var(--warn-bg);color:var(--warn)}
+.st-bad{background:var(--bad-bg);color:var(--bad)}
+/* tables */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;color:var(--muted);font-weight:500;font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:700;border-bottom:none}
+.pts{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{height:6px;border-radius:3px;background:var(--chip);min-width:60px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:3px}
+/* grids */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;border-left:4px solid var(--line)}
+.kpi.g{border-left-color:var(--good)}.kpi.w{border-left-color:var(--warn)}.kpi.b{border-left-color:var(--bad)}
+.kpi span{font-size:12px;color:var(--muted)}
+.kpi b{font-family:var(--mono);font-size:19px;font-weight:500;font-variant-numeric:tabular-nums}
+.kpi em{font-style:normal;font-size:12.5px;color:var(--muted)}
+/* charts */
+.chart{position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:14px;height:3px;border-radius:2px;display:inline-block}
+.swb{width:12px;height:10px;border-radius:2px;display:inline-block}
+.tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12.5px;box-shadow:0 4px 14px rgba(0,0,0,.12);white-space:nowrap;z-index:2}
+.tip b{font-family:var(--mono);font-weight:500}
+.tip .d{font-family:var(--mono);color:var(--muted);font-size:11.5px}
+.note{font-size:13.5px;color:var(--muted)}
+ul.clean{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.pro li::marker{color:var(--good)} .con li::marker{color:var(--bad)}
+.zones{display:flex;flex-direction:column;gap:8px}
+.zone{display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:baseline;padding:10px 12px;border-radius:10px;background:var(--chip);font-size:14px}
+.zone b{font-family:var(--mono);font-weight:500}
+.zone.r{border-left:4px solid var(--bad)} .zone.s{border-left:4px solid var(--good)} .zone.t{border-left:4px solid var(--accent)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+summary{cursor:pointer;font-weight:600}
+details p{margin-top:8px;color:var(--muted);max-width:70ch}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+footer{font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:6px;max-width:80ch}
+footer a{color:var(--accent)}
+@media (max-width:760px){.hero,.two{grid-template-columns:1fr}.zone{grid-template-columns:1fr;gap:2px}}
+</style>
+
+<div class="wrap">
+
+<header class="hero">
+  <div class="card id">
+    <div>
+      <div class="eyebrow">Aktien-Check · 11.11.2026</div>
+      <h1>Goldman Sachs</h1>
+      <p class="meta">The Goldman Sachs Group, Inc. · NYSE: GS · Investmentbank, Wertschriftenhandel und Vermögensverwaltung · New York, USA</p>
+    </div>
+    <div class="price"><b>926.81 $</b><span class="meta">Schluss 11.11.2026 · 52 Wochen: 754.00 – 1'153.99 $ · Allzeithoch 1'153.99 $ am 15.7.2026 · Börsenwert rund 278 Mrd. $</span></div>
+    <p class="verdict"><b>Kurz gesagt:</b> Goldman Sachs ist eine der grössten Investmentbanken der Welt. 2026 läuft das Geschäft sehr gut: Umsatz in 12 Monaten rund +19 %, Gewinn pro Aktie 69.49 $ (2025: 51.32 $), Eigenkapitalrendite 18.7 % im letzten Quartal. Trotzdem liegt die Aktie 20 % unter dem Allzeithoch vom Juli. Gründe: steigende Zinsen, Sorgen um Inflation und der Börsenrutsch vom 5.11. Qualität hellgrün (68): stark im Moment, aber das Geschäft schwankt mit den Börsen, und der Kapitalpuffer ist zuletzt kleiner geworden. Timing gelb (51): Seit Oktober pendelt der Kurs zwischen 854 und 940 $. Ein Tagesschluss über 940 $ wäre das erste Zeichen für eine Wende.</p>
+  </div>
+  <div class="card scales">
+    <div>
+      <div class="scale-h"><span>Qualität · Ist die Firma kaufenswert?</span><b id="q-val">68</b></div>
+      <div class="track"><i class="pin" id="q-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-good">● Solide</span>
+    </div>
+    <div>
+      <div class="scale-h"><span>Timing · Ist jetzt der Zeitpunkt?</span><b id="t-val">51</b></div>
+      <div class="track"><i class="pin" id="t-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-warn">▲ Warten auf Bestätigung</span>
+    </div>
+    <p class="note">Skala: unter 30 rot · 30–45 orange · 45–60 gelb · 60–75 hellgrün · ab 75 grün. Beide Werte setzen sich aus festen Kriterien zusammen, siehe unten.</p>
+  </div>
+</header>
+
+<section>
+  <h2>Was die Firma macht</h2>
+  <p class="lead">Goldman Sachs verdient auf drei Arten. Global Banking & Markets (rund 74 % des Umsatzes 2026): Beratung bei Firmenkäufen und Börsengängen (Investment Banking), dazu der Handel mit Aktien, Anleihen, Währungen und Rohstoffen für grosse Kunden wie Pensionskassen und Hedgefonds. Asset & Wealth Management (rund 24 %): Verwaltung von Vermögen für reiche Privatkunden und Institutionen sowie eigene Beteiligungen. Platform Solutions (rund 1 %): das frühere Konsumentengeschäft (Kreditkarten), das Goldman abbaut. Wichtig für Anfänger: Bei einer Bank sind Kennzahlen wie Free Cashflow oder Nettoschulden kaum aussagekräftig, weil Schulden und Kundengelder das Rohmaterial des Geschäfts sind. Wichtiger sind die Eigenkapitalrendite (ROE) und das harte Kernkapital (CET1).</p>
+  <p class="lead">2025 stieg die Aktie um rund 56 %. Am 15.7.2026 erreichte sie das Allzeithoch von 1'153.99 $, getragen von einem Boom bei Firmenkäufen und im Aktienhandel (Umsatz im Quartal bis Juni +39.5 %). Danach fiel sie: Die Zinsen für 10-jährige US-Staatsanleihen stiegen auf rund 5.3 %, die US-Notenbank erhöht die Zinsen wieder. Am 8.10. lag die Aktie über 20 % unter dem Hoch, nachdem sie in 10 von 12 Wochen gefallen war. Am 13.10. meldete Goldman starke Zahlen (Gewinn pro Aktie 17.01 $ statt rund 13 $ erwartet, Aktienhandel +72 %). Am Tag danach fiel der Kurs trotzdem um 2.1 %, weil die Inflation mit 3.7 % höher als erwartet war. Der Auftragsbestand im Investment Banking lag unter dem Stand vom Juni. Am 5.11. fiel Goldman in einem breiten Börsenrutsch um 6.1 % bis 854.45 $. Seither erholte sich der Kurs auf 926.81 $.</p>
+</section>
+
+<section>
+  <h2>Fundamental: die Zahlen</h2>
+  <div class="kpis">
+<div class="kpi g"><span>Umsatzwachstum</span><b>+18.7 %</b><em>Letzte 12 Monate (bis September 2026), selbst gerechnet aus den Firmenzahlen. 3 der letzten 4 Quartale über dem Vorjahr. Achtung: Bankumsätze schwanken mit der Börse, 2022 fiel der Umsatz um 24 %.</em></div>
+<div class="kpi g"><span>Vorsteuermarge</span><b>39.3 %</b><em>Von 100 $ Umsatz bleiben 39 $ Gewinn vor Steuern (letzte 12 Monate). Für eine Bank sehr gut. 2023 waren es nur 24 %.</em></div>
+<div class="kpi g"><span>Gewinn pro Aktie (EPS)</span><b>69.49 $</b><em>Letzte 12 Monate. 2025 waren es 51.32 $ (+35 %), 2023 nur 22.87 $. Im letzten Quartal 17.01 $, ohne eine Spende von rund 450 Mio. $ laut Finanzchef rund 18 $.</em></div>
+<div class="kpi g"><span>Eigenkapitalrendite (ROE)</span><b>17.7 %</b><em>Auf 100 $ Eigenkapital der Aktionäre verdient Goldman knapp 18 $ pro Jahr (letzte 12 Monate, im letzten Quartal 18.7 %). Für eine Bank stark, 2025 waren es 15.0 %. Bei Banken ersetzt die ROE den ROIC.</em></div>
+<div class="kpi w"><span>Kernkapital (CET1)</span><b>12.4 %</b><em>Das harte Eigenkapital im Verhältnis zu den Risiken. Vorgeschrieben sind 11.4 %. Der Puffer ist mit 1 Prozentpunkt eher knapp und seit Ende 2025 (14.4 %) gesunken, weil Goldman viel zurückkauft und mehr Risiko nimmt.</em></div>
+<div class="kpi w"><span>Free Cashflow</span><b>nicht aussagekräftig</b><em>Bei Banken schwankt der Cashflow mit den Handelsbeständen und Kundengeldern (2025: −47 Mrd. $). Er sagt wenig über die Qualität aus.</em></div>
+<div class="kpi w"><span>KGV</span><b>13.3</b><em>Du zahlst gut 13 Jahresgewinne. Eigener Schnitt 2021 bis 2025: rund 12.7. Also etwa normal bewertet. Kurs-Buchwert-Verhältnis 2.5: Du zahlst das 2.5-Fache des Eigenkapitals.</em></div>
+<div class="kpi g"><span>Dividende</span><b>2.2 %</b><em>5.00 $ pro Quartal, 4× pro Jahr. Nächster Ex-Tag 2.12.2026, Zahltag 30.12.2026. Nach dem Stresstest im Sommer 2026 um 11 % erhöht (von 4.50 $). In USD, 15 % US-Quellensteuer (mit W-8BEN), in der Steuererklärung anrechenbar.</em></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>Nettoumsatz pro Quartal (Mio. $)</h3>
+      <p class="note">3 der letzten 4 Quartale über dem Vorjahr: −3.0 % (Dez 25), +14.4 % (Mär 26), +39.5 % (Jun 26), +23.0 % (Sep 26). Das Quartal bis Juni 2026 war das beste der Firmengeschichte.</p>
+      <div class="chart" id="c-rev"></div>
+    </div>
+    <div class="card">
+      <h3>Operative Marge pro Jahr</h3>
+      <p class="note">Vorsteuermarge pro Jahr (Banken haben keine klassische operative Marge). Stark von der Börse abhängig: 2021 Boom, 2023 Tief, seither wieder steigend.</p>
+      <div class="chart" id="c-margin"></div>
+    </div>
+  </div>
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Jahr</th><th class="num">Umsatz Mio. $</th><th class="num">Wachstum</th><th class="num">Op. Marge</th><th class="num">EPS $</th><th class="num">Free Cashflow</th><th class="num">ROIC</th><th class="num">KGV</th></tr></thead>
+      <tbody id="fin-rows"></tbody>
+    </table>
+  </div>
+  <p class="note"><b>Hinweis für Banken:</b> Die Spalte «Op. Marge» zeigt die Vorsteuermarge, die Spalte «ROIC» die Eigenkapitalrendite (ROE, nur wo von Goldman bestätigt). Der Free Cashflow ist bei Banken nicht aussagekräftig. Umsätze laut StockAnalysis, sie weichen leicht von Goldmans eigenem Nettoumsatz ab (2025: 58.28 Mrd. $). KGV zum Jahresende, 2025 selbst gerechnet, letzte Zeile mit dem Kurs vom 11.11.2026.</p>
+</section>
+
+<section>
+  <h2>Qualität: 68 von 100</h2>
+  <div class="card tbl"><table id="q-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Technik: Wochenchart (2 Jahre)</h2>
+  <div class="card">
+    <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span><span><i class="swb" style="background:var(--zone-sup);border:1px solid var(--good)"></i>Unterstützung</span><span><i class="swb" style="background:var(--zone-res);border:1px solid var(--bad)"></i>Widerstand</span></div>
+    <div class="chart" id="c-week"></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>A/D-Linie, Woche</h3>
+      <p class="note">Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Negativ: Im Juni 2026 stand die Wochen-A/D bei 245, heute bei 195. Sie fällt seit dem Sommer mit dem Kurs. In der Erholung der letzten Tage stieg sie kaum (194.4 → 195.0). Grosse Käufe sind noch nicht zu sehen.</p>
+      <div class="chart" id="c-adw"></div>
+    </div>
+    <div class="card">
+      <h3>RSI, Woche</h3>
+      <p class="note">Unter 30 überverkauft, über 70 überkauft. Im Oktober bis 34 gefallen, heute 46.7: neutral, kein Signal.</p>
+      <div class="chart" id="c-rsiw"></div>
+    </div>
+  </div>
+
+  <h2>Technik: Tageschart (1 Jahr)</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Kurs, Tag</h3>
+      <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span></div>
+      <div class="chart" id="c-day"></div>
+    </div>
+    <div class="card">
+      <h3>A/D-Linie, Tag</h3>
+      <p class="note">Leicht negativ: Am 29.10. schloss der Kurs bei 927.73 $ mit einer Tages-A/D von 48.2. Heute schliesst er gleich hoch (926.81 $), die A/D liegt aber tiefer bei 45.9. Im Oktober-Tief (8.10.) lag sie noch bei 51.3.</p>
+      <div class="chart" id="c-add"></div>
+    </div>
+  </div>
+
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Indikator</th><th>Tag</th><th>Woche</th><th>Bedeutung</th></tr></thead>
+      <tbody>
+<tr><td>Kurs vs. EMA 50</td><td class="pts">926.8 ≈ 926.8 (genau darauf)</td><td class="pts">926.8 &gt; 917.0</td><td>Kurs testet die mittelfristige Linie von unten.</td></tr>
+<tr><td>Kurs vs. EMA 200</td><td class="pts">926.8 &lt; 935.4</td><td class="pts">926.8 &gt; 670.7</td><td>Im Tageschart knapp unter der langfristigen Linie, im Wochenchart weit darüber.</td></tr>
+<tr><td>EMA 50 vs. EMA 200</td><td class="pts">50 unter 200 (seit 28.10.2026)</td><td class="pts">50 über 200 (seit Dezember 2020)</td><td>Tag: frisches Abwärtssignal. Woche: langfristiger Aufwärtstrend intakt.</td></tr>
+<tr><td>RSI (14)</td><td class="pts">54.6</td><td class="pts">46.7</td><td>Neutral, im Tageschart steigend.</td></tr>
+<tr><td>A/D</td><td class="pts">tiefer bei gleichem Kurs</td><td class="pts">fällt seit Juni</td><td>Auf beiden Zeitebenen eher Verkäufe.</td></tr>
+<tr><td>Volumen</td><td colspan="2">Ø 20 Tage 2.14 Mio. vs. Ø 100 Tage 2.09 Mio. Aktien</td><td>Normaler Handel.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Struktur und Zonen (Smart Money Concept)</h2>
+  <p class="lead">Vom Allzeithoch 1'153.99 $ (15.7.) fiel Goldman mit tieferen Hochs (1'077.21 → 1'063.52 → 1'043.84 $) und tieferen Tiefen (977.70 → 996.97 → 922.00 $). Seit Oktober läuft der Kurs seitwärts zwischen rund 854 und 940 $: Tiefs bei 868.52 $ (7.10.), 859.03 $ (15.10.) und 854.45 $ (5.11.), Hochs bei 931.00 $ (13.10.), 939.38 $ (29.10.) und 934.00 $ (5.11.). Das Tief vom 5.11. lag nur wenig unter den früheren Tiefs und wurde noch am selben Tag zurückgekauft (Fehlausbruch nach unten). Im Tages-RSI ist das Tief vom 5.11. höher als am 15.10. (41 gegen 37): eine bullische Divergenz. Ein Tagesschluss über 940 $ wäre ein Change of Character nach oben.</p>
+  <div class="zones">
+<div class="zone r"><b>997–1'045 $</b><span>Widerstand: Tiefs vom August und September (996.97 bis 1'001.68 $) und Hoch vom 8.9. (1'043.84 $).</span></div>
+<div class="zone r"><b>935–940 $</b><span>Widerstand: Obergrenze der Seitwärtsspanne (939.38 $) und Tages-EMA 200 (935.39 $).</span></div>
+<div class="zone t"><b>940 $</b><span><b>Trigger:</b> Tagesschluss über 940 $ (Hoch vom 29.10.). Bestätigung über 1'000 $.</span></div>
+<div class="zone s"><b>854–870 $</b><span><b>Kaufzone 1:</b> Untergrenze der Seitwärtsspanne, Tiefs vom 7.10., 15.10. und 5.11. (854.45 bis 868.52 $).</span></div>
+<div class="zone s"><b>780–825 $</b><span><b>Kaufzone 2:</b> Tief vom März 2026 (780.50 $) und altes Hoch vom September 2025 (825.25 $).</span></div>
+<div class="zone r"><b>850 $</b><span>Abbruch: Wochenschluss unter 850 $. Dann wäre die Seitwärtsspanne nach unten gebrochen.</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Smart Money, Insider und Saisonalität</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Wer kauft, wer verkauft?</h3>
+      <ul class="clean" style="margin-top:8px">
+<li><b>Goldman selbst:</b> Grosse Rückkäufe. In 12 Monaten rund 15 Mrd. $ (rund 5.4 % des Börsenwerts), im 3. Quartal 3 Mrd. $ zu durchschnittlich 1'048.73 $. Die Aktienzahl sank in einem Jahr um 4.6 %. Programm bis 40 Mrd. $ (seit 2025).</li>
+<li><b>Insider:</b> Keine Käufe. In 12 Monaten Verkäufe für rund 158 Mio. $ (GuruFocus). CEO David Solomon verkaufte am 27.10.2026 für rund 11 Mio. $, ohne festen Verkaufsplan. Laut GuruFocus haben 3 bekannte Investoren aufgestockt, 11 reduziert.</li>
+<li><b>Analysten:</b> Eher vorsichtig. StockAnalysis: 26 Analysten, 9× Kaufen, 15× Halten, 2× Verkaufen, Kursziel im Schnitt 1'031 $ (730 bis 1'250 $). Nach den Zahlen meist gesenkte Ziele: RBC 1'220 → 1'010 $, KBW 1'130 → 1'100 $, BMO 970 → 950 $.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Saisonalität seit 1999</h3>
+      <p class="note">Durchschnittliche Monatsrendite in %. Seit 1999. November im Schnitt +3.0 % (89 % positive Jahre, nur 9 Jahre auswertbar), Dezember +3.1 % (63 %), Januar +1.7 % (52 %). Stärkster Monat September (+4.2 %, 75 %).</p>
+      <div class="chart" id="c-seas"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Timing: 51 von 100</h2>
+  <div class="card tbl"><table id="t-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Pro und Contra</h2>
+  <div class="two">
+    <div class="card pro"><h3>Spricht dafür</h3><ul class="clean" style="margin-top:8px">
+<li>Seit Jahren einer der führenden Berater bei Firmenkäufen, Rekord bei den Beratungsgebühren im letzten Quartal.</li>
+<li>Rekordnahe Zahlen: Gewinn pro Aktie +35 %, Aktienhandel im letzten Quartal +72 %, ROE 18.7 %.</li>
+<li>Vermögensverwaltung (rund ein Viertel des Umsatzes) bringt stabilere Einnahmen.</li>
+<li>Grosse Rückkäufe (rund 5 % pro Jahr) und Dividende 2.2 %, im Sommer um 11 % erhöht.</li>
+<li>Bullische RSI-Divergenz, Fehlausbruch unter die Spanne am 5.11., gute Saisonalität im November und Dezember.</li>
+    </ul></div>
+    <div class="card con"><h3>Spricht dagegen</h3><ul class="clean" style="margin-top:8px">
+<li>Das Geschäft hängt stark von der Börse ab. In schwachen Jahren fällt der Gewinn schnell (2022 −49 %, 2023 −24 %).</li>
+<li>Kapitalpuffer knapp: CET1 12.4 % bei 11.4 % Pflicht, gesunken von 14.4 %.</li>
+<li>Steigende Zinsen und Inflation belasten, Auftragsbestand im Investment Banking unter dem Stand vom Juni.</li>
+<li>Kosten im letzten Quartal rund +20 %, Kreditrückstellungen deutlich höher.</li>
+<li>Insider verkaufen, A/D fällt auf beiden Zeitebenen, Abwärtstrend seit Juli.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section>
+  <h2>Was jetzt zu tun ist</h2>
+  <div class="zones">
+<div class="zone t"><b>Beobachten</b><span>Alarm bei 940 $ (Trigger) und bei 870 $ (oberes Ende Kaufzone 1).</span></div>
+<div class="zone s"><b>Timing grün</b><span>Tagesschluss über 940 $ mit steigender A/D, danach über 1'000 $. Fundamental: Investment-Banking-Auftragsbestand steigt wieder, CET1 bleibt über 12 %.</span></div>
+<div class="zone r"><b>Abbruch</b><span>Wochenschluss unter 850 $. Dann Kaufzone 2 (780–825 $) beobachten.</span></div>
+<div class="zone "><b>Nächste Zahlen</b><span>19. Januar 2027 vor US-Börsenbeginn (rund 13:30 Uhr Schweizer Zeit), 4. Quartal 2026.</span></div>
+  </div>
+</section>
+
+<footer>
+  <span>Kursdaten und Indikatoren (EMA, RSI 14, A/D) selbst berechnet aus Yahoo-Finance-Tages-, Wochen- und Monatsdaten, Stand 11.11.2026. <a href="https://stockanalysis.com/stocks/gs/financials/" target="_blank" rel="noopener">StockAnalysis.com</a> (Stand 11.11.2026), <a href="https://www.sec.gov/Archives/edgar/data/0000886982/000088698226000529/a3q26gsearningsresults.htm" target="_blank" rel="noopener">Goldman Sachs Q3 2026</a>, <a href="https://goldmansachs.com/pressroom/press-releases/2026/2026-01-15-q4-results" target="_blank" rel="noopener">Goldman Sachs Q4 2025</a>, <a href="https://www.goldmansachs.com/pressroom/press-releases/2026/gs-statement-on-comprehensive-capital-analysis-and-review-2026-results" target="_blank" rel="noopener">Stresstest 2026</a>, <a href="https://stockanalysis.com/stocks/gs/dividend/" target="_blank" rel="noopener">Dividende</a>, <a href="https://finance.yahoo.com/markets/article/goldman-sachs-stock-loses-nearly-all-year-to-date-gains-as-bond-yields-rise-141150928.html" target="_blank" rel="noopener">Yahoo: Zinsen belasten</a>, <a href="https://www.tikr.com/blog/goldman-sachs-stock-q3-2026-earnings-beat-equities-surge" target="_blank" rel="noopener">TIKR: Q3 2026</a>, <a href="https://stockanalysis.com/stocks/gs/forecast/" target="_blank" rel="noopener">Analysten</a>, <a href="https://secure.macrotrends.net/stocks/charts/GS/goldman-sachs/pe-ratio" target="_blank" rel="noopener">Macrotrends: KGV</a>.</span>
+  <span>Persönliche Analyse, keine Anlageberatung. Vergangene Kurse und Saisonalität sagen nichts Sicheres über die Zukunft.</span>
+</footer>
+</div>
+
+<script>
+const Q=[["Umsatztrend", "3 von 4 Quartalen über Vorjahr", 8, 15], ["Wachstumstempo", "+18.7 % in 12 Monaten (Boomphase, schwankt stark)", 10, 10], ["Operative Marge", "Vorsteuermarge 39.3 % (9 Pkt.), über 5 Jahre schwankend (3 Pkt.)", 12, 15], ["Gewinnwachstum (EPS)", "2025 +27 %, letzte 12 Monate +35 % zu 2025", 10, 10], ["Free Cashflow", "Bei Banken nicht aussagekräftig (Daten fehlen: halbe Punkte)", 5, 10], ["ROIC", "Bei Banken ROE: 17.7 % (10 Pkt.), steigend (+1)", 11, 15], ["Schulden", "Nettoschulden/EBITDA bei Banken nicht anwendbar. CET1 12.4 % bei 11.4 % Pflicht: halbe Punkte", 5, 10], ["Bewertung vs. eigene Historie", "KGV 13.3 statt Ø 12.7, im Bereich ±10 %", 7, 15]];
+const T=[["Trend Woche (EMA 50/200)", "Kurs knapp über beiden, EMA 50 über 200", 18, 20], ["Trend Tag (EMA 50/200)", "Kurs auf EMA 50, unter EMA 200, EMA 50 unter 200 (mögliche Wende)", 4, 10], ["Struktur (SMC)", "Seitwärts 854–940 $ nach Abwärtstrend, Tiefs nicht höher, Fehlausbruch am 5.11.", 6, 20], ["RSI Tag/Woche", "Bullische Divergenz im Tag (Tief 5.11. mit höherem RSI), Woche neutral", 11, 15], ["A/D Tag/Woche", "Beide fallen mit dem Kurs", 4, 20], ["Smart Money", "Start 3, Rückkäufe 5.4 % +3, gehäufte Insider-Verkäufe −3", 3, 10], ["Saisonalität", "November und Dezember überwiegend positiv (89 % und 63 %)", 5, 5]];
+const FIN=[["2021", 58982, "+42.3 %", "45.9 %", 59.45, 1631, "–", "5.9"], ["2022", 44650, "−24.3 %", "30.2 %", 30.06, 4960, "–", "10.7"], ["2023", 45226, "+1.3 %", "23.8 %", 22.87, -14903, "–", "16.3"], ["2024", 52164, "+15.3 %", "35.3 %", 40.54, -15303, "–", "13.9"], ["2025", 59396, "+13.9 %", "36.8 %", 51.32, -47218, "15.0 %", "17.1"], ["Letzte 12 Mt.", 71036, "+23.9 %", "39.3 %", 69.49, "–", "17.7 %", "13.3"]];
+const HALF=[["Dez 24", 13869], ["Mär 25", 15062], ["Jun 25", 14583], ["Sep 25", 15184], ["Dez 25", 13450], ["Mär 26", 17227], ["Jun 26", 20338], ["Sep 26", 18679]];
+const MARGIN=[["2021", 45.9], ["2022", 30.2], ["2023", 23.8], ["2024", 35.3], ["2025", 36.8], ["12 Mt.", 39.3]];
+const SEAS=[1.7, -0.7, 1.3, -0.7, 1.0, 3.2, -0.3, -1.5, 4.2, 1.9, 3.0, 3.1];
+const SEASHIT=[52.0, 56.0, 49.0, 44.0, 50.0, 75.0, 54.0, 46.0, 75.0, 55.0, 89.0, 63.0];
+const MON=["Jan","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"];
+const W=`2024-11-04,589.26,452.65,365.6,76,105.8;2024-11-11,593.54,458.17,367.86,76,102.7;2024-11-18,602.78,463.85,370.2,77,111.5;2024-11-25,608.57,469.52,372.57,78,116.4;2024-12-02,599.68,474.63,374.83,74,113.2;2024-12-09,585.48,478.97,376.93,69,105.9;2024-12-16,566.1,482.39,378.81,62,105.7;2024-12-23,576.18,486.07,380.77,64,107.5;2024-12-30,580.13,489.76,382.76,65,110.9;2025-01-06,560,492.51,384.52,58,103.3;2025-01-13,625.94,497.74,386.92,69,118.6;2025-01-20,636.9,503.2,389.41,71,125.9;2025-01-27,640.4,508.58,391.91,71,128.7;2025-02-03,655.9,514.36,394.54,73,135.3;2025-02-10,660.55,520.09,397.18,74,144.4;2025-02-17,625.6,524.23,399.46,63,134.1;2025-02-24,622.29,528.07,401.67,62,135.5;2025-03-09,541.41,528.6,403.06,44,146.5;2025-03-16,565.14,530.03,404.68,49,157.4;2025-03-23,543.12,530.54,406.05,45,148.9;2025-03-30,470.81,528.2,406.7,35,132.8;2025-04-06,494.44,526.88,407.57,40,141.7;2025-04-13,509.49,526.2,408.58,43,145.3;2025-04-20,544.86,526.93,409.94,48,154.6;2025-04-27,566.1,528.46,411.49,52,163.6;2025-05-04,567.1,529.98,413.04,52,169.9;2025-05-11,619.03,533.47,415.09,59,182;2025-05-18,598.54,536.02,416.92,56,180.6;2025-05-25,600.45,538.55,418.74,56,176.8;2025-06-01,614,541.51,420.69,58,180.8;2025-06-08,613.54,544.33,422.61,58,175.9;2025-06-15,640.8,548.12,424.78,62,184.3;2025-06-22,690.81,553.71,427.42,68,195.4;2025-06-29,723.68,560.38,430.37,71,204.9;2025-07-06,704.95,566.05,433.1,67,202;2025-07-13,708.26,571.62,435.84,67,205.3;2025-07-20,728.98,577.79,438.76,69,215.1;2025-07-27,709.57,582.96,441.45,65,211.9;2025-08-03,721.27,588.39,444.24,66,209.8;2025-08-10,730.72,593.97,447.09,67,208.9;2025-08-17,741.89,599.77,450.02,69,215.7;2025-08-24,745.25,605.47,452.96,69,217;2025-08-31,738.21,610.68,455.8,67,216.5;2025-09-07,780.06,617.32,459.02,72,221.7;2025-09-14,805,624.68,462.47,75,228.6;2025-09-21,802.51,631.66,465.85,74,228.2;2025-09-28,789.98,637.86,469.08,70,227.8;2025-10-05,764.36,642.82,472.01,63,218.8;2025-10-12,750.77,647.06,474.79,60,209.1;2025-10-19,783.88,652.42,477.86,65,218.7;2025-10-26,789.37,657.79,480.96,66,216.6;2025-11-03,786.34,662.83,484,65,217.4;2025-11-10,790.91,667.86,487.05,66,210.7;2025-11-17,774.03,672.02,489.91,61,207.2;2025-11-24,826.04,678.06,493.25,68,213.3;2025-12-01,854.56,684.98,496.85,72,223.3;2025-12-08,887.96,692.94,500.74,75,223.4;2025-12-15,893.48,700.81,504.65,76,228.5;2025-12-22,907.04,708.89,508.65,77,230.1;2025-12-29,914.34,716.95,512.69,77,237.5;2026-01-05,938.98,725.66,516.93,80,238.4;2026-01-12,962,734.93,521.36,81,242.7;2026-01-19,918.88,742.14,525.32,69,232.3;2026-01-26,935.41,749.72,529.4,71,231.6;2026-02-02,928.75,756.74,533.37,69,234;2026-02-09,905.14,762.56,537.07,63,230.2;2026-02-16,922.24,768.82,540.9,66,229.6;2026-02-23,859.57,772.38,544.07,53,217.3;2026-03-08,782.21,772.77,546.44,42,204.6;2026-03-15,813.53,774.36,549.1,47,207.5;2026-03-22,802.89,775.48,551.62,45,199.6;2026-03-29,863.04,778.92,554.72,54,205.8;2026-04-05,907.8,783.97,558.24,59,212;2026-04-12,925.95,789.54,561.9,60,224.6;2026-04-19,926.91,794.93,565.53,61,220.1;2026-04-26,923.71,799.98,569.09,60,220.6;2026-05-03,936.48,805.33,572.75,62,226.1;2026-05-10,948.47,810.94,576.49,63,226.2;2026-05-17,996.73,818.23,580.67,68,234.6;2026-05-24,1025.56,826.36,585.09,71,242.8;2026-05-31,1038.68,834.69,589.61,72,238.1;2026-06-07,1062.75,843.63,594.31,74,246.7;2026-06-14,1096.56,853.55,599.31,76,245.1;2026-06-21,1019.61,860.06,603.49,62,234.7;2026-06-28,1021,866.37,607.65,62,234.7;2026-07-05,1055.18,873.78,612.1,65,238.7;2026-07-12,1065.22,881.28,616.61,66,232;2026-07-19,1061.23,888.34,621.03,65,226.6;2026-07-26,1018.38,893.44,624.99,58,223.5;2026-08-02,1039.61,899.17,629.11,60,223.1;2026-08-09,1039.42,904.67,633.2,60,221.1;2026-08-16,1039.28,909.95,637.24,60,225.6;2026-08-23,1033.99,914.81,641.18,59,218.8;2026-08-30,1038.61,919.67,645.14,60,226.4;2026-09-06,1029.18,923.96,648.96,58,226.9;2026-09-13,942,924.67,651.88,43,218.3;2026-09-20,935.45,925.09,654.7,42,216;2026-09-27,902.56,924.21,657.16,37,214.5;2026-10-04,895.32,923.08,659.53,37,218.8;2026-10-11,881.26,921.44,661.74,35,212.9;2026-10-18,875.68,919.64,663.87,34,207.9;2026-10-25,894.55,918.66,666.16,39,203.3;2026-11-02,865.82,916.59,668.15,35,194.4;2026-11-11,926.81,916.99,670.72,47,195`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+const DD=`2025-10-30,790.16,764.96,686.66,46.3;2025-10-31,789.37,765.92,687.68,46.9;2025-11-03,785.52,766.69,688.66,46.2;2025-11-04,790.83,767.63,689.67,46.4;2025-11-05,793.09,768.63,690.7,47.5;2025-11-06,787.58,769.38,691.67,47.5;2025-11-07,786.34,770.04,692.61,49.4;2025-11-10,797.2,771.11,693.65,49.4;2025-11-11,810.31,772.64,694.81,50.6;2025-11-12,838.97,775.24,696.25,53.3;2025-11-13,805.5,776.43,697.33,50.8;2025-11-14,790.91,777,698.26,51.2;2025-11-17,775.56,776.94,699.03,50;2025-11-18,776.3,776.92,699.8,49.9;2025-11-19,785.99,777.27,700.66,51;2025-11-20,773.7,777.13,701.39,48.6;2025-11-21,774.03,777.01,702.11,49.7;2025-11-24,790.71,777.55,702.99,51.2;2025-11-25,802.32,778.52,703.98,53;2025-11-26,816.01,779.99,705.09,54;2025-11-28,826.04,781.8,706.3,54.2;2025-12-01,810.86,782.94,707.34,52.4;2025-12-02,815.21,784.2,708.41,52.8;2025-12-03,836.57,786.25,709.69,54.9;2025-12-04,837.83,788.28,710.96,54.4;2025-12-05,854.56,790.88,712.39,56.3;2025-12-08,866.69,793.85,713.93,57.4;2025-12-09,876.58,797.09,715.54,58;2025-12-10,889.24,800.71,717.27,59;2025-12-11,911.03,805.03,719.2,60.3;2025-12-12,887.96,808.29,720.88,57.8;2025-12-15,889.59,811.47,722.56,55.8;2025-12-16,879.15,814.13,724.12,54.6;2025-12-17,872.33,816.41,725.59,53;2025-12-18,876.3,818.76,727.09,51.3;2025-12-19,893.48,821.69,728.75,52.7;2025-12-22,899,824.72,730.44,52.4;2025-12-23,901.71,827.74,732.14,52.8;2025-12-24,910.78,831,733.92,53.4;2025-12-26,907.04,833.98,735.64,52.8;2025-12-29,892.18,836.26,737.2,51.4;2025-12-30,884.42,838.15,738.67,50.4;2025-12-31,879,839.75,740.06,49.8;2026-01-02,914.34,842.68,741.8,52.6;2026-01-05,948.44,846.82,743.85,54.3;2026-01-06,955.47,851.09,745.96,55.5;2026-01-07,941.02,854.61,747.9,54.4;2026-01-08,934.83,857.76,749.76,53.2;2026-01-09,938.98,860.94,751.64,53.1;2026-01-12,949.55,864.42,753.61,55.1;2026-01-13,938.15,867.31,755.45,54.6;2026-01-14,932.67,869.87,757.21,55.8;2026-01-15,975.86,874.03,759.39,58.8;2026-01-16,962,877.48,761.4,56.9;2026-01-20,943.37,880.06,763.21,55.2;2026-01-21,953.01,882.92,765.1,54.6;2026-01-22,954.65,885.74,766.99,53.1;2026-01-23,918.88,887.04,768.5,50;2026-01-26,931.86,888.79,770.13,52;2026-01-27,929.72,890.4,771.71,52.8;2026-01-28,936.81,892.22,773.36,54.4;2026-01-29,940.12,894.1,775.02,54.4;2026-01-30,935.41,895.72,776.61,54.5;2026-02-02,946.33,897.7,778.3,56;2026-02-03,938.99,899.32,779.9,55.7;2026-02-04,913.3,899.87,781.23,54.9;2026-02-05,890.41,899.5,782.31,54.2;2026-02-06,928.75,900.65,783.77,56.1;2026-02-09,943.62,902.33,785.36,57.3;2026-02-10,948.99,904.16,786.99,57.9;2026-02-11,944.59,905.75,788.56,57.2;2026-02-12,904.55,905.7,789.71,54.1;2026-02-13,905.14,905.68,790.86,56.6;2026-02-17,916.04,906.08,792.11,57.2;2026-02-18,933.73,907.17,793.51,57.2;2026-02-19,916.65,907.54,794.74,56.9;2026-02-20,922.24,908.12,796.01,58.9;2026-02-23,892.31,907.5,796.97,57.3;2026-02-24,902.27,907.29,798.01,58;2026-02-25,921.38,907.84,799.24,59.5;2026-02-26,929,908.67,800.53,59.3;2026-02-27,859.57,906.75,801.12,54.7;2026-03-02,861.7,904.98,801.72,55.7;2026-03-03,862.58,903.32,802.33,58.5;2026-03-04,867.25,901.9,802.97,58;2026-03-05,835.46,899.3,803.3,56.8;2026-03-06,821.42,896.24,803.48,58.2;2026-03-09,832.03,893.73,803.76,60.7;2026-03-10,833.81,891.38,804.06,60.2;2026-03-11,823.76,888.72,804.26,60.7;2026-03-12,787.52,884.76,804.09,58.2;2026-03-13,782.21,880.73,803.87,56.1;2026-03-16,794.77,877.36,803.78,55.3;2026-03-17,807.04,874.61,803.81,54.2;2026-03-18,805.48,871.89,803.83,53.5;2026-03-19,809.5,869.45,803.89,54.4;2026-03-20,813.53,867.26,803.98,53.5;2026-03-23,831.27,865.84,804.26,51.8;2026-03-24,835.72,864.66,804.57,52.3;2026-03-25,841.84,863.77,804.94,52;2026-03-26,822.64,862.15,805.12,50.8;2026-03-27,802.89,859.83,805.09,49.8;2026-03-30,807.6,857.78,805.12,49.3;2026-03-31,845.99,857.32,805.52,51.7;2026-04-01,860.21,857.43,806.07,51.7;2026-04-02,863.04,857.65,806.64,53;2026-04-06,866.05,857.98,807.23,52.9;2026-04-07,864.15,858.22,807.79,53.8;2026-04-08,905.75,860.09,808.77,53.7;2026-04-09,903.72,861.8,809.71,54.1;2026-04-10,907.8,863.6,810.69,55.5;2026-04-13,890.79,864.67,811.49,58;2026-04-14,909.63,866.43,812.46,59.8;2026-04-15,899.49,867.73,813.33,57.8;2026-04-16,900,868.99,814.19,57.2;2026-04-17,925.95,871.23,815.3,58.9;2026-04-20,941.74,873.99,816.56,61.3;2026-04-21,926.55,876.05,817.66,60;2026-04-22,934.84,878.36,818.82,59.7;2026-04-23,931.3,880.44,819.94,59.5;2026-04-24,926.91,882.26,821,59.7;2026-04-27,937.81,884.44,822.17,60.3;2026-04-28,926.55,886.09,823.21,59.1;2026-04-29,905.6,886.85,824.03,58.1;2026-04-30,923.77,888.3,825.02,59.3;2026-05-01,923.71,889.69,826,59.3;2026-05-04,903.27,890.22,826.77,58.1;2026-05-05,918.89,891.35,827.69,59;2026-05-06,937.35,893.15,828.78,58.9;2026-05-07,925.87,894.43,829.74,57.7;2026-05-08,936.48,896.08,830.8,58.5;2026-05-11,944.86,898,831.94,59.9;2026-05-12,945.9,899.87,833.07,61.7;2026-05-13,955.42,902.05,834.29,63.3;2026-05-14,968.96,904.68,835.63,63.6;2026-05-15,948.47,906.39,836.75,63.1;2026-05-18,946.36,907.96,837.84,62.6;2026-05-19,928.74,908.78,838.75,62;2026-05-20,982.12,911.65,840.18,65;2026-05-21,988.17,914.65,841.65,65.5;2026-05-22,996.73,917.87,843.19,65.2;2026-05-26,994.52,920.88,844.7,64.1;2026-05-27,996.47,923.84,846.21,65.3;2026-05-28,1008.37,927.16,847.82,67.3;2026-05-29,1025.56,931.02,849.59,69.1;2026-06-01,1048.58,935.63,851.57,71.4;2026-06-02,1064.58,940.68,853.69,72;2026-06-03,1041.02,944.62,855.55,71.5;2026-06-04,1092.61,950.42,857.91,73.7;2026-06-05,1038.68,953.88,859.71,71.4;2026-06-08,1045,957.46,861.55,69.6;2026-06-09,1032.01,960.38,863.25,69.3;2026-06-10,1001.29,961.98,864.62,67.2;2026-06-11,1035.64,964.87,866.33,69.6;2026-06-12,1062.75,968.71,868.28,69.9;2026-06-15,1076.17,972.92,870.35,67.8;2026-06-16,1090.67,977.54,872.54,67.6;2026-06-17,1099.14,982.31,874.8,66.1;2026-06-18,1096.56,986.79,877,62.6;2026-06-22,1106.37,991.48,879.28,63;2026-06-23,1094.44,995.52,881.42,63.9;2026-06-24,1076.91,998.71,883.37,63.5;2026-06-25,1065.09,1001.31,885.18,61.8;2026-06-26,1019.61,1002.03,886.52,59;2026-06-29,1020.21,1002.74,887.85,57.8;2026-06-30,1011.37,1003.08,889.08,56.3;2026-07-01,1019.61,1003.73,890.37,56.5;2026-07-02,1021,1004.41,891.67,56.1;2026-07-06,1055.29,1006.4,893.3,57.9;2026-07-07,1042.98,1007.84,894.79,57.7;2026-07-08,1029.64,1008.69,896.13,58.1;2026-07-09,1055.97,1010.55,897.72,58.4;2026-07-10,1055.18,1012.3,899.29,58.1;2026-07-13,1045.91,1013.61,900.75,57.9;2026-07-14,1140,1018.57,903.13,61.2;2026-07-15,1152.07,1023.81,905.61,63.6;2026-07-16,1095.46,1026.62,907.5,61.6;2026-07-17,1065.22,1028.13,909.07,61.5;2026-07-20,1055.03,1029.18,910.52,59.9;2026-07-21,1085.56,1031.4,912.26,61.2;2026-07-22,1098.2,1034.02,914.11,61.9;2026-07-23,1074.72,1035.61,915.71,62;2026-07-24,1061.23,1036.62,917.16,61.7;2026-07-27,1048.23,1037.07,918.46,60.8;2026-07-28,1033.34,1036.93,919.6,61.2;2026-07-29,980.75,1034.72,920.21,58.4;2026-07-30,1024.86,1034.34,921.25,60;2026-07-31,1018.38,1033.71,922.22,59.3;2026-08-03,1027.06,1033.45,923.26,60.9;2026-08-04,1052.98,1034.22,924.55,60.5;2026-08-05,1060.38,1035.24,925.9,58.9;2026-08-06,1032.58,1035.14,926.97,57.4;2026-08-07,1039.61,1035.31,928.09,57.4;2026-08-10,1034.51,1035.28,929.15,56.6;2026-08-11,1034.41,1035.25,930.19,56.4;2026-08-12,1037.21,1035.32,931.26,55.4;2026-08-13,1042.63,1035.61,932.37,54.6;2026-08-14,1039.42,1035.76,933.43,55.2;2026-08-17,1051.31,1036.37,934.6,56.1;2026-08-18,1040.47,1036.53,935.66,57.3;2026-08-19,1021.65,1035.95,936.51,55.9;2026-08-20,1001.95,1034.61,937.16,54.2;2026-08-21,1039.28,1034.8,938.18,56.2;2026-08-24,1036.28,1034.85,939.16,55.6;2026-08-25,1058.88,1035.8,940.35,57.2;2026-08-26,1040.46,1035.98,941.34,56.1;2026-08-27,1040.87,1036.17,942.33,55.6;2026-08-28,1033.99,1036.09,943.25,54.8;2026-08-31,1025.9,1035.69,944.07,54.3;2026-09-01,1002.56,1034.39,944.65,53.1;2026-09-02,1004.42,1033.21,945.25,52.1;2026-09-03,1037.93,1033.4,946.17,53.5;2026-09-04,1038.61,1033.6,947.09,54.5;2026-09-08,1036.53,1033.72,947.98,54.6;2026-09-09,1028.78,1033.52,948.78,55;2026-09-10,1019.77,1032.98,949.49,55.1;2026-09-11,1029.18,1032.83,950.28,55;2026-09-14,988.45,1031.09,950.66,54;2026-09-15,976.67,1028.96,950.92,54.7;2026-09-16,937.98,1025.39,950.79,51.9;2026-09-17,951.47,1022.49,950.8,54;2026-09-18,942,1019.34,950.71,51.5;2026-09-21,959.39,1016.99,950.8,52.8;2026-09-22,949.49,1014.34,950.78,52.4;2026-09-23,936.36,1011.28,950.64,50.8;2026-09-24,923.29,1007.83,950.37,50.6;2026-09-25,935.45,1004.99,950.22,52.5;2026-09-28,916.28,1001.51,949.88,51.1;2026-09-29,916.24,998.17,949.55,52.1;2026-09-30,900.36,994.33,949.06,50.3;2026-10-01,896.67,990.5,948.54,51.7;2026-10-02,902.56,987.05,948.08,51.1;2026-10-05,893.46,983.38,947.54,50.6;2026-10-06,897.18,980,947.03,49;2026-10-07,887.21,976.36,946.44,51.2;2026-10-08,882.59,972.69,945.8,51.3;2026-10-09,895.32,969.65,945.3,52.4;2026-10-12,893.95,966.68,944.79,52.1;2026-10-13,891.91,963.75,944.26,47.4;2026-10-14,878.72,960.42,943.61,46.6;2026-10-15,891.28,957.71,943.09,49;2026-10-16,881.26,954.71,942.48,47.3;2026-10-19,875.78,951.61,941.81,45.9;2026-10-20,884.81,948.99,941.25,46.4;2026-10-21,904.72,947.26,940.88,48.4;2026-10-22,891.3,945.06,940.39,48.1;2026-10-23,875.68,942.34,939.74,47.4;2026-10-26,893.28,940.42,939.28,47.8;2026-10-27,911.77,939.29,939.01,48.1;2026-10-28,925.17,938.74,938.87,49;2026-10-29,927.73,938.31,938.76,48.2;2026-10-30,894.55,936.59,938.32,48.4;2026-11-02,898.72,935.11,937.93,46.9;2026-11-03,896.09,933.58,937.51,46.5;2026-11-04,928,933.36,937.41,48.4;2026-11-05,868.95,930.83,936.73,45.9;2026-11-06,865.82,928.28,936.03,43.7;2026-11-09,906.22,927.42,935.73,44.9;2026-11-10,910.19,926.74,935.48,45.3;2026-11-11,926.81,926.75,935.39,45.9`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+
+const fmtN=(v,d=2)=>v.toLocaleString("de-CH",{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmtD=s=>{const [y,m,d]=s.split("-");return d+"."+m+"."+y.slice(2)};
+const NS="http://www.w3.org/2000/svg";
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+
+function scoreTable(id,rows){
+  let tot=0,max=0;
+  const html='<thead><tr><th>Kriterium</th><th>Stand</th><th class="num">Punkte</th><th style="width:22%"></th></tr></thead><tbody>'+rows.map(r=>{tot+=r[2];max+=r[3];const p=r[2]/r[3];const c=p>=.75?"var(--good)":p>=.45?"var(--warn)":"var(--bad)";
+    return `<tr><td>${r[0]}</td><td class="muted">${r[1]}</td><td class="num">${r[2]} / ${r[3]}</td><td><div class="bar"><i style="width:${p*100}%;background:${c}"></i></div></td></tr>`}).join("")+`<tr class="total"><td>Total</td><td></td><td class="num">${tot} / ${max}</td><td></td></tr></tbody>`;
+  document.getElementById(id).innerHTML=html;return tot;
+}
+const qs=scoreTable("q-tbl",Q), ts=scoreTable("t-tbl",T);
+document.getElementById("q-val").textContent=qs;document.getElementById("t-val").textContent=ts;
+document.getElementById("q-pin").style.left=qs+"%";document.getElementById("t-pin").style.left=ts+"%";
+
+document.getElementById("fin-rows").innerHTML=FIN.map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1].toLocaleString("de-CH")}</td><td class="num">${r[2]}</td><td class="num">${r[3]}</td><td class="num">${fmtN(r[4])}</td><td class="num">${r[5].toLocaleString("de-CH")}</td><td class="num">${r[6]}</td><td class="num">${r[7]}</td></tr>`).join("");
+
+/* generic line chart */
+function lineChart(host,{dates,series,bands=[],yFmt=v=>fmtN(v),h=300,zero=false,refs=[],pad}){
+  const W_=800,H=h,m={t:12,r:56,b:28,l:8};
+  const all=series.flatMap(s=>s.values).concat(bands.flatMap(b=>[b.from,b.to])).concat(refs.map(r=>r.v));
+  if(zero)all.push(0);
+  let lo=Math.min(...all),hi=Math.max(...all);const sp=(hi-lo)||1;lo-=sp*.06;hi+=sp*.06;
+  if(pad){lo=pad[0];hi=pad[1]}
+  const n=dates.length,x=i=>m.l+i*(W_-m.l-m.r)/(n-1),y=v=>m.t+(hi-v)*(H-m.t-m.b)/(hi-lo);
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  // grid
+  const steps=5;for(let k=0;k<=steps;k++){const v=lo+(hi-lo)*k/steps;el("line",{x1:m.l,x2:W_-m.r,y1:y(v),y2:y(v),stroke:"var(--grid)","stroke-width":1},svg);
+    const t=el("text",{x:W_-m.r+6,y:y(v)+4,"font-size":11,fill:"var(--muted)","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=yFmt(v)}
+  bands.forEach(b=>{el("rect",{x:m.l,width:W_-m.l-m.r,y:y(Math.max(b.from,b.to)),height:Math.abs(y(b.from)-y(b.to)),fill:b.type==="res"?"var(--zone-res)":"var(--zone-sup)"},svg)});
+  refs.forEach(r=>{el("line",{x1:m.l,x2:W_-m.r,y1:y(r.v),y2:y(r.v),stroke:"var(--muted)","stroke-dasharray":"4 4","stroke-width":1},svg);
+    const t=el("text",{x:m.l+4,y:y(r.v)-4,"font-size":11,fill:"var(--muted)"},svg);t.textContent=r.label});
+  if(zero)el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  // x labels
+  const every=Math.ceil(n/6);for(let i=0;i<n;i+=every){const t=el("text",{x:x(i),y:H-8,"font-size":11,fill:"var(--muted)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);const d=dates[i];t.textContent=d.slice(5,7)+"/"+d.slice(2,4)}
+  series.forEach(s=>{const dpath=s.values.map((v,i)=>(i?"L":"M")+x(i).toFixed(1)+","+y(v).toFixed(1)).join("");
+    el("path",{d:dpath,fill:"none",stroke:s.color,"stroke-width":s.w||2,"stroke-linejoin":"round","stroke-linecap":"round"},svg);
+    const lv=s.values[n-1];el("circle",{cx:x(n-1),cy:y(lv),r:3.5,fill:s.color,stroke:"var(--surface)","stroke-width":2},svg)});
+  // hover
+  const cross=el("line",{y1:m.t,y2:H-m.b,stroke:"var(--muted)","stroke-width":1,opacity:0},svg);
+  const ov=el("rect",{x:m.l,y:m.t,width:W_-m.l-m.r,height:H-m.t-m.b,fill:"transparent"},svg);
+  host.appendChild(svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;host.appendChild(tip);
+  function move(ev){const r=svg.getBoundingClientRect();const px=(ev.clientX-r.left)*W_/r.width;let i=Math.round((px-m.l)/((W_-m.l-m.r)/(n-1)));i=Math.max(0,Math.min(n-1,i));
+    cross.setAttribute("x1",x(i));cross.setAttribute("x2",x(i));cross.setAttribute("opacity",1);
+    tip.innerHTML=`<div class="d">${fmtD(dates[i])}</div>`+series.map(s=>`<div><i class="sw" style="background:${s.color}"></i> ${s.name}: <b>${yFmt(s.values[i])}</b></div>`).join("");
+    tip.hidden=false;const hx=x(i)*r.width/W_;tip.style.left=Math.min(Math.max(0,hx+12),r.width-tip.offsetWidth)+"px";tip.style.top="8px"}
+  ov.addEventListener("pointermove",move);ov.addEventListener("pointerleave",()=>{tip.hidden=true;cross.setAttribute("opacity",0)});
+}
+function barChart(host,{labels,values,fmt,h=220,color,neg,tipExtra}){
+  const W_=800,H=h,m={t:18,r:8,b:28,l:8};
+  const hi=Math.max(0,...values),lo=Math.min(0,...values);const lo2=lo<0?lo*1.15:lo,hi2=hi*1.15||1;
+  const y=v=>m.t+(hi2-v)*(H-m.t-m.b)/(hi2-lo2);const n=values.length,bw=(W_-m.l-m.r)/n;
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;
+  values.forEach((v,i)=>{const x0=m.l+i*bw+bw*.18,w=bw*.64,y0=y(Math.max(v,0)),hh=Math.max(1,Math.abs(y(v)-y(0)));
+    const r=el("rect",{x:x0,y:y0,width:w,height:hh,rx:4,fill:v<0?(neg||"var(--s2)"):(color||"var(--s1)")},svg);
+    const t=el("text",{x:x0+w/2,y:v<0?y(v)+13:y0-5,"font-size":11.5,fill:"var(--ink)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=fmt(v);
+    const l=el("text",{x:x0+w/2,y:H-8,"font-size":11.5,fill:"var(--muted)","text-anchor":"middle"},svg);l.textContent=labels[i];
+    const hit=el("rect",{x:m.l+i*bw,y:m.t,width:bw,height:H-m.t-m.b,fill:"transparent"},svg);
+    hit.addEventListener("pointerenter",()=>{tip.innerHTML=`<div class="d">${labels[i]}</div><b>${fmt(v)}</b>${tipExtra?tipExtra(i):""}`;tip.hidden=false;const R=svg.getBoundingClientRect();tip.style.left=Math.min((m.l+i*bw)*R.width/W_,R.width-tip.offsetWidth)+"px";tip.style.top="0px"});
+    hit.addEventListener("pointerleave",()=>tip.hidden=true)});
+  host.appendChild(svg);host.appendChild(tip);
+}
+barChart(document.getElementById("c-rev"),{labels:HALF.map(r=>r[0]),values:HALF.map(r=>r[1]),fmt:v=>fmtN(v,0),h:200});
+barChart(document.getElementById("c-margin"),{labels:MARGIN.map(r=>r[0]),values:MARGIN.map(r=>r[1]),fmt:v=>fmtN(v,1)+" %",h:200});
+barChart(document.getElementById("c-seas"),{labels:MON,values:SEAS,fmt:v=>(v>0?"+":"")+fmtN(v,1),h:220,tipExtra:i=>`<div>${SEASHIT[i]} % der Jahre positiv</div>`});
+const BANDS=[{"from": 997, "to": 1045, "type": "res"}, {"from": 935, "to": 940, "type": "res"}, {"from": 854, "to": 870, "type": "sup"}, {"from": 780, "to": 825, "type": "sup"}], REFS=[{"v": 940, "label": "Trigger 940"}];
+const wd=W.map(r=>r[0]);
+lineChart(document.getElementById("c-week"),{dates:wd,series:[{name:"Kurs",values:W.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:W.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:W.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,yFmt:v=>fmtN(v,0),h:320});
+lineChart(document.getElementById("c-adw"),{dates:wd,series:[{name:"A/D Woche",values:W.map(r=>r[5]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,zero:true});
+lineChart(document.getElementById("c-rsiw"),{dates:wd,series:[{name:"RSI Woche",values:W.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,refs:[{v:70,label:"70 überkauft"},{v:30,label:"30 überverkauft"}],pad:[10,90]});
+const dd=DD.map(r=>r[0]);
+lineChart(document.getElementById("c-day"),{dates:dd,series:[{name:"Kurs",values:DD.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:DD.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:DD.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,refs:REFS,yFmt:v=>fmtN(v,0),h:260});
+lineChart(document.getElementById("c-add"),{dates:dd,series:[{name:"A/D Tag",values:DD.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:260,zero:true});
+</script>

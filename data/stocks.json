@@ -1,5 +1,5 @@
 {
- "stand": "2026-11-10",
+ "stand": "2026-11-11",
  "aktien": [
   {
    "ticker": "APP",
@@ -21281,6 +21281,746 @@
    ],
    "cheatsheet": "analysen/HPE.html",
    "claude": "https://claude.ai/artifact/EEaoqK2YhdgvZZbmqh1Rbt"
+  },
+  {
+   "ticker": "GS",
+   "symbol": "GS",
+   "name": "Goldman Sachs",
+   "tags": [
+    "Dividende"
+   ],
+   "land": "USA",
+   "region": "USA",
+   "branche": "Investmentbank und Vermögensverwaltung",
+   "status": "beobachten",
+   "waehrung": "USD",
+   "analyse": {
+    "datenstand": "2026-11-11",
+    "kurs": 926.81,
+    "q": 68,
+    "t": 51
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "3 von 4 Quartalen über Vorjahr",
+     "p": 8,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "+18.7 % in 12 Monaten (Boomphase, schwankt stark)",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "Vorsteuermarge 39.3 % (9 Pkt.), über 5 Jahre schwankend (3 Pkt.)",
+     "p": 12,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "2025 +27 %, letzte 12 Monate +35 % zu 2025",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Bei Banken nicht aussagekräftig (Daten fehlen: halbe Punkte)",
+     "p": 5,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "Bei Banken ROE: 17.7 % (10 Pkt.), steigend (+1)",
+     "p": 11,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Nettoschulden/EBITDA bei Banken nicht anwendbar. CET1 12.4 % bei 11.4 % Pflicht: halbe Punkte",
+     "p": 5,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "KGV 13.3 statt Ø 12.7, im Bereich ±10 %",
+     "p": 7,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs knapp über beiden, EMA 50 über 200",
+     "p": 18,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs auf EMA 50, unter EMA 200, EMA 50 unter 200 (mögliche Wende)",
+     "p": 4,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Seitwärts 854–940 $ nach Abwärtstrend, Tiefs nicht höher, Fehlausbruch am 5.11.",
+     "p": 6,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "Bullische Divergenz im Tag (Tief 5.11. mit höherem RSI), Woche neutral",
+     "p": 11,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Beide fallen mit dem Kurs",
+     "p": 4,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Start 3, Rückkäufe 5.4 % +3, gehäufte Insider-Verkäufe −3",
+     "p": 3,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "November und Dezember überwiegend positiv (89 % und 63 %)",
+     "p": 5,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 13.3,
+    "schnitt": 12.7,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      854,
+      870
+     ],
+     [
+      780,
+      825
+     ]
+    ],
+    "widerstand": [
+     [
+      935,
+      940
+     ],
+     [
+      997,
+      1045
+     ]
+    ],
+    "trigger": 940,
+    "abbruch": 850
+   },
+   "zahlen": "2027-01-19",
+   "dividende": "2.2 %",
+   "div_info": {
+    "pro_jahr": 4,
+    "rhythmus": "quartalsweise",
+    "ex_monate": [
+     3,
+     6,
+     9,
+     12
+    ],
+    "zahl_monate": [
+     3,
+     6,
+     9,
+     12
+    ],
+    "zahl_text": "jeweils Ende März, Juni, September und Dezember (nächste: Ex-Tag 2.12.2026, Zahltag 30.12.2026)",
+    "abstand_tage": 28,
+    "betrag": 5.0,
+    "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Die Erhöhung kommt einmal im Jahr nach dem Stresstest der US-Notenbank im Sommer (2026: +11 % auf 5.00 $). In USD, 15 % US-Quellensteuer mit W-8BEN."
+   },
+   "chance": {
+    "ticker": "GS",
+    "sorgen": [
+     "Die Zinsen steigen wieder: 10-jährige US-Staatsanleihen bei rund 5.3 %, die US-Notenbank erhöht die Zinsen. Das kann Firmenkäufe und Börsengänge bremsen.",
+     "Die Inflation lag im Oktober mit 3.7 % über den Erwartungen. Am Tag danach fiel die Aktie trotz rekordnahen Zahlen um 2.1 %.",
+     "Der Auftragsbestand im Investment Banking lag Ende September unter dem Stand vom Juni. Die Kosten stiegen um rund 20 %, die Kreditrückstellungen deutlich.",
+     "Am 5.11.2026 fiel die Aktie im breiten Börsenrutsch um 6.1 % bis 854.45 $."
+    ],
+    "sorgen_art": "gemischt",
+    "sorgen_art_text": "Das Geschäft läuft heute sehr gut, aber Goldman ist stark von Börse und Zinsen abhängig, und der Auftragsbestand hat sich leicht abgeschwächt.",
+    "aufloeser": [
+     {
+      "was": "Zahlen zum 4. Quartal: Steigt der Auftragsbestand im Investment Banking wieder, und bleibt die Eigenkapitalrendite über 15 %?",
+      "wann": "Zahlen 19.1.2027"
+     },
+     {
+      "was": "Die Inflation sinkt, die Zinsen beruhigen sich",
+      "wann": "Inflationsdaten monatlich, Notenbank-Sitzungen Dezember 2026 und Januar 2027"
+     },
+     {
+      "was": "Stresstest der US-Notenbank: tieferer Kapitalpuffer würde mehr Spielraum für Rückkäufe geben",
+      "wann": "Juni 2027"
+     }
+    ],
+    "schub_stufe": "mittel",
+    "schub_treiber": [
+     {
+      "titel": "Wachstum in der Vermögensverwaltung",
+      "text": "Asset & Wealth Management macht rund ein Viertel des Umsatzes und wuchs im letzten Quartal um 14 %. Geplant sind die Zukäufe LCN und NEOS sowie eine Zusammenarbeit mit IG Wealth Management. Diese Einnahmen sind stabiler als der Handel.",
+      "wann": "2027–2028"
+     },
+     {
+      "titel": "Boom bei Firmenkäufen und Börsengängen",
+      "text": "Die Beratungsgebühren lagen im letzten Quartal auf Rekordhöhe, Investment Banking +21 %. Hält der Zyklus, bleibt der Gewinn hoch. Das ist aber kein neuer Treiber, sondern der normale Zyklus.",
+      "wann": "2027"
+     }
+    ],
+    "schub_beweis": "Achte auf den Umsatz in Asset & Wealth Management (zuletzt 5.05 Mrd. $, +14 %) und auf den Auftragsbestand im Investment Banking. Steigen beide, ist das Wachstum breiter abgestützt.",
+    "szenario": "Kein Fall wie Google 2023, sondern ein Zyklus-Fall: Goldman verdient so gut wie lange nicht, die Börse traut dem Zyklus wegen steigender Zinsen aber nicht. Beruhigen sich Zinsen und Inflation, kann die Aktie wieder Richtung Allzeithoch (1'154 $) laufen. Grösstes Risiko: Kippt die Börse, fällt der Gewinn schnell, wie 2022 (−49 % pro Aktie).",
+    "quellen": [
+     {
+      "titel": "Goldman Sachs: Zahlen Q3 2026",
+      "url": "https://www.sec.gov/Archives/edgar/data/0000886982/000088698226000529/a3q26gsearningsresults.htm"
+     },
+     {
+      "titel": "Yahoo Finance: Zinsen belasten Goldman",
+      "url": "https://finance.yahoo.com/markets/article/goldman-sachs-stock-loses-nearly-all-year-to-date-gains-as-bond-yields-rise-141150928.html"
+     },
+     {
+      "titel": "TIKR: Q3 2026, Aktienhandel stark",
+      "url": "https://www.tikr.com/blog/goldman-sachs-stock-q3-2026-earnings-beat-equities-surge"
+     },
+     {
+      "titel": "Goldman Sachs: Stresstest 2026",
+      "url": "https://www.goldmansachs.com/pressroom/press-releases/2026/gs-statement-on-comprehensive-capital-analysis-and-review-2026-results"
+     }
+    ]
+   },
+   "fazit": "Goldman Sachs ist eine der grössten Investmentbanken der Welt. 2026 läuft das Geschäft sehr gut: Umsatz in 12 Monaten rund +19 %, Gewinn pro Aktie 69.49 $ (2025: 51.32 $), Eigenkapitalrendite 18.7 % im letzten Quartal. Trotzdem liegt die Aktie 20 % unter dem Allzeithoch vom Juli. Gründe: steigende Zinsen, Sorgen um Inflation und der Börsenrutsch vom 5.11. Qualität hellgrün (68): stark im Moment, aber das Geschäft schwankt mit den Börsen, und der Kapitalpuffer ist zuletzt kleiner geworden. Timing gelb (51): Seit Oktober pendelt der Kurs zwischen 854 und 940 $. Ein Tagesschluss über 940 $ wäre das erste Zeichen für eine Wende.",
+   "about": "Goldman Sachs verdient auf drei Arten. Global Banking & Markets (rund 74 % des Umsatzes 2026): Beratung bei Firmenkäufen und Börsengängen (Investment Banking), dazu der Handel mit Aktien, Anleihen, Währungen und Rohstoffen für grosse Kunden wie Pensionskassen und Hedgefonds. Asset & Wealth Management (rund 24 %): Verwaltung von Vermögen für reiche Privatkunden und Institutionen sowie eigene Beteiligungen. Platform Solutions (rund 1 %): das frühere Konsumentengeschäft (Kreditkarten), das Goldman abbaut. Wichtig für Anfänger: Bei einer Bank sind Kennzahlen wie Free Cashflow oder Nettoschulden kaum aussagekräftig, weil Schulden und Kundengelder das Rohmaterial des Geschäfts sind. Wichtiger sind die Eigenkapitalrendite (ROE) und das harte Kernkapital (CET1).",
+   "kpis": [
+    {
+     "ampel": "g",
+     "name": "Umsatzwachstum",
+     "wert": "+18.7 %",
+     "text": "Letzte 12 Monate (bis September 2026), selbst gerechnet aus den Firmenzahlen. 3 der letzten 4 Quartale über dem Vorjahr. Achtung: Bankumsätze schwanken mit der Börse, 2022 fiel der Umsatz um 24 %."
+    },
+    {
+     "ampel": "g",
+     "name": "Vorsteuermarge",
+     "wert": "39.3 %",
+     "text": "Von 100 $ Umsatz bleiben 39 $ Gewinn vor Steuern (letzte 12 Monate). Für eine Bank sehr gut. 2023 waren es nur 24 %."
+    },
+    {
+     "ampel": "g",
+     "name": "Gewinn pro Aktie (EPS)",
+     "wert": "69.49 $",
+     "text": "Letzte 12 Monate. 2025 waren es 51.32 $ (+35 %), 2023 nur 22.87 $. Im letzten Quartal 17.01 $, ohne eine Spende von rund 450 Mio. $ laut Finanzchef rund 18 $."
+    },
+    {
+     "ampel": "g",
+     "name": "Eigenkapitalrendite (ROE)",
+     "wert": "17.7 %",
+     "text": "Auf 100 $ Eigenkapital der Aktionäre verdient Goldman knapp 18 $ pro Jahr (letzte 12 Monate, im letzten Quartal 18.7 %). Für eine Bank stark, 2025 waren es 15.0 %. Bei Banken ersetzt die ROE den ROIC."
+    },
+    {
+     "ampel": "w",
+     "name": "Kernkapital (CET1)",
+     "wert": "12.4 %",
+     "text": "Das harte Eigenkapital im Verhältnis zu den Risiken. Vorgeschrieben sind 11.4 %. Der Puffer ist mit 1 Prozentpunkt eher knapp und seit Ende 2025 (14.4 %) gesunken, weil Goldman viel zurückkauft und mehr Risiko nimmt."
+    },
+    {
+     "ampel": "w",
+     "name": "Free Cashflow",
+     "wert": "nicht aussagekräftig",
+     "text": "Bei Banken schwankt der Cashflow mit den Handelsbeständen und Kundengeldern (2025: −47 Mrd. $). Er sagt wenig über die Qualität aus."
+    },
+    {
+     "ampel": "w",
+     "name": "KGV",
+     "wert": "13.3",
+     "text": "Du zahlst gut 13 Jahresgewinne. Eigener Schnitt 2021 bis 2025: rund 12.7. Also etwa normal bewertet. Kurs-Buchwert-Verhältnis 2.5: Du zahlst das 2.5-Fache des Eigenkapitals."
+    },
+    {
+     "ampel": "g",
+     "name": "Dividende",
+     "wert": "2.2 %",
+     "text": "5.00 $ pro Quartal, 4× pro Jahr. Nächster Ex-Tag 2.12.2026, Zahltag 30.12.2026. Nach dem Stresstest im Sommer 2026 um 11 % erhöht (von 4.50 $). In USD, 15 % US-Quellensteuer (mit W-8BEN), in der Steuererklärung anrechenbar."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "997–1'045 $",
+     "text": "Widerstand: Tiefs vom August und September (996.97 bis 1'001.68 $) und Hoch vom 8.9. (1'043.84 $)."
+    },
+    {
+     "art": "r",
+     "wert": "935–940 $",
+     "text": "Widerstand: Obergrenze der Seitwärtsspanne (939.38 $) und Tages-EMA 200 (935.39 $)."
+    },
+    {
+     "art": "t",
+     "wert": "940 $",
+     "text": "Trigger: Tagesschluss über 940 $ (Hoch vom 29.10.). Bestätigung über 1'000 $."
+    },
+    {
+     "art": "s",
+     "wert": "854–870 $",
+     "text": "Kaufzone 1: Untergrenze der Seitwärtsspanne, Tiefs vom 7.10., 15.10. und 5.11. (854.45 bis 868.52 $)."
+    },
+    {
+     "art": "s",
+     "wert": "780–825 $",
+     "text": "Kaufzone 2: Tief vom März 2026 (780.50 $) und altes Hoch vom September 2025 (825.25 $)."
+    },
+    {
+     "art": "r",
+     "wert": "850 $",
+     "text": "Abbruch: Wochenschluss unter 850 $. Dann wäre die Seitwärtsspanne nach unten gebrochen."
+    }
+   ],
+   "pro": [
+    "Seit Jahren einer der führenden Berater bei Firmenkäufen, Rekord bei den Beratungsgebühren im letzten Quartal.",
+    "Rekordnahe Zahlen: Gewinn pro Aktie +35 %, Aktienhandel im letzten Quartal +72 %, ROE 18.7 %.",
+    "Vermögensverwaltung (rund ein Viertel des Umsatzes) bringt stabilere Einnahmen.",
+    "Grosse Rückkäufe (rund 5 % pro Jahr) und Dividende 2.2 %, im Sommer um 11 % erhöht.",
+    "Bullische RSI-Divergenz, Fehlausbruch unter die Spanne am 5.11., gute Saisonalität im November und Dezember."
+   ],
+   "contra": [
+    "Das Geschäft hängt stark von der Börse ab. In schwachen Jahren fällt der Gewinn schnell (2022 −49 %, 2023 −24 %).",
+    "Kapitalpuffer knapp: CET1 12.4 % bei 11.4 % Pflicht, gesunken von 14.4 %.",
+    "Steigende Zinsen und Inflation belasten, Auftragsbestand im Investment Banking unter dem Stand vom Juni.",
+    "Kosten im letzten Quartal rund +20 %, Kreditrückstellungen deutlich höher.",
+    "Insider verkaufen, A/D fällt auf beiden Zeitebenen, Abwärtstrend seit Juli."
+   ],
+   "smart_money": [
+    "Goldman selbst: Grosse Rückkäufe. In 12 Monaten rund 15 Mrd. $ (rund 5.4 % des Börsenwerts), im 3. Quartal 3 Mrd. $ zu durchschnittlich 1'048.73 $. Die Aktienzahl sank in einem Jahr um 4.6 %. Programm bis 40 Mrd. $ (seit 2025).",
+    "Insider: Keine Käufe. In 12 Monaten Verkäufe für rund 158 Mio. $ (GuruFocus). CEO David Solomon verkaufte am 27.10.2026 für rund 11 Mio. $, ohne festen Verkaufsplan. Laut GuruFocus haben 3 bekannte Investoren aufgestockt, 11 reduziert.",
+    "Analysten: Eher vorsichtig. StockAnalysis: 26 Analysten, 9× Kaufen, 15× Halten, 2× Verkaufen, Kursziel im Schnitt 1'031 $ (730 bis 1'250 $). Nach den Zahlen meist gesenkte Ziele: RBC 1'220 → 1'010 $, KBW 1'130 → 1'100 $, BMO 970 → 950 $."
+   ],
+   "cheatsheet": "analysen/GS.html",
+   "claude": "https://claude.ai/artifact/F6ocwK5AeKPcrk1Y5pRJAo"
+  },
+  {
+   "ticker": "NVDA",
+   "symbol": "NVDA",
+   "name": "NVIDIA",
+   "tags": [
+    "Wachstum",
+    "Qualität"
+   ],
+   "land": "USA",
+   "region": "USA",
+   "branche": "Halbleiter (KI-Chips)",
+   "status": "beobachten",
+   "waehrung": "USD",
+   "analyse": {
+    "datenstand": "2026-11-11",
+    "kurs": 173.73,
+    "q": 98,
+    "t": 36
+   },
+   "qualitaet": [
+    {
+     "k": "umsatz",
+     "name": "Umsatztrend",
+     "txt": "4 von 4 Quartalen über Vorjahr, Wachstum beschleunigt sich (+62 bis +106 %)",
+     "p": 15,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "wachstum",
+     "name": "Wachstumstempo",
+     "txt": "+83 % in 12 Monaten",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "marge",
+     "name": "Operative Marge",
+     "txt": "65.2 % (9 Pkt.), seit 2022 klar gestiegen (6 Pkt.)",
+     "p": 15,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "eps",
+     "name": "Gewinnwachstum (EPS)",
+     "txt": "Von 1.19 $ (2024) auf 7.91 $, weit über 15 % pro Jahr",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "fcf",
+     "name": "Free Cashflow",
+     "txt": "Positiv, in 4 von 5 Jahren gestiegen (nur 2023 gesunken)",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "roic",
+     "name": "ROIC",
+     "txt": "92 % (15 Pkt.), aber fallend seit 2025 (−1)",
+     "p": 14,
+     "max": 15,
+     "auto": false
+    },
+    {
+     "k": "schulden",
+     "name": "Schulden",
+     "txt": "Netto-Cash 23.6 Mrd. $",
+     "p": 10,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "bewertung",
+     "name": "Bewertung vs. eigene Historie",
+     "txt": "KGV 22.0 statt Median 51, über 30 % günstiger",
+     "p": 14,
+     "max": 15,
+     "auto": true
+    }
+   ],
+   "timing": [
+    {
+     "k": "trend_w",
+     "name": "Trend Woche (EMA 50/200)",
+     "txt": "Kurs unter EMA 50, über EMA 200, EMA 50 über 200: Rücksetzer im Aufwärtstrend, aber steil",
+     "p": 12,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "trend_d",
+     "name": "Trend Tag (EMA 50/200)",
+     "txt": "Kurs unter beiden, EMA 50 noch knapp über 200",
+     "p": 3,
+     "max": 10,
+     "auto": true
+    },
+    {
+     "k": "smc",
+     "name": "Struktur (SMC)",
+     "txt": "Tiefere Hochs und Tiefe, letztes höheres Tief gebrochen, Test der Jahrestiefs",
+     "p": 4,
+     "max": 20,
+     "auto": false
+    },
+    {
+     "k": "rsi",
+     "name": "RSI Tag/Woche",
+     "txt": "Tag 28.7, Woche 35.5, keine Divergenz",
+     "p": 5,
+     "max": 15,
+     "auto": true
+    },
+    {
+     "k": "ad",
+     "name": "A/D Tag/Woche",
+     "txt": "Tag leicht positiv seit 6.11., Woche Verteilung seit Februar",
+     "p": 6,
+     "max": 20,
+     "auto": true
+    },
+    {
+     "k": "smart",
+     "name": "Smart Money",
+     "txt": "Start 3, grosse Rückkäufe +3, gehäufte Insider-Verkäufe −3",
+     "p": 3,
+     "max": 10,
+     "auto": false
+    },
+    {
+     "k": "saison",
+     "name": "Saisonalität",
+     "txt": "November und Dezember positiv, Januar schwach (36 %)",
+     "p": 3,
+     "max": 5,
+     "auto": true
+    }
+   ],
+   "bewertung": {
+    "wert": 22.0,
+    "schnitt": 50.7,
+    "typ": "KGV"
+   },
+   "zonen": {
+    "kauf": [
+     [
+      164,
+      171
+     ],
+     [
+      137,
+      153
+     ]
+    ],
+    "widerstand": [
+     [
+      196,
+      200
+     ],
+     [
+      204,
+      211
+     ]
+    ],
+    "trigger": 200,
+    "abbruch": 160
+   },
+   "zahlen": "2026-11-17",
+   "dividende": "0.6 %",
+   "div_info": {
+    "pro_jahr": 4,
+    "rhythmus": "quartalsweise",
+    "ex_monate": [
+     3,
+     6,
+     9,
+     12
+    ],
+    "zahl_monate": [
+     4,
+     6,
+     10,
+     12
+    ],
+    "zahl_text": "2026: Ex-Tag 4.6., Zahltag 26.6.; Ex-Tag 10.9., Zahltag 1.10. Der nächste Termin wird mit den Zahlen am 17.11.2026 bekanntgegeben.",
+    "abstand_tage": 21,
+    "betrag": 0.25,
+    "system": "US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Im Mai 2026 von 0.01 $ auf 0.25 $ pro Quartal erhöht. Die Dividende ist klein (0.6 %), NVIDIA gibt das meiste Geld über Aktienrückkäufe zurück. In USD, 15 % US-Quellensteuer mit W-8BEN."
+   },
+   "chance": {
+    "ticker": "NVDA",
+    "sorgen": [
+     "Zweifel, ob die grossen Kunden ihre KI-Ausgaben weiter so stark erhöhen. Schwache Ausblicke von Intel, Qualcomm und Arm verstärkten das im Oktober und November 2026.",
+     "Am 5.11.2026 fiel die Aktie in einem Ausverkauf von Chip- und KI-Aktien um 9.3 %, am 9.11. eröffnete sie nach einem Bericht über eine interne Untersuchung rund um CEO Jensen Huang rund 8 % tiefer.",
+     "China blockiert Käufe von NVIDIA-Chips, im Ausblick ist null China-Umsatz im Rechenzentrum eingerechnet. Gleichzeitig bauen Kunden wie Google eigene KI-Chips.",
+     "Die Bruttomarge soll im Quartal bis Januar 2027 wegen teurer Speicherchips auf 71 bis 72 % sinken (zuletzt 75 %)."
+    ],
+    "sorgen_art": "stimmung",
+    "sorgen_art_text": "Umsatz und Gewinn wachsen schneller als je zuvor (+106 % im letzten Quartal), die Sorgen betreffen die Zukunft der KI-Ausgaben und den CEO, nicht das heutige Geschäft.",
+    "aufloeser": [
+     {
+      "was": "Zahlen zum 3. Quartal: Umsatz über 108 Mrd. $ und ein Ausblick für das Januar-Quartal über rund 124 Mrd. $",
+      "wann": "Zahlen 17.11.2026"
+     },
+     {
+      "was": "Abschluss der Untersuchung rund um Jensen Huang ohne Befund",
+      "wann": "offen, Ende 2026"
+     },
+     {
+      "was": "Grosse Cloud-Anbieter bestätigen oder erhöhen ihre Investitionspläne für 2027",
+      "wann": "Quartalszahlen Ende Januar und Februar 2027"
+     }
+    ],
+    "schub_stufe": "stark",
+    "schub_treiber": [
+     {
+      "titel": "Weiteres Wachstum im Geschäftsjahr 2028",
+      "text": "Die Finanzchefin nannte im August für das Geschäftsjahr 2028 (Februar 2027 bis Januar 2028) rund 70 % Umsatzwachstum, Analysten hatten rund 44 % erwartet. NVIDIA hat Lieferverpflichtungen von 279 Mrd. $ eingegangen, das zeigt, wie viel Nachfrage die Firma erwartet.",
+      "wann": "2027"
+     },
+     {
+      "titel": "China als Zusatz",
+      "text": "Die US-Lizenzen für H200-Chips sind erteilt, aber Peking blockiert die Käufe. China ist im Ausblick nicht enthalten. Öffnet sich der Markt, wäre das zusätzlicher Umsatz, früher machte China einen grösseren Teil des Umsatzes aus.",
+      "wann": "unsicher"
+     }
+    ],
+    "schub_beweis": "Achte am 17.11. auf den Umsatz im Rechenzentrum (zuletzt 89.0 Mrd. $, +117 %) und auf den Ausblick für das Quartal bis Januar. Liegt er klar über 124 Mrd. $, hält das hohe Tempo an.",
+    "szenario": "Ähnlich wie Google 2023, nur umgekehrt: Das Geschäft läuft hervorragend, aber die Börse zweifelt an der Zukunft und bewertet die Aktie mit einem KGV von rund 14 auf die erwarteten Gewinne so tief wie lange nicht. Bestätigen die Kunden ihre Ausgaben, kann die Bewertung wieder steigen. Grösstes Risiko: Die KI-Ausgaben flachen ab, dann sinkt der Umsatz schnell, wie 2023 bei Gaming, und das tiefe KGV war keine Chance.",
+    "quellen": [
+     {
+      "titel": "NVIDIA: Zahlen Q2 Geschäftsjahr 2027",
+      "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Second-Quarter-Fiscal-2027/default.aspx"
+     },
+     {
+      "titel": "SentiSense: Ausblick 108 Mrd. $ ohne China",
+      "url": "https://app.sentisense.ai/stories/nvidia-beats-across-the-board-guides-108-billion-with-zero-china-revenue-assume-08262026"
+     },
+     {
+      "titel": "TIKR: Was der 17. November zeigen muss",
+      "url": "https://www.tikr.com/blog/nvidias-fiscal-2028-revenue-estimate-is-up-25-since-june-heres-what-november-17-has-to-prove"
+     },
+     {
+      "titel": "AP: Untersuchung rund um den CEO",
+      "url": "https://ny1.com/nyc/all-boroughs/ap-top-news/2026/11/09/nvidia-shares-drop-after-co-investigates-whether-ceo-was-target-of-a-foreign-intelligence-effort"
+     }
+    ],
+    "ereignis": {
+     "titel": "Quartalszahlen am 17.11.2026",
+     "art": "offen",
+     "termine": [
+      {
+       "was": "Quartalszahlen (3. Quartal Geschäftsjahr 2027)",
+       "wann": "17.11.2026, nach US-Börsenschluss"
+      }
+     ],
+     "text": "Die Aktie ist seit dem Allzeithoch vom 6.10. um 29 % gefallen, obwohl das Geschäft so schnell wächst wie nie. Das spricht für Buy the Dip, also einen Rücksetzer bei einer intakten Firma. Aber: NVIDIA übertrifft die Erwartungen fast immer, und die Aktie fiel trotzdem oft nach den Zahlen, weil die Börse noch mehr erwartet (Sell the News). Diesmal ist die Stimmung schon schlecht, die Erwartungen sind tiefer. Nach Zahlen bewegt sich der Kurs oft um 5 bis 10 % in beide Richtungen.",
+     "vorgehen": [
+      {
+       "titel": "Abwarten",
+       "text": "Bis die Zahlen am 17.11. da sind und ein Tagesschluss über 200 $ die offene Kurslücke schliesst. Sicherer, aber teurer."
+      },
+      {
+       "titel": "Kauf in Kaufzone 1",
+       "text": "Im Bereich 164 bis 171 $ (Jahrestiefs), mit klarer Regel: Schliesst eine Woche unter 160 $, ist die Idee falsch und du steigst aus. Nächste Haltestelle wäre dann 137 bis 153 $."
+      },
+      {
+       "titel": "In Tranchen",
+       "text": "Nicht alles vor den Zahlen kaufen. Zum Beispiel ein Drittel in der Zone, den Rest nach dem 17.11., je nachdem, ob die Jahrestiefs halten."
+      }
+     ]
+    }
+   },
+   "fazit": "NVIDIA ist die Firma hinter dem KI-Boom: Rund 92 % des Umsatzes kommen aus Rechenzentren. Die Zahlen sind aussergewöhnlich: Umsatz im letzten Quartal +106 %, operative Marge 65 %, 127 Mrd. $ Free Cashflow in 12 Monaten und mehr Cash als Schulden. Darum Qualität grün (98). Trotzdem fiel die Aktie seit dem Allzeithoch vom 6.10.2026 um 29 % auf 173.73 $. Gründe: Zweifel an den KI-Investitionen der Kunden, ein Ausverkauf bei Chipaktien am 5.11. und eine interne Untersuchung rund um CEO Jensen Huang (9.11.). Das KGV liegt mit 22 so tief wie selten. Timing orange (36): Abwärtstrend, Kurs kurz über dem Jahrestief von 164 $. Am 17.11. kommen die nächsten Zahlen, dort kann sich der Kurs um 10 % in beide Richtungen bewegen.",
+   "about": "NVIDIA entwickelt Grafikprozessoren (GPUs). Diese Chips können sehr viele Rechnungen gleichzeitig machen und sind darum der Standard, um KI-Modelle zu trainieren und laufen zu lassen. NVIDIA verkauft heute ganze Rechenzentrum-Systeme: Chips, Netzwerktechnik (Verbindungen zwischen tausenden Chips) und Software (CUDA, die Programmiersprache für die Chips, die viele Entwickler kennen). Seit 2026 zwei Bereiche: Data Center (rund 92 % des Umsatzes im letzten Quartal, Kunden sind grosse Cloud-Anbieter wie Microsoft, Amazon, Google und Meta sowie KI-Clouds und Firmen) und Edge Computing (rund 8 %: Gaming-Grafikkarten, Workstations, Autos, Roboter). NVIDIA stellt die Chips nicht selbst her, das macht TSMC in Taiwan. Das Geschäftsjahr endet Ende Januar (Geschäftsjahr 2027 = Februar 2026 bis Januar 2027).",
+   "kpis": [
+    {
+     "ampel": "g",
+     "name": "Umsatzwachstum",
+     "wert": "+83 %",
+     "text": "Letzte 12 Monate (bis Juli 2026). Im letzten Quartal sogar +106 %. Das Wachstum hat sich in den letzten 4 Quartalen beschleunigt (+62, +73, +85, +106 %). Für eine Firma dieser Grösse aussergewöhnlich."
+    },
+    {
+     "ampel": "g",
+     "name": "Operative Marge",
+     "wert": "65.2 %",
+     "text": "Von 100 $ Umsatz bleiben 65 $ Betriebsgewinn. Sehr hoch, 2022 waren es 37 %. Die Bruttomarge (Umsatz minus Herstellkosten) soll im Quartal bis Januar wegen teurer Speicherchips auf 71 bis 72 % sinken (zuletzt 75 %)."
+    },
+    {
+     "ampel": "g",
+     "name": "Gewinn pro Aktie (EPS)",
+     "wert": "7.91 $",
+     "text": "Letzte 12 Monate, offiziell (GAAP). Im Geschäftsjahr 2026 waren es 4.90 $, 2024 noch 1.19 $. Der Gewinn wächst schneller als der Umsatz."
+    },
+    {
+     "ampel": "g",
+     "name": "ROIC",
+     "wert": "92 %",
+     "text": "Auf 100 $ investiertes Kapital rund 92 $ Gewinn. Extrem hoch. 2025 waren es sogar 191 %: Der Wert sinkt, weil NVIDIA heute viel mehr Kapital einsetzt (Lager, Vorauszahlungen an Lieferanten)."
+    },
+    {
+     "ampel": "g",
+     "name": "Free Cashflow",
+     "wert": "127 Mrd. $",
+     "text": "Letzte 12 Monate. Das ist das Geld, das nach allen Investitionen übrig bleibt, 42 % vom Umsatz. Seit 2023 jedes Jahr stark gestiegen."
+    },
+    {
+     "ampel": "g",
+     "name": "Netto-Cash",
+     "wert": "23.6 Mrd. $",
+     "text": "62.5 Mrd. $ Cash und Wertschriften, 38.9 Mrd. $ Schulden (Stand Juli 2026). Kein Schuldenproblem. Achtung: NVIDIA garantiert teilweise Kredite von Kunden (z. B. CoreWeave), das ist ein Risiko ausserhalb der Bilanz."
+    },
+    {
+     "ampel": "g",
+     "name": "KGV",
+     "wert": "22.0",
+     "text": "Du zahlst 22 Jahresgewinne (letzte 12 Monate). Auf die erwarteten Gewinne der nächsten 12 Monate rund 14. Eigener Schnitt der Geschäftsjahre 2022 bis 2026: Median rund 51. Also so günstig wie selten, aber nur, wenn die Gewinne weiter steigen."
+    },
+    {
+     "ampel": "w",
+     "name": "Dividende",
+     "wert": "0.6 %",
+     "text": "0.25 $ pro Quartal, 4× pro Jahr (seit Juni 2026, vorher nur 0.01 $). Zuletzt Ex-Tag 10.9., Zahltag 1.10.2026. In USD, 15 % US-Quellensteuer (mit W-8BEN), in der Steuererklärung anrechenbar. NVIDIA gibt viel mehr Geld über Aktienrückkäufe zurück."
+    }
+   ],
+   "zonen_text": [
+    {
+     "art": "r",
+     "wert": "204–211 $",
+     "text": "Widerstand: Tages-EMA 200 (204.44 $), Tages-EMA 50 (210.39 $) und Tief vom 23.10. (210.18 $)."
+    },
+    {
+     "art": "r",
+     "wert": "196–200 $",
+     "text": "Widerstand: offene Kurslücke vom 5.11. und Hoch vom 6.11. (194.90 $)."
+    },
+    {
+     "art": "t",
+     "wert": "200 $",
+     "text": "Trigger: Tagesschluss über 200 $ (Kurslücke geschlossen). Bestätigung über 220 $ (letztes tieferes Hoch vom 28.10.)."
+    },
+    {
+     "art": "s",
+     "wert": "164–171 $",
+     "text": "Kaufzone 1: Jahrestief vom 30.3.2026 (164.27 $), Tief vom 10.11. (165.89 $) und Tiefs vom November 2025 und Februar 2026 (169.55 und 171.03 $)."
+    },
+    {
+     "art": "s",
+     "wert": "137–153 $",
+     "text": "Kaufzone 2: Hochs von Ende 2024 und Anfang 2025 (152.89 und 153.13 $), Tief vom Februar 2025 im Bereich 143 $ und Wochen-EMA 200 (136.50 $)."
+    },
+    {
+     "art": "r",
+     "wert": "160 $",
+     "text": "Abbruch: Wochenschluss unter 160 $. Dann wäre das Jahrestief gebrochen und der Aufwärtstrend seit 2023 im Wochenchart in Frage gestellt."
+    }
+   ],
+   "pro": [
+    "Klarer Marktführer bei KI-Chips mit eigener Software (CUDA), die viele Entwickler nutzen.",
+    "Umsatz wächst schneller als zuvor (+106 % im letzten Quartal), Ausblick 108 Mrd. $ für das Quartal bis Oktober.",
+    "Sehr hohe Margen (65 % operativ) und 127 Mrd. $ Free Cashflow in 12 Monaten, Netto-Cash.",
+    "KGV 22 und rund 14 auf die erwarteten Gewinne: so günstig wie selten in den letzten Jahren.",
+    "Rückkaufprogramm von 235 Mrd. $, China ist im Ausblick nicht enthalten (möglicher Zusatzschub)."
+   ],
+   "contra": [
+    "Abhängig von wenigen sehr grossen Kunden. Sinken deren KI-Ausgaben, fällt der Umsatz schnell (wie 2023 bei Gaming).",
+    "Kunden bauen eigene Chips (Google TPU, Amazon, Meta), AMD holt auf.",
+    "Untersuchung rund um CEO Huang (seit 9.11.), China blockiert Käufe, Kreditgarantien für Kunden.",
+    "Bruttomarge soll im Quartal bis Januar auf 71 bis 72 % sinken (Speicherkosten).",
+    "Grosse Insider-Verkäufe, Wochen-A/D zeigt Verteilung, Abwärtstrend seit Oktober."
+   ],
+   "smart_money": [
+    "NVIDIA selbst: Sehr grosses Rückkaufprogramm. Am 28.9.2026 um 150 Mrd. $ auf insgesamt 235 Mrd. $ erhöht (rund 5.6 % des Börsenwerts), bis zum Geschäftsjahr 2028. Im ersten Halbjahr gab NVIDIA rund 46 Mrd. $ an die Aktionäre zurück. Netto (nach neuen Aktien für Mitarbeiter) sank die Aktienzahl aber nur um rund 1 % pro Jahr.",
+    "Insider: Keine Käufe am Markt. Grosse Verkäufe: Direktor Mark Stevens im Juni 2026 über 400 Mio. $ (209 bis 222 $) und Ende August bis Anfang September rund 300 Mio. $ (220 bis 234 $), Direktor Tench Coxe je 500'000 Aktien im Juli, August und September. Jensen Huang gab im Juni und September Aktien ab, laut Muster wohl vor allem für Steuern auf Mitarbeiteraktien.",
+    "Analysten: Fast alle positiv. 59 von 62 Analysten raten zum Kaufen, 2 Halten, 1 Verkaufen (Seaport). Kursziel im Schnitt rund 327 $. Zuletzt: Aletheia stuft auf Halten ab, Goldman bestätigt Kaufen mit Ziel 300 $."
+   ],
+   "cheatsheet": "analysen/NVDA.html",
+   "claude": "https://claude.ai/artifact/12NCT8EPt4cGxy57FdGV7g"
   }
  ]
 }

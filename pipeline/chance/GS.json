@@ -1,0 +1,58 @@
+{
+ "ticker": "GS",
+ "sorgen": [
+  "Die Zinsen steigen wieder: 10-jährige US-Staatsanleihen bei rund 5.3 %, die US-Notenbank erhöht die Zinsen. Das kann Firmenkäufe und Börsengänge bremsen.",
+  "Die Inflation lag im Oktober mit 3.7 % über den Erwartungen. Am Tag danach fiel die Aktie trotz rekordnahen Zahlen um 2.1 %.",
+  "Der Auftragsbestand im Investment Banking lag Ende September unter dem Stand vom Juni. Die Kosten stiegen um rund 20 %, die Kreditrückstellungen deutlich.",
+  "Am 5.11.2026 fiel die Aktie im breiten Börsenrutsch um 6.1 % bis 854.45 $."
+ ],
+ "sorgen_art": "gemischt",
+ "sorgen_art_text": "Das Geschäft läuft heute sehr gut, aber Goldman ist stark von Börse und Zinsen abhängig, und der Auftragsbestand hat sich leicht abgeschwächt.",
+ "aufloeser": [
+  {
+   "was": "Zahlen zum 4. Quartal: Steigt der Auftragsbestand im Investment Banking wieder, und bleibt die Eigenkapitalrendite über 15 %?",
+   "wann": "Zahlen 19.1.2027"
+  },
+  {
+   "was": "Die Inflation sinkt, die Zinsen beruhigen sich",
+   "wann": "Inflationsdaten monatlich, Notenbank-Sitzungen Dezember 2026 und Januar 2027"
+  },
+  {
+   "was": "Stresstest der US-Notenbank: tieferer Kapitalpuffer würde mehr Spielraum für Rückkäufe geben",
+   "wann": "Juni 2027"
+  }
+ ],
+ "schub_stufe": "mittel",
+ "schub_treiber": [
+  {
+   "titel": "Wachstum in der Vermögensverwaltung",
+   "text": "Asset & Wealth Management macht rund ein Viertel des Umsatzes und wuchs im letzten Quartal um 14 %. Geplant sind die Zukäufe LCN und NEOS sowie eine Zusammenarbeit mit IG Wealth Management. Diese Einnahmen sind stabiler als der Handel.",
+   "wann": "2027–2028"
+  },
+  {
+   "titel": "Boom bei Firmenkäufen und Börsengängen",
+   "text": "Die Beratungsgebühren lagen im letzten Quartal auf Rekordhöhe, Investment Banking +21 %. Hält der Zyklus, bleibt der Gewinn hoch. Das ist aber kein neuer Treiber, sondern der normale Zyklus.",
+   "wann": "2027"
+  }
+ ],
+ "schub_beweis": "Achte auf den Umsatz in Asset & Wealth Management (zuletzt 5.05 Mrd. $, +14 %) und auf den Auftragsbestand im Investment Banking. Steigen beide, ist das Wachstum breiter abgestützt.",
+ "szenario": "Kein Fall wie Google 2023, sondern ein Zyklus-Fall: Goldman verdient so gut wie lange nicht, die Börse traut dem Zyklus wegen steigender Zinsen aber nicht. Beruhigen sich Zinsen und Inflation, kann die Aktie wieder Richtung Allzeithoch (1'154 $) laufen. Grösstes Risiko: Kippt die Börse, fällt der Gewinn schnell, wie 2022 (−49 % pro Aktie).",
+ "quellen": [
+  {
+   "titel": "Goldman Sachs: Zahlen Q3 2026",
+   "url": "https://www.sec.gov/Archives/edgar/data/0000886982/000088698226000529/a3q26gsearningsresults.htm"
+  },
+  {
+   "titel": "Yahoo Finance: Zinsen belasten Goldman",
+   "url": "https://finance.yahoo.com/markets/article/goldman-sachs-stock-loses-nearly-all-year-to-date-gains-as-bond-yields-rise-141150928.html"
+  },
+  {
+   "titel": "TIKR: Q3 2026, Aktienhandel stark",
+   "url": "https://www.tikr.com/blog/goldman-sachs-stock-q3-2026-earnings-beat-equities-surge"
+  },
+  {
+   "titel": "Goldman Sachs: Stresstest 2026",
+   "url": "https://www.goldmansachs.com/pressroom/press-releases/2026/gs-statement-on-comprehensive-capital-analysis-and-review-2026-results"
+  }
+ ]
+}

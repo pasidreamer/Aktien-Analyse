@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NVIDIA Aktien-Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F3F5F7; --surface:#FFFFFF; --ink:#141B24; --muted:#5A6573; --line:#DDE2E8; --grid:#E9EDF1;
+  --accent:#2F45B5; --accent-soft:#E6E9F8; --chip:#EBEEF2;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+  --good:#1D7A4B; --good-bg:#E3F3EA; --warn:#9A6200; --warn-bg:#FBF0DC; --bad:#B2362A; --bad-bg:#FBE6E3;
+  --zone-sup:rgba(29,122,75,.10); --zone-res:rgba(178,54,42,.09);
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+    --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+    --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+    --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#10151C; --surface:#18202A; --ink:#E8ECF1; --muted:#9AA6B4; --line:#2A3441; --grid:#232C38;
+  --accent:#8C9DF2; --accent-soft:#252E52; --chip:#222B37;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  --good:#6FD39B; --good-bg:#16342A; --warn:#F0BC5E; --warn-bg:#3A2C12; --bad:#F2897D; --bad-bg:#3E1D1A;
+  --zone-sup:rgba(111,211,155,.12); --zone-res:rgba(242,137,125,.11);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;padding-inline:16px;padding-block:24px 56px}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+h1,h2,h3{font-family:var(--display);font-stretch:85%;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:clamp(32px,7vw,48px);font-weight:800;line-height:1}
+h2{font-size:24px;font-weight:700}
+h3{font-size:17px;font-weight:700;font-stretch:95%}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+section{display:flex;flex-direction:column;gap:14px}
+.lead{max-width:68ch;color:var(--muted)}
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;align-items:stretch}
+.hero .id{display:flex;flex-direction:column;gap:10px;justify-content:space-between}
+.price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price b{font-family:var(--display);font-size:34px;font-weight:700}
+.meta{font-size:13px;color:var(--muted)}
+.verdict{font-size:15px;padding:12px 14px;border-radius:10px;background:var(--chip)}
+.scales{display:flex;flex-direction:column;gap:18px}
+.scale-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.scale-h span{font-size:13px;color:var(--muted)}
+.scale-h b{font-family:var(--display);font-size:28px;line-height:1}
+.track{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#C8412F 0%,#E0892F 30%,#E3B63A 50%,#8BBF4B 68%,#2E9A5B 100%);margin-top:8px}
+.pin{position:absolute;top:-5px;width:4px;height:22px;border-radius:2px;background:var(--ink);box-shadow:0 0 0 2px var(--surface);transform:translateX(-2px)}
+.ticks{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);font-family:var(--mono);margin-top:6px}
+.state{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;margin-top:8px}
+.st-good{background:var(--good-bg);color:var(--good)}
+.st-warn{background:var(--warn-bg);color:var(--warn)}
+.st-bad{background:var(--bad-bg);color:var(--bad)}
+/* tables */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;color:var(--muted);font-weight:500;font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:700;border-bottom:none}
+.pts{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{height:6px;border-radius:3px;background:var(--chip);min-width:60px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:3px}
+/* grids */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;border-left:4px solid var(--line)}
+.kpi.g{border-left-color:var(--good)}.kpi.w{border-left-color:var(--warn)}.kpi.b{border-left-color:var(--bad)}
+.kpi span{font-size:12px;color:var(--muted)}
+.kpi b{font-family:var(--mono);font-size:19px;font-weight:500;font-variant-numeric:tabular-nums}
+.kpi em{font-style:normal;font-size:12.5px;color:var(--muted)}
+/* charts */
+.chart{position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:14px;height:3px;border-radius:2px;display:inline-block}
+.swb{width:12px;height:10px;border-radius:2px;display:inline-block}
+.tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12.5px;box-shadow:0 4px 14px rgba(0,0,0,.12);white-space:nowrap;z-index:2}
+.tip b{font-family:var(--mono);font-weight:500}
+.tip .d{font-family:var(--mono);color:var(--muted);font-size:11.5px}
+.note{font-size:13.5px;color:var(--muted)}
+ul.clean{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.pro li::marker{color:var(--good)} .con li::marker{color:var(--bad)}
+.zones{display:flex;flex-direction:column;gap:8px}
+.zone{display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:baseline;padding:10px 12px;border-radius:10px;background:var(--chip);font-size:14px}
+.zone b{font-family:var(--mono);font-weight:500}
+.zone.r{border-left:4px solid var(--bad)} .zone.s{border-left:4px solid var(--good)} .zone.t{border-left:4px solid var(--accent)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+summary{cursor:pointer;font-weight:600}
+details p{margin-top:8px;color:var(--muted);max-width:70ch}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+footer{font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:6px;max-width:80ch}
+footer a{color:var(--accent)}
+@media (max-width:760px){.hero,.two{grid-template-columns:1fr}.zone{grid-template-columns:1fr;gap:2px}}
+</style>
+
+<a href="../index.html#/aktie/NVDA" style="display:inline-block;margin:max(12px,env(safe-area-inset-top)) 0 0 16px;background:#1f3a5f;color:#fff;font:600 14px system-ui;padding:8px 12px;border-radius:20px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">Zurück zur App</a>
+<div class="wrap">
+
+<header class="hero">
+  <div class="card id">
+    <div>
+      <div class="eyebrow">Aktien-Check · 11.11.2026</div>
+      <h1>NVIDIA</h1>
+      <p class="meta">NVIDIA Corporation · NASDAQ: NVDA · KI-Chips (Grafikprozessoren), Netzwerktechnik und Software für Rechenzentren · Santa Clara, USA</p>
+    </div>
+    <div class="price"><b>173.73 $</b><span class="meta">Schluss 11.11.2026 · 52 Wochen: 164.27 – 243.37 $ · Allzeithoch 243.37 $ am 6.10.2026 · Börsenwert rund 4.2 Bio. $</span></div>
+    <p class="verdict"><b>Kurz gesagt:</b> NVIDIA ist die Firma hinter dem KI-Boom: Rund 92 % des Umsatzes kommen aus Rechenzentren. Die Zahlen sind aussergewöhnlich: Umsatz im letzten Quartal +106 %, operative Marge 65 %, 127 Mrd. $ Free Cashflow in 12 Monaten und mehr Cash als Schulden. Darum Qualität grün (98). Trotzdem fiel die Aktie seit dem Allzeithoch vom 6.10.2026 um 29 % auf 173.73 $. Gründe: Zweifel an den KI-Investitionen der Kunden, ein Ausverkauf bei Chipaktien am 5.11. und eine interne Untersuchung rund um CEO Jensen Huang (9.11.). Das KGV liegt mit 22 so tief wie selten. Timing orange (36): Abwärtstrend, Kurs kurz über dem Jahrestief von 164 $. Am 17.11. kommen die nächsten Zahlen, dort kann sich der Kurs um 10 % in beide Richtungen bewegen.</p>
+  </div>
+  <div class="card scales">
+    <div>
+      <div class="scale-h"><span>Qualität · Ist die Firma kaufenswert?</span><b id="q-val">98</b></div>
+      <div class="track"><i class="pin" id="q-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-good">● Stark: Fundament intakt</span>
+    </div>
+    <div>
+      <div class="scale-h"><span>Timing · Ist jetzt der Zeitpunkt?</span><b id="t-val">36</b></div>
+      <div class="track"><i class="pin" id="t-pin"></i></div>
+      <div class="ticks"><span>0</span><span>30</span><span>45</span><span>60</span><span>75</span><span>100</span></div>
+      <span class="state st-warn">▲ Beobachten: Trigger noch nicht erreicht</span>
+    </div>
+    <p class="note">Skala: unter 30 rot · 30–45 orange · 45–60 gelb · 60–75 hellgrün · ab 75 grün. Beide Werte setzen sich aus festen Kriterien zusammen, siehe unten.</p>
+  </div>
+</header>
+
+<section>
+  <h2>Was die Firma macht</h2>
+  <p class="lead">NVIDIA entwickelt Grafikprozessoren (GPUs). Diese Chips können sehr viele Rechnungen gleichzeitig machen und sind darum der Standard, um KI-Modelle zu trainieren und laufen zu lassen. NVIDIA verkauft heute ganze Rechenzentrum-Systeme: Chips, Netzwerktechnik (Verbindungen zwischen tausenden Chips) und Software (CUDA, die Programmiersprache für die Chips, die viele Entwickler kennen). Seit 2026 zwei Bereiche: Data Center (rund 92 % des Umsatzes im letzten Quartal, Kunden sind grosse Cloud-Anbieter wie Microsoft, Amazon, Google und Meta sowie KI-Clouds und Firmen) und Edge Computing (rund 8 %: Gaming-Grafikkarten, Workstations, Autos, Roboter). NVIDIA stellt die Chips nicht selbst her, das macht TSMC in Taiwan. Das Geschäftsjahr endet Ende Januar (Geschäftsjahr 2027 = Februar 2026 bis Januar 2027).</p>
+  <p class="lead">Seit dem Start von ChatGPT Ende 2022 hat sich der Umsatz mehr als verzehnfacht (Geschäftsjahr 2023: 27 Mrd. $, letzte 12 Monate: 303 Mrd. $). Am 26.8.2026 meldete NVIDIA wieder Rekordzahlen: Umsatz 96.2 Mrd. $ statt erwarteter 92.2 Mrd. $, Ausblick 108 Mrd. $ für das nächste Quartal. Die Finanzchefin nannte für das Geschäftsjahr 2028 rund 70 % Wachstum. Am 6.10. erreichte die Aktie das Allzeithoch von 243.37 $. Danach drehte die Stimmung: Schwache Ausblicke von Intel, Qualcomm und Arm weckten Zweifel, ob die KI-Ausgaben so weiterwachsen. Am 5.11. fiel NVIDIA in einem breiten Ausverkauf von Chip- und KI-Aktien um 9.3 %. Am 9.11. eröffnete die Aktie rund 8 % tiefer: Laut einem Bericht der New York Times untersucht der Verwaltungsrat, ob CEO Jensen Huang Ziel eines ausländischen Geheimdienstes war. Der Verwaltungsrat sieht laut AP keinen Hinweis, dass Geheimnisse abgeflossen sind. Dazu kommen China (Peking blockiert Käufe, im Ausblick ist null China-Umsatz im Rechenzentrum eingerechnet) und eigene KI-Chips der Kunden, zum Beispiel Googles TPU. Am 10.11. fiel der Kurs bis 165.89 $.</p>
+</section>
+
+<section>
+  <h2>Fundamental: die Zahlen</h2>
+  <div class="kpis">
+<div class="kpi g"><span>Umsatzwachstum</span><b>+83 %</b><em>Letzte 12 Monate (bis Juli 2026). Im letzten Quartal sogar +106 %. Das Wachstum hat sich in den letzten 4 Quartalen beschleunigt (+62, +73, +85, +106 %). Für eine Firma dieser Grösse aussergewöhnlich.</em></div>
+<div class="kpi g"><span>Operative Marge</span><b>65.2 %</b><em>Von 100 $ Umsatz bleiben 65 $ Betriebsgewinn. Sehr hoch, 2022 waren es 37 %. Die Bruttomarge (Umsatz minus Herstellkosten) soll im Quartal bis Januar wegen teurer Speicherchips auf 71 bis 72 % sinken (zuletzt 75 %).</em></div>
+<div class="kpi g"><span>Gewinn pro Aktie (EPS)</span><b>7.91 $</b><em>Letzte 12 Monate, offiziell (GAAP). Im Geschäftsjahr 2026 waren es 4.90 $, 2024 noch 1.19 $. Der Gewinn wächst schneller als der Umsatz.</em></div>
+<div class="kpi g"><span>ROIC</span><b>92 %</b><em>Auf 100 $ investiertes Kapital rund 92 $ Gewinn. Extrem hoch. 2025 waren es sogar 191 %: Der Wert sinkt, weil NVIDIA heute viel mehr Kapital einsetzt (Lager, Vorauszahlungen an Lieferanten).</em></div>
+<div class="kpi g"><span>Free Cashflow</span><b>127 Mrd. $</b><em>Letzte 12 Monate. Das ist das Geld, das nach allen Investitionen übrig bleibt, 42 % vom Umsatz. Seit 2023 jedes Jahr stark gestiegen.</em></div>
+<div class="kpi g"><span>Netto-Cash</span><b>23.6 Mrd. $</b><em>62.5 Mrd. $ Cash und Wertschriften, 38.9 Mrd. $ Schulden (Stand Juli 2026). Kein Schuldenproblem. Achtung: NVIDIA garantiert teilweise Kredite von Kunden (z. B. CoreWeave), das ist ein Risiko ausserhalb der Bilanz.</em></div>
+<div class="kpi g"><span>KGV</span><b>22.0</b><em>Du zahlst 22 Jahresgewinne (letzte 12 Monate). Auf die erwarteten Gewinne der nächsten 12 Monate rund 14. Eigener Schnitt der Geschäftsjahre 2022 bis 2026: Median rund 51. Also so günstig wie selten, aber nur, wenn die Gewinne weiter steigen.</em></div>
+<div class="kpi w"><span>Dividende</span><b>0.6 %</b><em>0.25 $ pro Quartal, 4× pro Jahr (seit Juni 2026, vorher nur 0.01 $). Zuletzt Ex-Tag 10.9., Zahltag 1.10.2026. In USD, 15 % US-Quellensteuer (mit W-8BEN), in der Steuererklärung anrechenbar. NVIDIA gibt viel mehr Geld über Aktienrückkäufe zurück.</em></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>Umsatz pro Quartal (Mio. $)</h3>
+      <p class="note">Alle 4 letzten Quartale klar über dem Vorjahr, und das Wachstum wird schneller: +62 % (Okt 25), +73 % (Jan 26), +85 % (Apr 26), +106 % (Jul 26). Ausblick für das Quartal bis Oktober 2026: 108 Mrd. $.</p>
+      <div class="chart" id="c-rev"></div>
+    </div>
+    <div class="card">
+      <h3>Operative Marge pro Jahr</h3>
+      <p class="note">Operative Marge (offiziell, GAAP) pro Geschäftsjahr bis Ende Januar. 2023 kurzer Einbruch, als die Nachfrage nach Gaming-Karten wegbrach. Seit dem KI-Boom über 54 %.</p>
+      <div class="chart" id="c-margin"></div>
+    </div>
+  </div>
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Jahr</th><th class="num">Umsatz Mio. $</th><th class="num">Wachstum</th><th class="num">Op. Marge</th><th class="num">EPS $</th><th class="num">Free Cashflow</th><th class="num">ROIC</th><th class="num">KGV</th></tr></thead>
+      <tbody id="fin-rows"></tbody>
+    </table>
+  </div>
+  <p class="note"><b>Hinweis:</b> Geschäftsjahr bis Ende Januar (2026 = Februar 2025 bis Januar 2026). Gewinn pro Aktie nach den Aktiensplits angepasst. KGV am Ende des Geschäftsjahrs, in der letzten Zeile mit dem Kurs vom 11.11.2026. Das KGV von 115 im Jahr 2023 ist ein Ausreisser (tiefer Gewinn), darum nutze ich als eigenen Schnitt den Median (51) statt des Mittelwerts (62).</p>
+</section>
+
+<section>
+  <h2>Qualität: 98 von 100</h2>
+  <div class="card tbl"><table id="q-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Technik: Wochenchart (2 Jahre)</h2>
+  <div class="card">
+    <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span><span><i class="swb" style="background:var(--zone-sup);border:1px solid var(--good)"></i>Unterstützung</span><span><i class="swb" style="background:var(--zone-res);border:1px solid var(--bad)"></i>Widerstand</span></div>
+    <div class="chart" id="c-week"></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>A/D-Linie, Woche</h3>
+      <p class="note">Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Negativ: Die Wochen-A/D stand im Februar 2026 bei 109'377 und im Mai bei 108'545. Beim Allzeithoch im Oktober lag sie nur noch bei 106'997, heute bei 105'263. Der Kurs stieg, die A/D nicht: Grosse Anleger haben im Anstieg eher verkauft (Verteilung).</p>
+      <div class="chart" id="c-adw"></div>
+    </div>
+    <div class="card">
+      <h3>RSI, Woche</h3>
+      <p class="note">Unter 30 überverkauft, über 70 überkauft. Heute 35.5, so tief wie zuletzt im März 2026 beim Jahrestief. Schwach, aber noch nicht überverkauft.</p>
+      <div class="chart" id="c-rsiw"></div>
+    </div>
+  </div>
+
+  <h2>Technik: Tageschart (1 Jahr)</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Kurs, Tag</h3>
+      <div class="legend"><span><i class="sw" style="background:var(--s1)"></i>Kurs</span><span><i class="sw" style="background:var(--s2)"></i>EMA 50</span><span><i class="sw" style="background:var(--s3)"></i>EMA 200</span></div>
+      <div class="chart" id="c-day"></div>
+    </div>
+    <div class="card">
+      <h3>A/D-Linie, Tag</h3>
+      <p class="note">Kleines positives Zeichen: Am 6.11. schloss der Kurs bei 186.64 $ mit einer Tages-A/D von 2'399. Heute schliesst er tiefer bei 173.73 $, die A/D steht aber höher bei 2'572. Seit dem Allzeithoch fiel die Tages-A/D aber von 3'379 stark, und schon im Anstieg auf das Hoch sank sie (Mai 4'662).</p>
+      <div class="chart" id="c-add"></div>
+    </div>
+  </div>
+
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>Indikator</th><th>Tag</th><th>Woche</th><th>Bedeutung</th></tr></thead>
+      <tbody>
+<tr><td>Kurs vs. EMA 50</td><td class="pts">173.7 &lt; 210.4</td><td class="pts">173.7 &lt; 198.9</td><td>Klar unter der mittelfristigen Linie, auf beiden Zeitebenen.</td></tr>
+<tr><td>Kurs vs. EMA 200</td><td class="pts">173.7 &lt; 204.4</td><td class="pts">173.7 &gt; 136.5</td><td>Im Tageschart unter der langfristigen Linie, im Wochenchart noch weit darüber.</td></tr>
+<tr><td>EMA 50 vs. EMA 200</td><td class="pts">50 über 200 (seit 24.6.2025), Abstand schrumpft</td><td class="pts">50 über 200 (seit 2016)</td><td>Langfristig Aufwärtstrend, kurzfristig klarer Rücksetzer.</td></tr>
+<tr><td>RSI (14)</td><td class="pts">28.7</td><td class="pts">35.5</td><td>Tag überverkauft (am 10.11. sogar 23.9), Woche schwach.</td></tr>
+<tr><td>A/D</td><td class="pts">höher bei tieferem Kurs seit 6.11.</td><td class="pts">fällt seit Februar, auch im Anstieg</td><td>Kurzfristig leicht positiv, längerfristig Verteilung.</td></tr>
+<tr><td>Volumen</td><td colspan="2">Ø 20 Tage 162 Mio. vs. Ø 100 Tage 131 Mio. Aktien</td><td>Deutlich mehr Handel als üblich: Viele verkaufen.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Struktur und Zonen (Smart Money Concept)</h2>
+  <p class="lead">Im Wochenchart lief NVIDIA 2026 in einem Aufwärtstrend: Tief 164.27 $ (30.3.), höheres Hoch 236.54 $ (14.5.), höheres Tief 189.80 $ (29.6.), höheres Hoch 243.37 $ (6.10.). Seither tiefere Hochs (243.37 → 222.19 → 219.99 $) und tiefere Tiefs (210.18 → 165.89 $). Mit dem Fall unter 189.80 $ am 5.11. ist das letzte höhere Tief gebrochen (Break of Structure nach unten). Am 5.11. blieb eine Kurslücke zwischen 196 und 200 $ offen. Jetzt testet der Kurs die wichtigste Unterstützung des Jahres: die Tiefs vom Februar und März (164 bis 171 $). Ein Change of Character nach oben wäre erst ein Tagesschluss über 200 $.</p>
+  <div class="zones">
+<div class="zone r"><b>204–211 $</b><span>Widerstand: Tages-EMA 200 (204.44 $), Tages-EMA 50 (210.39 $) und Tief vom 23.10. (210.18 $).</span></div>
+<div class="zone r"><b>196–200 $</b><span>Widerstand: offene Kurslücke vom 5.11. und Hoch vom 6.11. (194.90 $).</span></div>
+<div class="zone t"><b>200 $</b><span><b>Trigger:</b> Tagesschluss über 200 $ (Kurslücke geschlossen). Bestätigung über 220 $ (letztes tieferes Hoch vom 28.10.).</span></div>
+<div class="zone s"><b>164–171 $</b><span><b>Kaufzone 1:</b> Jahrestief vom 30.3.2026 (164.27 $), Tief vom 10.11. (165.89 $) und Tiefs vom November 2025 und Februar 2026 (169.55 und 171.03 $).</span></div>
+<div class="zone s"><b>137–153 $</b><span><b>Kaufzone 2:</b> Hochs von Ende 2024 und Anfang 2025 (152.89 und 153.13 $), Tief vom Februar 2025 im Bereich 143 $ und Wochen-EMA 200 (136.50 $).</span></div>
+<div class="zone r"><b>160 $</b><span>Abbruch: Wochenschluss unter 160 $. Dann wäre das Jahrestief gebrochen und der Aufwärtstrend seit 2023 im Wochenchart in Frage gestellt.</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Smart Money, Insider und Saisonalität</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Wer kauft, wer verkauft?</h3>
+      <ul class="clean" style="margin-top:8px">
+<li><b>NVIDIA selbst:</b> Sehr grosses Rückkaufprogramm. Am 28.9.2026 um 150 Mrd. $ auf insgesamt 235 Mrd. $ erhöht (rund 5.6 % des Börsenwerts), bis zum Geschäftsjahr 2028. Im ersten Halbjahr gab NVIDIA rund 46 Mrd. $ an die Aktionäre zurück. Netto (nach neuen Aktien für Mitarbeiter) sank die Aktienzahl aber nur um rund 1 % pro Jahr.</li>
+<li><b>Insider:</b> Keine Käufe am Markt. Grosse Verkäufe: Direktor Mark Stevens im Juni 2026 über 400 Mio. $ (209 bis 222 $) und Ende August bis Anfang September rund 300 Mio. $ (220 bis 234 $), Direktor Tench Coxe je 500'000 Aktien im Juli, August und September. Jensen Huang gab im Juni und September Aktien ab, laut Muster wohl vor allem für Steuern auf Mitarbeiteraktien.</li>
+<li><b>Analysten:</b> Fast alle positiv. 59 von 62 Analysten raten zum Kaufen, 2 Halten, 1 Verkaufen (Seaport). Kursziel im Schnitt rund 327 $. Zuletzt: Aletheia stuft auf Halten ab, Goldman bestätigt Kaufen mit Ziel 300 $.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Saisonalität seit 1999</h3>
+      <p class="note">Durchschnittliche Monatsrendite in %. Seit dem Börsengang 1999. November im Schnitt +8.8 % (86 % positive Jahre, aber nur 7 Jahre auswertbar), Dezember +1.8 % (62 %), Januar −0.9 % (nur 36 %). Stärkster Monat Juli (+7.7 %, 75 %).</p>
+      <div class="chart" id="c-seas"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Timing: 36 von 100</h2>
+  <div class="card tbl"><table id="t-tbl"></table></div>
+</section>
+
+<section>
+  <h2>Worauf du achten solltest: Unterbewertung und Wachstumsschub</h2>
+  <div class="card"><p style="margin:0 0 10px"><b>Bewertung:</b> KGV 22.0 statt 50.7 im eigenen 5-Jahres-Schnitt, also 57 % günstiger als üblich (am Analysetag).</p><h3>Was die Börse befürchtet</h3><p class="note" style="margin:4px 0">Vor allem Stimmung: Umsatz und Gewinn wachsen schneller als je zuvor (+106 % im letzten Quartal), die Sorgen betreffen die Zukunft der KI-Ausgaben und den CEO, nicht das heutige Geschäft.</p><ul class="clean"><li>Zweifel, ob die grossen Kunden ihre KI-Ausgaben weiter so stark erhöhen. Schwache Ausblicke von Intel, Qualcomm und Arm verstärkten das im Oktober und November 2026.</li><li>Am 5.11.2026 fiel die Aktie in einem Ausverkauf von Chip- und KI-Aktien um 9.3 %, am 9.11. eröffnete sie nach einem Bericht über eine interne Untersuchung rund um CEO Jensen Huang rund 8 % tiefer.</li><li>China blockiert Käufe von NVIDIA-Chips, im Ausblick ist null China-Umsatz im Rechenzentrum eingerechnet. Gleichzeitig bauen Kunden wie Google eigene KI-Chips.</li><li>Die Bruttomarge soll im Quartal bis Januar 2027 wegen teurer Speicherchips auf 71 bis 72 % sinken (zuletzt 75 %).</li></ul><h3 style="margin-top:12px">Was die Sorgen beenden könnte</h3><ul class="clean"><li>Zahlen zum 3. Quartal: Umsatz über 108 Mrd. $ und ein Ausblick für das Januar-Quartal über rund 124 Mrd. $ <span class="muted">(Zahlen 17.11.2026)</span></li><li>Abschluss der Untersuchung rund um Jensen Huang ohne Befund <span class="muted">(offen, Ende 2026)</span></li><li>Grosse Cloud-Anbieter bestätigen oder erhöhen ihre Investitionspläne für 2027 <span class="muted">(Quartalszahlen Ende Januar und Februar 2027)</span></li></ul><h3 style="margin-top:12px">Wachstumsschub: Starker Wachstumsschub möglich</h3><ul class="clean"><li><b>Weiteres Wachstum im Geschäftsjahr 2028:</b> Die Finanzchefin nannte im August für das Geschäftsjahr 2028 (Februar 2027 bis Januar 2028) rund 70 % Umsatzwachstum, Analysten hatten rund 44 % erwartet. NVIDIA hat Lieferverpflichtungen von 279 Mrd. $ eingegangen, das zeigt, wie viel Nachfrage die Firma erwartet. <span class="muted">(2027)</span></li><li><b>China als Zusatz:</b> Die US-Lizenzen für H200-Chips sind erteilt, aber Peking blockiert die Käufe. China ist im Ausblick nicht enthalten. Öffnet sich der Markt, wäre das zusätzlicher Umsatz, früher machte China einen grösseren Teil des Umsatzes aus. <span class="muted">(unsicher)</span></li></ul><p style="margin:10px 0 0"><b>Woran du es erkennst:</b> Achte am 17.11. auf den Umsatz im Rechenzentrum (zuletzt 89.0 Mrd. $, +117 %) und auf den Ausblick für das Quartal bis Januar. Liegt er klar über 124 Mrd. $, hält das hohe Tempo an.</p><p style="margin:10px 0 0"><b>Das Chancen-Szenario:</b> Ähnlich wie Google 2023, nur umgekehrt: Das Geschäft läuft hervorragend, aber die Börse zweifelt an der Zukunft und bewertet die Aktie mit einem KGV von rund 14 auf die erwarteten Gewinne so tief wie lange nicht. Bestätigen die Kunden ihre Ausgaben, kann die Bewertung wieder steigen. Grösstes Risiko: Die KI-Ausgaben flachen ab, dann sinkt der Umsatz schnell, wie 2023 bei Gaming, und das tiefe KGV war keine Chance.</p><p class="note" style="margin:10px 0 0">Quellen: <a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Second-Quarter-Fiscal-2027/default.aspx" target="_blank" rel="noopener">NVIDIA: Zahlen Q2 Geschäftsjahr 2027</a>, <a href="https://app.sentisense.ai/stories/nvidia-beats-across-the-board-guides-108-billion-with-zero-china-revenue-assume-08262026" target="_blank" rel="noopener">SentiSense: Ausblick 108 Mrd. $ ohne China</a>, <a href="https://www.tikr.com/blog/nvidias-fiscal-2028-revenue-estimate-is-up-25-since-june-heres-what-november-17-has-to-prove" target="_blank" rel="noopener">TIKR: Was der 17. November zeigen muss</a>, <a href="https://ny1.com/nyc/all-boroughs/ap-top-news/2026/11/09/nvidia-shares-drop-after-co-investigates-whether-ceo-was-target-of-a-foreign-intelligence-effort" target="_blank" rel="noopener">AP: Untersuchung rund um den CEO</a></p></div>
+</section>
+
+<section>
+  <h2>Dividende</h2>
+  <div class="card tbl"><table><tr><td style="white-space:nowrap;color:var(--muted)">Wie oft</td><td>4× pro Jahr (quartalsweise)</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Ex-Tag im</td><td>März, Juni, September, Dezember</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Geld auf dem Konto im</td><td>April, Juni, Oktober, Dezember</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Zahltage</td><td>2026: Ex-Tag 4.6., Zahltag 26.6.; Ex-Tag 10.9., Zahltag 1.10. Der nächste Termin wird mit den Zahlen am 17.11.2026 bekanntgegeben.</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Letzte Zahlung</td><td>0.25 $ pro Aktie</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Rendite</td><td>0.6 %</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">System</td><td>US-Quartalsdividende: 4 gleich hohe Zahlungen pro Jahr. Im Mai 2026 von 0.01 $ auf 0.25 $ pro Quartal erhöht. Die Dividende ist klein (0.6 %), NVIDIA gibt das meiste Geld über Aktienrückkäufe zurück. In USD, 15 % US-Quellensteuer mit W-8BEN.</td></tr><tr><td style="white-space:nowrap;color:var(--muted)">Form</td><td>Bar in US-Dollar aufs Konto. Die USA ziehen Quellensteuer ab, mit dem Formular W-8BEN bei Saxo in der Regel 15 %.</td></tr></table><p class="note" style="margin:10px 0 0"><b>Ex-Tag:</b> Du bekommst die Dividende nur, wenn du die Aktie am Abend vor dem Ex-Tag besitzt. <b>Zahltag:</b> An diesem Tag kommt das Geld aufs Konto (in der Währung der Aktie, abzüglich Quellensteuer). Die nächsten genauen Termine zeigt die App unter «Termine».</p></div>
+</section>
+
+<section>
+  <h2>Pro und Contra</h2>
+  <div class="two">
+    <div class="card pro"><h3>Spricht dafür</h3><ul class="clean" style="margin-top:8px">
+<li>Klarer Marktführer bei KI-Chips mit eigener Software (CUDA), die viele Entwickler nutzen.</li>
+<li>Umsatz wächst schneller als zuvor (+106 % im letzten Quartal), Ausblick 108 Mrd. $ für das Quartal bis Oktober.</li>
+<li>Sehr hohe Margen (65 % operativ) und 127 Mrd. $ Free Cashflow in 12 Monaten, Netto-Cash.</li>
+<li>KGV 22 und rund 14 auf die erwarteten Gewinne: so günstig wie selten in den letzten Jahren.</li>
+<li>Rückkaufprogramm von 235 Mrd. $, China ist im Ausblick nicht enthalten (möglicher Zusatzschub).</li>
+    </ul></div>
+    <div class="card con"><h3>Spricht dagegen</h3><ul class="clean" style="margin-top:8px">
+<li>Abhängig von wenigen sehr grossen Kunden. Sinken deren KI-Ausgaben, fällt der Umsatz schnell (wie 2023 bei Gaming).</li>
+<li>Kunden bauen eigene Chips (Google TPU, Amazon, Meta), AMD holt auf.</li>
+<li>Untersuchung rund um CEO Huang (seit 9.11.), China blockiert Käufe, Kreditgarantien für Kunden.</li>
+<li>Bruttomarge soll im Quartal bis Januar auf 71 bis 72 % sinken (Speicherkosten).</li>
+<li>Grosse Insider-Verkäufe, Wochen-A/D zeigt Verteilung, Abwärtstrend seit Oktober.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section>
+  <h2>Was jetzt zu tun ist</h2>
+  <div class="zones">
+<div class="zone t"><b>Beobachten</b><span>Alarm bei 171 $ (oberes Ende Kaufzone 1) und bei 200 $ (Trigger).</span></div>
+<div class="zone s"><b>Timing grün</b><span>Tagesschluss über 200 $ mit steigender A/D, danach Wochenschluss über 220 $. Fundamental am 17.11.: Umsatz über 108 Mrd. $ und Ausblick für das Januar-Quartal über rund 124 Mrd. $ (das erwartet die Börse).</span></div>
+<div class="zone r"><b>Abbruch</b><span>Wochenschluss unter 160 $. Dann Kaufzone 2 (137–153 $) beobachten.</span></div>
+<div class="zone "><b>Nächste Zahlen</b><span>17. November 2026 nach US-Börsenschluss (23 Uhr Schweizer Zeit), 3. Quartal des Geschäftsjahrs 2027, bestätigt.</span></div>
+  </div>
+</section>
+
+<footer>
+  <span>Kursdaten und Indikatoren (EMA, RSI 14, A/D) selbst berechnet aus Yahoo-Finance-Tages-, Wochen- und Monatsdaten, Stand 11.11.2026. <a href="https://stockanalysis.com/stocks/nvda/financials/" target="_blank" rel="noopener">StockAnalysis.com</a> (Stand 11.11.2026), <a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Second-Quarter-Fiscal-2027/default.aspx" target="_blank" rel="noopener">NVIDIA Q2 Geschäftsjahr 2027</a>, <a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Sets-Conference-Call-for-Third-Quarter-Financial-Results/" target="_blank" rel="noopener">NVIDIA: Termin Q3</a>, <a href="https://app.sentisense.ai/stories/nvidia-beats-across-the-board-guides-108-billion-with-zero-china-revenue-assume-08262026" target="_blank" rel="noopener">SentiSense: Zahlen und Ausblick</a>, <a href="https://ny1.com/nyc/all-boroughs/ap-top-news/2026/11/09/nvidia-shares-drop-after-co-investigates-whether-ceo-was-target-of-a-foreign-intelligence-effort" target="_blank" rel="noopener">AP: Untersuchung CEO</a>, <a href="https://investinglive.com/stocks/icymi-nvidia-lifts-buyback-by-record-150-billion-to-235-billion-shares-rise/" target="_blank" rel="noopener">Rückkauf 235 Mrd. $</a>, <a href="https://247wallst.com/investing/2026/09/23/nvidia-director-is-cashing-out-300m-should-you-be-worried/" target="_blank" rel="noopener">247wallst: Insider-Verkäufe</a>, <a href="https://247wallst.com/investing/2026/11/09/only-one-analyst-rates-nvidia-a-sell-is-the-lone-bear-onto-something/" target="_blank" rel="noopener">247wallst: Analysten</a>, <a href="https://www.tikr.com/blog/nvidias-fiscal-2028-revenue-estimate-is-up-25-since-june-heres-what-november-17-has-to-prove" target="_blank" rel="noopener">TIKR: Was die Zahlen am 17.11. zeigen müssen</a>.</span>
+  <span>Persönliche Analyse, keine Anlageberatung. Vergangene Kurse und Saisonalität sagen nichts Sicheres über die Zukunft.</span>
+</footer>
+</div>
+
+<script>
+const Q=[["Umsatztrend", "4 von 4 Quartalen über Vorjahr, Wachstum beschleunigt sich (+62 bis +106 %)", 15, 15], ["Wachstumstempo", "+83 % in 12 Monaten", 10, 10], ["Operative Marge", "65.2 % (9 Pkt.), seit 2022 klar gestiegen (6 Pkt.)", 15, 15], ["Gewinnwachstum (EPS)", "Von 1.19 $ (2024) auf 7.91 $, weit über 15 % pro Jahr", 10, 10], ["Free Cashflow", "Positiv, in 4 von 5 Jahren gestiegen (nur 2023 gesunken)", 10, 10], ["ROIC", "92 % (15 Pkt.), aber fallend seit 2025 (−1)", 14, 15], ["Schulden", "Netto-Cash 23.6 Mrd. $", 10, 10], ["Bewertung vs. eigene Historie", "KGV 22.0 statt Median 51, über 30 % günstiger", 14, 15]];
+const T=[["Trend Woche (EMA 50/200)", "Kurs unter EMA 50, über EMA 200, EMA 50 über 200: Rücksetzer im Aufwärtstrend, aber steil", 12, 20], ["Trend Tag (EMA 50/200)", "Kurs unter beiden, EMA 50 noch knapp über 200", 3, 10], ["Struktur (SMC)", "Tiefere Hochs und Tiefe, letztes höheres Tief gebrochen, Test der Jahrestiefs", 4, 20], ["RSI Tag/Woche", "Tag 28.7, Woche 35.5, keine Divergenz", 5, 15], ["A/D Tag/Woche", "Tag leicht positiv seit 6.11., Woche Verteilung seit Februar", 6, 20], ["Smart Money", "Start 3, grosse Rückkäufe +3, gehäufte Insider-Verkäufe −3", 3, 10], ["Saisonalität", "November und Dezember positiv, Januar schwach (36 %)", 3, 5]];
+const FIN=[["2022", 26914, "+61.4 %", "37.3 %", 0.39, 8132, "65.3 %", "58.6"], ["2023", 26974, "+0.2 %", "20.7 %", 0.17, 3808, "29.3 %", "114.7"], ["2024", 60922, "+125.9 %", "54.1 %", 1.19, 27021, "118.7 %", "50.7"], ["2025", 130497, "+114.2 %", "62.4 %", 2.94, 60853, "190.6 %", "47.9"], ["2026", 215938, "+65.5 %", "60.4 %", 4.9, 96676, "145.4 %", "38.0"], ["Letzte 12 Mt.", 302970, "+83.4 %", "65.2 %", 7.91, 127006, "92.0 %", "22.0"]];
+const HALF=[["Okt 24", 35082], ["Jan 25", 39331], ["Apr 25", 44062], ["Jul 25", 46743], ["Okt 25", 57006], ["Jan 26", 68127], ["Apr 26", 81600], ["Jul 26", 96200]];
+const MARGIN=[["2022", 37.3], ["2023", 20.7], ["2024", 54.1], ["2025", 62.4], ["2026", 60.4], ["12 Mt.", 65.2]];
+const SEAS=[-0.9, 4.9, 2.5, 5.8, 0.7, -1.4, 7.7, -1.7, 3.1, 4.3, 8.8, 1.8];
+const SEASHIT=[36.0, 67.0, 55.0, 66.0, 52.0, 54.0, 75.0, 61.0, 56.0, 65.0, 86.0, 62.0];
+const MON=["Jan","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"];
+const W=`2024-11-04,147.63,101.23,53.33,66,104411.9;2024-11-11,141.98,102.83,54.21,62,103798.4;2024-11-18,141.95,104.36,55.08,62,103253.8;2024-11-25,138.25,105.69,55.91,60,103487.3;2024-12-02,142.44,107.13,56.77,62,103542.7;2024-12-09,134.25,108.19,57.54,56,102927.1;2024-12-16,134.7,109.23,58.31,56,103693.3;2024-12-23,137.01,110.32,59.09,57,103488.7;2024-12-30,144.47,111.66,59.94,61,104181.3;2025-01-06,135.91,112.61,60.7,55,103317.3;2025-01-13,137.71,113.6,61.46,56,104089.1;2025-01-20,142.62,114.74,62.27,59,104032.1;2025-01-27,120.07,114.94,62.85,45,102971.3;2025-02-03,129.84,115.53,63.51,50,104257.4;2025-02-10,138.85,116.44,64.26,55,105131.8;2025-02-17,134.43,117.15,64.96,52,104437.5;2025-02-24,124.92,117.45,65.56,47,104048.1;2025-03-09,121.67,117.62,66.12,46,105630.1;2025-03-16,117.7,117.62,66.63,44,105303.4;2025-03-23,109.67,117.31,67.06,40,104252.8;2025-03-30,94.31,116.41,67.33,34,102996.6;2025-04-06,110.93,116.19,67.76,44,104730.2;2025-04-13,101.49,115.62,68.1,40,103786.2;2025-04-20,111.01,115.44,68.52,45,104900.5;2025-04-27,114.5,115.4,68.98,47,105774.7;2025-05-04,116.65,115.45,69.46,48,106175.9;2025-05-11,135.4,116.23,70.11,56,107313.2;2025-05-18,131.29,116.82,70.72,54,106824.7;2025-05-25,135.13,117.54,71.36,56,106126.8;2025-06-01,141.72,118.49,72.06,59,106585.2;2025-06-08,141.97,119.41,72.76,59,106193.1;2025-06-15,143.85,120.37,73.47,60,105957.7;2025-06-22,157.75,121.83,74.3,65,106906.7;2025-06-29,159.34,123.3,75.15,66,107379.6;2025-07-06,164.92,124.94,76.04,68,107739.3;2025-07-13,172.41,126.8,77,70,108322.2;2025-07-20,173.5,128.63,77.96,71,108870.2;2025-07-27,173.72,130.4,78.92,71,108383.6;2025-08-03,182.7,132.45,79.95,74,108919.8;2025-08-10,180.45,134.33,80.95,72,108731.2;2025-08-17,177.99,136.04,81.91,70,108984.6;2025-08-24,174.18,137.54,82.83,66,108091.2;2025-08-31,167.02,138.69,83.67,60,107868.3;2025-09-07,177.82,140.23,84.61,65,108393;2025-09-14,176.67,141.66,85.52,64,108933.8;2025-09-21,178.19,143.09,86.44,65,108826.1;2025-09-28,187.62,144.84,87.45,69,109142.9;2025-10-05,183.16,146.34,88.4,65,108407.1;2025-10-12,183.22,147.79,89.35,65,108337.8;2025-10-19,186.26,149.29,90.31,67,108846.8;2025-10-26,202.49,151.38,91.43,73,109052.2;2025-11-03,188.15,152.82,92.39,62,108609.7;2025-11-10,190.17,154.29,93.36,63,108601.2;2025-11-17,178.88,155.25,94.21,55,107959.7;2025-11-24,177,156.1,95.04,54,108019.8;2025-12-01,182.41,157.14,95.91,57,108407.3;2025-12-08,175.02,157.84,96.69,52,107562.7;2025-12-15,180.99,158.75,97.53,55,108514.2;2025-12-22,190.53,159.99,98.46,60,108810.7;2025-12-29,188.85,161.12,99.36,59,108731.8;2026-01-05,184.86,162.05,100.21,56,108109.4;2026-01-12,186.23,163,101.06,57,108217.3;2026-01-19,187.67,163.97,101.93,57,108696;2026-01-26,191.13,165.04,102.81,59,108877;2026-02-02,185.41,165.83,103.64,55,109376.6;2026-02-09,182.81,166.5,104.42,53,108715;2026-02-16,189.82,167.41,105.27,57,109284.9;2026-02-23,177.19,167.8,105.99,48,108111.9;2026-03-08,180.25,168.29,106.73,50,107930.1;2026-03-15,172.7,168.46,107.38,46,107071.9;2026-03-22,167.52,168.42,107.98,43,106259.3;2026-03-29,177.39,168.77,108.67,49,106971.5;2026-04-05,188.63,169.55,109.47,56,107524.7;2026-04-12,201.68,170.81,110.39,62,108297.4;2026-04-19,208.27,172.28,111.36,65,108701.3;2026-04-26,198.45,173.31,112.23,58,107970.3;2026-05-03,215.2,174.95,113.25,65,108537.1;2026-05-10,225.32,176.93,114.37,68,108544.8;2026-05-17,215.33,178.43,115.37,62,107759.6;2026-05-24,211.14,179.71,116.32,59,107367.2;2026-05-31,205.1,180.71,117.21,56,106464;2026-06-07,205.19,181.67,118.08,56,106441.6;2026-06-14,210.69,182.81,119,59,106816.2;2026-06-21,192.53,183.19,119.74,49,106147;2026-06-28,194.83,183.65,120.48,50,106104.1;2026-07-05,210.96,184.72,121.38,57,106762.4;2026-07-12,202.81,185.43,122.19,53,106514.4;2026-07-19,206.84,186.27,123.04,55,106376;2026-07-26,200.75,186.83,123.81,52,106479.1;2026-08-02,223.96,188.29,124.81,61,107083.5;2026-08-09,225.16,189.74,125.8,61,107377.4;2026-08-16,214.72,190.72,126.69,56,106908.3;2026-08-23,217.55,191.77,127.59,57,106803.3;2026-08-30,230.36,193.28,128.62,62,107168.7;2026-09-06,218.29,194.26,129.51,55,106820.9;2026-09-13,222.27,195.36,130.43,57,107382.2;2026-09-20,225.07,196.53,131.37,58,107333.8;2026-09-27,233.95,197.99,132.39,61,107498.9;2026-10-04,229.28,199.22,133.36,59,106997.2;2026-10-11,214.13,199.8,134.16,51,106558.8;2026-10-18,210.96,200.24,134.92,50,106149;2026-10-25,204.64,200.41,135.62,47,105835.2;2026-11-02,186.64,199.87,136.13,40,105296.1;2026-11-11,173.73,198.85,136.5,35,105262.7`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+const DD=`2025-10-30,202.89,182.22,159.74,4799.2;2025-10-31,202.49,183.01,160.16,4645;2025-11-03,206.88,183.95,160.63,4547.1;2025-11-04,198.69,184.53,161.01,4405.7;2025-11-05,195.21,184.95,161.35,4257.6;2025-11-06,188.08,185.07,161.61,4102;2025-11-07,188.15,185.19,161.88,4357.4;2025-11-10,199.05,185.73,162.25,4498.7;2025-11-11,193.16,186.03,162.55,4481.6;2025-11-12,193.8,186.33,162.87,4500.4;2025-11-13,186.86,186.35,163.1,4457.5;2025-11-14,190.17,186.5,163.37,4614.1;2025-11-17,186.6,186.51,163.6,4609.6;2025-11-18,181.36,186.3,163.78,4537.9;2025-11-19,186.52,186.31,164.01,4653.4;2025-11-20,180.64,186.09,164.17,4343.5;2025-11-21,178.88,185.81,164.32,4351.5;2025-11-24,182.55,185.68,164.5,4538.7;2025-11-25,177.82,185.37,164.63,4834;2025-11-26,180.26,185.17,164.79,4809.2;2025-11-28,177,184.85,164.91,4731.3;2025-12-01,179.92,184.66,165.06,4897.9;2025-12-02,181.46,184.53,165.22,4809.5;2025-12-03,179.59,184.34,165.37,4691.8;2025-12-04,183.38,184.3,165.54,4775.5;2025-12-05,182.41,184.23,165.71,4746.7;2025-12-08,185.55,184.28,165.91,4772.2;2025-12-09,184.97,184.3,166.1,4826.5;2025-12-10,183.78,184.28,166.28,4828.4;2025-12-11,180.93,184.15,166.42,4980.3;2025-12-12,175.02,183.79,166.51,4795.9;2025-12-15,176.29,183.5,166.6,4753.7;2025-12-16,177.72,183.27,166.72,4838.5;2025-12-17,170.94,182.79,166.76,4664;2025-12-18,174.14,182.45,166.83,4676.6;2025-12-19,180.99,182.39,166.97,4943;2025-12-22,183.69,182.44,167.14,5005;2025-12-23,189.21,182.71,167.36,5173.4;2025-12-24,188.61,182.94,167.57,5222;2025-12-26,190.53,183.24,167.8,5233;2025-12-29,188.22,183.43,168,5307.5;2025-12-30,187.54,183.6,168.2,5267.7;2025-12-31,186.5,183.71,168.38,5148.2;2026-01-02,188.85,183.91,168.58,5037.4;2026-01-05,188.12,184.08,168.78,4950.5;2026-01-06,187.24,184.2,168.96,4801.4;2026-01-07,189.11,184.39,169.16,4810.7;2026-01-08,185.04,184.42,169.32,4716.8;2026-01-09,184.86,184.44,169.47,4702.5;2026-01-12,184.94,184.45,169.63,4693.8;2026-01-13,185.81,184.51,169.79,4697.5;2026-01-14,183.14,184.45,169.92,4742;2026-01-15,187.05,184.56,170.09,4623.9;2026-01-16,186.23,184.62,170.25,4448.9;2026-01-20,178.07,184.36,170.33,4268.6;2026-01-21,183.32,184.32,170.46,4350.7;2026-01-22,184.84,184.34,170.6,4324.5;2026-01-23,187.67,184.47,170.77,4269.1;2026-01-26,186.47,184.55,170.93,4182.5;2026-01-27,188.52,184.71,171.1,4227.3;2026-01-28,191.52,184.98,171.31,4277.6;2026-01-29,192.51,185.27,171.52,4404.5;2026-01-30,191.13,185.5,171.71,4343.7;2026-02-02,185.61,185.51,171.85,4222.6;2026-02-03,180.34,185.3,171.93,4185.6;2026-02-04,174.19,184.87,171.96,4101.6;2026-02-05,171.88,184.36,171.96,3955.9;2026-02-06,185.41,184.4,172.09,4127.9;2026-02-09,190.04,184.62,172.27,4177.9;2026-02-10,188.54,184.77,172.43,4067.5;2026-02-11,190.05,184.98,172.61,4005.5;2026-02-12,186.94,185.06,172.75,3838.6;2026-02-13,182.81,184.97,172.85,3743.5;2026-02-17,184.97,184.97,172.97,3817;2026-02-18,187.98,185.09,173.12,3763.6;2026-02-19,187.9,185.2,173.27,3841.7;2026-02-20,189.82,185.38,173.43,3978.7;2026-02-23,191.55,185.62,173.61,3961.8;2026-02-24,192.85,185.9,173.8,4086.4;2026-02-25,195.56,186.28,174.02,4066.8;2026-02-26,184.89,186.23,174.13,3747.2;2026-02-27,177.19,185.87,174.16,3516.9;2026-03-02,182.48,185.74,174.24,3679.5;2026-03-03,180.05,185.52,174.3,3781.6;2026-03-04,183.04,185.42,174.38,3832.1;2026-03-05,183.34,185.34,174.47,3984.6;2026-03-06,177.82,185.04,174.51,3859.2;2026-03-09,182.65,184.95,174.59,4023.9;2026-03-10,184.77,184.94,174.69,4067.9;2026-03-11,186.03,184.99,174.8,4067.5;2026-03-12,183.14,184.91,174.89,4047.5;2026-03-13,180.25,184.73,174.94,3902.7;2026-03-16,183.22,184.67,175.02,3790.7;2026-03-17,181.93,184.56,175.09,3632.7;2026-03-18,180.4,184.4,175.14,3483.2;2026-03-19,178.56,184.17,175.18,3538.3;2026-03-20,172.7,183.72,175.15,3369.3;2026-03-23,175.64,183.4,175.16,3275.6;2026-03-24,175.2,183.08,175.16,3288.8;2026-03-25,178.68,182.91,175.19,3262.4;2026-03-26,171.24,182.45,175.15,3083.2;2026-03-27,167.52,181.87,175.08,2937.5;2026-03-30,165.17,181.21,174.98,2816.4;2026-03-31,174.4,180.95,174.97,3029.6;2026-04-01,175.75,180.74,174.98,2989.8;2026-04-02,177.39,180.61,175,3128.3;2026-04-06,177.64,180.49,175.03,3219.9;2026-04-07,178.1,180.4,175.06,3344.9;2026-04-08,182.08,180.47,175.13,3303.2;2026-04-09,183.91,180.6,175.22,3408.2;2026-04-10,188.63,180.92,175.35,3491.5;2026-04-13,189.31,181.24,175.49,3601.3;2026-04-14,196.51,181.84,175.7,3762.6;2026-04-15,198.87,182.51,175.93,3826.3;2026-04-16,198.35,183.13,176.15,3860.8;2026-04-17,201.68,183.86,176.41,4018.4;2026-04-20,202.06,184.57,176.66,4131.8;2026-04-21,199.88,185.17,176.89,4074.5;2026-04-22,202.5,185.85,177.15,4182;2026-04-23,199.64,186.39,177.37,4151.6;2026-04-24,208.27,187.25,177.68,4262.7;2026-04-27,216.61,188.4,178.07,4441.1;2026-04-28,213.17,189.37,178.42,4535.3;2026-04-29,209.25,190.15,178.72,4491.9;2026-04-30,199.57,190.52,178.93,4300.5;2026-05-01,198.45,190.83,179.12,4230;2026-05-04,198.48,191.13,179.32,4238.8;2026-05-05,196.5,191.34,179.49,4150.7;2026-05-06,207.83,191.99,179.77,4321.9;2026-05-07,211.5,192.76,180.09,4372.2;2026-05-08,215.2,193.64,180.44,4364.2;2026-05-11,219.44,194.65,180.82,4415.6;2026-05-12,220.78,195.67,181.22,4467.7;2026-05-13,225.83,196.86,181.67,4521.6;2026-05-14,235.74,198.38,182.2,4662.5;2026-05-15,225.32,199.44,182.63,4535.3;2026-05-18,222.32,200.33,183.03,4488.4;2026-05-19,220.61,201.13,183.4,4463.3;2026-05-20,223.47,202.01,183.8,4473.5;2026-05-21,219.51,202.69,184.16,4337.9;2026-05-22,215.33,203.19,184.47,4197.6;2026-05-26,214.86,203.65,184.77,4183.6;2026-05-27,212.6,204,185.04,4254.5;2026-05-28,214.25,204.4,185.34,4313.4;2026-05-29,211.14,204.66,185.59,4024.9;2026-06-01,224.36,205.44,185.98,4214;2026-06-02,222.82,206.12,186.34,4072.7;2026-06-03,214.75,206.46,186.63,3921.1;2026-06-04,218.66,206.93,186.95,3996.6;2026-06-05,205.1,206.86,187.13,3809;2026-06-08,208.64,206.93,187.34,3834.1;2026-06-09,208.19,206.98,187.55,3918.7;2026-06-10,200.42,206.72,187.68,3779.2;2026-06-11,204.87,206.65,187.85,3896.8;2026-06-12,205.19,206.59,188.02,3892.8;2026-06-15,212.45,206.82,188.26,4024.9;2026-06-16,207.41,206.85,188.45,3906.4;2026-06-17,204.65,206.76,188.61,3843.8;2026-06-18,210.69,206.91,188.83,4016;2026-06-22,208.65,206.98,189.03,3930.2;2026-06-23,200.04,206.71,189.14,3779.9;2026-06-24,199,206.41,189.24,3772.5;2026-06-25,195.74,205.99,189.3,3747.5;2026-06-26,192.53,205.46,189.34,3676.6;2026-06-29,194.97,205.05,189.39,3769;2026-06-30,200.09,204.86,189.5,3902.9;2026-07-01,197.58,204.57,189.58,3945.4;2026-07-02,194.83,204.19,189.63,3894.7;2026-07-06,195.55,203.85,189.69,3881.3;2026-07-07,196.93,203.58,189.76,3954.9;2026-07-08,204.12,203.6,189.9,4071.9;2026-07-09,202.78,203.57,190.03,4119.1;2026-07-10,210.96,203.86,190.24,4266.2;2026-07-13,203.53,203.84,190.37,4161.8;2026-07-14,211.8,204.16,190.59,4264.8;2026-07-15,212.5,204.48,190.8,4347.5;2026-07-16,207.4,204.6,190.97,4297.4;2026-07-17,202.81,204.53,191.09,4314.1;2026-07-20,203.28,204.48,191.21,4257.9;2026-07-21,207.29,204.59,191.37,4302.8;2026-07-22,212.06,204.88,191.57,4372.5;2026-07-23,208.76,205.03,191.75,4388.1;2026-07-24,206.84,205.11,191.9,4338.9;2026-07-27,196.51,204.77,191.94,4209.4;2026-07-28,197.01,204.46,191.99,4267.4;2026-07-29,190.01,203.9,191.97,4119.7;2026-07-30,195.04,203.55,192,4149.2;2026-07-31,200.75,203.44,192.09,4239.6;2026-08-03,206.64,203.57,192.23,4322.6;2026-08-04,211.94,203.89,192.43,4382.2;2026-08-05,219.22,204.49,192.7,4377.3;2026-08-06,218.99,205.06,192.96,4331.7;2026-08-07,223.96,205.8,193.27,4396.2;2026-08-10,217.55,206.26,193.51,4304.8;2026-08-11,217.5,206.71,193.75,4247.4;2026-08-12,224.09,207.39,194.05,4311.4;2026-08-13,225.3,208.09,194.36,4301.8;2026-08-14,225.16,208.76,194.67,4259.6;2026-08-17,225.01,209.4,194.97,4175.1;2026-08-18,219.74,209.8,195.22,4145.3;2026-08-19,217.56,210.11,195.44,4073.9;2026-08-20,216.85,210.37,195.65,4033.8;2026-08-21,214.72,210.54,195.84,3945.2;2026-08-24,208.48,210.46,195.97,3849.9;2026-08-25,213.05,210.56,196.14,3883.3;2026-08-26,209.66,210.53,196.27,3738.8;2026-08-27,227.98,211.21,196.59,3882.1;2026-08-28,217.55,211.46,196.8,3710.2;2026-08-31,220.78,211.83,197.03,3809.4;2026-09-01,217.44,212.05,197.24,3796.4;2026-09-02,224.41,212.53,197.51,3836.1;2026-09-03,228.45,213.15,197.82,3877.8;2026-09-04,230.36,213.83,198.14,3781;2026-09-08,225.73,214.3,198.41,3682.4;2026-09-09,223.67,214.66,198.66,3612.3;2026-09-10,218.36,214.81,198.86,3571.2;2026-09-11,218.29,214.95,199.05,3488.7;2026-09-14,210.96,214.79,199.17,3496.2;2026-09-15,212.17,214.69,199.3,3472.2;2026-09-16,213.9,214.66,199.45,3439.1;2026-09-17,219.34,214.84,199.65,3494.4;2026-09-18,222.27,215.13,199.87,3647.4;2026-09-21,227.38,215.61,200.14,3721.8;2026-09-22,228.87,216.13,200.43,3756.4;2026-09-23,225.51,216.5,200.68,3721;2026-09-24,224.58,216.82,200.92,3784;2026-09-25,225.07,217.14,201.16,3785.6;2026-09-28,228.86,217.6,201.43,3688.5;2026-09-29,227.21,217.98,201.69,3593.3;2026-09-30,228.38,218.38,201.96,3483.7;2026-10-01,230.86,218.87,202.24,3514;2026-10-02,233.95,219.46,202.56,3401;2026-10-05,238.9,220.23,202.92,3466.5;2026-10-06,239.24,220.97,203.28,3379;2026-10-07,237.47,221.62,203.62,3363.2;2026-10-08,230.48,221.97,203.89,3265.2;2026-10-09,229.28,222.25,204.14,3186.6;2026-10-12,226.32,222.41,204.36,3166.6;2026-10-13,228.52,222.65,204.6,3247;2026-10-14,221.3,222.6,204.77,3190.3;2026-10-15,217.23,222.39,204.89,3261.3;2026-10-16,214.13,222.06,204.98,3176.7;2026-10-19,217.09,221.87,205.1,3173.9;2026-10-20,216.47,221.66,205.22,3197.8;2026-10-21,221.97,221.67,205.38,3276.4;2026-10-22,212.21,221.3,205.45,3182.3;2026-10-23,210.96,220.89,205.51,3136.2;2026-10-26,216,220.7,205.61,3165.1;2026-10-27,217.94,220.59,205.73,3192;2026-10-28,215.38,220.39,205.83,3129.7;2026-10-29,213.66,220.13,205.91,3127.5;2026-10-30,204.64,219.52,205.9,3113;2026-11-02,202.06,218.83,205.86,3005.2;2026-11-03,206.69,218.36,205.87,2956.8;2026-11-04,200.13,217.64,205.81,2826.7;2026-11-05,181.6,216.23,205.57,2526.3;2026-11-06,186.64,215.07,205.38,2399;2026-11-09,178.67,213.64,205.11,2742.2;2026-11-10,168.89,211.89,204.75,2605.6;2026-11-11,173.73,210.39,204.44,2572.1`.split(";").map(r=>{const a=r.split(",");return [a[0],...a.slice(1).map(Number)]});
+
+const fmtN=(v,d=2)=>v.toLocaleString("de-CH",{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmtD=s=>{const [y,m,d]=s.split("-");return d+"."+m+"."+y.slice(2)};
+const NS="http://www.w3.org/2000/svg";
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+
+function scoreTable(id,rows){
+  let tot=0,max=0;
+  const html='<thead><tr><th>Kriterium</th><th>Stand</th><th class="num">Punkte</th><th style="width:22%"></th></tr></thead><tbody>'+rows.map(r=>{tot+=r[2];max+=r[3];const p=r[2]/r[3];const c=p>=.75?"var(--good)":p>=.45?"var(--warn)":"var(--bad)";
+    return `<tr><td>${r[0]}</td><td class="muted">${r[1]}</td><td class="num">${r[2]} / ${r[3]}</td><td><div class="bar"><i style="width:${p*100}%;background:${c}"></i></div></td></tr>`}).join("")+`<tr class="total"><td>Total</td><td></td><td class="num">${tot} / ${max}</td><td></td></tr></tbody>`;
+  document.getElementById(id).innerHTML=html;return tot;
+}
+const qs=scoreTable("q-tbl",Q), ts=scoreTable("t-tbl",T);
+document.getElementById("q-val").textContent=qs;document.getElementById("t-val").textContent=ts;
+document.getElementById("q-pin").style.left=qs+"%";document.getElementById("t-pin").style.left=ts+"%";
+
+document.getElementById("fin-rows").innerHTML=FIN.map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1].toLocaleString("de-CH")}</td><td class="num">${r[2]}</td><td class="num">${r[3]}</td><td class="num">${fmtN(r[4])}</td><td class="num">${r[5].toLocaleString("de-CH")}</td><td class="num">${r[6]}</td><td class="num">${r[7]}</td></tr>`).join("");
+
+/* generic line chart */
+function lineChart(host,{dates,series,bands=[],yFmt=v=>fmtN(v),h=300,zero=false,refs=[],pad}){
+  const W_=800,H=h,m={t:12,r:56,b:28,l:8};
+  const all=series.flatMap(s=>s.values).concat(bands.flatMap(b=>[b.from,b.to])).concat(refs.map(r=>r.v));
+  if(zero)all.push(0);
+  let lo=Math.min(...all),hi=Math.max(...all);const sp=(hi-lo)||1;lo-=sp*.06;hi+=sp*.06;
+  if(pad){lo=pad[0];hi=pad[1]}
+  const n=dates.length,x=i=>m.l+i*(W_-m.l-m.r)/(n-1),y=v=>m.t+(hi-v)*(H-m.t-m.b)/(hi-lo);
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  // grid
+  const steps=5;for(let k=0;k<=steps;k++){const v=lo+(hi-lo)*k/steps;el("line",{x1:m.l,x2:W_-m.r,y1:y(v),y2:y(v),stroke:"var(--grid)","stroke-width":1},svg);
+    const t=el("text",{x:W_-m.r+6,y:y(v)+4,"font-size":11,fill:"var(--muted)","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=yFmt(v)}
+  bands.forEach(b=>{el("rect",{x:m.l,width:W_-m.l-m.r,y:y(Math.max(b.from,b.to)),height:Math.abs(y(b.from)-y(b.to)),fill:b.type==="res"?"var(--zone-res)":"var(--zone-sup)"},svg)});
+  refs.forEach(r=>{el("line",{x1:m.l,x2:W_-m.r,y1:y(r.v),y2:y(r.v),stroke:"var(--muted)","stroke-dasharray":"4 4","stroke-width":1},svg);
+    const t=el("text",{x:m.l+4,y:y(r.v)-4,"font-size":11,fill:"var(--muted)"},svg);t.textContent=r.label});
+  if(zero)el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  // x labels
+  const every=Math.ceil(n/6);for(let i=0;i<n;i+=every){const t=el("text",{x:x(i),y:H-8,"font-size":11,fill:"var(--muted)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);const d=dates[i];t.textContent=d.slice(5,7)+"/"+d.slice(2,4)}
+  series.forEach(s=>{const dpath=s.values.map((v,i)=>(i?"L":"M")+x(i).toFixed(1)+","+y(v).toFixed(1)).join("");
+    el("path",{d:dpath,fill:"none",stroke:s.color,"stroke-width":s.w||2,"stroke-linejoin":"round","stroke-linecap":"round"},svg);
+    const lv=s.values[n-1];el("circle",{cx:x(n-1),cy:y(lv),r:3.5,fill:s.color,stroke:"var(--surface)","stroke-width":2},svg)});
+  // hover
+  const cross=el("line",{y1:m.t,y2:H-m.b,stroke:"var(--muted)","stroke-width":1,opacity:0},svg);
+  const ov=el("rect",{x:m.l,y:m.t,width:W_-m.l-m.r,height:H-m.t-m.b,fill:"transparent"},svg);
+  host.appendChild(svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;host.appendChild(tip);
+  function move(ev){const r=svg.getBoundingClientRect();const px=(ev.clientX-r.left)*W_/r.width;let i=Math.round((px-m.l)/((W_-m.l-m.r)/(n-1)));i=Math.max(0,Math.min(n-1,i));
+    cross.setAttribute("x1",x(i));cross.setAttribute("x2",x(i));cross.setAttribute("opacity",1);
+    tip.innerHTML=`<div class="d">${fmtD(dates[i])}</div>`+series.map(s=>`<div><i class="sw" style="background:${s.color}"></i> ${s.name}: <b>${yFmt(s.values[i])}</b></div>`).join("");
+    tip.hidden=false;const hx=x(i)*r.width/W_;tip.style.left=Math.min(Math.max(0,hx+12),r.width-tip.offsetWidth)+"px";tip.style.top="8px"}
+  ov.addEventListener("pointermove",move);ov.addEventListener("pointerleave",()=>{tip.hidden=true;cross.setAttribute("opacity",0)});
+}
+function barChart(host,{labels,values,fmt,h=220,color,neg,tipExtra}){
+  const W_=800,H=h,m={t:18,r:8,b:28,l:8};
+  const hi=Math.max(0,...values),lo=Math.min(0,...values);const lo2=lo<0?lo*1.15:lo,hi2=hi*1.15||1;
+  const y=v=>m.t+(hi2-v)*(H-m.t-m.b)/(hi2-lo2);const n=values.length,bw=(W_-m.l-m.r)/n;
+  const svg=el("svg",{viewBox:`0 0 ${W_} ${H}`,role:"img"});
+  el("line",{x1:m.l,x2:W_-m.r,y1:y(0),y2:y(0),stroke:"var(--muted)","stroke-width":1},svg);
+  const tip=document.createElement("div");tip.className="tip";tip.hidden=true;
+  values.forEach((v,i)=>{const x0=m.l+i*bw+bw*.18,w=bw*.64,y0=y(Math.max(v,0)),hh=Math.max(1,Math.abs(y(v)-y(0)));
+    const r=el("rect",{x:x0,y:y0,width:w,height:hh,rx:4,fill:v<0?(neg||"var(--s2)"):(color||"var(--s1)")},svg);
+    const t=el("text",{x:x0+w/2,y:v<0?y(v)+13:y0-5,"font-size":11.5,fill:"var(--ink)","text-anchor":"middle","font-family":"IBM Plex Mono, monospace"},svg);t.textContent=fmt(v);
+    const l=el("text",{x:x0+w/2,y:H-8,"font-size":11.5,fill:"var(--muted)","text-anchor":"middle"},svg);l.textContent=labels[i];
+    const hit=el("rect",{x:m.l+i*bw,y:m.t,width:bw,height:H-m.t-m.b,fill:"transparent"},svg);
+    hit.addEventListener("pointerenter",()=>{tip.innerHTML=`<div class="d">${labels[i]}</div><b>${fmt(v)}</b>${tipExtra?tipExtra(i):""}`;tip.hidden=false;const R=svg.getBoundingClientRect();tip.style.left=Math.min((m.l+i*bw)*R.width/W_,R.width-tip.offsetWidth)+"px";tip.style.top="0px"});
+    hit.addEventListener("pointerleave",()=>tip.hidden=true)});
+  host.appendChild(svg);host.appendChild(tip);
+}
+barChart(document.getElementById("c-rev"),{labels:HALF.map(r=>r[0]),values:HALF.map(r=>r[1]),fmt:v=>fmtN(v,0),h:200});
+barChart(document.getElementById("c-margin"),{labels:MARGIN.map(r=>r[0]),values:MARGIN.map(r=>r[1]),fmt:v=>fmtN(v,1)+" %",h:200});
+barChart(document.getElementById("c-seas"),{labels:MON,values:SEAS,fmt:v=>(v>0?"+":"")+fmtN(v,1),h:220,tipExtra:i=>`<div>${SEASHIT[i]} % der Jahre positiv</div>`});
+const BANDS=[{"from": 204, "to": 211, "type": "res"}, {"from": 196, "to": 200, "type": "res"}, {"from": 164, "to": 171, "type": "sup"}, {"from": 137, "to": 153, "type": "sup"}], REFS=[{"v": 200, "label": "Trigger 200"}];
+const wd=W.map(r=>r[0]);
+lineChart(document.getElementById("c-week"),{dates:wd,series:[{name:"Kurs",values:W.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:W.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:W.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,yFmt:v=>fmtN(v,0),h:320});
+lineChart(document.getElementById("c-adw"),{dates:wd,series:[{name:"A/D Woche",values:W.map(r=>r[5]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,zero:true});
+lineChart(document.getElementById("c-rsiw"),{dates:wd,series:[{name:"RSI Woche",values:W.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:220,refs:[{v:70,label:"70 überkauft"},{v:30,label:"30 überverkauft"}],pad:[10,90]});
+const dd=DD.map(r=>r[0]);
+lineChart(document.getElementById("c-day"),{dates:dd,series:[{name:"Kurs",values:DD.map(r=>r[1]),color:"var(--s1)",w:2.5},{name:"EMA 50",values:DD.map(r=>r[2]),color:"var(--s2)"},{name:"EMA 200",values:DD.map(r=>r[3]),color:"var(--s3)"}],bands:BANDS,refs:REFS,yFmt:v=>fmtN(v,0),h:260});
+lineChart(document.getElementById("c-add"),{dates:dd,series:[{name:"A/D Tag",values:DD.map(r=>r[4]),color:"var(--s1)"}],yFmt:v=>fmtN(v,0),h:260,zero:true});
+</script>

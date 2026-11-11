@@ -1,0 +1,430 @@
+{
+ "ticker": "NVDA",
+ "name": "NVIDIA",
+ "datum": "11.11.2026",
+ "waehrung": "USD",
+ "land": "USA",
+ "meta": "NVIDIA Corporation · NASDAQ: NVDA · KI-Chips (Grafikprozessoren), Netzwerktechnik und Software für Rechenzentren · Santa Clara, USA",
+ "price": "173.73 $",
+ "pricemeta": "Schluss 11.11.2026 · 52 Wochen: 164.27 – 243.37 $ · Allzeithoch 243.37 $ am 6.10.2026 · Börsenwert rund 4.2 Bio. $",
+ "verdict": "NVIDIA ist die Firma hinter dem KI-Boom: Rund 92 % des Umsatzes kommen aus Rechenzentren. Die Zahlen sind aussergewöhnlich: Umsatz im letzten Quartal +106 %, operative Marge 65 %, 127 Mrd. $ Free Cashflow in 12 Monaten und mehr Cash als Schulden. Darum Qualität grün (98). Trotzdem fiel die Aktie seit dem Allzeithoch vom 6.10.2026 um 29 % auf 173.73 $. Gründe: Zweifel an den KI-Investitionen der Kunden, ein Ausverkauf bei Chipaktien am 5.11. und eine interne Untersuchung rund um CEO Jensen Huang (9.11.). Das KGV liegt mit 22 so tief wie selten. Timing orange (36): Abwärtstrend, Kurs kurz über dem Jahrestief von 164 $. Am 17.11. kommen die nächsten Zahlen, dort kann sich der Kurs um 10 % in beide Richtungen bewegen.",
+ "about": "NVIDIA entwickelt Grafikprozessoren (GPUs). Diese Chips können sehr viele Rechnungen gleichzeitig machen und sind darum der Standard, um KI-Modelle zu trainieren und laufen zu lassen. NVIDIA verkauft heute ganze Rechenzentrum-Systeme: Chips, Netzwerktechnik (Verbindungen zwischen tausenden Chips) und Software (CUDA, die Programmiersprache für die Chips, die viele Entwickler kennen). Seit 2026 zwei Bereiche: Data Center (rund 92 % des Umsatzes im letzten Quartal, Kunden sind grosse Cloud-Anbieter wie Microsoft, Amazon, Google und Meta sowie KI-Clouds und Firmen) und Edge Computing (rund 8 %: Gaming-Grafikkarten, Workstations, Autos, Roboter). NVIDIA stellt die Chips nicht selbst her, das macht TSMC in Taiwan. Das Geschäftsjahr endet Ende Januar (Geschäftsjahr 2027 = Februar 2026 bis Januar 2027).",
+ "why": "Seit dem Start von ChatGPT Ende 2022 hat sich der Umsatz mehr als verzehnfacht (Geschäftsjahr 2023: 27 Mrd. $, letzte 12 Monate: 303 Mrd. $). Am 26.8.2026 meldete NVIDIA wieder Rekordzahlen: Umsatz 96.2 Mrd. $ statt erwarteter 92.2 Mrd. $, Ausblick 108 Mrd. $ für das nächste Quartal. Die Finanzchefin nannte für das Geschäftsjahr 2028 rund 70 % Wachstum. Am 6.10. erreichte die Aktie das Allzeithoch von 243.37 $. Danach drehte die Stimmung: Schwache Ausblicke von Intel, Qualcomm und Arm weckten Zweifel, ob die KI-Ausgaben so weiterwachsen. Am 5.11. fiel NVIDIA in einem breiten Ausverkauf von Chip- und KI-Aktien um 9.3 %. Am 9.11. eröffnete die Aktie rund 8 % tiefer: Laut einem Bericht der New York Times untersucht der Verwaltungsrat, ob CEO Jensen Huang Ziel eines ausländischen Geheimdienstes war. Der Verwaltungsrat sieht laut AP keinen Hinweis, dass Geheimnisse abgeflossen sind. Dazu kommen China (Peking blockiert Käufe, im Ausblick ist null China-Umsatz im Rechenzentrum eingerechnet) und eigene KI-Chips der Kunden, zum Beispiel Googles TPU. Am 10.11. fiel der Kurs bis 165.89 $.",
+ "kpis": [
+  [
+   "g",
+   "Umsatzwachstum",
+   "+83 %",
+   "Letzte 12 Monate (bis Juli 2026). Im letzten Quartal sogar +106 %. Das Wachstum hat sich in den letzten 4 Quartalen beschleunigt (+62, +73, +85, +106 %). Für eine Firma dieser Grösse aussergewöhnlich."
+  ],
+  [
+   "g",
+   "Operative Marge",
+   "65.2 %",
+   "Von 100 $ Umsatz bleiben 65 $ Betriebsgewinn. Sehr hoch, 2022 waren es 37 %. Die Bruttomarge (Umsatz minus Herstellkosten) soll im Quartal bis Januar wegen teurer Speicherchips auf 71 bis 72 % sinken (zuletzt 75 %)."
+  ],
+  [
+   "g",
+   "Gewinn pro Aktie (EPS)",
+   "7.91 $",
+   "Letzte 12 Monate, offiziell (GAAP). Im Geschäftsjahr 2026 waren es 4.90 $, 2024 noch 1.19 $. Der Gewinn wächst schneller als der Umsatz."
+  ],
+  [
+   "g",
+   "ROIC",
+   "92 %",
+   "Auf 100 $ investiertes Kapital rund 92 $ Gewinn. Extrem hoch. 2025 waren es sogar 191 %: Der Wert sinkt, weil NVIDIA heute viel mehr Kapital einsetzt (Lager, Vorauszahlungen an Lieferanten)."
+  ],
+  [
+   "g",
+   "Free Cashflow",
+   "127 Mrd. $",
+   "Letzte 12 Monate. Das ist das Geld, das nach allen Investitionen übrig bleibt, 42 % vom Umsatz. Seit 2023 jedes Jahr stark gestiegen."
+  ],
+  [
+   "g",
+   "Netto-Cash",
+   "23.6 Mrd. $",
+   "62.5 Mrd. $ Cash und Wertschriften, 38.9 Mrd. $ Schulden (Stand Juli 2026). Kein Schuldenproblem. Achtung: NVIDIA garantiert teilweise Kredite von Kunden (z. B. CoreWeave), das ist ein Risiko ausserhalb der Bilanz."
+  ],
+  [
+   "g",
+   "KGV",
+   "22.0",
+   "Du zahlst 22 Jahresgewinne (letzte 12 Monate). Auf die erwarteten Gewinne der nächsten 12 Monate rund 14. Eigener Schnitt der Geschäftsjahre 2022 bis 2026: Median rund 51. Also so günstig wie selten, aber nur, wenn die Gewinne weiter steigen."
+  ],
+  [
+   "w",
+   "Dividende",
+   "0.6 %",
+   "0.25 $ pro Quartal, 4× pro Jahr (seit Juni 2026, vorher nur 0.01 $). Zuletzt Ex-Tag 10.9., Zahltag 1.10.2026. In USD, 15 % US-Quellensteuer (mit W-8BEN), in der Steuererklärung anrechenbar. NVIDIA gibt viel mehr Geld über Aktienrückkäufe zurück."
+  ]
+ ],
+ "revtitle": "Umsatz pro Quartal (Mio. $)",
+ "revunit": "Mio. $",
+ "epsunit": "$",
+ "revnote": "Alle 4 letzten Quartale klar über dem Vorjahr, und das Wachstum wird schneller: +62 % (Okt 25), +73 % (Jan 26), +85 % (Apr 26), +106 % (Jul 26). Ausblick für das Quartal bis Oktober 2026: 108 Mrd. $.",
+ "marginnote": "Operative Marge (offiziell, GAAP) pro Geschäftsjahr bis Ende Januar. 2023 kurzer Einbruch, als die Nachfrage nach Gaming-Karten wegbrach. Seit dem KI-Boom über 54 %.",
+ "finnote": "<b>Hinweis:</b> Geschäftsjahr bis Ende Januar (2026 = Februar 2025 bis Januar 2026). Gewinn pro Aktie nach den Aktiensplits angepasst. KGV am Ende des Geschäftsjahrs, in der letzten Zeile mit dem Kurs vom 11.11.2026. Das KGV von 115 im Jahr 2023 ist ein Ausreisser (tiefer Gewinn), darum nutze ich als eigenen Schnitt den Median (51) statt des Mittelwerts (62).",
+ "FIN": [
+  [
+   "2022",
+   26914,
+   "+61.4 %",
+   "37.3 %",
+   0.39,
+   8132,
+   "65.3 %",
+   "58.6"
+  ],
+  [
+   "2023",
+   26974,
+   "+0.2 %",
+   "20.7 %",
+   0.17,
+   3808,
+   "29.3 %",
+   "114.7"
+  ],
+  [
+   "2024",
+   60922,
+   "+125.9 %",
+   "54.1 %",
+   1.19,
+   27021,
+   "118.7 %",
+   "50.7"
+  ],
+  [
+   "2025",
+   130497,
+   "+114.2 %",
+   "62.4 %",
+   2.94,
+   60853,
+   "190.6 %",
+   "47.9"
+  ],
+  [
+   "2026",
+   215938,
+   "+65.5 %",
+   "60.4 %",
+   4.9,
+   96676,
+   "145.4 %",
+   "38.0"
+  ],
+  [
+   "Letzte 12 Mt.",
+   302970,
+   "+83.4 %",
+   "65.2 %",
+   7.91,
+   127006,
+   "92.0 %",
+   "22.0"
+  ]
+ ],
+ "QREV": [
+  [
+   "Okt 24",
+   35082
+  ],
+  [
+   "Jan 25",
+   39331
+  ],
+  [
+   "Apr 25",
+   44062
+  ],
+  [
+   "Jul 25",
+   46743
+  ],
+  [
+   "Okt 25",
+   57006
+  ],
+  [
+   "Jan 26",
+   68127
+  ],
+  [
+   "Apr 26",
+   81600
+  ],
+  [
+   "Jul 26",
+   96200
+  ]
+ ],
+ "revdec": 0,
+ "MARGIN": [
+  [
+   "2022",
+   37.3
+  ],
+  [
+   "2023",
+   20.7
+  ],
+  [
+   "2024",
+   54.1
+  ],
+  [
+   "2025",
+   62.4
+  ],
+  [
+   "2026",
+   60.4
+  ],
+  [
+   "12 Mt.",
+   65.2
+  ]
+ ],
+ "Q": [
+  [
+   "Umsatztrend",
+   "4 von 4 Quartalen über Vorjahr, Wachstum beschleunigt sich (+62 bis +106 %)",
+   15,
+   15
+  ],
+  [
+   "Wachstumstempo",
+   "+83 % in 12 Monaten",
+   10,
+   10
+  ],
+  [
+   "Operative Marge",
+   "65.2 % (9 Pkt.), seit 2022 klar gestiegen (6 Pkt.)",
+   15,
+   15
+  ],
+  [
+   "Gewinnwachstum (EPS)",
+   "Von 1.19 $ (2024) auf 7.91 $, weit über 15 % pro Jahr",
+   10,
+   10
+  ],
+  [
+   "Free Cashflow",
+   "Positiv, in 4 von 5 Jahren gestiegen (nur 2023 gesunken)",
+   10,
+   10
+  ],
+  [
+   "ROIC",
+   "92 % (15 Pkt.), aber fallend seit 2025 (−1)",
+   14,
+   15
+  ],
+  [
+   "Schulden",
+   "Netto-Cash 23.6 Mrd. $",
+   10,
+   10
+  ],
+  [
+   "Bewertung vs. eigene Historie",
+   "KGV 22.0 statt Median 51, über 30 % günstiger",
+   14,
+   15
+  ]
+ ],
+ "adwnote": "Steigt, wenn die Kurse eher nahe am Wochenhoch schliessen (Käufer), fällt bei Schluss nahe am Tief (Verkäufer). Werte in Mio. Aktien. Negativ: Die Wochen-A/D stand im Februar 2026 bei 109'377 und im Mai bei 108'545. Beim Allzeithoch im Oktober lag sie nur noch bei 106'997, heute bei 105'263. Der Kurs stieg, die A/D nicht: Grosse Anleger haben im Anstieg eher verkauft (Verteilung).",
+ "rsiwnote": "Unter 30 überverkauft, über 70 überkauft. Heute 35.5, so tief wie zuletzt im März 2026 beim Jahrestief. Schwach, aber noch nicht überverkauft.",
+ "addnote": "Kleines positives Zeichen: Am 6.11. schloss der Kurs bei 186.64 $ mit einer Tages-A/D von 2'399. Heute schliesst er tiefer bei 173.73 $, die A/D steht aber höher bei 2'572. Seit dem Allzeithoch fiel die Tages-A/D aber von 3'379 stark, und schon im Anstieg auf das Hoch sank sie (Mai 4'662).",
+ "ind": [
+  [
+   "Kurs vs. EMA 50",
+   "173.7 &lt; 210.4",
+   "173.7 &lt; 198.9",
+   "Klar unter der mittelfristigen Linie, auf beiden Zeitebenen."
+  ],
+  [
+   "Kurs vs. EMA 200",
+   "173.7 &lt; 204.4",
+   "173.7 &gt; 136.5",
+   "Im Tageschart unter der langfristigen Linie, im Wochenchart noch weit darüber."
+  ],
+  [
+   "EMA 50 vs. EMA 200",
+   "50 über 200 (seit 24.6.2025), Abstand schrumpft",
+   "50 über 200 (seit 2016)",
+   "Langfristig Aufwärtstrend, kurzfristig klarer Rücksetzer."
+  ],
+  [
+   "RSI (14)",
+   "28.7",
+   "35.5",
+   "Tag überverkauft (am 10.11. sogar 23.9), Woche schwach."
+  ],
+  [
+   "A/D",
+   "höher bei tieferem Kurs seit 6.11.",
+   "fällt seit Februar, auch im Anstieg",
+   "Kurzfristig leicht positiv, längerfristig Verteilung."
+  ],
+  [
+   "Volumen",
+   "Ø 20 Tage 162 Mio. vs. Ø 100 Tage 131 Mio. Aktien",
+   "Deutlich mehr Handel als üblich: Viele verkaufen."
+  ]
+ ],
+ "smc": "Im Wochenchart lief NVIDIA 2026 in einem Aufwärtstrend: Tief 164.27 $ (30.3.), höheres Hoch 236.54 $ (14.5.), höheres Tief 189.80 $ (29.6.), höheres Hoch 243.37 $ (6.10.). Seither tiefere Hochs (243.37 → 222.19 → 219.99 $) und tiefere Tiefs (210.18 → 165.89 $). Mit dem Fall unter 189.80 $ am 5.11. ist das letzte höhere Tief gebrochen (Break of Structure nach unten). Am 5.11. blieb eine Kurslücke zwischen 196 und 200 $ offen. Jetzt testet der Kurs die wichtigste Unterstützung des Jahres: die Tiefs vom Februar und März (164 bis 171 $). Ein Change of Character nach oben wäre erst ein Tagesschluss über 200 $.",
+ "zones": [
+  [
+   "r",
+   "204–211 $",
+   "Widerstand: Tages-EMA 200 (204.44 $), Tages-EMA 50 (210.39 $) und Tief vom 23.10. (210.18 $)."
+  ],
+  [
+   "r",
+   "196–200 $",
+   "Widerstand: offene Kurslücke vom 5.11. und Hoch vom 6.11. (194.90 $)."
+  ],
+  [
+   "t",
+   "200 $",
+   "<b>Trigger:</b> Tagesschluss über 200 $ (Kurslücke geschlossen). Bestätigung über 220 $ (letztes tieferes Hoch vom 28.10.)."
+  ],
+  [
+   "s",
+   "164–171 $",
+   "<b>Kaufzone 1:</b> Jahrestief vom 30.3.2026 (164.27 $), Tief vom 10.11. (165.89 $) und Tiefs vom November 2025 und Februar 2026 (169.55 und 171.03 $)."
+  ],
+  [
+   "s",
+   "137–153 $",
+   "<b>Kaufzone 2:</b> Hochs von Ende 2024 und Anfang 2025 (152.89 und 153.13 $), Tief vom Februar 2025 im Bereich 143 $ und Wochen-EMA 200 (136.50 $)."
+  ],
+  [
+   "r",
+   "160 $",
+   "Abbruch: Wochenschluss unter 160 $. Dann wäre das Jahrestief gebrochen und der Aufwärtstrend seit 2023 im Wochenchart in Frage gestellt."
+  ]
+ ],
+ "smart": [
+  "<b>NVIDIA selbst:</b> Sehr grosses Rückkaufprogramm. Am 28.9.2026 um 150 Mrd. $ auf insgesamt 235 Mrd. $ erhöht (rund 5.6 % des Börsenwerts), bis zum Geschäftsjahr 2028. Im ersten Halbjahr gab NVIDIA rund 46 Mrd. $ an die Aktionäre zurück. Netto (nach neuen Aktien für Mitarbeiter) sank die Aktienzahl aber nur um rund 1 % pro Jahr.",
+  "<b>Insider:</b> Keine Käufe am Markt. Grosse Verkäufe: Direktor Mark Stevens im Juni 2026 über 400 Mio. $ (209 bis 222 $) und Ende August bis Anfang September rund 300 Mio. $ (220 bis 234 $), Direktor Tench Coxe je 500'000 Aktien im Juli, August und September. Jensen Huang gab im Juni und September Aktien ab, laut Muster wohl vor allem für Steuern auf Mitarbeiteraktien.",
+  "<b>Analysten:</b> Fast alle positiv. 59 von 62 Analysten raten zum Kaufen, 2 Halten, 1 Verkaufen (Seaport). Kursziel im Schnitt rund 327 $. Zuletzt: Aletheia stuft auf Halten ab, Goldman bestätigt Kaufen mit Ziel 300 $."
+ ],
+ "seasnote": "Durchschnittliche Monatsrendite in %. Seit dem Börsengang 1999. November im Schnitt +8.8 % (86 % positive Jahre, aber nur 7 Jahre auswertbar), Dezember +1.8 % (62 %), Januar −0.9 % (nur 36 %). Stärkster Monat Juli (+7.7 %, 75 %).",
+ "T": [
+  [
+   "Trend Woche (EMA 50/200)",
+   "Kurs unter EMA 50, über EMA 200, EMA 50 über 200: Rücksetzer im Aufwärtstrend, aber steil",
+   12,
+   20
+  ],
+  [
+   "Trend Tag (EMA 50/200)",
+   "Kurs unter beiden, EMA 50 noch knapp über 200",
+   3,
+   10
+  ],
+  [
+   "Struktur (SMC)",
+   "Tiefere Hochs und Tiefe, letztes höheres Tief gebrochen, Test der Jahrestiefs",
+   4,
+   20
+  ],
+  [
+   "RSI Tag/Woche",
+   "Tag 28.7, Woche 35.5, keine Divergenz",
+   5,
+   15
+  ],
+  [
+   "A/D Tag/Woche",
+   "Tag leicht positiv seit 6.11., Woche Verteilung seit Februar",
+   6,
+   20
+  ],
+  [
+   "Smart Money",
+   "Start 3, grosse Rückkäufe +3, gehäufte Insider-Verkäufe −3",
+   3,
+   10
+  ],
+  [
+   "Saisonalität",
+   "November und Dezember positiv, Januar schwach (36 %)",
+   3,
+   5
+  ]
+ ],
+ "pro": [
+  "Klarer Marktführer bei KI-Chips mit eigener Software (CUDA), die viele Entwickler nutzen.",
+  "Umsatz wächst schneller als zuvor (+106 % im letzten Quartal), Ausblick 108 Mrd. $ für das Quartal bis Oktober.",
+  "Sehr hohe Margen (65 % operativ) und 127 Mrd. $ Free Cashflow in 12 Monaten, Netto-Cash.",
+  "KGV 22 und rund 14 auf die erwarteten Gewinne: so günstig wie selten in den letzten Jahren.",
+  "Rückkaufprogramm von 235 Mrd. $, China ist im Ausblick nicht enthalten (möglicher Zusatzschub)."
+ ],
+ "con": [
+  "Abhängig von wenigen sehr grossen Kunden. Sinken deren KI-Ausgaben, fällt der Umsatz schnell (wie 2023 bei Gaming).",
+  "Kunden bauen eigene Chips (Google TPU, Amazon, Meta), AMD holt auf.",
+  "Untersuchung rund um CEO Huang (seit 9.11.), China blockiert Käufe, Kreditgarantien für Kunden.",
+  "Bruttomarge soll im Quartal bis Januar auf 71 bis 72 % sinken (Speicherkosten).",
+  "Grosse Insider-Verkäufe, Wochen-A/D zeigt Verteilung, Abwärtstrend seit Oktober."
+ ],
+ "todo": [
+  [
+   "t",
+   "Beobachten",
+   "Alarm bei 171 $ (oberes Ende Kaufzone 1) und bei 200 $ (Trigger)."
+  ],
+  [
+   "s",
+   "Timing grün",
+   "Tagesschluss über 200 $ mit steigender A/D, danach Wochenschluss über 220 $. Fundamental am 17.11.: Umsatz über 108 Mrd. $ und Ausblick für das Januar-Quartal über rund 124 Mrd. $ (das erwartet die Börse)."
+  ],
+  [
+   "r",
+   "Abbruch",
+   "Wochenschluss unter 160 $. Dann Kaufzone 2 (137–153 $) beobachten."
+  ],
+  [
+   "",
+   "Nächste Zahlen",
+   "17. November 2026 nach US-Börsenschluss (23 Uhr Schweizer Zeit), 3. Quartal des Geschäftsjahrs 2027, bestätigt."
+  ]
+ ],
+ "bands": [
+  {
+   "from": 204,
+   "to": 211,
+   "type": "res"
+  },
+  {
+   "from": 196,
+   "to": 200,
+   "type": "res"
+  },
+  {
+   "from": 164,
+   "to": 171,
+   "type": "sup"
+  },
+  {
+   "from": 137,
+   "to": 153,
+   "type": "sup"
+  }
+ ],
+ "refs": [
+  {
+   "v": 200,
+   "label": "Trigger 200"
+  }
+ ],
+ "sources": "<a href=\"https://stockanalysis.com/stocks/nvda/financials/\" target=\"_blank\" rel=\"noopener\">StockAnalysis.com</a> (Stand 11.11.2026), <a href=\"https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Second-Quarter-Fiscal-2027/default.aspx\" target=\"_blank\" rel=\"noopener\">NVIDIA Q2 Geschäftsjahr 2027</a>, <a href=\"https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Sets-Conference-Call-for-Third-Quarter-Financial-Results/\" target=\"_blank\" rel=\"noopener\">NVIDIA: Termin Q3</a>, <a href=\"https://app.sentisense.ai/stories/nvidia-beats-across-the-board-guides-108-billion-with-zero-china-revenue-assume-08262026\" target=\"_blank\" rel=\"noopener\">SentiSense: Zahlen und Ausblick</a>, <a href=\"https://ny1.com/nyc/all-boroughs/ap-top-news/2026/11/09/nvidia-shares-drop-after-co-investigates-whether-ceo-was-target-of-a-foreign-intelligence-effort\" target=\"_blank\" rel=\"noopener\">AP: Untersuchung CEO</a>, <a href=\"https://investinglive.com/stocks/icymi-nvidia-lifts-buyback-by-record-150-billion-to-235-billion-shares-rise/\" target=\"_blank\" rel=\"noopener\">Rückkauf 235 Mrd. $</a>, <a href=\"https://247wallst.com/investing/2026/09/23/nvidia-director-is-cashing-out-300m-should-you-be-worried/\" target=\"_blank\" rel=\"noopener\">247wallst: Insider-Verkäufe</a>, <a href=\"https://247wallst.com/investing/2026/11/09/only-one-analyst-rates-nvidia-a-sell-is-the-lone-bear-onto-something/\" target=\"_blank\" rel=\"noopener\">247wallst: Analysten</a>, <a href=\"https://www.tikr.com/blog/nvidias-fiscal-2028-revenue-estimate-is-up-25-since-june-heres-what-november-17-has-to-prove\" target=\"_blank\" rel=\"noopener\">TIKR: Was die Zahlen am 17.11. zeigen müssen</a>."
+}

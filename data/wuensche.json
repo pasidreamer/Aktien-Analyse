@@ -142,13 +142,15 @@
    "id": "sitZ8xN1RCCU",
    "text": "The Goldman Sachs Group, Inc. (GS)",
    "eingang": "2026-11-10T21:51Z",
-   "status": "offen"
+   "status": "fertig",
+   "ticker": "GS"
   },
   {
    "id": "rtuVnQI4mzxF",
    "text": "NVIDIA Corporation (NVDA)",
    "eingang": "2026-11-10T22:03Z",
-   "status": "offen"
+   "status": "fertig",
+   "ticker": "NVDA"
   }
  ],
  "stand": "2026-11-11T01:22Z"
