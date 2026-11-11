@@ -22,6 +22,10 @@ on:
       datum:
         description: "Datum JJJJ-MM-TT (leer = heute)"
         required: false
+      mit_reel:
+        description: "Den Reel gleich mitposten (aus = Reel kommt abends über «Reel posten»)"
+        type: boolean
+        default: true
 
 permissions:
   contents: write
@@ -88,6 +92,7 @@ jobs:
         run: |
           args=""
           if [ "${{ github.event_name }}" != "workflow_dispatch" ]; then args="--ab-7-uhr --ohne instagram_reel"; fi
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.mit_reel }}" = "false" ]; then args="$args --ohne instagram_reel"; fi
           if [ "$TROCKEN" = "true" ]; then args="$args --trocken"; fi
           if [ -n "$DATUM" ]; then args="$args --datum $DATUM"; fi
           python scripts/posten.py $args
