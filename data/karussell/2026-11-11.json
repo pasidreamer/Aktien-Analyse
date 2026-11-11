@@ -1,0 +1,146 @@
+{
+ "datum": "2026-11-11",
+ "ticker": "V",
+ "name": "Visa",
+ "thema": "Ampel-Check",
+ "stand": "10.11.2026",
+ "slides": [
+  {
+   "typ": "hook",
+   "kicker": "VISA · AMPEL-CHECK",
+   "titel": "Visa nahe am Rekord: Hält der Ausbruch?",
+   "text": "Visa schloss am Dienstag bei 423 $. Das Rekordhoch von Anfang November liegt bei 442.23 $. Seit dem Tief im März ging es 44 % nach oben.",
+   "kpis": [
+    {
+     "label": "KURS",
+     "wert": "423.00 $"
+    },
+    {
+     "label": "SEIT DEM MÄRZ-TIEF",
+     "wert": "+44 %",
+     "ton": "gruen"
+    },
+    {
+     "label": "UNTER DEM HOCH",
+     "wert": "−4.3 %",
+     "ton": "orange"
+    }
+   ]
+  },
+  {
+   "typ": "firma",
+   "kicker": "WAS DIE FIRMA MACHT",
+   "titel": "Das Netz hinter der Karte",
+   "text": "Visa betreibt das Netz, über das Banken und Händler Kartenzahlungen abwickeln. An jeder Zahlung verdient die Firma eine kleine Gebühr. Die Karten geben die Banken aus, das Kreditrisiko tragen sie auch.",
+   "fakten": [
+    {
+     "label": "Sitz",
+     "wert": "San Francisco, USA"
+    },
+    {
+     "label": "Umsatz 2026",
+     "wert": "45.9 Mrd. $"
+    },
+    {
+     "label": "Zahlungen 2026",
+     "wert": "281 Mrd."
+    }
+   ]
+  },
+  {
+   "typ": "zahlen",
+   "kicker": "WAS DIE ZAHLEN ZEIGEN",
+   "titel": "Rekordjahr, etwas weniger Tempo",
+   "quelle": "Quelle: Visa, Q4-Zahlen vom 27.10.2026",
+   "zeilen": [
+    {
+     "k": "Umsatz",
+     "sub": "Juli bis September, 12.1 Mrd. $",
+     "wert": "+13 %",
+     "ton": "gruen"
+    },
+    {
+     "k": "Gewinn pro Aktie",
+     "sub": "bereinigt, 3.48 $",
+     "wert": "+17 %",
+     "ton": "gruen"
+    },
+    {
+     "k": "Zahlungen über Grenzen",
+     "sub": "ohne Zahlungen innerhalb Europas",
+     "wert": "+14 %",
+     "ton": "gruen"
+    },
+    {
+     "k": "Rabatte an Banken",
+     "sub": "Client Incentives, 5.1 Mrd. $",
+     "wert": "+21 %",
+     "ton": "orange"
+    }
+   ],
+   "erklaerung": "Das Geschäftsjahr endet im September. Für 2027 erwartet Visa beim Gewinn pro Aktie ein tief zweistelliges Plus, nach 16 % im Jahr 2026."
+  },
+  {
+   "typ": "skala",
+   "kicker": "AMPEL 1: QUALITÄT",
+   "titel": "Top-Geschäft, voller Preis",
+   "name": "Qualität",
+   "wert": 77,
+   "punkte": [
+    "Von jedem Umsatzdollar bleiben rund 67 Cent als Betriebsgewinn. Diese Marge ist stabil.",
+    "Auf das eingesetzte Kapital verdient Visa rund 55 % pro Jahr (ROIC). Schulden spielen kaum eine Rolle.",
+    "Die Aktie kostet rund 32 bereinigte Jahresgewinne, im eigenen Schnitt etwa 29."
+   ]
+  },
+  {
+   "typ": "skala",
+   "kicker": "STRUKTUR IM WOCHENCHART",
+   "titel": "Ausbruch über das alte Hoch",
+   "name": "Timing",
+   "wert": 73,
+   "punkte": [
+    "Bis März 2026 liefen tiefere Hochs und tiefere Tiefs. Das Tief lag am Ende bei 293.89 $.",
+    "Am 9. Oktober schloss Visa über dem alten Rekord von 375.51 $ aus dem Juni 2025. Damit ist die Abwärtsstruktur gebrochen.",
+    "Seit Anfang November pendelt der Kurs um 423 $. Der RSI im Wochenchart steht bei 75, die Aktie ist also schon heiss gelaufen."
+   ]
+  },
+  {
+   "typ": "marke",
+   "kicker": "DIE ENTSCHEIDENDE MARKE",
+   "titel": "Das Tief vor dem Ausbruch",
+   "text": "Bei 356.75 $ liegt das Tief von Ende September, der Start des Ausbruchs. Der Kurs steht 18.6 % darüber.",
+   "marke_label": "LETZTES TIEF",
+   "marke": "356.75 $",
+   "szenarien": [
+    {
+     "art": "bruch",
+     "titel": "Bricht sie",
+     "text": "Dann wäre der Ausbruch gescheitert. Erste Haltestelle ist die Range von Ende 2024 bei 307.71 bis 330.20 $, darunter 267.94 bis 283.60 $ aus 2024."
+    },
+    {
+     "art": "halten",
+     "titel": "Hält sie",
+     "text": "Dann bleibt die neue Aufwärtsstruktur intakt. Bei einem Rücksetzer wäre das alte Hoch bei 375.51 $ die erste Probe."
+    }
+   ]
+  },
+  {
+   "typ": "fazit",
+   "kicker": "MEIN FAZIT",
+   "titel": "Stark, aber schon teuer",
+   "absaetze": [
+    "Visa wächst zweistellig und verdient sehr viel Geld. 2027 wird das Tempo etwas kleiner, und die Aktie ist teurer als im eigenen Schnitt.",
+    "Im Chart beobachte ich, ob das alte Hoch bei 375.51 $ bei einem Rücksetzer hält. Das wäre für mich spannender als ein Kurs knapp unter dem Rekord."
+   ],
+   "frage": "Bleibt Visa auch mit Stablecoins und Echtzeitzahlungen unverzichtbar? Deine Meinung in die Kommentare."
+  }
+ ],
+ "caption": "Visa steht 44 % über dem Tief vom März und nur 4.3 % unter dem Rekordhoch. Im letzten Quartal wuchs der Umsatz um 13 %, für 2027 erwartet die Firma etwas weniger Tempo. Im Chart ist das alte Rekordhoch bei 375.51 $ jetzt die wichtigste Probe. Wisch durch für beide Ampeln und die entscheidende Marke.",
+ "hashtags": [
+  "#visa",
+  "#aktien",
+  "#börse",
+  "#ampelcheck",
+  "#v"
+ ]
+}
