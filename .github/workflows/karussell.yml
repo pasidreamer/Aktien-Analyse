@@ -63,6 +63,15 @@ jobs:
           path: .
       - id: deploy
         uses: actions/deploy-pages@v4
+        continue-on-error: true
+      # GitHub meldet beim Veröffentlichen ab und zu kurz «Artefakt nicht gefunden» (z. B. 11.11.2026,
+      # als zwei Veröffentlichungen gleichzeitig liefen) – dann nach einer Minute ein zweites Mal versuchen
+      - name: Kurz warten vor zweitem Versuch
+        if: steps.deploy.outcome == 'failure'
+        run: sleep 60
+      - id: deploy2
+        if: steps.deploy.outcome == 'failure'
+        uses: actions/deploy-pages@v4
       - name: Pascal melden
         env:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
