@@ -3,8 +3,9 @@ name: Reel posten
 # Das Karussell selbst geht morgens um ca. 07:30 raus (Workflow «Karussell posten»).
 #
 # Auslöser, damit es sicher klappt (GitHub lässt geplante Läufe manchmal stundenlang liegen oder ganz aus):
-#  1. Sobald das Karussell gerendert ist: Der Lauf wartet in zwei Etappen bis 18:00 und postet dann
-#     (ein einzelner Schritt darf bei GitHub höchstens 6 Stunden laufen, darum zwei Warte-Etappen).
+#  1. Sobald das Karussell gerendert ist: Der Lauf wartet in drei Etappen bis 18:00 und postet dann.
+#     Ein einzelner Job darf bei GitHub höchstens ca. 6 Stunden laufen (am 12.11.2026 wurde eine 6½-Stunden-
+#     Etappe abgebrochen), darum wartet jede Etappe höchstens 5 Stunden 40 Minuten.
 #  2. Ersatz: Zeitplan alle 30 Minuten am Abend. posten.py postet den Reel nur zwischen 18:00 und 23:00
 #     und nie zweimal (data/karussell/gepostet.json), überzählige Läufe tun also nichts.
 on:
@@ -27,41 +28,49 @@ permissions:
   contents: write
 
 jobs:
-  warten:
-    # Erste Etappe: bis 12:30 Uhr warten (nur nach dem Rendern am Morgen)
+  warten1:
+    # Etappe 1: Richtung 18:00 warten, höchstens 340 Minuten (nur nach dem Rendern am Morgen)
     if: github.event_name == 'workflow_run' && github.event.workflow_run.conclusion != 'cancelled'
     runs-on: ubuntu-latest
-    timeout-minutes: 355
+    timeout-minutes: 350
     steps:
-      - name: Bis 12:30 warten
-        run: |
-          ziel=$(TZ=Europe/Zurich date -d "12:30" +%s)
-          jetzt=$(date +%s)
-          if [ "$jetzt" -lt "$ziel" ]; then
-            echo "Warte $(( (ziel - jetzt) / 60 )) Minuten bis 12:30 Uhr Zürich."
-            sleep $(( ziel - jetzt ))
-          fi
-
-  reel:
-    needs: warten
-    if: always() && (needs.warten.result == 'success' || github.event_name != 'workflow_run')
-    runs-on: ubuntu-latest
-    timeout-minutes: 355
-    steps:
-      - name: Bis 18:00 warten (nur nach dem Rendern)
-        if: github.event_name == 'workflow_run'
+      - name: Warten (Etappe 1)
         run: |
           ziel=$(TZ=Europe/Zurich date -d "18:00" +%s)
-          jetzt=$(date +%s)
-          if [ "$jetzt" -lt "$ziel" ]; then
-            echo "Warte $(( (ziel - jetzt) / 60 )) Minuten bis 18:00 Uhr Zürich."
-            sleep $(( ziel - jetzt ))
-          fi
-    # Das eigentliche Posten läuft im Job «posten» unten, damit nur dieser kurze Teil auf andere Post-Läufe wartet
+          rest=$(( ziel - $(date +%s) ))
+          if [ "$rest" -gt 20400 ]; then rest=20400; fi
+          if [ "$rest" -gt 0 ]; then echo "Warte $(( rest / 60 )) Minuten."; sleep $rest; fi
+
+  warten2:
+    # Etappe 2: Richtung 18:00 warten, höchstens 340 Minuten (nur nach dem Rendern am Morgen)
+    needs: warten1
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - name: Warten (Etappe 2)
+        run: |
+          ziel=$(TZ=Europe/Zurich date -d "18:00" +%s)
+          rest=$(( ziel - $(date +%s) ))
+          if [ "$rest" -gt 20400 ]; then rest=20400; fi
+          if [ "$rest" -gt 0 ]; then echo "Warte $(( rest / 60 )) Minuten."; sleep $rest; fi
+
+  warten3:
+    # Etappe 3: Richtung 18:00 warten, höchstens 340 Minuten (nur nach dem Rendern am Morgen)
+    needs: warten2
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - name: Warten (Etappe 3)
+        run: |
+          ziel=$(TZ=Europe/Zurich date -d "18:00" +%s)
+          rest=$(( ziel - $(date +%s) ))
+          if [ "$rest" -gt 20400 ]; then rest=20400; fi
+          if [ "$rest" -gt 0 ]; then echo "Warte $(( rest / 60 )) Minuten."; sleep $rest; fi
 
   posten:
-    needs: reel
-    if: always() && needs.reel.result == 'success'
+    needs: warten3
+    # nach dem Rendern nur, wenn alle Etappen bis 18:00 durchgelaufen sind; Zeitplan und Handstart sofort
+    if: always() && (needs.warten3.result == 'success' || github.event_name != 'workflow_run')
     runs-on: ubuntu-latest
     timeout-minutes: 30
     # gleiche Gruppe wie «Karussell posten»: nie zwei Läufe gleichzeitig an gepostet.json
