@@ -1,5 +1,5 @@
 {
- "stand": "2026-11-09",
+ "stand": "2026-11-12",
  "hinweis": "Kurze Auswertung der Quartalszahlen. Reaktion rechnet die App aus den Kursen.",
  "eintraege": {
   "GOOGL": [
@@ -2321,6 +2321,83 @@
      {
       "t": "Take-Two to Report Q2 Earnings (Zacks via Yahoo Finance, eigene Prognose der Firma)",
       "u": "https://finance.yahoo.com/markets/stocks/articles/two-report-q2-earnings-whats-144000140.html"
+     }
+    ]
+   }
+  ],
+  "SIX2": [
+   {
+    "datum": "2026-11-12",
+    "zeit": "vor",
+    "quartal": "Q3 2026",
+    "reaktion_quelle": null,
+    "titel": "Rekordsommer, Umsatzziel für 2026 angehoben",
+    "kurz": "Sixt hat im wichtigen Sommerquartal 11.8 % mehr umgesetzt und 9 % mehr vor Steuern verdient. Das Umsatzziel für 2026 steigt auf knapp 4.7 Mrd. €, die Gewinnmarge bleibt bei rund 10 %. Die Aktie legte am Mittag rund 3 % zu (Angabe der Quelle für die Vorzugsaktie).",
+    "zahlen": [
+     {
+      "k": "Umsatz Konzern",
+      "ist": "1.48 Mrd. € (+11.8 %)",
+      "erw": "",
+      "urteil": "Rekord"
+     },
+     {
+      "k": "Gewinn vor Steuern (EBT)",
+      "ist": "281.8 Mio. € (+9.0 %)",
+      "erw": "Vorjahr 258.4 Mio. €",
+      "urteil": "gesteigert"
+     },
+     {
+      "k": "EBT-Marge (Gewinn vor Steuern im Verhältnis zum Umsatz)",
+      "ist": "19.0 %",
+      "erw": "Vorjahr 19.5 %",
+      "urteil": "leicht tiefer"
+     },
+     {
+      "k": "Corporate EBITDA (Betriebsgewinn vor Abschreibungen)",
+      "ist": "350.4 Mio. € (+8.9 %)",
+      "erw": "",
+      "urteil": "gesteigert"
+     },
+     {
+      "k": "Prognose Umsatz 2026",
+      "ist": "knapp 4.7 Mrd. €",
+      "erw": "vorher 4.45 bis 4.60 Mrd. €",
+      "urteil": "angehoben"
+     },
+     {
+      "k": "Prognose EBT-Marge 2026",
+      "ist": "rund 10 %",
+      "erw": "vorher rund 10 %",
+      "urteil": "bestätigt"
+     }
+    ],
+    "gut": [
+     "Alle drei Regionen wachsen: Europa ohne Deutschland +14.7 %, Deutschland +11.1 %, Nordamerika +7.7 %.",
+     "Nach neun Monaten liegt der Gewinn vor Steuern bei knapp 407 Mio. €, das sind 16.9 % mehr als im Vorjahr.",
+     "Es war das 21. Rekordquartal in Folge. Sixt hebt das Umsatzziel an, statt es nur zu bestätigen."
+    ],
+    "sorgen": [
+     "Der Gewinn wächst langsamer als der Umsatz. Die Marge im Sommerquartal sank von 19.5 % auf 19.0 % (eigene Rechnung).",
+     "Die Flotte ist um 11.4 % auf durchschnittlich 248'300 Autos gewachsen. Mehr Autos binden mehr Geld und Schulden, der Anteil teurer Premiumautos am Flottenwert stieg auf 62 %.",
+     "Nordamerika wächst mit 7.7 % am langsamsten. Analystenerwartungen zu den Zahlen haben wir nicht gefunden, ein Vergleich damit fehlt."
+    ],
+    "fazit": "Weder Panik noch Wende: Das Geschäft wächst stabil weiter, entscheidend bleibt, ob Sixt die Marge von rund 10 % im ganzen Jahr hält, während die Flotte teurer wird.",
+    "quellen": [
+     {
+      "t": "Sixt Pressemitteilung (EQS) zum Q3 2026, 12.11.2026",
+      "u": "https://www.finanzwire.com/press-release/sixt-aktiengesellschaft-etr-six2-21st-consecutive-record-quarter-sixt-grows-revenue-in-the-key-summer-quarter-by-118-and-raises-full-year-guidance-BD3scUetaAW"
+     },
+     {
+      "t": "EuropaWire: Sixt hebt Umsatzprognose 2026 an",
+      "u": "https://news.europawire.eu/sixt-raises-2026-revenue-forecast-to-nearly-eur-4-7-billion-after-record-third-quarter/eu-press-release/2026/11/12/20/10/05/187575/"
+     },
+     {
+      "t": "ad-hoc-news: Sixt-Aktie, Umsatz wächst im Q3 um 11.8 Prozent",
+      "u": "https://www.ad-hoc-news.de/boerse/news/corporate-news/sixt-aktie-umsatz-waechst-im-q3-um-11-8-prozent/70497332"
+     },
+     {
+      "t": "ad-hoc-news: Sixt stock rises after Q3, outlook raised",
+      "u": "https://www.ad-hoc-news.de/boerse/news/corporate-news/sixt-stock-rises-after-q3-revenue-jumps-11-8-prozent-outlook-raised/70497778"
      }
     ]
    }
