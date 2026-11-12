@@ -1,0 +1,146 @@
+{
+ "datum": "2026-11-12",
+ "ticker": "AMD",
+ "name": "AMD",
+ "thema": "Kursbewegung",
+ "stand": "11.11.2026",
+ "slides": [
+  {
+   "typ": "hook",
+   "kicker": "AMD · KURSBEWEGUNG",
+   "titel": "Minus 17 %, dann plus 37 %: Was ist bei AMD los?",
+   "text": "Nach den US-Wahlen fürchteten Anleger strengere Regeln für KI und Rechenzentren. Am 5. November fiel AMD an einem Tag um 17 %. Am Mittwoch schloss die Aktie bei 552.90 $.",
+   "kpis": [
+    {
+     "label": "KURS",
+     "wert": "552.90 $"
+    },
+    {
+     "label": "AM MITTWOCH",
+     "wert": "+7.3 %",
+     "ton": "gruen"
+    },
+    {
+     "label": "UNTER DEM REKORD",
+     "wert": "−16.0 %",
+     "ton": "orange"
+    }
+   ]
+  },
+  {
+   "typ": "firma",
+   "kicker": "WAS DIE FIRMA MACHT",
+   "titel": "Chips für Server und KI",
+   "text": "AMD entwickelt Chips für Computer, Server und Spielkonsolen. Gebaut werden sie bei Auftragsfertigern wie TSMC. Am schnellsten wächst AMD mit Chips für KI in Rechenzentren.",
+   "fakten": [
+    {
+     "label": "Sitz",
+     "wert": "Santa Clara, USA"
+    },
+    {
+     "label": "Umsatz Q3 2026",
+     "wert": "13.4 Mrd. $"
+    },
+    {
+     "label": "Anteil Rechenzentren",
+     "wert": "rund 64 %"
+    }
+   ]
+  },
+  {
+   "typ": "zahlen",
+   "kicker": "WAS DIE ZAHLEN ZEIGEN",
+   "titel": "Rechenzentren fast verdoppelt",
+   "quelle": "Quelle: AMD, Q3-Zahlen vom 03.11.2026",
+   "zeilen": [
+    {
+     "k": "Umsatz",
+     "sub": "Juli bis September, 13.4 Mrd. $",
+     "wert": "+45 %",
+     "ton": "gruen"
+    },
+    {
+     "k": "Rechenzentren",
+     "sub": "Chips für KI und Server, 8.5 Mrd. $",
+     "wert": "+97 %",
+     "ton": "gruen"
+    },
+    {
+     "k": "PC und Gaming",
+     "sub": "3.7 Mrd. $, davon Gaming −40 %",
+     "wert": "−8 %",
+     "ton": "orange"
+    },
+    {
+     "k": "Gewinn pro Aktie",
+     "sub": "bereinigt, 2.09 $",
+     "wert": "+74 %",
+     "ton": "gruen"
+    }
+   ],
+   "erklaerung": "Für das vierte Quartal erwartet AMD rund 17 Mrd. $ Umsatz. Das wären etwa 66 % mehr als vor einem Jahr."
+  },
+  {
+   "typ": "skala",
+   "kicker": "AMPEL 1: QUALITÄT",
+   "titel": "Starkes Wachstum, hoher Preis",
+   "name": "Qualität",
+   "wert": 71,
+   "punkte": [
+    "Von jedem Umsatzdollar bleiben 56 Cent nach den Herstellkosten (bereinigte Bruttomarge). Nach allen Kosten sind es 29 Cent.",
+    "Das Wachstum kommt vor allem aus den Rechenzentren. Dort hat sich der Umsatz in einem Jahr fast verdoppelt.",
+    "Die Aktie ist teuer. Bei der Bewertung bekommt AMD in der App nur 4 von 15 Punkten."
+   ]
+  },
+  {
+   "typ": "skala",
+   "kicker": "STRUKTUR IM WOCHENCHART",
+   "titel": "Riss in der Struktur",
+   "name": "Timing",
+   "wert": 53,
+   "punkte": [
+    "Im Sommer brach AMD über das Hoch bei 584.73 $. Anfang Oktober folgte der Rekord bei 658.52 $.",
+    "Am 5. November schloss die Aktie bei 404.40 $, unter den Tiefs vom Sommer.",
+    "Danach ging es in vier Handelstagen 37 % nach oben. Der Kurs pendelt jetzt zwischen 402 und 659 $."
+   ]
+  },
+  {
+   "typ": "marke",
+   "kicker": "DIE ENTSCHEIDENDE MARKE",
+   "titel": "Das Tief vom Juli",
+   "text": "Bei 460.21 $ liegt das Tief vom Juli. Am 5. und 6. November schloss AMD darunter, seit dem 9. November steht der Kurs wieder darüber. Er liegt jetzt 20.1 % höher.",
+   "marke_label": "TIEF VOM JULI",
+   "marke": "460.21 $",
+   "szenarien": [
+    {
+     "art": "bruch",
+     "titel": "Bricht sie",
+     "text": "Dann wäre die Erholung gescheitert. Erste Haltestelle sind die Tiefs vom Sommer bei 424.03 bis 437.23 $, darunter das Tief vom November bei 402.10 $."
+    },
+    {
+     "art": "halten",
+     "titel": "Hält sie",
+     "text": "Dann kann sich ein Boden bilden. Darüber wartet das Hoch vom Sommer bei 584.73 $. Ein Wochenschluss darüber wäre für mich ein Zeichen der Stärke."
+    }
+   ]
+  },
+  {
+   "typ": "fazit",
+   "kicker": "MEIN FAZIT",
+   "titel": "Starke Firma, nervöse Börse",
+   "absaetze": [
+    "AMD wächst so schnell wie lange nicht, vor allem dank Chips für KI. Der Absturz vom 5. November kam von der Politik. Die Zahlen zwei Tage davor waren stark.",
+    "Die Aktie schwankt aber heftig und ist teuer. Ich beobachte, ob das Tief vom Juli bei 460.21 $ hält. Erst dann wird das Timing für mich klarer."
+   ],
+   "frage": "Ist der Einbruch vom 5. November für dich eine Warnung oder nur Lärm? Deine Meinung in die Kommentare."
+  }
+ ],
+ "caption": "AMD fiel am 5. November um 17 % und steht vier Handelstage später 37 % höher. Im dritten Quartal wuchs der Umsatz um 45 %, das Geschäft mit Rechenzentren hat sich fast verdoppelt. Im Chart entscheidet jetzt das Tief vom Juli bei 460.21 $. Wisch durch für beide Ampeln und die entscheidende Marke.",
+ "hashtags": [
+  "#amd",
+  "#aktien",
+  "#börse",
+  "#kursbewegung",
+  "#halbleiter"
+ ]
+}
