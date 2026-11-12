@@ -1,6 +1,16 @@
 {
  "karussells": [
   {
+   "datum": "2026-11-12",
+   "ticker": "AMD",
+   "name": "AMD",
+   "thema": "Kursbewegung",
+   "titel": "Minus 17 %, dann plus 37 %: Was ist bei AMD los?",
+   "bilder": 7,
+   "caption": "AMD fiel am 5. November um 17 % und steht vier Handelstage später 37 % höher. Im dritten Quartal wuchs der Umsatz um 45 %, das Geschäft mit Rechenzentren hat sich fast verdoppelt. Im Chart entscheidet jetzt das Tief vom Juli bei 460.21 $. Wisch durch für beide Ampeln und die entscheidende Marke.\n\nPersönliche Meinung, keine Anlageberatung. Mach deine eigene Recherche.\n\n#amd #aktien #börse #kursbewegung #halbleiter",
+   "eigene_position": false
+  },
+  {
    "datum": "2026-11-11",
    "ticker": "V",
    "name": "Visa",
