@@ -1,0 +1,145 @@
+{
+ "datum": "2026-11-13",
+ "ticker": "CSCO",
+ "name": "Cisco",
+ "thema": "Quartalszahlen",
+ "stand": "12.11.2026",
+ "slides": [
+  {
+   "typ": "hook",
+   "kicker": "CISCO · QUARTALSZAHLEN",
+   "titel": "Plus 24 % Umsatz: Wacht Cisco jetzt auf?",
+   "text": "Am Donnerstagabend legte Cisco neue Zahlen vor. Der Umsatz stieg auf 18.5 Mrd. $, die Prognose für das ganze Jahr geht nach oben. Die Aktie schloss vorher bei 102.01 $.",
+   "kpis": [
+    {
+     "label": "KURS",
+     "wert": "102.01 $"
+    },
+    {
+     "label": "UMSATZ",
+     "wert": "+24 %",
+     "ton": "gruen"
+    },
+    {
+     "label": "KI-ZIEL GJ 2027",
+     "wert": "9 Mrd. $"
+    }
+   ]
+  },
+  {
+   "typ": "firma",
+   "kicker": "WAS DIE FIRMA MACHT",
+   "titel": "Die Technik hinter den Netzen",
+   "text": "Cisco verkauft Geräte, die Computernetze verbinden, etwa Router und Switches. Dazu kommt Software für IT-Sicherheit, Datenanalyse (Splunk) und Videokonferenzen (Webex). Kunden sind Firmen, Behörden, Telekomanbieter und Rechenzentren.",
+   "fakten": [
+    {
+     "label": "Sitz",
+     "wert": "San José, USA"
+    },
+    {
+     "label": "Umsatzziel GJ 2027",
+     "wert": "74.8 bis 75.8 Mrd. $"
+    },
+    {
+     "label": "Dividende pro Quartal",
+     "wert": "0.42 $"
+    }
+   ]
+  },
+  {
+   "typ": "zahlen",
+   "kicker": "WAS DIE ZAHLEN ZEIGEN",
+   "titel": "Geräte für KI ziehen an",
+   "quelle": "Quelle: Cisco, Q1-Zahlen vom 12.11.2026",
+   "zeilen": [
+    {
+     "k": "Umsatz",
+     "sub": "August bis Oktober, 18.5 Mrd. $",
+     "wert": "+24 %",
+     "ton": "gruen"
+    },
+    {
+     "k": "Produkte",
+     "sub": "Geräte und Software, Services +1 %",
+     "wert": "+32 %",
+     "ton": "gruen"
+    },
+    {
+     "k": "Gewinn pro Aktie",
+     "sub": "bereinigt, 1.40 $",
+     "wert": "+40 %",
+     "ton": "gruen"
+    },
+    {
+     "k": "Bruttomarge",
+     "sub": "bereinigt, 65.6 % statt 68.1 %",
+     "wert": "−2.5 Pkt.",
+     "ton": "orange"
+    }
+   ],
+   "erklaerung": "Mit Netzwerken für grosse Cloud-Firmen will Cisco dieses Geschäftsjahr rund 9 Mrd. $ umsetzen, mehr als doppelt so viel wie im Vorjahr."
+  },
+  {
+   "typ": "skala",
+   "kicker": "AMPEL 1: QUALITÄT",
+   "titel": "Viel Gewinn, lange wenig Tempo",
+   "name": "Qualität",
+   "wert": 52,
+   "punkte": [
+    "Von jedem Umsatzdollar bleiben bereinigt fast 38 Cent als Betriebsgewinn.",
+    "Davor wuchs der Umsatz drei Jahre lang nur 3.6 % pro Jahr. Der freie Cashflow ist in dieser Zeit geschrumpft.",
+    "Im Quartal flossen 3.7 Mrd. $ als Dividende und Rückkäufe an die Aktionäre."
+   ]
+  },
+  {
+   "typ": "skala",
+   "kicker": "STRUKTUR IM WOCHENCHART",
+   "titel": "Abwärtstrend mit Gegenwehr",
+   "name": "Timing",
+   "wert": 57,
+   "punkte": [
+    "Anfang August lag das Hoch bei 124.71 $. Seither zeigt der Wochenchart eine Abwärtsstruktur.",
+    "In der Woche vom 5. Oktober fiel Cisco unter das Tief vom Juli bei 107.53 $.",
+    "Das letzte Tief lag Anfang November bei 93.35 $. Seither stieg die Aktie um 9.3 %."
+   ]
+  },
+  {
+   "typ": "marke",
+   "kicker": "DIE ENTSCHEIDENDE MARKE",
+   "titel": "Das Tief vom November",
+   "text": "Bei 93.35 $ liegt das Tief von Anfang November. Seither stieg der Kurs um 9.3 %.",
+   "marke_label": "TIEF VOM NOVEMBER",
+   "marke": "93.35 $",
+   "szenarien": [
+    {
+     "art": "bruch",
+     "titel": "Bricht sie",
+     "text": "Dann läuft der Abwärtstrend weiter. Erste Haltestelle ist das alte Hoch vom Februar bei 88.19 $, danach die Range bei 76.85 bis 84.82 $."
+    },
+    {
+     "art": "halten",
+     "titel": "Hält sie",
+     "text": "Dann kann sich ein Boden bilden. Widerstand ist das Tief vom September bei 104.51 $. Ein Wochenschluss darüber wäre für mich ein Zeichen der Stärke."
+    }
+   ]
+  },
+  {
+   "typ": "fazit",
+   "kicker": "MEIN FAZIT",
+   "titel": "Starke Zahlen, schwacher Chart",
+   "absaetze": [
+    "Cisco wächst so schnell wie lange nicht mehr, vor allem dank Netzwerken für KI-Rechenzentren. Die Bruttomarge ist dabei gesunken.",
+    "Im Wochenchart ist die Abwärtsstruktur noch intakt. Ich beobachte, ob das Tief bei 93.35 $ hält und der Kurs über 104.51 $ steigt. Erst dann wird das Timing für mich klarer."
+   ],
+   "frage": "Wird Cisco für dich wieder eine Wachstumsaktie? Deine Meinung in die Kommentare."
+  }
+ ],
+ "caption": "Cisco steigert den Umsatz im ersten Quartal um 24 % auf 18.5 Mrd. $. Mit Netzwerken für grosse Cloud-Firmen will die Firma dieses Geschäftsjahr rund 9 Mrd. $ umsetzen. Im Chart entscheidet jetzt das Tief vom November bei 93.35 $. Wisch durch für beide Ampeln und die entscheidende Marke.",
+ "hashtags": [
+  "#cisco",
+  "#aktien",
+  "#börse",
+  "#quartalszahlen",
+  "#csco"
+ ]
+}
