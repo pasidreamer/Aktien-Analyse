@@ -1,6 +1,16 @@
 {
  "karussells": [
   {
+   "datum": "2026-11-14",
+   "ticker": "NVDA",
+   "name": "Nvidia",
+   "thema": "Wochenrückblick",
+   "titel": "Minus 12.8 % in einer Woche: Was ist bei Nvidia los?",
+   "bilder": 7,
+   "caption": "Nvidia verliert in einer Woche 12.8 % und schliesst bei 162.85 $, so tief wie seit Juli 2025 nicht mehr. Gründer Jensen Huang ist am Donnerstag als Chef zurückgetreten, am Dienstag folgen die Quartalszahlen. Im Chart entscheidet jetzt das Tief vom März bei 164.27 $. Wisch durch für beide Ampeln und die entscheidende Marke.\n\nPersönliche Meinung, keine Anlageberatung. Mach deine eigene Recherche.\n\n#nvidia #aktien #börse #wochenrückblick #nvda",
+   "eigene_position": false
+  },
+  {
    "datum": "2026-11-13",
    "ticker": "CSCO",
    "name": "Cisco",
