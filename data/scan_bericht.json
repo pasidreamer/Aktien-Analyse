@@ -1,72 +1,67 @@
 {
- "stand": "2026-11-07",
- "anzahl": 1524,
+ "stand": "2026-11-14",
+ "anzahl": 1531,
  "fehler_anzahl": 18,
  "fehler": {
   "BGEO.L": "kein Wechselkurs GEL->GBp",
   "IFL.AX": "HTTP Error 404: Not Found",
-  "MNO.L": "zu wenig Kursdaten",
   "XYX.AX": "HTTP Error 404: Not Found",
   "APAM.BR": "HTTP Error 404: Not Found",
   "ASK.AX": "HTTP Error 404: Not Found",
   "ECV.DE": "HTTP Error 404: Not Found",
   "GOGL.OL": "HTTP Error 404: Not Found",
-  "QUB.AX": "'close'",
   "BFL.AX": "kein Wechselkurs PGK->AUD",
-  "KOJAMO.HE": "HTTP Error 404: Not Found",
+  "QUB.AX": "'close'",
   "TBCG.L": "kein Wechselkurs GEL->GBp",
-  "MFG.AX": "zu wenig Kursdaten",
-  "NSR.AX": "HTTP Error 404: Not Found",
+  "KOJAMO.HE": "HTTP Error 404: Not Found",
   "FDXF": "zu wenig Kursdaten",
   "HONA": "zu wenig Kursdaten",
+  "MFG.AX": "zu wenig Kursdaten",
+  "NSR.AX": "HTTP Error 404: Not Found",
+  "TCBI": "zu wenig Kursdaten",
   "NDA.CO": "HTTP Error 404: Not Found",
   "VYLR": "zu wenig Kursdaten"
  },
  "debug": [
   {
    "crumb": "ok",
-   "summary_ok": 379,
+   "summary_ok": 380,
    "summary_fehler": null,
-   "suche_ok": 10
-  },
-  {
-   "crumb": "ok",
-   "summary_ok": 377,
-   "summary_fehler": null,
-   "suche_ok": 9
-  },
-  {
-   "crumb": "ok",
-   "summary_ok": 381,
-   "summary_fehler": null,
-   "suche_ok": 14
-  },
-  {
-   "crumb": "ok",
-   "summary_ok": 379,
-   "summary_fehler": null,
-   "suche_ok": 17
+   "suche_ok": 13
   },
   {
    "crumb": "ok",
    "summary_ok": 378,
    "summary_fehler": null,
-   "suche_ok": 11
+   "suche_ok": 8
+  },
+  {
+   "crumb": "ok",
+   "summary_ok": 381,
+   "summary_fehler": null,
+   "suche_ok": 12
   },
   {
    "crumb": "ok",
    "summary_ok": 380,
    "summary_fehler": null,
+   "suche_ok": 20
+  },
+  {
+   "crumb": "ok",
+   "summary_ok": 376,
+   "summary_fehler": null,
    "suche_ok": 14
+  },
+  {
+   "crumb": "ok",
+   "summary_ok": 379,
+   "summary_fehler": null,
+   "suche_ok": 11
   }
  ],
  "ohne_note": [],
  "zu_klein_oder_doppelt": [
-  [
-   "3086.T",
-   "J. Front Retailing Co., Ltd.",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
   [
    "3IN.L",
    "3i Infrastructure plc",
@@ -273,11 +268,6 @@
    "Umsatz unter 0.8 Mrd. CHF"
   ],
   [
-   "CUZ",
-   "Cousins Properties Incorporated",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
    "CYL.AX",
    "Catalyst Metals Limited",
    "Börsenwert unter 4 Mrd. CHF"
@@ -398,114 +388,164 @@
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "JSG.L",
-   "Johnson Service Group PLC",
+   "KALMAR.HE",
+   "Kalmar Oyj",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "KD",
-   "Kyndryl Holdings, Inc.",
+   "KRC",
+   "Kilroy Realty Corporation",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "KIE.L",
-   "Kier Group plc",
+   "LGEN.L",
+   "Legal & General Group Plc",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "KRG",
-   "Kite Realty Group Trust",
+   "LLOY.L",
+   "Lloyds Banking Group plc",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "LOV.AX",
+   "Lovisa Holdings Limited",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "LSCC",
+   "Lattice Semiconductor Corporation",
    "Umsatz unter 0.8 Mrd. CHF"
   ],
   [
-   "L1G.AX",
-   "L1 Group Limited",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "LSEG.L",
-   "London Stock Exchange Group plc",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "MAT",
-   "Mattel, Inc.",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "MKS.L",
-   "Marks and Spencer Group plc",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "MMS",
-   "Maximus, Inc.",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "NCC.L",
-   "NCC Group plc",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "NWH.AX",
-   "NRW Holdings Limited",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "OLED",
-   "Universal Display Corporation",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "OUT1V.HE",
-   "Outokumpu Oyj",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "PAH3.DE",
-   "Porsche Automobil Holding SE",
+   "LYC.AX",
+   "Lynas Rare Earths Limited",
    "Umsatz unter 0.8 Mrd. CHF"
   ],
   [
-   "PDI.AX",
-   "PDI Gold Limited",
+   "MAB.L",
+   "Mitchells & Butlers plc",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "PETS.L",
-   "Pets at Home Group Plc",
+   "ME8U.SI",
+   "Mapletree Industrial Trust",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "PK",
-   "Park Hotels & Resorts Inc.",
+   "MGAM.L",
+   "Morgan Advanced Materials plc",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "PPT.AX",
-   "Perpetual Limited",
+   "MNKS.L",
+   "Monks Ord",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "QTCOM.HE",
-   "Qt Group Oyj",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "RH",
-   "RH",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "RMBS",
-   "Rambus Inc.",
+   "MRL.MC",
+   "MERLIN Properties SOCIMI, S.A.",
    "Umsatz unter 0.8 Mrd. CHF"
   ],
   [
-   "RNK.L",
-   "The Rank Group Plc",
+   "MTLN.L",
+   "Metlen Energy & Metals PLC",
+   "weniger als 3 Jahre an der Börse"
+  ],
+  [
+   "MUT.L",
+   "Murray Income Trust Ord",
    "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "N91.L",
+   "Ninety One Group",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "NBPE.L",
+   "Neuberger Private Equity Partners Limited",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "NOD.OL",
+   "Nordic Semiconductor ASA",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "NWG.L",
+   "NatWest Group plc",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "NXG.AX",
+   "NexGen Energy Ltd.",
+   "Umsatz unter 0.8 Mrd. CHF"
+  ],
+  [
+   "OCI.L",
+   "Oakley Capital Investments Limited",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "ONT.L",
+   "Oxford Nanopore Technologies plc",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "PAGE.L",
+   "Michael Page Plc",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "PINT.L",
+   "Pantheon Infrastructure Ord",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "PSH.L",
+   "Pershing Square Holdings, Ltd.",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "PVH",
+   "PVH Corp.",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "RBREW.CO",
+   "Royal Unibrew A/S",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "RDX.AX",
+   "Redox Limited",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "REG.AX",
+   "Regis Healthcare Limited",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "RGN.AX",
+   "Region Group",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "RICA.L",
+   "Ruffer Investment Company Limited",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "RMV.L",
+   "Rightmove plc",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "ROIV",
+   "Roivant Sciences Ltd.",
+   "Umsatz unter 0.8 Mrd. CHF"
   ],
   [
    "ROSE.L",
@@ -693,11 +733,6 @@
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "AAON",
-   "AAON, Inc.",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
    "ABDN.L",
    "Aberdeen Group Plc",
    "Börsenwert unter 4 Mrd. CHF"
@@ -801,11 +836,6 @@
    "CNU.AX",
    "Chorus Limited",
    "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "CORT",
-   "Corcept Therapeutics Incorporated",
-   "Umsatz unter 0.8 Mrd. CHF"
   ],
   [
    "CYTK",
@@ -948,138 +978,113 @@
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "JUN3.DE",
-   "Jungheinrich Aktiengesellschaft",
+   "JSG.L",
+   "Johnson Service Group PLC",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "KRN.DE",
-   "Krones AG",
+   "KD",
+   "Kyndryl Holdings, Inc.",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "LMP.L",
-   "LondonMetric Property Plc",
+   "KIE.L",
+   "Kier Group plc",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "LSF.AX",
-   "L1 Long Short Fund Limited",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "MEGP.L",
-   "ME Group International plc",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "MGNS.L",
-   "Morgan Sindall Group plc",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "MMYT",
-   "MakeMyTrip Limited",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "MONT.BR",
-   "Montea Comm. VA",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "MP",
-   "MP Materials Corp.",
+   "KRG",
+   "Kite Realty Group Trust",
    "Umsatz unter 0.8 Mrd. CHF"
   ],
   [
-   "MRC.L",
-   "Mercantile Ord",
+   "L1G.AX",
+   "L1 Group Limited",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "MRO.L",
-   "Melrose Industries PLC",
+   "LSEG.L",
+   "London Stock Exchange Group plc",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "MSB.AX",
-   "Mesoblast Limited",
+   "MAT",
+   "Mattel, Inc.",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "MTO.L",
-   "Mitie Group plc",
+   "MKS.L",
+   "Marks and Spencer Group plc",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "MXT.AX",
-   "Metrics Master Income Trust",
+   "MMS",
+   "Maximus, Inc.",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "NAIT.L",
-   "North American Income Trust Ord",
+   "MNO.L",
+   "Meridian Mining Plc",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "NWL.AX",
-   "Netwealth Group Limited",
+   "NCC.L",
+   "NCC Group plc",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "OPCH",
-   "Option Care Health, Inc.",
+   "NWH.AX",
+   "NRW Holdings Limited",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "PDN.AX",
-   "Paladin Energy Ltd",
+   "OLED",
+   "Universal Display Corporation",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "PEY.L",
-   "Partners Group Private Equity Limited",
+   "OUT1V.HE",
+   "Outokumpu Oyj",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "PHP.L",
-   "Primary Health Properties Plc",
+   "PDI.AX",
+   "PDI Gold Limited",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "PLUS.L",
-   "Plus500 Ltd.",
+   "PETS.L",
+   "Pets at Home Group Plc",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "PPET.L",
-   "Patria Private Equity Trust",
+   "PK",
+   "Park Hotels & Resorts Inc.",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "PRU.L",
-   "Prudential plc",
+   "PPT.AX",
+   "Perpetual Limited",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "PSN.L",
-   "Persimmon Plc",
+   "QTCOM.HE",
+   "Qt Group Oyj",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "PTEC.L",
-   "Playtech plc",
+   "RH",
+   "RH",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "PXA.AX",
-   "PEXA Group Limited",
-   "Börsenwert unter 4 Mrd. CHF"
+   "RMBS",
+   "Rambus Inc.",
+   "Umsatz unter 0.8 Mrd. CHF"
   ],
   [
-   "RIO.L",
-   "Rio Tinto Group",
+   "RNK.L",
+   "The Rank Group Plc",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
@@ -1185,11 +1190,6 @@
   [
    "TRY.L",
    "TR Property Ord",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "UTDI.DE",
-   "United Internet AG",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
@@ -1508,193 +1508,133 @@
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "JMAT.L",
-   "Johnson Matthey Plc",
+   "JUN3.DE",
+   "Jungheinrich Aktiengesellschaft",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "JUP.L",
-   "Jupiter Fund Management Plc",
+   "KRN.DE",
+   "Krones AG",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "KBH",
-   "KB Home",
+   "LMP.L",
+   "LondonMetric Property Plc",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "KEMIRA.HE",
-   "Kemira Oyj",
+   "LSF.AX",
+   "L1 Long Short Fund Limited",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "KNF",
-   "Knife River Corporation",
+   "MEGP.L",
+   "ME Group International plc",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "KRYS",
-   "Krystal Biotech, Inc.",
+   "MGNS.L",
+   "Morgan Sindall Group plc",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "MONT.BR",
+   "Montea Comm. VA",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "MP",
+   "MP Materials Corp.",
    "Umsatz unter 0.8 Mrd. CHF"
   ],
   [
-   "LEG.DE",
-   "LEG Immobilien SE",
+   "MRC.L",
+   "Mercantile Ord",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "LSTR",
-   "Landstar System, Inc.",
+   "MRO.L",
+   "Melrose Industries PLC",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "LWDB.L",
-   "Law Debenture Corporation Ord",
+   "MSB.AX",
+   "Mesoblast Limited",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "M44U.SI",
-   "Mapletree Logistics Trust",
+   "MTO.L",
+   "Mitie Group plc",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "MANTA.HE",
-   "Mandatum Oyj",
+   "MXT.AX",
+   "Metrics Master Income Trust",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "MELE.BR",
-   "Melexis NV",
+   "NAIT.L",
+   "North American Income Trust Ord",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "MFF.AX",
-   "MFF Capital Investments Limited",
+   "NWL.AX",
+   "Netwealth Group Limited",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "MND.AX",
-   "Monadelphous Group Limited",
+   "OPCH",
+   "Option Care Health, Inc.",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "MNTN.L",
-   "The Schiehallion Fund Limited",
+   "PDN.AX",
+   "Paladin Energy Ltd",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "MONY.L",
-   "MONY Group plc",
+   "PEY.L",
+   "Partners Group Private Equity Limited",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "MRCH.L",
-   "Merchants Trust Ord",
+   "PHP.L",
+   "Primary Health Properties Plc",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "MTRO.L",
-   "Metro Bank Holdings PLC",
+   "PLUS.L",
+   "Plus500 Ltd.",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "MYI.L",
-   "Murray International Ord",
+   "PPET.L",
+   "Patria Private Equity Trust",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "NAS.L",
-   "North Atlantic Smaller Cos Ord",
+   "PRU.L",
+   "Prudential plc",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "NG.L",
-   "National Grid plc",
+   "PSN.L",
+   "Persimmon Plc",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "NIC.AX",
-   "Nickel Industries Limited",
+   "PTEC.L",
+   "Playtech plc",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "NVST",
-   "Envista Holdings Corporation",
+   "PXA.AX",
+   "PEXA Group Limited",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "OBM.AX",
-   "Ora Banda Mining Limited",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "OSB.L",
-   "OSB Group Plc",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "OXB.L",
-   "Oxford Biomedica plc",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "PAF.L",
-   "Pan African Resources PLC",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "PCGH.L",
-   "Polar Capital Glb Healthcare Ord",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "PFD.L",
-   "Premier Foods plc",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "PII",
-   "Polaris Inc.",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "PNI.AX",
-   "Pinnacle Investment Management Group Limited",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "POLN.L",
-   "Pollen Street Group Limited",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "PSON.L",
-   "Pearson plc",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "QLT.L",
-   "Quilter plc",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "RAT.L",
-   "Rathbones Group Plc",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "RCP.L",
-   "RIT Capital Partners Ord",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "REL.L",
-   "RELX PLC",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "RHIM.L",
-   "RHI Magnesita N.V.",
+   "RIO.L",
+   "Rio Tinto Group",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
@@ -1888,11 +1828,6 @@
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "5406.T",
-   "Kobe Steel, Ltd.",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
    "5E2.SI",
    "Seatrium Limited",
    "Börsenwert unter 4 Mrd. CHF"
@@ -1993,11 +1928,6 @@
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "BCO",
-   "The Brink's Company",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
    "BFSA.DE",
    "Befesa S.A.",
    "Börsenwert unter 4 Mrd. CHF"
@@ -2070,6 +2000,11 @@
   [
    "COST.L",
    "Costain Group PLC",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "CRDA.L",
+   "Croda International Plc",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
@@ -2203,6 +2138,11 @@
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
+   "HLMA.L",
+   "Halma plc",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
    "ICGT.L",
    "ICG Enterprise Trust Ord",
    "Börsenwert unter 4 Mrd. CHF"
@@ -2213,158 +2153,188 @@
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "JMGI.L",
-   "JPMorgan Emerging Markets Growth & Income plc.",
+   "JMAT.L",
+   "Johnson Matthey Plc",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "KBR",
-   "KBR, Inc.",
+   "JUP.L",
+   "Jupiter Fund Management Plc",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "KGF.L",
-   "Kingfisher plc",
+   "KBH",
+   "KB Home",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "KNOS.L",
-   "Kainos Group plc",
+   "KEMIRA.HE",
+   "Kemira Oyj",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "LAND.L",
-   "Land Securities Group Plc",
+   "KNF",
+   "Knife River Corporation",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "LOPE",
-   "Grand Canyon Education, Inc.",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "LXS.DE",
-   "LANXESS Aktiengesellschaft",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "MNDI.L",
-   "Mondi plc",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "MOON.L",
-   "Moonpig Group PLC",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "MPCC.OL",
-   "MPC Container Ships ASA",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "MTS.AX",
-   "Metcash Limited",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "MZTI",
-   "The Marzetti Company",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "NAS.OL",
-   "Norwegian Air Shuttle ASA",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "NHC.AX",
-   "New Hope Corporation Limited",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "NNN",
-   "NNN REIT, Inc.",
+   "KRYS",
+   "Krystal Biotech, Inc.",
    "Umsatz unter 0.8 Mrd. CHF"
   ],
   [
-   "NXT.AX",
-   "NEXTDC Limited",
-   "Umsatz unter 0.8 Mrd. CHF"
-  ],
-  [
-   "OXIG.L",
-   "Oxford Instruments plc",
+   "LEG.DE",
+   "LEG Immobilien SE",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "PCT.L",
-   "Polar Capital Technology Ord",
+   "LWDB.L",
+   "Law Debenture Corporation Ord",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "PIN.L",
-   "Pantheon International Ord",
+   "M44U.SI",
+   "Mapletree Logistics Trust",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "PME.AX",
-   "Pro Medicus Limited",
-   "Umsatz unter 0.8 Mrd. CHF"
-  ],
-  [
-   "PNL.L",
-   "Personal Assets Ord",
+   "MANTA.HE",
+   "Mandatum Oyj",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "PPH.L",
-   "PPHE Hotel Group Limited",
+   "MELE.BR",
+   "Melexis NV",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "PRN.AX",
-   "Perenti Limited",
+   "MFF.AX",
+   "MFF Capital Investments Limited",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "PSPN.SW",
-   "PSP Swiss Property AG",
-   "Umsatz unter 0.8 Mrd. CHF"
-  ],
-  [
-   "PUIG.MC",
-   "Puig Brands, S.A.",
-   "weniger als 3 Jahre an der Börse"
-  ],
-  [
-   "Q",
-   "Qnity Electronics, Inc.",
-   "weniger als 3 Jahre an der Börse"
-  ],
-  [
-   "QLYS",
-   "Qualys, Inc.",
-   "Umsatz unter 0.8 Mrd. CHF"
-  ],
-  [
-   "RDC.DE",
-   "Redcare Pharmacy NV",
+   "MND.AX",
+   "Monadelphous Group Limited",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "RGEN",
-   "Repligen Corporation",
-   "Umsatz unter 0.8 Mrd. CHF"
-  ],
-  [
-   "RKT.L",
-   "Reckitt Benckiser Group plc",
+   "MNTN.L",
+   "The Schiehallion Fund Limited",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "RMS.AX",
-   "Ramelius Resources Limited",
+   "MONY.L",
+   "MONY Group plc",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "MRCH.L",
+   "Merchants Trust Ord",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "MTRO.L",
+   "Metro Bank Holdings PLC",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "MYI.L",
+   "Murray International Ord",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "NAS.L",
+   "North Atlantic Smaller Cos Ord",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "NG.L",
+   "National Grid plc",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "NIC.AX",
+   "Nickel Industries Limited",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "NVST",
+   "Envista Holdings Corporation",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "OBM.AX",
+   "Ora Banda Mining Limited",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "OSB.L",
+   "OSB Group Plc",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "OXB.L",
+   "Oxford Biomedica plc",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "PAF.L",
+   "Pan African Resources PLC",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "PCGH.L",
+   "Polar Capital Glb Healthcare Ord",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "PFD.L",
+   "Premier Foods plc",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "PII",
+   "Polaris Inc.",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "PNI.AX",
+   "Pinnacle Investment Management Group Limited",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "POLN.L",
+   "Pollen Street Group Limited",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "PSON.L",
+   "Pearson plc",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "QLT.L",
+   "Quilter plc",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "RAT.L",
+   "Rathbones Group Plc",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "RCP.L",
+   "RIT Capital Partners Ord",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "REL.L",
+   "RELX PLC",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "RHIM.L",
+   "RHI Magnesita N.V.",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
@@ -2528,11 +2498,6 @@
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "4042.T",
-   "Tosoh Corporation",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
    "4751.T",
    "CyberAgent, Inc.",
    "Börsenwert unter 4 Mrd. CHF"
@@ -2561,11 +2526,6 @@
    "AAI.AX",
    "Alcoa Corporation",
    "weniger als 3 Jahre an der Börse"
-  ],
-  [
-   "ADEN.SW",
-   "Adecco Group AG",
-   "Börsenwert unter 4 Mrd. CHF"
   ],
   [
    "AJBU.SI",
@@ -2773,104 +2733,154 @@
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "KLR.L",
-   "Keller Group plc",
+   "JMGI.L",
+   "JPMorgan Emerging Markets Growth & Income plc.",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "LLC.AX",
-   "Lendlease Group",
+   "KBR",
+   "KBR, Inc.",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "LRE.L",
-   "Lancashire Holdings Limited",
+   "KGF.L",
+   "Kingfisher plc",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "LTR.AX",
-   "Liontown Limited",
+   "KNOS.L",
+   "Kainos Group plc",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "MNG.L",
-   "M&G plc",
+   "LAND.L",
+   "Land Securities Group Plc",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "N2IU.SI",
-   "Mapletree Pan Asia Commercial Trust",
+   "LOPE",
+   "Grand Canyon Education, Inc.",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "NHF.AX",
-   "nib holdings limited",
+   "LXS.DE",
+   "LANXESS Aktiengesellschaft",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "NXT.L",
-   "NEXT plc",
+   "MNDI.L",
+   "Mondi plc",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "OCDO.L",
-   "Ocado Group plc",
+   "MOON.L",
+   "Moonpig Group PLC",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "ORA.AX",
-   "Orora Limited",
+   "MPCC.OL",
+   "MPC Container Ships ASA",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "PAG.L",
-   "Paragon Banking Group PLC",
+   "MTS.AX",
+   "Metcash Limited",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "PHI.L",
-   "Pacific Horizon Ord",
+   "MZTI",
+   "The Marzetti Company",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "PLNT",
-   "Planet Fitness, Inc.",
+   "NAS.OL",
+   "Norwegian Air Shuttle ASA",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "PMV.AX",
-   "Premier Investments Limited",
+   "NHC.AX",
+   "New Hope Corporation Limited",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "PNN.L",
-   "Pennon Group Plc",
+   "NXT.AX",
+   "NEXTDC Limited",
+   "Umsatz unter 0.8 Mrd. CHF"
+  ],
+  [
+   "OXIG.L",
+   "Oxford Instruments plc",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "POST",
-   "Post Holdings, Inc.",
+   "PCT.L",
+   "Polar Capital Technology Ord",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "PRN.L",
-   "Princes Group plc",
+   "PIN.L",
+   "Pantheon International Ord",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "PUM.DE",
-   "PUMA SE",
+   "PME.AX",
+   "Pro Medicus Limited",
+   "Umsatz unter 0.8 Mrd. CHF"
+  ],
+  [
+   "PNL.L",
+   "Personal Assets Ord",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "QQ.L",
-   "QinetiQ Group plc",
+   "PPH.L",
+   "PPHE Hotel Group Limited",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "RDDT",
-   "Reddit, Inc.",
+   "PRN.AX",
+   "Perenti Limited",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "PSPN.SW",
+   "PSP Swiss Property AG",
+   "Umsatz unter 0.8 Mrd. CHF"
+  ],
+  [
+   "PUIG.MC",
+   "Puig Brands, S.A.",
    "weniger als 3 Jahre an der Börse"
+  ],
+  [
+   "Q",
+   "Qnity Electronics, Inc.",
+   "weniger als 3 Jahre an der Börse"
+  ],
+  [
+   "QLYS",
+   "Qualys, Inc.",
+   "Umsatz unter 0.8 Mrd. CHF"
+  ],
+  [
+   "RDC.DE",
+   "Redcare Pharmacy NV",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "RGEN",
+   "Repligen Corporation",
+   "Umsatz unter 0.8 Mrd. CHF"
+  ],
+  [
+   "RKT.L",
+   "Reckitt Benckiser Group plc",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "RMS.AX",
+   "Ramelius Resources Limited",
+   "Börsenwert unter 4 Mrd. CHF"
   ],
   [
    "RTW.L",
@@ -2885,11 +2895,6 @@
   [
    "SDF.AX",
    "Steadfast Group Limited",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "SFM",
-   "Sprouts Farmers Market, Inc.",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
@@ -2946,16 +2951,6 @@
    "SYENS.BR",
    "Syensqo SA/NV",
    "weniger als 3 Jahre an der Börse"
-  ],
-  [
-   "TCBI",
-   "Texas Capital Bancshares, Inc.",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "TPL",
-   "Texas Pacific Land Corporation",
-   "Umsatz unter 0.8 Mrd. CHF"
   ],
   [
    "TRIG.L",
@@ -3040,11 +3035,6 @@
   [
    "5301.T",
    "Tokai Carbon Co., Ltd.",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "543A.T",
-   "ARCHION Corporation",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
@@ -3163,6 +3153,11 @@
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
+   "C09.SI",
+   "City Developments Limited",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
    "CBT",
    "Cabot Corporation",
    "Börsenwert unter 4 Mrd. CHF"
@@ -3253,6 +3248,11 @@
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
+   "FCT.MI",
+   "Fincantieri S.p.A.",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
    "FFIN",
    "First Financial Bankshares, Inc.",
    "Börsenwert unter 4 Mrd. CHF"
@@ -3260,6 +3260,11 @@
   [
    "FHI",
    "Federated Hermes, Inc.",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "FRES.L",
+   "Fresnillo plc",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
@@ -3315,6 +3320,11 @@
   [
    "HIAB.HE",
    "Hiab Oyj",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "HIMS",
+   "Hims & Hers Health, Inc.",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
@@ -3378,164 +3388,109 @@
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "KALMAR.HE",
-   "Kalmar Oyj",
+   "KLR.L",
+   "Keller Group plc",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "KRC",
-   "Kilroy Realty Corporation",
+   "LLC.AX",
+   "Lendlease Group",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "LGEN.L",
-   "Legal & General Group Plc",
+   "LRE.L",
+   "Lancashire Holdings Limited",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "LLOY.L",
-   "Lloyds Banking Group plc",
+   "LTR.AX",
+   "Liontown Limited",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "LOV.AX",
-   "Lovisa Holdings Limited",
+   "MNG.L",
+   "M&G plc",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "LSCC",
-   "Lattice Semiconductor Corporation",
-   "Umsatz unter 0.8 Mrd. CHF"
-  ],
-  [
-   "LYC.AX",
-   "Lynas Rare Earths Limited",
-   "Umsatz unter 0.8 Mrd. CHF"
-  ],
-  [
-   "MAB.L",
-   "Mitchells & Butlers plc",
+   "N2IU.SI",
+   "Mapletree Pan Asia Commercial Trust",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "ME8U.SI",
-   "Mapletree Industrial Trust",
+   "NHF.AX",
+   "nib holdings limited",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "MGAM.L",
-   "Morgan Advanced Materials plc",
+   "NOVT",
+   "Novanta Inc.",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "MNKS.L",
-   "Monks Ord",
+   "NXT.L",
+   "NEXT plc",
    "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "MRL.MC",
-   "MERLIN Properties SOCIMI, S.A.",
-   "Umsatz unter 0.8 Mrd. CHF"
+   "OCDO.L",
+   "Ocado Group plc",
+   "Börsenwert unter 4 Mrd. CHF"
   ],
   [
-   "MTLN.L",
-   "Metlen Energy & Metals PLC",
+   "ORA.AX",
+   "Orora Limited",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "PAG.L",
+   "Paragon Banking Group PLC",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "PHI.L",
+   "Pacific Horizon Ord",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "PLNT",
+   "Planet Fitness, Inc.",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "PMV.AX",
+   "Premier Investments Limited",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "PNN.L",
+   "Pennon Group Plc",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "POST",
+   "Post Holdings, Inc.",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "PRN.L",
+   "Princes Group plc",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "PUM.DE",
+   "PUMA SE",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "QQ.L",
+   "QinetiQ Group plc",
+   "Börsenwert unter 4 Mrd. CHF"
+  ],
+  [
+   "RDDT",
+   "Reddit, Inc.",
    "weniger als 3 Jahre an der Börse"
-  ],
-  [
-   "MUT.L",
-   "Murray Income Trust Ord",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "N91.L",
-   "Ninety One Group",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "NBPE.L",
-   "Neuberger Private Equity Partners Limited",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "NOD.OL",
-   "Nordic Semiconductor ASA",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "NWG.L",
-   "NatWest Group plc",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "NXG.AX",
-   "NexGen Energy Ltd.",
-   "Umsatz unter 0.8 Mrd. CHF"
-  ],
-  [
-   "OCI.L",
-   "Oakley Capital Investments Limited",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "ONT.L",
-   "Oxford Nanopore Technologies plc",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "PAGE.L",
-   "Michael Page Plc",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "PINT.L",
-   "Pantheon Infrastructure Ord",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "PSH.L",
-   "Pershing Square Holdings, Ltd.",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "PVH",
-   "PVH Corp.",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "RBREW.CO",
-   "Royal Unibrew A/S",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "RDX.AX",
-   "Redox Limited",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "REG.AX",
-   "Regis Healthcare Limited",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "RGN.AX",
-   "Region Group",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "RICA.L",
-   "Ruffer Investment Company Limited",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "RMV.L",
-   "Rightmove plc",
-   "Börsenwert unter 4 Mrd. CHF"
-  ],
-  [
-   "ROIV",
-   "Roivant Sciences Ltd.",
-   "Umsatz unter 0.8 Mrd. CHF"
   ],
   [
    "ROR.L",
@@ -3606,6 +3561,11 @@
    "ULS",
    "UL Solutions Inc.",
    "weniger als 3 Jahre an der Börse"
+  ],
+  [
+   "UMI.BR",
+   "Umicore SA",
+   "Börsenwert unter 4 Mrd. CHF"
   ],
   [
    "VAU.AX",
@@ -3693,9 +3653,9 @@
    "doppelt, siehe ULVR.L"
   ],
   [
-   "NEM.AX",
+   "NEM",
    "Newmont Corporation",
-   "doppelt, siehe NEM"
+   "doppelt, siehe NEM.AX"
   ],
   [
    "9999.HK",
@@ -3703,14 +3663,14 @@
    "doppelt, siehe NTES"
   ],
   [
-   "RACE.MI",
-   "Ferrari N.V.",
-   "doppelt, siehe RACE"
-  ],
-  [
    "9434.T",
    "SoftBank Corp.",
    "doppelt, siehe 9984.T"
+  ],
+  [
+   "RACE.MI",
+   "Ferrari N.V.",
+   "doppelt, siehe RACE"
   ],
   [
    "REN.AS",
@@ -3728,19 +3688,19 @@
    "doppelt, siehe MT.AS"
   ],
   [
-   "JD",
-   "JD.com, Inc.",
-   "doppelt, siehe 9618.HK"
-  ],
-  [
-   "STMPA.PA",
+   "STMMI.MI",
    "STMicroelectronics N.V.",
-   "doppelt, siehe STMMI.MI"
+   "doppelt, siehe STMPA.PA"
   ],
   [
-   "RMD",
+   "9618.HK",
+   "JD.com, Inc.",
+   "doppelt, siehe JD"
+  ],
+  [
+   "RMD.AX",
    "ResMed Inc.",
-   "doppelt, siehe RMD.AX"
+   "doppelt, siehe RMD"
   ],
   [
    "EQT",
@@ -3748,14 +3708,9 @@
    "doppelt, siehe EQT.ST"
   ],
   [
-   "TCOM",
+   "9961.HK",
    "Trip.com Group Limited",
-   "doppelt, siehe 9961.HK"
-  ],
-  [
-   "9888.HK",
-   "Baidu, Inc.",
-   "doppelt, siehe BIDU"
+   "doppelt, siehe TCOM"
   ],
   [
    "FOX",
@@ -3763,9 +3718,24 @@
    "doppelt, siehe FOXA"
   ],
   [
-   "AMC.AX",
+   "9888.HK",
+   "Baidu, Inc.",
+   "doppelt, siehe BIDU"
+  ],
+  [
+   "AMCR",
    "Amcor plc",
-   "doppelt, siehe AMCR"
+   "doppelt, siehe AMC.AX"
+  ],
+  [
+   "JHX.AX",
+   "James Hardie Industries plc",
+   "doppelt, siehe JHX"
+  ],
+  [
+   "NWS.AX",
+   "News Corporation",
+   "doppelt, siehe NWS"
   ],
   [
    "2057.HK",
@@ -3773,14 +3743,9 @@
    "doppelt, siehe ZTO"
   ],
   [
-   "NWS",
-   "News Corporation",
-   "doppelt, siehe NWS.AX"
-  ],
-  [
    "NWSA",
    "News Corporation",
-   "doppelt, siehe NWS.AX"
+   "doppelt, siehe NWS"
   ],
   [
    "STLAP.PA",
@@ -3809,11 +3774,13 @@
   "INTC",
   "IP",
   "IVZ",
-  "MRNA",
-  "REXR",
+  "KHC",
+  "MOS",
+  "NEXI.MI",
   "SKYD",
   "TKA.DE",
   "VTR",
+  "WAT",
   "0823.HK",
   "4324.T",
   "7267.T",
@@ -3824,9 +3791,10 @@
   "CPNG",
   "GF.SW",
   "GPN",
-  "LISN.SW",
-  "ORSTED.CO",
-  "PANW",
+  "MRNA",
+  "P",
+  "PAH3.DE",
+  "REXR",
   "TTWO",
   "VMRK",
   "6594.T",
@@ -3834,18 +3802,17 @@
   "APD",
   "ARES",
   "DHER.DE",
-  "LITE",
-  "LONN.SW",
+  "LISN.SW",
+  "ORSTED.CO",
+  "PANW",
+  "SMCI",
   "CAVA",
-  "CHTR",
   "CVNA",
   "F",
   "GILD",
   "IBKR",
-  "KEP",
-  "LI",
-  "NET",
-  "NIO",
+  "LITE",
+  "LONN.SW",
   "SUI",
   "VNO",
   "6963.T",
@@ -3856,32 +3823,36 @@
   "FISV",
   "FLR",
   "HR",
+  "KEP",
+  "LI",
+  "NET",
+  "NIO",
   "RYAN",
   "VOW3.DE",
   "WLK",
+  "0981.HK",
+  "9984.T",
   "AAL",
+  "BRKR",
   "CARR",
-  "HIMS",
   "HOOD",
   "IRM",
-  "KHC",
-  "MOS",
-  "NEXI.MI",
   "STLAM.MI",
+  "T.TO",
   "TLN",
   "TSLA",
   "XPEV"
  ],
  "sektoren": {
-  "Industrials": 300,
-  "Real Estate": 74,
-  "Consumer Defensive": 91,
+  "Industrials": 302,
+  "Real Estate": 75,
+  "Consumer Defensive": 92,
   "Communication Services": 63,
-  "Energy": 69,
-  "Technology": 188,
+  "Energy": 70,
+  "Technology": 187,
   "Healthcare": 139,
   "Financial Services": 243,
-  "Consumer Cyclical": 186,
+  "Consumer Cyclical": 189,
   "Utilities": 81,
   "Basic Materials": 90
  }

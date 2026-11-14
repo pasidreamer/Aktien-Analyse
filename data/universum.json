@@ -1,5 +1,5 @@
 {
-"stand": "2026-11-07",
+"stand": "2026-11-14",
 "stufe": 2,
 "anzahl": 2281,
 "aktien": [
@@ -12950,6 +12950,16 @@
 ]
 },
 {
+"symbol": "JHX",
+"name": "James Hardie Industries",
+"sektor_quelle": "Materials",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 400"
+]
+},
+{
 "symbol": "JHX.AX",
 "name": "James Hardie",
 "sektor_quelle": "Materials",
@@ -18019,16 +18029,6 @@
 "land": "USA",
 "indizes": [
 "S&P 500"
-]
-},
-{
-"symbol": "ROKU",
-"name": "Roku, Inc.",
-"sektor_quelle": "Communication Services",
-"region": "USA",
-"land": "USA",
-"indizes": [
-"S&P 400"
 ]
 },
 {
