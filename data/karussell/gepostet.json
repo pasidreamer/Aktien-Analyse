@@ -120,6 +120,13 @@
     "id": "18126974746912641",
     "zeit": "2026-11-13T18:01:42+01:00"
    }
+  },
+  "2026-11-14": {
+   "quelle": "karussell/2026-11-14",
+   "instagram": {
+    "fehler": "Instagram 17841471326098764/media_publish: 403 {'error': {'message': 'Application request limit reached', 'code': 4, 'type': 'OAuthException', 'error_subcode': 2207051, 'is_transient': False, 'error_user_msg': 'Wir schränken bestimmte Handlungen ein, um unsere Community zu schützen. Sag uns, wenn wir deiner Meinung nach einen Fehler gemacht haben.', 'error_user_title': 'Handlung ist blockiert', 'f",
+    "zeit": "2026-11-14T07:30:37+01:00"
+   }
   }
  },
  "reserve_benutzt": []
