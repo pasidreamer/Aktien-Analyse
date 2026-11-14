@@ -126,6 +126,10 @@
    "instagram": {
     "fehler": "Instagram 17841471326098764/media_publish: 403 {'error': {'message': 'Application request limit reached', 'type': 'OAuthException', 'is_transient': False, 'code': 4, 'error_subcode': 2207051, 'error_user_title': 'Handlung ist blockiert', 'error_user_msg': 'Wir schränken bestimmte Handlungen ein, um unsere Community zu schützen. Sag uns, wenn wir deiner Meinung nach einen Fehler gemacht haben.', 'f",
     "zeit": "2026-11-14T13:24:25+01:00"
+   },
+   "instagram_reel": {
+    "fehler": "Reel-Upload: 400 {'debug_info': {'retriable': False, 'type': 'ProcessingFailedError', 'message': 'Request processing failed'}}",
+    "zeit": "2026-11-14T18:01:56+01:00"
    }
   }
  },
