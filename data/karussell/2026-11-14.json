@@ -1,0 +1,92 @@
+{
+ "datum": "2026-11-14",
+ "ticker": "NVDA",
+ "name": "Nvidia",
+ "thema": "Wochenrückblick",
+ "stand": "13.11.2026",
+ "slides": [
+  {
+   "typ": "hook",
+   "kicker": "NVIDIA · WOCHENRÜCKBLICK",
+   "titel": "Minus 12.8 % in einer Woche: Was ist bei Nvidia los?",
+   "text": "Am Donnerstag trat Gründer Jensen Huang als Chef zurück. Finanzchefin Colette Kress führt Nvidia vorerst. Am Dienstag kommen schon die nächsten Quartalszahlen.",
+   "kpis": [
+    {"label": "KURS", "wert": "162.85 $"},
+    {"label": "DIESE WOCHE", "wert": "−12.8 %", "ton": "rot"},
+    {"label": "SEIT DEM HOCH", "wert": "−33.1 %", "ton": "rot"}
+   ]
+  },
+  {
+   "typ": "firma",
+   "kicker": "WAS DIE FIRMA MACHT",
+   "titel": "Die Chips hinter der KI",
+   "text": "Nvidia entwickelt Grafikchips und ganze Rechner für Rechenzentren. Darauf trainieren Firmen wie Microsoft oder Meta ihre KI-Modelle. Gebaut werden die Chips von Auftragsfertigern wie TSMC.",
+   "fakten": [
+    {"label": "Sitz", "wert": "Santa Clara, USA"},
+    {"label": "Chefin ad interim", "wert": "Colette Kress"},
+    {"label": "Nächste Zahlen", "wert": "17.11.2026"}
+   ]
+  },
+  {
+   "typ": "zahlen",
+   "kicker": "WAS DIE ZAHLEN ZEIGEN",
+   "titel": "Das Geschäft wächst weiter",
+   "quelle": "Quelle: Nvidia, Q2-Zahlen vom 26.08.2026",
+   "zeilen": [
+    {"k": "Umsatz", "sub": "Mai bis Juli, 96.2 Mrd. $", "wert": "+106 %", "ton": "gruen"},
+    {"k": "Rechenzentren", "sub": "89.0 Mrd. $ Umsatz", "wert": "+117 %", "ton": "gruen"},
+    {"k": "Bruttomarge", "sub": "75.0 % statt 72.4 %", "wert": "+2.6 Pkt.", "ton": "gruen"},
+    {"k": "Gewinn pro Aktie", "sub": "2.46 $", "wert": "+128 %", "ton": "gruen"}
+   ],
+   "erklaerung": "Für August bis Oktober erwartet Nvidia rund 108 Mrd. $ Umsatz."
+  },
+  {
+   "typ": "skala",
+   "kicker": "AMPEL 1: QUALITÄT",
+   "titel": "Die Firma bleibt stark",
+   "name": "Qualität",
+   "wert": 98,
+   "punkte": [
+    "Von jedem Umsatzdollar bleiben 75 Cent als Bruttogewinn, also nach Abzug der Herstellkosten.",
+    "Der Betriebsgewinn hat sich im Jahresvergleich auf 63.7 Mrd. $ mehr als verdoppelt.",
+    "Im Quartal gingen rund 26 Mrd. $ als Rückkäufe und Dividende an die Aktionäre."
+   ]
+  },
+  {
+   "typ": "skala",
+   "kicker": "STRUKTUR IM WOCHENCHART",
+   "titel": "Abwärtstrend seit September",
+   "name": "Timing",
+   "wert": 39,
+   "punkte": [
+    "Ende September lag das Hoch bei 243.37 $. Seither zeigt der Wochenchart eine Abwärtsstruktur.",
+    "Anfang November fiel Nvidia unter das Tief vom Juni bei 189.80 $.",
+    "Diese Woche brach auch das Tief vom März bei 164.27 $."
+   ]
+  },
+  {
+   "typ": "marke",
+   "kicker": "DIE ENTSCHEIDENDE MARKE",
+   "titel": "Das Tief vom März",
+   "text": "Bei 164.27 $ lag das Tief vom März. Am Freitag schloss Nvidia 0.9 % darunter, so tief wie seit Juli 2025 nicht mehr.",
+   "marke_label": "TIEF VOM MÄRZ",
+   "marke": "164.27 $",
+   "szenarien": [
+    {"art": "bruch", "titel": "Bricht sie", "text": "Bleibt der Kurs darunter, ist der Bruch bestätigt. Nächste Marke ist das Tief vom November 2024 bei 131.80 $, danach das Tief vom Februar 2025 bei 113.01 $."},
+    {"art": "halten", "titel": "Hält sie", "text": "Ein Wochenschluss zurück über 164.27 $ wäre für mich ein Fehlausbruch. Widerstand ist dann die Range von November 2025 bis März 2026 bei 172.70 bis 191.13 $."}
+   ]
+  },
+  {
+   "typ": "fazit",
+   "kicker": "MEIN FAZIT",
+   "titel": "Starke Firma, unruhige Woche",
+   "absaetze": [
+    "Die Zahlen von Nvidia sind stark. Der Rücktritt des Gründers bringt aber Unsicherheit, und der Chart ist seit September im Abwärtstrend.",
+    "Am Dienstag zählen für mich der Ausblick und die Frage, wer Nvidia langfristig führt. Ich beobachte, ob der Kurs wieder über 164.27 $ schliesst."
+   ],
+   "frage": "Ist Nvidia für dich ohne Jensen Huang noch die gleiche Aktie? Deine Meinung in die Kommentare."
+  }
+ ],
+ "caption": "Nvidia verliert in einer Woche 12.8 % und schliesst bei 162.85 $, so tief wie seit Juli 2025 nicht mehr. Gründer Jensen Huang ist am Donnerstag als Chef zurückgetreten, am Dienstag folgen die Quartalszahlen. Im Chart entscheidet jetzt das Tief vom März bei 164.27 $. Wisch durch für beide Ampeln und die entscheidende Marke.",
+ "hashtags": ["#nvidia", "#aktien", "#börse", "#wochenrückblick", "#nvda"]
+}
