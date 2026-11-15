@@ -1,5 +1,5 @@
 {
- "stand": "2026-11-12",
+ "stand": "2026-11-15",
  "hinweis": "Kurze Auswertung der Quartalszahlen. Reaktion rechnet die App aus den Kursen.",
  "eintraege": {
   "GOOGL": [
@@ -2398,6 +2398,84 @@
      {
       "t": "ad-hoc-news: Sixt stock rises after Q3, outlook raised",
       "u": "https://www.ad-hoc-news.de/boerse/news/corporate-news/sixt-stock-rises-after-q3-revenue-jumps-11-8-prozent-outlook-raised/70497778"
+     }
+    ]
+   }
+  ],
+  "RELX": [
+   {
+    "datum": "2026-10-22",
+    "zeit": "vor",
+    "quartal": "9 Monate 2026",
+    "reaktion_quelle": 0.2,
+    "titel": "Plus 7 % nach neun Monaten, Ausblick bestätigt",
+    "kurz": "RELX meldet nach neun Monaten 7 % mehr Umsatz aus eigener Kraft, alle vier Bereiche wachsen. Der Ausblick für 2026 bleibt unverändert. RELX nennt im Herbst nur Umsatzwachstum, keinen Gewinn pro Aktie. Die Aktie war in London am Morgen fast unverändert (+0.2 %).",
+    "zahlen": [
+     {
+      "k": "Umsatzwachstum Konzern (organisch: ohne Zukäufe und Wechselkurse)",
+      "ist": "+7 %",
+      "erw": "",
+      "urteil": "solide"
+     },
+     {
+      "k": "Risk (Risiko- und Betrugsanalysen)",
+      "ist": "+8 %",
+      "erw": "",
+      "urteil": "stark"
+     },
+     {
+      "k": "Legal (Rechtsdatenbanken LexisNexis)",
+      "ist": "+10 %",
+      "erw": "",
+      "urteil": "stark"
+     },
+     {
+      "k": "STM (Wissenschaftsverlag Elsevier)",
+      "ist": "+6 %",
+      "erw": "",
+      "urteil": "solide"
+     },
+     {
+      "k": "Exhibitions (Messen)",
+      "ist": "+4 %",
+      "erw": "",
+      "urteil": "schwächer"
+     },
+     {
+      "k": "Ausblick 2026",
+      "ist": "starkes Wachstum bei Umsatz, Betriebsgewinn und Gewinn pro Aktie",
+      "erw": "",
+      "urteil": "bestätigt"
+     }
+    ],
+    "gut": [
+     "Legal wächst mit 10 % am schnellsten. RELX führt das auf die eigene KI-Plattform für Rechtsrecherche zurück. Das spricht gegen die Angst, KI mache solche Datenbanken überflüssig.",
+     "In Risk, STM und Legal soll der Betriebsgewinn schneller wachsen als der Umsatz. Die Gewinnmarge steigt also weiter.",
+     "Elsevier hat mit LeapSpace einen KI-Arbeitsplatz für Forscher gestartet, laut Firma mit rasch steigender Nutzung.",
+     "Das Aktienrückkaufprogramm über 2.25 Mrd. £ für 2026 läuft weiter. Rückkäufe verringern die Zahl der Aktien, so steigt der Gewinn pro Aktie."
+    ],
+    "sorgen": [
+     "Messen wachsen nur um 4 %. Belastet hat unter anderem der Nahe Osten.",
+     "Ein Trading Update ist keine volle Bilanz: Es gibt keine Gewinnzahlen und keine Vergleichswerte der Analysten. Die ganzen Jahreszahlen kommen erst im Februar 2027.",
+     "Die Aktie fiel am 3. Februar 2026 an einem Tag um rund 14 %. Das zeigt, wie nervös die Börse bei Datenanbietern im Moment ist."
+    ],
+    "fazit": "Keine Panik und keine Veränderung: Das Wachstum liegt im gewohnten Rahmen, der Ausblick steht, die Börse hat kaum reagiert.",
+    "quellen": [
+     {
+      "t": "RELX Trading Update Oktober 2026 (Meldung über Ariva)",
+      "u": "https://www.ariva.de/news/trading-update-october-2026-12177481"
+     },
+     {
+      "t": "Hargreaves Lansdown: RELX trading update, strong momentum",
+      "u": "https://www.hl.co.uk/shares/share-research/202610/relx-trading-update-strong-momentum"
+     },
+     {
+      "t": "RTTNews: RELX 9-month underlying revenue rises, confirms FY26 outlook",
+      "u": "https://www.rttnews.com/3701608/relx-plc-9-month-underlying-revenue-rises-confirms-fy26-outlook.aspx"
+     },
+     {
+      "t": "AskTraders: RELX reaffirms outlook after 7% nine-month growth",
+      "u": "https://www.asktraders.com/analysis/relx-reaffirms-outlook-after-7-nine-month-growth-led-by-legal-and-risk/"
      }
     ]
    }
