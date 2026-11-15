@@ -1,0 +1,146 @@
+{
+ "datum": "2026-11-15",
+ "ticker": "ISRG",
+ "name": "Intuitive Surgical",
+ "thema": "Ampel-Check",
+ "stand": "13.11.2026",
+ "slides": [
+  {
+   "typ": "hook",
+   "kicker": "INTUITIVE SURGICAL · AMPEL-CHECK",
+   "titel": "Ein Drittel über dem Tief: Wie stark ist Intuitive?",
+   "text": "Im Juli fiel die Aktie bis auf 332.02 $, weil in den USA weniger Eingriffe dazukamen als erhofft. Seither hat sie sich erholt. Heute ein ruhiger Blick auf Firma, Zahlen und Chart.",
+   "kpis": [
+    {
+     "label": "KURS",
+     "wert": "443.59 $"
+    },
+    {
+     "label": "SEIT DEM JULI-TIEF",
+     "wert": "+33.6 %",
+     "ton": "gruen"
+    },
+    {
+     "label": "UNTER DEM HOCH",
+     "wert": "−26.5 %",
+     "ton": "rot"
+    }
+   ]
+  },
+  {
+   "typ": "firma",
+   "kicker": "WAS DIE FIRMA MACHT",
+   "titel": "Der Roboter im Operationssaal",
+   "text": "Intuitive baut den OP-Roboter da Vinci. Die Chirurgin sitzt an einer Konsole und steuert damit feine Roboterarme. Das meiste Geld verdient Intuitive mit Instrumenten, die nach jedem Eingriff ersetzt werden.",
+   "fakten": [
+    {
+     "label": "Sitz",
+     "wert": "Sunnyvale, USA"
+    },
+    {
+     "label": "Roboter im Einsatz",
+     "wert": "12'094 da Vinci"
+    },
+    {
+     "label": "Ziel 2026",
+     "wert": "+14 bis 15 % Eingriffe"
+    }
+   ]
+  },
+  {
+   "typ": "zahlen",
+   "kicker": "WAS DIE ZAHLEN ZEIGEN",
+   "titel": "Das Geschäft wächst zweistellig",
+   "quelle": "Quelle: Intuitive, Q3-Zahlen vom 20.10.2026",
+   "zeilen": [
+    {
+     "k": "Umsatz",
+     "sub": "Juli bis September, 3.05 Mrd. $",
+     "wert": "+22 %",
+     "ton": "gruen"
+    },
+    {
+     "k": "da Vinci Eingriffe",
+     "sub": "weltweit, zum Vorjahr",
+     "wert": "+14 %",
+     "ton": "gruen"
+    },
+    {
+     "k": "Neue Roboter",
+     "sub": "546 statt 427 Systeme",
+     "wert": "+28 %",
+     "ton": "gruen"
+    },
+    {
+     "k": "Gewinn pro Aktie",
+     "sub": "bereinigt 3.00 $ statt 2.40 $",
+     "wert": "+25 %",
+     "ton": "gruen"
+    }
+   ],
+   "erklaerung": "Ohne Bereinigung sank der Gewinn pro Aktie auf 1.49 $. Grund ist ein Vergleich über 450 Mio. $ in einer Kartellklage."
+  },
+  {
+   "typ": "skala",
+   "kicker": "AMPEL 1: QUALITÄT",
+   "titel": "Ein Geschäft mit Nachschub",
+   "name": "Qualität",
+   "wert": 86,
+   "punkte": [
+    "Von 100 $ Umsatz bleiben knapp 70 $ nach Abzug der Herstellkosten.",
+    "75 % des Umsatzes kommen aus Instrumenten und Service, also mit jedem Eingriff wieder.",
+    "Keine Finanzschulden, 6.8 Mrd. $ Bargeld und Anlagen. Im Quartal flossen 2.94 Mrd. $ in Aktienrückkäufe."
+   ]
+  },
+  {
+   "typ": "skala",
+   "kicker": "STRUKTUR IM WOCHENCHART",
+   "titel": "Seitwärts nach dem Absturz",
+   "name": "Timing",
+   "wert": 67,
+   "punkte": [
+    "Vom Hoch im Januar bei 603.88 $ fiel die Aktie bis Juli auf 328.57 $, unter das Tief vom März 2025.",
+    "Seit Ende September pendelt der Kurs seitwärts zwischen 391.95 und 452.80 $.",
+    "Am 4. November sprang sie um 9.4 % auf 482.10 $ und fiel zurück. Diesen Fehlausbruch sehe ich als Warnzeichen."
+   ]
+  },
+  {
+   "typ": "marke",
+   "kicker": "DIE ENTSCHEIDENDE MARKE",
+   "titel": "Die Unterkante der Range",
+   "text": "Am 2. Oktober schloss Intuitive bei 391.95 $, am Boden der Range. Der Kurs liegt heute 13.2 % darüber.",
+   "marke_label": "UNTERKANTE DER RANGE",
+   "marke": "391.95 $",
+   "szenarien": [
+    {
+     "art": "bruch",
+     "titel": "Bricht sie",
+     "text": "Schliesst eine Woche darunter, ist die Range gebrochen. Nächste Haltestelle ist das Juli-Tief bei 328.57 $, in der Range von Ende 2023 (305.28 bis 337.36 $)."
+    },
+    {
+     "art": "halten",
+     "titel": "Hält sie",
+     "text": "Die Seitwärtsphase bleibt intakt. Widerstand ist die Range von 2024 bei 449.73 bis 492.63 $. Ein Wochenschluss darüber wäre für mich ein Zeichen für Bodenbildung."
+    }
+   ]
+  },
+  {
+   "typ": "fazit",
+   "kicker": "MEIN FAZIT",
+   "titel": "Starke Firma, Chart noch offen",
+   "absaetze": [
+    "Intuitive wächst zweistellig, hat keine Schulden und verdient an jedem Eingriff mit. Die Sorge ist das Tempo bei den Eingriffen. Dazu kommt Konkurrenz: Johnson & Johnson darf seit Juli seinen OP-Roboter Ottava in den USA anbieten.",
+    "Im Chart sehe ich eine Range ohne klare Richtung. Ich beobachte, ob die Aktie über 492.63 $ ausbricht oder unter 391.95 $ fällt."
+   ],
+   "frage": "Würdest du dich von einem Roboter operieren lassen? Deine Meinung in die Kommentare."
+  }
+ ],
+ "caption": "Intuitive Surgical steht 33.6 % über dem Tief vom Juli, das Geschäft wächst um 22 %. Mit dem OP-Roboter da Vinci verdient die Firma an jedem Eingriff mit, im dritten Quartal stieg der Umsatz auf 3.05 Mrd. $. Im Chart läuft die Aktie seit Ende September in einer Range zwischen 391.95 und 452.80 $. Wisch durch für beide Ampeln und die entscheidende Marke.",
+ "hashtags": [
+  "#intuitivesurgical",
+  "#aktien",
+  "#börse",
+  "#ampelcheck",
+  "#isrg"
+ ]
+}
