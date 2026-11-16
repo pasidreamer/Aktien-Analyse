@@ -1,0 +1,92 @@
+{
+ "datum": "2026-11-16",
+ "ticker": "META",
+ "name": "Meta",
+ "thema": "Ampel-Check",
+ "stand": "13.11.2026",
+ "slides": [
+  {
+   "typ": "hook",
+   "kicker": "META · AMPEL-CHECK",
+   "titel": "17.7 % unter dem Hoch: Wie stark ist Meta?",
+   "text": "Im September stand Meta bei 779.82 $. Dann kamen Quartalszahlen mit riesigen Ausgaben für KI. Heute ein ruhiger Blick auf Firma, Zahlen und Chart.",
+   "kpis": [
+    {"label": "KURS", "wert": "641.69 $"},
+    {"label": "UNTER DEM HOCH", "wert": "−17.7 %", "ton": "rot"},
+    {"label": "UMSATZ Q3", "wert": "+26 %", "ton": "gruen"}
+   ]
+  },
+  {
+   "typ": "firma",
+   "kicker": "WAS DIE FIRMA MACHT",
+   "titel": "Werbung in vier Apps",
+   "text": "Meta betreibt Facebook, Instagram, WhatsApp und Messenger. Die Apps sind gratis. Fast das ganze Geld kommt von Firmen, die dort Werbung schalten.",
+   "fakten": [
+    {"label": "Sitz", "wert": "Menlo Park, USA"},
+    {"label": "Tägliche Nutzer", "wert": "3.64 Mrd. Menschen"},
+    {"label": "Mitarbeitende", "wert": "66'775"}
+   ]
+  },
+  {
+   "typ": "zahlen",
+   "kicker": "WAS DIE ZAHLEN ZEIGEN",
+   "titel": "Starke Werbung, teure KI",
+   "quelle": "Quelle: Meta, Q3-Zahlen vom 21.10.2026",
+   "zeilen": [
+    {"k": "Umsatz", "sub": "Juli bis September, 64.6 Mrd. $", "wert": "+26 %", "ton": "gruen"},
+    {"k": "Preis pro Anzeige", "sub": "zum Vorjahr", "wert": "+14 %", "ton": "gruen"},
+    {"k": "Investitionen", "sub": "vor allem KI-Rechenzentren", "wert": "34.9 Mrd. $", "ton": "orange"},
+    {"k": "Free Cashflow", "sub": "Geld, das nach Investitionen übrig bleibt", "wert": "−2.1 Mrd. $", "ton": "rot"}
+   ],
+   "erklaerung": "Gewinn pro Aktie: 3.83 $. Ohne den Vergleich zum Jugendschutz über 9.89 Mrd. $ wären es 7.40 $."
+  },
+  {
+   "typ": "skala",
+   "kicker": "AMPEL 1: QUALITÄT",
+   "titel": "Ein Werbegeschäft mit Wucht",
+   "name": "Qualität",
+   "wert": 76,
+   "punkte": [
+    "Ohne die Sonderbelastung blieben von 100 $ Umsatz rund 35 $ als Betriebsgewinn.",
+    "Für 2026 plant Meta 135 bis 145 Mrd. $ Investitionen. Im dritten Quartal floss deshalb mehr Geld ab als herein.",
+    "Den 82.45 Mrd. $ Bargeld und Wertpapieren stehen 80.9 Mrd. $ langfristige Schulden gegenüber."
+   ]
+  },
+  {
+   "typ": "skala",
+   "kicker": "STRUKTUR IM WOCHENCHART",
+   "titel": "Range mit Fehlausbruch",
+   "name": "Timing",
+   "wert": 32,
+   "punkte": [
+    "Seit Ende August pendelt Meta zwischen 610.15 und 751.66 $ (Wochenschlüsse).",
+    "Im September stieg sie über das Januar-Hoch von 744 $ und fiel zurück. Für mich ein Fehlausbruch.",
+    "An fallenden Tagen wird mehr gehandelt als an steigenden. Das deutet auf Verkäufer hin."
+   ]
+  },
+  {
+   "typ": "marke",
+   "kicker": "DIE ENTSCHEIDENDE MARKE",
+   "titel": "Die Unterkante der Range",
+   "text": "Am 5. November schloss Meta kurz bei 605.08 $ unter der Range und kam schnell zurück. Der Kurs liegt heute 5.2 % über der Marke.",
+   "marke_label": "UNTERKANTE DER RANGE",
+   "marke": "610.15 $",
+   "szenarien": [
+    {"art": "bruch", "titel": "Bricht sie", "text": "Ein Wochenschluss darunter bricht die Range. Haltestellen: 554.08 bis 595.94 $ (Herbst 2024), dann das März-Tief bei 520.26 $."},
+    {"art": "halten", "titel": "Hält sie", "text": "Die Range bleibt intakt, Widerstand ab 704.28 $. Ein Wochenschluss über 751.66 $ wäre für mich ein Zeichen von Stärke."}
+   ]
+  },
+  {
+   "typ": "fazit",
+   "kicker": "MEIN FAZIT",
+   "titel": "Starkes Geschäft, offener Chart",
+   "absaetze": [
+    "Der Umsatz wächst um 26 %, Meta bekommt mehr Geld pro Anzeige. Die Sorge der Börse sind die KI-Ausgaben, die den freien Cashflow aufgefressen haben. Ob sich das auszahlt, zeigt sich erst in einigen Jahren.",
+    "Im Chart sehe ich eine Range mit Warnzeichen. Ich beobachte, ob Meta über 610.15 $ bleibt oder darunter schliesst."
+   ],
+   "frage": "Lohnen sich die Milliarden für KI bei Meta? Deine Meinung in die Kommentare."
+  }
+ ],
+ "caption": "Meta steht 17.7 % unter dem Hoch vom September, obwohl der Umsatz um 26 % wächst. Grund sind die Ausgaben für KI-Rechenzentren, die im dritten Quartal mehr Geld kosteten als hereinkam. Im Chart entscheidet jetzt die Unterkante der Range bei 610.15 $. Wisch durch für beide Ampeln und die entscheidende Marke.",
+ "hashtags": ["#metaplatforms", "#aktien", "#börse", "#ampelcheck", "#meta"]
+}
