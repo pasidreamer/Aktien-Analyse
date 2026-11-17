@@ -1,0 +1,146 @@
+{
+ "datum": "2026-11-17",
+ "ticker": "INTC",
+ "name": "Intel",
+ "thema": "Kursbewegung",
+ "stand": "16.11.2026",
+ "slides": [
+  {
+   "typ": "hook",
+   "kicker": "INTEL · KURSBEWEGUNG",
+   "titel": "Minus 61 % seit Juni: Was ist bei Intel los?",
+   "text": "Am Montag fiel Intel um 7.02 % auf 55.47 $, zusammen mit anderen Chipwerten vor den Nvidia-Zahlen. Im Juni stand die Aktie noch bei 142.35 $.",
+   "kpis": [
+    {
+     "label": "KURS",
+     "wert": "55.47 $"
+    },
+    {
+     "label": "AM MONTAG",
+     "wert": "−7.02 %",
+     "ton": "rot"
+    },
+    {
+     "label": "UNTER DEM HOCH",
+     "wert": "−61.0 %",
+     "ton": "rot"
+    }
+   ]
+  },
+  {
+   "typ": "firma",
+   "kicker": "WAS DIE FIRMA MACHT",
+   "titel": "Chips für PC und Server",
+   "text": "Intel entwickelt Prozessoren für Computer und Rechenzentren. Dazu baut die Firma eigene Chipfabriken und fertigt dort auch für andere Kunden.",
+   "fakten": [
+    {
+     "label": "Sitz",
+     "wert": "Santa Clara, USA"
+    },
+    {
+     "label": "Mitarbeitende",
+     "wert": "rund 81'100"
+    },
+    {
+     "label": "Umsatz Q3",
+     "wert": "16.5 Mrd. $"
+    }
+   ]
+  },
+  {
+   "typ": "zahlen",
+   "kicker": "WAS DIE ZAHLEN ZEIGEN",
+   "titel": "Server stark, Ausblick schwach",
+   "quelle": "Quelle: Intel, Q3-Zahlen vom 29.10.2026",
+   "zeilen": [
+    {
+     "k": "Umsatz",
+     "sub": "Juli bis September, 16.5 Mrd. $",
+     "wert": "+21 %",
+     "ton": "gruen"
+    },
+    {
+     "k": "Rechenzentren",
+     "sub": "Server-Chips, 7.3 Mrd. $",
+     "wert": "+78 %",
+     "ton": "gruen"
+    },
+    {
+     "k": "PC-Chips",
+     "sub": "8.1 Mrd. $ Umsatz",
+     "wert": "−5 %",
+     "ton": "orange"
+    },
+    {
+     "k": "Ausblick Q4",
+     "sub": "Mitte der Spanne zum Q3",
+     "wert": "−6 %",
+     "ton": "rot"
+    }
+   ],
+   "erklaerung": "Für das vierte Quartal erwartet Intel 15.0 bis 16.0 Mrd. $ Umsatz. Am Tag nach den Zahlen fiel die Aktie um 28.6 %."
+  },
+  {
+   "typ": "skala",
+   "kicker": "AMPEL 1: QUALITÄT",
+   "titel": "Wachstum mit dünner Marge",
+   "name": "Qualität",
+   "wert": 41,
+   "punkte": [
+    "Von 100 $ Umsatz bleiben 44 $ nach den Herstellkosten. Für Chips ist das eher wenig.",
+    "Neue Fabriken kosteten im Quartal 4.2 Mrd. $, danach blieben 1.64 Mrd. $ freier Cashflow.",
+    "Dieses Jahr hat Intel neue Aktien für 22.6 Mrd. $ verkauft. Der Gewinn verteilt sich auf mehr Aktien."
+   ]
+  },
+  {
+   "typ": "skala",
+   "kicker": "STRUKTUR IM WOCHENCHART",
+   "titel": "Klare Abwärtsstruktur",
+   "name": "Timing",
+   "wert": 34,
+   "punkte": [
+    "Seit Juni macht Intel tiefere Hochs und tiefere Tiefs. Das Hoch im September lag bei 127.44 $.",
+    "Im Oktober fiel der Kurs unter das Juli-Tief von 81.79 $. Der Aufwärtstrend war damit gebrochen.",
+    "Seit dem 30. Oktober pendelt Intel zwischen 52 und 62 $. Der RSI liegt bei 29.9, das heisst stark verkauft."
+   ]
+  },
+  {
+   "typ": "marke",
+   "kicker": "DIE ENTSCHEIDENDE MARKE",
+   "titel": "Das Tief vom November",
+   "text": "Anfang November fiel Intel bis auf 51.51 $. Der Kurs liegt heute 7.7 % über dieser Marke.",
+   "marke_label": "TIEF VOM NOVEMBER",
+   "marke": "51.51 $",
+   "szenarien": [
+    {
+     "art": "bruch",
+     "titel": "Bricht sie",
+     "text": "Ein Wochenschluss darunter setzt den Abwärtstrend fort. Haltestellen: 46.16 bis 50.25 $ (Dezember 2023 bis Januar 2024), dann 42.57 bis 44.17 $ (Anfang 2024)."
+    },
+    {
+     "art": "halten",
+     "titel": "Hält sie",
+     "text": "Zwischen 51.51 und 62.50 $ kann ein Boden entstehen. Ein Schluss über 62.50 $ wäre für mich ein Zeichen von Stärke."
+    }
+   ]
+  },
+  {
+   "typ": "fazit",
+   "kicker": "MEIN FAZIT",
+   "titel": "Gutes Quartal, schwacher Chart",
+   "absaetze": [
+    "Intel wächst wieder, vor allem mit Server-Chips. Der Ausblick für das vierte Quartal liegt aber unter dem dritten, und das PC-Geschäft bleibt laut Finanzchef mindestens im ersten Halbjahr 2027 schwach.",
+    "Von März bis Juni stieg die Aktie um 250 %, seither hat sie den Grossteil wieder abgegeben. Ich beobachte, ob Intel über 51.51 $ bleibt."
+   ],
+   "frage": "Ist Intel nach minus 61 % eine Chance oder eine Falle? Deine Meinung in die Kommentare."
+  }
+ ],
+ "caption": "Intel steht 61 % unter dem Hoch vom Juni, am Montag kam ein Minus von 7.02 % dazu. Im dritten Quartal wuchs der Umsatz um 21 %, der Ausblick für das vierte Quartal fiel aber schwächer aus. Im Chart entscheidet jetzt das Tief vom November bei 51.51 $.",
+ "hashtags": [
+  "#intel",
+  "#aktien",
+  "#börse",
+  "#kursbewegung",
+  "#intc"
+ ]
+}
