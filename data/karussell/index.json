@@ -1,6 +1,16 @@
 {
  "karussells": [
   {
+   "datum": "2026-11-17",
+   "ticker": "INTC",
+   "name": "Intel",
+   "thema": "Kursbewegung",
+   "titel": "Minus 61 % seit Juni: Was ist bei Intel los?",
+   "bilder": 7,
+   "caption": "Intel steht 61 % unter dem Hoch vom Juni, am Montag kam ein Minus von 7.02 % dazu. Im dritten Quartal wuchs der Umsatz um 21 %, der Ausblick für das vierte Quartal fiel aber schwächer aus. Im Chart entscheidet jetzt das Tief vom November bei 51.51 $.\n\nPersönliche Meinung, keine Anlageberatung. Mach deine eigene Recherche.\n\n#intel #aktien #börse #kursbewegung #intc",
+   "eigene_position": false
+  },
+  {
    "datum": "2026-11-16",
    "ticker": "META",
    "name": "Meta",
