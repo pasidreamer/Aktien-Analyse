@@ -116,7 +116,7 @@ jobs:
           DATUM: ${{ inputs.datum }}
         run: |
           args="--nur instagram_reel"
-          if [ "${{ github.event_name }}" != "workflow_dispatch" ]; then args="$args --fenster 18-23"; fi
+          if [ "${{ github.event_name }}" != "workflow_dispatch" ]; then args="$args --fenster 18-23"; else args="$args --nochmal"; fi
           if [ "$TROCKEN" = "true" ]; then args="$args --trocken"; fi
           if [ -n "$DATUM" ]; then args="$args --datum $DATUM"; fi
           python scripts/posten.py $args

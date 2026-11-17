@@ -244,6 +244,25 @@ def instagram_posten(post):
     return ig_aufruf("POST", f"{nutzer}/media_publish", creation_id=karussell)["id"]
 
 
+def ig_schon_online(plattform, heute):
+    """Ist heute schon ein Karussell bzw. Reel auf dem Profil? Gibt die ID zurück oder None.
+    Grund: Instagram meldete am 14.–16.11.2026 «Handlung ist blockiert» (403, 2207051), hat aber trotzdem
+    veröffentlicht. Ein zweiter Versuch erzeugte dann Doppelposts."""
+    if TROCKEN or not os.environ.get("IG_TOKEN"):
+        return None
+    antwort = ig_aufruf("GET", f"{os.environ['IG_USER_ID']}/media",
+                        fields="id,timestamp,media_type,media_product_type", limit="15")
+    for m in antwort.get("data", []):
+        zeit = dt.datetime.strptime(m["timestamp"], "%Y-%m-%dT%H:%M:%S%z").astimezone(ZONE)
+        if zeit.date().isoformat() != heute:
+            continue
+        if plattform == "instagram" and m.get("media_type") == "CAROUSEL_ALBUM":
+            return m["id"]
+        if plattform == "instagram_reel" and m.get("media_product_type") == "REELS":
+            return m["id"]
+    return None
+
+
 def reel_caption(caption):
     """Die Karussell-Caption passt, nur «Wisch durch …» stimmt im Video nicht."""
     return re.sub(r"Wisch durch[^.\n]*\.", "Alle Folien zum Nachlesen im Karussell auf dem Profil.", caption)
@@ -336,6 +355,8 @@ def main():
     ap.add_argument("--fenster", help="nur posten, wenn es in Zürich zwischen diesen Stunden ist, z. B. 18-23")
     ap.add_argument("--nur", help="nur diese Plattformen, z. B. instagram_reel")
     ap.add_argument("--ohne", help="diese Plattformen auslassen, z. B. instagram_reel")
+    ap.add_argument("--nochmal", action="store_true",
+                    help="nach einem Fehler heute nochmals versuchen (nur von Hand; vorher wird auf dem Profil nachgeschaut)")
     a = ap.parse_args()
     TROCKEN = a.trocken
     jetzt = dt.datetime.now(ZONE)
@@ -396,6 +417,23 @@ def main():
         if not all(os.environ.get(k) for k in keys):
             print(f"{plattform}: noch nicht eingerichtet, übersprungen.")
             continue
+        ist_ig = plattform.startswith("instagram")
+        frueherer_fehler = "fehler" in erledigt.get(plattform, {})
+        if ist_ig and frueherer_fehler:
+            # Heute schon einmal mit Fehler versucht: erst nachschauen, nie blind nochmals posten
+            try:
+                pid = ig_schon_online(plattform, heute)
+            except Exception as f:
+                pid = None
+                print(f"{plattform}: Nachschauen nicht möglich ({ohne_token(str(f))[:200]})")
+            if pid:
+                erledigt[plattform] = {"id": pid, "zeit": erledigt[plattform]["zeit"], "hinweis": "trotz Fehlermeldung online"}
+                print(f"{plattform}: ist trotz Fehlermeldung online ({pid}), wird nicht nochmals gepostet.")
+                log_speichern(log)
+                continue
+            if not a.nochmal:
+                print(f"{plattform}: heute schon einmal gescheitert, kein zweiter Versuch (Handstart mit nochmal=true).")
+                continue
         try:
             pid = funktion(post)
             erledigt[plattform] = {"id": pid, "zeit": dt.datetime.now(ZONE).isoformat(timespec="seconds")}
@@ -403,8 +441,21 @@ def main():
             print(f"{plattform}: gepostet ({pid})")
         except Exception as f:
             erledigt[plattform] = {"fehler": ohne_token(str(f))[:400], "zeit": dt.datetime.now(ZONE).isoformat(timespec="seconds")}
-            probleme.append(f"{plattform}: {ohne_token(str(f))[:200]}")
-            print(f"{plattform}: FEHLER {ohne_token(str(f))}")
+            pid = None
+            if ist_ig and not TROCKEN:
+                time.sleep(30)  # Instagram braucht einen Moment, bis ein trotzdem veröffentlichter Post sichtbar ist
+                try:
+                    pid = ig_schon_online(plattform, heute)
+                except Exception:
+                    pid = None
+            if pid:
+                erledigt[plattform] = {"id": pid, "zeit": erledigt[plattform]["zeit"],
+                                       "hinweis": "trotz Fehlermeldung online: " + ohne_token(str(f))[:200]}
+                ergebnisse.append(plattform)
+                print(f"{plattform}: Fehlermeldung, aber online ({pid}): {ohne_token(str(f))[:200]}")
+            else:
+                probleme.append(f"{plattform}: {ohne_token(str(f))[:200]}")
+                print(f"{plattform}: FEHLER {ohne_token(str(f))}")
         log_speichern(log)  # nach jeder Plattform sichern, damit ein Abbruch keinen Doppelpost auslöst
 
     if post["art"] == "reserve" and ergebnisse and not TROCKEN:
