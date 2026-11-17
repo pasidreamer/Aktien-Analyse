@@ -1,5 +1,5 @@
 {
- "stand": "2026-11-15",
+ "stand": "2026-11-17",
  "hinweis": "Kurze Auswertung der Quartalszahlen. Reaktion rechnet die App aus den Kursen.",
  "eintraege": {
   "GOOGL": [
@@ -2476,6 +2476,83 @@
      {
       "t": "AskTraders: RELX reaffirms outlook after 7% nine-month growth",
       "u": "https://www.asktraders.com/analysis/relx-reaffirms-outlook-after-7-nine-month-growth-led-by-legal-and-risk/"
+     }
+    ]
+   }
+  ],
+  "NVDA": [
+   {
+    "datum": "2026-11-17",
+    "zeit": "nach",
+    "quartal": "Q3 Geschäftsjahr 2027",
+    "reaktion_quelle": 1.2,
+    "titel": "Rekordquartal und starker Ausblick trotz Chefwechsel",
+    "kurz": "Umsatz und Gewinn lagen klar über der Erwartung, der Umsatz hat sich in einem Jahr gut verdoppelt. Es sind die ersten Zahlen seit dem Abgang von Chef Jensen Huang. Nachbörslich stieg die Aktie zuerst um rund 1 %.",
+    "zahlen": [
+     {
+      "k": "Umsatz",
+      "ist": "115.8 Mrd. $ (+103 %)",
+      "erw": "109.2 Mrd. $",
+      "urteil": "übertroffen"
+     },
+     {
+      "k": "EPS bereinigt (Gewinn pro Aktie ohne Sondereffekte)",
+      "ist": "2.68 $ (+111 %)",
+      "erw": "2.47 $",
+      "urteil": "übertroffen"
+     },
+     {
+      "k": "Rechenzentren (Data Center)",
+      "ist": "107.6 Mrd. $ (+110 %)",
+      "erw": "101.9 Mrd. $",
+      "urteil": "übertroffen"
+     },
+     {
+      "k": "Bruttomarge (Anteil nach Herstellkosten)",
+      "ist": "74.9 %",
+      "erw": "",
+      "urteil": "leicht tiefer als im Vorquartal (75.0 %)"
+     },
+     {
+      "k": "Ausblick Umsatz Q4",
+      "ist": "130 Mrd. $ ± 3 %",
+      "erw": "125.3 Mrd. $",
+      "urteil": "übertroffen"
+     },
+     {
+      "k": "Ausblick Bruttomarge Q4",
+      "ist": "71 bis 72 %",
+      "erw": "",
+      "urteil": "gesenkt"
+     }
+    ],
+    "gut": [
+     "Das Geschäft mit KI-Chips für Rechenzentren wächst weiter rasant: 107.6 Mrd. $, mehr als doppelt so viel wie vor einem Jahr.",
+     "Die neue Chip-Generation Vera Rubin wird ausgeliefert. Nvidia nennt es den schnellsten Produktstart der Firmengeschichte.",
+     "Free Cashflow (Geld, das nach allen Investitionen übrig bleibt) von 43.8 Mrd. $ in einem Quartal. 28.1 Mrd. $ gingen über Rückkäufe und Dividende an die Aktionäre."
+    ],
+    "sorgen": [
+     "Die Bruttomarge soll im nächsten Quartal auf 71 bis 72 % sinken, weil die neuen Rubin-Chips am Anfang teurer in der Herstellung sind.",
+     "Die Firmenspitze ist unsicher: Jensen Huang ist weg, Finanzchefin Colette Kress führt nur vorübergehend, die Suche nach einem neuen Chef läuft. Dazu kommen Untersuchungen (ein Ausschuss des Verwaltungsrats, laut Medien auch die US-Börsenaufsicht SEC).",
+     "Die Abhängigkeit von wenigen Grosskunden steigt: Lager (39.7 Mrd. $), offene Rechnungen (81 Mrd. $) und Lieferverpflichtungen (390 Mrd. $) sind stark gewachsen. Im Ausblick ist kein China-Umsatz mit Rechenzentrum-Chips enthalten."
+    ],
+    "fazit": "Keine Panik aus dem Geschäft: Die Zahlen sind stark und der Ausblick liegt über der Erwartung, die echte Veränderung liegt bei der Führung und den Untersuchungen, und die lässt sich an diesen Zahlen noch nicht ablesen.",
+    "quellen": [
+     {
+      "t": "NVIDIA Pressemitteilung Q3 GJ 2027 (SEC, 17.11.2026)",
+      "u": "https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000088/q3fy27pr.htm"
+     },
+     {
+      "t": "NVIDIA Kommentar der Finanzchefin Q3 GJ 2027 (SEC, 17.11.2026)",
+      "u": "https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000088/q3fy27cfocommentary.htm"
+     },
+     {
+      "t": "Yahoo Finance Live: Nvidia beats Q3 expectations (17.11.2026)",
+      "u": "https://finance.yahoo.com/technology/live/nvidia-earnings-live-nvidia-to-report-q3-results-after-the-bell-with-colette-kress-to-host-first-call-as-interim-ceo-202616349.html"
+     },
+     {
+      "t": "CNBC: Nvidia beats on results and guidance (17.11.2026)",
+      "u": "https://www.cnbc.com/2026/11/17/nvidia-nvda-earnings-report-q3-2027.html"
      }
     ]
    }
