@@ -1,5 +1,5 @@
 {
- "stand": "2026-11-17",
+ "stand": "2026-11-18",
  "hinweis": "Kurze Auswertung der Quartalszahlen. Reaktion rechnet die App aus den Kursen.",
  "eintraege": {
   "GOOGL": [
@@ -2553,6 +2553,239 @@
      {
       "t": "CNBC: Nvidia beats on results and guidance (17.11.2026)",
       "u": "https://www.cnbc.com/2026/11/17/nvidia-nvda-earnings-report-q3-2027.html"
+     }
+    ]
+   }
+  ],
+  "LOW": [
+   {
+    "datum": "2026-11-18",
+    "zeit": "vor",
+    "quartal": "Q3 Geschäftsjahr 2026",
+    "reaktion_quelle": -2.5,
+    "titel": "Mehr Umsatz, Gewinn dank Zoll-Rückzahlung geschönt",
+    "kurz": "Umsatz und vergleichbare Verkäufe lagen über der Erwartung, der Jahresausblick für den Umsatz wurde leicht angehoben. Ein Teil des Gewinns kommt aber aus einer einmaligen Rückzahlung von Zöllen. Vorbörslich fiel die Aktie rund 2 bis 2.5 %.",
+    "zahlen": [
+     {
+      "k": "Umsatz",
+      "ist": "22.8 Mrd. $ (+9.3 %)",
+      "erw": "22.4 Mrd. $",
+      "urteil": "übertroffen"
+     },
+     {
+      "k": "EPS bereinigt (Gewinn pro Aktie ohne Sondereffekte)",
+      "ist": "3.10 $ (+1.3 %)",
+      "erw": "2.88 $",
+      "urteil": "übertroffen"
+     },
+     {
+      "k": "EPS bereinigt ohne Zoll-Rückzahlung",
+      "ist": "rund 2.76 $",
+      "erw": "2.88 $",
+      "urteil": "verfehlt"
+     },
+     {
+      "k": "Vergleichbare Verkäufe (gleiche Filialen wie im Vorjahr)",
+      "ist": "+1.8 %",
+      "erw": "+0.1 bis +0.4 %",
+      "urteil": "übertroffen"
+     },
+     {
+      "k": "Bruttomarge (Anteil nach Warenkosten)",
+      "ist": "32.95 %",
+      "erw": "33.07 %",
+      "urteil": "knapp verfehlt"
+     },
+     {
+      "k": "Ausblick Umsatz 2026",
+      "ist": "rund 92.5 Mrd. $ (bisher 92.0)",
+      "erw": "92.1 Mrd. $",
+      "urteil": "angehoben"
+     },
+     {
+      "k": "Ausblick EPS bereinigt 2026",
+      "ist": "rund 12.25 $",
+      "erw": "12.27 bis 12.29 $",
+      "urteil": "bestätigt"
+     }
+    ],
+    "gut": [
+     "Sechstes Quartal in Folge mit mehr Verkäufen in den gleichen Filialen (+1.8 %). Der Online-Umsatz stieg um 17.4 %.",
+     "Der Umsatz wuchs um 9.3 %, auch dank der zugekauften Firmen FBM und ADG für Profi-Kunden (Handwerker und Bauunternehmer).",
+     "Lowe's erwartet für das ganze Jahr jetzt rund 0.5 % mehr vergleichbare Verkäufe statt 0 % und hebt den Umsatz-Ausblick auf 92.5 Mrd. $."
+    ],
+    "sorgen": [
+     "Rund 250 Mio. $ aus zurückgezahlten US-Zöllen haben den bereinigten Gewinn um 0.34 $ pro Aktie erhöht. Ohne diesen Einmaleffekt läge er bei etwa 2.76 $, also unter der Erwartung und unter dem Vorjahr (3.06 $).",
+     "Die Bruttomarge sank von 34.19 % auf 32.95 %. Die zugekauften Profi-Geschäfte verdienen weniger pro Dollar Umsatz.",
+     "Grosse Umbauten bleiben aus: Hausbesitzer zahlen Reparaturen, schieben teure Projekte und Umzüge aber auf. Der Gewinn-Ausblick wurde nicht erhöht."
+    ],
+    "fazit": "Keine Panik: Das Geschäft wächst langsam weiter und der Ausblick wurde leicht verbessert, eine echte Veränderung ist das aber auch nicht, denn ohne die einmalige Zoll-Rückzahlung wäre der Gewinn unter der Erwartung gelegen und der Hausmarkt bleibt schwach.",
+    "quellen": [
+     {
+      "t": "Startup Fortune: Lowe's beats third-quarter estimates but shares fall as tariff refund flatters the profit (18.11.2026)",
+      "u": "https://startupfortune.com/lowes-beats-third-quarter-estimates-but-shares-fall-as-tariff-refund-flatters-the-profit/"
+     },
+     {
+      "t": "CoinCentral: Why Lowe's stock slipped even after beating Q3 estimates (18.11.2026)",
+      "u": "https://coincentral.com/why-lowes-low-stock-slipped-even-after-beating-q3-estimates"
+     },
+     {
+      "t": "StockStory: Lowe's posts better-than-expected sales in Q3 2026 (18.11.2026)",
+      "u": "https://stockstory.org/us/stocks/nyse/low/news/earnings/lowes-posts-better-than-expected-sales-in-q3-2026"
+     }
+    ]
+   }
+  ],
+  "ZTO": [
+   {
+    "datum": "2026-11-17",
+    "zeit": "nach",
+    "quartal": "Q3 2026",
+    "reaktion_quelle": -0.4,
+    "titel": "Höhere Paketpreise treiben den Umsatz, Ausblick bestätigt",
+    "kurz": "Der Umsatz stieg um 21 %, weil ZTO pro Paket deutlich mehr verlangen konnte. Der bereinigte Gewinn wuchs nur leicht, lag aber über der Erwartung. Am Tag danach schloss die Aktie kaum verändert (rund 0.4 % tiefer).",
+    "zahlen": [
+     {
+      "k": "Umsatz",
+      "ist": "14.36 Mrd. RMB (+21.0 %)",
+      "erw": "rund 13.97 Mrd. RMB",
+      "urteil": "übertroffen"
+     },
+     {
+      "k": "EPS bereinigt pro ADS (Gewinn pro US-Aktienzertifikat ohne Sondereffekte)",
+      "ist": "3.20 RMB / 0.48 $ (+4.6 %)",
+      "erw": "3.13 RMB",
+      "urteil": "übertroffen"
+     },
+     {
+      "k": "Gewinn bereinigt",
+      "ist": "2.57 Mrd. RMB (+2.6 %)",
+      "erw": "",
+      "urteil": "ohne Steuer-Rückzahlung im Vorjahr +20.7 %"
+     },
+     {
+      "k": "Paketmenge",
+      "ist": "10.24 Mrd. Pakete (+7.0 %)",
+      "erw": "",
+      "urteil": "Marktanteil 20.1 %"
+     },
+     {
+      "k": "Preis pro Paket (Kerngeschäft)",
+      "ist": "+13.7 %",
+      "erw": "",
+      "urteil": "stark"
+     },
+     {
+      "k": "Ausblick Paketmenge 2026",
+      "ist": "40.8 bis 42.4 Mrd. (+6 bis +10 %)",
+      "erw": "",
+      "urteil": "bestätigt"
+     }
+    ],
+    "gut": [
+     "Der Preiskampf unter Chinas Paketdiensten hat nachgelassen: ZTO bekam pro Paket 13.7 % mehr als vor einem Jahr.",
+     "ZTO wuchs bei der Menge 4.1 Prozentpunkte schneller als der ganze Markt und hat jetzt 20.1 % Marktanteil. Pakete von Privatkunden stiegen pro Tag um 57 %.",
+     "Das bereinigte EBITDA (Gewinn vor Zinsen, Steuern und Abschreibungen) stieg um 14.3 % auf 4.1 Mrd. RMB. Für Rückkäufe sind noch 1.1 Mrd. $ übrig, 376.9 Mio. $ wurden schon eingesetzt."
+    ],
+    "sorgen": [
+     "Die Menge wächst nur noch um 7 %, früher waren es oft über 10 %. Chinas Paketmarkt insgesamt wuchs laut ZTO nur noch knapp 3 %.",
+     "Die Bruttomarge (Anteil nach direkten Kosten) sank leicht von 24.9 % auf 24.6 %. Die Zahlungen an Partner für Rücksendungen von Grosskunden stiegen stark (übrige Kosten +59 %).",
+     "Der ausgewiesene Gewinn stieg nur um 1.4 %. Ein Verwaltungsrat (Xing Liu) ist per 18.11.2026 zurückgetreten."
+    ],
+    "fazit": "Keine Panik und keine Wende: Die Zahlen bestätigen, dass höhere Preise die schwächere Mengenentwicklung ausgleichen, die eigentliche Frage bleibt, ob die Preisdisziplin in Chinas Paketmarkt hält.",
+    "quellen": [
+     {
+      "t": "ZTO Pressemitteilung Q3 2026 (SEC 6-K, 17.11.2026)",
+      "u": "https://www.sec.gov/Archives/edgar/data/0001677250/000110465926129305/tm2630022d1_ex99-1.htm"
+     },
+     {
+      "t": "MarketScreener: ZTO Express Q3 adjusted earnings, revenue rise (17.11.2026)",
+      "u": "https://www.marketscreener.com/news/zto-express-q3-adjusted-earnings-revenue-rise-ce785edcdf8df324"
+     },
+     {
+      "t": "24/7 Wall St: ZTO Express Q3 2026 earnings (17.11.2026)",
+      "u": "https://247wallst.com/cards/zto-express-q3-2026-earnings-zto-01m7nrqerbdw46yt0zvc95vd54"
+     },
+     {
+      "t": "Gotrade: ZTO Express reports Q3 2026 revenue up 21.0 % (17.11.2026)",
+      "u": "https://www.heygotrade.com/en/news/zto-express-third-quarter-2026-results/"
+     }
+    ]
+   }
+  ],
+  "0700": [
+   {
+    "datum": "2026-11-18",
+    "zeit": "nach",
+    "quartal": "Q3 2026",
+    "reaktion_quelle": null,
+    "titel": "Umsatz unter Erwartung, KI-Ausgaben drücken den Cashflow",
+    "kurz": "Der Umsatz wuchs nur noch um 8 % und lag unter der Erwartung. Der Gewinn hielt sich dank Werbung und Cloud, aber Tencent gibt sehr viel Geld für KI-Rechenleistung aus. Die Zahlen kamen nach Börsenschluss in Hongkong, die Reaktion zeigt sich am 19.11.2026.",
+    "zahlen": [
+     {
+      "k": "Umsatz",
+      "ist": "207.3 Mrd. RMB (+8 %)",
+      "erw": "210.8 Mrd. RMB",
+      "urteil": "verfehlt"
+     },
+     {
+      "k": "Gewinn (den Aktionären zustehend)",
+      "ist": "63.6 Mrd. RMB (+0.8 %)",
+      "erw": "59.5 Mrd. RMB",
+      "urteil": "übertroffen"
+     },
+     {
+      "k": "Betriebsgewinn bereinigt (Non-IFRS, ohne Sondereffekte)",
+      "ist": "66.5 Mrd. RMB (-6 %)",
+      "erw": "66.6 Mrd. RMB",
+      "urteil": "getroffen"
+     },
+     {
+      "k": "Werbung (Marketing Services)",
+      "ist": "43.0 Mrd. RMB (+19 %)",
+      "erw": "",
+      "urteil": "stark"
+     },
+     {
+      "k": "Games China",
+      "ist": "47.6 Mrd. RMB (+11 %)",
+      "erw": "",
+      "urteil": "stark"
+     },
+     {
+      "k": "Investitionen (Capex, vor allem KI-Rechenzentren)",
+      "ist": "65.1 Mrd. RMB (+225 %)",
+      "erw": "55.4 Mrd. RMB",
+      "urteil": "höher als erwartet"
+     }
+    ],
+    "gut": [
+     "Die Werbung auf WeChat und anderen Diensten wuchs um 19 %, das Cloud-Geschäft um 35 %. Beides profitiert schon von KI.",
+     "Die Games in China legten um 11 % auf 47.6 Mrd. RMB zu. WeChat hat 1.45 Mrd. Nutzer pro Monat.",
+     "Ohne die neuen KI-Produkte wäre der Betriebsgewinn um 8 % gestiegen. Tencent hat 525.7 Mrd. RMB flüssige Mittel und kaufte für rund 7 Mrd. HK$ eigene Aktien zurück."
+    ],
+    "sorgen": [
+     "Der Free Cashflow (Geld, das nach allen Investitionen übrig bleibt) war mit minus 69.1 Mrd. RMB tief negativ, weil Tencent Rechenleistung im Voraus bezahlt. Wann die hohen Ausgaben sinken, sagt die Firma nicht.",
+     "Der bereinigte Betriebsgewinn fiel um 6 %, die Marge sank von 38 % auf 33 %. Forschung kostete 42 % mehr als vor einem Jahr.",
+     "Die internationalen Games lagen bei 18.9 Mrd. RMB und wuchsen nicht (eine Quelle nennt -9 %). Soziale Netzwerke schrumpften leicht (-1 %)."
+    ],
+    "fazit": "Eher eine echte Veränderung als Panik: Das Kerngeschäft läuft ordentlich, aber Tencent wird gerade von einer Geldmaschine zu einer Firma, die sehr viel in KI investiert, und ob sich das auszahlt, zeigt sich erst in einigen Quartalen.",
+    "quellen": [
+     {
+      "t": "Reuters via MarketScreener: Tencent Q3 revenue growth slows to 8 %, misses estimates (18.11.2026)",
+      "u": "https://www.marketscreener.com/news/tencent-q3-revenue-growth-slows-to-8-misses-estimates-ce785edcd08ef42c"
+     },
+     {
+      "t": "Startup Fortune: Tencent's third-quarter sales miss estimates as AI spending outruns forecasts (18.11.2026)",
+      "u": "https://startupfortune.com/tencents-third-quarter-sales-miss-estimates-as-ai-spending-outruns-forecasts/"
+     },
+     {
+      "t": "BigGo Finance: Tencent's Q3 revenue rises 8 % to 207.3 billion yuan (18.11.2026)",
+      "u": "https://finance.biggo.com/news/72deef99-5323-42f8-9f6d-4b570f5341d3"
+     },
+     {
+      "t": "Tencent Pressemitteilung Q3 2026 (PDF)",
+      "u": "https://www.tencent.com/wp-content/uploads/2026/11/Tencent-Announces-2026-Third-Quarter-Results.pdf"
      }
     ]
    }
