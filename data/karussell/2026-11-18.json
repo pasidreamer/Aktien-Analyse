@@ -1,0 +1,92 @@
+{
+ "datum": "2026-11-18",
+ "ticker": "ZTO",
+ "name": "ZTO Express",
+ "thema": "Quartalszahlen",
+ "stand": "17.11.2026",
+ "slides": [
+  {
+   "typ": "hook",
+   "kicker": "ZTO EXPRESS · QUARTALSZAHLEN",
+   "titel": "Plus 21 % Umsatz: Wie stark ist ZTO?",
+   "text": "Jedes fünfte Paket in China läuft über ZTO. Am Dienstag nach Börsenschluss kamen die Zahlen zum dritten Quartal: Pro Paket nimmt die Firma 13.7 % mehr ein als vor einem Jahr.",
+   "kpis": [
+    {"label": "KURS", "wert": "20.53 $"},
+    {"label": "UMSATZ Q3", "wert": "+21.0 %", "ton": "gruen"},
+    {"label": "UNTER DEM HOCH", "wert": "−21.6 %", "ton": "rot"}
+   ]
+  },
+  {
+   "typ": "firma",
+   "kicker": "WAS DIE FIRMA MACHT",
+   "titel": "Pakete für Chinas Onlinehandel",
+   "text": "ZTO stellt Pakete in ganz China zu, vor allem für Onlinehändler. Die Annahmestellen führen meist Partnerfirmen. ZTO betreibt selbst die Sortierzentren und über 10'000 eigene Lastwagen.",
+   "fakten": [
+    {"label": "Sitz", "wert": "Shanghai, China"},
+    {"label": "Pakete Q3", "wert": "10.2 Mrd."},
+    {"label": "Marktanteil", "wert": "20.1 %"}
+   ]
+  },
+  {
+   "typ": "zahlen",
+   "kicker": "WAS DIE ZAHLEN ZEIGEN",
+   "titel": "Mehr Geld pro Paket",
+   "quelle": "Quelle: ZTO, Q3-Zahlen vom 17.11.2026",
+   "zeilen": [
+    {"k": "Umsatz", "sub": "Juli bis September, 2.14 Mrd. $", "wert": "+21.0 %", "ton": "gruen"},
+    {"k": "Pakete", "sub": "10.2 Mrd. Stück", "wert": "+7.0 %", "ton": "gruen"},
+    {"k": "Preis pro Paket", "sub": "auch dank mehr Grosskunden", "wert": "+13.7 %", "ton": "gruen"},
+    {"k": "Reingewinn", "sub": "Vorjahr mit Steuer-Rückzahlung", "wert": "+1.4 %", "ton": "orange"}
+   ],
+   "erklaerung": "Im Vorjahresquartal bekam ZTO 376 Mio. Yuan Steuern zurück. Ohne diesen Effekt wäre der Gewinn laut Finanzchef um 20.7 % gestiegen. Für 2026 erwartet ZTO weiterhin 6 bis 10 % mehr Pakete."
+  },
+  {
+   "typ": "skala",
+   "kicker": "AMPEL 1: QUALITÄT",
+   "titel": "Solide Firma, viel Bargeld",
+   "name": "Qualität",
+   "wert": 83,
+   "punkte": [
+    "Der Betriebsgewinn stieg um 23.8 %. Von 100 $ Umsatz bleiben fast 21 $ als Betriebsgewinn.",
+    "Auf dem Konto und in kurzfristigen Anlagen liegen rund 27.8 Mrd. Yuan.",
+    "Seit März hat ZTO eigene Aktien für 376.9 Mio. $ zurückgekauft. Das Programm erlaubt bis zu 1.5 Mrd. $."
+   ]
+  },
+  {
+   "typ": "skala",
+   "kicker": "STRUKTUR IM WOCHENCHART",
+   "titel": "Range seit August",
+   "name": "Timing",
+   "wert": 38,
+   "punkte": [
+    "Seit dem Hoch im März bei 26.20 $ macht ZTO tiefere Hochs und tiefere Tiefs.",
+    "Seit August pendelt der Kurs zwischen 19.49 und 21.50 $. An steigenden Tagen wird mehr gehandelt, ein Hinweis auf Käufer.",
+    "Ein kurzer Rutsch bis 18.95 $ kam schnell zurück. Der RSI im Wochenchart liegt bei 43, also neutral."
+   ]
+  },
+  {
+   "typ": "marke",
+   "kicker": "DIE ENTSCHEIDENDE MARKE",
+   "titel": "Die Unterkante der Range",
+   "text": "Seit August ist 19.49 $ die Unterkante der Range. Der Kurs liegt heute 5.3 % darüber.",
+   "marke_label": "UNTERKANTE DER RANGE",
+   "marke": "19.49 $",
+   "szenarien": [
+    {"art": "bruch", "titel": "Bricht sie", "text": "Ein Wochenschluss darunter setzt den Abwärtstrend fort. Haltestellen: das Tief vom Mai 2025 bei 16.68 $, dann das Tief vom Februar 2024 bei 15.90 $."},
+    {"art": "halten", "titel": "Hält sie", "text": "Zwischen 19.49 und 21.50 $ kann ein Boden entstehen. Ein Schluss über 21.50 $ wäre für mich ein Zeichen von Stärke. Danach wartet Widerstand bis 22.32 $."}
+   ]
+  },
+  {
+   "typ": "fazit",
+   "kicker": "MEIN FAZIT",
+   "titel": "Starkes Quartal, zäher Chart",
+   "absaetze": [
+    "ZTO verdient pro Paket wieder mehr. Der Preiskampf unter Chinas Paketfirmen hat laut Chef nachgelassen. Der schwache Reingewinn liegt an der Steuer-Rückzahlung im Vorjahr.",
+    "Die Bruttomarge sank leicht auf 24.6 %, weil ZTO mehr an Partner für die Abholung von Retouren zahlt. Im Chart beobachte ich, ob die Unterkante bei 19.49 $ hält."
+   ],
+   "frage": "Würdest du in einen chinesischen Paketdienst investieren? Deine Meinung in die Kommentare."
+  }
+ ],
+ "caption": "ZTO setzt im dritten Quartal 21 % mehr um, pro Paket nimmt die Firma 13.7 % mehr ein. Der Reingewinn wuchs nur um 1.4 %, weil das Vorjahr eine Steuer-Rückzahlung enthielt. Im Chart entscheidet jetzt die Unterkante der Range bei 19.49 $. Wisch durch für beide Ampeln und die entscheidende Marke.",
+ "hashtags": ["#ztoexpress", "#aktien", "#börse", "#quartalszahlen", "#zto"]
+}
