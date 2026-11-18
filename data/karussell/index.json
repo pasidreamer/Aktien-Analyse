@@ -1,6 +1,16 @@
 {
  "karussells": [
   {
+   "datum": "2026-11-18",
+   "ticker": "ZTO",
+   "name": "ZTO Express",
+   "thema": "Quartalszahlen",
+   "titel": "Plus 21 % Umsatz: Wie stark ist ZTO?",
+   "bilder": 7,
+   "caption": "ZTO setzt im dritten Quartal 21 % mehr um, pro Paket nimmt die Firma 13.7 % mehr ein. Der Reingewinn wuchs nur um 1.4 %, weil das Vorjahr eine Steuer-Rückzahlung enthielt. Im Chart entscheidet jetzt die Unterkante der Range bei 19.49 $. Wisch durch für beide Ampeln und die entscheidende Marke.\n\nPersönliche Meinung, keine Anlageberatung. Mach deine eigene Recherche.\n\n#ztoexpress #aktien #börse #quartalszahlen #zto",
+   "eigene_position": false
+  },
+  {
    "datum": "2026-11-17",
    "ticker": "INTC",
    "name": "Intel",
