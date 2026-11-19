@@ -1,6 +1,16 @@
 {
  "karussells": [
   {
+   "datum": "2026-11-19",
+   "ticker": "0700",
+   "name": "Tencent",
+   "thema": "Quartalszahlen",
+   "titel": "Minus 69 Mrd. Cashflow: Was ist bei Tencent los?",
+   "bilder": 7,
+   "caption": "Tencent setzt im dritten Quartal 8 % mehr um, aber der Free Cashflow liegt bei minus 69.1 Mrd. Yuan. Grund sind Vorauszahlungen für KI-Rechenleistung, die Aktie fiel am Donnerstag auf rund 350 HK$. Im Chart entscheidet jetzt das Tief vom August 2024 bei 349 HK$.\n\nPersönliche Meinung, keine Anlageberatung. Mach deine eigene Recherche.\n\n#tencent #aktien #börse #quartalszahlen #0700",
+   "eigene_position": false
+  },
+  {
    "datum": "2026-11-18",
    "ticker": "ZTO",
    "name": "ZTO Express",
