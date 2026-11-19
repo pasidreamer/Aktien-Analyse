@@ -1,0 +1,146 @@
+{
+ "datum": "2026-11-19",
+ "ticker": "0700",
+ "name": "Tencent",
+ "thema": "Quartalszahlen",
+ "stand": "18.11.2026",
+ "slides": [
+  {
+   "typ": "hook",
+   "kicker": "TENCENT · QUARTALSZAHLEN",
+   "titel": "Minus 69 Mrd. Cashflow: Was ist bei Tencent los?",
+   "text": "Am Mittwochabend kamen die Zahlen zum dritten Quartal. Der Umsatz wuchs um 8 % und lag unter der Erwartung. Am Donnerstagmorgen fiel die Aktie in Hongkong um 6.1 % auf rund 350 HK$.",
+   "kpis": [
+    {
+     "label": "KURS IN HK$",
+     "wert": "372.80"
+    },
+    {
+     "label": "UMSATZ Q3",
+     "wert": "+8 %",
+     "ton": "orange"
+    },
+    {
+     "label": "CASHFLOW IN ¥",
+     "wert": "−69 Mrd.",
+     "ton": "rot"
+    }
+   ]
+  },
+  {
+   "typ": "firma",
+   "kicker": "WAS DIE FIRMA MACHT",
+   "titel": "WeChat, Games und Werbung",
+   "text": "Tencent gehört die Chat-App WeChat, in China heisst sie Weixin. Dazu kommen viele grosse Games, Werbung, Bezahldienste und eine Cloud. Gerechnet wird in Yuan, der Währung Chinas.",
+   "fakten": [
+    {
+     "label": "Sitz",
+     "wert": "Shenzhen, China"
+    },
+    {
+     "label": "WeChat-Nutzer",
+     "wert": "1.45 Mrd. pro Monat"
+    },
+    {
+     "label": "Umsatz Q3",
+     "wert": "207.3 Mrd. Yuan"
+    }
+   ]
+  },
+  {
+   "typ": "zahlen",
+   "kicker": "WAS DIE ZAHLEN ZEIGEN",
+   "titel": "Werbung stark, Cashflow tiefrot",
+   "quelle": "Quelle: Tencent, Q3-Zahlen vom 18.11.2026",
+   "zeilen": [
+    {
+     "k": "Umsatz",
+     "sub": "Erwartet waren 210.8 Mrd. Yuan",
+     "wert": "+8 %",
+     "ton": "orange"
+    },
+    {
+     "k": "Werbung",
+     "sub": "43.0 Mrd. Yuan",
+     "wert": "+19 %",
+     "ton": "gruen"
+    },
+    {
+     "k": "Games China",
+     "sub": "47.6 Mrd. Yuan",
+     "wert": "+11 %",
+     "ton": "gruen"
+    },
+    {
+     "k": "Betriebsgewinn",
+     "sub": "bereinigt, 68.1 Mrd. Yuan",
+     "wert": "−6 %",
+     "ton": "rot"
+    }
+   ],
+   "erklaerung": "Free Cashflow ist das Geld, das nach allen Investitionen übrig bleibt. Er lag bei minus 69.1 Mrd. Yuan, weil Tencent KI-Rechenleistung im Voraus bezahlt."
+  },
+  {
+   "typ": "skala",
+   "kicker": "AMPEL 1: QUALITÄT",
+   "titel": "Starkes Geschäft, teure KI",
+   "name": "Qualität",
+   "wert": 76,
+   "punkte": [
+    "Die Cloud wuchs um 35 %, die Werbung um 19 %. Beides profitiert laut Tencent schon von KI.",
+    "Von 100 Yuan Umsatz bleiben bereinigt 33 Yuan Betriebsgewinn, vor einem Jahr rund 38.",
+    "Tencent kaufte im Quartal eigene Aktien für rund 7 Mrd. HK$ zurück."
+   ]
+  },
+  {
+   "typ": "skala",
+   "kicker": "STRUKTUR IM WOCHENCHART",
+   "titel": "Abwärtstrend seit März",
+   "name": "Timing",
+   "wert": 27,
+   "punkte": [
+    "Die Hochs fallen: 578 HK$ im März, 497.80 HK$ im August, 431.20 HK$ Anfang November.",
+    "Die Tiefs fallen auch: 411 HK$ im Juni, 375.20 HK$ im Oktober. Am Mittwoch schloss die Aktie mit 372.80 HK$ schon darunter.",
+    "Der Schlusskurs liegt 41 % unter dem Hoch vom Januar bei 633 HK$."
+   ]
+  },
+  {
+   "typ": "marke",
+   "kicker": "DIE ENTSCHEIDENDE MARKE",
+   "titel": "Das Tief vom August 2024",
+   "text": "Bei 349 HK$ drehte Tencent im August 2024 nach oben. Am Donnerstag fiel der Kurs bis an diese Marke.",
+   "marke_label": "TIEF AUG. 2024",
+   "marke": "349 HK$",
+   "szenarien": [
+    {
+     "art": "bruch",
+     "titel": "Bricht sie",
+     "text": "Ein Wochenschluss darunter setzt den Abwärtstrend fort. Haltestellen: 332.60 HK$, das Hoch vom November 2023, dann 302.60 bis 321.20 HK$."
+    },
+    {
+     "art": "halten",
+     "titel": "Hält sie",
+     "text": "Dann könnte sich ein Boden bilden. Ein Wochenschluss über 375.20 HK$ wäre für mich ein erstes Zeichen von Stärke."
+    }
+   ]
+  },
+  {
+   "typ": "fazit",
+   "kicker": "MEIN FAZIT",
+   "titel": "Gutes Geschäft im Umbau",
+   "absaetze": [
+    "Werbung, Games in China und die Cloud laufen ordentlich. Tencent steckt aber sehr viel Geld in KI-Rechenzentren. Die Investitionen stiegen um 225 % auf 65.1 Mrd. Yuan.",
+    "Ob sich das auszahlt, zeigt sich erst in einigen Quartalen. Bis dahin beobachte ich, ob die Marke bei 349 HK$ hält."
+   ],
+   "frage": "Ist Tencent für dich ein Rücksetzer oder ein Warnsignal? Deine Meinung in die Kommentare."
+  }
+ ],
+ "caption": "Tencent setzt im dritten Quartal 8 % mehr um, aber der Free Cashflow liegt bei minus 69.1 Mrd. Yuan. Grund sind Vorauszahlungen für KI-Rechenleistung, die Aktie fiel am Donnerstag auf rund 350 HK$. Im Chart entscheidet jetzt das Tief vom August 2024 bei 349 HK$.",
+ "hashtags": [
+  "#tencent",
+  "#aktien",
+  "#börse",
+  "#quartalszahlen",
+  "#0700"
+ ]
+}
