@@ -1,0 +1,92 @@
+{
+ "datum": "2026-11-20",
+ "ticker": "INTU",
+ "name": "Intuit",
+ "thema": "Quartalszahlen",
+ "stand": "19.11.2026",
+ "slides": [
+  {
+   "typ": "hook",
+   "kicker": "INTUIT · QUARTALSZAHLEN",
+   "titel": "Minus 10 % nach Zahlen: Was ist bei Intuit los?",
+   "text": "Am Donnerstagabend kamen die Zahlen zum ersten Geschäftsquartal. Umsatz und Gewinn lagen über dem eigenen Ziel. Der Ausblick enttäuschte, nachbörslich fiel die Aktie um rund 10 %.",
+   "kpis": [
+    {"label": "KURS", "wert": "310.02 $"},
+    {"label": "NACHBÖRSLICH", "wert": "−9.5 %", "ton": "rot"},
+    {"label": "UMSATZ Q1", "wert": "+12 %", "ton": "gruen"}
+   ]
+  },
+  {
+   "typ": "firma",
+   "kicker": "WAS DIE FIRMA MACHT",
+   "titel": "Software rund ums Geld",
+   "text": "Mit TurboTax machen viele Menschen in den USA ihre Steuererklärung. Mit QuickBooks führen kleine Firmen ihre Buchhaltung. Dazu gehört Credit Karma, eine App für Kredite und Bonität.",
+   "fakten": [
+    {"label": "Sitz", "wert": "Mountain View, USA"},
+    {"label": "Grösstes Geschäft", "wert": "QuickBooks"},
+    {"label": "Umsatz Q1", "wert": "4.35 Mrd. $"}
+   ]
+  },
+  {
+   "typ": "zahlen",
+   "kicker": "WAS DIE ZAHLEN ZEIGEN",
+   "titel": "Gute Zahlen, schwacher Ausblick",
+   "quelle": "Quelle: Intuit, Q1-Zahlen vom 19.11.2026",
+   "zeilen": [
+    {"k": "Umsatz", "sub": "4.35 Mrd. $, Ziel war bis 4.31 Mrd.", "wert": "+12 %", "ton": "gruen"},
+    {"k": "Gewinn pro Aktie", "sub": "bereinigt, 2.91 $", "wert": "+56 %", "ton": "gruen"},
+    {"k": "QuickBooks Online", "sub": "1.4 Mrd. $", "wert": "+19 %", "ton": "gruen"},
+    {"k": "Ausblick Q2", "sub": "Umsatz 4.93 bis 4.95 Mrd. $", "wert": "+6 bis 7 %", "ton": "orange"}
+   ],
+   "erklaerung": "Wegen einer Änderung bei Credit Karma senkt Intuit das Umsatzziel fürs Jahr. Mailchimp wird für 3.68 Mrd. $ verkauft."
+  },
+  {
+   "typ": "skala",
+   "kicker": "AMPEL 1: QUALITÄT",
+   "titel": "Starke Marge, mehr Zweifel",
+   "name": "Qualität",
+   "wert": 68,
+   "punkte": [
+    "QuickBooks Online wuchs um 19 %. Das ist das wichtigste Geschäft von Intuit.",
+    "Von 100 $ Umsatz blieben im Quartal bereinigt rund 24 $ Betriebsgewinn.",
+    "Analysten haben ihre Gewinnschätzung fürs laufende Jahr in 90 Tagen um 12.7 % gesenkt."
+   ]
+  },
+  {
+   "typ": "skala",
+   "kicker": "STRUKTUR IM WOCHENCHART",
+   "titel": "Seitwärts seit August",
+   "name": "Timing",
+   "wert": 24,
+   "punkte": [
+    "Seit 13 Wochen läuft die Aktie in einer Range zwischen 275.79 und 358.06 $.",
+    "Ende August fiel der Kurs wieder unter das Tief vom Februar bei 349 $.",
+    "Anfang November scheiterte ein Ausbruch nach oben. Das deutet eher auf Verkäufer hin."
+   ]
+  },
+  {
+   "typ": "marke",
+   "kicker": "DIE ENTSCHEIDENDE MARKE",
+   "titel": "Die Unterkante der Range",
+   "text": "Seit August kam der Kurs jedes Mal über 275.79 $ zurück. Nachbörslich lag Intuit am Donnerstag bei rund 280 $, also knapp darüber.",
+   "marke_label": "UNTERKANTE RANGE",
+   "marke": "275.79 $",
+   "szenarien": [
+    {"art": "bruch", "titel": "Bricht sie", "text": "Ein Wochenschluss darunter beendet die Range nach unten. Die nächste Haltestelle wäre das Tief vom Juni bei 252.84 $."},
+    {"art": "halten", "titel": "Hält sie", "text": "Dann bleibt die Range intakt. Ein Wochenschluss über 349 $ wäre für mich ein erstes Zeichen von Stärke."}
+   ]
+  },
+  {
+   "typ": "fazit",
+   "kicker": "MEIN FAZIT",
+   "titel": "Solide Firma, unsichere Phase",
+   "absaetze": [
+    "QuickBooks wächst um fast 20 % und der Gewinn steigt kräftig. Die Börse schaut aber auf den Ausblick, und der zeigt ein langsameres Wachstum.",
+    "Mit dem Verkauf von Mailchimp will sich Intuit auf Software für Firmen konzentrieren. Ich beobachte, ob die Unterkante bei 275.79 $ hält."
+   ],
+   "frage": "Ist Intuit nach dem Rückgang für dich spannend oder zu riskant? Deine Meinung in die Kommentare."
+  }
+ ],
+ "caption": "Intuit fällt nachbörslich um rund 10 %, obwohl Umsatz und Gewinn über dem eigenen Ziel lagen. Im zweiten Quartal soll der Umsatz nur noch um 6 bis 7 % wachsen, dazu verkauft Intuit Mailchimp für 3.68 Mrd. $. Im Chart entscheidet jetzt die Unterkante der Range bei 275.79 $.",
+ "hashtags": ["#intuit", "#aktien", "#börse", "#quartalszahlen", "#intu"]
+}
