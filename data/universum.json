@@ -1,5 +1,5 @@
 {
-"stand": "2026-11-14",
+"stand": "2026-11-21",
 "stufe": 2,
 "anzahl": 2281,
 "aktien": [
@@ -5666,16 +5666,6 @@
 ]
 },
 {
-"symbol": "BKH",
-"name": "Black Hills Corporation",
-"sektor_quelle": "Utilities",
-"region": "USA",
-"land": "USA",
-"indizes": [
-"S&P 400"
-]
-},
-{
 "symbol": "BKNG",
 "name": "Booking Holdings",
 "sektor_quelle": "Consumer Discretionary",
@@ -6949,6 +6939,16 @@
 "symbol": "CHWY",
 "name": "Chewy",
 "sektor_quelle": "Consumer Discretionary",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 400"
+]
+},
+{
+"symbol": "CHYM",
+"name": "Chime Financial",
+"sektor_quelle": "Financials",
 "region": "USA",
 "land": "USA",
 "indizes": [
@@ -12050,6 +12050,16 @@
 ]
 },
 {
+"symbol": "HZN",
+"name": "Bright Horizon Energy Corporation",
+"sektor_quelle": "Utilities",
+"region": "USA",
+"land": "USA",
+"indizes": [
+"S&P 400"
+]
+},
+{
 "symbol": "IAD.L",
 "name": "Invesco Asia Dragon Trust",
 "sektor_quelle": "Investment Trusts",
@@ -15815,16 +15825,6 @@
 "symbol": "NVT",
 "name": "nVent Electric plc",
 "sektor_quelle": "Industrials",
-"region": "USA",
-"land": "USA",
-"indizes": [
-"S&P 400"
-]
-},
-{
-"symbol": "NWE",
-"name": "NorthWestern Energy",
-"sektor_quelle": "Utilities",
 "region": "USA",
 "land": "USA",
 "indizes": [
