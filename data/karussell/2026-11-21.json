@@ -1,0 +1,146 @@
+{
+ "datum": "2026-11-21",
+ "ticker": "HPE",
+ "name": "HPE",
+ "thema": "Wochenrückblick",
+ "stand": "20.11.2026",
+ "slides": [
+  {
+   "typ": "hook",
+   "kicker": "HPE · WOCHENRÜCKBLICK",
+   "titel": "Minus 15.3 % in einer Woche: Was ist bei HPE los?",
+   "text": "Am Freitag fiel HPE um 10.1 %, der S&P 500 verlor 3.7 %. Die US-Flugsicherung baut vorerst keine Juniper-Router mehr ein, Juniper gehört zu HPE. Am Montag kommen die Quartalszahlen.",
+   "kpis": [
+    {
+     "label": "KURS",
+     "wert": "40.91 $"
+    },
+    {
+     "label": "DIESE WOCHE",
+     "wert": "−15.3 %",
+     "ton": "rot"
+    },
+    {
+     "label": "SEIT DEM HOCH",
+     "wert": "−44.4 %",
+     "ton": "rot"
+    }
+   ]
+  },
+  {
+   "typ": "firma",
+   "kicker": "WAS DIE FIRMA MACHT",
+   "titel": "Technik für Rechenzentren",
+   "text": "Hewlett Packard Enterprise verkauft Server und Netzwerktechnik an Firmen und Rechenzentren. Mit dem Kauf von Juniper ist das Netzwerkgeschäft stark gewachsen. Am meisten Umsatz bringen aber die Server, auch für KI.",
+   "fakten": [
+    {
+     "label": "Sitz",
+     "wert": "Houston, USA"
+    },
+    {
+     "label": "Chef",
+     "wert": "Antonio Neri"
+    },
+    {
+     "label": "Nächste Zahlen",
+     "wert": "23.11.2026"
+    }
+   ]
+  },
+  {
+   "typ": "zahlen",
+   "kicker": "WAS DIE ZAHLEN ZEIGEN",
+   "titel": "Das Geschäft wuchs kräftig",
+   "quelle": "Quelle: HPE, Q3-Zahlen vom 02.09.2026",
+   "zeilen": [
+    {
+     "k": "Umsatz",
+     "sub": "Mai bis Juli, 12.2 Mrd. $",
+     "wert": "+34 %",
+     "ton": "gruen"
+    },
+    {
+     "k": "Netzwerk",
+     "sub": "2.9 Mrd. $ Umsatz",
+     "wert": "+75 %",
+     "ton": "gruen"
+    },
+    {
+     "k": "Server",
+     "sub": "6.8 Mrd. $ Umsatz",
+     "wert": "+35 %",
+     "ton": "gruen"
+    },
+    {
+     "k": "Gewinn pro Aktie",
+     "sub": "bereinigt 1.11 $ statt 0.44 $",
+     "wert": "+152 %",
+     "ton": "gruen"
+    }
+   ],
+   "erklaerung": "Für August bis Oktober erwartet HPE 13.9 bis 14.8 Mrd. $ Umsatz. Diese Zahlen kommen am Montag."
+  },
+  {
+   "typ": "skala",
+   "kicker": "AMPEL 1: QUALITÄT",
+   "titel": "Gute Marge, wenig Rendite",
+   "name": "Qualität",
+   "wert": 51,
+   "punkte": [
+    "Von jedem Umsatzdollar blieben zuletzt 40 Cent als Bruttogewinn. Ein Jahr zuvor waren es knapp 30 Cent.",
+    "Als freier Cashflow blieben im Quartal 1.0 Mrd. $, also gut 8 Cent pro Umsatzdollar.",
+    "Auf das eingesetzte Kapital verdient HPE wenig. Dafür gibt es in meiner Ampel kaum Punkte."
+   ]
+  },
+  {
+   "typ": "skala",
+   "kicker": "STRUKTUR IM WOCHENCHART",
+   "titel": "Abwärtstrend seit Oktober",
+   "name": "Timing",
+   "wert": 28,
+   "punkte": [
+    "Anfang Oktober lag das Hoch bei 73.56 $. Seither bildet HPE tiefere Hochs und tiefere Tiefs.",
+    "Diese Woche brach der Kurs die Unterstützung bei 45.70 $.",
+    "Jetzt testet HPE das Tief vom Juli. Der RSI im Tageschart steht bei 29, also überverkauft."
+   ]
+  },
+  {
+   "typ": "marke",
+   "kicker": "DIE ENTSCHEIDENDE MARKE",
+   "titel": "Das Tief vom Juli",
+   "text": "Bei 40.72 $ lag Anfang Juli das Tief. Am Freitag schloss HPE nur 0.5 % darüber.",
+   "marke_label": "TIEF VOM JULI",
+   "marke": "40.72 $",
+   "szenarien": [
+    {
+     "art": "bruch",
+     "titel": "Bricht sie",
+     "text": "Darunter gibt es im Wochenchart kaum Haltestellen. Die nächste ist die Range von August bis November 2025 bei 22.45 bis 24.99 $."
+    },
+    {
+     "art": "halten",
+     "titel": "Hält sie",
+     "text": "Dann könnte sich hier ein Boden bilden. Ein Wochenschluss über 45.82 $ wäre für mich ein erstes Zeichen, davor liegt Widerstand bei 43.30 $."
+    }
+   ]
+  },
+  {
+   "typ": "fazit",
+   "kicker": "MEIN FAZIT",
+   "titel": "Wachstum trifft Abwärtstrend",
+   "absaetze": [
+    "Das Geschäft wuchs zuletzt kräftig, und im September hat HPE den Ausblick erhöht. Der Chart zeigt aber seit Oktober eine klare Abwärtsstruktur, und die Qualität ist in meiner Ampel nur gelb.",
+    "Am Montag zählt für mich der Ausblick. Ich beobachte, ob das Tief vom Juli bei 40.72 $ hält."
+   ],
+   "frage": "Ist der Absturz von HPE für dich übertrieben oder berechtigt? Deine Meinung in die Kommentare."
+  }
+ ],
+ "caption": "HPE verliert in einer Woche 15.3 % und schliesst bei 40.91 $, knapp über dem Tief vom Juli. Am Freitag fiel die Aktie um 10.1 %, dazu ruht der Einbau von Juniper-Routern bei der US-Flugsicherung. Am Montag kommen die Quartalszahlen, im Chart entscheidet jetzt die Marke bei 40.72 $.",
+ "hashtags": [
+  "#hewlettpackardenterprise",
+  "#aktien",
+  "#börse",
+  "#wochenrückblick",
+  "#hpe"
+ ]
+}
