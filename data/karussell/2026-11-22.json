@@ -1,0 +1,145 @@
+{
+ "datum": "2026-11-22",
+ "ticker": "COST",
+ "name": "Costco",
+ "thema": "Ampel-Check",
+ "stand": "20.11.2026",
+ "slides": [
+  {
+   "typ": "hook",
+   "kicker": "COSTCO · AMPEL-CHECK",
+   "titel": "Plus 24.8 % seit September: Wie stark ist Costco?",
+   "text": "Im September fiel Costco bis auf 883.10 $. Seither ist die Aktie fast ohne Pause gestiegen und hat das Hoch vom Mai überwunden. Heute ein ruhiger Blick auf das Geschäft und den Chart.",
+   "kpis": [
+    {
+     "label": "KURS",
+     "wert": "1102.15 $"
+    },
+    {
+     "label": "SEIT DEM SEPT.-TIEF",
+     "wert": "+24.8 %",
+     "ton": "gruen"
+    },
+    {
+     "label": "UNTER DEM HOCH",
+     "wert": "−1.9 %"
+    }
+   ]
+  },
+  {
+   "typ": "firma",
+   "kicker": "WAS DIE FIRMA MACHT",
+   "titel": "Einkaufen nur mit Mitgliederkarte",
+   "text": "Costco betreibt grosse Lagerhallen-Märkte. Einkaufen darf dort nur, wer jedes Jahr eine Gebühr zahlt. Die Waren verkauft Costco fast zum Einkaufspreis, einen grossen Teil des Gewinns liefern die Mitgliedsgebühren.",
+   "fakten": [
+    {
+     "label": "Sitz",
+     "wert": "Issaquah, USA"
+    },
+    {
+     "label": "Lagerhallen",
+     "wert": "943 weltweit"
+    },
+    {
+     "label": "Umsatz 2026",
+     "wert": "297.2 Mrd. $"
+    }
+   ]
+  },
+  {
+   "typ": "zahlen",
+   "kicker": "WAS DIE ZAHLEN ZEIGEN",
+   "titel": "Der Umsatz wächst zweistellig",
+   "quelle": "Quelle: Costco, 24.09. und 04.11.2026",
+   "zeilen": [
+    {
+     "k": "Umsatz",
+     "sub": "16 Wochen bis August, 93.9 Mrd. $",
+     "wert": "+11.2 %",
+     "ton": "gruen"
+    },
+    {
+     "k": "Gewinn pro Aktie",
+     "sub": "6.75 $ statt 5.87 $",
+     "wert": "+15 %",
+     "ton": "gruen"
+    },
+    {
+     "k": "Mitgliedsgebühren",
+     "sub": "1.85 statt 1.72 Mrd. $",
+     "wert": "+7.3 %",
+     "ton": "orange"
+    },
+    {
+     "k": "Umsatz Oktober",
+     "sub": "vier Wochen, 24.50 Mrd. $",
+     "wert": "+12.6 %",
+     "ton": "gruen"
+    }
+   ],
+   "erklaerung": "0.15 $ des Gewinns pro Aktie kamen einmalig aus zurückbezahlten US-Zöllen."
+  },
+  {
+   "typ": "skala",
+   "kicker": "AMPEL 1: QUALITÄT",
+   "titel": "Top-Geschäft, stolzer Preis",
+   "name": "Qualität",
+   "wert": 75,
+   "punkte": [
+    "Von 100 $ Umsatz bleiben rund 3.85 $ Betriebsgewinn. Das ist gewollt, tiefe Preise halten die Mitglieder treu.",
+    "Auf das eingesetzte Kapital verdient Costco rund 39 % im Jahr. Bargeld: 12.7 Mrd. $ mehr als Schulden.",
+    "Die Aktie kostet rund 53 Jahresgewinne (KGV). Das ist teuer."
+   ]
+  },
+  {
+   "typ": "skala",
+   "kicker": "STRUKTUR IM WOCHENCHART",
+   "titel": "Ausbruch über das Mai-Hoch",
+   "name": "Timing",
+   "wert": 53,
+   "punkte": [
+    "Das Tief vom September bei 883.10 $ lag über dem Tief vom Dezember 2025 bei 844.06 $.",
+    "Am 13. November schloss Costco bei 1106.21 $, erstmals über dem Mai-Hoch von 1096 $. Die Struktur ist nach oben gebrochen.",
+    "Der RSI der Woche steht bei 72, die Aktie ist heiss gelaufen."
+   ]
+  },
+  {
+   "typ": "marke",
+   "kicker": "DIE ENTSCHEIDENDE MARKE",
+   "titel": "Das Tief vom März",
+   "text": "Im März fiel Costco bis auf 966 $. Heute liegt der Kurs 14.1 % darüber.",
+   "marke_label": "TIEF VOM MÄRZ",
+   "marke": "966.00 $",
+   "szenarien": [
+    {
+     "art": "bruch",
+     "titel": "Bricht sie",
+     "text": "Schliesst eine Woche darunter, ist der Aufwärtstrend angeschlagen. Nächste Haltestelle ist das September-Tief bei 883.10 $."
+    },
+    {
+     "art": "halten",
+     "titel": "Hält sie",
+     "text": "Der Aufwärtstrend bleibt intakt. Ein Rücksetzer auf das alte Mai-Hoch bei 1096 $ wäre ein Test des Ausbruchs. Hält diese Marke, wäre das für mich ein Zeichen von Stärke."
+    }
+   ]
+  },
+  {
+   "typ": "fazit",
+   "kicker": "MEIN FAZIT",
+   "titel": "Starke Firma, Chart heiss gelaufen",
+   "absaetze": [
+    "Costco wächst zweistellig und hat mehr Bargeld als Schulden. Weniger gefällt mir der Preis: Mit einem KGV um 53 ist viel Zuversicht schon im Kurs.",
+    "Im Chart sehe ich einen sauberen Ausbruch über 1096 $. Nach 24.8 % in gut zwei Monaten beobachte ich, ob ein Rücksetzer an dieser Marke hält."
+   ],
+   "frage": "Würdest du für das Einkaufen eine Jahresgebühr zahlen? Deine Meinung in die Kommentare."
+  }
+ ],
+ "caption": "Costco ist seit dem Tief im September um 24.8 % gestiegen und steht nur 1.9 % unter dem Hoch. Im letzten Quartal wuchs der Umsatz um 11.2 %, im Oktober sogar um 12.6 %. Im Chart hat die Aktie das Mai-Hoch bei 1096 $ überwunden, die entscheidende Marke liegt beim März-Tief von 966 $.",
+ "hashtags": [
+  "#costco",
+  "#aktien",
+  "#börse",
+  "#ampelcheck",
+  "#cost"
+ ]
+}
