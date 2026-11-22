@@ -1,6 +1,16 @@
 {
  "karussells": [
   {
+   "datum": "2026-11-22",
+   "ticker": "COST",
+   "name": "Costco",
+   "thema": "Ampel-Check",
+   "titel": "Plus 24.8 % seit September: Wie stark ist Costco?",
+   "bilder": 7,
+   "caption": "Costco ist seit dem Tief im September um 24.8 % gestiegen und steht nur 1.9 % unter dem Hoch. Im letzten Quartal wuchs der Umsatz um 11.2 %, im Oktober sogar um 12.6 %. Im Chart hat die Aktie das Mai-Hoch bei 1096 $ überwunden, die entscheidende Marke liegt beim März-Tief von 966 $.\n\nPersönliche Meinung, keine Anlageberatung. Mach deine eigene Recherche.\n\n#costco #aktien #börse #ampelcheck #cost",
+   "eigene_position": false
+  },
+  {
    "datum": "2026-11-21",
    "ticker": "HPE",
    "name": "HPE",
