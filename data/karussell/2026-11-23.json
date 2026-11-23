@@ -1,0 +1,92 @@
+{
+ "datum": "2026-11-23",
+ "ticker": "TSLA",
+ "name": "Tesla",
+ "thema": "Kursbewegung",
+ "stand": "20.11.2026",
+ "slides": [
+  {
+   "typ": "hook",
+   "kicker": "TESLA · KURSBEWEGUNG",
+   "titel": "Minus 7.6 % an einem Tag: Was ist bei Tesla los?",
+   "text": "Am Freitag fiel Tesla auf 345.82 $. Die ganze Tech-Börse brach ein, der Nasdaq verlor 5.28 %. Dazu prüfen Tesla und SpaceX eine Fusion.",
+   "kpis": [
+    {"label": "KURS", "wert": "345.82 $"},
+    {"label": "AM FREITAG", "wert": "−7.64 %", "ton": "rot"},
+    {"label": "IN EINER WOCHE", "wert": "−11.38 %", "ton": "rot"}
+   ]
+  },
+  {
+   "typ": "firma",
+   "kicker": "WAS DIE FIRMA MACHT",
+   "titel": "Elektroautos und Stromspeicher",
+   "text": "Tesla baut Elektroautos und grosse Batteriespeicher für Stromnetze. Dazu entwickelt die Firma selbstfahrende Autos und bietet in einigen Städten Robotaxi-Fahrten an.",
+   "fakten": [
+    {"label": "Sitz", "wert": "Austin, USA"},
+    {"label": "Autos Q3", "wert": "486'532 ausgeliefert"},
+    {"label": "Umsatz Q3", "wert": "28.05 Mrd. $"}
+   ]
+  },
+  {
+   "typ": "zahlen",
+   "kicker": "WAS DIE ZAHLEN ZEIGEN",
+   "titel": "Umsatz flach, Gewinn tiefer",
+   "quelle": "Quelle: Tesla, Q3-Zahlen vom 21.10.2026",
+   "zeilen": [
+    {"k": "Umsatz", "sub": "Juli bis September, 28.05 Mrd. $", "wert": "±0 %", "ton": "orange"},
+    {"k": "Autos", "sub": "20.6 Mrd. $ Umsatz", "wert": "−3 %", "ton": "orange"},
+    {"k": "Energie", "sub": "Batteriespeicher, 2.88 Mrd. $", "wert": "−16 %", "ton": "rot"},
+    {"k": "Reingewinn", "sub": "787 Mio. $", "wert": "−43 %", "ton": "rot"}
+   ],
+   "erklaerung": "Die Auslieferungen sanken um 2.1 %. Gleichzeitig stiegen die Ausgaben für Forschung um 69 % auf 2.76 Mrd. $."
+  },
+  {
+   "typ": "skala",
+   "kicker": "AMPEL 1: QUALITÄT",
+   "titel": "Viel Umsatz, wenig Marge",
+   "name": "Qualität",
+   "wert": 34,
+   "punkte": [
+    "Von 100 $ Umsatz blieben im dritten Quartal nur 2.60 $ Betriebsgewinn. Vor einem Jahr waren es 5.80 $.",
+    "Investitionen kosteten 4.73 Mrd. $. Danach blieben 1.53 Mrd. $ freier Cashflow, 62 % weniger als vor einem Jahr.",
+    "Mit 45.4 Mrd. $ an Geld und Anlagen steht Tesla finanziell solide da."
+   ]
+  },
+  {
+   "typ": "skala",
+   "kicker": "STRUKTUR IM WOCHENCHART",
+   "titel": "Ausbruch wieder abgegeben",
+   "name": "Timing",
+   "wert": 44,
+   "punkte": [
+    "Seit dem Hoch vom Dezember 2025 bei 498.83 $ macht Tesla tiefere Hochs und tiefere Tiefs.",
+    "Anfang November stieg der Kurs über das Mai-Hoch 2025 von 367.71 $. Am Freitag fiel er wieder darunter, der RSI liegt bei 37.8.",
+    "Seit Ende Juli pendelt Tesla zwischen 328.58 und 399.81 $. Das Muster deutet eher auf Verkäufer hin."
+   ]
+  },
+  {
+   "typ": "marke",
+   "kicker": "DIE ENTSCHEIDENDE MARKE",
+   "titel": "Unterkante der Range",
+   "text": "Seit Ende Juli schliesst keine Woche darunter. Der Kurs liegt 5.2 % darüber.",
+   "marke_label": "UNTERKANTE",
+   "marke": "328.58 $",
+   "szenarien": [
+    {"art": "bruch", "titel": "Bricht sie", "text": "Haltestellen: das Juli-Tief bei 297.38 $, dann das alte Hoch vom März 2025 bei 291.85 $."},
+    {"art": "halten", "titel": "Hält sie", "text": "Ein Wochenschluss über 367.71 $ wäre für mich ein Zeichen von Stärke."}
+   ]
+  },
+  {
+   "typ": "fazit",
+   "kicker": "MEIN FAZIT",
+   "titel": "Grosser Name, dünner Gewinn",
+   "absaetze": [
+    "Der Absturz am Freitag kam vor allem vom Markt. Nvidia verlor 14 %, der Nasdaq 5.28 %. Bei Tesla schrumpft dazu der Gewinn, weil die Firma viel Geld in Robotaxi und KI steckt.",
+    "Die Gespräche über eine Fusion mit SpaceX machen die Aktie schwerer einzuschätzen, Bedingungen gibt es noch keine. Ich beobachte, ob Tesla über 328.58 $ bleibt."
+   ],
+   "frage": "Wäre eine Fusion mit SpaceX gut für Tesla? Deine Meinung in die Kommentare."
+  }
+ ],
+ "caption": "Tesla fiel am Freitag um 7.64 % auf 345.82 $, in einer Woche sind es minus 11.38 %. Die ganze Tech-Börse brach ein, dazu prüfen Tesla und SpaceX eine Fusion. Im dritten Quartal sank der Reingewinn um 43 %. Im Chart entscheidet jetzt die Unterkante der Range bei 328.58 $.",
+ "hashtags": ["#tesla", "#aktien", "#börse", "#kursbewegung", "#tsla"]
+}
