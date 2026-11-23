@@ -224,6 +224,14 @@
     "id": "18114873953172618",
     "zeit": "2026-11-22T18:01:53+01:00"
    }
+  },
+  "2026-11-23": {
+   "quelle": "karussell/2026-11-23",
+   "instagram": {
+    "id": "17902444770673955",
+    "zeit": "2026-11-23T07:30:37+01:00",
+    "hinweis": "trotz Fehlermeldung online: Instagram 17841471326098764/media_publish: 403 {'error': {'message': 'Application request limit reached', 'code': 4, 'type': 'OAuthException', 'error_subcode': 2207051, 'is_transient': False, 'error_u"
+   }
   }
  },
  "reserve_benutzt": []
