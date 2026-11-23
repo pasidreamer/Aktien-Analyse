@@ -1,5 +1,5 @@
 {
- "stand": "2026-11-18",
+ "stand": "2026-11-23",
  "hinweis": "Kurze Auswertung der Quartalszahlen. Reaktion rechnet die App aus den Kursen.",
  "eintraege": {
   "GOOGL": [
@@ -2786,6 +2786,99 @@
      {
       "t": "Tencent Pressemitteilung Q3 2026 (PDF)",
       "u": "https://www.tencent.com/wp-content/uploads/2026/11/Tencent-Announces-2026-Third-Quarter-Results.pdf"
+     }
+    ]
+   }
+  ],
+  "HPE": [
+   {
+    "datum": "2026-11-23",
+    "zeit": "nach",
+    "quartal": "Q4 Geschäftsjahr 2026",
+    "reaktion_quelle": -2.4,
+    "titel": "Umsatz +50 %, Ausblick klar angehoben, Aktie gibt nach",
+    "kurz": "Umsatz und Gewinn lagen über der Erwartung, und HPE hebt den Ausblick für 2027 deutlich an. Nach einem Tagesplus von über 18 % fiel die Aktie nachbörslich je nach Quelle um 2 bis 6 %.",
+    "zahlen": [
+     {
+      "k": "Umsatz",
+      "ist": "14.5 Mrd. $ (+50 %)",
+      "erw": "14.35 bis 14.47 Mrd. $",
+      "urteil": "übertroffen"
+     },
+     {
+      "k": "EPS bereinigt (Gewinn pro Aktie ohne Sondereffekte)",
+      "ist": "1.43 $",
+      "erw": "1.27 bis 1.28 $",
+      "urteil": "übertroffen"
+     },
+     {
+      "k": "Server (vor allem KI-Server)",
+      "ist": "8.8 Mrd. $ (+95 %)",
+      "erw": "",
+      "urteil": "sehr stark"
+     },
+     {
+      "k": "Netzwerk",
+      "ist": "3.1 Mrd. $ (+12 %)",
+      "erw": "",
+      "urteil": "Marge leicht tiefer (22.1 % statt 23.4 %)"
+     },
+     {
+      "k": "Bruttomarge bereinigt (Anteil nach Herstellkosten)",
+      "ist": "38.2 %",
+      "erw": "",
+      "urteil": "2.2 Prozentpunkte tiefer als im Vorquartal"
+     },
+     {
+      "k": "Ausblick Q1 2027 Umsatz",
+      "ist": "14.0 bis 14.6 Mrd. $",
+      "erw": "12.8 bis 13.0 Mrd. $",
+      "urteil": "übertroffen"
+     },
+     {
+      "k": "Ausblick 2027 EPS bereinigt",
+      "ist": "5.05 bis 5.35 $",
+      "erw": "4.74 bis 4.77 $",
+      "urteil": "angehoben"
+     },
+     {
+      "k": "Ausblick 2027 Free Cashflow",
+      "ist": "mindestens 5.5 Mrd. $",
+      "erw": "vorher mindestens 5.0 Mrd. $",
+      "urteil": "angehoben"
+     }
+    ],
+    "gut": [
+     "Der Serverumsatz hat sich fast verdoppelt auf 8.8 Mrd. $. Das Geschäft Cloud und KI wuchs 69 % und die Marge dort stieg von 9.3 % auf 18.4 %.",
+     "Free Cashflow (Geld, das nach allen Investitionen übrig bleibt) im ganzen Jahr 4.5 Mrd. $, mehr als viermal so viel wie im Vorjahr (1.0 Mrd. $).",
+     "Dividende steigt auf 0.17 $ pro Quartal (vorher 0.1425 $), dazu 5 Mrd. $ mehr für Aktienrückkäufe. Mindestens 75 % des Free Cashflow 2027 sollen an die Aktionäre gehen."
+    ],
+    "sorgen": [
+     "Die Bruttomarge sinkt gegenüber dem Vorquartal von 40.4 % auf 38.2 %. KI-Server bringen viel Umsatz, aber weniger Marge pro Dollar.",
+     "Netzwerk wächst nur 12 % und die Marge dort ist leicht gesunken. Der Bereich Sicherheit schrumpfte sogar (minus 2 %).",
+     "Die Aktie schwankt extrem: am Freitag minus 10 %, am Montag über 18 % plus. Viel Erwartung ist schon im Kurs, darum reichen auch gute Zahlen nicht für weitere Gewinne."
+    ],
+    "fazit": "Eher Gewinnmitnahme als echte Verschlechterung: Zahlen und Ausblick sind klar besser als erwartet, die einzige echte Schwachstelle ist die sinkende Bruttomarge durch das KI-Servergeschäft.",
+    "quellen": [
+     {
+      "t": "HPE Pressemitteilung Q4 GJ 2026 (Business Wire, 23.11.2026)",
+      "u": "https://www.businesswire.com/news/home/20261123129850/en/HPE-reports-fiscal-2026-fourth-quarter-results"
+     },
+     {
+      "t": "Yahoo Finance: HPE reports fiscal 2026 fourth quarter results",
+      "u": "https://finance.yahoo.com/markets/stocks/articles/hpe-reports-fiscal-2026-fourth-210500319.html"
+     },
+     {
+      "t": "Investing.com: HPE fällt nachbörslich trotz Zahlen über der Erwartung",
+      "u": "https://www.investing.com/news/earnings/hpe-stocks-falls-after-hours-despite-quarterly-results-guidance-beat-5046357"
+     },
+     {
+      "t": "Seeking Alpha: HPE falls even as Q4 results, guidance top estimates",
+      "u": "https://seekingalpha.com/news/4675761-hpe-falls-even-as-q4-results-guidance-top-estimates-by-wide-margin"
+     },
+     {
+      "t": "TipRanks: HPE Stock Dips Despite Strong Earnings Results",
+      "u": "https://www.tipranks.com/news/hpe-stock-dips-despite-strong-earnings-results"
      }
     ]
    }
