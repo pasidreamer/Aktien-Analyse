@@ -1,0 +1,92 @@
+{
+ "datum": "2026-11-24",
+ "ticker": "A",
+ "name": "Agilent",
+ "thema": "Quartalszahlen",
+ "stand": "23.11.2026",
+ "slides": [
+  {
+   "typ": "hook",
+   "kicker": "AGILENT · QUARTALSZAHLEN",
+   "titel": "Erstmals 2 Mrd. $ Umsatz: Wie stark ist Agilent?",
+   "text": "Agilent hat gestern Abend Zahlen gemeldet. Umsatz und Gewinn lagen über den Erwartungen, nachbörslich stieg die Aktie auf rund 190 $.",
+   "kpis": [
+    {"label": "KURS", "wert": "176.04 $"},
+    {"label": "NACHBÖRSLICH", "wert": "+7.9 %", "ton": "gruen"},
+    {"label": "UMSATZ Q4", "wert": "+9.6 %", "ton": "gruen"}
+   ]
+  },
+  {
+   "typ": "firma",
+   "kicker": "WAS DIE FIRMA MACHT",
+   "titel": "Geräte für Labore",
+   "text": "Agilent baut Messgeräte für Labore. Pharmafirmen prüfen damit Medikamente, Behörden testen Wasser und Lebensmittel. Ein grosser Teil des Umsatzes kommt aus Service, Ersatzteilen und Verbrauchsmaterial.",
+   "fakten": [
+    {"label": "Sitz", "wert": "Santa Clara, USA"},
+    {"label": "Mitarbeitende", "wert": "rund 18'000"},
+    {"label": "Umsatz 2026", "wert": "7.55 Mrd. $"}
+   ]
+  },
+  {
+   "typ": "zahlen",
+   "kicker": "WAS DIE ZAHLEN ZEIGEN",
+   "titel": "Rekordquartal mit mehr Marge",
+   "quelle": "Quelle: Agilent, Q4-Zahlen vom 23.11.2026",
+   "zeilen": [
+    {"k": "Umsatz", "sub": "August bis Oktober, 2.04 Mrd. $", "wert": "+9.6 %", "ton": "gruen"},
+    {"k": "Gewinn je Aktie", "sub": "bereinigt, 1.86 $", "wert": "+17 %", "ton": "gruen"},
+    {"k": "Betriebsmarge", "sub": "bereinigt, 30.0 % statt 27.2 %", "wert": "+2.8 Pkt.", "ton": "gruen"},
+    {"k": "Ausblick 2027", "sub": "Umsatz 8.00 bis 8.15 Mrd. $", "wert": "+6 bis 8 %", "ton": "orange"}
+   ],
+   "erklaerung": "Im Gewinn stecken 0.07 $ je Aktie aus zurückerstatteten Zöllen. Ohne diesen Effekt wuchs er um rund 13 %."
+  },
+  {
+   "typ": "skala",
+   "kicker": "AMPEL 1: QUALITÄT",
+   "titel": "Solide, aber teuer",
+   "name": "Qualität",
+   "wert": 47,
+   "punkte": [
+    "Von 100 $ Umsatz bleiben rund 17 $ als freier Cashflow. Im Geschäftsjahr 2026 waren das etwa 1.3 Mrd. $.",
+    "Über drei Jahre wuchs der Umsatz im Schnitt nur um 0.5 % pro Jahr. Erst 2026 zog das Wachstum auf 8.7 % an.",
+    "Zum Schlusskurs kostet die Aktie rund 26-mal den Gewinn, den Agilent für 2027 erwartet."
+   ]
+  },
+  {
+   "typ": "skala",
+   "kicker": "STRUKTUR IM WOCHENCHART",
+   "titel": "Range vor dem Ausbruch",
+   "name": "Timing",
+   "wert": 58,
+   "punkte": [
+    "Im September brach Agilent über das alte Hoch vom November 2025 bei 160.27 $. Seitdem zeigt die Struktur nach oben.",
+    "Seit Ende Juli pendelt der Kurs zwischen 145.97 und 174.87 $. Bisher deuteten die Signale in der Range eher auf Verkäufer hin.",
+    "Am Montag schloss die Aktie mit 176.04 $ knapp über der Oberkante."
+   ]
+  },
+  {
+   "typ": "marke",
+   "kicker": "DIE ENTSCHEIDENDE MARKE",
+   "titel": "Oberkante der Range",
+   "text": "Sie ist seit Ende Juli die Obergrenze der Range. Jetzt zählt, ob der Ausbruch auch auf Wochenbasis hält.",
+   "marke_label": "OBERKANTE",
+   "marke": "174.87 $",
+   "szenarien": [
+    {"art": "bruch", "titel": "Bricht sie", "text": "Fällt der Kurs zurück in die Range, wäre der Ausbruch gescheitert. Haltestelle ist dann die Unterkante bei 145.97 $."},
+    {"art": "halten", "titel": "Hält sie", "text": "Ein Wochenschluss über 174.87 $ wäre für mich ein Zeichen, dass die Käufer die Range gewonnen haben."}
+   ]
+  },
+  {
+   "typ": "fazit",
+   "kicker": "MEIN FAZIT",
+   "titel": "Starkes Quartal, hoher Preis",
+   "absaetze": [
+    "Agilent wächst wieder und verdient pro Dollar Umsatz mehr als vor einem Jahr. Für 2027 plant die Firma etwas ruhiger mit 6 bis 8 % mehr Umsatz.",
+    "Mit dem Sprung nachbörslich ist viel Freude schon im Kurs. Ich beobachte, ob die Aktie diese Woche über 174.87 $ schliesst."
+   ],
+   "frage": "Ist Agilent nach dem Rekordquartal zu teuer geworden? Deine Meinung in die Kommentare."
+  }
+ ],
+ "caption": "Agilent setzt erstmals über 2 Mrd. $ in einem Quartal um, nachbörslich steigt die Aktie um 7.9 %. Der bereinigte Gewinn je Aktie wuchs um 17 % auf 1.86 $. Im Chart entscheidet jetzt die Oberkante der Range bei 174.87 $.",
+ "hashtags": ["#agilent", "#aktien", "#börse", "#quartalszahlen", "#a"]
+}
