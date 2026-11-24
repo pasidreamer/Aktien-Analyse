@@ -1,5 +1,5 @@
 {
- "stand": "2026-11-23",
+ "stand": "2026-11-24",
  "hinweis": "Kurze Auswertung der Quartalszahlen. Reaktion rechnet die App aus den Kursen.",
  "eintraege": {
   "GOOGL": [
@@ -2879,6 +2879,83 @@
      {
       "t": "TipRanks: HPE Stock Dips Despite Strong Earnings Results",
       "u": "https://www.tipranks.com/news/hpe-stock-dips-despite-strong-earnings-results"
+     }
+    ]
+   }
+  ],
+  "1810": [
+   {
+    "datum": "2026-11-24",
+    "zeit": "nach",
+    "quartal": "Q3 2026",
+    "reaktion_quelle": null,
+    "titel": "Gewinn bricht ein, teurer Speicher und weniger Autos",
+    "kurz": "Der Umsatz sank um 5 % auf 107.2 Mrd. RMB, lag aber leicht über der Erwartung. Der bereinigte Gewinn fiel um 57 % und verfehlte die Schätzung, weil Speicherchips teuer sind und Xiaomi weniger Autos verkauft hat. Die Zahlen kamen nach Börsenschluss in Hongkong, die Reaktion zeigt sich am 25.11.2026.",
+    "zahlen": [
+     {
+      "k": "Umsatz",
+      "ist": "107.2 Mrd. RMB (-5.2 %)",
+      "erw": "105.5 Mrd. RMB",
+      "urteil": "übertroffen"
+     },
+     {
+      "k": "Gewinn bereinigt (Non-IFRS, ohne Sondereffekte)",
+      "ist": "4.9 Mrd. RMB (-56.8 %)",
+      "erw": "5.2 Mrd. RMB",
+      "urteil": "verfehlt"
+     },
+     {
+      "k": "Gewinn (den Aktionären zustehend)",
+      "ist": "3.9 Mrd. RMB (-68.4 %)",
+      "erw": "",
+      "urteil": "stark gesunken"
+     },
+     {
+      "k": "Bruttomarge (Anteil vom Umsatz nach Herstellkosten)",
+      "ist": "20.2 % (Vorjahr 22.9 %)",
+      "erw": "",
+      "urteil": "gesunken"
+     },
+     {
+      "k": "Smartphones verkauft",
+      "ist": "30.7 Mio. Stück (-29.1 %)",
+      "erw": "",
+      "urteil": "stark gesunken"
+     },
+     {
+      "k": "Elektroautos ausgeliefert",
+      "ist": "100'975 (-7 %)",
+      "erw": "",
+      "urteil": "gesunken"
+     }
+    ],
+    "gut": [
+     "Der Umsatz lag mit 107.2 Mrd. RMB über der Erwartung von 105.5 Mrd. RMB.",
+     "Ein Handy kostete im Schnitt 1'486 RMB, so viel wie noch nie (+39.8 %). Xiaomi verkauft bewusst weniger billige Geräte, der Handy-Umsatz blieb mit 45.6 Mrd. RMB fast gleich (-0.8 %).",
+     "Das neue SUV SkyNomad bekam im ersten Monat über 70'000 Bestellungen. Xiaomi hat dieses Jahr für rund 13.1 Mrd. HK$ eigene Aktien zurückgekauft und will ab Mitte 2027 Autos in Deutschland verkaufen."
+    ],
+    "sorgen": [
+     "Die Marge bei Handys fiel von 11.1 % auf 9.2 %, weil Speicherchips teurer werden. Firmenpräsident Lu Weibing erwartet hohe Speicherpreise bis mindestens Mitte 2027.",
+     "Der Auto-Umsatz sank um 19.9 % auf 22.7 Mrd. RMB. Der chinesische Automarkt schrumpfte um 24 %, und die Preiskämpfe sind hart.",
+     "Autos, KI und neue Geschäfte machten zusammen 3.4 Mrd. RMB Betriebsverlust. Es war der dritte Quartalsrückgang beim Umsatz in Folge."
+    ],
+    "fazit": "Eher eine echte Veränderung als Panik: Die Firma verkauft weiter gut und teurer, aber teure Speicherchips und der schwache Automarkt in China drücken den Gewinn wohl noch mehrere Quartale, und die Aktie liegt seit Jahresbeginn schon rund ein Drittel im Minus.",
+    "quellen": [
+     {
+      "t": "Reuters: Xiaomi third-quarter profit falls 57% as smartphone sales hit (24.11.2026)",
+      "u": "https://www.1049thewolf.com/2026/11/24/xiaomi-third-quarter-profit-falls-57-as-smartphone-sales-hit/"
+     },
+     {
+      "t": "Communications Today (Reuters): Xiaomi third-quarter profit falls 57% (24.11.2026)",
+      "u": "https://www.communicationstoday.co.in/xiaomi-third-quarter-profit-falls-57-as-smartphone-sales-hit/"
+     },
+     {
+      "t": "The Next Web: Xiaomi's profit falls 68% as memory costs hit its phones and car sales slow (24.11.2026)",
+      "u": "https://thenextweb.com/news/xiaomi-q3-2026-earnings-profit-falls-memory-costs-ev-ai-loss"
+     },
+     {
+      "t": "Dimsum Daily: Xiaomi adjusted net profit falls 56.8% in third quarter (24.11.2026)",
+      "u": "https://www.dimsumdaily.hk/xiaomi-adjusted-net-profit-falls-56-8-in-third-quarter-as-revenue-drops-5-2/"
      }
     ]
    }
