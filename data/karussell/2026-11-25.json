@@ -1,0 +1,146 @@
+{
+ "datum": "2026-11-25",
+ "ticker": "DELL",
+ "name": "Dell",
+ "thema": "Quartalszahlen",
+ "stand": "24.11.2026",
+ "slides": [
+  {
+   "typ": "hook",
+   "kicker": "DELL · QUARTALSZAHLEN",
+   "titel": "Dell verdoppelt den Umsatz: Reicht das der Börse?",
+   "text": "Dell hat gestern Abend Zahlen gemeldet. Umsatz und Gewinn lagen klar über den Erwartungen. Vorher war die Aktie am Dienstag um 11.8 % gefallen.",
+   "kpis": [
+    {
+     "label": "KURS",
+     "wert": "295.28 $"
+    },
+    {
+     "label": "NACHBÖRSLICH",
+     "wert": "+3 %",
+     "ton": "gruen"
+    },
+    {
+     "label": "UMSATZ Q3",
+     "wert": "+103 %",
+     "ton": "gruen"
+    }
+   ]
+  },
+  {
+   "typ": "firma",
+   "kicker": "WAS DIE FIRMA MACHT",
+   "titel": "Vom PC zum KI-Server",
+   "text": "Dell ist bekannt für Computer und Laptops. Über drei Viertel des Umsatzes kommen inzwischen aus Servern, Speicher und Netzwerk für Rechenzentren. Am stärksten wachsen Server für künstliche Intelligenz.",
+   "fakten": [
+    {
+     "label": "Sitz",
+     "wert": "Round Rock, USA"
+    },
+    {
+     "label": "Gegründet",
+     "wert": "1984"
+    },
+    {
+     "label": "KI-Auftragsbestand",
+     "wert": "132.3 Mrd. $"
+    }
+   ]
+  },
+  {
+   "typ": "zahlen",
+   "kicker": "WAS DIE ZAHLEN ZEIGEN",
+   "titel": "Rekord dank KI-Servern",
+   "quelle": "Quelle: Dell, Q3-Zahlen vom 24.11.2026",
+   "zeilen": [
+    {
+     "k": "Umsatz",
+     "sub": "August bis Oktober, 54.9 Mrd. $",
+     "wert": "+103 %",
+     "ton": "gruen"
+    },
+    {
+     "k": "KI-Server",
+     "sub": "Umsatz 22.0 Mrd. $",
+     "wert": "+291 %",
+     "ton": "gruen"
+    },
+    {
+     "k": "Gewinn je Aktie",
+     "sub": "bereinigt, 9.45 $",
+     "wert": "+265 %",
+     "ton": "gruen"
+    },
+    {
+     "k": "Bruttomarge",
+     "sub": "bereinigt, 21.2 % statt 21.1 %",
+     "wert": "+0.1 Pkt.",
+     "ton": "orange"
+    }
+   ],
+   "erklaerung": "Erwartet waren 6.59 $ Gewinn je Aktie. Für das Geschäftsjahr plant Dell jetzt 202 Mrd. $ Umsatz statt 192 Mrd. $."
+  },
+  {
+   "typ": "skala",
+   "kicker": "AMPEL 1: QUALITÄT",
+   "titel": "Viel Umsatz, dünne Marge",
+   "name": "Qualität",
+   "wert": 58,
+   "punkte": [
+    "Dell verdient rund 41 % auf das eingesetzte Kapital. Das ist ein sehr hoher Wert.",
+    "Von 100 $ Umsatz blieben zuletzt nur rund 6 $ als freier Cashflow. Server bringen wenig Marge.",
+    "Die Zahl der Aktien sinkt um 3.2 % pro Jahr, weil Dell eigene Aktien zurückkauft."
+   ]
+  },
+  {
+   "typ": "skala",
+   "kicker": "STRUKTUR IM WOCHENCHART",
+   "titel": "Erholung schnell wieder verkauft",
+   "name": "Timing",
+   "wert": 40,
+   "punkte": [
+    "Am Freitag lag Dell 52.6 % unter dem Hoch. Das gebrochene Junitief bei 357.07 $ bremst nach oben.",
+    "Im November fielen die Tiefs von 315 $ auf 274.35 $. Am Montag sprang der Kurs dann um 20.5 %.",
+    "Am Dienstag fiel Dell mit HPE um 11.8 % auf 295.28 $. Der Sprung ist zu 70 % weg."
+   ]
+  },
+  {
+   "typ": "marke",
+   "kicker": "DIE ENTSCHEIDENDE MARKE",
+   "titel": "Das Tief vom November",
+   "text": "In der Woche ab dem 16. November drehte der Kurs bei 274.35 $. Hier zeigt sich, ob die Käufer nach den Zahlen zurückkommen.",
+   "marke_label": "TIEF NOVEMBER",
+   "marke": "274.35 $",
+   "szenarien": [
+    {
+     "art": "bruch",
+     "titel": "Bricht sie",
+     "text": "Ein Wochenschluss darunter wäre ein neues Tief. Die nächste Haltestelle ist erst das alte Hoch vom März bei 186.39 $."
+    },
+    {
+     "art": "halten",
+     "titel": "Hält sie",
+     "text": "Dann kann sich eine Range bilden. Ein Wochenschluss über 315 $ wäre für mich ein erstes Zeichen für einen Boden."
+    }
+   ]
+  },
+  {
+   "typ": "fazit",
+   "kicker": "MEIN FAZIT",
+   "titel": "Starkes Geschäft, nervöse Börse",
+   "absaetze": [
+    "Geschäftlich ist das ein Rekordquartal. Zum Schlusskurs kostet die Aktie rund 10-mal den Gewinn, den Dell für dieses Geschäftsjahr erwartet.",
+    "Die Börse sorgt sich um knappe Bauteile und Margen, das hat der Absturz mit HPE gezeigt. Ich beobachte, ob das Novembertief bei 274.35 $ hält."
+   ],
+   "frage": "Ist Dell nach dem Rekordquartal zu billig oder bleibt das Margenrisiko? Deine Meinung in die Kommentare."
+  }
+ ],
+ "caption": "Dell hat den Umsatz im Quartal auf 54.9 Mrd. $ verdoppelt, nachbörslich steigt die Aktie um rund 3 %. Am Dienstag war sie vorher um 11.8 % gefallen, weil HPE vor knappen Bauteilen warnte. Im Chart entscheidet jetzt das Novembertief bei 274.35 $.",
+ "hashtags": [
+  "#delltechnologies",
+  "#aktien",
+  "#börse",
+  "#quartalszahlen",
+  "#dell"
+ ]
+}
