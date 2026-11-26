@@ -1,0 +1,146 @@
+{
+ "datum": "2026-11-26",
+ "ticker": "SYK",
+ "name": "Stryker",
+ "thema": "Ampel-Check",
+ "stand": "25.11.2026",
+ "slides": [
+  {
+   "typ": "hook",
+   "kicker": "STRYKER · AMPEL-CHECK",
+   "titel": "Plus 24.7 % seit August: Ist Stryker zurück?",
+   "text": "Im Oktober hat Stryker das Jahresziel gesenkt. Trotzdem steht die Aktie 6.8 % über dem Kurs vor den Zahlen. Jetzt stösst sie an eine alte Marke.",
+   "kpis": [
+    {
+     "label": "KURS",
+     "wert": "332.90 $"
+    },
+    {
+     "label": "SEIT AUGUST-TIEF",
+     "wert": "+24.7 %",
+     "ton": "gruen"
+    },
+    {
+     "label": "UNTER DEM HOCH",
+     "wert": "−14.5 %",
+     "ton": "rot"
+    }
+   ]
+  },
+  {
+   "typ": "firma",
+   "kicker": "WAS DIE FIRMA MACHT",
+   "titel": "Technik für den Operationssaal",
+   "text": "Stryker beliefert Spitäler. Die grössere Sparte liefert Geräte für Operationssaal und Notfall. Die zweite stellt künstliche Knie und Hüften her. Der Mako-Roboter hilft Chirurgen, diese Gelenke genau einzusetzen.",
+   "fakten": [
+    {
+     "label": "Sitz",
+     "wert": "Michigan, USA"
+    },
+    {
+     "label": "Gegründet",
+     "wert": "1941"
+    },
+    {
+     "label": "Umsatz Q3",
+     "wert": "6.5 Mrd. $"
+    }
+   ]
+  },
+  {
+   "typ": "zahlen",
+   "kicker": "WAS DIE ZAHLEN ZEIGEN",
+   "titel": "Wachstum da, Ziel gesenkt",
+   "quelle": "Quelle: Stryker, Q3-Zahlen vom 29.10.2026",
+   "zeilen": [
+    {
+     "k": "Umsatz",
+     "sub": "Juli bis September, 6.52 Mrd. $",
+     "wert": "+7.7 %",
+     "ton": "gruen"
+    },
+    {
+     "k": "Gewinn je Aktie",
+     "sub": "bereinigt, 3.52 $",
+     "wert": "+10.3 %",
+     "ton": "gruen"
+    },
+    {
+     "k": "Hüften",
+     "sub": "Umsatz mit Hüftimplantaten",
+     "wert": "−1.0 %",
+     "ton": "rot"
+    },
+    {
+     "k": "Jahresziel",
+     "sub": "organisch 6.5 bis 7.0 % statt 8.3 bis 9.3 %",
+     "wert": "gesenkt",
+     "ton": "rot"
+    }
+   ],
+   "erklaerung": "Organisch heisst ohne Zukäufe und Währungen. Am Tag nach den Zahlen fiel die Aktie um 6.4 %."
+  },
+  {
+   "typ": "skala",
+   "kicker": "AMPEL 1: QUALITÄT",
+   "titel": "Solide, aber kein Überflieger",
+   "name": "Qualität",
+   "wert": 71,
+   "punkte": [
+    "Von 100 $ Umsatz bleiben bereinigt 26.2 $ als Betriebsgewinn. Die Marge stieg im Quartal leicht.",
+    "Der Geldzufluss aus dem Geschäft stieg in neun Monaten um 13.9 % auf 3.3 Mrd. $.",
+    "Auf das eingesetzte Kapital verdient Stryker 12.5 %. Das ist ordentlich, für die Branche eher Mittelmass."
+   ]
+  },
+  {
+   "typ": "skala",
+   "kicker": "STRUKTUR IM WOCHENCHART",
+   "titel": "Höhere Tiefs seit August",
+   "name": "Timing",
+   "wert": 59,
+   "punkte": [
+    "Seit Januar 2025 fallen die Hochs: 406 $, 405 $, 389 $ und im Juli 2026 noch 352 $. Das ist eine Abwärtsstruktur.",
+    "Seit dem Tief im August bei 267 $ steigen die Tiefs. Ende Oktober schloss die Aktie bei 292 $, Mitte November bei 310 $.",
+    "Der Kurs liegt wieder über dem Schnitt der letzten 50 und 200 Wochen."
+   ]
+  },
+  {
+   "typ": "marke",
+   "kicker": "DIE ENTSCHEIDENDE MARKE",
+   "titel": "Das Tief vom März 2025",
+   "text": "Bei 329.16 $ drehte Stryker im März 2025 nach oben. Seit Juni stieg der Kurs mehrmals darüber und rutschte wieder ab.",
+   "marke_label": "TIEF MÄRZ 2025",
+   "marke": "329.16 $",
+   "szenarien": [
+    {
+     "art": "bruch",
+     "titel": "Bricht sie",
+     "text": "Erste Haltestelle ist die Range vom Winter 2023/24 bei 288 $ bis 315 $, danach die Range bei 262 $ bis 276 $."
+    },
+    {
+     "art": "halten",
+     "titel": "Hält sie",
+     "text": "Ein Wochenschluss über dem Julihoch bei 352.49 $ wäre für mich das erste höhere Hoch seit Januar 2025."
+    }
+   ]
+  },
+  {
+   "typ": "fazit",
+   "kicker": "MEIN FAZIT",
+   "titel": "Gute Firma, Chart unentschieden",
+   "absaetze": [
+    "Stryker wächst weiter, gebremst haben vor allem Hüften und Knie. Die Aktie kostet rund 22-mal den für 2026 erwarteten Gewinn, im Schnitt waren es 26-mal.",
+    "Ich beobachte, ob sie diesmal über 329.16 $ bleibt und das Julihoch bei 352.49 $ fällt."
+   ],
+   "frage": "Stryker nach dem gesenkten Ziel: Chance oder weiter Abwärtstrend? Deine Meinung in die Kommentare."
+  }
+ ],
+ "caption": "Stryker ist seit dem Tief im August um 24.7 % gestiegen, obwohl die Firma im Oktober das Jahresziel gesenkt hat. Im dritten Quartal wuchs der Umsatz um 7.7 %, der bereinigte Gewinn je Aktie um 10.3 %. Im Chart entscheidet jetzt das Tief vom März 2025 bei 329.16 $.",
+ "hashtags": [
+  "#stryker",
+  "#aktien",
+  "#börse",
+  "#ampelcheck",
+  "#syk"
+ ]
+}
