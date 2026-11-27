@@ -272,6 +272,14 @@
     "fehler": "Reel-Upload: 400 {'debug_info': {'retriable': False, 'type': 'ProcessingFailedError', 'message': 'Request processing failed'}}",
     "zeit": "2026-11-26T18:01:41+01:00"
    }
+  },
+  "2026-11-27": {
+   "quelle": "karussell/2026-11-27",
+   "instagram": {
+    "id": "18446604037178604",
+    "zeit": "2026-11-27T07:30:39+01:00",
+    "hinweis": "trotz Fehlermeldung online: Instagram 17841471326098764/media_publish: 403 {'error': {'message': 'Application request limit reached', 'code': 4, 'type': 'OAuthException', 'error_subcode': 2207051, 'is_transient': False, 'error_u"
+   }
   }
  },
  "reserve_benutzt": []
