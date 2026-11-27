@@ -1,0 +1,146 @@
+{
+ "datum": "2026-11-27",
+ "ticker": "MSFT",
+ "name": "Microsoft",
+ "thema": "Ampel-Check",
+ "stand": "25.11.2026",
+ "slides": [
+  {
+   "typ": "hook",
+   "kicker": "MICROSOFT · AMPEL-CHECK",
+   "titel": "Minus 12.4 % seit dem Hoch: Was ist los bei Microsoft?",
+   "text": "Ende Oktober meldete Microsoft 19 % mehr Umsatz. Seit Anfang November fiel die Aktie trotzdem von 559 $ auf 490 $. Anleger fragen, was der KI-Ausbau kostet.",
+   "kpis": [
+    {
+     "label": "KURS",
+     "wert": "489.93 $"
+    },
+    {
+     "label": "UNTER DEM HOCH",
+     "wert": "−12.4 %",
+     "ton": "rot"
+    },
+    {
+     "label": "AZURE",
+     "wert": "+48 %",
+     "ton": "gruen"
+    }
+   ]
+  },
+  {
+   "typ": "firma",
+   "kicker": "WAS DIE FIRMA MACHT",
+   "titel": "Software, Cloud und KI",
+   "text": "Microsoft verkauft Windows und Office, heute meist im Abo als Microsoft 365. Der grösste Treiber ist die Cloud Azure: Firmen mieten dort Rechenleistung, auch für KI. Dazu gehören Xbox und LinkedIn.",
+   "fakten": [
+    {
+     "label": "Sitz",
+     "wert": "Redmond, USA"
+    },
+    {
+     "label": "Gegründet",
+     "wert": "1975"
+    },
+    {
+     "label": "Umsatz Q1",
+     "wert": "92.3 Mrd. $"
+    }
+   ]
+  },
+  {
+   "typ": "zahlen",
+   "kicker": "WAS DIE ZAHLEN ZEIGEN",
+   "titel": "Die Cloud zieht alles mit",
+   "quelle": "Quelle: Microsoft, Q1-Zahlen vom 28.10.2026",
+   "zeilen": [
+    {
+     "k": "Umsatz",
+     "sub": "Juli bis September, 92.3 Mrd. $",
+     "wert": "+19 %",
+     "ton": "gruen"
+    },
+    {
+     "k": "Azure",
+     "sub": "Umsatz der Cloud",
+     "wert": "+48 %",
+     "ton": "gruen"
+    },
+    {
+     "k": "Gewinn je Aktie",
+     "sub": "bereinigt, 4.89 $",
+     "wert": "+18 %",
+     "ton": "gruen"
+    },
+    {
+     "k": "Windows und Geräte",
+     "sub": "Lizenzen für PC-Hersteller und Surface",
+     "wert": "−22 %",
+     "ton": "rot"
+    }
+   ],
+   "erklaerung": "Die unterschriebenen, noch nicht verbuchten Aufträge stiegen um 73 % auf 677 Mrd. $."
+  },
+  {
+   "typ": "skala",
+   "kicker": "AMPEL 1: QUALITÄT",
+   "titel": "Sehr profitabel, teurer Ausbau",
+   "name": "Qualität",
+   "wert": 81,
+   "punkte": [
+    "Von 100 $ Umsatz bleiben 49.8 $ als Betriebsgewinn. Für einen Konzern dieser Grösse ist das sehr viel.",
+    "Bereinigt stieg der Gewinn je Aktie um 18 %. Bereinigt heisst ohne den Effekt der Beteiligung an OpenAI.",
+    "Schwachpunkt: Der freie Geldfluss sinkt seit 2024, weil Microsoft Milliarden in KI-Rechenzentren steckt."
+   ]
+  },
+  {
+   "typ": "skala",
+   "kicker": "STRUKTUR IM WOCHENCHART",
+   "titel": "Seitwärts mit Warnzeichen",
+   "name": "Timing",
+   "wert": 58,
+   "punkte": [
+    "Im März und Juni 2026 drehte die Aktie bei 356 $ und 349 $. Im Juli brach sie über das Maihoch bei 466 $.",
+    "Seit Ende Juli pendelt der Kurs zwischen 483 $ und 535 $. Im Oktober und November stieg er kurz darüber und fiel wieder zurück.",
+    "An fallenden Tagen wird mehr gehandelt als an steigenden. Das deutet auf Verkäufer hin."
+   ]
+  },
+  {
+   "typ": "marke",
+   "kicker": "DIE ENTSCHEIDENDE MARKE",
+   "titel": "Die Unterkante der Range",
+   "text": "Bei 483.24 $ schloss Microsoft im August die schwächste Woche seit dem Ausbruch. Letzte Woche waren es 484.52 $.",
+   "marke_label": "UNTERKANTE RANGE",
+   "marke": "483.24 $",
+   "szenarien": [
+    {
+     "art": "bruch",
+     "titel": "Bricht sie",
+     "text": "Erste Haltestelle ist die Range von Herbst 2024 bei 408 $ bis 447 $. Danach folgt die Zone 353 $ bis 388 $."
+    },
+    {
+     "art": "halten",
+     "titel": "Hält sie",
+     "text": "Ein Wochenschluss über 535.07 $ und später über 559.15 $ wäre für mich ein Zeichen, dass die Käufer zurück sind."
+    }
+   ]
+  },
+  {
+   "typ": "fazit",
+   "kicker": "MEIN FAZIT",
+   "titel": "Starke Firma, wackliger Chart",
+   "absaetze": [
+    "Das Geschäft läuft: Azure wächst um 48 %, die unterschriebenen Aufträge um 73 %. Den Preis zahlt Microsoft mit sehr hohen Investitionen in Rechenzentren.",
+    "Im Chart sehe ich eher Verkäufer am Werk. Ich beobachte, ob die Marke bei 483.24 $ auf Wochenbasis hält."
+   ],
+   "frage": "Microsoft und der teure KI-Ausbau: Lohnt sich das oder wird es zur Last? Deine Meinung in die Kommentare."
+  }
+ ],
+ "caption": "Microsoft hat seit dem Hoch Anfang November 12.4 % verloren, obwohl der Umsatz zuletzt um 19 % gestiegen ist. Die Cloud Azure wuchs im Quartal um 48 %, doch Anleger fragen, was der KI-Ausbau kostet. Im Chart entscheidet jetzt die Unterkante der Range bei 483.24 $.",
+ "hashtags": [
+  "#microsoft",
+  "#aktien",
+  "#börse",
+  "#ampelcheck",
+  "#msft"
+ ]
+}
