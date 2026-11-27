@@ -1,6 +1,16 @@
 {
  "karussells": [
   {
+   "datum": "2026-11-27",
+   "ticker": "MSFT",
+   "name": "Microsoft",
+   "thema": "Ampel-Check",
+   "titel": "Minus 12.4 % seit dem Hoch: Was ist los bei Microsoft?",
+   "bilder": 7,
+   "caption": "Microsoft hat seit dem Hoch Anfang November 12.4 % verloren, obwohl der Umsatz zuletzt um 19 % gestiegen ist. Die Cloud Azure wuchs im Quartal um 48 %, doch Anleger fragen, was der KI-Ausbau kostet. Im Chart entscheidet jetzt die Unterkante der Range bei 483.24 $.\n\nPersönliche Meinung, keine Anlageberatung. Mach deine eigene Recherche.\nOffenlegung: Ich halte diese Aktie.\n\n#microsoft #aktien #börse #ampelcheck #msft",
+   "eigene_position": true
+  },
+  {
    "datum": "2026-11-26",
    "ticker": "SYK",
    "name": "Stryker",
