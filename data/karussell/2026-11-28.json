@@ -1,0 +1,92 @@
+{
+ "datum": "2026-11-28",
+ "ticker": "R3NK",
+ "name": "Renk",
+ "thema": "Wochenrückblick",
+ "stand": "27.11.2026",
+ "slides": [
+  {
+   "typ": "hook",
+   "kicker": "RENK · WOCHENRÜCKBLICK",
+   "titel": "Plus 14.7 % in einer Woche: Erholt sich Renk?",
+   "text": "Renk schloss am Freitag bei 35.03 €. In der Woche davor war sie so tief wie seit Februar 2025 nicht mehr. Seit dem Hoch im Januar liegt sie trotzdem fast die Hälfte tiefer.",
+   "kpis": [
+    {"label": "KURS", "wert": "35.03 €"},
+    {"label": "DIESE WOCHE", "wert": "+14.7 %", "ton": "gruen"},
+    {"label": "SEIT DEM HOCH", "wert": "−47.6 %", "ton": "rot"}
+   ]
+  },
+  {
+   "typ": "firma",
+   "kicker": "WAS DIE FIRMA MACHT",
+   "titel": "Getriebe für Panzer und Schiffe",
+   "text": "Renk baut Getriebe und Antriebe, vor allem für Kampfpanzer wie den Leopard 2. Dazu kommen Getriebe für Marineschiffe und die Industrie. Den grössten Teil des Gewinns macht Renk mit Fahrzeugen fürs Militär.",
+   "fakten": [
+    {"label": "Sitz", "wert": "Augsburg, Deutschland"},
+    {"label": "Chef", "wert": "Alexander Sagel"},
+    {"label": "Strategie-Update", "wert": "08.12.2026"}
+   ]
+  },
+  {
+   "typ": "zahlen",
+   "kicker": "WAS DIE ZAHLEN ZEIGEN",
+   "titel": "Volle Bücher, langsamer Umsatz",
+   "quelle": "Quelle: RENK, Neunmonatszahlen vom 05.11.2026",
+   "zeilen": [
+    {"k": "Umsatz", "sub": "Januar bis September, 982.0 Mio. €", "wert": "+5.8 %", "ton": "orange"},
+    {"k": "Bereinigter EBIT", "sub": "158.8 Mio. €, Marge 16.2 %", "wert": "+12.7 %", "ton": "gruen"},
+    {"k": "Neue Aufträge", "sub": "1.66 Mrd. €", "wert": "+33.6 %", "ton": "gruen"},
+    {"k": "Auftragsbestand", "sub": "Rekord per Ende September", "wert": "7.6 Mrd. €", "ton": ""}
+   ],
+   "erklaerung": "EBIT ist der Gewinn vor Zinsen und Steuern. Für 2026 erwartet Renk rund 1.4 Mrd. € Umsatz."
+  },
+  {
+   "typ": "skala",
+   "kicker": "AMPEL 1: QUALITÄT",
+   "titel": "Solide, aber kein Spitzenwert",
+   "name": "Qualität",
+   "wert": 59,
+   "punkte": [
+    "Von jedem Euro Umsatz blieben 16 Cent als bereinigter Gewinn aus dem Geschäft. Ein Jahr zuvor waren es 15 Cent.",
+    "Der Auftragsbestand entspricht über fünf Jahresumsätzen. Das gibt Planbarkeit.",
+    "Der Umsatz wächst nur langsam, und auf das eingesetzte Kapital verdient Renk wenig. Dafür gibt es in meiner Ampel kaum Punkte."
+   ]
+  },
+  {
+   "typ": "skala",
+   "kicker": "STRUKTUR IM WOCHENCHART",
+   "titel": "Abwärtstrend mit Gegenbewegung",
+   "name": "Timing",
+   "wert": 26,
+   "punkte": [
+    "Seit Januar bildet Renk tiefere Hochs und tiefere Tiefs. Das Hoch im Juli lag nur noch bei 53.59 €.",
+    "Mitte November kam der tiefste Wochenschluss seit Februar 2025, diese Woche die Gegenbewegung.",
+    "Seit September pendelt Renk zwischen 30.53 € und 40.58 €."
+   ]
+  },
+  {
+   "typ": "marke",
+   "kicker": "DIE ENTSCHEIDENDE MARKE",
+   "titel": "Der Tiefpunkt vom November",
+   "text": "Am 20. November schloss Renk bei 30.53 €. Das ist die Unterkante der Range seit September.",
+   "marke_label": "UNTERKANTE",
+   "marke": "30.53 €",
+   "szenarien": [
+    {"art": "bruch", "titel": "Bricht sie", "text": "Erste Haltestelle ist das Hoch vom Februar 2024 bei 29.84 €, dann die Range von Juni bis August 2024 bei 24.67 € bis 27.40 €."},
+    {"art": "halten", "titel": "Hält sie", "text": "Ein Wochenschluss über der Oberkante bei 40.58 € wäre für mich ein Zeichen für einen Boden."}
+   ]
+  },
+  {
+   "typ": "fazit",
+   "kicker": "MEIN FAZIT",
+   "titel": "Starke Woche, schwacher Trend",
+   "absaetze": [
+    "Die Aufträge sind auf Rekordhöhe, der Gewinn wächst schneller als der Umsatz. Der Wochenchart zeigt aber seit Januar eine klare Abwärtsstruktur, und eine starke Woche ändert daran noch nichts.",
+    "Ich beobachte, ob die Unterkante bei 30.53 € hält. Spannend wird das Strategie-Update im Dezember."
+   ],
+   "frage": "Ist das bei Renk der Beginn einer Bodenbildung oder nur eine Gegenbewegung? Deine Meinung in die Kommentare."
+  }
+ ],
+ "caption": "Renk steigt in einer Woche um 14.7 % auf 35.03 €, eine Woche nach dem tiefsten Wochenschluss seit Februar 2025. Der Auftragsbestand liegt auf dem Rekord von 7.6 Mrd. €, der Umsatz wuchs in neun Monaten aber nur um 5.8 %. Im Chart entscheidet jetzt die Unterkante der Range bei 30.53 €.",
+ "hashtags": ["#renk", "#aktien", "#börse", "#wochenrückblick", "#r3nk"]
+}
