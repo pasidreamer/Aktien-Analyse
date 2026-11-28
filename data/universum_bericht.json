@@ -1,6 +1,6 @@
 {
- "stand": "2026-11-21",
- "anzahl": 2281,
+ "stand": "2026-11-28",
+ "anzahl": 1946,
  "indizes": [
   {
    "index": "S&P 500",
@@ -45,15 +45,8 @@
   },
   {
    "index": "SMIM",
-   "anzahl": 28,
-   "beispiele": [
-    "ACLN.SW",
-    "ADEN.SW",
-    "AVOL.SW",
-    "BARN.SW",
-    "BEAN.SW",
-    "CLN.SW"
-   ]
+   "anzahl": 0,
+   "fehler": "HTTP Error 429: We suspect this request is automated: if so, please respect our robot policy. If you think you were incorrectly blocked, please contact noc@wikimedia.org reporting this message (01f0bd"
   },
   {
    "index": "DAX",
@@ -129,15 +122,8 @@
   },
   {
    "index": "BEL 20",
-   "anzahl": 20,
-   "beispiele": [
-    "ABI.BR",
-    "ACKB.BR",
-    "AED.BR",
-    "AGS.BR",
-    "ARGX.BR",
-    "APAM.BR"
-   ]
+   "anzahl": 0,
+   "fehler": "HTTP Error 429: We suspect this request is automated: if so, please respect our robot policy. If you think you were incorrectly blocked, please contact noc@wikimedia.org reporting this message (01f0bd"
   },
   {
    "index": "FTSE MIB",
@@ -147,8 +133,8 @@
     "AMP.MI",
     "AVIO.MI",
     "AZM.MI",
-    "BMED.MI",
-    "BMPS.MI"
+    "BGN.MI",
+    "BMED.MI"
    ]
   },
   {
@@ -213,15 +199,8 @@
   },
   {
    "index": "S&P/TSX 60",
-   "anzahl": 59,
-   "beispiele": [
-    "AEM.TO",
-    "ATD.TO",
-    "BMO.TO",
-    "BNS.TO",
-    "ABX.TO",
-    "BCE.TO"
-   ]
+   "anzahl": 0,
+   "fehler": "HTTP Error 429: We suspect this request is automated: if so, please respect our robot policy. If you think you were incorrectly blocked, please contact noc@wikimedia.org reporting this message (01f0bd"
   },
   {
    "index": "Nikkei 225",
@@ -249,27 +228,13 @@
   },
   {
    "index": "Straits Times",
-   "anzahl": 30,
-   "beispiele": [
-    "A17U.SI",
-    "C38U.SI",
-    "9CI.SI",
-    "C09.SI",
-    "D05.SI",
-    "D01.SI"
-   ]
+   "anzahl": 0,
+   "fehler": "HTTP Error 429: We suspect this request is automated: if so, please respect our robot policy. If you think you were incorrectly blocked, please contact noc@wikimedia.org reporting this message (01f0bd"
   },
   {
    "index": "S&P/ASX 200",
-   "anzahl": 200,
-   "beispiele": [
-    "360.AX",
-    "4DX.AX",
-    "A2M.AX",
-    "AAI.AX",
-    "AFI.AX",
-    "AGL.AX"
-   ]
+   "anzahl": 0,
+   "fehler": "HTTP Error 429: We suspect this request is automated: if so, please respect our robot policy. If you think you were incorrectly blocked, please contact noc@wikimedia.org reporting this message (01f0bd"
   },
   {
    "index": "ADR Asien",

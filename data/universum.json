@@ -1,7 +1,7 @@
 {
-"stand": "2026-11-21",
+"stand": "2026-11-28",
 "stufe": 2,
-"anzahl": 2281,
+"anzahl": 1946,
 "aktien": [
 {
 "symbol": "0001.HK",
@@ -1064,16 +1064,6 @@
 ]
 },
 {
-"symbol": "360.AX",
-"name": "Life360",
-"sektor_quelle": "Information Technology",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "3659.T",
 "name": "Nexon Co., Ltd.",
 "sektor_quelle": null,
@@ -1474,16 +1464,6 @@
 ]
 },
 {
-"symbol": "4DX.AX",
-"name": "4DMedical",
-"sektor_quelle": "Healthcare",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "5019.T",
 "name": "Idemitsu Kosan Co., Ltd",
 "sektor_quelle": null,
@@ -1711,16 +1691,6 @@
 "land": "Japan",
 "indizes": [
 "Nikkei 225"
-]
-},
-{
-"symbol": "5E2.SI",
-"name": "Seatrium Limited",
-"sektor_quelle": null,
-"region": "Asien",
-"land": "Singapur",
-"indizes": [
-"Straits Times"
 ]
 },
 {
@@ -3155,16 +3125,6 @@
 ]
 },
 {
-"symbol": "9CI.SI",
-"name": "CapitaLand Investment",
-"sektor_quelle": null,
-"region": "Asien",
-"land": "Singapur",
-"indizes": [
-"Straits Times"
-]
-},
-{
 "symbol": "A",
 "name": "Agilent Technologies",
 "sektor_quelle": "Health Care",
@@ -3175,16 +3135,6 @@
 ]
 },
 {
-"symbol": "A17U.SI",
-"name": "CapitaLand Ascendas REIT",
-"sektor_quelle": null,
-"region": "Asien",
-"land": "Singapur",
-"indizes": [
-"Straits Times"
-]
-},
-{
 "symbol": "A2A.MI",
 "name": "A2A",
 "sektor_quelle": "Utilities",
@@ -3192,16 +3142,6 @@
 "land": "Italien",
 "indizes": [
 "FTSE MIB"
-]
-},
-{
-"symbol": "A2M.AX",
-"name": "a2 Milk Company",
-"sektor_quelle": "Consumer Staples",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -3222,16 +3162,6 @@
 "land": "Grossbritannien",
 "indizes": [
 "FTSE 100"
-]
-},
-{
-"symbol": "AAI.AX",
-"name": "Alcoa",
-"sektor_quelle": "Materials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -3335,16 +3265,6 @@
 ]
 },
 {
-"symbol": "ABI.BR",
-"name": "AB InBev",
-"sektor_quelle": "Consumer Staples",
-"region": "Europa",
-"land": "Belgien",
-"indizes": [
-"BEL 20"
-]
-},
-{
 "symbol": "ABN.AS",
 "name": "ABN AMRO",
 "sektor_quelle": "Financials",
@@ -3372,16 +3292,6 @@
 "land": "USA",
 "indizes": [
 "S&P 500"
-]
-},
-{
-"symbol": "ABX.TO",
-"name": "Barrick Mining Corporation",
-"sektor_quelle": "Basic Materials",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
 ]
 },
 {
@@ -3422,26 +3332,6 @@
 "land": "USA",
 "indizes": [
 "S&P 400"
-]
-},
-{
-"symbol": "ACKB.BR",
-"name": "Ackermans & van Haaren",
-"sektor_quelle": "Industrials",
-"region": "Europa",
-"land": "Belgien",
-"indizes": [
-"BEL 20"
-]
-},
-{
-"symbol": "ACLN.SW",
-"name": "Accelleron",
-"sektor_quelle": "Industrials",
-"region": "Schweiz",
-"land": "Schweiz",
-"indizes": [
-"SMIM"
 ]
 },
 {
@@ -3525,16 +3415,6 @@
 ]
 },
 {
-"symbol": "ADEN.SW",
-"name": "Adecco",
-"sektor_quelle": "Industrials",
-"region": "Schweiz",
-"land": "Schweiz",
-"indizes": [
-"SMIM"
-]
-},
-{
 "symbol": "ADI",
 "name": "Analog Devices",
 "sektor_quelle": "Information Technology",
@@ -3605,16 +3485,6 @@
 ]
 },
 {
-"symbol": "AED.BR",
-"name": "Aedifica",
-"sektor_quelle": "Real Estate",
-"region": "Europa",
-"land": "Belgien",
-"indizes": [
-"BEL 20"
-]
-},
-{
 "symbol": "AEE",
 "name": "Ameren",
 "sektor_quelle": "Utilities",
@@ -3632,16 +3502,6 @@
 "land": "USA",
 "indizes": [
 "S&P 400"
-]
-},
-{
-"symbol": "AEM.TO",
-"name": "Agnico Eagle Mines Limited",
-"sektor_quelle": "Basic Materials",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
 ]
 },
 {
@@ -3695,16 +3555,6 @@
 ]
 },
 {
-"symbol": "AFI.AX",
-"name": "Australian Foundation Investment Company",
-"sektor_quelle": "Financials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "AFL",
 "name": "Aflac",
 "sektor_quelle": "Financials",
@@ -3735,16 +3585,6 @@
 ]
 },
 {
-"symbol": "AGL.AX",
-"name": "AGL Energy",
-"sektor_quelle": "Utilities",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "AGN.AS",
 "name": "Aegon",
 "sektor_quelle": "Financials",
@@ -3762,16 +3602,6 @@
 "land": "USA",
 "indizes": [
 "S&P 400"
-]
-},
-{
-"symbol": "AGS.BR",
-"name": "Ageas",
-"sektor_quelle": "Financials",
-"region": "Europa",
-"land": "Belgien",
-"indizes": [
-"BEL 20"
 ]
 },
 {
@@ -3802,16 +3632,6 @@
 "land": "Frankreich",
 "indizes": [
 "CAC 40"
-]
-},
-{
-"symbol": "AIA.AX",
-"name": "Auckland International Airport Limited",
-"sektor_quelle": "Industrials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -3886,16 +3706,6 @@
 ]
 },
 {
-"symbol": "AJBU.SI",
-"name": "Keppel DC Reit",
-"sektor_quelle": null,
-"region": "Asien",
-"land": "Singapur",
-"indizes": [
-"Straits Times"
-]
-},
-{
 "symbol": "AJG",
 "name": "Arthur J. Gallagher & Co.",
 "sektor_quelle": "Financials",
@@ -3956,16 +3766,6 @@
 ]
 },
 {
-"symbol": "ALD.AX",
-"name": "Ampol",
-"sektor_quelle": "Energy",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "ALFA.L",
 "name": "Alfa Financial Software",
 "sektor_quelle": "Software and Computer Services",
@@ -4016,16 +3816,6 @@
 ]
 },
 {
-"symbol": "ALK.AX",
-"name": "Alkane Resources",
-"sektor_quelle": "Materials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "ALL",
 "name": "Allstate",
 "sektor_quelle": "Financials",
@@ -4033,16 +3823,6 @@
 "land": "USA",
 "indizes": [
 "S&P 500"
-]
-},
-{
-"symbol": "ALL.AX",
-"name": "Aristocrat Leisure",
-"sektor_quelle": "Consumer Discretionary",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -4063,16 +3843,6 @@
 "land": "USA",
 "indizes": [
 "S&P 400"
-]
-},
-{
-"symbol": "ALQ.AX",
-"name": "ALS",
-"sektor_quelle": "Industrials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -4126,16 +3896,6 @@
 ]
 },
 {
-"symbol": "ALX.AX",
-"name": "Atlas Arteria",
-"sektor_quelle": "Industrials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "AM",
 "name": "Antero Midstream",
 "sektor_quelle": "Energy",
@@ -4163,16 +3923,6 @@
 "land": "Dänemark",
 "indizes": [
 "OMX Copenhagen 25"
-]
-},
-{
-"symbol": "AMC.AX",
-"name": "Amcor",
-"sektor_quelle": "Materials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -4253,16 +4003,6 @@
 "land": "USA",
 "indizes": [
 "S&P 500"
-]
-},
-{
-"symbol": "AMP.AX",
-"name": "AMP",
-"sektor_quelle": "Financials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -4376,16 +4116,6 @@
 ]
 },
 {
-"symbol": "ANN.AX",
-"name": "Ansell",
-"sektor_quelle": "Healthcare",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "ANTO.L",
 "name": "Antofagasta plc",
 "sektor_quelle": "Industrial Metals and Mining",
@@ -4393,16 +4123,6 @@
 "land": "Grossbritannien",
 "indizes": [
 "FTSE 100"
-]
-},
-{
-"symbol": "ANZ.AX",
-"name": "Australia & New Zealand Banking Group",
-"sektor_quelle": "Financials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -4446,26 +4166,6 @@
 ]
 },
 {
-"symbol": "APA.AX",
-"name": "APA Group",
-"sektor_quelle": "Utilities",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
-"symbol": "APAM.BR",
-"name": "Aperam",
-"sektor_quelle": "Basic Materials",
-"region": "Europa",
-"land": "Belgien",
-"indizes": [
-"BEL 20"
-]
-},
-{
 "symbol": "APD",
 "name": "Air Products",
 "sektor_quelle": "Materials",
@@ -4473,16 +4173,6 @@
 "land": "USA",
 "indizes": [
 "S&P 500"
-]
-},
-{
-"symbol": "APE.AX",
-"name": "Eagers Automotive",
-"sektor_quelle": "Consumer Discretionary",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -4566,16 +4256,6 @@
 ]
 },
 {
-"symbol": "ARB.AX",
-"name": "ARB Corporation",
-"sektor_quelle": "Consumer Discretionary",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "ARE",
 "name": "Alexandria Real Estate Equities",
 "sektor_quelle": "Real Estate",
@@ -4593,26 +4273,6 @@
 "land": "USA",
 "indizes": [
 "S&P 500"
-]
-},
-{
-"symbol": "ARG.AX",
-"name": "Argo Investments",
-"sektor_quelle": "Financials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
-"symbol": "ARGX.BR",
-"name": "arGEN-X [nl]",
-"sektor_quelle": "Health Care",
-"region": "Europa",
-"land": "Belgien",
-"indizes": [
-"BEL 20"
 ]
 },
 {
@@ -4656,16 +4316,6 @@
 ]
 },
 {
-"symbol": "ASB.AX",
-"name": "Austal",
-"sektor_quelle": "Industrials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "ASC.L",
 "name": "ASOS",
 "sektor_quelle": "Retailers",
@@ -4693,16 +4343,6 @@
 "land": "Grossbritannien",
 "indizes": [
 "FTSE 250"
-]
-},
-{
-"symbol": "ASK.AX",
-"name": "Abacus Storage King",
-"sektor_quelle": "Real Estate",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -4766,16 +4406,6 @@
 ]
 },
 {
-"symbol": "ASX.AX",
-"name": "ASX",
-"sektor_quelle": "Financials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "AT1.DE",
 "name": "Aroundtown",
 "sektor_quelle": "Real estate",
@@ -4793,16 +4423,6 @@
 "land": "Schweden",
 "indizes": [
 "OMX Stockholm 30"
-]
-},
-{
-"symbol": "ATD.TO",
-"name": "Alimentation Couche-Tard Inc.",
-"sektor_quelle": "Consumer Cyclical",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
 ]
 },
 {
@@ -4876,16 +4496,6 @@
 ]
 },
 {
-"symbol": "AUB.AX",
-"name": "AUB Group",
-"sektor_quelle": "Financials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "AUTO.L",
 "name": "Autotrader Group",
 "sektor_quelle": "Software and Computer Services",
@@ -4943,16 +4553,6 @@
 "land": "USA",
 "indizes": [
 "S&P 400"
-]
-},
-{
-"symbol": "AVOL.SW",
-"name": "Avolta",
-"sektor_quelle": "Retail discretionary",
-"region": "Schweiz",
-"land": "Schweiz",
-"indizes": [
-"SMIM"
 ]
 },
 {
@@ -5046,26 +4646,6 @@
 ]
 },
 {
-"symbol": "AZE.BR",
-"name": "Azelis Group",
-"sektor_quelle": "Industrials",
-"region": "Europa",
-"land": "Belgien",
-"indizes": [
-"BEL 20"
-]
-},
-{
-"symbol": "AZJ.AX",
-"name": "Aurizon",
-"sektor_quelle": "Industrials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "AZM.MI",
 "name": "Azimut",
 "sektor_quelle": "Financial Services",
@@ -5156,16 +4736,6 @@
 ]
 },
 {
-"symbol": "BAER.SW",
-"name": "Julius Bär",
-"sektor_quelle": "Financials",
-"region": "Schweiz",
-"land": "Schweiz",
-"indizes": [
-"SMIM"
-]
-},
-{
 "symbol": "BAG.L",
 "name": "A.G. Barr",
 "sektor_quelle": "Beverages",
@@ -5196,16 +4766,6 @@
 ]
 },
 {
-"symbol": "BAM.TO",
-"name": "Brookfield Asset Management Ltd.",
-"sektor_quelle": "Financial Services",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
-]
-},
-{
 "symbol": "BAMI.MI",
 "name": "Banco BPM",
 "sektor_quelle": "Banks",
@@ -5223,16 +4783,6 @@
 "land": "Grossbritannien",
 "indizes": [
 "FTSE 100"
-]
-},
-{
-"symbol": "BARN.SW",
-"name": "Barry Callebaut",
-"sektor_quelle": "Retail staples",
-"region": "Schweiz",
-"land": "Schweiz",
-"indizes": [
-"SMIM"
 ]
 },
 {
@@ -5356,16 +4906,6 @@
 ]
 },
 {
-"symbol": "BCE.TO",
-"name": "BCE Inc.",
-"sektor_quelle": "Communication Services",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
-]
-},
-{
 "symbol": "BCG.L",
 "name": "Baltic Classifieds",
 "sektor_quelle": "Consumer Digital Services",
@@ -5416,16 +4956,6 @@
 ]
 },
 {
-"symbol": "BEAN.SW",
-"name": "Belimo",
-"sektor_quelle": "Industrials",
-"region": "Schweiz",
-"land": "Schweiz",
-"indizes": [
-"SMIM"
-]
-},
-{
 "symbol": "BEI.DE",
 "name": "Beiersdorf",
 "sektor_quelle": "Consumer goods",
@@ -5456,16 +4986,6 @@
 ]
 },
 {
-"symbol": "BEN.AX",
-"name": "Bendigo & Adelaide Bank",
-"sektor_quelle": "Financials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "BESI.AS",
 "name": "BE Semiconductors",
 "sektor_quelle": "Technology",
@@ -5483,16 +5003,6 @@
 "land": "USA",
 "indizes": [
 "S&P 500"
-]
-},
-{
-"symbol": "BFL.AX",
-"name": "BSP Financial Group",
-"sektor_quelle": "Financials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -5516,16 +5026,6 @@
 ]
 },
 {
-"symbol": "BGA.AX",
-"name": "Bega Cheese",
-"sektor_quelle": "Consumer Staples",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "BGEO.L",
 "name": "Lion Finance Group",
 "sektor_quelle": "Banks",
@@ -5546,13 +5046,13 @@
 ]
 },
 {
-"symbol": "BGL.AX",
-"name": "Bellevue Gold",
-"sektor_quelle": "Materials",
-"region": "Australien",
-"land": "Australien",
+"symbol": "BGN.MI",
+"name": "Banca Generali",
+"sektor_quelle": "Banks",
+"region": "Europa",
+"land": "Italien",
 "indizes": [
-"S&P/ASX 200"
+"FTSE MIB"
 ]
 },
 {
@@ -5573,16 +5073,6 @@
 "land": "Grossbritannien",
 "indizes": [
 "FTSE 250"
-]
-},
-{
-"symbol": "BHP.AX",
-"name": "BHP",
-"sektor_quelle": "Materials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -5633,16 +5123,6 @@
 "land": "USA",
 "indizes": [
 "S&P 400"
-]
-},
-{
-"symbol": "BIP-UN.TO",
-"name": "Brookfield Infrastructure Partners L.P.",
-"sektor_quelle": "Utilities",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
 ]
 },
 {
@@ -5736,16 +5216,6 @@
 ]
 },
 {
-"symbol": "BMO.TO",
-"name": "Bank of Montreal",
-"sektor_quelle": "Financial Services",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
-]
-},
-{
 "symbol": "BMPS.MI",
 "name": "Banca Monte dei Paschi di Siena",
 "sektor_quelle": "Banks",
@@ -5806,26 +5276,6 @@
 ]
 },
 {
-"symbol": "BN.TO",
-"name": "Brookfield Corporation",
-"sektor_quelle": "Financial Services",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
-]
-},
-{
-"symbol": "BN4.SI",
-"name": "Keppel Corporation",
-"sektor_quelle": null,
-"region": "Asien",
-"land": "Singapur",
-"indizes": [
-"Straits Times"
-]
-},
-{
 "symbol": "BNKR.L",
 "name": "Bankers Investment Trust",
 "sektor_quelle": "Investment Trusts",
@@ -5856,16 +5306,6 @@
 ]
 },
 {
-"symbol": "BNS.TO",
-"name": "Bank of Nova Scotia",
-"sektor_quelle": "Financial Services",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
-]
-},
-{
 "symbol": "BNY",
 "name": "BNY Mellon",
 "sektor_quelle": "Financials",
@@ -5893,16 +5333,6 @@
 "land": "Schweden",
 "indizes": [
 "OMX Stockholm 30"
-]
-},
-{
-"symbol": "BOQ.AX",
-"name": "Bank of Queensland",
-"sektor_quelle": "Financials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -5966,16 +5396,6 @@
 ]
 },
 {
-"symbol": "BPT.AX",
-"name": "Beach Energy",
-"sektor_quelle": "Energy",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "BPT.L",
 "name": "Bridgepoint Group",
 "sektor_quelle": "Financial Services",
@@ -6013,16 +5433,6 @@
 "land": "Grossbritannien",
 "indizes": [
 "FTSE 250"
-]
-},
-{
-"symbol": "BRG.AX",
-"name": "Breville Group",
-"sektor_quelle": "Consumer Discretionary",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -6106,26 +5516,6 @@
 ]
 },
 {
-"symbol": "BS6.SI",
-"name": "Yangzijiang Shipbuilding Holdings [zh]",
-"sektor_quelle": null,
-"region": "Asien",
-"land": "Singapur",
-"indizes": [
-"Straits Times"
-]
-},
-{
-"symbol": "BSL.AX",
-"name": "BlueScope",
-"sektor_quelle": "Materials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "BSX",
 "name": "Boston Scientific",
 "sektor_quelle": "Health Care",
@@ -6173,16 +5563,6 @@
 "land": "USA",
 "indizes": [
 "S&P 400"
-]
-},
-{
-"symbol": "BUOU.SI",
-"name": "Frasers Logistics & Commercial Trust",
-"sektor_quelle": null,
-"region": "Asien",
-"land": "Singapur",
-"indizes": [
-"Straits Times"
 ]
 },
 {
@@ -6236,16 +5616,6 @@
 ]
 },
 {
-"symbol": "BWP.AX",
-"name": "BWP Trust",
-"sektor_quelle": "Real Estate",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "BWXT",
 "name": "BWX Technologies",
 "sektor_quelle": "Industrials",
@@ -6273,16 +5643,6 @@
 "land": "USA",
 "indizes": [
 "S&P 500"
-]
-},
-{
-"symbol": "BXB.AX",
-"name": "Brambles",
-"sektor_quelle": "Industrials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -6346,36 +5706,6 @@
 ]
 },
 {
-"symbol": "C09.SI",
-"name": "City Developments Limited",
-"sektor_quelle": null,
-"region": "Asien",
-"land": "Singapur",
-"indizes": [
-"Straits Times"
-]
-},
-{
-"symbol": "C38U.SI",
-"name": "CapitaLand Integrated Commercial Trust",
-"sektor_quelle": null,
-"region": "Asien",
-"land": "Singapur",
-"indizes": [
-"Straits Times"
-]
-},
-{
-"symbol": "C6L.SI",
-"name": "Singapore Airlines",
-"sektor_quelle": null,
-"region": "Asien",
-"land": "Singapur",
-"indizes": [
-"Straits Times"
-]
-},
-{
 "symbol": "CA.PA",
 "name": "Carrefour",
 "sektor_quelle": "Consumer Defensive",
@@ -6406,16 +5736,6 @@
 ]
 },
 {
-"symbol": "CAE.TO",
-"name": "CAE Inc.",
-"sektor_quelle": "Industrials",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
-]
-},
-{
 "symbol": "CAH",
 "name": "Cardinal Health",
 "sektor_quelle": "Health Care",
@@ -6443,16 +5763,6 @@
 "land": "USA",
 "indizes": [
 "S&P 400"
-]
-},
-{
-"symbol": "CAR.AX",
-"name": "CAR Group",
-"sektor_quelle": "Communication Services",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -6523,16 +5833,6 @@
 "land": "USA",
 "indizes": [
 "S&P 500"
-]
-},
-{
-"symbol": "CBA.AX",
-"name": "Commonwealth Bank",
-"sektor_quelle": "Financials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -6656,36 +5956,6 @@
 ]
 },
 {
-"symbol": "CCL-B.TO",
-"name": "CCL Industries Inc.",
-"sektor_quelle": "Consumer Cyclical",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
-]
-},
-{
-"symbol": "CCO.TO",
-"name": "Cameco Corporation",
-"sektor_quelle": "Energy",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
-]
-},
-{
-"symbol": "CDA.AX",
-"name": "Codan",
-"sektor_quelle": "Information Technology",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "CDE",
 "name": "Coeur Mining",
 "sektor_quelle": "Materials",
@@ -6746,16 +6016,6 @@
 ]
 },
 {
-"symbol": "CEN.AX",
-"name": "Contact Energy",
-"sektor_quelle": "Utilities",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "CF",
 "name": "CF Industries",
 "sektor_quelle": "Materials",
@@ -6806,16 +6066,6 @@
 ]
 },
 {
-"symbol": "CGF.AX",
-"name": "Challenger",
-"sektor_quelle": "Financials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "CGNX",
 "name": "Cognex",
 "sektor_quelle": "Information Technology",
@@ -6833,16 +6083,6 @@
 "land": "Grossbritannien",
 "indizes": [
 "FTSE 250"
-]
-},
-{
-"symbol": "CHC.AX",
-"name": "Charter Hall",
-"sektor_quelle": "Real Estate",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -6966,16 +6206,6 @@
 ]
 },
 {
-"symbol": "CIA.AX",
-"name": "Champion Iron",
-"sektor_quelle": "Materials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "CIEN",
 "name": "Ciena",
 "sektor_quelle": "Information Technology",
@@ -6993,16 +6223,6 @@
 "land": "USA",
 "indizes": [
 "S&P 500"
-]
-},
-{
-"symbol": "CIP.AX",
-"name": "Centuria Industrial REIT",
-"sektor_quelle": "Real Estate",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -7056,16 +6276,6 @@
 ]
 },
 {
-"symbol": "CLN.SW",
-"name": "Clariant",
-"sektor_quelle": "Materials",
-"region": "Schweiz",
-"land": "Schweiz",
-"indizes": [
-"SMIM"
-]
-},
-{
 "symbol": "CLNX.MC",
 "name": "Cellnex Telecom",
 "sektor_quelle": "Telecommunications",
@@ -7076,26 +6286,6 @@
 ]
 },
 {
-"symbol": "CLS.TO",
-"name": "Celestica Inc.",
-"sektor_quelle": "Information Technology",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
-]
-},
-{
-"symbol": "CLW.AX",
-"name": "Charter Hall Long WALE REIT",
-"sektor_quelle": "Real Estate",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "CLX",
 "name": "Clorox",
 "sektor_quelle": "Consumer Staples",
@@ -7103,16 +6293,6 @@
 "land": "USA",
 "indizes": [
 "S&P 500"
-]
-},
-{
-"symbol": "CM.TO",
-"name": "Canadian Imperial Bank of Commerce",
-"sektor_quelle": "Financial Services",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
 ]
 },
 {
@@ -7173,16 +6353,6 @@
 "land": "USA",
 "indizes": [
 "S&P 500"
-]
-},
-{
-"symbol": "CMM.AX",
-"name": "Capricorn Metals",
-"sektor_quelle": "Materials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -7256,36 +6426,6 @@
 ]
 },
 {
-"symbol": "CNQ.TO",
-"name": "Canadian Natural Resources Limited",
-"sektor_quelle": "Energy",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
-]
-},
-{
-"symbol": "CNR.TO",
-"name": "Canadian National Railway Company",
-"sektor_quelle": "Industrials",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
-]
-},
-{
-"symbol": "CNU.AX",
-"name": "Chorus",
-"sektor_quelle": "Communication Services",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "CNX",
 "name": "CNX Resources",
 "sektor_quelle": "Energy",
@@ -7316,16 +6456,6 @@
 ]
 },
 {
-"symbol": "COH.AX",
-"name": "Cochlear",
-"sektor_quelle": "Healthcare",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "COHR",
 "name": "Coherent Corp.",
 "sektor_quelle": "Information Technology",
@@ -7353,16 +6483,6 @@
 "land": "USA",
 "indizes": [
 "S&P 400"
-]
-},
-{
-"symbol": "COL.AX",
-"name": "Coles Group",
-"sektor_quelle": "Consumer Staples",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -7486,16 +6606,6 @@
 ]
 },
 {
-"symbol": "CP.TO",
-"name": "Canadian Pacific Kansas City Limited",
-"sektor_quelle": "Industrials",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
-]
-},
-{
 "symbol": "CPAY",
 "name": "Corpay",
 "sektor_quelle": "Financials",
@@ -7553,26 +6663,6 @@
 "land": "USA",
 "indizes": [
 "S&P 500"
-]
-},
-{
-"symbol": "CPU.AX",
-"name": "Computershare",
-"sektor_quelle": "Information Technology",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
-"symbol": "CQR.AX",
-"name": "Charter Hall Retail REIT",
-"sektor_quelle": "Real Estate",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -7686,16 +6776,6 @@
 ]
 },
 {
-"symbol": "CSC.AX",
-"name": "Capstone Copper",
-"sektor_quelle": "Materials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "CSCO",
 "name": "Cisco",
 "sektor_quelle": "Information Technology",
@@ -7726,16 +6806,6 @@
 ]
 },
 {
-"symbol": "CSL.AX",
-"name": "CSL",
-"sektor_quelle": "Healthcare",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "CSN.L",
 "name": "Chesnara",
 "sektor_quelle": "Life Insurance",
@@ -7743,16 +6813,6 @@
 "land": "Grossbritannien",
 "indizes": [
 "FTSE 250"
-]
-},
-{
-"symbol": "CSU.TO",
-"name": "Constellation Software Inc.",
-"sektor_quelle": "Information Technology",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
 ]
 },
 {
@@ -7773,26 +6833,6 @@
 "land": "USA",
 "indizes": [
 "S&P 500"
-]
-},
-{
-"symbol": "CTC-A.TO",
-"name": "Canadian Tire Corporation Limited",
-"sektor_quelle": "Consumer Cyclical",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
-]
-},
-{
-"symbol": "CTD.AX",
-"name": "Corporate Travel Management",
-"sektor_quelle": "Consumer Discretionary",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -7876,16 +6916,6 @@
 ]
 },
 {
-"symbol": "CVE.TO",
-"name": "Cenovus Energy Inc.",
-"sektor_quelle": "Energy",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
-]
-},
-{
 "symbol": "CVLT",
 "name": "CommVault Systems",
 "sektor_quelle": "Information Technology",
@@ -7966,16 +6996,6 @@
 ]
 },
 {
-"symbol": "CWY.AX",
-"name": "Cleanaway",
-"sektor_quelle": "Industrials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "CXT",
 "name": "Crane NXT",
 "sektor_quelle": "Information Technology",
@@ -7983,16 +7003,6 @@
 "land": "USA",
 "indizes": [
 "S&P 400"
-]
-},
-{
-"symbol": "CYL.AX",
-"name": "Catalyst Metals",
-"sektor_quelle": "Materials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -8013,26 +7023,6 @@
 "land": "USA",
 "indizes": [
 "S&P 500"
-]
-},
-{
-"symbol": "D01.SI",
-"name": "DFI Retail Group Holdings Limited",
-"sektor_quelle": null,
-"region": "Asien",
-"land": "Singapur",
-"indizes": [
-"Straits Times"
-]
-},
-{
-"symbol": "D05.SI",
-"name": "DBS Group Holdings",
-"sektor_quelle": null,
-"region": "Asien",
-"land": "Singapur",
-"indizes": [
-"Straits Times"
 ]
 },
 {
@@ -8093,16 +7083,6 @@
 "land": "Deutschland",
 "indizes": [
 "DAX"
-]
-},
-{
-"symbol": "DBI.AX",
-"name": "Dalrymple Bay Infrastructure",
-"sektor_quelle": "Industrials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -8286,16 +7266,6 @@
 ]
 },
 {
-"symbol": "DIE.BR",
-"name": "D'Ieteren",
-"sektor_quelle": "Consumer Discretionary",
-"region": "Europa",
-"land": "Belgien",
-"indizes": [
-"BEL 20"
-]
-},
-{
 "symbol": "DINO",
 "name": "HF Sinclair",
 "sektor_quelle": "Energy",
@@ -8376,16 +7346,6 @@
 ]
 },
 {
-"symbol": "DNL.AX",
-"name": "Dyno Nobel",
-"sektor_quelle": "Materials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "DNLM.L",
 "name": "Dunelm Group",
 "sektor_quelle": "Retailers",
@@ -8446,16 +7406,6 @@
 ]
 },
 {
-"symbol": "DOL.TO",
-"name": "Dollarama Inc.",
-"sektor_quelle": "Consumer Staples",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
-]
-},
-{
 "symbol": "DOM.L",
 "name": "Domino's Pizza",
 "sektor_quelle": "Travel & Leisure",
@@ -8486,16 +7436,6 @@
 ]
 },
 {
-"symbol": "DOW.AX",
-"name": "Downer Group",
-"sektor_quelle": "Industrials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "DPLM.L",
 "name": "Diploma",
 "sektor_quelle": "Industrial Support Services",
@@ -8523,26 +7463,6 @@
 "land": "USA",
 "indizes": [
 "S&P 500"
-]
-},
-{
-"symbol": "DRO.AX",
-"name": "Droneshield",
-"sektor_quelle": "Industrials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
-"symbol": "DRR.AX",
-"name": "Deterra Royalties",
-"sektor_quelle": "Materials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -8696,16 +7616,6 @@
 ]
 },
 {
-"symbol": "DXS.AX",
-"name": "Dexus",
-"sektor_quelle": "Real Estate",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "DY",
 "name": "Dycom Industries",
 "sektor_quelle": "Industrials",
@@ -8713,16 +7623,6 @@
 "land": "USA",
 "indizes": [
 "S&P 400"
-]
-},
-{
-"symbol": "DYL.AX",
-"name": "Deep Yellow",
-"sektor_quelle": "Energy",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -8743,16 +7643,6 @@
 "land": "USA",
 "indizes": [
 "S&P 500"
-]
-},
-{
-"symbol": "EBO.AX",
-"name": "EBOS Group",
-"sektor_quelle": "Healthcare",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -8803,16 +7693,6 @@
 "land": "Grossbritannien",
 "indizes": [
 "FTSE 250"
-]
-},
-{
-"symbol": "EDV.AX",
-"name": "Endeavour Group",
-"sektor_quelle": "Consumer Staples",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -8936,16 +7816,6 @@
 ]
 },
 {
-"symbol": "ELI.BR",
-"name": "Elia Group",
-"sektor_quelle": "Utilities",
-"region": "Europa",
-"land": "Belgien",
-"indizes": [
-"BEL 20"
-]
-},
-{
 "symbol": "ELISA.HE",
 "name": "Elisa",
 "sektor_quelle": "Communication Services",
@@ -8986,16 +7856,6 @@
 ]
 },
 {
-"symbol": "EMA.TO",
-"name": "Emera Incorporated",
-"sektor_quelle": "Utilities",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
-]
-},
-{
 "symbol": "EME",
 "name": "Emcor",
 "sektor_quelle": "Industrials",
@@ -9026,26 +7886,6 @@
 ]
 },
 {
-"symbol": "EMR.AX",
-"name": "Emerald Resources",
-"sektor_quelle": "Materials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
-"symbol": "EMSN.SW",
-"name": "Ems-Chemie",
-"sektor_quelle": "Materials",
-"region": "Schweiz",
-"land": "Schweiz",
-"indizes": [
-"SMIM"
-]
-},
-{
 "symbol": "EN.PA",
 "name": "Bouygues",
 "sektor_quelle": "Industrials",
@@ -9053,16 +7893,6 @@
 "land": "Frankreich",
 "indizes": [
 "CAC 40"
-]
-},
-{
-"symbol": "ENB.TO",
-"name": "Enbridge Inc.",
-"sektor_quelle": "Energy",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
 ]
 },
 {
@@ -9203,16 +8033,6 @@
 "land": "USA",
 "indizes": [
 "S&P 500"
-]
-},
-{
-"symbol": "EOS.AX",
-"name": "Electro Optic Systems Holdings",
-"sektor_quelle": "Industrials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -9416,16 +8236,6 @@
 ]
 },
 {
-"symbol": "EVN.AX",
-"name": "Evolution Mining",
-"sektor_quelle": "Materials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "EVO.ST",
 "name": "Evolution",
 "sektor_quelle": "Consumer Discretionary",
@@ -9453,16 +8263,6 @@
 "land": "USA",
 "indizes": [
 "S&P 500"
-]
-},
-{
-"symbol": "EVT.AX",
-"name": "EVT",
-"sektor_quelle": "Communication Services",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -9646,16 +8446,6 @@
 ]
 },
 {
-"symbol": "F34.SI",
-"name": "Wilmar International",
-"sektor_quelle": null,
-"region": "Asien",
-"land": "Singapur",
-"indizes": [
-"Straits Times"
-]
-},
-{
 "symbol": "FAF",
 "name": "First American Financial Corporation",
 "sektor_quelle": "Financials",
@@ -9713,16 +8503,6 @@
 "land": "Italien",
 "indizes": [
 "FTSE MIB"
-]
-},
-{
-"symbol": "FBU.AX",
-"name": "Fletcher Building",
-"sektor_quelle": "Industrials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -9886,16 +8666,6 @@
 ]
 },
 {
-"symbol": "FFH.TO",
-"name": "Fairfax Financial Holdings Limited",
-"sektor_quelle": "Financial Services",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
-]
-},
-{
 "symbol": "FFIN",
 "name": "First Financial Bankshares",
 "sektor_quelle": "Financials",
@@ -9973,16 +8743,6 @@
 "land": "USA",
 "indizes": [
 "S&P 400"
-]
-},
-{
-"symbol": "FHZN.SW",
-"name": "Flughafen Zürich",
-"sektor_quelle": "Industrials",
-"region": "Schweiz",
-"land": "Schweiz",
-"indizes": [
-"SMIM"
 ]
 },
 {
@@ -10096,26 +8856,6 @@
 ]
 },
 {
-"symbol": "FLT.AX",
-"name": "Flight Centre Travel Group",
-"sektor_quelle": "Consumer Discretionary",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
-"symbol": "FM.TO",
-"name": "First Quantum Minerals Ltd.",
-"sektor_quelle": "Basic Materials",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
-]
-},
-{
 "symbol": "FME.DE",
 "name": "Fresenius Medical Care",
 "sektor_quelle": "Healthcare",
@@ -10123,16 +8863,6 @@
 "land": "Deutschland",
 "indizes": [
 "DAX"
-]
-},
-{
-"symbol": "FMG.AX",
-"name": "Fortescue",
-"sektor_quelle": "Materials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -10183,16 +8913,6 @@
 "land": "Deutschland",
 "indizes": [
 "MDAX"
-]
-},
-{
-"symbol": "FNV.TO",
-"name": "Franco-Nevada Corporation",
-"sektor_quelle": "Basic Materials",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
 ]
 },
 {
@@ -10263,16 +8983,6 @@
 "land": "Deutschland",
 "indizes": [
 "MDAX"
-]
-},
-{
-"symbol": "FPH.AX",
-"name": "Fisher & Paykel Healthcare",
-"sektor_quelle": "Healthcare",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -10347,16 +9057,6 @@
 ]
 },
 {
-"symbol": "FRW.AX",
-"name": "Freightways Group",
-"sektor_quelle": "Industrials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "FSG.L",
 "name": "Foresight Group",
 "sektor_quelle": "Investment Banking and Brokerage Services",
@@ -10387,16 +9087,6 @@
 ]
 },
 {
-"symbol": "FSV.TO",
-"name": "FirstService Corporation",
-"sektor_quelle": "Real Estate",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
-]
-},
-{
 "symbol": "FTI",
 "name": "TechnipFMC",
 "sektor_quelle": "Energy",
@@ -10414,16 +9104,6 @@
 "land": "USA",
 "indizes": [
 "S&P 500"
-]
-},
-{
-"symbol": "FTS.TO",
-"name": "Fortis Inc.",
-"sektor_quelle": "Utilities",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
 ]
 },
 {
@@ -10457,16 +9137,6 @@
 ]
 },
 {
-"symbol": "G13.SI",
-"name": "Genting Singapore PLC",
-"sektor_quelle": null,
-"region": "Asien",
-"land": "Singapur",
-"indizes": [
-"Straits Times"
-]
-},
-{
 "symbol": "G1A.DE",
 "name": "GEA Group",
 "sektor_quelle": "Mechanical Engineering",
@@ -10495,18 +9165,7 @@
 "region": "Schweiz",
 "land": "Schweiz",
 "indizes": [
-"SMI",
-"SMIM"
-]
-},
-{
-"symbol": "GALE.SW",
-"name": "Galenica",
-"sektor_quelle": "Health care",
-"region": "Schweiz",
-"land": "Schweiz",
-"indizes": [
-"SMIM"
+"SMI"
 ]
 },
 {
@@ -10570,16 +9229,6 @@
 ]
 },
 {
-"symbol": "GBLB.BR",
-"name": "GBL",
-"sektor_quelle": "Financials",
-"region": "Europa",
-"land": "Belgien",
-"indizes": [
-"BEL 20"
-]
-},
-{
 "symbol": "GCP.L",
 "name": "GCP Infrastructure Investments",
 "sektor_quelle": "General Financial",
@@ -10607,16 +9256,6 @@
 "land": "USA",
 "indizes": [
 "S&P 500"
-]
-},
-{
-"symbol": "GDG.AX",
-"name": "Generation Development Group",
-"sektor_quelle": "Financials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -10700,16 +9339,6 @@
 ]
 },
 {
-"symbol": "GF.SW",
-"name": "Georg Fischer",
-"sektor_quelle": "Industrials",
-"region": "Schweiz",
-"land": "Schweiz",
-"indizes": [
-"SMIM"
-]
-},
-{
 "symbol": "GFRD.L",
 "name": "Galliford Try",
 "sektor_quelle": "Construction",
@@ -10740,16 +9369,6 @@
 ]
 },
 {
-"symbol": "GGP.AX",
-"name": "Greatland Resources",
-"sektor_quelle": "Materials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "GHC",
 "name": "Graham Holdings",
 "sektor_quelle": "Consumer Discretionary",
@@ -10757,26 +9376,6 @@
 "land": "USA",
 "indizes": [
 "S&P 400"
-]
-},
-{
-"symbol": "GIB-A.TO",
-"name": "CGI Inc.",
-"sektor_quelle": "Information Technology",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
-]
-},
-{
-"symbol": "GIL.TO",
-"name": "Gildan Activewear Inc.",
-"sektor_quelle": "Consumer Cyclical",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
 ]
 },
 {
@@ -10900,16 +9499,6 @@
 ]
 },
 {
-"symbol": "GMD.AX",
-"name": "Genesis Minerals",
-"sektor_quelle": "Materials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "GME",
 "name": "GameStop",
 "sektor_quelle": "Consumer Discretionary",
@@ -10930,16 +9519,6 @@
 ]
 },
 {
-"symbol": "GMG.AX",
-"name": "Goodman Group",
-"sektor_quelle": "Real Estate",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "GN.CO",
 "name": "GN Store Nord",
 "sektor_quelle": "Health Care",
@@ -10957,16 +9536,6 @@
 "land": "Grossbritannien",
 "indizes": [
 "FTSE 250"
-]
-},
-{
-"symbol": "GNE.AX",
-"name": "Genesis Energy",
-"sektor_quelle": "Utilities",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -11067,26 +9636,6 @@
 "land": "USA",
 "indizes": [
 "S&P 500"
-]
-},
-{
-"symbol": "GPT.AX",
-"name": "GPT Group",
-"sektor_quelle": "Real Estate",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
-"symbol": "GQG.AX",
-"name": "GQG Partners",
-"sektor_quelle": "Financials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -11230,26 +9779,6 @@
 ]
 },
 {
-"symbol": "H.TO",
-"name": "Hydro One Limited",
-"sektor_quelle": "Utilities",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
-]
-},
-{
-"symbol": "H78.SI",
-"name": "Hongkong Land Holdings",
-"sektor_quelle": null,
-"region": "Asien",
-"land": "Singapur",
-"indizes": [
-"Straits Times"
-]
-},
-{
 "symbol": "HAE",
 "name": "Haemonetics",
 "sektor_quelle": "Health Care",
@@ -11350,16 +9879,6 @@
 ]
 },
 {
-"symbol": "HBAN.SW",
-"name": "Helvetia Bâloise",
-"sektor_quelle": "Financials",
-"region": "Schweiz",
-"land": "Schweiz",
-"indizes": [
-"SMIM"
-]
-},
-{
 "symbol": "HBR.L",
 "name": "Harbour Energy",
 "sektor_quelle": "Oil & Gas Producers",
@@ -11397,16 +9916,6 @@
 "land": "Indien",
 "indizes": [
 "ADR Asien"
-]
-},
-{
-"symbol": "HDN.AX",
-"name": "HomeCo Daily Needs REIT",
-"sektor_quelle": "Real Estate",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -11940,16 +10449,6 @@
 ]
 },
 {
-"symbol": "HUB.AX",
-"name": "HUB24",
-"sektor_quelle": "Financials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "HUBB",
 "name": "Hubbell Incorporated",
 "sektor_quelle": "Industrials",
@@ -11987,16 +10486,6 @@
 "land": "USA",
 "indizes": [
 "S&P 500"
-]
-},
-{
-"symbol": "HVN.AX",
-"name": "Harvey Norman",
-"sektor_quelle": "Consumer Discretionary",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -12067,16 +10556,6 @@
 "land": "Grossbritannien",
 "indizes": [
 "FTSE 250"
-]
-},
-{
-"symbol": "IAG.AX",
-"name": "Insurance Australia Group",
-"sektor_quelle": "Financials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -12240,16 +10719,6 @@
 ]
 },
 {
-"symbol": "IFC.TO",
-"name": "Intact Financial Corporation",
-"sektor_quelle": "Financial Services",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
-]
-},
-{
 "symbol": "IFF",
 "name": "International Flavors & Fragrances",
 "sektor_quelle": "Materials",
@@ -12257,26 +10726,6 @@
 "land": "USA",
 "indizes": [
 "S&P 500"
-]
-},
-{
-"symbol": "IFL.AX",
-"name": "Insignia Financial",
-"sektor_quelle": "Financials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
-"symbol": "IFT.AX",
-"name": "Infratil",
-"sektor_quelle": "Financials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -12307,16 +10756,6 @@
 "land": "Grossbritannien",
 "indizes": [
 "FTSE 100"
-]
-},
-{
-"symbol": "IGO.AX",
-"name": "IGO",
-"sektor_quelle": "Materials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -12360,16 +10799,6 @@
 ]
 },
 {
-"symbol": "ILU.AX",
-"name": "Iluka Resources",
-"sektor_quelle": "Materials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "IMB.L",
 "name": "Imperial Brands",
 "sektor_quelle": "Tobacco",
@@ -12390,16 +10819,6 @@
 ]
 },
 {
-"symbol": "IMD.AX",
-"name": "IMDEX",
-"sektor_quelle": "Materials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "IMI.L",
 "name": "IMI",
 "sektor_quelle": "Electronic and Electrical Equipment",
@@ -12407,16 +10826,6 @@
 "land": "Grossbritannien",
 "indizes": [
 "FTSE 100"
-]
-},
-{
-"symbol": "IMO.TO",
-"name": "Imperial Oil Limited",
-"sektor_quelle": "Energy",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
 ]
 },
 {
@@ -12730,16 +11139,6 @@
 ]
 },
 {
-"symbol": "IVG.MI",
-"name": "Iveco",
-"sektor_quelle": "Industrial Goods and Services",
-"region": "Europa",
-"land": "Italien",
-"indizes": [
-"FTSE MIB"
-]
-},
-{
 "symbol": "IVZ",
 "name": "Invesco",
 "sektor_quelle": "Financials",
@@ -12770,26 +11169,6 @@
 ]
 },
 {
-"symbol": "J36.SI",
-"name": "Jardine Matheson Holdings Limited",
-"sektor_quelle": null,
-"region": "Asien",
-"land": "Singapur",
-"indizes": [
-"Straits Times"
-]
-},
-{
-"symbol": "J69U.SI",
-"name": "Frasers Centrepoint Trust",
-"sektor_quelle": null,
-"region": "Asien",
-"land": "Singapur",
-"indizes": [
-"Straits Times"
-]
-},
-{
 "symbol": "JAM.L",
 "name": "JPMorgan American Investment Trust",
 "sektor_quelle": "Investment Trusts",
@@ -12807,16 +11186,6 @@
 "land": "USA",
 "indizes": [
 "S&P 400"
-]
-},
-{
-"symbol": "JBH.AX",
-"name": "JB Hi-Fi",
-"sektor_quelle": "Consumer Discretionary",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -12970,16 +11339,6 @@
 ]
 },
 {
-"symbol": "JHX.AX",
-"name": "James Hardie",
-"sektor_quelle": "Materials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "JKHY",
 "name": "Jack Henry & Associates",
 "sektor_quelle": "Financials",
@@ -13080,16 +11439,6 @@
 ]
 },
 {
-"symbol": "K.TO",
-"name": "Kinross Gold Corporation",
-"sektor_quelle": "Basic Materials",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
-]
-},
-{
 "symbol": "KALMAR.HE",
 "name": "Kalmar [fi] B",
 "sektor_quelle": "Industrials",
@@ -13107,16 +11456,6 @@
 "land": "Südkorea",
 "indizes": [
 "ADR Asien"
-]
-},
-{
-"symbol": "KBC.BR",
-"name": "KBC",
-"sektor_quelle": "Financials",
-"region": "Europa",
-"land": "Belgien",
-"indizes": [
-"BEL 20"
 ]
 },
 {
@@ -13510,26 +11849,6 @@
 ]
 },
 {
-"symbol": "L.TO",
-"name": "Loblaw Companies Limited",
-"sektor_quelle": "Consumer Staples",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
-]
-},
-{
-"symbol": "L1G.AX",
-"name": "L1 Group",
-"sektor_quelle": "Financials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "LAD",
 "name": "Lithia Motors",
 "sektor_quelle": "Consumer Discretionary",
@@ -13710,16 +12029,6 @@
 ]
 },
 {
-"symbol": "LISN.SW",
-"name": "Lindt & Sprüngli",
-"sektor_quelle": "Retail staples",
-"region": "Schweiz",
-"land": "Schweiz",
-"indizes": [
-"SMIM"
-]
-},
-{
 "symbol": "LITE",
 "name": "Lumentum",
 "sektor_quelle": "Information Technology",
@@ -13737,16 +12046,6 @@
 "land": "USA",
 "indizes": [
 "S&P 400"
-]
-},
-{
-"symbol": "LLC.AX",
-"name": "Lendlease",
-"sektor_quelle": "Real Estate",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -13810,16 +12109,6 @@
 ]
 },
 {
-"symbol": "LNW.AX",
-"name": "Light & Wonder",
-"sektor_quelle": "Consumer Discretionary",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "LOG.MC",
 "name": "Logista",
 "sektor_quelle": "Logistics",
@@ -13857,26 +12146,6 @@
 "land": "USA",
 "indizes": [
 "S&P 400"
-]
-},
-{
-"symbol": "LOTB.BR",
-"name": "Lotus Bakeries",
-"sektor_quelle": "Consumer Staples",
-"region": "Europa",
-"land": "Belgien",
-"indizes": [
-"BEL 20"
-]
-},
-{
-"symbol": "LOV.AX",
-"name": "Lovisa",
-"sektor_quelle": "Consumer Discretionary",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -13950,16 +12219,6 @@
 ]
 },
 {
-"symbol": "LSF.AX",
-"name": "L1 Long Short Fund",
-"sektor_quelle": "Financials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "LSTR",
 "name": "Landstar System",
 "sektor_quelle": "Industrials",
@@ -13977,16 +12236,6 @@
 "land": "Italien",
 "indizes": [
 "FTSE MIB"
-]
-},
-{
-"symbol": "LTR.AX",
-"name": "Liontown Resources",
-"sektor_quelle": "Materials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -14050,16 +12299,6 @@
 ]
 },
 {
-"symbol": "LYC.AX",
-"name": "Lynas Rare Earths",
-"sektor_quelle": "Materials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "LYV",
 "name": "Live Nation Entertainment",
 "sektor_quelle": "Communication Services",
@@ -14077,16 +12316,6 @@
 "land": "USA",
 "indizes": [
 "S&P 400"
-]
-},
-{
-"symbol": "M44U.SI",
-"name": "Mapletree Logistics Trust",
-"sektor_quelle": null,
-"region": "Asien",
-"land": "Singapur",
-"indizes": [
-"Straits Times"
 ]
 },
 {
@@ -14261,16 +12490,6 @@
 ]
 },
 {
-"symbol": "MCY.AX",
-"name": "Mercury NZ",
-"sektor_quelle": "Utilities",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "MDLZ",
 "name": "Mondelez International",
 "sektor_quelle": "Consumer Staples",
@@ -14291,16 +12510,6 @@
 ]
 },
 {
-"symbol": "ME8U.SI",
-"name": "Mapletree Industrial Trust",
-"sektor_quelle": null,
-"region": "Asien",
-"land": "Singapur",
-"indizes": [
-"Straits Times"
-]
-},
-{
 "symbol": "MEDP",
 "name": "Medpace",
 "sektor_quelle": "Health Care",
@@ -14318,16 +12527,6 @@
 "land": "Grossbritannien",
 "indizes": [
 "FTSE 250"
-]
-},
-{
-"symbol": "MELE.BR",
-"name": "Melexis [nl]",
-"sektor_quelle": "Electronic Equipment",
-"region": "Europa",
-"land": "Belgien",
-"indizes": [
-"BEL 20"
 ]
 },
 {
@@ -14361,56 +12560,6 @@
 ]
 },
 {
-"symbol": "MEZ.AX",
-"name": "Meridian Energy",
-"sektor_quelle": "Utilities",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
-"symbol": "MFC.TO",
-"name": "Manulife Financial Corporation",
-"sektor_quelle": "Financial Services",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
-]
-},
-{
-"symbol": "MFF.AX",
-"name": "MFF Capital Investments",
-"sektor_quelle": "Financials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
-"symbol": "MFG.AX",
-"name": "Magellan Financial Group",
-"sektor_quelle": "Financials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
-"symbol": "MG.TO",
-"name": "Magna International Inc.",
-"sektor_quelle": "Consumer Cyclical",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
-]
-},
-{
 "symbol": "MGAM.L",
 "name": "Morgan Advanced Materials",
 "sektor_quelle": "Electronic & Electrical Equipment",
@@ -14441,16 +12590,6 @@
 ]
 },
 {
-"symbol": "MGR.AX",
-"name": "Mirvac",
-"sektor_quelle": "Real Estate",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "MIDD",
 "name": "Middleby",
 "sektor_quelle": "Industrials",
@@ -14458,16 +12597,6 @@
 "land": "USA",
 "indizes": [
 "S&P 400"
-]
-},
-{
-"symbol": "MIN.AX",
-"name": "Mineral Resources",
-"sektor_quelle": "Materials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -14558,16 +12687,6 @@
 "land": "Indien",
 "indizes": [
 "ADR Asien"
-]
-},
-{
-"symbol": "MND.AX",
-"name": "Monadelphous Group",
-"sektor_quelle": "Industrials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -14671,16 +12790,6 @@
 ]
 },
 {
-"symbol": "MONT.BR",
-"name": "Montea",
-"sektor_quelle": "Real Estate",
-"region": "Europa",
-"land": "Belgien",
-"indizes": [
-"BEL 20"
-]
-},
-{
 "symbol": "MONY.L",
 "name": "MONY Group",
 "sektor_quelle": "Media",
@@ -14761,16 +12870,6 @@
 ]
 },
 {
-"symbol": "MPL.AX",
-"name": "Medibank",
-"sektor_quelle": "Financials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "MPWR",
 "name": "Monolithic Power Systems",
 "sektor_quelle": "Information Technology",
@@ -14778,16 +12877,6 @@
 "land": "USA",
 "indizes": [
 "S&P 500"
-]
-},
-{
-"symbol": "MQG.AX",
-"name": "Macquarie Group",
-"sektor_quelle": "Financials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -14871,16 +12960,6 @@
 ]
 },
 {
-"symbol": "MRU.TO",
-"name": "Metro Inc.",
-"sektor_quelle": "Consumer Staples",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
-]
-},
-{
 "symbol": "MRVL",
 "name": "Marvell Technology",
 "sektor_quelle": "Information Technology",
@@ -14908,16 +12987,6 @@
 "land": "USA",
 "indizes": [
 "S&P 400"
-]
-},
-{
-"symbol": "MSB.AX",
-"name": "Mesoblast",
-"sektor_quelle": "Healthcare",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -15052,16 +13121,6 @@
 ]
 },
 {
-"symbol": "MTS.AX",
-"name": "Metcash",
-"sektor_quelle": "Consumer Staples",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "MTS.MC",
 "name": "ArcelorMittal",
 "sektor_quelle": "Steel",
@@ -15152,16 +13211,6 @@
 ]
 },
 {
-"symbol": "MXT.AX",
-"name": "Metrics Master Income Trust",
-"sektor_quelle": "Financials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "MYI.L",
 "name": "Murray International Trust",
 "sektor_quelle": "Investment Trusts",
@@ -15182,16 +13231,6 @@
 ]
 },
 {
-"symbol": "N2IU.SI",
-"name": "Mapletree Pan Asia Commercial Trust",
-"sektor_quelle": null,
-"region": "Asien",
-"land": "Singapur",
-"indizes": [
-"Straits Times"
-]
-},
-{
 "symbol": "N91.L",
 "name": "Ninety One",
 "sektor_quelle": "Financial Services",
@@ -15199,16 +13238,6 @@
 "land": "Grossbritannien",
 "indizes": [
 "FTSE 250"
-]
-},
-{
-"symbol": "NAB.AX",
-"name": "National Australia Bank",
-"sektor_quelle": "Financials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -15372,16 +13401,6 @@
 ]
 },
 {
-"symbol": "NEM.AX",
-"name": "Newmont",
-"sektor_quelle": "Materials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "NEM.DE",
 "name": "Nemetschek",
 "sektor_quelle": "Software",
@@ -15462,26 +13481,6 @@
 ]
 },
 {
-"symbol": "NHC.AX",
-"name": "New Hope",
-"sektor_quelle": "Energy",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
-"symbol": "NHF.AX",
-"name": "Nib",
-"sektor_quelle": "Financials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "NHY.OL",
 "name": "Norsk Hydro",
 "sektor_quelle": "aluminum",
@@ -15509,16 +13508,6 @@
 "land": "Schweden",
 "indizes": [
 "OMX Stockholm 30"
-]
-},
-{
-"symbol": "NIC.AX",
-"name": "Nickel Industries",
-"sektor_quelle": "Materials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -15702,26 +13691,6 @@
 ]
 },
 {
-"symbol": "NSR.AX",
-"name": "National Storage",
-"sektor_quelle": "Real Estate",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
-"symbol": "NST.AX",
-"name": "Northern Star Resources",
-"sektor_quelle": "Materials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "NTAP",
 "name": "NetApp",
 "sektor_quelle": "Information Technology",
@@ -15759,16 +13728,6 @@
 "land": "USA",
 "indizes": [
 "S&P 400"
-]
-},
-{
-"symbol": "NTR.TO",
-"name": "Nutrien Ltd.",
-"sektor_quelle": "Basic Materials",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
 ]
 },
 {
@@ -15842,26 +13801,6 @@
 ]
 },
 {
-"symbol": "NWH.AX",
-"name": "NRW Holdings",
-"sektor_quelle": "Industrials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
-"symbol": "NWL.AX",
-"name": "Netwealth Group",
-"sektor_quelle": "Financials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "NWS",
 "name": "News Corp (Class B)",
 "sektor_quelle": "Communication Services",
@@ -15872,16 +13811,6 @@
 ]
 },
 {
-"symbol": "NWS.AX",
-"name": "News Corp Class B",
-"sektor_quelle": "Communication Services",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "NWSA",
 "name": "News Corp (Class A)",
 "sektor_quelle": "Communication Services",
@@ -15889,16 +13818,6 @@
 "land": "USA",
 "indizes": [
 "S&P 500"
-]
-},
-{
-"symbol": "NXG.AX",
-"name": "Nexgen Energy",
-"sektor_quelle": "Energy",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -15932,16 +13851,6 @@
 ]
 },
 {
-"symbol": "NXT.AX",
-"name": "NextDC",
-"sektor_quelle": "Information Technology",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "NXT.L",
 "name": "Next plc",
 "sektor_quelle": "Retailers",
@@ -15969,26 +13878,6 @@
 "land": "USA",
 "indizes": [
 "S&P 500"
-]
-},
-{
-"symbol": "O39.SI",
-"name": "OCBC Bank",
-"sektor_quelle": null,
-"region": "Asien",
-"land": "Singapur",
-"indizes": [
-"Straits Times"
-]
-},
-{
-"symbol": "OBM.AX",
-"name": "Ora Banda Mining",
-"sektor_quelle": "Materials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -16182,16 +14071,6 @@
 ]
 },
 {
-"symbol": "ORA.AX",
-"name": "Orora",
-"sektor_quelle": "Materials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "ORA.PA",
 "name": "Orange",
 "sektor_quelle": "Communication Services",
@@ -16212,16 +14091,6 @@
 ]
 },
 {
-"symbol": "ORG.AX",
-"name": "Origin Energy",
-"sektor_quelle": "Utilities",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "ORI",
 "name": "Old Republic International",
 "sektor_quelle": "Financials",
@@ -16229,16 +14098,6 @@
 "land": "USA",
 "indizes": [
 "S&P 400"
-]
-},
-{
-"symbol": "ORI.AX",
-"name": "Orica",
-"sektor_quelle": "Materials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -16299,16 +14158,6 @@
 "land": "USA",
 "indizes": [
 "S&P 400"
-]
-},
-{
-"symbol": "OTEX.TO",
-"name": "Open Text Corporation",
-"sektor_quelle": "Information Technology",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
 ]
 },
 {
@@ -16552,26 +14401,6 @@
 ]
 },
 {
-"symbol": "PDI.AX",
-"name": "Predictive Discovery",
-"sektor_quelle": "Materials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
-"symbol": "PDN.AX",
-"name": "Paladin Energy",
-"sektor_quelle": "Energy",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "PEG",
 "name": "Public Service Enterprise Group",
 "sektor_quelle": "Utilities",
@@ -16792,6 +14621,16 @@
 ]
 },
 {
+"symbol": "PIRC.MI",
+"name": "Pirelli & C.",
+"sektor_quelle": "Automobiles and Parts",
+"region": "Europa",
+"land": "Italien",
+"indizes": [
+"FTSE MIB"
+]
+},
+{
 "symbol": "PK",
 "name": "Park Hotels & Resorts",
 "sektor_quelle": "Real Estate",
@@ -16842,16 +14681,6 @@
 ]
 },
 {
-"symbol": "PLS.AX",
-"name": "PLS Group",
-"sektor_quelle": "Materials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "PLTR",
 "name": "Palantir Technologies",
 "sektor_quelle": "Information Technology",
@@ -16882,26 +14711,6 @@
 ]
 },
 {
-"symbol": "PME.AX",
-"name": "Pro Medicus",
-"sektor_quelle": "Healthcare",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
-"symbol": "PMV.AX",
-"name": "Premier Investments",
-"sektor_quelle": "Consumer Discretionary",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "PNC",
 "name": "PNC Financial Services",
 "sektor_quelle": "Financials",
@@ -16929,16 +14738,6 @@
 "land": "USA",
 "indizes": [
 "S&P 400"
-]
-},
-{
-"symbol": "PNI.AX",
-"name": "Pinnacle Investment Management",
-"sektor_quelle": "Financials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -17022,16 +14821,6 @@
 ]
 },
 {
-"symbol": "POW.TO",
-"name": "Power Corporation of Canada",
-"sektor_quelle": "Financial Services",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
-]
-},
-{
 "symbol": "PPC",
 "name": "Pilgrim's Pride",
 "sektor_quelle": "Consumer Staples",
@@ -17082,26 +14871,6 @@
 ]
 },
 {
-"symbol": "PPL.TO",
-"name": "Pembina Pipeline Corporation",
-"sektor_quelle": "Energy",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
-]
-},
-{
-"symbol": "PPT.AX",
-"name": "Perpetual",
-"sektor_quelle": "Financials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "PR",
 "name": "Permian Resources",
 "sektor_quelle": "Energy",
@@ -17122,16 +14891,6 @@
 ]
 },
 {
-"symbol": "PRN.AX",
-"name": "Perenti",
-"sektor_quelle": "Materials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "PRN.L",
 "name": "Princes Group",
 "sektor_quelle": "Food and drink",
@@ -17149,16 +14908,6 @@
 "land": "USA",
 "indizes": [
 "S&P 500"
-]
-},
-{
-"symbol": "PRU.AX",
-"name": "Perseus Mining",
-"sektor_quelle": "Materials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -17239,16 +14988,6 @@
 "land": "Grossbritannien",
 "indizes": [
 "FTSE 100"
-]
-},
-{
-"symbol": "PSPN.SW",
-"name": "PSP Swiss Property",
-"sektor_quelle": "Real estate",
-"region": "Schweiz",
-"land": "Schweiz",
-"indizes": [
-"SMIM"
 ]
 },
 {
@@ -17342,16 +15081,6 @@
 ]
 },
 {
-"symbol": "PXA.AX",
-"name": "Pexa Group",
-"sektor_quelle": "Real Estate",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "PYPL",
 "name": "PayPal",
 "sektor_quelle": "Financials",
@@ -17369,26 +15098,6 @@
 "land": "USA",
 "indizes": [
 "S&P 500"
-]
-},
-{
-"symbol": "QAN.AX",
-"name": "Qantas",
-"sektor_quelle": "Industrials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
-"symbol": "QBE.AX",
-"name": "QBE Insurance",
-"sektor_quelle": "Financials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -17442,16 +15151,6 @@
 ]
 },
 {
-"symbol": "QSR.TO",
-"name": "Restaurant Brands International Inc.",
-"sektor_quelle": "Consumer Cyclical",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
-]
-},
-{
 "symbol": "QTCOM.HE",
 "name": "Qt Group",
 "sektor_quelle": "Information Technology",
@@ -17459,16 +15158,6 @@
 "land": "Finnland",
 "indizes": [
 "OMX Helsinki 25"
-]
-},
-{
-"symbol": "QUB.AX",
-"name": "Qube Holdings",
-"sektor_quelle": "Industrials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -17552,16 +15241,6 @@
 ]
 },
 {
-"symbol": "RCI-B.TO",
-"name": "Rogers Communications Inc.",
-"sektor_quelle": "Communication Services",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
-]
-},
-{
 "symbol": "RCL",
 "name": "Royal Caribbean Group",
 "sektor_quelle": "Consumer Discretionary",
@@ -17602,16 +15281,6 @@
 ]
 },
 {
-"symbol": "RDX.AX",
-"name": "Redox",
-"sektor_quelle": "Industrials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "RDY",
 "name": "RDY",
 "sektor_quelle": null,
@@ -17619,26 +15288,6 @@
 "land": "Indien",
 "indizes": [
 "ADR Asien"
-]
-},
-{
-"symbol": "REA.AX",
-"name": "REA Group",
-"sektor_quelle": "Communication Services",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
-"symbol": "REC.MI",
-"name": "Recordati",
-"sektor_quelle": "Health Care",
-"region": "Europa",
-"land": "Italien",
-"indizes": [
-"FTSE MIB"
 ]
 },
 {
@@ -17662,16 +15311,6 @@
 ]
 },
 {
-"symbol": "REG.AX",
-"name": "Regis Healthcare",
-"sektor_quelle": "Healthcare",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "REGN",
 "name": "Regeneron Pharmaceuticals",
 "sektor_quelle": "Health Care",
@@ -17679,16 +15318,6 @@
 "land": "USA",
 "indizes": [
 "S&P 500"
-]
-},
-{
-"symbol": "REH.AX",
-"name": "Reece Group",
-"sektor_quelle": "Industrials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -17772,16 +15401,6 @@
 ]
 },
 {
-"symbol": "RGN.AX",
-"name": "Region Group",
-"sektor_quelle": "Real Estate",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "RH",
 "name": "RH",
 "sektor_quelle": "Consumer Discretionary",
@@ -17789,16 +15408,6 @@
 "land": "USA",
 "indizes": [
 "S&P 400"
-]
-},
-{
-"symbol": "RHC.AX",
-"name": "Ramsay Health Care",
-"sektor_quelle": "Healthcare",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -17839,16 +15448,6 @@
 "land": "Grossbritannien",
 "indizes": [
 "FTSE 250"
-]
-},
-{
-"symbol": "RIO.AX",
-"name": "Rio Tinto",
-"sektor_quelle": "Materials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -17922,26 +15521,6 @@
 ]
 },
 {
-"symbol": "RMD.AX",
-"name": "ResMed",
-"sektor_quelle": "Healthcare",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
-"symbol": "RMS.AX",
-"name": "Ramelius Resources",
-"sektor_quelle": "Materials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "RMS.PA",
 "name": "Hermès",
 "sektor_quelle": "Consumer Cyclical",
@@ -17989,16 +15568,6 @@
 "land": "USA",
 "indizes": [
 "S&P 400"
-]
-},
-{
-"symbol": "RO.SW",
-"name": "Roche (bearer share)",
-"sektor_quelle": "Health care",
-"region": "Schweiz",
-"land": "Schweiz",
-"indizes": [
-"SMIM"
 ]
 },
 {
@@ -18142,16 +15711,6 @@
 ]
 },
 {
-"symbol": "RRL.AX",
-"name": "Regis Resources",
-"sektor_quelle": "Materials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "RRTL.DE",
 "name": "RTL Group",
 "sektor_quelle": "Media",
@@ -18199,16 +15758,6 @@
 "land": "USA",
 "indizes": [
 "S&P 500"
-]
-},
-{
-"symbol": "RSG.AX",
-"name": "Resolute Mining",
-"sektor_quelle": "Materials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -18262,16 +15811,6 @@
 ]
 },
 {
-"symbol": "RWC.AX",
-"name": "Reliance Worldwide Corporation",
-"sektor_quelle": "Industrials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "RWE.DE",
 "name": "RWE",
 "sektor_quelle": "Utilities",
@@ -18279,16 +15818,6 @@
 "land": "Deutschland",
 "indizes": [
 "DAX"
-]
-},
-{
-"symbol": "RY.TO",
-"name": "Royal Bank of Canada",
-"sektor_quelle": "Financial Services",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
 ]
 },
 {
@@ -18302,16 +15831,6 @@
 ]
 },
 {
-"symbol": "RYM.AX",
-"name": "Ryman Healthcare",
-"sektor_quelle": "Healthcare",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "RYN",
 "name": "Rayonier",
 "sektor_quelle": "Real Estate",
@@ -18319,46 +15838,6 @@
 "land": "USA",
 "indizes": [
 "S&P 400"
-]
-},
-{
-"symbol": "S32.AX",
-"name": "South32",
-"sektor_quelle": "Materials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
-"symbol": "S58.SI",
-"name": "SATS",
-"sektor_quelle": null,
-"region": "Asien",
-"land": "Singapur",
-"indizes": [
-"Straits Times"
-]
-},
-{
-"symbol": "S63.SI",
-"name": "Singapore Technologies Engineering",
-"sektor_quelle": null,
-"region": "Asien",
-"land": "Singapur",
-"indizes": [
-"Straits Times"
-]
-},
-{
-"symbol": "S68.SI",
-"name": "Singapore Exchange",
-"sektor_quelle": null,
-"region": "Asien",
-"land": "Singapur",
-"indizes": [
-"Straits Times"
 ]
 },
 {
@@ -18512,16 +15991,6 @@
 ]
 },
 {
-"symbol": "SAP.TO",
-"name": "Saputo Inc.",
-"sektor_quelle": "Consumer Staples",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
-]
-},
-{
 "symbol": "SARO",
 "name": "StandardAero",
 "sektor_quelle": "Industrials",
@@ -18592,26 +16061,6 @@
 ]
 },
 {
-"symbol": "SCG.AX",
-"name": "Scentre Group",
-"sektor_quelle": "Real Estate",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
-"symbol": "SCHN.SW",
-"name": "Schindler",
-"sektor_quelle": "Industrials",
-"region": "Schweiz",
-"land": "Schweiz",
-"indizes": [
-"SMIM"
-]
-},
-{
 "symbol": "SCHW",
 "name": "Charles Schwab Corporation",
 "sektor_quelle": "Financials",
@@ -18652,16 +16101,6 @@
 ]
 },
 {
-"symbol": "SDF.AX",
-"name": "Steadfast Group",
-"sektor_quelle": "Financials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "SDF.DE",
 "name": "K+S",
 "sektor_quelle": "Mining (fertilizer and salt)",
@@ -18698,8 +16137,7 @@
 "region": "Schweiz",
 "land": "Schweiz",
 "indizes": [
-"SMI",
-"SMIM"
+"SMI"
 ]
 },
 {
@@ -18743,16 +16181,6 @@
 ]
 },
 {
-"symbol": "SEK.AX",
-"name": "Seek",
-"sektor_quelle": "Communication Services",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "SEQI.L",
 "name": "Sequoia Economic Infrastructure Income Fund",
 "sektor_quelle": "Financial Services",
@@ -18783,16 +16211,6 @@
 ]
 },
 {
-"symbol": "SFR.AX",
-"name": "Sandfire Resources",
-"sektor_quelle": "Materials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "SGE.L",
 "name": "Sage Group",
 "sektor_quelle": "Software and Computer Services",
@@ -18800,16 +16218,6 @@
 "land": "Grossbritannien",
 "indizes": [
 "FTSE 100"
-]
-},
-{
-"symbol": "SGH.AX",
-"name": "SGH",
-"sektor_quelle": "Industrials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -18823,16 +16231,6 @@
 ]
 },
 {
-"symbol": "SGM.AX",
-"name": "Sims Metal",
-"sektor_quelle": "Materials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "SGO.PA",
 "name": "Saint-Gobain",
 "sektor_quelle": "Industrials",
@@ -18843,16 +16241,6 @@
 ]
 },
 {
-"symbol": "SGP.AX",
-"name": "Stockland",
-"sektor_quelle": "Real Estate",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "SGRO.L",
 "name": "Segro",
 "sektor_quelle": "Real Estate Investment Trusts",
@@ -18860,16 +16248,6 @@
 "land": "Grossbritannien",
 "indizes": [
 "FTSE 100"
-]
-},
-{
-"symbol": "SGSN.SW",
-"name": "SGS",
-"sektor_quelle": "Industrials",
-"region": "Schweiz",
-"land": "Schweiz",
-"indizes": [
-"SMIM"
 ]
 },
 {
@@ -18943,16 +16321,6 @@
 ]
 },
 {
-"symbol": "SHL.AX",
-"name": "Sonic Healthcare",
-"sektor_quelle": "Healthcare",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "SHL.DE",
 "name": "Siemens Healthineers",
 "sektor_quelle": "Medical Equipment",
@@ -18960,16 +16328,6 @@
 "land": "Deutschland",
 "indizes": [
 "DAX"
-]
-},
-{
-"symbol": "SHOP.TO",
-"name": "Shopify Inc.",
-"sektor_quelle": "Information Technology",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
 ]
 },
 {
@@ -18993,16 +16351,6 @@
 ]
 },
 {
-"symbol": "SIG.AX",
-"name": "Sigma Healthcare",
-"sektor_quelle": "Healthcare",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "SIGI",
 "name": "Selective Insurance Group",
 "sektor_quelle": "Financials",
@@ -19010,16 +16358,6 @@
 "land": "USA",
 "indizes": [
 "S&P 400"
-]
-},
-{
-"symbol": "SIGN.SW",
-"name": "SIG",
-"sektor_quelle": "Materials",
-"region": "Schweiz",
-"land": "Schweiz",
-"indizes": [
-"SMIM"
 ]
 },
 {
@@ -19113,16 +16451,6 @@
 ]
 },
 {
-"symbol": "SLF.TO",
-"name": "Sun Life Financial Inc.",
-"sektor_quelle": "Financial Services",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
-]
-},
-{
 "symbol": "SLGN",
 "name": "Silgan Holdings",
 "sektor_quelle": "Materials",
@@ -19190,16 +16518,6 @@
 "land": "Grossbritannien",
 "indizes": [
 "FTSE 100"
-]
-},
-{
-"symbol": "SMR.AX",
-"name": "Stanmore Resources",
-"sektor_quelle": "Materials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -19293,16 +16611,6 @@
 ]
 },
 {
-"symbol": "SNZ.AX",
-"name": "Summerset Group Holdings",
-"sektor_quelle": "Healthcare",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "SO",
 "name": "Southern Company",
 "sektor_quelle": "Utilities",
@@ -19313,16 +16621,6 @@
 ]
 },
 {
-"symbol": "SOF.BR",
-"name": "Sofina",
-"sektor_quelle": "Financials",
-"region": "Europa",
-"land": "Belgien",
-"indizes": [
-"BEL 20"
-]
-},
-{
 "symbol": "SOI.L",
 "name": "Schroder Oriental Income Fund",
 "sektor_quelle": "Financial Services",
@@ -19330,26 +16628,6 @@
 "land": "Grossbritannien",
 "indizes": [
 "FTSE 250"
-]
-},
-{
-"symbol": "SOL.AX",
-"name": "Soul Patts",
-"sektor_quelle": "Financials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
-"symbol": "SOLB.BR",
-"name": "Solvay",
-"sektor_quelle": "Basic Materials",
-"region": "Europa",
-"land": "Belgien",
-"indizes": [
-"BEL 20"
 ]
 },
 {
@@ -19383,16 +16661,6 @@
 ]
 },
 {
-"symbol": "SOON.SW",
-"name": "Sonova",
-"sektor_quelle": "Health care",
-"region": "Schweiz",
-"land": "Schweiz",
-"indizes": [
-"SMIM"
-]
-},
-{
 "symbol": "SPG",
 "name": "Simon Property Group",
 "sektor_quelle": "Real Estate",
@@ -19423,16 +16691,6 @@
 ]
 },
 {
-"symbol": "SPK.AX",
-"name": "Spark New Zealand",
-"sektor_quelle": "Communication Services",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "SPM.MI",
 "name": "Saipem",
 "sektor_quelle": "Energy",
@@ -19440,16 +16698,6 @@
 "land": "Italien",
 "indizes": [
 "FTSE MIB"
-]
-},
-{
-"symbol": "SPSN.SW",
-"name": "Swiss Prime Site",
-"sektor_quelle": "Real estate",
-"region": "Schweiz",
-"land": "Schweiz",
-"indizes": [
-"SMIM"
 ]
 },
 {
@@ -19470,16 +16718,6 @@
 "land": "USA",
 "indizes": [
 "S&P 400"
-]
-},
-{
-"symbol": "SQN.SW",
-"name": "Swissquote",
-"sektor_quelle": "Financials",
-"region": "Schweiz",
-"land": "Schweiz",
-"indizes": [
-"SMIM"
 ]
 },
 {
@@ -19713,16 +16951,6 @@
 ]
 },
 {
-"symbol": "STMN.SW",
-"name": "Straumann",
-"sektor_quelle": "Health care",
-"region": "Schweiz",
-"land": "Schweiz",
-"indizes": [
-"SMIM"
-]
-},
-{
 "symbol": "STMPA.PA",
 "name": "STMicroelectronics",
 "sektor_quelle": "Technology",
@@ -19730,16 +16958,6 @@
 "land": "Frankreich",
 "indizes": [
 "CAC 40"
-]
-},
-{
-"symbol": "STO.AX",
-"name": "Santos",
-"sektor_quelle": "Energy",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -19803,16 +17021,6 @@
 ]
 },
 {
-"symbol": "SU.TO",
-"name": "Suncor Energy Inc.",
-"sektor_quelle": "Energy",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
-]
-},
-{
 "symbol": "SUBC.OL",
 "name": "Subsea 7",
 "sektor_quelle": "oil equipment and services",
@@ -19830,36 +17038,6 @@
 "land": "USA",
 "indizes": [
 "S&P 400"
-]
-},
-{
-"symbol": "SUL.AX",
-"name": "Super Retail Group",
-"sektor_quelle": "Consumer Discretionary",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
-"symbol": "SUN.AX",
-"name": "Suncorp",
-"sektor_quelle": "Financials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
-"symbol": "SUNN.SW",
-"name": "Sunrise",
-"sektor_quelle": "Communication services",
-"region": "Schweiz",
-"land": "Schweiz",
-"indizes": [
-"SMIM"
 ]
 },
 {
@@ -19953,16 +17131,6 @@
 ]
 },
 {
-"symbol": "SYENS.BR",
-"name": "Syensqo",
-"sektor_quelle": "Basic Materials",
-"region": "Europa",
-"land": "Belgien",
-"indizes": [
-"BEL 20"
-]
-},
-{
 "symbol": "SYF",
 "name": "Synchrony Financial",
 "sektor_quelle": "Financials",
@@ -20023,26 +17191,6 @@
 ]
 },
 {
-"symbol": "T.TO",
-"name": "Telus Corporation",
-"sektor_quelle": "Communication Services",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
-]
-},
-{
-"symbol": "TAH.AX",
-"name": "Tabcorp",
-"sektor_quelle": "Consumer Discretionary",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "TATE.L",
 "name": "Tate & Lyle",
 "sektor_quelle": "Food Producers",
@@ -20083,16 +17231,6 @@
 ]
 },
 {
-"symbol": "TCL.AX",
-"name": "Transurban",
-"sektor_quelle": "Industrials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "TCOM",
 "name": "TCOM",
 "sektor_quelle": null,
@@ -20100,16 +17238,6 @@
 "land": "China",
 "indizes": [
 "ADR Asien"
-]
-},
-{
-"symbol": "TD.TO",
-"name": "Toronto-Dominion Bank",
-"sektor_quelle": "Financial Services",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
 ]
 },
 {
@@ -20140,16 +17268,6 @@
 "land": "USA",
 "indizes": [
 "S&P 500"
-]
-},
-{
-"symbol": "TECK-B.TO",
-"name": "Teck Resources Limited",
-"sektor_quelle": "Basic Materials",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
 ]
 },
 {
@@ -20220,16 +17338,6 @@
 "land": "Grossbritannien",
 "indizes": [
 "FTSE 250"
-]
-},
-{
-"symbol": "TEMN.SW",
-"name": "Temenos",
-"sektor_quelle": "Information technology",
-"region": "Schweiz",
-"land": "Schweiz",
-"indizes": [
-"SMIM"
 ]
 },
 {
@@ -20423,16 +17531,6 @@
 ]
 },
 {
-"symbol": "TLC.AX",
-"name": "The Lottery Corporation",
-"sektor_quelle": "Consumer Discretionary",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "TLK",
 "name": "TLK",
 "sektor_quelle": null,
@@ -20450,26 +17548,6 @@
 "land": "USA",
 "indizes": [
 "S&P 400"
-]
-},
-{
-"symbol": "TLS.AX",
-"name": "Telstra",
-"sektor_quelle": "Communication Services",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
-"symbol": "TLX.AX",
-"name": "Telix Pharmaceuticals",
-"sektor_quelle": "Healthcare",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -20533,16 +17611,6 @@
 ]
 },
 {
-"symbol": "TNE.AX",
-"name": "TechnologyOne",
-"sektor_quelle": "Information Technology",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "TNL",
 "name": "Travel + Leisure Co.",
 "sektor_quelle": "Consumer Discretionary",
@@ -20580,26 +17648,6 @@
 "land": "USA",
 "indizes": [
 "S&P 400"
-]
-},
-{
-"symbol": "TOU.TO",
-"name": "Tourmaline Oil Corp.",
-"sektor_quelle": "Energy",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
-]
-},
-{
-"symbol": "TPG.AX",
-"name": "TPG Telecom",
-"sektor_quelle": "Communication Services",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -20663,16 +17711,6 @@
 ]
 },
 {
-"symbol": "TRI.TO",
-"name": "Thomson Reuters Corporation",
-"sektor_quelle": "Industrials",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
-]
-},
-{
 "symbol": "TRIG.L",
 "name": "The Renewables Infrastructure Group",
 "sektor_quelle": "Investment Trusts",
@@ -20720,16 +17758,6 @@
 "land": "USA",
 "indizes": [
 "S&P 500"
-]
-},
-{
-"symbol": "TRP.TO",
-"name": "TC Energy Corporation",
-"sektor_quelle": "Energy",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
 ]
 },
 {
@@ -20893,16 +17921,6 @@
 ]
 },
 {
-"symbol": "TUA.AX",
-"name": "Tuas",
-"sektor_quelle": "Communication Services",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "TUI1.DE",
 "name": "TUI",
 "sektor_quelle": "Tourism",
@@ -20920,16 +17938,6 @@
 "land": "Grossbritannien",
 "indizes": [
 "FTSE 250"
-]
-},
-{
-"symbol": "TWE.AX",
-"name": "Treasury Wine Estates",
-"sektor_quelle": "Consumer Staples",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -21003,36 +18011,6 @@
 ]
 },
 {
-"symbol": "U11.SI",
-"name": "United Overseas Bank",
-"sektor_quelle": null,
-"region": "Asien",
-"land": "Singapur",
-"indizes": [
-"Straits Times"
-]
-},
-{
-"symbol": "U14.SI",
-"name": "UOL Group",
-"sektor_quelle": null,
-"region": "Asien",
-"land": "Singapur",
-"indizes": [
-"Straits Times"
-]
-},
-{
-"symbol": "U96.SI",
-"name": "Sembcorp Industries",
-"sektor_quelle": null,
-"region": "Asien",
-"land": "Singapur",
-"indizes": [
-"Straits Times"
-]
-},
-{
 "symbol": "UAL",
 "name": "United Airlines Holdings",
 "sektor_quelle": "Industrials",
@@ -21070,16 +18048,6 @@
 "land": "USA",
 "indizes": [
 "S&P 400"
-]
-},
-{
-"symbol": "UCB.BR",
-"name": "UCB",
-"sektor_quelle": "Health Care",
-"region": "Europa",
-"land": "Belgien",
-"indizes": [
-"BEL 20"
 ]
 },
 {
@@ -21130,16 +18098,6 @@
 "land": "USA",
 "indizes": [
 "S&P 400"
-]
-},
-{
-"symbol": "UHR.SW",
-"name": "Swatch",
-"sektor_quelle": "Retail discretionary",
-"region": "Schweiz",
-"land": "Schweiz",
-"indizes": [
-"SMIM"
 ]
 },
 {
@@ -21220,16 +18178,6 @@
 "land": "Niederlande",
 "indizes": [
 "AEX"
-]
-},
-{
-"symbol": "UMI.BR",
-"name": "Umicore",
-"sektor_quelle": "Basic Materials",
-"region": "Europa",
-"land": "Belgien",
-"indizes": [
-"BEL 20"
 ]
 },
 {
@@ -21413,26 +18361,6 @@
 ]
 },
 {
-"symbol": "V03.SI",
-"name": "Venture Corporation",
-"sektor_quelle": null,
-"region": "Asien",
-"land": "Singapur",
-"indizes": [
-"Straits Times"
-]
-},
-{
-"symbol": "VACN.SW",
-"name": "VAT",
-"sektor_quelle": "Industrials",
-"region": "Schweiz",
-"land": "Schweiz",
-"indizes": [
-"SMIM"
-]
-},
-{
 "symbol": "VAL",
 "name": "Valaris",
 "sektor_quelle": "Energy",
@@ -21463,16 +18391,6 @@
 ]
 },
 {
-"symbol": "VAU.AX",
-"name": "Vault Minerals",
-"sektor_quelle": "Materials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "VC",
 "name": "Visteon",
 "sektor_quelle": "Consumer Discretionary",
@@ -21490,26 +18408,6 @@
 "land": "Grossbritannien",
 "indizes": [
 "FTSE 250"
-]
-},
-{
-"symbol": "VCX.AX",
-"name": "Vicinity Centres",
-"sektor_quelle": "Real Estate",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
-"symbol": "VEA.AX",
-"name": "Viva Energy",
-"sektor_quelle": "Energy",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -21540,16 +18438,6 @@
 "land": "USA",
 "indizes": [
 "S&P 400"
-]
-},
-{
-"symbol": "VGN.AX",
-"name": "Virgin Australia Holdings",
-"sektor_quelle": "Industrials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -21710,16 +18598,6 @@
 "land": "USA",
 "indizes": [
 "S&P 400"
-]
-},
-{
-"symbol": "VNT.AX",
-"name": "Ventia Services Group",
-"sektor_quelle": "Industrials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -21913,16 +18791,6 @@
 ]
 },
 {
-"symbol": "WAF.AX",
-"name": "West African Resources",
-"sektor_quelle": "Materials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "WAF.DE",
 "name": "Siltronic",
 "sektor_quelle": "Semiconductor industry",
@@ -21940,16 +18808,6 @@
 "land": "USA",
 "indizes": [
 "S&P 400"
-]
-},
-{
-"symbol": "WAM.AX",
-"name": "WAM Capital",
-"sektor_quelle": "Financials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -21973,16 +18831,6 @@
 ]
 },
 {
-"symbol": "WBC.AX",
-"name": "Westpac",
-"sektor_quelle": "Financials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "WCC",
 "name": "WESCO International",
 "sektor_quelle": "Industrials",
@@ -22003,16 +18851,6 @@
 ]
 },
 {
-"symbol": "WCN.TO",
-"name": "Waste Connections Inc.",
-"sektor_quelle": "Industrials",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
-]
-},
-{
 "symbol": "WDAY",
 "name": "Workday, Inc.",
 "sektor_quelle": "Information Technology",
@@ -22030,26 +18868,6 @@
 "land": "USA",
 "indizes": [
 "S&P 500"
-]
-},
-{
-"symbol": "WDP.BR",
-"name": "WDP [nl]",
-"sektor_quelle": "Real Estate",
-"region": "Europa",
-"land": "Belgien",
-"indizes": [
-"BEL 20"
-]
-},
-{
-"symbol": "WDS.AX",
-"name": "Woodside Energy Group",
-"sektor_quelle": "Energy",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -22083,16 +18901,6 @@
 ]
 },
 {
-"symbol": "WES.AX",
-"name": "Wesfarmers",
-"sektor_quelle": "Consumer Discretionary",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "WEX",
 "name": "WEX Inc.",
 "sektor_quelle": "Financials",
@@ -22123,16 +18931,6 @@
 ]
 },
 {
-"symbol": "WGX.AX",
-"name": "Westgold Resources",
-"sektor_quelle": "Materials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "WH",
 "name": "Wyndham Hotels & Resorts",
 "sektor_quelle": "Consumer Discretionary",
@@ -22140,16 +18938,6 @@
 "land": "USA",
 "indizes": [
 "S&P 400"
-]
-},
-{
-"symbol": "WHC.AX",
-"name": "Whitehaven Coal",
-"sektor_quelle": "Energy",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -22223,16 +19011,6 @@
 ]
 },
 {
-"symbol": "WLE.AX",
-"name": "WAM Leaders",
-"sektor_quelle": "Financials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "WLK",
 "name": "Westlake Corporation",
 "sektor_quelle": "Materials",
@@ -22293,26 +19071,6 @@
 ]
 },
 {
-"symbol": "WN.TO",
-"name": "George Weston Limited",
-"sektor_quelle": "Consumer Staples",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
-]
-},
-{
-"symbol": "WOR.AX",
-"name": "Worley",
-"sektor_quelle": "Energy",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "WOSG.L",
 "name": "Watches of Switzerland",
 "sektor_quelle": "Personal Goods",
@@ -22323,16 +19081,6 @@
 ]
 },
 {
-"symbol": "WOW.AX",
-"name": "Woolworths Group",
-"sektor_quelle": "Consumer Staples",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "WPC",
 "name": "W. P. Carey",
 "sektor_quelle": "Real Estate",
@@ -22340,16 +19088,6 @@
 "land": "USA",
 "indizes": [
 "S&P 400"
-]
-},
-{
-"symbol": "WPM.TO",
-"name": "Wheaton Precious Metals Corp.",
-"sektor_quelle": "Basic Materials",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
 ]
 },
 {
@@ -22403,16 +19141,6 @@
 ]
 },
 {
-"symbol": "WSP.TO",
-"name": "WSP Global Inc.",
-"sektor_quelle": "Industrials",
-"region": "Kanada",
-"land": "Kanada",
-"indizes": [
-"S&P/TSX 60"
-]
-},
-{
 "symbol": "WST",
 "name": "West Pharmaceutical Services",
 "sektor_quelle": "Health Care",
@@ -22430,16 +19158,6 @@
 "land": "Grossbritannien",
 "indizes": [
 "FTSE 100"
-]
-},
-{
-"symbol": "WTC.AX",
-"name": "Wisetech Global",
-"sektor_quelle": "Information Technology",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -22593,16 +19311,6 @@
 ]
 },
 {
-"symbol": "XRO.AX",
-"name": "Xero",
-"sektor_quelle": "Information Technology",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "XYL",
 "name": "Xylem Inc.",
 "sektor_quelle": "Industrials",
@@ -22613,16 +19321,6 @@
 ]
 },
 {
-"symbol": "XYX.AX",
-"name": "Block, Inc.",
-"sektor_quelle": "Financials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "XYZ",
 "name": "Block, Inc.",
 "sektor_quelle": "Financials",
@@ -22630,26 +19328,6 @@
 "land": "USA",
 "indizes": [
 "S&P 500"
-]
-},
-{
-"symbol": "Y92.SI",
-"name": "Thai Beverages",
-"sektor_quelle": null,
-"region": "Asien",
-"land": "Singapur",
-"indizes": [
-"Straits Times"
-]
-},
-{
-"symbol": "YAL.AX",
-"name": "Yancoal Australia",
-"sektor_quelle": "Materials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
@@ -22703,16 +19381,6 @@
 ]
 },
 {
-"symbol": "Z74.SI",
-"name": "Singtel",
-"sektor_quelle": null,
-"region": "Asien",
-"land": "Singapur",
-"indizes": [
-"Straits Times"
-]
-},
-{
 "symbol": "ZAL.DE",
 "name": "Zalando",
 "sektor_quelle": "E-Commerce",
@@ -22763,16 +19431,6 @@
 ]
 },
 {
-"symbol": "ZIM.AX",
-"name": "Zimplats Holdings",
-"sektor_quelle": "Materials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
-]
-},
-{
 "symbol": "ZION",
 "name": "Zions Bancorporation",
 "sektor_quelle": "Financials",
@@ -22780,16 +19438,6 @@
 "land": "USA",
 "indizes": [
 "S&P 400"
-]
-},
-{
-"symbol": "ZIP.AX",
-"name": "Zip",
-"sektor_quelle": "Financials",
-"region": "Australien",
-"land": "Australien",
-"indizes": [
-"S&P/ASX 200"
 ]
 },
 {
