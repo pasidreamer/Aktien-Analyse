@@ -1,6 +1,16 @@
 {
  "karussells": [
   {
+   "datum": "2026-11-28",
+   "ticker": "R3NK",
+   "name": "Renk",
+   "thema": "Wochenrückblick",
+   "titel": "Plus 14.7 % in einer Woche: Erholt sich Renk?",
+   "bilder": 7,
+   "caption": "Renk steigt in einer Woche um 14.7 % auf 35.03 €, eine Woche nach dem tiefsten Wochenschluss seit Februar 2025. Der Auftragsbestand liegt auf dem Rekord von 7.6 Mrd. €, der Umsatz wuchs in neun Monaten aber nur um 5.8 %. Im Chart entscheidet jetzt die Unterkante der Range bei 30.53 €.\n\nPersönliche Meinung, keine Anlageberatung. Mach deine eigene Recherche.\n\n#renk #aktien #börse #wochenrückblick #r3nk",
+   "eigene_position": false
+  },
+  {
    "datum": "2026-11-27",
    "ticker": "MSFT",
    "name": "Microsoft",
